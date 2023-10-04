@@ -1,0 +1,100 @@
+\newcommand{\iadresa}[1]{\begingroup\href{#1}{\sffamily #1}\endgroup}
+\newcommand{\iadresaform}[2]{\href{#1}{\sffamily #2}}
+\newcommand{\iadresacut}[3]{\href{#1}{\sffamily #2}\newline\href{#1}{\sffamily #3}}
+
+
+
+\def\podtrzitko{\char95}
+\def\zpetnelomitko{\char92}
+\def\plus{\char43}
+\def\minus{\char45}
+\def\krat{*}
+\def\mensi{\char60}
+\def\vetsi{\char62}
+\def\zavinac{\char64}
+\def\roura{\char124}
+\def\vlnovka{\raisebox{-2pt}{\char126}}
+\def\vlnka{\raisebox{-3pt}{\ttfamily\large \symbol{126}}}
+
+\def\MikTeX{Mik\TeX}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\newenvironment{mitemize}{\vspace{-1ex}\begin{itemize}\setlength{\itemsep}{-.5ex}}{\end{itemize}\vspace{-.8ex}}
+\newenvironment{menumerate}{\vspace{-1ex}\begin{enumerate}\setlength{\itemsep}{-.5ex}}{\end{enumerate}\vspace{-.8ex}}
+\newenvironment{mdescription}{\vspace{-1ex}\begin{description}\setlength{\itemsep}{-.5ex}}{\end{description}\vspace{-.9ex}}
+
+\newenvironment{citemize}{\vspace{-1ex}\begin{itemize}\setlength{\itemsep}{-.9ex}}{\end{itemize}\vspace{-.8ex}}
+\newenvironment{cenumerate}{\vspace{-1ex}\begin{enumerate}\setlength{\itemsep}{-.9ex}}{\end{enumerate}\vspace{-.8ex}}
+
+
+\newcommand{\titem}[1][item]{\item[{\normalfont\footnotesize\ttfamily #1}]}
+%\newcommand{\tlacitko}[1]{\begingroup\small\keystroke{#1}\endgroup}   % \keystroke definovano v balicku keystroke
+%\def\klwin{\begingroup\small\keystroke{$\boxplus$}\endgroup}
+%\newcommand{\winplus}[1]{\tlacitko{\small $\boxplus$+#1}}
+
+\newcommand{\ttsmall}[1]{\texttt{\small #1}}
+
+
+\newtheorem{definice}{Definice}[section]
+\newtheorem{veta}{Věta}[section]
+\newtheorem{lemma}[veta]{Lemma}
+\newtheorem{dusledek}[veta]{Důsledek}
+
+
+\newtheorem{tpriklad}{Příklad}[section]
+\newenvironment{priklad}%
+  {\begin{tpriklad}\quad\normalfont{}}%
+  {\end{tpriklad}\pagebreak[2]\par}
+
+
+\newenvironment{prikladcary}%
+  {\begin{tpriklad}\hfill\raisebox{.8ex}[0pt]{\rule{.82\textwidth}{.4pt}}%
+%  {\begin{tpriklad}\lowukazka\hfill\raisebox{.8ex}[0pt]{\rule{.83\textwidth}{.4pt}}%
+  \newline\normalfont}%
+  {\end{tpriklad}\raisebox{1.5em}{\rule{\textwidth}{.4pt}}\pagebreak[2]\par}
+
+
+\newenvironment{dukaz}%
+  {\par\noindent\textbf{Důkaz:}\rule{1ex}{0pt}}%
+  {\rule{0pt}{1pt}\hfill\raisebox{3pt}{\fbox{\color{white}\rule{.3ex}{.3ex}}}\bigskip\par}
+%  {\rule{0pt}{1pt}\hfill$\Box$\bigskip\par}
+
+\newenvironment{myslenkadukazu}%
+  {\par\noindent\textbf{Myšlenka důkazu:}\rule{1ex}{0pt}}%
+  {\rule{0pt}{1pt}\hfill\raisebox{3pt}{\fbox{\color{white}\rule{.3ex}{.3ex}}}\bigskip\par}
+%  {\rule{0pt}{1pt}\hfill$\Box$\bigskip\par}
+
+  
+\newenvironment{poznamka}%
+  {\par\noindent\textbf{Poznámka:}\rule{1ex}{0pt}}%
+  {\bigskip\par}  
+
+
+
+% prostredi pro useky zdrojovych kodu, musi byt zaveden balicek alltt
+\newenvironment{prog}%
+%  {\begingroup\radkovani[1]\footnotesize\lowkod\begin{alltt}}%
+  {\begingroup\radkovani[1]\footnotesize\begin{alltt}}%
+  {\end{alltt}\endgroup\radkovani}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% ************ pro přílohy:
+
+\newcommand{\appendixpagename}{Přílohy}
+\newcommand{\appendixtocname}{Seznam příloh:}
+
+
+
+
+

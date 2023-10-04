@@ -1,0 +1,196 @@
+\documentclass{vdocdiplcz}
+
+\usepackage[czech]{babel}
+
+%\usepackage[cp1250]{inputenc}  % vyberte podle toho, jaké kódování používáte - jestli ``Windows'' nebo UTF-8
+%
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{comment}   % komentare pres vice radku \begin{comment} .... \end{comment}
+%
+\usepackage{graphicx}
+
+\usepackage{alltt}  % pro zapis programoveho kodu: jestlize nepouzivate, klidne odstrante
+
+
+% nastaveni barev a dalsich vlastnosti pro interaktivni odkazy:
+\usepackage{color}
+\definecolor{seda}{rgb}{.5,.5,.5}
+\definecolor{modra}{rgb}{.02,.02,.4}
+\definecolor{zelena}{rgb}{.02,.4,.01}
+\definecolor{fialova}{rgb}{.5,.05,.5}
+\definecolor{zluta}{rgb}{.5,.5,.05}
+\definecolor{cervena}{rgb}{.7,.2,.2}
+\definecolor{oranzova}{rgb}{.8,.4,.05}
+\usepackage[bookmarkstype={toc},colorlinks,bookmarksnumbered,%
+unicode,linkcolor={modra},%
+citecolor={zelena},urlcolor={modra}]{hyperref}
+
+%\usepackage{picins,wrapfig}   % obtekani obrazku - picins pro obrazky bez popisku, wrapfig pro obrazky s popiskem
+%\usepackage{multicol}    % vicesloupcova sazba, pokud ji potrebujeme
+%
+%\usepackage{subfigure}  % sada zvlast oznacenych objektu v jednom figure
+%\usepackage{appendix}  % prilohy, obvykle neni nutne
+
+%\usepackage{textcomp,gensymb,bbding,amsfonts,mathrsfs}  									%  balicky pro symboly
+%\usepackage{wasysym,latexsym,gensymb,pifont,phonetic,mathcomp,fancybox}	% balicky se symboly
+
+
+
+%******************************************************************************
+% pokud pracujeme na konkretni kapitole a chceme prekladat jenom ji, pouzijeme:
+%******************************************************************************
+%\includeonly{kapitola01_nazev}      % nebo vice kapitol podle vyberu:
+%\includeonly{kapitola00_uvod,kapitola01_nazev}
+
+
+\autor{Jméno a příjmení, příp. s titulem}
+\vedouci{Jméno a příjmení vedoucího vč. titulů}
+\nazev{Název práce česky}
+\nazevanglicky{Název práce anglicky}
+\rok{2023}   % pozor, musi byt rok obhajoby, nikoliv rok, kdy byla prace vytisknuta
+\typprace{Bakalářská práce}    % Bakalářská práce, Diplomová práce, Rigorózní práce, Disertační práce
+
+
+% Dále použijte to, co odpovídá vašemu studijnímu programu, zbývající zakomentujte:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%POKUD STUDUJETE st. program Moderní informatika:
+\studijniprogram{Moderní informatika}									%studijni program
+\studijnispec{Informační a komunikační technologie}		%specializace (zatím je v programu jen jedna)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%POKUD STUDUJETE st. program Informatika:
+%\studijniprogram{Informatika}		%zadejte pouze studijní program, tento není členěn na obory ani specializace
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%POKUD STUDUJETE st. program Aplikovaná informatika:
+%\studijniprogram{Aplikovaná informatika}	
+%\studijniobor{Aplikovaná informatika}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%POKUD STUDUJETE st. program Informatika a angličtina:
+%\studijniprogram{Informatika a angličtina}	%zadejte pouze studijní program, tento není členěn na obory ani specializace
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%POKUD STUDUJETE něco jiného, zvolte, změňte a doplňte podle potřeby.
+
+
+
+\abstrakt{Text abstraktu v češtině. Rozsah by měl být 50 až 100 slov. Abstrakt není cíl práce, zde stručně popište, co čtenář má na následujících stránkách očekávat. Typické formulace: \uv{V práci se zabýváme...}, \uv{Tato bakalářská práce pojednává o...}, \uv{součástí je}, \uv{je provedena analýza}, \uv{praktickou částí práce je aplikace xxx} \dots{} Prostě napište stručný souhrn či charakteristiku obsahu práce.}
+
+\abstraktanglicky{Anglická verze abstraktu by měla odpovídat české verzi, třebaže nemusí být úplně doslova. Když nutně potřebujete automatický překlad, použijte raději\\ \iadresa{https://www.deepl.com/cs/translator},\\ je lepší než Google Translator. Není nutno překládat doslova.}
+
+\klicovaslova{Napište 5--8 klíčových slov v českém jazyce (v jednotném čísle, první pád atd.), měla by vystihovat téma práce. Slova oddělujte čárkou. Snažte se vystihnout nejdůležitější pojmy vystihující práci.}
+
+\klicovaslovaanglicky{Anglická obdoba českého seznamu klíčových slov.}
+
+
+% pokud máte odstavce s abstrakty příliš dlouhé a nevejde se vše na jednu stranu, pak odkomentujte následující makro:
+%\longabstract
+
+
+% pouze pro potřeby demonstračního dokumentu, jinak dovnitř tohoto makra doplňte vlastní podklad zadání práce a případně upravte rozměr:
+\renewcommand{\kopiepodkladu}{
+  \begin{picture}(0,0)
+  \put(10,-50){\rotatebox{-35}{\scalebox{3}{\color{seda}Kopie podkladu zadání práce}}}
+  \put(10,-130){\rotatebox{-35}{\scalebox{3}{\color{seda}z IS, podepsaná}}}
+  \end{picture}}
+
+
+% Dámy upraví - vypracovala....
+\cestneprohlaseni{%
+  Prohlašuji, že jsem tuto práci vypracoval samostatně.
+  Veškerou literaturu a~další zdroje, z nichž jsem při zpracování čerpal, v práci řádně cituji a~jsou uvedeny v~seznamu použité literatury.}
+
+% Doplňte jméno vedoucího, případně můžete poděkování přeformulovat.
+\podekovani{%
+  Rád bych poděkoval za odborné vedení, rady a~cenné poznatky k danému tématu vedoucímu práce ....... 
+  Také bych rád poděkoval mé rodině a přátelům za podporu a~pomoc během mého studia.}
+
+
+
+\begin{document}
+
+
+% neměnit (vygeneruje titulní strany):
+\maketitlepages
+
+% neměnit (vygeneruje obsah):
+\tableofcontents\clearpage
+
+% neměnit (nastaví parametry odstavce a řádkování):
+\nastavodstavec   %nastavi parametry odstavce
+\radkovani   % navrat na hlavni nastaveni radkovani urcene prikazem \radkovanistandard{...}
+
+% neměnit (odtud bude začínat číslování stránek, začátek stránek s kapitolami):
+\mainmatter
+
+%%%%%%%%%%%%%%%%%%%%%%
+% soubory s kapitolami, kazda kapitola v samostatnem souboru, pak lze pouzivat mechanismus \includeonly{...}
+
+\include{kapitola00_uvod}
+\include{zakladni-info}
+\include{dalsi-upozorneni}
+%\include{kapitola01_nazevsouboru}
+% .... atd. vsechny soubory s kapitolami
+\include{zaver}
+
+
+\renewcommand{\refname}{Seznam použité literatury}
+
+\begingroup
+\include{literatura}
+\endgroup
+
+%
+\listoffigures\clearpage
+%
+\listoftables\clearpage
+
+
+\include{seznamzkratek}
+
+
+%%%%%%%%%%%%%%%%%%%%%
+% Pokud máte přílohy:
+
+\clearpage
+%
+\addcontentsline{toc}{section}{{Přílohy }}
+\clearpage
+%
+\appendix
+%
+
+%%%%%%%%%%%%%%%%%%%%%
+%Seznam priloh:
+  \rule{0pt}{1pt}\thispagestyle{empty}
+  %\cleardoublepage\thispagestyle{empty}
+    \vspace*{\stretch{1}}\par
+    \noindent{\Huge\bfseries\scshape\appendixpagename}
+    \vspace{7em}
+    
+Do tohoto seznamu napište přílohy vložené přímo do této práce a také seznam elektronických příloh, které se vkládají přímo do archivu závěrečné práce v informačním systému zároveň se souborem závěrečné práce. Elektronickými přílohami mohou být například soubory zdrojového kódu aplikace či webových stránek, předpřipravený produkt (spustitelný soubor, kontejner apod.), vytvořená metodická příručka, tutoriál... (tento text odstraňte)
+		
+\begin{citemize}
+	\item Přílohy v souboru závěrečné práce:
+	\begin{citemize}
+		\item Příloha A\quad xxxx
+		\item 
+	\end{citemize}
+	\item Elektronické přílohy:
+	\begin{citemize}
+		\item Příloha A\quad xxxx
+		\item 
+	\end{citemize}
+\end{citemize}
+    \vspace{\stretch{4}}\rule{0pt}{1pt}
+
+  \clearpage
+  \pagenumbering{roman}
+
+%\include{priloha01_prvnipriloha} % pro nadpis použijte "normální" \section{xxx}
+%\include{priloha02_zdroje}
+
+
+\end{document}
