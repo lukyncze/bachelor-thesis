@@ -41,7 +41,7 @@ citecolor={zelena},urlcolor={modra}]{hyperref}
 % pokud pracujeme na konkretni kapitole a chceme prekladat jenom ji, pouzijeme:
 %******************************************************************************
 %\includeonly{kapitola01_nazev}      % nebo vice kapitol podle vyberu:
-%\includeonly{kapitola00_uvod,kapitola01_nazev}
+%\includeonly{uvodni_kapitola,kapitola01_nazev}
 
 
 \autor{Lukáš Sukeník}
@@ -105,7 +105,10 @@ citecolor={zelena},urlcolor={modra}]{hyperref}
 %%%%%%%%%%%%%%%%%%%%%%
 % soubory s kapitolami, kazda kapitola v samostatnem souboru, pak lze pouzivat mechanismus \includeonly{...}
 
-\include{kapitola00_uvod}
+\include{uvodni_kapitola}
+\include{webova_aplikace}
+\include{analyza_frameworku}
+\include{testovani_frameworku}
 \include{zakladni-info}
 \include{dalsi-upozorneni}
 %\include{kapitola01_nazevsouboru}
