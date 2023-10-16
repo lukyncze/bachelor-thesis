@@ -54,25 +54,39 @@ Z těch největších jde například o Metu, Uber, Twitter a~Airbnb.\cite{react
 
 \subsubsection{Komponenty}
 
-Hlavním stavebním kamenem Reactu jsou komponenty, jež představují nezávislé, vnořitelné a opakovaně použitelné bloky kódu. 
-Komponentu v Reactu tvoří JavaScript funkce a HTML šablona. Validně seskládané komponenty poté tvoří webovou aplikaci.
-V Reactu se můžeme setkat s funkčními a třídními komponentami. Vytváření třídních komponent oficiální dokumentace nedoporučuje.
+Hlavním stavebním kamenem Reactu jsou komponenty, jež představují nezávislé, vnořitelné a~opakovaně použitelné bloky kódu. 
+Komponentu v Reactu tvoří JavaScript funkce a~HTML šablona. Validně seskládané komponenty poté tvoří webovou aplikaci.
+V Reactu se můžeme setkat s funkčními a~třídními komponentami. Vytváření třídních komponent oficiální dokumentace nedoporučuje.
 Pro komunikaci mezi komponentami se používá předávání vlastností (props), přes které je možné předávat hodnoty jakýchkoli datových typů.
-Výstup komponent tvoří elementy ve formě JSX. Tyto elementy obsahují informace o vzhledu a funkcionalitě dané komponenty.\cite{reactbanks,react}
+Výstup komponent tvoří elementy ve formě JSX. Tyto elementy obsahují informace o vzhledu a~funkcionalitě dané komponenty.\cite{reactbanks,react}
 
 \subsubsection{JSX}
 
-Název JSX kombinuje zkratku jazyka JavaScript -- JS a počáteční písmeno ze zkratky XML. 
+Název JSX kombinuje zkratku jazyka JavaScript -- JS a~počáteční písmeno ze zkratky XML. 
 Konkrétně jde o syntaktické rozšíření, které vývojářům umožňuje tvořit React elementy pomocí hypertextového značkovacího jazyku přímo v JavaScriptu. 
 V rámci JSX pak je možné dynamicky vykreslovat obsah na základě logiky definované pomocí JavaScriptových hodnot.
 Při kompilaci se JSX překládá do JavaScriptu pomocí nástroje Babel.\cite{reactbanks,react}
 
 \subsubsection{Správa stavů}
 
-Komponenta potřebuje stavy k tomu, aby si dokázala zapamatovat.\cite{reactbanks,react}
+Stav lze definovat jako privátní vnitřní vlastnost či proměnnou dané komponenty, jež představuje základní mechanismus pro uchovávání a~aktualizaci dat. 
+Pro aktualizaci komponenty je tedy nutné stav změnit. React pak na tuto skutečnost zareaguje a~vyvolá tzv. re-render neboli překreslení komponenty s novými daty.
+
+Za účelem ukládání stavu se využívá hook (funkce) useState. Ten poskytuje stavovou proměnnou, přes kterou se dostaneme k aktuálnímu stavu. 
+Dále useState poskytuje state setter funkci, díky které můžeme stav aktualizovat. Jediný argument useState definuje počátační hodnotu daného stavu.\cite{reactitnetwork,react}
 
 \subsubsection{Hooky}
-% Pro správu stavů třídních komponent sloužily vlastnosti a metody dané třídy. Od verze Reactu 16.8.0 přibyly tzv. Hooks, díky kterým je možné spravovat stav i ve funkčních komponentách.\cite{reactgithub}
+
+Specifickou funkcionalitou pro React jsou tzv. hooky, které byly do Reactu přidány až ve verzi 16.8.0. 
+Hook je definován jako funkce, která obohacuje komponenty pomocí předdefinovaných funkcionalit. Jedním z nejpoužívanejších hooků je useState. 
+Vývojáři mohou používat již zabudované hooky, nebo si vytvářet své vlastní s pomocí předdefinovaných hooků. 
+Mezi zabudované hooky patří např. useEffect, useMemo, useCallback, useRef, useContext.\cite{react,reactgithub}
+
+\subsubsection{Životní cyklus}
+\subsubsection{Routování}
+\subsubsection{Ekosystém}
+
+
 % https://www.simplilearn.com/tutorials/reactjs-tutorial/what-is-reactjs
 
 \subsection{Svelte}
