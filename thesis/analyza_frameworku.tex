@@ -24,12 +24,13 @@ Text druhé kapitoly.
 		\item Šablony
 		\item Předávání vlastností (props)
 		\item Správa stavů
+		\item Life-cycle
 		\item State management
-		\item Routování
+		\item Reaktivita ???
 		\item DOM
+		\item Routování
 		\item Server-Side Rendering
 		\item Kompilace zdrojových souborů
-		\item Reaktivita
 		\item Ekosystém
 	\end{cenumerate}
 \end{citemize}
@@ -44,7 +45,7 @@ Tato technologie se používá pro vývoj interaktivních uživatelských rozhra
 První kořeny Reactu sahají až do roku 2010, kdy tehdejší společnost Facebook přidala novou technologii XHP do PHP. 
 Jde o možnost znovu použít určitý blok kódu, stejného principu posléze využívá i React. Následně Jordan Walke vytvořil FaxJS, jenž byl prvním prototypem Reactu.
 O rok později byl přejmenován na React a~začal jej využívat Facebook. 
-V roce 2013 byl na konferenci JS ConfUS představen jeho autorem široké veřejnosti a~stal se open-source.
+V roce 2013 byl na konferenci JS ConfUS představen široké veřejnosti a~stal se open-source.
 
 Od roku 2014 vývojáři představují nespočet vylepšení samotné knihovny, stejně jako spoustu rozšíření pro zlepšení vývojových procesů. 
 Kolem roku 2015 postupně React nabývá na popularitě i celkové stabilitě. Následně je představen také React Native, což je framework pro vývoj nativních aplikací.
@@ -56,7 +57,7 @@ Z těch největších jde například o Metu, Uber, Twitter a~Airbnb.\cite{react
 Hlavním stavebním kamenem Reactu jsou komponenty, jež představují nezávislé, vnořitelné a opakovaně použitelné bloky kódu. 
 Komponentu v Reactu tvoří JavaScript funkce a HTML šablona. Validně seskládané komponenty poté tvoří webovou aplikaci.
 V Reactu se můžeme setkat s funkčními a třídními komponentami. Vytváření třídních komponent oficiální dokumentace nedoporučuje.
-Pro komunikaci mezi komponentami se používá předávání vlastností (props), přes které je možné předávat jakékoli validní hodnoty z JavaScriptu.
+Pro komunikaci mezi komponentami se používá předávání vlastností (props), přes které je možné předávat hodnoty jakýchkoli datových typů.
 Výstup komponent tvoří elementy ve formě JSX. Tyto elementy obsahují informace o vzhledu a funkcionalitě dané komponenty.\cite{reactbanks,react}
 
 \subsubsection{JSX}
@@ -66,6 +67,13 @@ Konkrétně jde o syntaktické rozšíření, které vývojářům umožňuje tv
 V rámci JSX pak je možné dynamicky vykreslovat obsah na základě logiky definované pomocí JavaScriptových hodnot.
 Při kompilaci se JSX překládá do JavaScriptu pomocí nástroje Babel.\cite{reactbanks,react}
 
+\subsubsection{Správa stavů}
+
+Komponenta potřebuje stavy k tomu, aby si dokázala zapamatovat.\cite{reactbanks,react}
+
+\subsubsection{Hooky}
+% Pro správu stavů třídních komponent sloužily vlastnosti a metody dané třídy. Od verze Reactu 16.8.0 přibyly tzv. Hooks, díky kterým je možné spravovat stav i ve funkčních komponentách.\cite{reactgithub}
+% https://www.simplilearn.com/tutorials/reactjs-tutorial/what-is-reactjs
 
 \subsection{Svelte}
 
