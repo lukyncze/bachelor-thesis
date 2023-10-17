@@ -69,7 +69,7 @@ Při kompilaci se JSX překládá do JavaScriptu pomocí nástroje Babel.\cite{r
 
 \subsubsection{Správa stavů}
 
-Stav lze definovat jako privátní vnitřní vlastnost či proměnnou dané komponenty, jež představuje základní mechanismus pro uchovávání a~aktualizaci dat. 
+Stav lze definovat jako lokální vnitřní vlastnost či proměnnou dané komponenty, jež představuje základní mechanismus pro uchovávání a~aktualizaci dat. 
 Pro aktualizaci komponenty je tedy nutné stav změnit. React pak na tuto skutečnost zareaguje a~vyvolá tzv. re-render neboli překreslení komponenty s novými daty.
 
 Za účelem ukládání stavu se využívá hook (funkce) useState. Ten poskytuje stavovou proměnnou, přes kterou se dostaneme k aktuálnímu stavu. 
@@ -91,7 +91,22 @@ Nyní React disponuje pár hooky, které umožňují provádět side-effects pod
 O momentu, kdy je komponenta přidána na obrazovku, mluvíme jako o namontování (mount) komponenty. Při změně stavu či obdržení nových parametrů hovoříme o aktualizaci (update) komponenty. 
 A v neposlední řadě okamžik, kdy je komponenta odstraněna z obrazovky, nazýváme odmontování (unmount) komponenty.\cite{reactlifecycle, react}
 
+\subsubsection{State management}
+
+Základní práce se stavy spočívá v lokálních stavech komponent a následným předáváním stavu do potomků či rodičů. 
+V případě, že potřebujeme sdílet stav mezi komponentami, měli bychom zvážit odlišné řešení. React sám o sobě disponuje pouze základním řešením, kterému říká Context API. 
+Context umožňuje sdílet data celému podstromu dané komponenty. 
+To se může hodit například při vytváření barevných módů aplikace, sdílení informace o přihlášeném uživateli, anebo routování.\cite{react}
+
+Správa stavů v komplexních aplikacích se stává výzvou. Problémy začínají při potřebě sdílení identických dat mezi větším množstvím konzumentů. 
+Existuje však mnoho knihoven třetích stran, které vývojáři využívají pro usnadnění manipulace se stavy. 
+Společné cíle state management knihoven spočívají v ukládání a získávání globálního stavu, jednodušší správě stavů a rozšiřitelnosti aplikace.
+Mezi tyto knihovny patří kupříkladu Redux, MobX, Recoil nebo Jotai.\cite{statemanagementreact,reactstatemanagement}
+
 \subsubsection{Routování}
+
+\iadresa{https://reactrouter.com/en/main}
+
 \subsubsection{Ekosystém}
 
 
