@@ -77,12 +77,20 @@ Dále useState poskytuje state setter funkci, díky které můžeme stav aktuali
 
 \subsubsection{Hooky}
 
-Specifickou funkcionalitou pro React jsou tzv. hooky, které byly do Reactu přidány až ve verzi 16.8.0. 
+Specifickou funkcionalitou pro React jsou tzv. hooky, které byly do Reactu přidány až ve verzi 16.8.0.\cite{reactgithub} 
 Hook je definován jako funkce, která obohacuje komponenty pomocí předdefinovaných funkcionalit. Jedním z nejpoužívanejších hooků je useState. 
 Vývojáři mohou používat již zabudované hooky, nebo si vytvářet své vlastní s pomocí předdefinovaných hooků. 
-Mezi zabudované hooky patří např. useEffect, useMemo, useCallback, useRef, useContext.\cite{react,reactgithub}
+Mezi zabudované hooky patří např. useEffect, useMemo, useCallback, useRef, useContext.\cite{react}
 
 \subsubsection{Životní cyklus}
+
+Životní cyklus komponenty je sekvence událostí, jež nastanou mezi vytvořením a zničením komponenty. 
+Ve třídních komponentách existovaly speciální metody, tzv. lifecycle metody, starající se o provedení určité části kódu při daném okamžiku v životě komponenty. 
+Nyní React disponuje pár hooky, které umožňují provádět side-effects podobně jako lifecycle metody.
+
+O momentu, kdy je komponenta přidána na obrazovku, mluvíme jako o namontování (mount) komponenty. Při změně stavu či obdržení nových parametrů hovoříme o aktualizaci (update) komponenty. 
+A v neposlední řadě okamžik, kdy je komponenta odstraněna z obrazovky, nazýváme odmontování (unmount) komponenty.\cite{reactlifecycle, react}
+
 \subsubsection{Routování}
 \subsubsection{Ekosystém}
 
