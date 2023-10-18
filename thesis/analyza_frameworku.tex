@@ -105,7 +105,11 @@ Mezi tyto knihovny patří kupříkladu Redux, MobX, Recoil nebo Jotai.\cite{sta
 
 \subsubsection{Routování}
 
-\iadresa{https://reactrouter.com/en/main}
+React nemá žádný nativní standard pro routování. Podle \cite{reactbanks} je React Router jedním z nejvíce populárních řešení pro React. 
+Knihovna React Router umožňuje nastavení jednotlivých cest aplikace. Zajišťuje tedy routování na straně klienta. 
+Klasické webové stránky při změně URL pokaždé žádají o nové dokumenty. Routování na straně klienta může provést aktualizaci stránky bez dalších duplikátních requestů. 
+Při vyžádání dané cesty pak můžeme na stránce vykreslit požadovaný obsah a zažádat pouze o data potřebné pro vykreslení. 
+Výstup činí rychlejší uživatelskou zkušenost, jelikož prohližeč nevyžaduje nové dokumenty a nemusí vyhodnocovat kaskádové styly či JavaScript.\cite{reactbanks,reactrouter}
 
 \subsubsection{Ekosystém}
 
