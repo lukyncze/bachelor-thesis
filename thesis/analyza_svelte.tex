@@ -1,0 +1,48 @@
+\subsection{Svelte}
+
+Svelte je relativně novým open-source JavaScript frameworkem, za jejímž stvořením stojí vývojář Richard Harris. 
+Framework se odlišuje tím, že kompiluje komponenty do čistého JavaScriptu. To vše ještě před tím, než uživatel navštíví webovou aplikaci v prohlížeči. 
+Tato metoda poskytuje výhodu hlavně co se týče rychlosti oproti klasickým deklarativním frameworkům jako jsou např. React, Vue nebo Angular. 
+Stejně jako tyto frameworky je Svelte určen k vývoji rychlého a kompaktního uživatelského rozhraní pro webové aplikace.
+
+První verze byla představena ke konci roku 2016. Verze 3, jež byla vydána v dubnu 2019, přinesla vylepšení týkající se zjednodušení tvorby komponent. 
+Mimo jiné tato verze hlavně představila vylepšení ve smyslu reaktivity. Po této verzi framework nabral na popularitě díky jeho jednoduchosti.
+Verze 4 pak v roce 2023 představila pouze minimální změny, jež spočívají v údržbě a přípravách pro verzi nastávající.
+
+Přestože Svelte nedisponuje rozsáhlým ekosystémem jako jiné JavaScriptové frameworky, získal si přízeň mnoha velkých společností. 
+Mezi ně patří například firmy jako The New York Times, Avast, Rakuten a Razorpay.\cite{sveltemdn,svelte,sveltedevinterface}
+
+% Svelte CZ https://www.sveltejs.cz/
+% Bakalarka https://www.theseus.fi/bitstream/handle/10024/500643/Oksanen_Miikka.pdf
+% Diplomka
+% https://www.doria.fi/handle/10024/177433
+% https://www.doria.fi/bitstream/handle/10024/177433/levlin_mattias.pdf?sequence=2&isAllowed=y
+% Kniha
+% https://www.syncfusion.com/succinctly-free-ebooks/svelte-succinctly
+% Joy of code
+% https://joyofcode.xyz/svelte-for-beginners
+
+\subsubsection{Komponenty}
+
+Podobně jako v Reactu, komponenty jsou základní stavební bloky Svelte. Komponentu tvoří HTML, CSS a JavaScript, kde vše patří do jednoho souboru s příponou .svelte. 
+Všechny tři části komponenty jsou nepovinné. Logika komponenty musí být zapsána mezi párové script tagy. Následuje jeden nebo více značek pro definovaní šablony komponenty. 
+V neposlední řadě kaskádové styly se zapisují mezi style tagy.
+
+V rámci šablony Svelte umožňuje využívat logické bloky pro podmíněné vykreslování nebe také iterace přes pole hodnot (list). 
+Zabudovaná je i podpora manipulace s asynchronním JavaScriptem - promises.\cite{svelte}
+
+\subsubsection{Reaktivita}
+
+Srdcem Svelte jsou reaktivní stavy komponenty, které jednoduše definujeme jako proměnné v JavaScriptu. Jejich hodnotu aktualizuje JavaScript funkce pomocí přidělování nových hodnot. 
+Kupříkladu stav o datovém typu pole tudíž nelze aktualizovat pouze pomocí metody push či splice. Je nutné využít jiné intuitivní řešení pomocí přidělení nové hodnoty.
+O všechno ostatní se pak ale doslova postará sám Svelte v pozadí. Svelte aktualizuje DOM při každé změně stavu komponenty. 
+
+Mezi specifické funkce Svelte patří reaktivní deklarace, které se starají o aktualizaci stavů na základě stavů jiných. 
+Další zabudovanou funkcí jsou tzv. reactive statements, jež umožní definovat akce, které se mají vykonat reaktivně -- jako reakce na nějaký výrok.\cite{sveltehandbook,svelte}
+
+\subsubsection{Vlastnosti}
+\subsubsection{Eventy}
+\subsubsection{Životní cyklus}
+\subsubsection{State management}
+\subsubsection{Routování}
+\subsubsection{Ekosystém}
