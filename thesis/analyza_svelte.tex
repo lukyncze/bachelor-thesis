@@ -40,8 +40,24 @@ O všechno ostatní se pak ale doslova postará sám Svelte v pozadí. Svelte ak
 Mezi specifické funkce Svelte patří reaktivní deklarace, které se starají o aktualizaci stavů na základě stavů jiných. 
 Další zabudovanou funkcí jsou tzv. reactive statements, jež umožní definovat akce, které se mají vykonat reaktivně -- jako reakce na nějaký výrok.\cite{sveltehandbook,svelte}
 
-\subsubsection{Vlastnosti}
+\subsubsection{Předávání vlastností}
+
+Pro komunikaci mezi komponentami slouží mechanismus předávání vlastností. 
+V rodičovské komponentě je nutné komponentě říci, jakou hodnotu chceme předat a do jaké proměnné ji chceme uložit v child komponentě. 
+Pak v child komponentě vytvoříme stejnojmennou vlastnost s klíčovým slovem export.
+
+Pokud chceme předávat vlastnosti parent komponentě, je třeba vytvořit vlastnost již na parent komponentě. 
+Následně ji předat child komponentě a v rodičovské komponentě přidat před předání vlastnosti do komponenty klíčové slovo bind.\cite{svelte}
+
 \subsubsection{Eventy}
+
+Svelte má velice jednoduché API pro práci s DOM eventy. Stačí použít direktivu on na HTML elementu, která vyžaduje název eventu a callback funkci.
+
+Vývojáři také přišli s možností odesílání a přijímání eventů pro komponenty. 
+V child komponentě je třeba mí nějaký DOM event handler, na který chceme reagovat v parent komponentě. 
+Poté je nutné využít zabudovanou metodu createEventDispatcher, které předáme potřebné parametry -- náš libovolný název pro event komponenty a hodnotu. 
+V rodičovské komponentě pak reagujeme na event pomocí klíčového slova on a našeho libovolného názvu pro event. Naši hodnotu poté získáme v callback funkci.\cite{sveltehandbook,svelte}
+
 \subsubsection{Životní cyklus}
 \subsubsection{State management}
 \subsubsection{Routování}
