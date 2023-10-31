@@ -12,15 +12,12 @@ Verze 4 pak v roce 2023 představila pouze minimální změny, jež spočívají
 Přestože Svelte nedisponuje rozsáhlým ekosystémem jako jiné JavaScriptové frameworky, získal si přízeň mnoha velkých společností. 
 Mezi ně patří například firmy jako The New York Times, Avast, Rakuten a Razorpay.\cite{sveltemdn,svelte,sveltedevinterface}
 
-% Svelte CZ https://www.sveltejs.cz/
 % Bakalarka https://www.theseus.fi/bitstream/handle/10024/500643/Oksanen_Miikka.pdf
 % Diplomka
 % https://www.doria.fi/handle/10024/177433
 % https://www.doria.fi/bitstream/handle/10024/177433/levlin_mattias.pdf?sequence=2&isAllowed=y
 % Kniha
 % https://www.syncfusion.com/succinctly-free-ebooks/svelte-succinctly
-% Joy of code
-% https://joyofcode.xyz/svelte-for-beginners
 
 \subsubsection{Komponenty}
 
@@ -59,6 +56,31 @@ Poté je nutné využít zabudovanou metodu createEventDispatcher, které před�
 V rodičovské komponentě pak reagujeme na event pomocí klíčového slova on a našeho libovolného názvu pro event. Naši hodnotu poté získáme v callback funkci.\cite{sveltehandbook,svelte}
 
 \subsubsection{Životní cyklus}
+
+Komponenty ve Svelte disponují životním cyklem, který začíná v momentě vytvoření komponenty a končí jejím zničením. 
+Funkce onMount tvoří callback, který je zavolán po přidání komponenty do DOMu. Pokud chceme vykonat určité akce při zničení komponenty, můžeme toho dosáhnout dvěma způsoby. 
+Prvním způsobem je vracení callback funkce v rámci onMount funkce. Druhou možnost představuje využití funkce onDestroy, která v argumentu přijímá callback funkci. 
+
+Pro práci převážně s imperativními akcemi slouží zabudované funkce beforeUpdate a afterUpdate. 
+V případě beforeUpdate funkce jde o callback, který se volá před aktualizací komponenty, tj. před prvním voláním onMount nebo po každé změně stavu. 
+Oproti tomu, afterUpdate je callbackem, jenž Svelte vykoná po prvním zavolání onMount nebo po každé aktualizaci komponenty.\cite{sveltehandbook,svelte}
+
 \subsubsection{State management}
+
+Svelte poskytuje pestrou škálu API pro správu stavů aplikace v závislosti na rozsahu a složitosti ukládaných dat. 
+Základním přístupem pro správu stavů je ukládání a manipulace se stavy v rámci stromu komponent. 
+To zahranuje tvorbu reaktivních stavů a jejich distribuci ve stromě pomocí předávání vlastností, bindování či eventů. 
+
+Pro sofistikovanější práci se statem aplikace je možné využít Context API, jenž umožňuje pracovat se stavy v rámci neincidentních komponent. 
+Ukládání a získání contextu umožňují funkce setContext a getContext.
+
+Třetí zabudované API pro manipulaci se stavy představují tzv. stores. V podstatě se jedná o globání úložiště stavů, které umožňuje uchovávat a získávat data. 
+Store je jednoduše objekt s metodou subscribe, která umožní komzumentu dostat aktualizovaná data. Svelte nám poskytuje hned několik podob storu. 
+To jsou jednak writable a readable stores, kde jediný rozdíl spočívá v možnosti aktualizace dat. Pro stavy, které jsou odvozeny z jiných stores, existuje tzv. derived store. 
+V neposlední řadě nám Svelte povoluje vytvořit i vlastní store. 
+
+Již zabudované globální úložiště můžeme jednoduše vytvořit pomocí metod writable, readable a derived. Writable požaduje jako argument počáteční hodnotu. 
+Readable navíc jako druhý argument potřebuje funkci start, jež implementuje callbacky volající se při prvním a poslední subscribe.\cite{sveltehandbook,svelte,sveltejoyofcode}
+
 \subsubsection{Routování}
 \subsubsection{Ekosystém}
