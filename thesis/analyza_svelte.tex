@@ -80,7 +80,17 @@ To jsou jednak writable a readable stores, kde jediný rozdíl spočívá v mož
 V neposlední řadě nám Svelte povoluje vytvořit i vlastní store. 
 
 Již zabudované globální úložiště můžeme jednoduše vytvořit pomocí metod writable, readable a derived. Writable požaduje jako argument počáteční hodnotu. 
-Readable navíc jako druhý argument potřebuje funkci start, jež implementuje callbacky volající se při prvním a poslední subscribe.\cite{sveltehandbook,svelte,sveltejoyofcode}
+Readable navíc jako druhý argument potřebuje funkci start, jež implementuje callbacky volající se při prvním a poslední subscribe.\cite{sveltehandbook,svelte,sveltestatemanagement}
 
 \subsubsection{Routování}
+
+Svelte nemá přímou podporu routování v aplikacích. Oficiální dokumentace uvádí jako oficiální knihovnu pro routování SvelteKit. 
+Ve skutečnosti se jedná o framework nad Svelte, který poskytuje i další možnosti rozšíření webové aplikace. 
+Dokumentace však doporučuje i jiné knihovny pro routování na základě odlišných přístupů. 
+Konkrétně knihovny page.js, svelte-routing, svelte-navigator, svelte-spa-router nebo routify.\cite{svelte,svelteforbeginners}
+
+% jednoduše popsat routování ve SvelteKit
+% https://learn.svelte.dev/tutorial/pages
+% https://kit.svelte.dev/docs/routing
+
 \subsubsection{Ekosystém}
