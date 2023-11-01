@@ -89,8 +89,8 @@ Ve skutečnosti se jedná o framework nad Svelte, který poskytuje i další mo�
 Dokumentace však doporučuje i jiné knihovny pro routování na základě odlišných přístupů. 
 Konkrétně knihovny page.js, svelte-routing, svelte-navigator, svelte-spa-router nebo routify.\cite{svelte,svelteforbeginners}
 
-% jednoduše popsat routování ve SvelteKit
-% https://learn.svelte.dev/tutorial/pages
-% https://kit.svelte.dev/docs/routing
+Routování ve SvelteKit je implementováno pomocí file systému. Framework umožňuje pro opakující se uživatelská prostředí využít tzv. layouts. 
+Jde o soubor, který aplikuje určité elementy (duplikátní kód) pro aktuální adresář komponent. Pro vyrenderování konktentu na základě samotných komponent se využívá element slot. 
+SvelteKit také umožnuje vytváření dynamických parametrů přímo ve souborovém systému. Pomocí takových cest je možné tvořit např. individuální příspěvky na blogu.\cite{svelte}
 
 \subsubsection{Ekosystém}
