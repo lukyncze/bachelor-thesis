@@ -12,12 +12,7 @@ Verze 4 pak v roce 2023 představila pouze minimální změny, jež spočívají
 Přestože Svelte nedisponuje rozsáhlým ekosystémem jako jiné JavaScriptové frameworky, získal si přízeň mnoha velkých společností. 
 Mezi ně patří například firmy jako The New York Times, Avast, Rakuten a Razorpay.\cite{sveltemdn,svelte,sveltedevinterface}
 
-% Bakalarka https://www.theseus.fi/bitstream/handle/10024/500643/Oksanen_Miikka.pdf
-% Diplomka
-% https://www.doria.fi/handle/10024/177433
-% https://www.doria.fi/bitstream/handle/10024/177433/levlin_mattias.pdf?sequence=2&isAllowed=y
-% Kniha
-% https://www.syncfusion.com/succinctly-free-ebooks/svelte-succinctly
+% Kniha: https://www.syncfusion.com/succinctly-free-ebooks/svelte-succinctly
 
 \subsubsection{Komponenty}
 
@@ -75,7 +70,7 @@ Pro sofistikovanější práci se statem aplikace je možné využít Context AP
 Ukládání a získání contextu umožňují funkce setContext a getContext.
 
 Třetí zabudované API pro manipulaci se stavy představují tzv. stores. V podstatě se jedná o globání úložiště stavů, které umožňuje uchovávat a získávat data. 
-Store je jednoduše objekt s metodou subscribe, která umožní komzumentu dostat aktualizovaná data. Svelte nám poskytuje hned několik podob storu. 
+Store je jednoduše objekt s metodou subscribe, která umožní konzumentu dostat aktualizovaná data. Svelte nám poskytuje hned několik podob storu. 
 To jsou jednak writable a readable stores, kde jediný rozdíl spočívá v možnosti aktualizace dat. Pro stavy, které jsou odvozeny z jiných stores, existuje tzv. derived store. 
 V neposlední řadě nám Svelte povoluje vytvořit i vlastní store. 
 
@@ -94,3 +89,11 @@ Jde o soubor, který aplikuje určité elementy (duplikátní kód) pro aktuáln
 SvelteKit také umožnuje vytváření dynamických parametrů přímo ve souborovém systému. Pomocí takových cest je možné tvořit např. individuální příspěvky na blogu.\cite{svelte}
 
 \subsubsection{Ekosystém}
+
+I přesto, že Svelte používá stále více vývojářů, framework nedisponuje přiliš rozsáhlým ekosystémem. Hlavní rozšíření spočívá v použití rozšiřujícího frameworku SvelteKit a jazyka TypeScript. 
+Vztah Svelte a SvelteKit můžeme definovat jako sourozenecký, kdy SvelteKit poskytuje adaptivní prostředí pro vývoj aplikace jakéhokoli rozsahu.
+
+Dle \cite{sveltedailydev} neexistuje mnoho specifických knihoven přímo pro Svelte. 
+Na druhou stranu je možné využít rozsáhlého ekosystému JavaScriptu, jelikož Svelte poskytuje přímou kontrolu nad DOM. 
+V porovnání se specifickými knihovnami tento přísup však obvykle vyžaduje práci navíc. 
+Problematické bývá využití knihoven, jež využívají API prohližeče.\cite{svelteheyreliable,sveltedailydev,sveltejslibs}
