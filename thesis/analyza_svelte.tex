@@ -17,7 +17,7 @@ Mezi ně patří například firmy jako The New York Times, Avast, Rakuten a Raz
 \subsubsection{Komponenty}
 
 Podobně jako v Reactu, komponenty jsou základní stavební bloky Svelte. Komponentu tvoří HTML, CSS a JavaScript, kde vše patří do jednoho souboru s příponou .svelte. 
-Všechny tři části komponenty jsou nepovinné. Logika komponenty musí být zapsána mezi párové script tagy. Následuje jeden nebo více značek pro definovaní šablony komponenty. 
+Všechny tři části komponenty jsou nepovinné. Logika komponenty musí být zapsána mezi párové script tagy. Následuje jedna nebo více značek pro definovaní šablony komponenty. 
 V neposlední řadě kaskádové styly se zapisují mezi style tagy.
 
 V rámci šablony Svelte umožňuje využívat logické bloky pro podmíněné vykreslování nebe také iterace přes pole hodnot (list). 
@@ -75,7 +75,7 @@ To jsou jednak writable a readable stores, kde jediný rozdíl spočívá v mož
 V neposlední řadě nám Svelte povoluje vytvořit i vlastní store. 
 
 Již zabudované globální úložiště můžeme jednoduše vytvořit pomocí metod writable, readable a derived. Writable požaduje jako argument počáteční hodnotu. 
-Readable navíc jako druhý argument potřebuje funkci start, jež implementuje callbacky volající se při prvním a poslední subscribe.\cite{sveltehandbook,svelte,sveltestatemanagement}
+Readable navíc jako druhý argument potřebuje funkci start, jež implementuje callbacky volající se při prvním a posledním subscribe.\cite{sveltehandbook,svelte,sveltestatemanagement}
 
 \subsubsection{Routování}
 
@@ -95,5 +95,5 @@ Vztah Svelte a SvelteKit můžeme definovat jako sourozenecký, kdy SvelteKit po
 
 Dle \cite{sveltedailydev} neexistuje mnoho specifických knihoven přímo pro Svelte. 
 Na druhou stranu je možné využít rozsáhlého ekosystému JavaScriptu, jelikož Svelte poskytuje přímou kontrolu nad DOM. 
-V porovnání se specifickými knihovnami tento přísup však obvykle vyžaduje práci navíc. 
+V porovnání se specifickými knihovnami tento přístup však obvykle vyžaduje práci navíc. 
 Problematické bývá využití knihoven, jež využívají API prohližeče.\cite{svelteheyreliable,sveltedailydev,sveltejslibs}
