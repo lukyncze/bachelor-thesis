@@ -1,7 +1,9 @@
 \subsection{Svelte}
 
+% Kniha: https://www.syncfusion.com/succinctly-free-ebooks/svelte-succinctly
 Svelte je relativně novým open-source JavaScript frameworkem, za jejímž stvořením stojí vývojář Richard Harris. 
-Framework se odlišuje tím, že kompiluje komponenty do čistého JavaScriptu. To vše ještě před tím, než uživatel navštíví webovou aplikaci v prohlížeči. 
+Framework kompiluje komponenty přímo do čistého nativního a vysoce optimalizovaného JavaScriptu bez potřeby runtime. 
+To vše ještě před tím, než uživatel navštíví webovou aplikaci v prohlížeči. 
 Tato metoda poskytuje výhodu hlavně co se týče rychlosti oproti klasickým deklarativním frameworkům jako jsou např. React, Vue nebo Angular. 
 Stejně jako tyto frameworky je Svelte určen k vývoji rychlého a kompaktního uživatelského rozhraní pro webové aplikace.
 
@@ -11,8 +13,6 @@ Verze 4 pak v roce 2023 představila pouze minimální změny, jež spočívají
 
 Přestože Svelte nedisponuje rozsáhlým ekosystémem jako jiné JavaScriptové frameworky, získal si přízeň mnoha velkých společností. 
 Mezi ně patří například firmy jako The New York Times, Avast, Rakuten a Razorpay.\cite{sveltemdn,svelte,sveltedevinterface}
-
-% Kniha: https://www.syncfusion.com/succinctly-free-ebooks/svelte-succinctly
 
 \subsubsection{Komponenty}
 
@@ -27,7 +27,7 @@ Zabudovaná je i podpora manipulace s asynchronním JavaScriptem - promises.\cit
 
 Srdcem Svelte jsou reaktivní stavy komponenty, které jednoduše definujeme jako proměnné v JavaScriptu. Jejich hodnotu aktualizuje JavaScript funkce pomocí přidělování nových hodnot. 
 Kupříkladu stav o datovém typu pole tudíž nelze aktualizovat pouze pomocí metody push či splice. Je nutné využít jiné intuitivní řešení pomocí přidělení nové hodnoty.
-O všechno ostatní se pak ale doslova postará sám Svelte v pozadí. Svelte aktualizuje DOM při každé změně stavu komponenty. 
+O všechno ostatní se pak ale postará sám Svelte v pozadí. Svelte aktualizuje DOM při každé změně stavu komponenty. 
 
 Mezi specifické funkce Svelte patří reaktivní deklarace, které se starají o aktualizaci stavů na základě stavů jiných. 
 Další zabudovanou funkcí jsou tzv. reactive statements, jež umožní definovat akce, které se mají vykonat reaktivně -- jako reakce na nějaký výrok.\cite{sveltehandbook,svelte}
@@ -66,16 +66,18 @@ Svelte poskytuje pestrou škálu API pro správu stavů aplikace v závislosti n
 Základním přístupem pro správu stavů je ukládání a manipulace se stavy v rámci stromu komponent. 
 To zahranuje tvorbu reaktivních stavů a jejich distribuci ve stromě pomocí předávání vlastností, bindování či eventů. 
 
-Pro sofistikovanější práci se statem aplikace je možné využít Context API, jenž umožňuje pracovat se stavy v rámci neincidentních komponent. 
-Ukládání a získání contextu umožňují funkce setContext a getContext.
+Další možnost state managementu představuje využití Context API, které umožňuje jednorázové uložení jakékoli hodnoty. 
+Nasledně je možné získat tuto hodnotu i v rámci neincidentních komponent. Ukládání a získávání contextu umožňují funkce setContext a getContext.
 
-Třetí zabudované API pro manipulaci se stavy představují tzv. stores. V podstatě se jedná o globání úložiště stavů, které umožňuje uchovávat a získávat data. 
-Store je jednoduše objekt s metodou subscribe, která umožní konzumentu dostat aktualizovaná data. Svelte nám poskytuje hned několik podob storu. 
-To jsou jednak writable a readable stores, kde jediný rozdíl spočívá v možnosti aktualizace dat. Pro stavy, které jsou odvozeny z jiných stores, existuje tzv. derived store. 
-V neposlední řadě nám Svelte povoluje vytvořit i vlastní store. 
+Pro sofistikovanější práci se stavy slouží tzv. stores. V podstatě se jedná o globání úložiště stavů, které umožňuje uchovávat a získávat data. 
+Store je jednoduše objekt s metodou subscribe, která umožní konzumentu dostat aktualizovaná data. 
+Jednodušší variantu pro získání aktuálních dat představuje použití znaku \$ před názvem proměnné. Svelte nám poskytuje hned několik podob storu. 
+To jsou jednak writable a readable stores, kde jediný rozdíl spočívá v možnosti aktualizace dat. 
+Pro stavy, které jsou odvozeny z jiných stores, existuje tzv. derived store. V neposlední řadě nám Svelte povoluje vytvořit i vlastní store. 
+% Store je možné používat i v klasických JS filech, např pomocí subscribe... 
 
 Již zabudované globální úložiště můžeme jednoduše vytvořit pomocí metod writable, readable a derived. Writable požaduje jako argument počáteční hodnotu. 
-Readable navíc jako druhý argument potřebuje funkci start, jež implementuje callbacky volající se při prvním a posledním subscribe.\cite{sveltehandbook,svelte,sveltestatemanagement}
+Readable navíc jako druhý argument může přijímat funkci start, jež implementuje callbacky volající se při prvním a posledním subscribe.\cite{sveltehandbook,svelte,sveltestatemanagement}
 
 \subsubsection{Routování}
 
@@ -84,9 +86,12 @@ Ve skutečnosti se jedná o framework nad Svelte, který poskytuje i další mo�
 Dokumentace však doporučuje i jiné knihovny pro routování na základě odlišných přístupů. 
 Konkrétně knihovny page.js, svelte-routing, svelte-navigator, svelte-spa-router nebo routify.\cite{svelte,svelteforbeginners}
 
-Routování ve SvelteKit je implementováno pomocí file systému. Framework umožňuje pro opakující se uživatelská prostředí využít tzv. layouts. 
-Jde o soubor, který aplikuje určité elementy (duplikátní kód) pro aktuální adresář komponent. Pro vyrenderování konktentu na základě samotných komponent se využívá element slot. 
-SvelteKit také umožnuje vytváření dynamických parametrů přímo ve souborovém systému. Pomocí takových cest je možné tvořit např. individuální příspěvky na blogu.\cite{svelte}
+Routování ve SvelteKit je implementováno pomocí file systému. Komponenta s názvem +page.svelte definuje stránku aplikace. 
+Framework umožňuje pro opakující se uživatelská prostředí využít tzv. layouts. Jde o soubor, který aplikuje určité elementy (duplicitní kód) pro aktuální adresář komponent. 
+Pro vykreslení obsahu na základě samotných komponent se využívá element slot. SvelteKit také umožnuje vytváření dynamických parametrů přímo v souborovém systému. 
+Díky takovým cestám je možné tvořit např. individuální příspěvky na blogu. Pomocí +server.js můžeme definovat API routy (endpointy) aplikace. 
+Chybové stránky vytváříme pomocí +error.svelte souborů.\cite{svelte,sveltekit}
+% Martin by to hodil do šablonování :D
 
 \subsubsection{Ekosystém}
 
@@ -97,3 +102,4 @@ Dle \cite{sveltedailydev} neexistuje mnoho specifických knihoven přímo pro Sv
 Na druhou stranu je možné využít rozsáhlého ekosystému JavaScriptu, jelikož Svelte poskytuje přímou kontrolu nad DOM. 
 V porovnání se specifickými knihovnami tento přístup však obvykle vyžaduje práci navíc. 
 Problematické bývá využití knihoven, jež využívají API prohližeče.\cite{svelteheyreliable,sveltedailydev,sveltejslibs}
+% Případně doplnit, jakým způsobem se řeší stylování v komponentách :)
