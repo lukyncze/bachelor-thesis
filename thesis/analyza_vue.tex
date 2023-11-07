@@ -70,7 +70,16 @@ Po dokončení zničení se pak volá unmounted.\cite{vuemacrae,vue}
 % super obrázek: https://vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram
 
 \subsubsection{State management}
-% Vuex - https://vuex.vuejs.org/
+
+Framework Vue v sobě nemá implementovaný žádný sofistikovaný state management. 
+K základní práci se stavy aplikace poslouží reaktivní stavy jednotlivých komponent a jejich sdílení ve stromě komponent.
+
+Pro komplexnější aplikace je třeba využít některou z knihoven třetích stran. Dokumentace doporučuje knihovnu Pinia, o kterou se starají vývojáři samotného Vue. 
+Pinia je inspirována Vuex a využívá principu Composition API. Tato knihovna nabízí jednoduché API pro správu stavů v aplikaci. 
+Hlavním prvkem jsou tzv. stores, do kterých ukládáme globální stavy aplikace. 
+Store vytvoříme pomocí funkce defineStore, která požaduje identifikátor daného store a callback funkci. 
+Ta by měla vracet samotný state definovaný pomocí ref() a akce (funkce, jež mění stavy) nad storem, případně computed state -- jiný stav, který je typicky odvozen od původního stavu.\cite{pinia,vue}
+
 \subsubsection{Routování}
 % Vue Router - https://router.vuejs.org/
 \subsubsection{Ekosystém}
