@@ -1,7 +1,5 @@
 \subsection{Vue}
 
-% Fullstack Vue.js book
-% https://vuejs.org/
 % https://www.w3schools.com/vue/
 % https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_getting_started
 % https://www.tutorialspoint.com/vuejs/vuejs_overview.htm
@@ -81,5 +79,13 @@ Store vytvoříme pomocí funkce defineStore, která požaduje identifikátor da
 Ta by měla vracet samotný state definovaný pomocí ref() a akce (funkce, jež mění stavy) nad storem, případně computed state -- jiný stav, který je typicky odvozen od původního stavu.\cite{pinia,vue}
 
 \subsubsection{Routování}
-% Vue Router - https://router.vuejs.org/
+
+Samotný Vue framework neposkytuje zabudovanou podporu pro routování. Oficiální dokumentace doporučuje využití knihovny Vue Router, která umožňuje routování na straně klienta. 
+Základní využití routeru spočívá ve vytvoření instance routeru. Tuto instanci inicializujeme polem požadovaných cest aplikace s konkrétními komponentami pro vykreslení. 
+V rámci šablony pak můžeme použít router-link element, jež představuje odkaz na jinou cestu. Pro vykreslení obsahu po změně cesty slouží router-view. 
+V podstatě se jedná o wrapper pro vykreslení komponenty, která je spojena s uživatelem vybranou cestou.
+
+Vue Router disponuje také dynamickým routingem, který umožňuje definovat parametry cesty a vykreslit tedy stránku s dynamickými daty. 
+Mezi další funkce patří např. zanořené routování a routování dle pojmenovaných cest aplikace.\cite{vue,vuerouter}
+
 \subsubsection{Ekosystém}
