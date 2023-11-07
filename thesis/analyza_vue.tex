@@ -19,17 +19,35 @@ Od té doby byly vydány pouze 3 majoritní verze, avšak ty přinesly mnoho zm�
 
 Vue nabízí svobodnou volbu při tvorbě komponent ve formě dvou hlavních API -- Options a Composition API. 
 Options API můžeme přirovnat k objektovému přístupu, v porovnání s Composition API, jež využívá funkcionální přístup. 
-Podle \cite{vue} Composition API přináší větší flexibilitu a umožňuje efektivnější návrhové vzory pro organizaci a znovupoužitelnost kódu.
+Podle \cite{vue} Composition API přináší větší flexibilitu a umožňuje efektivnější návrhové vzory pro organizaci a znovupoužitelnost kódu. 
+Analýza bude probíhat pomocí Composition API.
 
 Framework klade důraz na progresivitu, což znamená, že roste s vývojářem a přizpůsobuje se jeho potřebám. 
 Díky tomu si Vue oblíbily společnosti jako Xiaomi, Adobe, Gitlab, Trivago, BMW.\cite{vuetriodev,vue}
 
-\subsubsection{Komponenty}
+\subsubsection{Single-File Components}
 
-Single-File Component (SFC)
+Základní funkcí Vue jsou tzv. Single-File Components (SFC). Jedná se o hlavní stavební blok frameworku, který reprezenzuje část webové stránky. 
+Komponenta se skládá z šablony, dat komponenty, funkcí a kaskádových stylů. Hlavní výhodu tohoto přístupu představuje znovupoužitelnost. 
+JavaScriptové funkce musí být zapsány mezi párové značky script s atributem setup, šablona do template tagů a styly do style bloku.\cite{vuemacrae,vue}
 
 \subsubsection{Reaktivita}
+
+V komponentě můžeme uchovávat informace pomocí reaktivních stavů. Oficiální dokumentace doporučuje používat funkci ref, která vyžaduje počáteční hodnotu. 
+K hodnotě stavu pak v rámci skriptu přistupujeme pomocí klíčového slova value. V šabloně nám stačí pouze název stavu. 
+Modifikaci stavu lze provést pomocí přiřazení nové hodnoty. Při změně jakéhokoli stavu komponenty pak Vue automaticky aktualizuje DOM s novými daty.\cite{vue}
+
 \subsubsection{Předávání vlastností}
+
+Komponenty spolu komunikují pomocí předávání vlastností. V parent komponentě je třeba předat požadovanou hodnotu do proměnné child komponenty. 
+V child komponentě pak definujeme props vlastnost, kterou vytvoříme pomocí funkce defineProps. 
+DefineProps funkce vyžaduje objekt s názvem a datovým typem předávané vlastnosti.
+
+Pro předání vlastnosti z child to parent komponenty se využívá tzv. emitování eventů. 
+V potomku vytvoříme vlastnost emit, v níž nadeklarujeme pole emitovaných hodnot pomocí funkce defineEmits. Dále je třeba definovat jednotlivé emity. 
+První argumentem je název emitu, další argumenty jsou již předávané hodnoty. Rodičovská komponenta musí naslouchat na emitované eventy. 
+Toho lze docílit pomocí @response direktivy, která typicky v callback funkci přeukládá argumenty na lokalní stavy.\cite{vuemacrae,vue}
+
 \subsubsection{Eventy???}
 \subsubsection{Životní cyklus}
 \subsubsection{State management}
