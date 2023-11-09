@@ -88,12 +88,12 @@ Toho lze docílit pomocí @response direktivy, která typicky v callback funkci 
   import \{ ref \} from 'vue';
   import ChildComponent from './Child.vue';
 
-  const props = ref(\{color: 'red'\});
+  const someProps = ref(\{color: 'red'\});
 </script>
 
 <template>
 	<ChildComponent :color="'red'" />
-  <ChildComponent :color="props.color" />
+  <ChildComponent :color="someProps.color" />
 </template>
 
 // Child.vue

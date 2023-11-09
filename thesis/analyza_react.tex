@@ -29,13 +29,13 @@ Výstup komponent tvoří elementy ve formě JSX. Tyto elementy obsahují inform
 import React from "react";
 
 function ParentComponent() \{
-  const props = \{color: 'red'\};
+  const someProps = \{color: 'red'\};
 
   return (
     <div>
       <ChildComponent color=\{'red'\} />
-      <ChildComponent color=\{props.color\} />
-      <ChildComponent \{...props\} />
+      <ChildComponent color=\{someProps.color\} />
+      <ChildComponent \{...someProps\} />
     </div>
   );
 \}

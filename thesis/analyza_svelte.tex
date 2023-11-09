@@ -75,12 +75,12 @@ Následně ji předat child komponentě a v rodičovské komponentě přidat př
 <script>
 	import ChildComponent from './Child.svelte';
 
-	const props = \{color: 'red'\};
+	const someProps = \{color: 'red'\};
 </script>
 
 <ChildComponent color='red' />
-<ChildComponent color=\{props.color\} />
-<ChildComponent \{...props\} />
+<ChildComponent color=\{someProps.color\} />
+<ChildComponent \{...someProps\} />
 
 // Child.svelte
 <script>
