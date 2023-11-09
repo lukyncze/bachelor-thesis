@@ -29,11 +29,47 @@ Základní funkcí Vue jsou tzv. Single-File Components (SFC). Jedná se o hlavn
 Komponenta se skládá z šablony, dat komponenty, funkcí a kaskádových stylů. Hlavní výhodu tohoto přístupu představuje znovupoužitelnost. 
 JavaScriptové funkce musí být zapsány mezi párové značky script s atributem setup, šablona do template tagů a styly do style bloku.\cite{vuemacrae,vue}
 
+\begin{prog}
+<script setup>
+  import \{ ref \} from 'vue';
+  
+  const content = ref('some-content');
+</script>
+  
+<template>
+  <div>\{\{ content \}\}</div>
+</template>
+  
+<style scoped>
+  div \{
+    background-color: red;
+  \}
+</style>
+\end{prog}
+
 \subsubsection{Reaktivita}
 
 V komponentě můžeme uchovávat informace pomocí reaktivních stavů. Oficiální dokumentace doporučuje používat funkci ref, která vyžaduje počáteční hodnotu. 
 K hodnotě stavu pak v rámci skriptu přistupujeme pomocí klíčového slova value. V šabloně nám stačí pouze název stavu. 
 Modifikaci stavu lze provést pomocí přiřazení nové hodnoty. Při změně jakéhokoli stavu komponenty pak Vue automaticky aktualizuje DOM s novými daty.\cite{vue}
+
+\begin{prog}
+<script setup>
+  import \{ ref \} from 'vue';
+  
+  const count = ref(0);
+
+  function increment() \{
+    count.value++;
+  \}
+</script>
+  
+<template>
+  <button @click="increment">
+    You clicked this button \{\{ count \}\} times.
+  </button>
+</template>
+\end{prog}
 
 \subsubsection{Předávání vlastností}
 
