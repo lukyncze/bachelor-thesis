@@ -65,7 +65,7 @@ Modifikaci stavu lze provést pomocí přiřazení nové hodnoty. Při změně j
 </script>
   
 <template>
-  <button @click="increment">
+  <button v-on:click="increment">
     You clicked this button \{\{ count \}\} times.
   </button>
 </template>
@@ -82,6 +82,32 @@ V potomku vytvoříme vlastnost emit, v níž nadeklarujeme pole emitovaných ho
 První argumentem je název emitu, další argumenty jsou již předávané hodnoty. Rodičovská komponenta musí naslouchat na emitované eventy. 
 Toho lze docílit pomocí @response direktivy, která typicky v callback funkci přeukládá argumenty na lokalní stavy.\cite{vuemacrae,vue}
 
+\begin{prog}
+// Parent.vue
+<script setup>
+  import \{ ref \} from 'vue';
+  import ChildComponent from './Child.vue';
+
+  const props = ref(\{color: 'red'\});
+</script>
+
+<template>
+	<ChildComponent :color="'red'" />
+  <ChildComponent :color="props.color" />
+</template>
+
+// Child.vue
+<script setup>
+  const props = defineProps(\{
+    color: String
+  \});
+</script>
+
+<template>
+  <div :class="color"></div>
+</template>
+\end{prog}
+
 \subsubsection{Direktivy a eventy}
 
 Framework disponuje mnoha direktivami, které umožňují přidávat do šablony různé funkce. Logiku vykreslování umožňují direktivy v-if, v-else-if a v-else. 
@@ -89,8 +115,36 @@ Pro iteraci přes pole hodnot slouží v-for. Mezi další užitečné direktivy
 Díky v-bind je možné přidat jakémukoli elementu dynamickou hodnotu atributu, direktivu můžeme zkrátit i pomocí dvojtečky. 
 Direktiva v-model zase zajistí obousměrné propojení pro formulářové prvky.
 
+\begin{prog}
+<script setup>
+  import \{ ref \} from 'vue';
+
+  const text = ref('');
+</script>
+
+<template>
+  <input v-model="text" placeholder="Write something">
+  <p v-if="text.length > 3">\{\{ text \}\}</p>
+  <p v-else>You have to enter more than 3 chars</p>
+</template> 
+\end{prog}
+
 Vue také umožnuje naslouchat na DOM eventy pomocí direktivy v-on. Ta pak vyžaduje libovolný DOM event a callback funkci, jež se vykoná při daném DOM eventu. 
 Můžeme také zvolit ekvivalentní zápis s @. Další možnost představuje využití modifkátorů eventů, které se postarají například o vypnutí výchozího chování prvku.\cite{vuemacrae,vue}
+
+\begin{prog}
+<script setup>
+  import { ref } from 'vue';
+
+  const count = ref(0);
+</script>
+
+<template>
+  <button @click="() => count++">
+    You clicked this button {{ count }} times.
+  </button>
+</template>
+\end{prog}
 
 \subsubsection{Životní cyklus}
 
