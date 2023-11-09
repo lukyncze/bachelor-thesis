@@ -26,7 +26,7 @@ Pro komunikaci mezi komponentami se používá předávání vlastností (props)
 Výstup komponent tvoří elementy ve formě JSX. Tyto elementy obsahují informace o vzhledu a~funkcionalitě dané komponenty.\cite{reactbanks,react}
 
 \begin{prog}
-import React from "react";
+import React from 'react';
 
 function ParentComponent() \{
   const someProps = \{color: 'red'\};
@@ -55,8 +55,8 @@ V rámci JSX pak je možné dynamicky vykreslovat obsah na základě logiky defi
 Při kompilaci se JSX překládá do JavaScriptu pomocí nástroje Babel.\cite{reactbanks,react}
 
 \begin{prog}
-import React from "react";
-import ChildComponent from "./ChildComponent";
+import React from 'react';
+import ChildComponent from './ChildComponent';
 
 function MyComponent() \{
   const loaded = true;
@@ -80,7 +80,7 @@ Za účelem ukládání stavu se využívá hook (funkce) useState. Ten poskytuj
 Dále useState poskytuje state setter funkci, díky které můžeme stav aktualizovat. Jediný argument useState definuje počátační hodnotu daného stavu.\cite{reactitnetwork,react}
 
 \begin{prog}
-import React, \{ useState \} from "react";
+import React, \{ useState \} from 'react';
 
 function App() \{
   const [count, setCount] = useState(0);
@@ -101,7 +101,7 @@ Vývojáři mohou používat již zabudované hooky, nebo si vytvářet své vla
 Mezi zabudované hooky patří např. useEffect, useMemo, useCallback, useRef, useContext.\cite{react}
 
 \begin{prog}
-import \{ useEffect \} from "react";
+import \{ useEffect \} from 'react';
 
 useEffect(() => \{
   // code for setup
