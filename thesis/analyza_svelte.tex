@@ -24,6 +24,20 @@ V neposlední řadě kaskádové styly se zapisují mezi style tagy.
 V rámci šablony Svelte umožňuje využívat logické bloky pro podmíněné vykreslování nebe také iterace přes pole hodnot (list). 
 Zabudovaná je i podpora manipulace s asynchronním JavaScriptem - promises.\cite{svelte}
 
+\begin{prog}
+<script>
+	let content = 'some-content';
+</script>
+
+<div>\{content\}</div>
+
+<style>
+	div \{
+		background-color: red;
+	\}
+</style>
+\end{prog}
+
 \subsubsection{Reaktivita}
 
 Srdcem Svelte jsou reaktivní stavy komponenty, které jednoduše definujeme jako proměnné v JavaScriptu. Jejich hodnotu aktualizuje JavaScript funkce pomocí přidělování nových hodnot. 
@@ -32,6 +46,20 @@ O všechno ostatní se pak ale postará sám Svelte v pozadí. Svelte aktualizuj
 
 Mezi specifické funkce Svelte patří reaktivní deklarace, které se starají o aktualizaci stavů na základě stavů jiných. 
 Další zabudovanou funkcí jsou tzv. reactive statements, jež umožní definovat akce, které se mají vykonat reaktivně -- jako reakce na nějaký výrok.\cite{sveltehandbook,svelte}
+
+\begin{prog}
+<script>
+  let count = 0;
+
+	function increment() {
+		count++;
+	}
+</script>
+
+<button on:click={increment}>
+  You clicked this button {count} times.
+</button>
+\end{prog}
 
 \subsubsection{Předávání vlastností}
 
@@ -42,14 +70,74 @@ Pak v child komponentě vytvoříme stejnojmennou vlastnost s klíčovým slovem
 Pokud chceme předávat vlastnosti parent komponentě, je třeba vytvořit vlastnost již na parent komponentě. 
 Následně ji předat child komponentě a v rodičovské komponentě přidat před předání vlastnosti do komponenty klíčové slovo bind.\cite{svelte}
 
+\begin{prog}
+// Parent.svelte
+<script>
+	import ChildComponent from './Child.svelte';
+
+	const someProps = \{color: 'red'\};
+</script>
+
+<ChildComponent color='red' />
+<ChildComponent color=\{someProps.color\} />
+<ChildComponent \{...someProps\} />
+
+// Child.svelte
+<script>
+	export let color;
+</script>
+
+<div class=\{color\}></div>
+\end{prog}
+
 \subsubsection{Eventy}
 
 Svelte má velice jednoduché API pro práci s DOM eventy. Stačí použít direktivu on na HTML elementu, která vyžaduje název eventu a callback funkci.
 
+\begin{prog}
+<script>
+	let count = 0
+</script>
+
+<button on:click=\{() => count++\}>
+  You clicked this button \{count\} times.
+</button>
+\end{prog}
+
 Vývojáři také přišli s možností odesílání a přijímání eventů pro komponenty. 
-V child komponentě je třeba mí nějaký DOM event handler, na který chceme reagovat v parent komponentě. 
+V child komponentě je třeba mít nějaký DOM event handler, na který chceme reagovat v parent komponentě. 
 Poté je nutné využít zabudovanou metodu createEventDispatcher, které předáme potřebné parametry -- náš libovolný název pro event komponenty a hodnotu. 
 V rodičovské komponentě pak reagujeme na event pomocí klíčového slova on a našeho libovolného názvu pro event. Naši hodnotu poté získáme v callback funkci.\cite{sveltehandbook,svelte}
+
+\begin{prog}
+// Parent.svelte
+<script>
+	import Child from './Child.svelte';
+
+	function handleMessage(event) {
+		alert(event.detail.text);
+	}
+</script>
+
+<Child on:message={handleMessage} />
+
+// Child.svelte
+<script>
+	import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher();
+
+	function sayHello() {
+		dispatch('message', {
+			text: 'Hello!'
+		});
+	}
+</script>
+
+<button on:click={sayHello}>Click to say hello</button>
+\end{prog}
+
+Zdroj zdrojového kódu: \cite{svelte}
 
 \subsubsection{Životní cyklus}
 

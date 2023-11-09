@@ -21,8 +21,31 @@ Komponentu v Reactu tvoří JavaScript funkce a~HTML šablona. Validně sesklád
 V Reactu se můžeme setkat s funkčními a~třídními komponentami. Vytváření třídních komponent oficiální dokumentace nedoporučuje.
 
 % přidat info o předávání vlastností dolů i nahoru ve stromě
+% chybí informace o tom, že je nutné komponenty importovat
 Pro komunikaci mezi komponentami se používá předávání vlastností (props), přes které je možné předávat hodnoty jakýchkoli datových typů.
 Výstup komponent tvoří elementy ve formě JSX. Tyto elementy obsahují informace o vzhledu a~funkcionalitě dané komponenty.\cite{reactbanks,react}
+
+\begin{prog}
+import React from 'react';
+
+function ParentComponent() \{
+  const someProps = \{color: 'red'\};
+
+  return (
+    <div>
+      <ChildComponent color=\{'red'\} />
+      <ChildComponent color=\{someProps.color\} />
+      <ChildComponent \{...someProps\} />
+    </div>
+  );
+\}
+
+function ChildComponent(\{color\}) \{
+  return (
+    <div class=\{color\}></div>
+  );
+\}
+\end{prog}
 
 \subsubsection{JSX}
 
@@ -30,6 +53,23 @@ Název JSX kombinuje zkratku jazyka JavaScript -- JS a~počáteční písmeno ze
 Konkrétně jde o syntaktické rozšíření, které vývojářům umožňuje tvořit React elementy pomocí hypertextového značkovacího jazyku přímo v JavaScriptu. 
 V rámci JSX pak je možné dynamicky vykreslovat obsah na základě logiky definované pomocí JavaScriptových hodnot.
 Při kompilaci se JSX překládá do JavaScriptu pomocí nástroje Babel.\cite{reactbanks,react}
+
+\begin{prog}
+import React from 'react';
+import ChildComponent from './ChildComponent';
+
+function MyComponent() \{
+  const loaded = true;
+
+  return (
+    <div>
+      \{loaded ? 
+        <ChildComponent color=\{'red'\} width=\{100\} heigth=\{100\} /> 
+        : 'Loading ...'\}
+    </div>
+  );
+\}
+\end{prog}
 
 \subsubsection{Správa stavů}
 
@@ -39,12 +79,40 @@ Pro aktualizaci komponenty je tedy nutné stav změnit. React pak na tuto skute�
 Za účelem ukládání stavu se využívá hook (funkce) useState. Ten poskytuje stavovou proměnnou, přes kterou se dostaneme k aktuálnímu stavu. 
 Dále useState poskytuje state setter funkci, díky které můžeme stav aktualizovat. Jediný argument useState definuje počátační hodnotu daného stavu.\cite{reactitnetwork,react}
 
+\begin{prog}
+import React, \{ useState \} from 'react';
+
+function App() \{
+  const [count, setCount] = useState(0);
+
+  return (
+    <button onClick=\{() => setCount(count + 1)\}>
+      You clicked this button \{count\} times.
+    </button>
+  );
+\}
+\end{prog}
+
 \subsubsection{Hooky}
 
 Specifickou funkcionalitou pro React jsou tzv. hooky, které byly do Reactu přidány až ve verzi 16.8.0.\cite{reactgithub} 
 Hook je definován jako funkce, která obohacuje komponenty pomocí předdefinovaných funkcionalit. Jedním z nejpoužívanejších hooků je useState. 
 Vývojáři mohou používat již zabudované hooky, nebo si vytvářet své vlastní s pomocí předdefinovaných hooků. 
 Mezi zabudované hooky patří např. useEffect, useMemo, useCallback, useRef, useContext.\cite{react}
+
+\begin{prog}
+import \{ useEffect \} from 'react';
+
+useEffect(() => \{
+  // code for setup
+
+  return () => \{
+    // code for cleanup 
+  \};
+\}, [
+  // dependencies
+]);
+\end{prog}
 
 \subsubsection{Životní cyklus}
 
