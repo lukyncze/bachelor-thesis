@@ -51,13 +51,13 @@ Další zabudovanou funkcí jsou tzv. reactive statements, jež umožní definov
 <script>
   let count = 0;
 
-	function increment() {
+	function increment() \{
 		count++;
-	}
+	\}
 </script>
 
-<button on:click={increment}>
-  You clicked this button {count} times.
+<button on:click=\{increment\}>
+  You clicked this button \{count\} times.
 </button>
 \end{prog}
 
@@ -114,27 +114,27 @@ V rodičovské komponentě pak reagujeme na event pomocí klíčového slova on 
 <script>
 	import Child from './Child.svelte';
 
-	function handleMessage(event) {
+	function handleMessage(event) \{
 		alert(event.detail.text);
-	}
+	\}
 </script>
 
-<Child on:message={handleMessage} />
+<Child on:message=\{handleMessage\} />
 
 // Child.svelte
 <script>
-	import { createEventDispatcher } from 'svelte';
+	import \{ createEventDispatcher \} from 'svelte';
 
 	const dispatch = createEventDispatcher();
 
-	function sayHello() {
-		dispatch('message', {
+	function sayHello() \{
+		dispatch('message', \{
 			text: 'Hello!'
-		});
-	}
+		\});
+	\}
 </script>
 
-<button on:click={sayHello}>Click to say hello</button>
+<button on:click=\{sayHello\}>Click to say hello</button>
 \end{prog}
 
 Zdroj zdrojového kódu: \cite{svelte}
