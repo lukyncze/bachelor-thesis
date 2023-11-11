@@ -26,15 +26,15 @@ Zabudovaná je i podpora manipulace s asynchronním JavaScriptem - promises.\cit
 
 \begin{prog}
 <script>
-	let content = 'some-content';
+  let content = 'some-content';
 </script>
 
 <div>\{content\}</div>
-
+  
 <style>
-	div \{
-		background-color: red;
-	\}
+  div \{
+    background-color: red;
+  \}
 </style>
 \end{prog}
 
@@ -51,9 +51,9 @@ Další zabudovanou funkcí jsou tzv. reactive statements, jež umožní definov
 <script>
   let count = 0;
 
-	function increment() \{
-		count++;
-	\}
+  function increment() \{
+    count++;
+  \}
 </script>
 
 <button on:click=\{increment\}>
@@ -73,9 +73,9 @@ Následně ji předat child komponentě a v rodičovské komponentě přidat př
 \begin{prog}
 // Parent.svelte
 <script>
-	import ChildComponent from './Child.svelte';
+  import ChildComponent from './Child.svelte';
 
-	const someProps = \{color: 'red'\};
+  const someProps = \{color: 'red'\};
 </script>
 
 <ChildComponent color='red' />
@@ -84,7 +84,7 @@ Následně ji předat child komponentě a v rodičovské komponentě přidat př
 
 // Child.svelte
 <script>
-	export let color;
+  export let color;
 </script>
 
 <div class=\{color\}></div>
@@ -96,7 +96,7 @@ Svelte má velice jednoduché API pro práci s DOM eventy. Stačí použít dire
 
 \begin{prog}
 <script>
-	let count = 0
+  let count = 0;
 </script>
 
 <button on:click=\{() => count++\}>
@@ -112,26 +112,26 @@ V rodičovské komponentě pak reagujeme na event pomocí klíčového slova on 
 \begin{prog}
 // Parent.svelte
 <script>
-	import Child from './Child.svelte';
+  import Child from './Child.svelte';
 
-	function handleMessage(event) \{
-		alert(event.detail.text);
-	\}
+  function handleMessage(event) \{
+    alert(event.detail.text);
+  \}
 </script>
 
 <Child on:message=\{handleMessage\} />
 
 // Child.svelte
 <script>
-	import \{ createEventDispatcher \} from 'svelte';
+  import \{ createEventDispatcher \} from 'svelte';
 
-	const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher();
 
-	function sayHello() \{
-		dispatch('message', \{
-			text: 'Hello!'
-		\});
-	\}
+  function sayHello() \{
+    dispatch('message', \{
+      text: 'Hello!'
+    \});
+  \}
 </script>
 
 <button on:click=\{sayHello\}>Click to say hello</button>
