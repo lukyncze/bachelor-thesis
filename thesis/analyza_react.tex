@@ -29,11 +29,11 @@ Výstup komponent tvoří elementy ve formě JSX. Tyto elementy obsahují inform
 import React from 'react';
 
 function ParentComponent() \{
-  const someProps = \{color: 'red'\};
+  const someProps = \{color: 'cervena'\};
 
   return (
     <div>
-      <ChildComponent color=\{'red'\} />
+      <ChildComponent color=\{'cervena'\} />
       <ChildComponent color=\{someProps.color\} />
       <ChildComponent \{...someProps\} />
     </div>
@@ -64,8 +64,8 @@ function MyComponent() \{
   return (
     <div>
       \{loaded ? 
-        <ChildComponent color=\{'red'\} width=\{100\} heigth=\{100\} /> 
-        : 'Loading ...'\}
+        <ChildComponent color=\{'cervena'\} width=\{100\} heigth=\{100\} /> 
+        : 'Načítání ...'\}
     </div>
   );
 \}
@@ -87,7 +87,7 @@ function App() \{
 
   return (
     <button onClick=\{() => setCount(count + 1)\}>
-      You clicked this button \{count\} times.
+      Klikli jste na tlačítko \{count\}x.
     </button>
   );
 \}
@@ -104,13 +104,13 @@ Mezi zabudované hooky patří např. useEffect, useMemo, useCallback, useRef, u
 import \{ useEffect \} from 'react';
 
 useEffect(() => \{
-  // code for setup
+  // obvykle kód určený pro nastavení (setup)
 
   return () => \{
-    // code for cleanup 
+    // kód pro úklid prostředků
   \};
 \}, [
-  // dependencies
+  // seznam závislostí, na jejichž změnu má efekt reagovat
 ]);
 \end{prog}
 

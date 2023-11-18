@@ -26,7 +26,7 @@ Zabudovaná je i podpora manipulace s asynchronním JavaScriptem - promises.\cit
 
 \begin{prog}
 <script>
-  let content = 'some-content';
+  let content = 'nějaký-kontent';
 </script>
 
 <div>\{content\}</div>
@@ -57,7 +57,7 @@ Další zabudovanou funkcí jsou tzv. reactive statements, jež umožní definov
 </script>
 
 <button on:click=\{increment\}>
-  You clicked this button \{count\} times.
+  Klikli jste na tlačítko \{count\}x.
 </button>
 \end{prog}
 
@@ -75,10 +75,10 @@ Následně ji předat child komponentě a v rodičovské komponentě přidat př
 <script>
   import ChildComponent from './Child.svelte';
 
-  const someProps = \{color: 'red'\};
+  const someProps = \{color: 'cervena'\};
 </script>
 
-<ChildComponent color='red' />
+<ChildComponent color='cervena' />
 <ChildComponent color=\{someProps.color\} />
 <ChildComponent \{...someProps\} />
 
@@ -100,7 +100,7 @@ Svelte má velice jednoduché API pro práci s DOM eventy. Stačí použít dire
 </script>
 
 <button on:click=\{() => count++\}>
-  You clicked this button \{count\} times.
+  Klikli jste na tlačítko \{count\}x.
 </button>
 \end{prog}
 
@@ -129,12 +129,12 @@ V rodičovské komponentě pak reagujeme na event pomocí klíčového slova on 
 
   function sayHello() \{
     dispatch('message', \{
-      text: 'Hello!'
+      text: 'Hello world!'
     \});
   \}
 </script>
 
-<button on:click=\{sayHello\}>Click to say hello</button>
+<button on:click=\{sayHello\}>Klikněte pro "Hello world!"</button>
 \end{prog}
 
 Zdroj zdrojového kódu: \cite{svelte}

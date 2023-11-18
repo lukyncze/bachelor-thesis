@@ -33,7 +33,7 @@ JavaScriptové funkce musí být zapsány mezi párové značky script s atribut
 <script setup>
   import \{ ref \} from 'vue';
   
-  const content = ref('some-content');
+  const content = ref('nějaký-kontent');
 </script>
   
 <template>
@@ -66,7 +66,7 @@ Modifikaci stavu lze provést pomocí přiřazení nové hodnoty. Při změně j
   
 <template>
   <button v-on:click="increment">
-    You clicked this button \{\{ count \}\} times.
+    Klikli jste na tlačítko \{\{ count \}\}x.
   </button>
 </template>
 \end{prog}
@@ -88,11 +88,11 @@ Toho lze docílit pomocí @response direktivy, která typicky v callback funkci 
   import \{ ref \} from 'vue';
   import ChildComponent from './Child.vue';
 
-  const someProps = ref(\{color: 'red'\});
+  const someProps = ref(\{color: 'cervena'\});
 </script>
 
 <template>
-	<ChildComponent :color="'red'" />
+	<ChildComponent :color="'cervena'" />
   <ChildComponent :color="someProps.color" />
 </template>
 
@@ -123,9 +123,9 @@ Direktiva v-model zase zajistí obousměrné propojení pro formulářové prvky
 </script>
 
 <template>
-  <input v-model="text" placeholder="Write something">
+  <input v-model="text" placeholder="Něco napište">
   <p v-if="text.length > 3">\{\{ text \}\}</p>
-  <p v-else>You have to enter more than 3 chars</p>
+  <p v-else>Musíte zadat více než 3 znaky</p>
 </template> 
 \end{prog}
 
@@ -141,7 +141,7 @@ Můžeme také zvolit ekvivalentní zápis s @. Další možnost představuje vy
 
 <template>
   <button @click="() => count++">
-    You clicked this button \{\{ count \}\} times.
+    Klikli jste na tlačítko \{\{ count \}\}x.
   </button>
 </template>
 \end{prog}
