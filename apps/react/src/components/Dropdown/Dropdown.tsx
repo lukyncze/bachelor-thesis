@@ -1,7 +1,7 @@
-import {useState, useEffect, useRef} from 'react';
 import {arrowUp} from '../../assets/svg/arrow-up';
 import {arrowDown} from '../../assets/svg/arrow-down';
 import {variantStyles} from './variants-styles';
+import useDropdown from './useDropdown';
 
 export interface Option {
   label: string;
@@ -34,30 +34,10 @@ function Dropdown({
   placeholder = 'Select an option',
   variant = 'primary',
 }: DropdownProps) {
-  const [selectedOption, setSelectedOption] = useState<Option | null>(defaultValue);
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  const handleOptionClick = (option: Option) => {
-    setSelectedOption(option);
-    setIsOpen(false);
-    onChange(option);
-  };
-
-  const handleClickOutsideDropdown = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-      setIsOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutsideDropdown);
-
-    return () => {
-      document.removeEventListener('click', handleClickOutsideDropdown);
-    };
-  }, []);
-
+  const {selectedOption, isOpen, setIsOpen, dropdownRef, handleOptionClick} = useDropdown(
+    onChange,
+    defaultValue
+  );
   const {button, div, option: optionClass} = variantStyles[variant];
 
   return (
