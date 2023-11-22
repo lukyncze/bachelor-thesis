@@ -1,23 +1,12 @@
 import {arrowUp} from '../../assets/svg/arrow-up';
 import {arrowDown} from '../../assets/svg/arrow-down';
-import {variantStyles} from './variants-styles';
+import {DropdownVariant, dropdownVariantStyles} from './dropdownVariants';
 import useDropdown from './useDropdown';
 
 export interface Option {
   label: string;
   value: string;
 }
-
-export type DropdownVariant =
-  | 'primary'
-  | 'secondary'
-  | 'neutral'
-  | 'light'
-  | 'dark'
-  | 'info'
-  | 'success'
-  | 'warning'
-  | 'error';
 
 interface DropdownProps {
   options: ReadonlyArray<Option>;
@@ -38,14 +27,15 @@ function Dropdown({
     onChange,
     defaultValue
   );
-  const {button, div, option: optionClass} = variantStyles[variant];
+
+  const {buttonStyles, divStyles, optionStyles} = dropdownVariantStyles[variant];
 
   return (
     <div className='relative inline-block text-left' ref={dropdownRef}>
       <div className='rounded-md shadow-sm'>
         <button
           type='button'
-          className={`inline-flex justify-center w-full rounded-md px-4 py-2 text-sm font-medium focus:outline-none focus:ring-1 focus:ring-offset-0.8 ${button}`}
+          className={`inline-flex justify-center w-full rounded-md px-4 py-2 text-sm font-medium focus:outline-none focus:ring-1 focus:ring-offset-0.8 ${buttonStyles}`}
           onClick={() => setIsOpen(!isOpen)}
         >
           {selectedOption ? selectedOption.label : placeholder}
@@ -55,7 +45,7 @@ function Dropdown({
 
       {isOpen && (
         <div
-          className={`origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-opacity-100 ${div}`}
+          className={`origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-opacity-100 ${divStyles}`}
         >
           <div
             className='py-1'
@@ -66,7 +56,7 @@ function Dropdown({
             {options.map(option => (
               <button
                 key={option.value}
-                className={`block w-full text-left px-4 py-2 text-sm hover:text-gray-900 ${optionClass}`}
+                className={`block w-full text-left px-4 py-2 text-sm hover:text-gray-900 ${optionStyles}`}
                 role='menuitem'
                 onClick={() => handleOptionClick(option)}
               >

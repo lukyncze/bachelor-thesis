@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import Counter from './components/Counter';
-import Dropdown, {DropdownVariant, Option} from './components/Dropdown/Dropdown';
+import Dropdown, {Option} from './components/Dropdown/Dropdown';
+import {DropdownVariant} from './components/Dropdown/dropdownVariants';
 
 const dropdownVariants: ReadonlyArray<DropdownVariant> = [
   'primary',
@@ -44,7 +45,6 @@ function App() {
           />
         ))}
         {/* https://www.youtube.com/watch?v=bAJlYgeovlg */}
-        {/* https://baseweb.design/components/select/ */}
       </div>
     </>
   );
