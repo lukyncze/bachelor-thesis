@@ -51,10 +51,12 @@
 
 <div class="relative inline-block text-left" bind:this={dropdownRef}>
   <div class="rounded-md shadow-sm">
+    <!-- https://chiamakaikeanyi.dev/what-is-event-bubbling-and-capturing-and-how-to-handle-them/ -->
+    <!-- https://www.freecodecamp.org/news/a-simplified-explanation-of-event-propagation-in-javascript-f9de7961a06e/ -->
     <button
       type="button"
       class={`inline-flex justify-center items-center w-full rounded-md ${sizeStyles} font-medium focus:outline-none focus:ring-1 focus:ring-offset-0.8 ${buttonStyles}`}
-      on:click={() => (isOpen = !isOpen)}
+      on:click|stopPropagation={() => (isOpen = !isOpen)}
     >
       {selectedOption ? selectedOption.label : placeholder}
       {#if isOpen}
