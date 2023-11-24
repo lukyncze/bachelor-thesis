@@ -2,6 +2,7 @@ import {useState} from 'react';
 import Counter from './components/Counter';
 import Dropdown, {Option} from './components/Dropdown/Dropdown';
 import {DropdownVariant} from './components/Dropdown/dropdownVariants';
+import {DropdownSize} from './components/Dropdown/dropdownSize';
 
 const dropdownVariants: ReadonlyArray<DropdownVariant> = [
   'primary',
@@ -27,12 +28,8 @@ const colors = [
 function App() {
   const [selectedColor, setSelectedColor] = useState<Option | null>(null);
 
-  return (
-    <>
-      <h1>React Landing Page</h1>
-
-      <Counter />
-
+  const renderDropdownComponents = (size: DropdownSize = 'md') => {
+    return (
       <div className='flex gap-2 justify-center items-center h-20'>
         {dropdownVariants.map(variant => (
           <Dropdown
@@ -42,10 +39,24 @@ function App() {
             placeholder='Select a color'
             onChange={selectedColor => setSelectedColor(selectedColor)}
             variant={variant}
+            size={size}
           />
         ))}
-        {/* https://www.youtube.com/watch?v=bAJlYgeovlg */}
       </div>
+    );
+  };
+
+  return (
+    <>
+      <h1>React Landing Page</h1>
+
+      <Counter />
+
+      {renderDropdownComponents('sm')}
+      {renderDropdownComponents()}
+      {renderDropdownComponents('lg')}
+
+      {/* https://www.youtube.com/watch?v=bAJlYgeovlg */}
     </>
   );
 }
