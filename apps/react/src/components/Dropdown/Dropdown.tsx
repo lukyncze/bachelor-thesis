@@ -40,7 +40,10 @@ function Dropdown({
         <button
           type='button'
           className={`inline-flex justify-center items-center w-full rounded-md ${sizeStyles} font-medium focus:outline-none focus:ring-1 focus:ring-offset-0.8 ${buttonStyles}`}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={event => {
+            event.stopPropagation();
+            setIsOpen(!isOpen);
+          }}
         >
           {selectedOption ? selectedOption.label : placeholder}
           {isOpen ? arrowUp : arrowDown}
