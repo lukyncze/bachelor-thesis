@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Counter from './lib/Counter.svelte';
-  import Dropdown, {type Option} from './lib/dropdown/Dropdown.svelte';
-  import type {DropdownSize} from './lib/dropdown/dropdownSize';
-  import {type DropdownVariant} from './lib/dropdown/dropdownVariants';
+  import Counter from './lib/components/Counter.svelte';
+  import Dropdown, {type Option} from './lib/components/dropdown/Dropdown.svelte';
+  import type {DropdownSize} from './lib/components/dropdown/dropdownSize';
+  import {type DropdownVariant} from './lib/components/dropdown/dropdownVariants';
 
   const dropdownVariants: ReadonlyArray<DropdownVariant> = [
     'primary',
