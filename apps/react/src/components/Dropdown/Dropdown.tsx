@@ -26,7 +26,7 @@ function Dropdown({
   variant = 'primary',
   size = 'md',
 }: DropdownProps) {
-  const {selectedOption, isOpen, setIsOpen, dropdownRef, handleOptionClick} = useDropdown(
+  const {selectedOption, isOpen, setIsOpen, dropdownButtonRef, handleOptionClick} = useDropdown(
     onChange,
     defaultValue
   );
@@ -35,9 +35,10 @@ function Dropdown({
   const sizeStyles = dropdownSize[size];
 
   return (
-    <div className='relative inline-block text-left' ref={dropdownRef}>
+    <div className='relative inline-block text-left'>
       <div className='rounded-md shadow-sm'>
         <button
+          ref={dropdownButtonRef}
           type='button'
           className={`inline-flex justify-center items-center w-full rounded-md ${sizeStyles} font-medium focus:outline-none focus:ring-1 focus:ring-offset-0.8 ${buttonStyles}`}
           onClick={event => {
