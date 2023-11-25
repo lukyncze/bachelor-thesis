@@ -21,7 +21,7 @@
 
   let selectedOption: Option | null = defaultValue;
   let isOpen = false;
-  let dropdownRef: HTMLDivElement;
+  let dropdownButtonRef: HTMLButtonElement;
 
   const handleOptionClick = (option: Option) => {
     selectedOption = option;
@@ -30,30 +30,30 @@
   };
 
   // TODO: try to make it as a action :)
-  const handleClickOutsideDropdown = (event: MouseEvent) => {
-    if (isOpen && dropdownRef && !dropdownRef.contains(event.currentTarget as Node)) {
-      console.log(`🚀 ~ file: Dropdown.svelte:35 ~ handleClickOutsideDropdown ~ event:`, event);
+  const handleClickOutsideDropdown = ({target}: PointerEvent) => {
+    if (isOpen && dropdownButtonRef && !dropdownButtonRef.contains(target as Node)) {
       isOpen = false;
     }
   };
 
   onMount(() => {
-    document.addEventListener('click', handleClickOutsideDropdown);
+    document.addEventListener('pointerdown', handleClickOutsideDropdown);
 
     return () => {
-      document.removeEventListener('click', handleClickOutsideDropdown);
+      document.removeEventListener('pointerdown', handleClickOutsideDropdown);
     };
   });
 
-  let {buttonStyles, divStyles, optionStyles} = dropdownVariantStyles[variant];
-  let sizeStyles = dropdownSize[size];
+  const {buttonStyles, divStyles, optionStyles} = dropdownVariantStyles[variant];
+  const sizeStyles = dropdownSize[size];
 </script>
 
-<div class="relative inline-block text-left" bind:this={dropdownRef}>
+<div class="relative inline-block text-left">
   <div class="rounded-md shadow-sm">
     <!-- https://chiamakaikeanyi.dev/what-is-event-bubbling-and-capturing-and-how-to-handle-them/ -->
     <!-- https://www.freecodecamp.org/news/a-simplified-explanation-of-event-propagation-in-javascript-f9de7961a06e/ -->
     <button
+      bind:this={dropdownButtonRef}
       type="button"
       class={`inline-flex justify-center items-center w-full rounded-md ${sizeStyles} font-medium focus:outline-none focus:ring-1 focus:ring-offset-0.8 ${buttonStyles}`}
       on:click|stopPropagation={() => (isOpen = !isOpen)}
