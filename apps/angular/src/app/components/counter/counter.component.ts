@@ -1,6 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {Component} from '@angular/core';
-import {ButtonWrapperComponent} from '../button-wrapper/button-wrapper.component';
+import {ButtonWrapperComponent} from './button/counter-button.component';
 
 @Component({
   selector: 'counter',

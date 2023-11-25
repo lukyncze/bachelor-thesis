@@ -9,7 +9,7 @@
       [options]="colors"
       [defaultValue]="selectedColor"
       placeholder="Select a color"
-      (onChange)="onDropdownChange($event)"
+      (changeSelected)="handleChangeSelected($event)"
       [variant]="variant"
       [size]="size"
     />

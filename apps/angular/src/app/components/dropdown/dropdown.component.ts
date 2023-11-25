@@ -1,5 +1,5 @@
 import {CommonModule} from '@angular/common';
-import {Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {dropdownSize} from './../../../../../svelte/src/lib/components/dropdown/dropdownSize';
 import {ArrowDownComponent} from "./arrow-down.component";
 import {ArrowUpComponent} from "./arrow-up.component";
@@ -17,7 +17,7 @@ export interface Option {
     templateUrl: './dropdown.component.html',
     imports: [CommonModule, ArrowDownComponent, ArrowUpComponent]
 })
-export class DropdownComponent {
+export class DropdownComponent implements OnInit {
   public selectedOption?: Option | null;
   public isOpen = false;
 
@@ -32,7 +32,7 @@ export class DropdownComponent {
   @Input() variant: DropdownVariant = 'primary';
   @Input() size: DropdownSize = 'md';
 
-  @Output() onChange = new EventEmitter<Option>();
+  @Output() changeSelected = new EventEmitter<Option>();
   
   @ViewChild('dropdownButtonRef') buttonRef!: ElementRef<HTMLButtonElement>;
 
@@ -58,7 +58,7 @@ export class DropdownComponent {
   protected handleOptionClick(option: Option): void {
     this.selectedOption = option;
     this.isOpen = false;
-    this.onChange.emit(option)
+    this.changeSelected.emit(option)
   }
 
   private getDropdownStyles(): void {

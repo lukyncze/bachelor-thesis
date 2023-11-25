@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {ButtonWrapperComponent} from './button-wrapper.component';
+import {ButtonWrapperComponent} from './counter-button.component';
 
 describe('ButtonComponent', () => {
   let component: ButtonWrapperComponent;

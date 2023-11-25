@@ -3,8 +3,8 @@ import {Component} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {CounterComponent} from "./components/counter/counter.component";
 import {DropdownComponent, Option} from './components/dropdown/dropdown.component';
-import {DropdownVariant} from './components/dropdown/dropdownVariants';
 import {DropdownSize} from './components/dropdown/dropdownSize';
+import {DropdownVariant} from './components/dropdown/dropdownVariants';
 
 @Component({
     selector: 'app-root',
@@ -36,7 +36,7 @@ export class AppComponent {
 
   protected selectedColor: Option | null = null;
 
-  protected onDropdownChange(selectedColor: Option): void {
+  protected handleChangeSelected(selectedColor: Option): void {
     this.selectedColor = selectedColor;
   }
 }

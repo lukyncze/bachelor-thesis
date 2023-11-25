@@ -2,13 +2,13 @@ import {CommonModule} from '@angular/common';
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
-  selector: 'button-wrapper',
+  selector: 'counter-button',
   standalone: true,
-  templateUrl: './button-wrapper.component.html',
+  templateUrl: './counter-button.component.html',
   imports: [CommonModule],
 })
 export class ButtonWrapperComponent {
   @Input() public className = '';
 
-  @Output() public onClick = new EventEmitter<void>();
+  @Output() public buttonClicked = new EventEmitter<void>();
 }

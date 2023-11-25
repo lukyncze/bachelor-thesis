@@ -2,25 +2,25 @@
   <p class='text-xl font-semibold mb-4'>Current count: {{ count }}</p>
 
   <div class='flex gap-4'>
-    <button-wrapper
+    <counter-button
       [className]="'bg-blue-500 text-white hover:bg-blue-600'"
-      (onClick)="increment()"
+      (buttonClicked)="increment()"
     >
       Increment
-    </button-wrapper>
+    </counter-button>
 
-    <button-wrapper
+    <counter-button
       [className]="'bg-orange-500 text-white hover:bg-orange-600'"
-      (onClick)="decrement()"
+      (buttonClicked)="decrement()"
     >
       Decrement
-    </button-wrapper>
+    </counter-button>
 
-    <button-wrapper
+    <counter-button
       [className]="'bg-gray-500 text-white hover:bg-gray-600'" 
-      (onClick)="reset()"
+      (buttonClicked)="reset()"
     >
       Reset
-    </button-wrapper>
+    </counter-button>
   </div>
 </div>
