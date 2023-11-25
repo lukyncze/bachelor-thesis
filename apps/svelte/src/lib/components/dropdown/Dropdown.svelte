@@ -30,17 +30,17 @@
   };
 
   // TODO: try to make it as a action :)
-  const handleClickOutsideDropdown = ({target}: PointerEvent) => {
+  const handleClickOutsideDropdown = ({target}: MouseEvent) => {
     if (isOpen && dropdownButtonRef && !dropdownButtonRef.contains(target as Node)) {
       isOpen = false;
     }
   };
 
   onMount(() => {
-    document.addEventListener('pointerdown', handleClickOutsideDropdown);
+    document.addEventListener('click', handleClickOutsideDropdown);
 
     return () => {
-      document.removeEventListener('pointerdown', handleClickOutsideDropdown);
+      document.removeEventListener('click', handleClickOutsideDropdown);
     };
   });
 

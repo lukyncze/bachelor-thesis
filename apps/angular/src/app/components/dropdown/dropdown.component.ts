@@ -36,7 +36,7 @@ export class DropdownComponent implements OnInit {
   
   @ViewChild('dropdownButtonRef') buttonRef!: ElementRef<HTMLButtonElement>;
 
-  @HostListener('document:pointerdown', ['$event.target'])
+  @HostListener('document:click', ['$event.target'])
   onClickOutsideDropdown(target: HTMLElement): void {
     if (this.isOpen && !this.buttonRef.nativeElement.contains(target)) {
       this.isOpen = false;

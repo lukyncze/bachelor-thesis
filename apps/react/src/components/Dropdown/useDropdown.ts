@@ -12,17 +12,17 @@ function useDropdown(onChange: (selectedOption: Option | null) => void, defaultV
     onChange(option);
   };
 
-  const handleClickOutsideDropdown = ({target}: PointerEvent) => {
+  const handleClickOutsideDropdown = ({target}: MouseEvent) => {
     if (dropdownButtonRef.current && !dropdownButtonRef.current.contains(target as HTMLElement)) {
       setIsOpen(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener('pointerdown', handleClickOutsideDropdown);
+    document.addEventListener('click', handleClickOutsideDropdown);
 
     return () => {
-      document.removeEventListener('pointerdown', handleClickOutsideDropdown);
+      document.removeEventListener('click', handleClickOutsideDropdown);
     };
   }, []);
 
