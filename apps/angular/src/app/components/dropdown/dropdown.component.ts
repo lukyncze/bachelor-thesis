@@ -38,7 +38,7 @@ export class DropdownComponent {
 
   @HostListener('document:pointerdown', ['$event.target'])
   onClickOutsideDropdown(target: HTMLElement): void {
-    if (!this.buttonRef.nativeElement.contains(target)) {
+    if (this.isOpen && !this.buttonRef.nativeElement.contains(target)) {
       this.isOpen = false;
     }
   }
