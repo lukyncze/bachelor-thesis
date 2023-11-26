@@ -26,7 +26,7 @@ function Dropdown({
   variant = 'primary',
   size = 'md',
 }: DropdownProps) {
-  const {selectedOption, isOpen, setIsOpen, dropdownButtonRef, handleOptionClick} = useDropdown(
+  const {id, selectedOption, isOpen, setIsOpen, dropdownButtonRef, handleOptionClick} = useDropdown(
     onChange,
     defaultValue
   );
@@ -35,7 +35,7 @@ function Dropdown({
   const sizeStyles = dropdownSize[size];
 
   return (
-    <div className='relative inline-block text-left'>
+    <div className='relative inline-block text-left' id={id}>
       <div className='rounded-md shadow-sm'>
         <button
           ref={dropdownButtonRef}

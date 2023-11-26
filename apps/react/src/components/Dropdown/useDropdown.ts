@@ -6,27 +6,31 @@ function useDropdown(onChange: (selectedOption: Option | null) => void, defaultV
   const [isOpen, setIsOpen] = useState(false);
   const dropdownButtonRef = useRef<HTMLButtonElement>(null);
 
+  // Toto ID je třeba nastavit na root element dropdown komponenty
+  const dropdownId = `id-${crypto.randomUUID()}`;
+
   const handleOptionClick = (option: Option) => {
     setSelectedOption(option);
     setIsOpen(false);
     onChange(option);
   };
-
-  const handleClickOutsideDropdown = ({target}: MouseEvent) => {
-    if (dropdownButtonRef.current && !dropdownButtonRef.current.contains(target as HTMLElement)) {
-      setIsOpen(false);
-    }
-  };
-
+  
   useEffect(() => {
-    document.addEventListener('click', handleClickOutsideDropdown);
+    const handleClickOutsideDropdown = ({target}: PointerEvent) => {
+      if (!(target as HTMLElement).closest(`#${dropdownId}`)) {
+        setIsOpen(false);
+      }
+    };
+    
+    document.addEventListener('pointerdown', handleClickOutsideDropdown);
 
     return () => {
-      document.removeEventListener('click', handleClickOutsideDropdown);
+      document.removeEventListener('pointerdown', handleClickOutsideDropdown);
     };
-  }, []);
+  }, [dropdownId]);
 
   return {
+    id: dropdownId,
     selectedOption,
     isOpen,
     setIsOpen,

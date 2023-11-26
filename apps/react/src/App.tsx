@@ -33,7 +33,7 @@ function App() {
       <div className='flex gap-2 justify-center items-center h-20'>
         {dropdownVariants.map(variant => (
           <Dropdown
-            key={variant}
+            key={`${variant}-${size}`}
             options={colors}
             defaultValue={selectedColor}
             placeholder='Select a color'
