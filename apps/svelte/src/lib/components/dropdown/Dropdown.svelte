@@ -21,7 +21,7 @@
 
   let selectedOption: Option | null = defaultValue;
   let isOpen = false;
-  let dropdownButtonRef: HTMLButtonElement;
+  let dropdownId = `id-${crypto.randomUUID()}`;
 
   const handleOptionClick = (option: Option) => {
     selectedOption = option;
@@ -30,17 +30,17 @@
   };
 
   // TODO: try to make it as a action :)
-  const handleClickOutsideDropdown = ({target}: MouseEvent) => {
-    if (isOpen && dropdownButtonRef && !dropdownButtonRef.contains(target as Node)) {
+  const handleClickOutsideDropdown = ({target}: PointerEvent) => {
+    if (isOpen && !(target as HTMLElement).closest(`#${dropdownId}`)) {
       isOpen = false;
     }
   };
 
   onMount(() => {
-    document.addEventListener('click', handleClickOutsideDropdown);
+    document.addEventListener('pointerdown', handleClickOutsideDropdown);
 
     return () => {
-      document.removeEventListener('click', handleClickOutsideDropdown);
+      document.removeEventListener('pointerdown', handleClickOutsideDropdown);
     };
   });
 
@@ -48,12 +48,11 @@
   const sizeStyles = dropdownSize[size];
 </script>
 
-<div class="relative inline-block text-left">
+<div class="relative inline-block text-left" id={dropdownId}>
   <div class="rounded-md shadow-sm">
     <!-- https://chiamakaikeanyi.dev/what-is-event-bubbling-and-capturing-and-how-to-handle-them/ -->
     <!-- https://www.freecodecamp.org/news/a-simplified-explanation-of-event-propagation-in-javascript-f9de7961a06e/ -->
     <button
-      bind:this={dropdownButtonRef}
       type="button"
       class={`inline-flex justify-center items-center w-full rounded-md ${sizeStyles} font-medium focus:outline-none focus:ring-1 focus:ring-offset-0.8 ${buttonStyles}`}
       on:click|stopPropagation={() => (isOpen = !isOpen)}
