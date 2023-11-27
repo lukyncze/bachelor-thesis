@@ -21,6 +21,8 @@
 
   let selectedOption: Option | null = defaultValue;
   let isOpen = false;
+
+  // Toto ID je třeba nastavit na root element dropdown komponenty
   let dropdownId = `id-${crypto.randomUUID()}`;
 
   const handleOptionClick = (option: Option) => {
