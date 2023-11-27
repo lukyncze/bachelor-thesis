@@ -1,10 +1,9 @@
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 import {Option} from "./Dropdown";
 
 function useDropdown(onChange: (selectedOption: Option | null) => void, defaultValue: Option | null) {
   const [selectedOption, setSelectedOption] = useState<Option | null>(defaultValue);
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownButtonRef = useRef<HTMLButtonElement>(null);
 
   // Toto ID je třeba nastavit na root element dropdown komponenty
   const dropdownId = `id-${crypto.randomUUID()}`;
@@ -34,7 +33,6 @@ function useDropdown(onChange: (selectedOption: Option | null) => void, defaultV
     selectedOption,
     isOpen,
     setIsOpen,
-    dropdownButtonRef,
     handleOptionClick,
   };
 }
