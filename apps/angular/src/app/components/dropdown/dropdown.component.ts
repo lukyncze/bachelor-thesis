@@ -1,8 +1,8 @@
 import {CommonModule} from '@angular/common';
 import {Component, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
 import {dropdownSize} from './../../../../../svelte/src/lib/components/dropdown/dropdownSize';
-import {ArrowDownComponent} from "./arrow-down.component";
-import {ArrowUpComponent} from "./arrow-up.component";
+import {ArrowDownComponent} from './arrow-down/arrow-down.component';
+import {ArrowUpComponent} from './arrow-up/arrow-up.component';
 import {DropdownSize} from './dropdownSize';
 import {DropdownVariant, dropdownVariantStyles} from './dropdownVariants';
 
