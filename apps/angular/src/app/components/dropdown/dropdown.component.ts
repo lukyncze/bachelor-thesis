@@ -1,5 +1,5 @@
 import {CommonModule} from '@angular/common';
-import {Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
 import {dropdownSize} from './../../../../../svelte/src/lib/components/dropdown/dropdownSize';
 import {ArrowDownComponent} from "./arrow-down.component";
 import {ArrowUpComponent} from "./arrow-up.component";
@@ -21,6 +21,9 @@ export class DropdownComponent implements OnInit {
   public selectedOption?: Option | null;
   public isOpen = false;
 
+  // Toto ID je třeba nastavit na root element dropdown komponenty
+  protected dropdownId = `id-${crypto.randomUUID()}`;
+
   protected buttonStyles = '';
   protected divStyles = '';
   protected optionStyles = '';
@@ -34,11 +37,9 @@ export class DropdownComponent implements OnInit {
 
   @Output() changeSelected = new EventEmitter<Option>();
   
-  @ViewChild('dropdownButtonRef') buttonRef!: ElementRef<HTMLButtonElement>;
-
-  @HostListener('document:click', ['$event.target'])
+  @HostListener('document:pointerdown', ['$event.target'])
   onClickOutsideDropdown(target: HTMLElement): void {
-    if (this.isOpen && !this.buttonRef.nativeElement.contains(target)) {
+    if (this.isOpen && !target.closest(`#${this.dropdownId}`)) {
       this.isOpen = false;
     }
   }
