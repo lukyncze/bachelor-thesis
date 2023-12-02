@@ -3,6 +3,7 @@ import Counter from './components/Counter';
 import Dropdown, {Option} from './components/Dropdown/Dropdown';
 import {DropdownVariant} from './components/Dropdown/dropdownVariants';
 import {DropdownSize} from './components/Dropdown/dropdownSize';
+import Translator from './components/Translator/Translator';
 
 const dropdownVariants: ReadonlyArray<DropdownVariant> = [
   'primary',
@@ -55,6 +56,8 @@ function App() {
       {renderDropdownComponents('sm')}
       {renderDropdownComponents()}
       {renderDropdownComponents('lg')}
+
+      <Translator />
 
       {/* https://www.youtube.com/watch?v=bAJlYgeovlg */}
     </>
