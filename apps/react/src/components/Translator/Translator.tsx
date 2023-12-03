@@ -71,29 +71,29 @@ function Translator() {
   }, [inputText, outputLanguage]);
 
   return (
-    <>
-      <h2>Translator</h2>
+    <div className='container mx-auto'>
+      <div className='flex border border-b-0 py-1 items-center'>
+        <h3 className='w-1/2 pl-2'>Automatické rozpoznávání jazyka</h3>
 
-      <div className='container mx-auto p-4'>
         <LanguageDropdown
           options={languages}
           onChange={selectedLanguage =>
             selectedLanguage && setOutputLanguage(selectedLanguage.value)
           }
         />
-
-        <div className='flex gap-5'>
-          <TranslationInput inputText={inputText} setInputText={setInputText} />
-
-          <TranslationOutput
-            inputText={inputText}
-            outputText={outputText}
-            loading={loading}
-            error={error}
-          />
-        </div>
       </div>
-    </>
+
+      <div className='flex text-xl'>
+        <TranslationInput inputText={inputText} setInputText={setInputText} />
+
+        <TranslationOutput
+          inputText={inputText}
+          outputText={outputText}
+          loading={loading}
+          error={error}
+        />
+      </div>
+    </div>
   );
 }
 
