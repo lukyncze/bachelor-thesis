@@ -1,5 +1,5 @@
-import {arrowUp} from '../../assets/svg/arrow-up';
-import {arrowDown} from '../../assets/svg/arrow-down';
+import {arrowUpIcon} from '../../assets/svg/arrow-up';
+import {arrowDownIcon} from '../../assets/svg/arrow-down';
 import {DropdownVariant, dropdownVariantStyles} from './dropdownVariants';
 import useDropdown from './useDropdown';
 import {DropdownSize, dropdownSize} from './dropdownSize';
@@ -46,7 +46,7 @@ function Dropdown({
           }}
         >
           {selectedOption ? selectedOption.label : placeholder}
-          {isOpen ? arrowUp : arrowDown}
+          {isOpen ? arrowUpIcon : arrowDownIcon}
         </button>
       </div>
 

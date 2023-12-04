@@ -29,6 +29,7 @@ function Translator() {
       abortControllerRef.current = new AbortController();
       setLoading(true);
 
+      const parsedInputText = inputText.replace(/\n/g, ' ');
       const url = `${import.meta.env.VITE_RAPID_API_BASE_URL}${outputLanguage}${
         import.meta.env.VITE_RAPID_API_QUERY_PARAMS
       }`;
@@ -39,7 +40,7 @@ function Translator() {
           'X-RapidAPI-Key': import.meta.env.VITE_RAPID_API_KEY,
           'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com',
         },
-        body: `[{"Text":"${inputText}"}]`,
+        body: `[{"Text":"${parsedInputText}"}]`,
         signal: abortControllerRef.current?.signal,
       };
 
@@ -47,7 +48,7 @@ function Translator() {
         const response = await fetch(url, options);
 
         if (!response.ok) {
-          throw new Error(`Something went wrong: ${response.status} Error`);
+          throw new Error(`Something went wrong: ${response.status} Error. Please reload the page.`);
         }
 
         const result = await response.json();
