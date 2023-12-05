@@ -1,11 +1,11 @@
 import Dropdown, {Option} from '../Dropdown/Dropdown';
 
-interface LanguageDropdown {
+interface LanguageDropdownProps {
   options: ReadonlyArray<Option>;
   onChange: (selectedLanguage: Option | null) => void;
 }
 
-function LanguageDropdown({options, onChange}: LanguageDropdown) {
+function LanguageDropdown({options, onChange}: LanguageDropdownProps) {
   return (
     <Dropdown
       key='language-dropdown'

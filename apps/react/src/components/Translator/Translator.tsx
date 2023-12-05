@@ -48,7 +48,9 @@ function Translator() {
         const response = await fetch(url, options);
 
         if (!response.ok) {
-          throw new Error(`Something went wrong: ${response.status} Error. Please reload the page.`);
+          throw new Error(
+            `Something went wrong: ${response.status} Error. Please reload the page.`
+          );
         }
 
         const result = await response.json();
