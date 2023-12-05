@@ -29,7 +29,7 @@ function Translator() {
       abortControllerRef.current = new AbortController();
       setLoading(true);
 
-      const parsedInputText = inputText.replace(/\n/g, ' ');
+      const parsedInputText = inputText.replace(/\n/g, '');
       const url = `${import.meta.env.VITE_RAPID_API_BASE_URL}${outputLanguage}${
         import.meta.env.VITE_RAPID_API_QUERY_PARAMS
       }`;
