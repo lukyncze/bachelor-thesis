@@ -5,7 +5,6 @@ const useAutosizeTextArea = (
   textAreaRef: HTMLTextAreaElement | null,
   value: string
 ) => {
-  console.log(`dsadadsa`)
   useEffect(() => {
     if (textAreaRef) {
       // We need to reset the height momentarily to get the correct scrollHeight for the textarea
