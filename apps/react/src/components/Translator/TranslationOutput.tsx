@@ -25,6 +25,7 @@ function TranslationOutput(props: TranslationOutputProps) {
 
   useAutosizeTextArea(textAreaRef.current, outputText);
 
+  // Po zkopírování by na uživatele mohla vyskočit nějaká hláška (pop-up)
   const handleCopyClick = () => navigator.clipboard.writeText(outputText);
 
   return (

@@ -21,3 +21,6 @@ export default useAutosizeTextArea;
 
 // https://medium.com/@oherterich/creating-a-textarea-with-dynamic-height-using-react-and-typescript-5ed2d78d9848
 // https://codesandbox.io/s/autosize-textarea-owwtu?from-embed=&file=/src/useAutosizeTextArea.ts
+
+// V převzatém zdrojovém kódu označovat jeho modifikace
+// V textu dokumentu okomentovat co jsem změnil a z jakého důvodu...
