@@ -9,7 +9,10 @@ export type DropdownVariant =
   | 'warning'
   | 'error';
 
-export const dropdownVariantStyles: Record<DropdownVariant, {buttonStyles: string; divStyles: string; optionStyles: string}> = {
+export const dropdownVariantStyles: Record<
+  DropdownVariant,
+  {buttonStyles: string; divStyles: string; optionStyles: string}
+> = {
   primary: {
     buttonStyles: 'bg-blue-700 text-white hover:bg-blue-900 focus:ring-blue-800',
     divStyles: 'ring-blue-700',

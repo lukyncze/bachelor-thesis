@@ -12,10 +12,10 @@ export interface Option {
 }
 
 @Component({
-    selector: 'dropdown',
-    standalone: true,
-    templateUrl: './dropdown.component.html',
-    imports: [CommonModule, ArrowDownComponent, ArrowUpComponent]
+  selector: 'dropdown',
+  standalone: true,
+  templateUrl: './dropdown.component.html',
+  imports: [CommonModule, ArrowDownComponent, ArrowUpComponent],
 })
 export class DropdownComponent implements OnInit {
   public selectedOption?: Option | null;
@@ -28,7 +28,7 @@ export class DropdownComponent implements OnInit {
   protected divStyles = '';
   protected optionStyles = '';
   protected sizeStyles = '';
-  
+
   @Input() options: ReadonlyArray<Option> = [];
   @Input() defaultValue: Option | null = null;
   @Input() placeholder = 'Select an option';
@@ -36,16 +36,16 @@ export class DropdownComponent implements OnInit {
   @Input() size: DropdownSize = 'md';
 
   @Output() changeSelected = new EventEmitter<Option>();
-  
+
   @HostListener('document:pointerdown', ['$event.target'])
   onClickOutsideDropdown(target: HTMLElement): void {
     if (this.isOpen && !target.closest(`#${this.dropdownId}`)) {
       this.isOpen = false;
     }
   }
-  
+
   constructor() {}
-  
+
   public ngOnInit(): void {
     this.selectedOption = this.defaultValue;
     this.getDropdownStyles();
@@ -59,13 +59,13 @@ export class DropdownComponent implements OnInit {
   protected handleOptionClick(option: Option): void {
     this.selectedOption = option;
     this.isOpen = false;
-    this.changeSelected.emit(option)
+    this.changeSelected.emit(option);
   }
 
   private getDropdownStyles(): void {
     const {buttonStyles, divStyles, optionStyles} = dropdownVariantStyles[this.variant];
     this.buttonStyles = buttonStyles;
-    this.divStyles = divStyles
+    this.divStyles = divStyles;
     this.optionStyles = optionStyles;
     this.sizeStyles = dropdownSize[this.size];
   }

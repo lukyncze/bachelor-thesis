@@ -7,10 +7,9 @@ describe('CounterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CounterComponent]
-    })
-    .compileComponents();
-    
+      imports: [CounterComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(CounterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

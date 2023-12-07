@@ -11,7 +11,11 @@
     </button>
   </div>
 
-  <div *ngIf="isOpen" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-opacity-100 z-10" [ngClass]="divStyles">
+  <div
+    *ngIf="isOpen"
+    class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-opacity-100 z-10"
+    [ngClass]="divStyles"
+  >
     <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
       <button
         *ngFor="let option of options"

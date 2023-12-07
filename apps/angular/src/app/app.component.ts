@@ -1,16 +1,16 @@
 import {CommonModule} from '@angular/common';
 import {Component} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
-import {CounterComponent} from "./components/counter/counter.component";
+import {CounterComponent} from './components/counter/counter.component';
 import {DropdownComponent, Option} from './components/dropdown/dropdown.component';
 import {DropdownSize} from './components/dropdown/dropdownSize';
 import {DropdownVariant} from './components/dropdown/dropdownVariants';
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    imports: [CommonModule, RouterOutlet, CounterComponent, DropdownComponent]
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+  imports: [CommonModule, RouterOutlet, CounterComponent, DropdownComponent],
 })
 export class AppComponent {
   protected dropdownVariants: ReadonlyArray<DropdownVariant> = [
