@@ -5,12 +5,13 @@ import {CounterComponent} from './components/counter/counter.component';
 import {DropdownComponent, Option} from './components/dropdown/dropdown.component';
 import {DropdownSize} from './components/dropdown/dropdownSize';
 import {DropdownVariant} from './components/dropdown/dropdownVariants';
+import {TranslatorComponent} from './components/translator/translator.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  imports: [CommonModule, RouterOutlet, CounterComponent, DropdownComponent],
+  imports: [CommonModule, RouterOutlet, CounterComponent, DropdownComponent, TranslatorComponent],
 })
 export class AppComponent {
   protected dropdownVariants: ReadonlyArray<DropdownVariant> = [
