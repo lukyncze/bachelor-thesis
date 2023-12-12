@@ -1,0 +1,23 @@
+<div class="container mx-auto">
+  <div class="flex border border-b-0 py-1 items-center">
+    <h3 class="w-1/2 pl-2">Automatické rozpoznávání jazyka</h3>
+
+    <language-dropdown [options]="languages" (languageChange)="handleLanguageChange($event)" />
+  </div>
+
+  <div class="flex text-xl">
+    <translation-input
+      [inputText]="inputText"
+      (setInputText)="handleInputTextChange($event)"
+      class="relative w-1/2"
+    />
+
+    <translation-output
+      [inputText]="inputText"
+      [outputText]="outputText"
+      [loading]="loading"
+      [error]="error"
+      class="relative w-1/2"
+    />
+  </div>
+</div>
