@@ -1,5 +1,5 @@
 import {CommonModule} from '@angular/common';
-import {Component, ElementRef, EventEmitter, Input, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {AutosizeTextAreaDirective} from '../autosize-text-area/autosize-text-area.directive';
 import {CloseIconComponent} from './close-icon/close-icon.component';
 
@@ -15,8 +15,6 @@ export class TranslationInputComponent {
   @Input() public inputText = '';
 
   @Output() public setInputText = new EventEmitter<string>();
-
-  @ViewChild('textAreaRef') textAreaRef!: ElementRef;
 
   protected handleInputChange(event: Event): void {
     const target = event.target as HTMLTextAreaElement;

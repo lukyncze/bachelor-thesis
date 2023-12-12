@@ -1,5 +1,5 @@
 import {CommonModule} from '@angular/common';
-import {Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {AutosizeTextAreaDirective} from '../autosize-text-area/autosize-text-area.directive';
 import {CopyIconComponent} from './copy-icon/copy-icon.component';
 
@@ -14,8 +14,6 @@ export class TranslationOutputComponent {
   @Input() outputText = '';
   @Input() loading = false;
   @Input() error: Error | null = null;
-
-  @ViewChild('textAreaRef') textAreaRef!: ElementRef;
 
   protected get value(): string {
     if (this.error) return this.error.message;
