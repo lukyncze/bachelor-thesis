@@ -1,9 +1,9 @@
 import {CommonModule} from '@angular/common';
 import {Component} from '@angular/core';
-import {Subject, debounceTime, distinctUntilChanged} from 'rxjs';
+import {Subject, catchError, debounceTime, distinctUntilChanged, throwError} from 'rxjs';
 import {Option} from '../dropdown/dropdown.component';
 import {LanguageDropdownComponent} from './language-dropdown/language-dropdown.component';
-import {languages as predefinedLanguages} from './languages';
+import {languages as availableLanguages} from './languages';
 import {TranslationInputComponent} from './translation-input/translation-input.component';
 import {TranslationOutputComponent} from './translation-output/translation-output.component';
 import {TranslationService} from './translation/translation.service';
@@ -22,7 +22,7 @@ import {TranslationService} from './translation/translation.service';
 export class TranslatorComponent {
   private inputValuesChanges = new Subject<string>();
 
-  protected languages: ReadonlyArray<Option> = predefinedLanguages;
+  protected languages: ReadonlyArray<Option> = availableLanguages;
   protected inputText = '';
   protected outputText = '';
   protected outputLanguage = this.languages[0].value;
@@ -50,10 +50,22 @@ export class TranslatorComponent {
   }
 
   private triggerTranslation(): void {
-    this.translationService.getTranslation(this.inputText, this.outputLanguage).subscribe({
-      next: response => (this.outputText = response),
-      error: (error: Error) => (this.error = error),
-      complete: () => (this.loading = false),
-    });
+    this.loading = true;
+
+    this.translationService
+      .getTranslation(this.inputText, this.outputLanguage)
+      .pipe(catchError(error => this.handleError(error)))
+      .subscribe({
+        next: response => (this.outputText = response),
+        error: error => (this.error = error),
+        complete: () => (this.loading = false),
+      });
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private handleError(error: any) {
+    return throwError(
+      () => new Error(`Something went wrong: ${error.status} Error. Please reload the page.`),
+    );
   }
 }

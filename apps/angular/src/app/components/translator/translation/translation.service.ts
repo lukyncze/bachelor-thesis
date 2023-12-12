@@ -1,46 +1,23 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable, map} from 'rxjs';
-
-type TranslationResponseData = ReadonlyArray<TranslationResponse>;
-
-interface TranslationResponse {
-  detectedLanguage: DetectedLanguage;
-  translations: ReadonlyArray<Translation>;
-}
-
-interface DetectedLanguage {
-  language: string;
-  score: number;
-}
-
-interface Translation {
-  text: string;
-  to: string;
-}
+import {environment} from '../../../../environments/environment';
+import {RequestOptions, TranslationResponseData} from './types';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TranslationService {
-  private static url = 'https://microsoft-translator-text.p.rapidapi.com/translate?to%5B0%5D=';
-  private static queryParams = '&api-version=3.0&profanityAction=NoAction&textType=plain';
-  private static apiKey = '207660cac7msh7d9d993dff8c7b9p108d1ejsnb2600aa8c815';
+  private static url = environment.translatorApiUrl;
+  private static queryParams = environment.translatorApiQueryParams;
+  private static apiKey = environment.translatorApiKey;
 
   constructor(private readonly httpClient: HttpClient) {}
 
   public getTranslation(inputText: string, outputLanguage: string): Observable<string> {
-    const parsedInputText = inputText.replace(/\n/g, '');
-    const url = `${TranslationService.url}${outputLanguage}${TranslationService.queryParams}`;
-    const body = `[{"Text":"${parsedInputText}"}]`;
-    const options = {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'X-RapidAPI-Key': TranslationService.apiKey,
-        'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com',
-      },
-    };
+    const url = this.getRequestApiUrl(outputLanguage);
+    const body = this.getRequestBody(inputText);
+    const options = this.getRequestOptions();
 
     return this.httpClient
       .post<TranslationResponseData>(url, body, options)
@@ -49,5 +26,28 @@ export class TranslationService {
 
   private convertToOutputText(data: TranslationResponseData): string {
     return data[0].translations[0].text;
+  }
+
+  private getRequestApiUrl(outputLanguage: string): string {
+    return `${TranslationService.url}${outputLanguage}${TranslationService.queryParams}`;
+  }
+
+  private getRequestBody(inputText: string): string {
+    return `[{"Text":"${this.getParsedInputText(inputText)}"}]`;
+  }
+
+  private getParsedInputText(inputText: string): string {
+    return inputText.replace(/\n/g, ' ');
+  }
+
+  private getRequestOptions(): RequestOptions {
+    return {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'X-RapidAPI-Key': TranslationService.apiKey,
+        'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com',
+      },
+    };
   }
 }
