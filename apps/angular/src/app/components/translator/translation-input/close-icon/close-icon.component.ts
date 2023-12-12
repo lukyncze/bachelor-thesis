@@ -6,5 +6,5 @@ import {Component, Input} from '@angular/core';
   templateUrl: './close-icon.component.html',
 })
 export class CloseIconComponent {
-  @Input() protected className = 'w-5 h-5 ml-1';
+  @Input() protected className = 'w-6 h-6';
 }
