@@ -37,7 +37,7 @@ export class TranslationService {
   }
 
   private getParsedInputText(inputText: string): string {
-    return inputText.replace(/\n/g, ' ');
+    return inputText.replace(/\n/g, '');
   }
 
   private getRequestOptions(): RequestOptions {
