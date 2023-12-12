@@ -1,12 +1,13 @@
 import {CommonModule} from '@angular/common';
 import {Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {AutosizeTextAreaDirective} from '../autosize-text-area/autosize-text-area.directive';
 import {CopyIconComponent} from './copy-icon/copy-icon.component';
 
 @Component({
   selector: 'translation-output',
   standalone: true,
   templateUrl: './translation-output.component.html',
-  imports: [CommonModule, CopyIconComponent],
+  imports: [CommonModule, CopyIconComponent, AutosizeTextAreaDirective],
 })
 export class TranslationOutputComponent {
   @Input() inputText = '';

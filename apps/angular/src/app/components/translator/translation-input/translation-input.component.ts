@@ -1,12 +1,13 @@
 import {CommonModule} from '@angular/common';
 import {Component, ElementRef, EventEmitter, Input, Output, ViewChild} from '@angular/core';
+import {AutosizeTextAreaDirective} from '../autosize-text-area/autosize-text-area.directive';
 import {CloseIconComponent} from './close-icon/close-icon.component';
 
 @Component({
   selector: 'translation-input',
   standalone: true,
   templateUrl: './translation-input.component.html',
-  imports: [CommonModule, CloseIconComponent],
+  imports: [CommonModule, CloseIconComponent, AutosizeTextAreaDirective],
 })
 export class TranslationInputComponent {
   protected maximumCharactersCount = 800;
