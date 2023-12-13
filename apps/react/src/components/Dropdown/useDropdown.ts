@@ -31,13 +31,7 @@ function useDropdown(
     };
   }, [dropdownId]);
 
-  return {
-    id: dropdownId,
-    selectedOption,
-    isOpen,
-    setIsOpen,
-    handleOptionClick,
-  };
+  return [dropdownId, selectedOption, isOpen, setIsOpen, handleOptionClick] as const;
 }
 
 export default useDropdown;

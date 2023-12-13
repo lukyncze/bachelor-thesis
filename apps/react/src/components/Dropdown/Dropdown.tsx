@@ -26,7 +26,7 @@ function Dropdown({
   variant = 'primary',
   size = 'md',
 }: DropdownProps) {
-  const {id, selectedOption, isOpen, setIsOpen, handleOptionClick} = useDropdown(
+  const [id, selectedOption, isOpen, setIsOpen, handleOptionClick] = useDropdown(
     onChange,
     defaultValue,
   );
