@@ -8,15 +8,14 @@ interface LanguageDropdownProps {
 function LanguageDropdown({options, onChange}: LanguageDropdownProps) {
   return (
     <Dropdown
-      key='language-dropdown'
+      key="language-dropdown"
       options={options}
       defaultValue={options[0]}
-      placeholder='Select a language for translation'
+      placeholder="Select a language for translation"
       onChange={onChange}
-      variant='secondary'
+      variant="secondary"
     />
   );
 }
 
 export default LanguageDropdown;
-

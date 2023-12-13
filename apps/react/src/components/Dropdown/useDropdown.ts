@@ -1,7 +1,10 @@
-import {useEffect, useState} from "react";
-import {Option} from "./Dropdown";
+import {useEffect, useState} from 'react';
+import {Option} from './Dropdown';
 
-function useDropdown(onChange: (selectedOption: Option | null) => void, defaultValue: Option | null) {
+function useDropdown(
+  onChange: (selectedOption: Option | null) => void,
+  defaultValue: Option | null,
+) {
   const [selectedOption, setSelectedOption] = useState<Option | null>(defaultValue);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -13,14 +16,14 @@ function useDropdown(onChange: (selectedOption: Option | null) => void, defaultV
     setIsOpen(false);
     onChange(option);
   };
-  
+
   useEffect(() => {
     const handleClickOutsideDropdown = ({target}: PointerEvent) => {
       if (!(target as HTMLElement).closest(`#${dropdownId}`)) {
         setIsOpen(false);
       }
     };
-    
+
     document.addEventListener('pointerdown', handleClickOutsideDropdown);
 
     return () => {
@@ -37,4 +40,4 @@ function useDropdown(onChange: (selectedOption: Option | null) => void, defaultV
   };
 }
 
-export default useDropdown
+export default useDropdown;
