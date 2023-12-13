@@ -1,9 +1,9 @@
-<script lang="ts" context="module">
+<!-- <script lang="ts" context="module">
   export interface Option {
     label: string;
     value: string;
   }
-</script>
+</script> -->
 
 <script lang="ts">
   import {onMount} from 'svelte';
@@ -11,8 +11,9 @@
   import ArrowDown from './ArrowDown.svelte';
   import {dropdownVariantStyles, type DropdownVariant} from './dropdownVariants';
   import {dropdownSize, type DropdownSize} from './dropdownSize';
+  import {type Option} from './types';
 
-  export let options: Option[];
+  export let options: ReadonlyArray<Option>;
   export let onChange: (selectedOption: Option | null) => void;
   export let defaultValue: Option | null = null;
   export let placeholder = 'Select an option';
