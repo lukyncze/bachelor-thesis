@@ -28,17 +28,17 @@ function Dropdown({
 }: DropdownProps) {
   const {id, selectedOption, isOpen, setIsOpen, handleOptionClick} = useDropdown(
     onChange,
-    defaultValue
+    defaultValue,
   );
 
   const {buttonStyles, divStyles, optionStyles} = dropdownVariantStyles[variant];
   const sizeStyles = dropdownSize[size];
 
   return (
-    <div className='relative inline-block text-left' id={id}>
-      <div className='rounded-md shadow-sm'>
+    <div className="relative inline-block text-left" id={id}>
+      <div className="rounded-md shadow-sm">
         <button
-          type='button'
+          type="button"
           className={`inline-flex justify-center items-center w-full rounded-md ${sizeStyles} font-medium focus:outline-none focus:ring-1 focus:ring-offset-0.8 ${buttonStyles}`}
           onClick={event => {
             event.stopPropagation();
@@ -55,16 +55,16 @@ function Dropdown({
           className={`origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-opacity-100 z-10 ${divStyles}`}
         >
           <div
-            className='py-1'
-            role='menu'
-            aria-orientation='vertical'
-            aria-labelledby='options-menu'
+            className="py-1"
+            role="menu"
+            aria-orientation="vertical"
+            aria-labelledby="options-menu"
           >
             {options.map(option => (
               <button
                 key={option.value}
                 className={`block w-full text-left px-4 py-2 text-sm hover:text-gray-900 ${optionStyles}`}
-                role='menuitem'
+                role="menuitem"
                 onClick={() => handleOptionClick(option)}
               >
                 {option.label}
@@ -78,4 +78,3 @@ function Dropdown({
 }
 
 export default Dropdown;
-

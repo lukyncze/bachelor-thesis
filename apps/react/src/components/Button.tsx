@@ -13,4 +13,3 @@ function Button({className, onClick, children}: ButtonProps): JSX.Element {
 }
 
 export default Button;
-

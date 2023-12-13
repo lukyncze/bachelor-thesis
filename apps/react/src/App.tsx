@@ -31,13 +31,13 @@ function App() {
 
   const renderDropdownComponents = (size: DropdownSize = 'md') => {
     return (
-      <div className='flex gap-2 justify-center items-center h-20'>
+      <div className="flex gap-2 justify-center items-center h-20">
         {dropdownVariants.map(variant => (
           <Dropdown
             key={`${variant}-${size}`}
             options={colors}
             defaultValue={selectedColor}
-            placeholder='Select a color'
+            placeholder="Select a color"
             onChange={selectedColor => setSelectedColor(selectedColor)}
             variant={variant}
             size={size}
@@ -65,4 +65,3 @@ function App() {
 }
 
 export default App;
-

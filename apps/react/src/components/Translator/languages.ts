@@ -1,4 +1,4 @@
-import {Option} from "../Dropdown/Dropdown";
+import {Option} from '../Dropdown/Dropdown';
 
 export const languages: ReadonlyArray<Option> = [
   {label: 'English', value: 'en'},
