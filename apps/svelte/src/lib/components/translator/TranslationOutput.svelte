@@ -1,6 +1,7 @@
 <script lang="ts">
   import {beforeUpdate} from 'svelte';
   import CopyIcon from './CopyIcon.svelte';
+  import {autoresizeTextArea} from './autoresizeTextArea';
 
   export let inputText: string;
   export let outputText: string;
@@ -28,9 +29,9 @@
 
 <div class="relative w-1/2">
   <div class="border h-full bg-gray-100">
-    <!-- ref... -->
     <textarea
       bind:value
+      use:autoresizeTextArea
       {placeholder}
       class="block w-full min-h-0 p-3 pr-12 pb-8 resize-none bg-inherit !outline-none"
       readonly

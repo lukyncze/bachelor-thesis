@@ -1,5 +1,6 @@
 <script lang="ts">
   import CloseIcon from './CloseIcon.svelte';
+  import {autoresizeTextArea} from './autoresizeTextArea';
 
   export let inputText: string;
 
@@ -8,9 +9,9 @@
 
 <div class="relative w-1/2">
   <div class="border h-full">
-    <!-- ref... -->
     <textarea
       bind:value={inputText}
+      use:autoresizeTextArea
       class="block w-full min-h-0 p-3 pr-12 pb-8 resize-none !outline-none"
       placeholder="Type to translate ..."
     />
