@@ -1,8 +1,10 @@
 <script lang="ts">
   import Counter from './lib/components/Counter.svelte';
-  import Dropdown, {type Option} from './lib/components/dropdown/Dropdown.svelte';
-  import type {DropdownSize} from './lib/components/dropdown/dropdownSize';
+  import Dropdown from './lib/components/dropdown/Dropdown.svelte';
+  import {type DropdownSize} from './lib/components/dropdown/dropdownSize';
   import {type DropdownVariant} from './lib/components/dropdown/dropdownVariants';
+  import {type Option} from './lib/components/dropdown/types';
+  import Translator from './lib/components/translator/Translator.svelte';
 
   const dropdownVariants: ReadonlyArray<DropdownVariant> = [
     'primary',
@@ -49,4 +51,6 @@
       {/each}
     </div>
   {/each}
+
+  <Translator />
 </main>
