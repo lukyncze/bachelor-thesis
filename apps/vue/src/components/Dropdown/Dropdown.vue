@@ -24,7 +24,9 @@ const props = withDefaults(defineProps<Props>(), {
 
 const selectedOption = ref<Option | null>(props.defaultValue);
 const isOpen = ref(false);
-const dropdownRef = ref<HTMLDivElement | null>(null);
+
+// Toto ID je třeba nastavit na root element dropdown komponenty
+const dropdownId = `id-${crypto.randomUUID()}`;
 
 const handleOptionClick = (option: Option) => {
   selectedOption.value = option;
@@ -32,23 +34,22 @@ const handleOptionClick = (option: Option) => {
   props.onChange(option);
 };
 
-const handleClickOutsideDropdown = (event: MouseEvent) => {
-  if (isOpen.value && dropdownRef.value && !dropdownRef.value.contains(event.target as Node)) {
+const handleClickOutsideDropdown = ({target}: PointerEvent) => {
+  if (!(target as HTMLElement).closest(`#${dropdownId}`)) {
     isOpen.value = false;
   }
 };
 
-onMounted(() => document.addEventListener('click', handleClickOutsideDropdown));
+onMounted(() => document.addEventListener('pointerdown', handleClickOutsideDropdown));
 
-onBeforeUnmount(() => document.removeEventListener('click', handleClickOutsideDropdown));
+onBeforeUnmount(() => document.removeEventListener('pointerdown', handleClickOutsideDropdown));
 
 const {buttonStyles, divStyles, optionStyles} = dropdownVariantStyles[props.variant];
 const sizeStyles = dropdownSize[props.size];
 </script>
 
 <template>
-  <!-- TODO: Fix bug with event bubbling -->
-  <div class="relative inline-block text-left" ref="dropdownRef">
+  <div class="relative inline-block text-left" :id="dropdownId">
     <div class="rounded-md shadow-sm">
       <button
         type="button"
