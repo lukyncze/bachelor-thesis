@@ -40,7 +40,7 @@ function TranslationOutput(props: TranslationOutputProps) {
         />
       </div>
 
-      {inputText.length ? (
+      {inputText.length && outputText.length ? (
         <button
           onClick={handleCopyClick}
           className="absolute bottom-2 right-2 text-gray-500 text-sm p-1.5 hover:bg-gray-200"
