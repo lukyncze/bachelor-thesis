@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {afterUpdate, onDestroy} from 'svelte';
+  import {onDestroy} from 'svelte';
   import LanguageDropdown from './LanguageDropdown.svelte';
   import TranslationInput from './TranslationInput.svelte';
   import TranslationOutput from './TranslationOutput.svelte';
@@ -14,8 +14,6 @@
   let abortController: AbortController | null = null;
   let delayTimer: number;
 
-  // maybe beforeUpdate / afterUpdate would do the same thing...
-  // https://svelte.dev/docs/svelte#beforeupdate
   $: {
     if (inputText.length && outputLanguage) {
       clearTimeout(delayTimer);
@@ -23,10 +21,6 @@
       delayTimer = setTimeout(() => handleTranslation(), 300);
     }
   }
-
-  afterUpdate(() => {
-    return () => clearTimeout(delayTimer);
-  });
 
   onDestroy(() => {
     clearTimeout(delayTimer);
