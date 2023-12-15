@@ -1,9 +1,7 @@
 import {useState} from 'react';
-import Counter from './components/Counter';
-import Dropdown, {Option} from './components/Dropdown/Dropdown';
-import {DropdownVariant} from './components/Dropdown/dropdownVariants';
-import {DropdownSize} from './components/Dropdown/dropdownSize';
-import Translator from './components/Translator/Translator';
+import {DropdownSize} from '../components/Dropdown/dropdownSize';
+import Dropdown, {Option} from '../components/Dropdown/Dropdown';
+import {DropdownVariant} from '../components/Dropdown/dropdownVariants';
 
 const dropdownVariants: ReadonlyArray<DropdownVariant> = [
   'primary',
@@ -26,7 +24,7 @@ const colors = [
   {label: 'Beige', value: '#F5F5DC'},
 ];
 
-function App() {
+function DropdownWrapper() {
   const [selectedColor, setSelectedColor] = useState<Option | null>(null);
 
   const renderDropdownComponents = (size: DropdownSize = 'md') => {
@@ -49,19 +47,11 @@ function App() {
 
   return (
     <>
-      <h1>React Landing Page</h1>
-
-      <Counter />
-
       {renderDropdownComponents('sm')}
       {renderDropdownComponents()}
       {renderDropdownComponents('lg')}
-
-      <Translator />
-
-      {/* https://www.youtube.com/watch?v=bAJlYgeovlg */}
     </>
   );
 }
 
-export default App;
+export default DropdownWrapper;
