@@ -1,31 +1,8 @@
 import {useEffect, useState} from 'react';
-import {Link, useLocation} from 'react-router-dom';
+import {Link, NavLink, useLocation} from 'react-router-dom';
 import {moonIcon} from '../../assets/svg/moon';
 import {sunIcon} from '../../assets/svg/sun';
-
-interface RouteLink {
-  text: string;
-  to: string;
-}
-
-const links: ReadonlyArray<RouteLink> = [
-  {
-    text: 'Home',
-    to: '/',
-  },
-  {
-    text: 'Counter',
-    to: '/counter',
-  },
-  {
-    text: 'Dropdown',
-    to: '/dropdown',
-  },
-  {
-    text: 'Translator',
-    to: '/translator',
-  },
-];
+import {appRoutes} from '../../routes/appRoutes';
 
 function Header() {
   const userModePreference = localStorage.getItem('data-mode') ? true : false;
@@ -106,22 +83,22 @@ function Header() {
             }`}
           >
             <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-              {links.map(link => (
-                <li key={link.to}>
-                  <Link
-                    to={link.to}
-                    className={
+              {appRoutes.map(route => (
+                <li key={route.name}>
+                  <NavLink
+                    to={route.path}
+                    className={({isActive}) =>
                       'block py-2 pr-4' +
                       `${
-                        link.to === currentPathName
+                        isActive
                           ? ' pl-3 text-white rounded bg-blue-700 lg:bg-transparent lg:text-blue-700 lg:p-0 dark:text-white'
                           : ' pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700'
                       }`
                     }
-                    {...(link.to === currentPathName ? {'aria-current': 'page'} : {})}
+                    {...(route.path === currentPathName ? {'aria-current': 'page'} : {})}
                   >
-                    {link.text}
-                  </Link>
+                    {route.name}
+                  </NavLink>
                 </li>
               ))}
             </ul>

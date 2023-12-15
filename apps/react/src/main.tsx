@@ -1,26 +1,28 @@
 import './index.css';
 import {StrictMode} from 'react';
 import {createRoot} from 'react-dom/client';
-import AppLayout from './AppLayout.tsx';
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import Landing from './pages/Landing.tsx';
+import AppLayout from './pages/AppLayout.tsx';
 import ErrorPage from './pages/ErrorPage.tsx';
-import Counter from './pages/Counter.tsx';
-import DropdownWrapper from './pages/DropdownWrapper.tsx';
-import Translator from './components/Translator/Translator.tsx';
+import {appRoutes} from './routes/appRoutes.ts';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<AppLayout />} errorElement={<ErrorPage />}>
-      <Route index element={<Landing />} />
-      <Route path="counter" element={<Counter />} />
-      <Route path="dropdown" element={<DropdownWrapper />} />
-      <Route path="translator" element={<Translator />} />
+      {appRoutes.map(route => (
+        <Route
+          key={route.name}
+          index={route.index}
+          path={route.path}
+          Component={route.component}
+          caseSensitive
+        />
+      ))}
     </Route>,
   ),
 );
