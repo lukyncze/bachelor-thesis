@@ -1,0 +1,14 @@
+@for (size of sizes; track size) {
+  <div class="flex gap-2 justify-center items-center h-20">
+    @for (variant of dropdownVariants; track variant) {
+      <dropdown
+        [options]="colors"
+        [defaultValue]="selectedColor"
+        placeholder="Select a color"
+        (changeSelected)="handleChangeSelected($event)"
+        [variant]="variant"
+        [size]="size"
+      />
+    }
+  </div>
+}
