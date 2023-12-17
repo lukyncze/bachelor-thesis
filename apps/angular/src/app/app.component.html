@@ -1,21 +1,9 @@
-<main class="main">
-  <h1>Angular Landing Page</h1>
+<div class="min-h-screen flex flex-col">
+  <app-header />
 
-  <counter />
+  <main class="flex-grow p-8">
+    <router-outlet></router-outlet>
+  </main>
 
-  <div *ngFor="let size of sizes" class="flex gap-2 justify-center items-center h-20">
-    <dropdown
-      *ngFor="let variant of dropdownVariants"
-      [options]="colors"
-      [defaultValue]="selectedColor"
-      placeholder="Select a color"
-      (changeSelected)="handleChangeSelected($event)"
-      [variant]="variant"
-      [size]="size"
-    />
-  </div>
-
-  <translator />
-</main>
-
-<router-outlet></router-outlet>
+  <app-footer />
+</div>
