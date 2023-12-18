@@ -40,6 +40,12 @@
 \contentsline {subsubsection}{\numberline {2.4.8}Ekosystém}{18}{subsubsection.2.4.8}%
 \contentsline {subsection}{\numberline {2.5}Porovnání}{18}{subsection.2.5}%
 \contentsline {section}{\numberline {3}Testování frameworků}{19}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Analýza a návrh testových úloh}{19}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Demonstrační aplikace}{19}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Angular}{19}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}React}{19}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Svelte}{19}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Testování aplikací a výsledky}{20}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Ukázková kapitola}{20}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Struktura a formát}{20}{subsection.4.1}%
 \contentsline {subsubsection}{\numberline {4.1.1}Jak strukturovat práci}{20}{subsubsection.4.1.1}%
