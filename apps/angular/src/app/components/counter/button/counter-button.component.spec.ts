@@ -1,16 +1,16 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {ButtonWrapperComponent} from './counter-button.component';
+import {CounterButtonComponent} from './counter-button.component';
 
-describe('ButtonComponent', () => {
-  let component: ButtonWrapperComponent;
-  let fixture: ComponentFixture<ButtonWrapperComponent>;
+describe('CounterButtonComponent', () => {
+  let component: CounterButtonComponent;
+  let fixture: ComponentFixture<CounterButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ButtonWrapperComponent],
+      imports: [CounterButtonComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ButtonWrapperComponent);
+    fixture = TestBed.createComponent(CounterButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

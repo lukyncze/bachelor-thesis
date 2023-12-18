@@ -7,7 +7,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   templateUrl: './counter-button.component.html',
   imports: [CommonModule],
 })
-export class ButtonWrapperComponent {
+export class CounterButtonComponent {
   @Input() public className = '';
 
   @Output() public buttonClicked = new EventEmitter<void>();
