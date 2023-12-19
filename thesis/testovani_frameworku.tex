@@ -33,6 +33,16 @@ V této kapitole srovnáme implementaci stejných funkcionalit ve třech vybran�
   \textbf{Správa stavů}
 \end{flushleft}
 
+Pro implementaci jednoduchého counteru nejprve vytvoříme counter komponentu. Můžeme začít se strukturou HTML značek pro hlavní komponentu. 
+Protože chceme opakovaně použít logiku jednotlivých tlačítek, vytvoříme komponentu counter-button. 
+Ta může přijímat například nějaké CSS styly nebo přes EventEmitter (output) posílat informaci o kliknutí na tlačítko směrem nahoru ve stromě komponent. 
+Funkci emit() našeho EventEmitteru zavoláme na tlačítku v counter-buttonu právě tehdy, když uživatel klikne na tlačítko -- použijeme event listener ve formě (click). 
+K propsání textu či jiných elementů nebo komponent mezi párovými tagy <counter-button></counter-button> nám pak poslouží párový či nepárový element <ng-content />.
+
+Následně v counter komponentě musíme importovat třídu CounterButtonComponent a do všech elementů counter-button předat jejich vstupy a výstupy. 
+Námi defikovanovanému outputu buttonClicked předáme v šabloně funkci, která se vykoná po emitu (kliknutí na tlačítko v child komponentě) a funkci zavoláme pomocí kulatých závorek. 
+V rámci counter komponenty pak definujeme stav jako vlastnost count na třídě. Ten pak můžeme modifikovat skrze metody třídy, které voláme v outputu buttonClicked.
+
 \begin{citemize}
 	\item šablony + logika komponenty
 	\item správa stavů (reaktivita)
@@ -42,6 +52,24 @@ V této kapitole srovnáme implementaci stejných funkcionalit ve třech vybran�
 \begin{flushleft}
   \textbf{Interakce v uživatelském prostředí}
 \end{flushleft}
+
+Při tvorbě jakékoli UI komponenty můžeme začít jak šablonou, tak i logikou. My začneme s tvorbou šablony. V případě vlastního dropdown samotným tlačítkem a listem možností. 
+Otevření možností zajístíme tak, že na tlačítko přidáme event listerner na click. Funkčnost pak zajistíme díky modifikaci stavu isOpen, který se provede při volání metody toggleDropdown. 
+V rámci této metody je třeba zavolat i event.stopPropagation(). Předejdeme tak potenciální chybě ve formě tzv. event bubblingu -- spuštění událostí na prvcích odlišných od cílového. 
+
+Podmíněně pak můžeme vypsat list možností, které získáme v jednom z inputů. Pro vypsání všech možností použijeme blok @for. 
+K vybraní konkrétní možnosti použijeme zase (click) a do metody pošleme konkrétní možnost pole -- option. 
+Metoda handleOptionClick pak zajistí uložení aktuálně vybrané možnosti, zavření dropdownu a vyemitování vybrané možnosti do rodičovské komponenty.
+
+V případě, že máme dropdown otevřen a chceme jej po kliknutí mimo tentýž dropdown bezpečně zavřít nehledě na počet vykreslených dropdown komponent na stránce budeme postupovat následovně. 
+Pro každou komponentu vytvoříme unikátní vlastnost ve formě ID. To pak dynamicky umístíme na kořenový element dropdownu. 
+V komponentě pak budeme naslouchat na DOM eventy pomocí dekorátoru @HostListener. 
+Přijímá DOM event, na který má poslouchat -- document:pointerdown, případně další argumenty nebo také formu vypublikovaného eventu. 
+Pod dekorátorem pak definujeme handler metodu, která se volá při emitu specifikovaného eventu. V rámci metody pak zajistíme uzavření aktuálně otevřeného dropdownu.
+
+Dropdown pak může mít různé inputy, které povedou k lepší znovupoužitelnosti. Hodnotu inputu (konkrétně např. defaultValue) v komponentě získáme až v lifecycle hooku OnInit. 
+Kupříkladu v konstruktoru bychom dostali pouze undefined. Styly ve formě JavaScriptových hodnot do šablony přidáme pomocí ngClass. 
+Když těchto hodnot chceme na elementu více, musíme je zřetězit pomocí JavaScriptu, nebo sloučit již dříve.
 
 \begin{citemize}
 	\item body k vypíchnutí: dynamické stylování, logika v template
@@ -167,3 +195,4 @@ V této kapitole srovnáme implementaci stejných funkcionalit ve třech vybran�
 \begin{citemize}
 	\item výsledky a průběh z 3.1
 \end{citemize}
+
