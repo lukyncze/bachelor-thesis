@@ -7,27 +7,31 @@
       (click)="toggleDropdown($event)"
     >
       {{ selectedOption ? selectedOption.label : placeholder }}
-      <arrow-up *ngIf="isOpen; else arrowDown" />
+      @if (isOpen) {
+        <arrow-up />
+      } @else {
+        <arrow-down />
+      }
     </button>
   </div>
 
-  <div
-    *ngIf="isOpen"
-    class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-opacity-100 z-10"
-    [ngClass]="divStyles"
-  >
-    <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-      <button
-        *ngFor="let option of options"
-        class="block w-full text-left px-4 py-2 text-sm hover:text-gray-900"
-        [ngClass]="optionStyles"
-        role="menuitem"
-        (click)="handleOptionClick(option)"
-      >
-        {{ option.label }}
-      </button>
+  @if (isOpen) {
+    <div
+      class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-opacity-100 z-10"
+      [ngClass]="divStyles"
+    >
+      <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+        @for (option of options; track option.value) {
+          <button
+            class="block w-full text-left px-4 py-2 text-sm hover:text-gray-900"
+            [ngClass]="optionStyles"
+            role="menuitem"
+            (click)="handleOptionClick(option)"
+          >
+            {{ option.label }}
+          </button>
+        }
+      </div>
     </div>
-  </div>
+  }
 </div>
-
-<ng-template #arrowDown><arrow-down /></ng-template>

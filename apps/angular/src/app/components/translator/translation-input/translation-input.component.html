@@ -10,13 +10,14 @@
   </textarea>
 </div>
 
-<button
-  *ngIf="inputText.length"
-  class="absolute top-2 right-2 text-gray-500 text-sm p-1.5 hover:bg-gray-100"
-  (click)="setInputText.emit('')"
->
-  <close-icon />
-</button>
+@if (inputText.length) {
+  <button
+    class="absolute top-2 right-2 text-gray-500 text-sm p-1.5 hover:bg-gray-100"
+    (click)="setInputText.emit('')"
+  >
+    <close-icon />
+  </button>
+}
 
 <span class="absolute bottom-2 right-2 text-gray-500 text-sm">
   {{ inputText.length }} / {{ maximumCharactersCount }} characters
