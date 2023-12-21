@@ -1,9 +1,9 @@
 <script lang="ts">
   import {onDestroy} from 'svelte';
-  import LanguageDropdown from './LanguageDropdown.svelte';
-  import TranslationInput from './TranslationInput.svelte';
-  import TranslationOutput from './TranslationOutput.svelte';
-  import {languages} from './languages';
+  import LanguageDropdown from '../components/translator/LanguageDropdown.svelte';
+  import TranslationInput from '../components/translator/TranslationInput.svelte';
+  import TranslationOutput from '../components/translator/TranslationOutput.svelte';
+  import {languages} from '../components/translator/languages';
 
   let inputText = '';
   let outputText = '';

@@ -1,8 +1,8 @@
-import Translator from './lib/components/translator/Translator.svelte';
-import Counter from './lib/pages/Counter.svelte';
-import DropdownWrapper from './lib/pages/DropdownWrapper.svelte';
-import Landing from './lib/pages/Landing.svelte';
-import PageNotFound from './lib/pages/PageNotFound.svelte';
+import Translator from '../pages/Translator.svelte';
+import Counter from '../pages/Counter.svelte';
+import DropdownWrapper from '../pages/DropdownWrapper.svelte';
+import Landing from '../pages/Landing.svelte';
+import PageNotFound from '../pages/PageNotFound.svelte';
 
 export const appRoutes = [
   {

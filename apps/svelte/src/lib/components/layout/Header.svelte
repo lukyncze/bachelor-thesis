@@ -4,7 +4,7 @@
   import active from 'svelte-spa-router/active';
   import MoonIcon from './MoonIcon.svelte';
   import SunIcon from './SunIcon.svelte';
-  import {appRoutes} from '../../../appRoutes';
+  import {appRoutes} from '../../routes/appRoutes';
 
   const routes = appRoutes.filter(route => route.name);
   let isMobileNavOpen = false;

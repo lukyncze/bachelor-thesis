@@ -1,15 +1,16 @@
 <script lang="ts">
-  import Router from 'svelte-spa-router';
+  import {type SvelteComponent} from 'svelte';
+  import Router, {type RouteDefinition} from 'svelte-spa-router';
   import Header from './lib/components/layout/Header.svelte';
   import Footer from './lib/components/layout/Footer.svelte';
-  import {appRoutes} from './appRoutes';
+  import {appRoutes} from './lib/routes/appRoutes';
 
-  const routes = appRoutes.reduce(
+  const routes: RouteDefinition = appRoutes.reduce(
     (acc, route) => {
-      acc[route.path] = route.component;
+      acc[route.path] = route.component as typeof SvelteComponent;
       return acc;
     },
-    {} as Record<string, object>
+    {} as Record<string, typeof SvelteComponent>
   );
 </script>
 
