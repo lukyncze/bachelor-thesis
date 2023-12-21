@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Button from './Button.svelte';
+  import Button from '../components/button/Button.svelte';
 
   let count = 0;
 
