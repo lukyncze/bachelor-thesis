@@ -7,26 +7,26 @@ import PageNotFound from './lib/pages/PageNotFound.svelte';
 export const appRoutes = [
   {
     name: 'Home',
-    href: '/',
+    path: '/',
     component: Landing,
   },
   {
     name: 'Counter',
-    href: '/counter',
+    path: '/counter',
     component: Counter,
   },
   {
     name: 'Dropdown',
-    href: '/dropdown',
+    path: '/dropdown',
     component: DropdownWrapper,
   },
   {
     name: 'Translator',
-    href: '/translator',
+    path: '/translator',
     component: Translator,
   },
   {
-    href: '*',
+    path: '*',
     component: PageNotFound,
   },
 ];

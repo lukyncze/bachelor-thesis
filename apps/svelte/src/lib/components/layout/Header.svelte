@@ -1,6 +1,6 @@
 <script lang="ts">
   import {beforeUpdate} from 'svelte';
-  import {link} from 'svelte-spa-router';
+  import {link, location} from 'svelte-spa-router';
   import active from 'svelte-spa-router/active';
   import MoonIcon from './MoonIcon.svelte';
   import SunIcon from './SunIcon.svelte';
@@ -94,7 +94,7 @@
           {#each routes as route}
             <li>
               <a
-                href={route.href}
+                href={route.path}
                 class="block py-2 pr-4 lg:p-0"
                 use:link
                 use:active={{
@@ -103,8 +103,8 @@
                   inactiveClassName:
                     'pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700',
                 }}
+                aria-current={route.path === $location ? 'page' : null}
               >
-                <!-- {...route.path === currentPathName ? {'aria-current': 'page'} : {}} -->
                 {route.name}
               </a>
             </li>

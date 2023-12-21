@@ -6,7 +6,7 @@
 
   const routes = appRoutes.reduce(
     (acc, route) => {
-      acc[route.href] = route.component;
+      acc[route.path] = route.component;
       return acc;
     },
     {} as Record<string, object>
