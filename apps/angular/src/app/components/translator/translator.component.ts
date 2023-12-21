@@ -1,6 +1,6 @@
 import {CommonModule} from '@angular/common';
-import {Component} from '@angular/core';
-import {Subject, catchError, debounceTime, distinctUntilChanged, throwError} from 'rxjs';
+import {Component, OnDestroy} from '@angular/core';
+import {Subject, catchError, debounceTime, distinctUntilChanged, takeUntil, throwError} from 'rxjs';
 import {Option} from '../dropdown/dropdown.component';
 import {LanguageDropdownComponent} from './language-dropdown/language-dropdown.component';
 import {languages as availableLanguages} from './languages';
@@ -19,8 +19,9 @@ import {TranslationService} from './translation/translation.service';
     TranslationOutputComponent,
   ],
 })
-export class TranslatorComponent {
-  private inputValuesChanges = new Subject<string>();
+export class TranslatorComponent implements OnDestroy {
+  private destroy$: Subject<void> = new Subject();
+  private inputValuesChanges$ = new Subject<string>();
 
   protected languages: ReadonlyArray<Option> = availableLanguages;
   protected inputText = '';
@@ -33,19 +34,24 @@ export class TranslatorComponent {
     this.setupInputChangeSubscription();
   }
 
+  public ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
   protected handleInputTextChange(inputText: string): void {
     this.inputText = inputText;
-    this.inputValuesChanges.next(inputText);
+    this.inputValuesChanges$.next(inputText);
   }
 
   protected handleLanguageChange(outputLanguage: Option): void {
     this.outputLanguage = outputLanguage.value;
-    this.inputValuesChanges.next(outputLanguage.value);
+    this.inputValuesChanges$.next(outputLanguage.value);
   }
 
   private setupInputChangeSubscription(): void {
-    this.inputValuesChanges
-      .pipe(debounceTime(300), distinctUntilChanged())
+    this.inputValuesChanges$
+      .pipe(debounceTime(300), distinctUntilChanged(), takeUntil(this.destroy$))
       .subscribe(() => this.triggerTranslation());
   }
 
@@ -54,7 +60,10 @@ export class TranslatorComponent {
 
     this.translationService
       .getTranslation(this.inputText, this.outputLanguage)
-      .pipe(catchError(error => this.handleError(error)))
+      .pipe(
+        takeUntil(this.destroy$),
+        catchError(error => this.handleError(error)),
+      )
       .subscribe({
         next: response => (this.outputText = response),
         error: error => (this.error = error),
