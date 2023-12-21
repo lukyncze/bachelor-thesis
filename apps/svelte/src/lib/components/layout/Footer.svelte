@@ -5,10 +5,10 @@
     </p>
     <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
       <li>
-        <a href="#" class="mr-4 hover:underline md:mr-6">Text práce</a>
+        <a href="/" class="mr-4 hover:underline md:mr-6">Text práce</a>
       </li>
       <li>
-        <a href="#" class="hover:underline">Github repozitář</a>
+        <a href="/" class="hover:underline">Github repozitář</a>
       </li>
     </ul>
     <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
