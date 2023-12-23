@@ -14,12 +14,10 @@
   let abortController: AbortController | null = null;
   let delayTimer: number;
 
-  $: {
-    if (inputText.length && outputLanguage) {
-      clearTimeout(delayTimer);
+  $: if (inputText.length && outputLanguage) {
+    clearTimeout(delayTimer);
 
-      delayTimer = setTimeout(() => handleTranslation(), 300);
-    }
+    delayTimer = setTimeout(() => handleTranslation(), 300);
   }
 
   onDestroy(() => {
