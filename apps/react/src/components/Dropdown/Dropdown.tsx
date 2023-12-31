@@ -1,5 +1,5 @@
-import {arrowUpIcon} from '../../assets/svg/arrow-up';
-import {arrowDownIcon} from '../../assets/svg/arrow-down';
+import {arrowUpIcon} from '../icons/arrowUpIcon';
+import {arrowDownIcon} from '../icons/arrowDownIcon';
 import {DropdownVariant, dropdownVariantStyles} from './dropdownVariants';
 import useDropdown from './useDropdown';
 import {DropdownSize, dropdownSize} from './dropdownSize';

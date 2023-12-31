@@ -1,5 +1,5 @@
 import {ChangeEvent, useRef} from 'react';
-import {closeIcon} from '../../assets/svg/close';
+import {closeIcon} from '../icons/closeIcon';
 import useAutosizeTextArea from './useAutoresizeTextarea';
 
 interface TranslationInputProps {

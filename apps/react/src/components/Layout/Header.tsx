@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {Link, NavLink, useLocation} from 'react-router-dom';
-import {moonIcon} from '../../assets/svg/moon';
-import {sunIcon} from '../../assets/svg/sun';
+import {moonIcon} from '../icons/moonIcon';
+import {sunIcon} from '../icons/sunIcon';
 import {appRoutes} from '../../routes/appRoutes';
 
 function Header() {

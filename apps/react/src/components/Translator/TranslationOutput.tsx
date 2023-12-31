@@ -1,5 +1,5 @@
 import {useRef} from 'react';
-import {copyIcon} from '../../assets/svg/copy';
+import {copyIcon} from '../icons/copyIcon';
 import useAutosizeTextArea from './useAutoresizeTextarea';
 
 interface TranslationOutputProps {
