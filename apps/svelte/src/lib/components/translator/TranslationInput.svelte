@@ -1,5 +1,5 @@
 <script lang="ts">
-  import CloseIcon from './CloseIcon.svelte';
+  import CloseIcon from '../icons/CloseIcon.svelte';
   import {autoresizeTextArea} from './autoresizeTextArea';
 
   export let inputText: string;

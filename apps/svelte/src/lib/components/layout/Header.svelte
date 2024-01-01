@@ -2,8 +2,8 @@
   import {beforeUpdate} from 'svelte';
   import {link, location} from 'svelte-spa-router';
   import active from 'svelte-spa-router/active';
-  import MoonIcon from './MoonIcon.svelte';
-  import SunIcon from './SunIcon.svelte';
+  import MoonIcon from '../icons/MoonIcon.svelte';
+  import SunIcon from '../icons/SunIcon.svelte';
   import {appRoutes} from '../../routes/appRoutes';
 
   const routes = appRoutes.filter(route => route.name);
