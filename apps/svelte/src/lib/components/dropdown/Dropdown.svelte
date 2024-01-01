@@ -7,8 +7,8 @@
 
 <script lang="ts">
   import {onMount} from 'svelte';
-  import ArrowUp from './ArrowUp.svelte';
-  import ArrowDown from './ArrowDown.svelte';
+  import ArrowUpIcon from '../icons/ArrowUpIcon.svelte';
+  import ArrowDownIcon from '../icons/ArrowDownIcon.svelte';
   import {dropdownVariantStyles, type DropdownVariant} from './dropdownVariants';
   import {dropdownSize, type DropdownSize} from './dropdownSize';
   import {type Option} from './types';
@@ -62,9 +62,9 @@
     >
       {selectedOption ? selectedOption.label : placeholder}
       {#if isOpen}
-        <ArrowUp />
+        <ArrowUpIcon />
       {:else}
-        <ArrowDown />
+        <ArrowDownIcon />
       {/if}
     </button>
   </div>

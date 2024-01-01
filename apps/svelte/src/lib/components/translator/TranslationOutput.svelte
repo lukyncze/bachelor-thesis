@@ -1,6 +1,6 @@
 <script lang="ts">
   import {beforeUpdate} from 'svelte';
-  import CopyIcon from './CopyIcon.svelte';
+  import CopyIcon from '../icons/CopyIcon.svelte';
   import {autoresizeTextArea} from './autoresizeTextArea';
 
   export let inputText: string;
