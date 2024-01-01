@@ -2,8 +2,8 @@ import {CommonModule} from '@angular/common';
 import {Component, OnInit} from '@angular/core';
 import {IsActiveMatchOptions, RouterLink, RouterLinkActive} from '@angular/router';
 import {routes} from '../../../app.routes';
-import {MoonIconComponent} from './moon-icon/moon-icon.component';
-import {SunIconComponent} from './sun-icon/sun-icon.component';
+import {MoonIconComponent} from '../../icons/moon-icon/moon-icon.component';
+import {SunIconComponent} from '../../icons/sun-icon/sun-icon.component';
 
 @Component({
   selector: 'app-header',

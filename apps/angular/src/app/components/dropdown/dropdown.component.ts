@@ -1,8 +1,8 @@
 import {CommonModule} from '@angular/common';
 import {Component, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
+import {ArrowDownIconComponent} from '../icons/arrow-down/arrow-down-icon.component';
+import {ArrowUpIconComponent} from '../icons/arrow-up/arrow-up-icon.component';
 import {dropdownSize} from './../../../../../svelte/src/lib/components/dropdown/dropdownSize';
-import {ArrowDownComponent} from './arrow-down/arrow-down.component';
-import {ArrowUpComponent} from './arrow-up/arrow-up.component';
 import {DropdownSize} from './dropdownSize';
 import {DropdownVariant, dropdownVariantStyles} from './dropdownVariants';
 
@@ -15,7 +15,7 @@ export interface Option {
   selector: 'dropdown',
   standalone: true,
   templateUrl: './dropdown.component.html',
-  imports: [CommonModule, ArrowDownComponent, ArrowUpComponent],
+  imports: [CommonModule, ArrowDownIconComponent, ArrowUpIconComponent],
 })
 export class DropdownComponent implements OnInit {
   public selectedOption?: Option | null;

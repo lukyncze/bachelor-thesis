@@ -1,7 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {Component, Input} from '@angular/core';
 import {AutosizeTextAreaDirective} from '../autosize-text-area/autosize-text-area.directive';
-import {CopyIconComponent} from './copy-icon/copy-icon.component';
+import {CopyIconComponent} from '../../icons/copy-icon/copy-icon.component';
 
 @Component({
   selector: 'translation-output',

@@ -1,7 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {AutosizeTextAreaDirective} from '../autosize-text-area/autosize-text-area.directive';
-import {CloseIconComponent} from './close-icon/close-icon.component';
+import {CloseIconComponent} from '../../icons/close-icon/close-icon.component';
 
 @Component({
   selector: 'translation-input',

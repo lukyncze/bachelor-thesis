@@ -1,10 +1,10 @@
 import {Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'arrow-down',
+  selector: 'arrow-up-icon',
   standalone: true,
-  templateUrl: './arrow-down.component.html',
+  templateUrl: './arrow-up-icon.component.html',
 })
-export class ArrowDownComponent {
+export class ArrowUpIconComponent {
   @Input() protected className = 'w-5 h-5 ml-1';
 }
