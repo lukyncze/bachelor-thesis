@@ -27,8 +27,8 @@ devDependencies:
     specifier: ^3.6.0
     version: 3.6.2(postcss-load-config@4.0.1)(postcss@8.4.32)(svelte@4.2.8)
   svelte-spa-router:
-    specifier: ^4.0.0
-    version: 4.0.0
+    specifier: ^4.0.1
+    version: 4.0.1
   tailwindcss:
     specifier: ^3.3.2
     version: 3.4.0
@@ -1288,8 +1288,8 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /svelte-spa-router@4.0.0:
-    resolution: {integrity: sha512-Z9OjOgF6n6N+N30aKZi20DypEfQAYY4USSChQd9UTlV6X7A2BvZ+Dm9uXx4Sw3FqwQUKelyKhEWjlD71yvLdgw==}
+  /svelte-spa-router@4.0.1:
+    resolution: {integrity: sha512-2JkmUQ2f9jRluijL58LtdQBIpynSbem2eBGp4zXdi7aDY1znbR6yjw0KsonD0aq2QLwf4Yx4tBJQjxIjgjXHKg==}
     dependencies:
       regexparam: 2.0.2
     dev: true

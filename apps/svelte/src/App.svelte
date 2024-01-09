@@ -1,16 +1,13 @@
 <script lang="ts">
-  import {type SvelteComponent} from 'svelte';
   import Router, {type RouteDefinition} from 'svelte-spa-router';
+  import {wrap} from 'svelte-spa-router/wrap';
   import Header from './lib/components/layout/Header.svelte';
   import Footer from './lib/components/layout/Footer.svelte';
   import {appRoutes} from './lib/routes/appRoutes';
 
   const routes: RouteDefinition = appRoutes.reduce(
-    (acc, route) => {
-      acc[route.path] = route.component as typeof SvelteComponent;
-      return acc;
-    },
-    {} as Record<string, typeof SvelteComponent>
+    (routesMap, route) => routesMap.set(route.path, wrap({component: route.component})),
+    new Map()
   );
 </script>
 
