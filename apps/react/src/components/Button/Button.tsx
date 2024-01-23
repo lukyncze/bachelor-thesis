@@ -1,7 +1,9 @@
+import {ReactNode} from 'react';
+
 interface ButtonProps {
   className: string;
   onClick: () => void;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 function Button({className, onClick, children}: ButtonProps): JSX.Element {
