@@ -1,4 +1,5 @@
 import {ComponentType} from 'react';
+import Form from '../components/Form/Form';
 import Translator from '../components/Translator/Translator';
 import Counter from '../pages/Counter';
 import DropdownWrapper from '../pages/DropdownWrapper';
@@ -32,5 +33,10 @@ export const appRoutes: ReadonlyArray<AppRoute> = [
     name: 'Translator',
     path: 'translator',
     component: Translator,
+  },
+  {
+    name: 'Form',
+    path: 'form',
+    component: Form,
   },
 ];
