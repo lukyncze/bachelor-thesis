@@ -47,7 +47,7 @@ function Form({
               min: 20,
               max: 99_999_999,
             })}
-            className="mt-1 block w-full rounded-md p-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full rounded-md p-2 shadow-sm bg-gray-50 border border-gray-300"
           />
           {errors.oneOffInvestment?.type === 'required' && (
             <p className="text-red-500 text-xs italic mt-1">
@@ -78,7 +78,7 @@ function Form({
               min: 10,
               max: 99_999_999,
             })}
-            className="mt-1 block w-full rounded-md p-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full rounded-md p-2 shadow-sm bg-gray-50 border border-gray-300"
           />
           {errors.regularInvestment?.type === 'required' && (
             <p className="text-red-500 text-xs italic mt-1">
@@ -116,7 +116,7 @@ function Form({
               onChange={(event: ChangeEvent<HTMLInputElement>) => {
                 setInvestmentLengthValue(+event.target.value);
               }}
-              className="mt-1 block w-full rounded-md p-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-1 block w-full rounded-md p-2 shadow-sm bg-gray-50 border border-gray-300"
             />
             <div className="w-24 px-2 self-center text-center">
               {investmentLengthValue ? `${investmentLengthValue} years` : null}
