@@ -1,10 +1,6 @@
 import {ChangeEvent, useState} from 'react';
-import {useForm} from 'react-hook-form';
+import {SubmitHandler, useForm} from 'react-hook-form';
 import InputLabel from './InputLabel';
-
-interface FormProps {
-  defaultValues: object;
-}
 
 interface FormFieldValues {
   oneOffInvestment: number;
@@ -12,23 +8,28 @@ interface FormFieldValues {
   investmentLength: number;
 }
 
-const defaultValues: FormFieldValues = {
-  oneOffInvestment: 500,
-  regularInvestment: 100,
-  investmentLength: 10,
-};
+interface FormProps {
+  defaultValues?: FormFieldValues;
+}
 
-function Form() {
-  const [investmentLengthValue, setInvestmentLengthValue] = useState(10);
+function Form({
+  defaultValues = {
+    oneOffInvestment: 500,
+    regularInvestment: 100,
+    investmentLength: 10,
+  },
+}: FormProps) {
+  const [investmentLengthValue, setInvestmentLengthValue] = useState(
+    defaultValues.investmentLength,
+  );
   const {
     register,
     handleSubmit,
     formState: {errors},
-  } = useForm({defaultValues, mode: 'onBlur'});
+  } = useForm<FormFieldValues>({defaultValues, mode: 'onChange'});
 
-  const onSubmit = (data: FormFieldValues) => {
-    console.log(`🚀 ~ onSubmit ~ data:`, typeof data);
-    console.log(data);
+  const onSubmit: SubmitHandler<FormFieldValues> = data => {
+    console.log(`🚀 ~ onSubmit ~ data:`, data);
   };
 
   return (
@@ -142,4 +143,4 @@ function Form() {
 export default Form;
 
 // https://codesandbox.io/p/sandbox/react-hook-form-useformmethods-e3411?file=%2Fsrc%2FApp.tsx
-// https://www.react-hook-form.com/ts/#UseFormProps
+// https://react-hook-form.com/docs/useformstate/errormessage
