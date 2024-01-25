@@ -1,22 +1,20 @@
 import {ChangeEvent, useState} from 'react';
 import {SubmitHandler, useForm} from 'react-hook-form';
 import InputLabel from './InputLabel';
-
-interface FormFieldValues {
-  oneOffInvestment: number;
-  regularInvestment: number;
-  investmentLength: number;
-}
+import {FormFieldValues} from './formValues';
 
 interface FormProps {
+  onFormSubmit: (values: FormFieldValues) => void;
   defaultValues?: FormFieldValues;
 }
 
 function Form({
+  onFormSubmit,
   defaultValues = {
     oneOffInvestment: 500,
-    regularInvestment: 100,
     investmentLength: 10,
+    averageSavingsInterest: 5,
+    averageSP500Interest: 10,
   },
 }: FormProps) {
   const [investmentLengthValue, setInvestmentLengthValue] = useState(
@@ -28,9 +26,7 @@ function Form({
     formState: {errors},
   } = useForm<FormFieldValues>({defaultValues, mode: 'onChange'});
 
-  const onSubmit: SubmitHandler<FormFieldValues> = data => {
-    console.log(`🚀 ~ onSubmit ~ data:`, data);
-  };
+  const onSubmit: SubmitHandler<FormFieldValues> = data => onFormSubmit(data);
 
   return (
     <div className="container mx-auto">
@@ -67,37 +63,6 @@ function Form({
         </div>
 
         <div className="mb-4">
-          <InputLabel id="regularInvestment">Regular investment (10-99.999.999€)</InputLabel>
-
-          <input
-            id="regularInvestment"
-            type="number"
-            {...register('regularInvestment', {
-              required: true,
-              valueAsNumber: true,
-              min: 10,
-              max: 99_999_999,
-            })}
-            className="mt-1 block w-full rounded-md p-2 shadow-sm bg-gray-50 border border-gray-300"
-          />
-          {errors.regularInvestment?.type === 'required' && (
-            <p className="text-red-500 text-xs italic mt-1">
-              Please enter a valid amount of regular investment (positive number).
-            </p>
-          )}
-          {errors.regularInvestment?.type === 'min' && (
-            <p className="text-red-500 text-xs italic mt-1">
-              Please enter a valid amount of regular investment (minimum 10 €).
-            </p>
-          )}
-          {errors.regularInvestment?.type === 'max' && (
-            <p className="text-red-500 text-xs italic mt-1">
-              Please enter a valid amount of regular investment (maximum 99.999.999 €).
-            </p>
-          )}
-        </div>
-
-        <div className="mb-4">
           <InputLabel id="investmentLength">Investment length (3-60 years)</InputLabel>
 
           <div className="flex">
@@ -125,6 +90,64 @@ function Form({
           {errors.investmentLength && (
             <p className="text-red-500 text-xs italic mt-1">
               Please enter a valid length investment (positive number).
+            </p>
+          )}
+        </div>
+
+        <div className="mb-4">
+          <InputLabel id="averageSavingsInterest">
+            Average interest on a savings account (0-10 %)
+          </InputLabel>
+
+          <input
+            id="averageSavingsInterest"
+            type="number"
+            step={0.1}
+            {...register('averageSavingsInterest', {
+              required: true,
+              valueAsNumber: true,
+              min: 0,
+              max: 10,
+            })}
+            className="mt-1 block w-full rounded-md p-2 shadow-sm bg-gray-50 border border-gray-300"
+          />
+          {errors.averageSavingsInterest?.type === 'required' && (
+            <p className="text-red-500 text-xs italic mt-1">
+              Please enter a valid average amount of interest on savings account (non-negative
+              number).
+            </p>
+          )}
+          {errors.averageSavingsInterest?.type === 'min' && (
+            <p className="text-red-500 text-xs italic mt-1">
+              Please enter a valid average amount of interest on savings account (minimum 0 %).
+            </p>
+          )}
+          {errors.averageSavingsInterest?.type === 'max' && (
+            <p className="text-red-500 text-xs italic mt-1">
+              Please enter a valid average amount of interest on savings account (maximum 10 %).
+            </p>
+          )}
+        </div>
+
+        <div className="mb-4">
+          <InputLabel id="averageSP500Interest">
+            Average S&P 500 yield (approximate value in %)
+          </InputLabel>
+
+          <input
+            id="averageSP500Interest"
+            type="number"
+            {...register('averageSP500Interest', {
+              required: true,
+              valueAsNumber: true,
+            })}
+            className="mt-1 block w-full rounded-md p-2 shadow-sm bg-gray-50 border border-gray-300"
+            disabled
+            readOnly
+          />
+          {errors.averageSP500Interest?.type === 'required' && (
+            <p className="text-red-500 text-xs italic mt-1">
+              Please enter a valid average amount of S&P 500 yield (non-negative number).
             </p>
           )}
         </div>
