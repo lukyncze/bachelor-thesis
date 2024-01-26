@@ -19,7 +19,7 @@ const getRoundedNumber = (value: number): number => {
   return parseFloat(Math.round(value).toFixed(2));
 };
 
-const useFutureValueCalculator = () => {
+function useFutureValueCalculator() {
   const [inputData, setInputData] = useState<FormFieldValues>();
   const [futureValues, setFutureValues] = useState<FutureValues>();
 
@@ -33,6 +33,6 @@ const useFutureValueCalculator = () => {
   }, [inputData]);
 
   return [futureValues, setInputData] as const;
-};
+}
 
 export default useFutureValueCalculator;
