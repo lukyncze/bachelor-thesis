@@ -1,10 +1,5 @@
 import {useEffect, useState} from 'react';
-import {FormFieldValues} from './formValues';
-
-interface FutureValues {
-  futureValueOfSavings: number;
-  futureValueOfSP500: number;
-}
+import {FormFieldValues, FutureValues} from './formValues';
 
 const calculateFutureValueOfSavings = (data: FormFieldValues): number => {
   const compoundingFactor = Math.pow(1 + data.averageSavingsInterest / 100, data.investmentLength);

@@ -4,3 +4,8 @@ export interface FormFieldValues {
   averageSavingsInterest: number;
   averageSP500Interest: number;
 }
+
+export interface FutureValues {
+  futureValueOfSavings: number;
+  futureValueOfSP500: number;
+}
