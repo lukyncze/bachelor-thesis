@@ -1,9 +1,9 @@
 import FutureValueInfo from './FutureValueInfo';
 import {FutureValues} from './types';
 
-type PresentFutureValuesProps = FutureValues;
+type FutureValuesInfoProps = FutureValues;
 
-function FutureValuesInfo({futureValueOfSavings, futureValueOfSP500}: PresentFutureValuesProps) {
+function FutureValuesInfo({futureValueOfSavings, futureValueOfSP500}: FutureValuesInfoProps) {
   return (
     <div className="space-y-6 mt-4 bg-blue-300 p-6 rounded-lg shadow-md sm:flex sm:space-y-0">
       <FutureValueInfo futureValue={futureValueOfSavings}>
