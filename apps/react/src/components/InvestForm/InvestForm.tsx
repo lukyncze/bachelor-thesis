@@ -1,11 +1,11 @@
 import {ChangeEvent, useState} from 'react';
 import {SubmitHandler, useForm} from 'react-hook-form';
 import InputLabel from './InputLabel';
-import {FormFieldValues} from './formValues';
+import {InvestFormData} from './types';
 
 interface FormProps {
-  onFormSubmit: (values: FormFieldValues) => void;
-  defaultValues?: FormFieldValues;
+  onFormSubmit: (values: InvestFormData) => void;
+  defaultValues?: InvestFormData;
 }
 
 // Scalable validation error messages:
@@ -13,7 +13,7 @@ interface FormProps {
 // UseFormMethods - Advanced usage of forms:
 // https://codesandbox.io/p/sandbox/react-hook-form-useformmethods-e3411?file=%2Fsrc%2FApp.tsx
 
-function Form({
+function InvestForm({
   onFormSubmit,
   defaultValues = {
     oneOffInvestment: 500,
@@ -29,9 +29,9 @@ function Form({
     register,
     handleSubmit,
     formState: {errors},
-  } = useForm<FormFieldValues>({defaultValues, mode: 'onChange'});
+  } = useForm<InvestFormData>({defaultValues, mode: 'onChange'});
 
-  const onSubmit: SubmitHandler<FormFieldValues> = data => onFormSubmit(data);
+  const onSubmit: SubmitHandler<InvestFormData> = data => onFormSubmit(data);
 
   // useEffect(() => {
   //   const subscription = watch(() => handleSubmit(onSubmit)());
@@ -176,4 +176,4 @@ function Form({
   );
 }
 
-export default Form;
+export default InvestForm;

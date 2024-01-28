@@ -1,14 +1,14 @@
 import {useEffect, useState} from 'react';
-import {FormFieldValues, FutureValues} from './formValues';
+import {FutureValues, InvestFormData} from './types';
 
-const calculateFutureValueOfSavings = (data: FormFieldValues): number => {
+const calculateFutureValueOfSavings = (data: InvestFormData): number => {
   const compoundingFactor = Math.pow(1 + data.averageSavingsInterest / 100, data.investmentLength);
   const futureValue = data.oneOffInvestment * compoundingFactor;
 
   return getRoundedNumber(futureValue);
 };
 
-const calculateFutureValueOfSP500 = (data: FormFieldValues): number => {
+const calculateFutureValueOfSP500 = (data: InvestFormData): number => {
   const compoundingFactor = Math.pow(1 + data.averageSP500Interest / 100, data.investmentLength);
   const futureValue = data.oneOffInvestment * compoundingFactor;
 
@@ -19,8 +19,8 @@ const getRoundedNumber = (value: number): number => {
   return parseFloat(Math.round(value).toFixed(2));
 };
 
-function useFutureValueCalculator() {
-  const [inputData, setInputData] = useState<FormFieldValues>();
+function useFutureValuesCalculator() {
+  const [inputData, setInputData] = useState<InvestFormData>();
   const [futureValues, setFutureValues] = useState<FutureValues>();
 
   useEffect(() => {
@@ -35,4 +35,4 @@ function useFutureValueCalculator() {
   return [futureValues, setInputData] as const;
 }
 
-export default useFutureValueCalculator;
+export default useFutureValuesCalculator;

@@ -1,5 +1,5 @@
 import FutureValueInfo from './FutureValueInfo';
-import {FutureValues} from './formValues';
+import {FutureValues} from './types';
 
 type PresentFutureValuesProps = FutureValues;
 
@@ -11,7 +11,7 @@ function FutureValuesInfo({futureValueOfSavings, futureValueOfSP500}: PresentFut
       </FutureValueInfo>
 
       <FutureValueInfo futureValue={futureValueOfSP500}>
-        Future value while invested in S&P 500
+        Future value after investing in S&P 500
       </FutureValueInfo>
     </div>
   );

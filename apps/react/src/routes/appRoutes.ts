@@ -2,7 +2,7 @@ import {ComponentType} from 'react';
 import Translator from '../components/Translator/Translator';
 import Counter from '../pages/Counter';
 import DropdownWrapper from '../pages/DropdownWrapper';
-import FormWrapper from '../pages/FormWrapper';
+import InvestFormWrapper from '../pages/InvestFormWrapper';
 import Landing from '../pages/Landing';
 
 interface AppRoute {
@@ -35,8 +35,8 @@ export const appRoutes: ReadonlyArray<AppRoute> = [
     component: Translator,
   },
   {
-    name: 'Form',
-    path: 'form',
-    component: FormWrapper,
+    name: 'Invest form',
+    path: 'invest-form',
+    component: InvestFormWrapper,
   },
 ];
