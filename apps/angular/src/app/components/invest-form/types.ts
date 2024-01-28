@@ -1,4 +1,4 @@
-export interface FormFieldValues {
+export interface InvestFormData {
   oneOffInvestment: number;
   investmentLength: number;
   averageSavingsInterest: number;

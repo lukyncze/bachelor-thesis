@@ -2,7 +2,7 @@ import {Routes} from '@angular/router';
 import {CounterComponent} from './components/counter/counter.component';
 import {TranslatorComponent} from './components/translator/translator.component';
 import {DropdownWrapperComponent} from './pages/dropdown-wrapper/dropdown-wrapper.component';
-import {FormWrapperComponent} from './pages/form-wrapper/form-wrapper.component';
+import {InvestFormWrapperComponent} from './pages/invest-form-wrapper/invest-form-wrapper.component';
 import {LandingComponent} from './pages/landing/landing.component';
 import {PageNotFoundComponent} from './pages/page-not-found/page-not-found.component';
 
@@ -29,9 +29,9 @@ export const routes: Routes = [
     component: TranslatorComponent,
   },
   {
-    title: 'Form',
-    path: 'form',
-    component: FormWrapperComponent,
+    title: 'Invest form',
+    path: 'invest-form',
+    component: InvestFormWrapperComponent,
   },
   {path: '**', component: PageNotFoundComponent},
 ];

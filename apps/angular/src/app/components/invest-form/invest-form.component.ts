@@ -1,8 +1,8 @@
 import {CommonModule} from '@angular/common';
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {FormFieldValues} from './formValues';
 import {InputLabelComponent} from './input-label/input-label.component';
+import {InvestFormData} from './types';
 
 type InvestForm = FormGroup<{
   oneOffInvestment: FormControl<number | null>;
@@ -28,14 +28,14 @@ export class InvestFormComponent implements OnInit {
   // },
   protected investForm!: InvestForm;
 
-  @Input() defaultValues: FormFieldValues = {
+  @Input() defaultValues: InvestFormData = {
     oneOffInvestment: 500,
     investmentLength: 10,
     averageSavingsInterest: 5,
     averageSP500Interest: 10,
   };
 
-  @Output() formChanged = new EventEmitter<FormFieldValues>();
+  @Output() formChanged = new EventEmitter<InvestFormData>();
 
   constructor(private readonly fb: FormBuilder) {}
 
@@ -44,7 +44,7 @@ export class InvestFormComponent implements OnInit {
   }
 
   protected onSubmit(): void {
-    this.formChanged.emit(this.investForm.value as FormFieldValues);
+    this.formChanged.emit(this.investForm.value as InvestFormData);
   }
 
   protected get oneOffInvestmentControl() {

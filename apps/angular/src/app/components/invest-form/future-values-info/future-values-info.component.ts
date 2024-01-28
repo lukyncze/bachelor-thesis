@@ -1,7 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {Component, Input} from '@angular/core';
-import {FutureValues} from '../formValues';
 import {FutureValueInfoComponent} from '../future-value-info/future-value-info.component';
+import {FutureValues} from '../types';
 
 type PresentFutureValuesProps = FutureValues;
 

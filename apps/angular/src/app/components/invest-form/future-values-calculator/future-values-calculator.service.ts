@@ -1,18 +1,18 @@
 import {Injectable} from '@angular/core';
-import {FormFieldValues, FutureValues} from '../formValues';
+import {FutureValues, InvestFormData} from '../types';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FutureValuesCalculatorService {
-  public calculate(inputData: FormFieldValues): FutureValues {
+  public calculate(inputData: InvestFormData): FutureValues {
     const futureValueOfSavings = this.calculateFutureValueOfSavings(inputData);
     const futureValueOfSP500 = this.calculateFutureValueOfSP500(inputData);
 
     return {futureValueOfSavings, futureValueOfSP500};
   }
 
-  private calculateFutureValueOfSavings(data: FormFieldValues): number {
+  private calculateFutureValueOfSavings(data: InvestFormData): number {
     const compoundingFactor = Math.pow(
       1 + data.averageSavingsInterest / 100,
       data.investmentLength,
@@ -22,7 +22,7 @@ export class FutureValuesCalculatorService {
     return this.getRoundedNumber(futureValue);
   }
 
-  private calculateFutureValueOfSP500(data: FormFieldValues): number {
+  private calculateFutureValueOfSP500(data: InvestFormData): number {
     const compoundingFactor = Math.pow(1 + data.averageSP500Interest / 100, data.investmentLength);
     const futureValue = data.oneOffInvestment * compoundingFactor;
 
