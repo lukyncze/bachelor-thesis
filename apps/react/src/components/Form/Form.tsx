@@ -93,8 +93,9 @@ function Form({
               }}
               className="mt-1 block w-full rounded-md p-2 shadow-sm bg-slate-100 border border-gray-300"
             />
+
             <div className="w-24 py-2 rounded-lg bg-slate-100 border border-gray-200 self-center text-center">
-              {investmentLengthValue ? `${investmentLengthValue} years` : null}
+              {`${investmentLengthValue} years`}
             </div>
           </div>
           {errors.investmentLength && (
