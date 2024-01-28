@@ -3,7 +3,7 @@ import {Component, Input} from '@angular/core';
 import {FutureValueInfoComponent} from '../future-value-info/future-value-info.component';
 import {FutureValues} from '../types';
 
-type PresentFutureValuesProps = FutureValues;
+type FutureValuesInfoProps = FutureValues;
 
 @Component({
   selector: 'future-values-info',
@@ -14,5 +14,5 @@ type PresentFutureValuesProps = FutureValues;
 export class FutureValuesInfoComponent {
   // Trik pro zajištění toho, aby v inputu byla hodnota daného datového typu předána,
   // ale zároveň aby se nezobrazovala chyba typescriptu s neinicializovanou vlastností.
-  @Input({required: true}) futureValues!: PresentFutureValuesProps;
+  @Input({required: true}) futureValues!: FutureValuesInfoProps;
 }
