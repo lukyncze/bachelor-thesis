@@ -3,7 +3,7 @@ import {SubmitHandler, useForm} from 'react-hook-form';
 import InputLabel from './InputLabel';
 import {InvestFormData} from './types';
 
-interface FormProps {
+interface InvestFormProps {
   onFormSubmit: (values: InvestFormData) => void;
   defaultValues?: InvestFormData;
 }
@@ -21,7 +21,7 @@ function InvestForm({
     averageSavingsInterest: 5,
     averageSP500Interest: 10,
   },
-}: FormProps) {
+}: InvestFormProps) {
   const [investmentLengthValue, setInvestmentLengthValue] = useState(
     defaultValues.investmentLength,
   );
