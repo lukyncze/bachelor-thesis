@@ -12,5 +12,7 @@ type PresentFutureValuesProps = FutureValues;
   imports: [CommonModule, FutureValueInfoComponent],
 })
 export class FutureValuesInfoComponent {
+  // Trik pro zajištění toho, aby v inputu byla hodnota daného datového typu předána,
+  // ale zároveň aby se nezobrazovala chyba typescriptu s neinicializovanou vlastností.
   @Input({required: true}) futureValues!: PresentFutureValuesProps;
 }

@@ -18,8 +18,10 @@ type InvestForm = FormGroup<{
   imports: [CommonModule, ReactiveFormsModule, InputLabelComponent],
 })
 export class InvestFormComponent implements OnInit {
-  // This is a workaround for disabling typescript problem e.g. with the initialization of investForm
-  // that can be used instead of using ! in the investForm property declaration.
+  // Trik pro zajištění toho, aby v inputu byla hodnota daného datového typu předána,
+  // ale zároveň aby se nezobrazovala chyba typescriptu s neinicializovanou vlastností.
+  // -----
+  // Pokud bychom chtěli chybu vypnout, můžeme přenastavit následující nastavení v tsconfig.json:
   // "compilerOptions": {
   //   ...
   //   "strictPropertyInitialization": false
