@@ -6,5 +6,5 @@ import {Component, Input} from '@angular/core';
   templateUrl: './moon-icon.component.html',
 })
 export class MoonIconComponent {
-  @Input() protected className = 'w-6 h-6';
+  @Input() className = 'w-6 h-6';
 }

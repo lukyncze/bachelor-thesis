@@ -6,5 +6,5 @@ import {Component, Input} from '@angular/core';
   templateUrl: './sun-icon.component.html',
 })
 export class SunIconComponent {
-  @Input() protected className = 'w-6 h-6';
+  @Input() className = 'w-6 h-6';
 }

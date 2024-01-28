@@ -6,5 +6,5 @@ import {Component, Input} from '@angular/core';
   templateUrl: './arrow-down-icon.component.html',
 })
 export class ArrowDownIconComponent {
-  @Input() protected className = 'w-5 h-5 ml-1';
+  @Input() className = 'w-5 h-5 ml-1';
 }
