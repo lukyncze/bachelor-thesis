@@ -95,7 +95,7 @@ function Form({
             />
 
             <div className="w-24 py-2 rounded-lg bg-slate-100 border border-gray-200 self-center text-center">
-              {`${investmentLengthValue} years`}
+              {investmentLengthValue} years
             </div>
           </div>
           {errors.investmentLength && (
