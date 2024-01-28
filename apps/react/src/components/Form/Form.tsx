@@ -8,6 +8,11 @@ interface FormProps {
   defaultValues?: FormFieldValues;
 }
 
+// Scalable validation error messages:
+// https://react-hook-form.com/docs/useformstate/errormessage
+// UseFormMethods - Advanced usage of forms:
+// https://codesandbox.io/p/sandbox/react-hook-form-useformmethods-e3411?file=%2Fsrc%2FApp.tsx
+
 function Form({
   onFormSubmit,
   defaultValues = {
@@ -171,6 +176,3 @@ function Form({
 }
 
 export default Form;
-
-// https://codesandbox.io/p/sandbox/react-hook-form-useformmethods-e3411?file=%2Fsrc%2FApp.tsx
-// https://react-hook-form.com/docs/useformstate/errormessage
