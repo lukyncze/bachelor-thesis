@@ -3,6 +3,7 @@ import Counter from '../pages/Counter.svelte';
 import DropdownWrapper from '../pages/DropdownWrapper.svelte';
 import Landing from '../pages/Landing.svelte';
 import PageNotFound from '../pages/PageNotFound.svelte';
+import InvestFormWrapper from '../pages/InvestFormWrapper.svelte';
 
 export const appRoutes = [
   {
@@ -24,6 +25,11 @@ export const appRoutes = [
     name: 'Translator',
     path: '/translator',
     component: Translator,
+  },
+  {
+    name: 'Invest form',
+    path: '/invest-form',
+    component: InvestFormWrapper,
   },
   {
     path: '*',
