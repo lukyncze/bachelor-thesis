@@ -43,8 +43,6 @@ export class DropdownComponent implements OnInit {
     }
   }
 
-  constructor() {}
-
   public ngOnInit(): void {
     this.selectedOption = this.defaultValue;
     this.getDropdownStyles();
