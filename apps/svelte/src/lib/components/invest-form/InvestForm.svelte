@@ -4,6 +4,7 @@
   import {type InvestFormData} from './types';
   import InputLabel from './InputLabel.svelte';
 
+  export let investFormData: InvestFormData | undefined;
   export let defaultValues: InvestFormData = {
     oneOffInvestment: 500,
     investmentLength: 10,
@@ -11,7 +12,7 @@
     averageSP500Interest: 10,
   };
 
-  const {form, errors, state, handleChange, handleSubmit} = createForm<InvestFormData>({
+  const {form, errors, isValid, handleChange, handleSubmit} = createForm({
     initialValues: defaultValues,
     validationSchema: object().shape({
       oneOffInvestment: number().min(20).max(99_999_999).required(),
@@ -20,9 +21,11 @@
       averageSP500Interest: number().required(),
     }),
     onSubmit: values => {
+      // https://svelte-forms-lib-sapper-docs.vercel.app/
       // TODO: Return numbers on submit
       console.log(`🚀 ~ values:`, values);
-      // https://svelte-forms-lib-sapper-docs.vercel.app/
+
+      investFormData = values;
     },
   });
 </script>
@@ -123,7 +126,7 @@
 
   <button
     type="submit"
-    disabled={!$state.isValid}
+    disabled={!$isValid}
     class="w-full px-4 py-2 mr-2 bg-blue-500 text-white rounded-md shadow-sm hover:bg-blue-700 disabled:opacity-50"
   >
     Calculate
