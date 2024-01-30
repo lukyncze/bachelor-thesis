@@ -12,20 +12,18 @@
     averageSP500Interest: 10,
   };
 
+  const validationSchema = object().shape({
+    oneOffInvestment: number().min(20).max(99_999_999).required(),
+    investmentLength: number().min(3).max(60).required(),
+    averageSavingsInterest: number().min(0).max(10).required(),
+    averageSP500Interest: number().required(),
+  });
+
   const {form, errors, isValid, handleChange, handleSubmit} = createForm({
     initialValues: defaultValues,
-    validationSchema: object().shape({
-      oneOffInvestment: number().min(20).max(99_999_999).required(),
-      investmentLength: number().min(3).max(60).required(),
-      averageSavingsInterest: number().min(0).max(10).required(),
-      averageSP500Interest: number().required(),
-    }),
+    validationSchema,
     onSubmit: values => {
-      // https://svelte-forms-lib-sapper-docs.vercel.app/
-      // TODO: Return numbers on submit
-      console.log(`🚀 ~ values:`, values);
-
-      investFormData = values;
+      investFormData = validationSchema.cast(values);
     },
   });
 </script>
