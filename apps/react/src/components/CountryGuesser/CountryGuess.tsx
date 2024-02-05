@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {KeyboardEvent, useEffect, useState} from 'react';
 import {Country} from './useCountries';
 
 interface CountryGuessProps {
@@ -30,6 +30,19 @@ function CountryGuess({countries, guess, setGuess}: CountryGuessProps) {
     setSelectedGuessIndex(index => index + value);
   };
 
+  const handleKeyDown = ({key, currentTarget}: KeyboardEvent<HTMLInputElement>) => {
+    if (!isOpen) return;
+
+    if (key === 'ArrowDown') {
+      handleChangeSelectedGuessIndex(1);
+    } else if (key === 'ArrowUp') {
+      handleChangeSelectedGuessIndex(-1);
+    } else if (key === 'Enter') {
+      handleChangeSelectedGuess(filteredCountries[selectedGuessIndex].name.common);
+      currentTarget.blur();
+    }
+  };
+
   useEffect(() => {
     const filterOutSearchByUserGuess = (country: Country) => {
       return country.name.common.toLowerCase().includes(guess.toLowerCase());
@@ -51,25 +64,17 @@ function CountryGuess({countries, guess, setGuess}: CountryGuessProps) {
           value={guess}
           onChange={({target}) => setGuess(target.value)}
           onClick={() => setIsOpen(true)}
-          onKeyDown={({key}) => {
-            if (!isOpen) return;
-            if (key === 'ArrowDown') {
-              handleChangeSelectedGuessIndex(1);
-            }
-            if (key === 'ArrowUp') {
-              handleChangeSelectedGuessIndex(-1);
-            }
-            if (key === 'Enter') {
-              handleChangeSelectedGuess(filteredCountries[selectedGuessIndex].name.common);
-            }
-          }}
+          onKeyDown={event => handleKeyDown(event)}
           className="block rounded-md p-1.5 shadow-sm bg-gray-100 border border-gray-400"
         />
 
         <button
           type="button"
           className="rounded-lg p-1.5 grid h-full place-content-center bg-cyan-600 border border-gray-400 disabled:bg-red-800"
-          onClick={() => setIsOpen(false)}
+          onClick={() => {
+            setIsOpen(false);
+            console.log('Guess:', guess);
+          }}
           disabled={!isValidGuess}
         >
           Guess
