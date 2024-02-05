@@ -54,7 +54,9 @@ function CountryGuesserWrapper() {
         </HintBox>
       </div>
 
-      <CountryGuess countries={countries} guess={guess} setGuess={setGuess} />
+      <div className="flex flex-col items-center justify-center">
+        <CountryGuess countries={countries} guess={guess} setGuess={setGuess} />
+      </div>
     </div>
   );
 }
