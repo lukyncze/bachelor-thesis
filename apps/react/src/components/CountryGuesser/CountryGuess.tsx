@@ -11,6 +11,7 @@ const countryHintsCount = 8;
 
 function CountryGuess({countries, guess, setGuess}: CountryGuessProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isValidGuess, setIsValidGuess] = useState(false);
   const [selectedGuessIndex, setSelectedGuessIndex] = useState(0);
   const [filteredCountries, setFilteredCountries] = useState<ReadonlyArray<Country>>(
     countries.slice(0, countryHintsCount),
@@ -33,14 +34,17 @@ function CountryGuess({countries, guess, setGuess}: CountryGuessProps) {
     const filterOutSearchByUserGuess = (country: Country) => {
       return country.name.common.toLowerCase().includes(guess.toLowerCase());
     };
+    const searchForExactCountry = (country: Country) => {
+      return country.name.common.toLowerCase() === guess.toLowerCase();
+    };
 
-    setFilteredCountries(
-      countries.filter(country => filterOutSearchByUserGuess(country)).slice(0, countryHintsCount),
-    );
+    const filteredCountries = countries.filter(country => filterOutSearchByUserGuess(country));
+    setFilteredCountries(filteredCountries.slice(0, countryHintsCount));
+    setIsValidGuess(!!countries.find(searchForExactCountry));
   }, [guess, countries]);
 
   return (
-    <div id="countryGuess" className="relative group">
+    <div className="relative group">
       <div className="flex mt-6">
         <input
           type="text"
@@ -61,10 +65,12 @@ function CountryGuess({countries, guess, setGuess}: CountryGuessProps) {
           }}
           className="block rounded-md p-1.5 shadow-sm bg-gray-100 border border-gray-400"
         />
+
         <button
           type="button"
-          className="rounded-lg p-1.5 grid h-full place-content-center bg-cyan-600 border border-gray-400"
+          className="rounded-lg p-1.5 grid h-full place-content-center bg-cyan-600 border border-gray-400 disabled:bg-red-800"
           onClick={() => setIsOpen(false)}
+          disabled={!isValidGuess}
         >
           Guess
         </button>
