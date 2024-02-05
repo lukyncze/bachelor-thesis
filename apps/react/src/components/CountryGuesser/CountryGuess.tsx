@@ -70,7 +70,7 @@ function CountryGuess({countries, guess, setGuess}: CountryGuessProps) {
 
         <button
           type="button"
-          className="rounded-lg p-1.5 grid h-full place-content-center bg-cyan-600 border border-gray-400 disabled:bg-red-800"
+          className="rounded-lg p-1.5 grid h-full place-content-center bg-cyan-600 border border-gray-400 disabled:bg-red-800 disabled:text-white"
           onClick={() => {
             setIsOpen(false);
             console.log('Guess:', guess);
