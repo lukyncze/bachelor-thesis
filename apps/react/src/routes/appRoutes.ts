@@ -1,4 +1,5 @@
 import {ComponentType} from 'react';
+import CountryGuesserWrapper from '../components/CountryGuesser/CountryGuesserWrapper';
 import Translator from '../components/Translator/Translator';
 import Counter from '../pages/Counter';
 import DropdownWrapper from '../pages/DropdownWrapper';
@@ -38,5 +39,10 @@ export const appRoutes: ReadonlyArray<AppRoute> = [
     name: 'Invest form',
     path: 'invest-form',
     component: InvestFormWrapper,
+  },
+  {
+    name: 'Country guesser',
+    path: 'country-guesser',
+    component: CountryGuesserWrapper,
   },
 ];
