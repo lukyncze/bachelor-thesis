@@ -1,64 +1,61 @@
 import {useState} from 'react';
-import HintBox from './HintBox';
 import useCountries from './useCountries';
 import CountryGuess from './CountryGuess';
+import HintBoxes from './HintBoxes';
+
+const maximumCountryGuesses = 8;
 
 function CountryGuesserWrapper() {
   const [countries, randomCountry, isLoading, error] = useCountries();
-  const [guess, setGuess] = useState('');
+  const [guessedCountries, setGuessedCountries] = useState<ReadonlyArray<string>>([]);
+  const [hintsEnabledCount, setHintsEnabledCount] = useState(1);
+  console.log(`🚀 ~ CountryGuesserWrapper ~ randomCountry:`, randomCountry?.name.common);
+
+  const hasGuessedCountry = (countryName: string) => countryName === randomCountry?.name.common;
+  const hasReachedMaximumGuesses = () => guessedCountries.length + 1 === maximumCountryGuesses;
+
+  const handleSetGuessedCountries = (countryName: string) => {
+    setGuessedCountries([...guessedCountries, countryName]);
+    setHintsEnabledCount(hintsEnabledCount + 1);
+
+    if (hasGuessedCountry(countryName)) {
+      // TODO: Add a modal to show the user has guessed the country, show the country name and a button to play again
+      alert(`You have guessed the country! The correct country is: ${randomCountry?.name.common}`);
+      setHintsEnabledCount(maximumCountryGuesses);
+      return;
+    }
+
+    if (hasReachedMaximumGuesses() && !hasGuessedCountry(countryName)) {
+      alert(
+        `You have not guessed the country. The correct country is: ${randomCountry?.name.common}`,
+      );
+      return;
+    }
+  };
 
   if (error) {
-    return <p>There was an with getting the countries data. Please try again later.</p>;
+    return <p>There was an error with getting the countries data. Please try again later.</p>;
   }
 
   if (isLoading) {
     return <p>Loading the Country guesser. Please wait.</p>;
   }
 
-  return (
-    <div className="container mx-auto">
-      <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-4">
-        <HintBox
-          title="Size"
-          abbrTitle="The size of the country in km²"
-          hint={randomCountry?.area.toLocaleString() + ' km²'}
-        />
-        <HintBox
-          title="Population"
-          abbrTitle=""
-          hint={randomCountry?.population.toLocaleString() + ' people'}
-        />
-        <HintBox title="Landlocked" abbrTitle="" hint={randomCountry?.landlocked ? 'Yes' : 'No'} />
-        <HintBox title="Region" abbrTitle="" hint={randomCountry?.region} />
-        <HintBox
-          title="Languages"
-          abbrTitle=""
-          hint={randomCountry?.languages && Object.values(randomCountry?.languages).join(', ')}
-        />
-        <HintBox
-          title="Capital"
-          abbrTitle=""
-          hint={randomCountry?.capital && Object.values(randomCountry?.languages).join(', ')}
-        />
-        <HintBox
-          title="Borders"
-          abbrTitle=""
-          hint={
-            randomCountry?.borders.length
-              ? Object.values(randomCountry?.borders).join(', ')
-              : 'None'
-          }
-        />
-        <HintBox title="Country flag" abbrTitle="" hint="">
-          <img src={randomCountry?.flags.png} alt="Country flag" width={240} height={160} />
-        </HintBox>
-      </div>
+  if (countries.length > 0 && randomCountry) {
+    return (
+      <div className="container mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-4">
+          <HintBoxes randomCountry={randomCountry} hintsEnabledCount={hintsEnabledCount} />
+        </div>
 
-      <div className="flex flex-col items-center justify-center">
-        <CountryGuess countries={countries} guess={guess} setGuess={setGuess} />
+        <div className="flex flex-col items-center justify-center">
+          <CountryGuess countries={countries} setCurrentGuess={handleSetGuessedCountries} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  return <p>There are no countries to guess. Please try again later.</p>;
 }
 
 export default CountryGuesserWrapper;

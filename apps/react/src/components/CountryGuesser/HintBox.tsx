@@ -1,22 +1,23 @@
 import {ReactNode} from 'react';
 
-interface HintBoxProps {
+export interface HintBoxProps {
   title: string;
   abbrTitle: string;
-  hint?: string;
-  children?: ReactNode;
+  children: ReactNode;
+  hint: string | null;
+  hintEnabled?: boolean;
 }
 
-function HintBox({title, abbrTitle, hint = '?', children}: HintBoxProps) {
+function HintBox({title, abbrTitle, hint = '?', hintEnabled, children}: HintBoxProps) {
   return (
     <abbr
       title={abbrTitle}
       className="grid aspect-square max-w-40 md:max-w-56 rounded-lg items-center border-2 border-black no-underline"
     >
       <div className="text-center">
-        <div>{children}</div>
+        {hint !== null || hintEnabled ? <div>{children}</div> : null}
         <h3 className="text-center">{title}</h3>
-        <p>{hint}</p>
+        <p>{hintEnabled ? hint : '?'}</p>
       </div>
     </abbr>
   );

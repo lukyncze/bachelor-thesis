@@ -3,15 +3,15 @@ import {Country} from './useCountries';
 
 interface CountryGuessProps {
   countries: ReadonlyArray<Country>;
-  guess: string;
-  setGuess: (value: string) => void;
+  setCurrentGuess: (countryName: string) => void;
 }
 
 const countryHintsCount = 8;
 
-function CountryGuess({countries, guess, setGuess}: CountryGuessProps) {
+function CountryGuess({countries, setCurrentGuess}: CountryGuessProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isValidGuess, setIsValidGuess] = useState(false);
+  const [guess, setGuess] = useState('');
   const [selectedGuessIndex, setSelectedGuessIndex] = useState(0);
   const [filteredCountries, setFilteredCountries] = useState<ReadonlyArray<Country>>(
     countries.slice(0, countryHintsCount),
@@ -64,7 +64,7 @@ function CountryGuess({countries, guess, setGuess}: CountryGuessProps) {
           value={guess}
           onChange={({target}) => setGuess(target.value)}
           onClick={() => setIsOpen(true)}
-          onKeyDown={event => handleKeyDown(event)}
+          onKeyDown={handleKeyDown}
           className="block rounded-md p-1.5 shadow-sm bg-gray-100 border border-gray-400"
         />
 
@@ -72,8 +72,8 @@ function CountryGuess({countries, guess, setGuess}: CountryGuessProps) {
           type="button"
           className="rounded-lg p-1.5 grid h-full place-content-center bg-cyan-600 border border-gray-400 disabled:bg-red-800 disabled:text-white"
           onClick={() => {
+            setCurrentGuess(guess);
             setIsOpen(false);
-            console.log('Guess:', guess);
           }}
           disabled={!isValidGuess}
         >
