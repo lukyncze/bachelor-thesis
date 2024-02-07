@@ -12,6 +12,7 @@ function Modal({isOpen, handleClose, title, children}: ModalProps) {
     return null;
   }
 
+  // TODO: Refactor modal
   return (
     <div
       id="static-modal"
