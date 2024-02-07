@@ -1,5 +1,5 @@
-import useCountries from './useCountries';
-import CountryGuesser from './CountryGuesser';
+import useCountries from '../components/CountryGuesser/useCountries';
+import CountryGuesser from '../components/CountryGuesser/CountryGuesser';
 
 function CountryGuesserWrapper() {
   const [countries, isLoading, error] = useCountries();
