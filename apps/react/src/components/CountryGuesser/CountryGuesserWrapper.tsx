@@ -2,6 +2,8 @@ import {useState} from 'react';
 import useCountries from './useCountries';
 import CountryGuess from './CountryGuess';
 import HintBoxes from './HintBoxes';
+import WinModal from './Modals/WinModal';
+import LoseModal from './Modals/LoseModal';
 
 const maximumCountryGuesses = 8;
 
@@ -9,6 +11,8 @@ function CountryGuesserWrapper() {
   const [countries, randomCountry, isLoading, error] = useCountries();
   const [guessedCountries, setGuessedCountries] = useState<ReadonlyArray<string>>([]);
   const [hintsEnabledCount, setHintsEnabledCount] = useState(1);
+  const [isWinModalOpen, setIsWinModalOpen] = useState(false);
+  const [isLoseModalOpen, setIsLoseModalOpen] = useState(false);
   console.log(`🚀 ~ CountryGuesserWrapper ~ randomCountry:`, randomCountry?.name.common);
 
   const hasGuessedCountry = (countryName: string) => countryName === randomCountry?.name.common;
@@ -19,18 +23,20 @@ function CountryGuesserWrapper() {
     setHintsEnabledCount(hintsEnabledCount + 1);
 
     if (hasGuessedCountry(countryName)) {
-      // TODO: Add a modal to show the user has guessed the country, show the country name and a button to play again
-      alert(`You have guessed the country! The correct country is: ${randomCountry?.name.common}`);
       setHintsEnabledCount(maximumCountryGuesses);
+      setIsWinModalOpen(true);
       return;
     }
 
     if (hasReachedMaximumGuesses() && !hasGuessedCountry(countryName)) {
-      alert(
-        `You have not guessed the country. The correct country is: ${randomCountry?.name.common}`,
-      );
+      setIsLoseModalOpen(true);
       return;
     }
+  };
+
+  const handleSetInitialState = () => {
+    setGuessedCountries([]);
+    setHintsEnabledCount(1);
   };
 
   if (error) {
@@ -51,6 +57,24 @@ function CountryGuesserWrapper() {
         <div className="flex flex-col items-center justify-center">
           <CountryGuess countries={countries} setCurrentGuess={handleSetGuessedCountries} />
         </div>
+
+        <WinModal
+          isOpen={isWinModalOpen}
+          handleClose={() => {
+            handleSetInitialState();
+            setIsWinModalOpen(false);
+          }}
+          randomCountry={randomCountry}
+          totalTriesNeeded={hintsEnabledCount}
+        />
+        <LoseModal
+          isOpen={isLoseModalOpen}
+          handleClose={() => {
+            handleSetInitialState();
+            setIsLoseModalOpen(false);
+          }}
+          randomCountry={randomCountry}
+        />
       </div>
     );
   }
