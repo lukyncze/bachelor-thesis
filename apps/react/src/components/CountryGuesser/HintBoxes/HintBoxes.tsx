@@ -1,5 +1,5 @@
 import HintBox, {HintBoxProps} from './HintBox';
-import {Country} from './useCountries';
+import {Country} from '../useCountries';
 
 interface HintBoxesProps {
   randomCountry: Country;
