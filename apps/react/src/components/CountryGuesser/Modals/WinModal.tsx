@@ -5,10 +5,10 @@ interface WinModalProps {
   isOpen: boolean;
   handleClose: () => void;
   randomCountry: Country;
-  totalTriesNeeded: number;
+  totalGuessesNeeded: number;
 }
 
-function WinModal({isOpen, handleClose, randomCountry, totalTriesNeeded}: WinModalProps) {
+function WinModal({isOpen, handleClose, randomCountry, totalGuessesNeeded}: WinModalProps) {
   return (
     <Modal
       isOpen={isOpen}
@@ -17,7 +17,8 @@ function WinModal({isOpen, handleClose, randomCountry, totalTriesNeeded}: WinMod
     >
       The correct country was: {randomCountry.name.common}.
       <br />
-      You have guessed the country in {totalTriesNeeded} tries.
+      You have guessed the country in {totalGuessesNeeded}{' '}
+      {totalGuessesNeeded > 1 ? 'tries' : 'try'}.
     </Modal>
   );
 }

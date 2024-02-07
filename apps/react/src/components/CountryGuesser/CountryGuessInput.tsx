@@ -3,22 +3,26 @@ import {Country} from './useCountries';
 
 interface CountryGuessProps {
   countries: ReadonlyArray<Country>;
-  setCurrentGuess: (countryName: string) => void;
+  currentGuess: string;
+  setCurrentGuess: (currentGuess: string) => void;
+  evaluateGuessAndUpdateState: () => void;
 }
 
 const countryHintsCount = 8;
 
-function CountryGuess({countries, setCurrentGuess}: CountryGuessProps) {
+function CountryGuessInput({
+  countries,
+  currentGuess,
+  setCurrentGuess,
+  evaluateGuessAndUpdateState,
+}: CountryGuessProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isValidGuess, setIsValidGuess] = useState(false);
-  const [guess, setGuess] = useState('');
   const [selectedGuessIndex, setSelectedGuessIndex] = useState(0);
-  const [filteredCountries, setFilteredCountries] = useState<ReadonlyArray<Country>>(
-    countries.slice(0, countryHintsCount),
-  );
+  const [filteredCountries, setFilteredCountries] = useState<ReadonlyArray<Country>>([]);
 
   const handleChangeSelectedGuess = (guess: string) => {
-    setGuess(guess);
+    setCurrentGuess(guess);
     setSelectedGuessIndex(0);
     setIsOpen(false);
   };
@@ -27,7 +31,7 @@ function CountryGuess({countries, setCurrentGuess}: CountryGuessProps) {
     if (selectedGuessIndex + value < 0) return;
     if (selectedGuessIndex + value >= filteredCountries.length) return;
 
-    setSelectedGuessIndex(index => index + value);
+    setSelectedGuessIndex(currentIndex => currentIndex + value);
   };
 
   const handleKeyDown = ({key, currentTarget}: KeyboardEvent<HTMLInputElement>) => {
@@ -45,24 +49,24 @@ function CountryGuess({countries, setCurrentGuess}: CountryGuessProps) {
 
   useEffect(() => {
     const filterOutSearchByUserGuess = (country: Country) => {
-      return country.name.common.toLowerCase().includes(guess.toLowerCase());
+      return country.name.common.toLowerCase().includes(currentGuess.toLowerCase());
     };
     const searchForExactCountry = (country: Country) => {
-      return country.name.common.toLowerCase() === guess.toLowerCase();
+      return country.name.common.toLowerCase() === currentGuess.toLowerCase();
     };
 
     const filteredCountries = countries.filter(country => filterOutSearchByUserGuess(country));
     setFilteredCountries(filteredCountries.slice(0, countryHintsCount));
     setIsValidGuess(!!countries.find(searchForExactCountry));
-  }, [guess, countries]);
+  }, [currentGuess, countries]);
 
   return (
     <div className="relative group">
       <div className="flex mt-6">
         <input
           type="text"
-          value={guess}
-          onChange={({target}) => setGuess(target.value)}
+          value={currentGuess}
+          onChange={({target}) => setCurrentGuess(target.value)}
           onClick={() => setIsOpen(true)}
           onKeyDown={handleKeyDown}
           className="block rounded-md p-1.5 shadow-sm bg-gray-100 border border-gray-400"
@@ -72,7 +76,7 @@ function CountryGuess({countries, setCurrentGuess}: CountryGuessProps) {
           type="button"
           className="rounded-lg p-1.5 grid h-full place-content-center bg-cyan-600 border border-gray-400 disabled:bg-red-800 disabled:text-white"
           onClick={() => {
-            setCurrentGuess(guess);
+            evaluateGuessAndUpdateState();
             setIsOpen(false);
           }}
           disabled={!isValidGuess}
@@ -84,6 +88,7 @@ function CountryGuess({countries, setCurrentGuess}: CountryGuessProps) {
       <div
         className={`flex flex-col absolute top-18 w-full duration-150 opacity-0 pointer-events-none bg-gray-100 rounded-md ${isOpen ? 'group-focus-within:opacity-100 group-focus-within:pointer-events-auto' : ''}`}
       >
+        {/* TODO: Already guessed countries should not be in filtered countries */}
         {filteredCountries.map((filteredCountry, index) => {
           return (
             <button
@@ -101,4 +106,4 @@ function CountryGuess({countries, setCurrentGuess}: CountryGuessProps) {
   );
 }
 
-export default CountryGuess;
+export default CountryGuessInput;

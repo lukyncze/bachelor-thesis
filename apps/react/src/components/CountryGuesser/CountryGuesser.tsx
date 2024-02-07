@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {Country} from './useCountries';
 import HintBoxes from './HintBoxes';
-import CountryGuess from './CountryGuess';
+import CountryGuessInput from './CountryGuessInput';
 import WinModal from './Modals/WinModal';
 import LoseModal from './Modals/LoseModal';
 import {getRandomCountry} from './helpers';
@@ -16,32 +16,36 @@ const maximumCountryGuesses = 8;
 function CountryGuesser({countries}: CountryGuesserProps) {
   const [randomCountry, setRandomCountry] = useState<Country>(() => getRandomCountry(countries));
   const [guessedCountries, setGuessedCountries] = useState<ReadonlyArray<string>>([]);
+  const [currentGuess, setCurrentGuess] = useState('');
   const [hintsEnabledCount, setHintsEnabledCount] = useState(defaultHintsEnabledCount);
-
+  const [totalGuessesNeeded, setTotalGuessesNeeded] = useState(1);
   const [isWinModalOpen, setIsWinModalOpen] = useState(false);
   const [isLoseModalOpen, setIsLoseModalOpen] = useState(false);
+  console.log(`🚀 ~ CountryGuesser ~ randomCountry:`, randomCountry.name.common);
 
-  const hasGuessedCountry = (countryName: string) => countryName === randomCountry.name.common;
+  const hasGuessedCountry = () => currentGuess === randomCountry.name.common;
   const hasReachedMaximumGuesses = () => guessedCountries.length + 1 === maximumCountryGuesses;
 
-  const handleSetGuessedCountries = (countryName: string) => {
-    setGuessedCountries([...guessedCountries, countryName]);
-    setHintsEnabledCount(hintsEnabledCount + 1);
-
-    if (hasGuessedCountry(countryName)) {
+  const evaluateGuessAndUpdateState = () => {
+    if (hasGuessedCountry()) {
       setHintsEnabledCount(maximumCountryGuesses);
+      setTotalGuessesNeeded(guessedCountries.length + 1);
       setIsWinModalOpen(true);
       return;
     }
 
-    if (hasReachedMaximumGuesses() && !hasGuessedCountry(countryName)) {
+    if (hasReachedMaximumGuesses() && !hasGuessedCountry()) {
       setIsLoseModalOpen(true);
       return;
     }
+
+    setGuessedCountries([...guessedCountries, currentGuess]);
+    setHintsEnabledCount(hintsEnabledCount + 1);
   };
 
   const handleSetInitialState = () => {
     setRandomCountry(getRandomCountry(countries));
+    setCurrentGuess('');
     setGuessedCountries([]);
     setHintsEnabledCount(defaultHintsEnabledCount);
   };
@@ -53,7 +57,13 @@ function CountryGuesser({countries}: CountryGuesserProps) {
       </div>
 
       <div className="flex flex-col items-center justify-center">
-        <CountryGuess countries={countries} setCurrentGuess={handleSetGuessedCountries} />
+        <CountryGuessInput
+          countries={countries}
+          currentGuess={currentGuess}
+          setCurrentGuess={setCurrentGuess}
+          evaluateGuessAndUpdateState={evaluateGuessAndUpdateState}
+        />
+        {/* TODO: Display already guessed countries */}
       </div>
 
       <WinModal
@@ -63,7 +73,7 @@ function CountryGuesser({countries}: CountryGuesserProps) {
           setIsWinModalOpen(false);
         }}
         randomCountry={randomCountry}
-        totalTriesNeeded={hintsEnabledCount}
+        totalGuessesNeeded={totalGuessesNeeded}
       />
       <LoseModal
         isOpen={isLoseModalOpen}
