@@ -10,17 +10,18 @@ interface CountryGuesserProps {
   countries: ReadonlyArray<Country>;
 }
 
+const defaultHintsEnabledCount = 1;
 const maximumCountryGuesses = 8;
 
 function CountryGuesser({countries}: CountryGuesserProps) {
   const [randomCountry, setRandomCountry] = useState<Country>(() => getRandomCountry(countries));
   const [guessedCountries, setGuessedCountries] = useState<ReadonlyArray<string>>([]);
-  const [hintsEnabledCount, setHintsEnabledCount] = useState(1);
+  const [hintsEnabledCount, setHintsEnabledCount] = useState(defaultHintsEnabledCount);
 
   const [isWinModalOpen, setIsWinModalOpen] = useState(false);
   const [isLoseModalOpen, setIsLoseModalOpen] = useState(false);
 
-  const hasGuessedCountry = (countryName: string) => countryName === randomCountry?.name.common;
+  const hasGuessedCountry = (countryName: string) => countryName === randomCountry.name.common;
   const hasReachedMaximumGuesses = () => guessedCountries.length + 1 === maximumCountryGuesses;
 
   const handleSetGuessedCountries = (countryName: string) => {
@@ -42,7 +43,7 @@ function CountryGuesser({countries}: CountryGuesserProps) {
   const handleSetInitialState = () => {
     setRandomCountry(getRandomCountry(countries));
     setGuessedCountries([]);
-    setHintsEnabledCount(1);
+    setHintsEnabledCount(defaultHintsEnabledCount);
   };
 
   return (
