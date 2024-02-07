@@ -42,7 +42,6 @@ interface Languages {
 
 function useCountries() {
   const [countries, setCountries] = useState<ReadonlyArray<Country>>([]);
-  const [guessCountry, setGuessCountry] = useState<Country>();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
@@ -59,9 +58,7 @@ function useCountries() {
         // );
         // const data = await response.json();
         const data = mockedData;
-        const randomCountry = data[Math.floor(Math.random() * data.length)];
         setCountries(data);
-        setGuessCountry(randomCountry);
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
         if (error.name === 'AbortError') return;
@@ -75,7 +72,7 @@ function useCountries() {
     fetchCountriesData();
   }, []);
 
-  return [countries, guessCountry, isLoading, error] as const;
+  return [countries, isLoading, error] as const;
 }
 
 export default useCountries;
