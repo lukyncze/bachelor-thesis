@@ -53,20 +53,22 @@ function CountryGuesser({countries}: CountryGuesserProps) {
   };
 
   return (
-    <div className="container mx-auto">
-      <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-4">
-        <HintBoxes randomCountry={randomCountry} hintsEnabledCount={hintsEnabledCount} />
-      </div>
+    <>
+      <div className="container mx-auto space-y-8">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-4">
+          <HintBoxes randomCountry={randomCountry} hintsEnabledCount={hintsEnabledCount} />
+        </div>
 
-      <div className="flex items-start justify-center gap-4 mt-5">
-        <CountryGuessInput
-          countries={countries}
-          currentGuess={currentGuess}
-          setCurrentGuess={setCurrentGuess}
-          evaluateGuessAndUpdateState={evaluateGuessAndUpdateState}
-          guessedCountries={guessedCountries}
-        />
-        <GuessedCountriesList countries={countries} guessedCountries={guessedCountries} />
+        <div className="flex items-start justify-center gap-2 md:gap-12">
+          <CountryGuessInput
+            countries={countries}
+            currentGuess={currentGuess}
+            setCurrentGuess={setCurrentGuess}
+            evaluateGuessAndUpdateState={evaluateGuessAndUpdateState}
+            guessedCountries={guessedCountries}
+          />
+          <GuessedCountriesList countries={countries} guessedCountries={guessedCountries} />
+        </div>
       </div>
 
       <WinModal
@@ -86,7 +88,7 @@ function CountryGuesser({countries}: CountryGuesserProps) {
         }}
         randomCountry={randomCountry}
       />
-    </div>
+    </>
   );
 }
 

@@ -79,19 +79,19 @@ function CountryGuessInput({
           onChange={({target}) => setCurrentGuess(target.value)}
           onClick={() => setIsOpen(true)}
           onKeyDown={handleKeyDown}
-          className="block rounded-md p-1.5 shadow-sm bg-gray-100 border border-gray-400"
+          className="block rounded-md w-[20rem] p-2 shadow-sm bg-gray-100 border border-gray-400"
         />
 
         <button
           type="button"
-          className="rounded-lg p-1.5 grid h-full place-content-center bg-cyan-600 border border-gray-400 disabled:bg-red-800 disabled:text-white"
+          className="rounded-lg w-32 p-2 grid h-full place-content-center border border-gray-400 bg-green-800 text-white hover:bg-green-900 animate-pulse hover:animate-none disabled:animate-none disabled:bg-red-800"
           onClick={() => {
             evaluateGuessAndUpdateState();
             setIsOpen(false);
           }}
           disabled={!isValidGuess}
         >
-          Guess
+          Take a guess
         </button>
       </div>
 
