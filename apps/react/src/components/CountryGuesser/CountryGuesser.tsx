@@ -62,6 +62,7 @@ function CountryGuesser({countries}: CountryGuesserProps) {
           currentGuess={currentGuess}
           setCurrentGuess={setCurrentGuess}
           evaluateGuessAndUpdateState={evaluateGuessAndUpdateState}
+          guessedCountries={guessedCountries}
         />
         {/* TODO: Display already guessed countries */}
       </div>

@@ -6,6 +6,7 @@ interface CountryGuessProps {
   currentGuess: string;
   setCurrentGuess: (currentGuess: string) => void;
   evaluateGuessAndUpdateState: () => void;
+  guessedCountries: ReadonlyArray<string>;
 }
 
 const countryHintsCount = 8;
@@ -15,6 +16,7 @@ function CountryGuessInput({
   currentGuess,
   setCurrentGuess,
   evaluateGuessAndUpdateState,
+  guessedCountries,
 }: CountryGuessProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isValidGuess, setIsValidGuess] = useState(false);
@@ -48,6 +50,9 @@ function CountryGuessInput({
   };
 
   useEffect(() => {
+    const filterOutAlreadyGuessedCountries = (country: Country) => {
+      return !guessedCountries.includes(country.name.common);
+    };
     const filterOutSearchByUserGuess = (country: Country) => {
       return country.name.common.toLowerCase().includes(currentGuess.toLowerCase());
     };
@@ -55,10 +60,15 @@ function CountryGuessInput({
       return country.name.common.toLowerCase() === currentGuess.toLowerCase();
     };
 
-    const filteredCountries = countries.filter(country => filterOutSearchByUserGuess(country));
+    const countriesWithoutAlreadyGuesses = countries.filter(country =>
+      filterOutAlreadyGuessedCountries(country),
+    );
+    const filteredCountries = countriesWithoutAlreadyGuesses.filter(country =>
+      filterOutSearchByUserGuess(country),
+    );
     setFilteredCountries(filteredCountries.slice(0, countryHintsCount));
-    setIsValidGuess(!!countries.find(searchForExactCountry));
-  }, [currentGuess, countries]);
+    setIsValidGuess(!!countriesWithoutAlreadyGuesses.find(searchForExactCountry));
+  }, [currentGuess, countries, guessedCountries]);
 
   return (
     <div className="relative group">
@@ -88,7 +98,6 @@ function CountryGuessInput({
       <div
         className={`flex flex-col absolute top-18 w-full duration-150 opacity-0 pointer-events-none bg-gray-100 rounded-md ${isOpen ? 'group-focus-within:opacity-100 group-focus-within:pointer-events-auto' : ''}`}
       >
-        {/* TODO: Already guessed countries should not be in filtered countries */}
         {filteredCountries.map((filteredCountry, index) => {
           return (
             <button
