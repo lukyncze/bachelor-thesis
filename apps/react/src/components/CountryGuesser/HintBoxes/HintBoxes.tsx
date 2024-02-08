@@ -54,7 +54,7 @@ function HintBoxes({randomCountry, hintsEnabledCount}: HintBoxesProps) {
       title: 'Flag',
       abbrTitle: '',
       hint: null,
-      children: <img src={randomCountry.flags.png} alt="Country flag" width={240} height={160} />,
+      children: <img src={randomCountry.flags.png} alt="Country flag" />,
     },
   ];
 
