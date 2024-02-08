@@ -12,7 +12,7 @@ function HintBox({title, abbrTitle, hint = '?', hintEnabled, children}: HintBoxP
   return (
     <abbr
       title={abbrTitle}
-      className="grid aspect-square max-w-40 md:max-w-56 rounded-lg items-center border-2 border-black no-underline"
+      className="grid aspect-square max-w-40 md:max-w-56 rounded-lg items-center border-2 border-gray-600 no-underline"
     >
       <div className="text-center">
         {hint !== null || hintEnabled ? <div>{children}</div> : null}
