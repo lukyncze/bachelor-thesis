@@ -5,6 +5,7 @@ import CountryGuessInput from './CountryGuessInput';
 import WinModal from './Modals/WinModal';
 import LoseModal from './Modals/LoseModal';
 import {getRandomCountry} from './helpers';
+import GuessedCountriesList from './GuessedCountriesList';
 
 interface CountryGuesserProps {
   countries: ReadonlyArray<Country>;
@@ -39,6 +40,7 @@ function CountryGuesser({countries}: CountryGuesserProps) {
       return;
     }
 
+    setCurrentGuess('');
     setGuessedCountries([...guessedCountries, currentGuess]);
     setHintsEnabledCount(hintsEnabledCount + 1);
   };
@@ -56,7 +58,7 @@ function CountryGuesser({countries}: CountryGuesserProps) {
         <HintBoxes randomCountry={randomCountry} hintsEnabledCount={hintsEnabledCount} />
       </div>
 
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex items-start justify-center gap-4 mt-5">
         <CountryGuessInput
           countries={countries}
           currentGuess={currentGuess}
@@ -64,7 +66,7 @@ function CountryGuesser({countries}: CountryGuesserProps) {
           evaluateGuessAndUpdateState={evaluateGuessAndUpdateState}
           guessedCountries={guessedCountries}
         />
-        {/* TODO: Display already guessed countries */}
+        <GuessedCountriesList countries={countries} guessedCountries={guessedCountries} />
       </div>
 
       <WinModal

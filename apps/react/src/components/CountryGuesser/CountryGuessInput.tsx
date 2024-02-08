@@ -72,7 +72,7 @@ function CountryGuessInput({
 
   return (
     <div className="relative group">
-      <div className="flex mt-6">
+      <div className="flex">
         <input
           type="text"
           value={currentGuess}
@@ -96,7 +96,8 @@ function CountryGuessInput({
       </div>
 
       <div
-        className={`flex flex-col absolute top-18 w-full duration-150 opacity-0 pointer-events-none bg-gray-100 rounded-md ${isOpen ? 'group-focus-within:opacity-100 group-focus-within:pointer-events-auto' : ''}`}
+        className={`flex flex-col absolute top-18 w-full duration-150 opacity-0 pointer-events-none bg-gray-200 rounded-lg border border-gray-300 
+        ${isOpen ? 'group-focus-within:opacity-100 group-focus-within:pointer-events-auto' : ''}`}
       >
         {filteredCountries.map((filteredCountry, index) => {
           return (
