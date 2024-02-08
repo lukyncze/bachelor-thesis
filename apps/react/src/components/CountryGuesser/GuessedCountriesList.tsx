@@ -18,6 +18,7 @@ function GuessedCountriesList({countries, guessedCountries}: GuessedCountriesLis
           <ul className="space-y-2">
             {guessedCountriesWithFlag.map((country, index) => (
               <li key={index} className="rounded-md bg-gray-100 p-1.5">
+                {/* TODO: Add kilometers */}
                 {index + 1}. {country.name} {country.flag}
               </li>
             ))}
