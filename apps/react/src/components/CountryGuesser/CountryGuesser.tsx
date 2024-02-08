@@ -54,12 +54,12 @@ function CountryGuesser({countries}: CountryGuesserProps) {
 
   return (
     <>
-      <div className="container mx-auto space-y-8">
+      <div className="container mx-auto space-y-6 sm:space-y-8">
         <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-4">
           <HintBoxes randomCountry={randomCountry} hintsEnabledCount={hintsEnabledCount} />
         </div>
 
-        <div className="flex items-start justify-center gap-2 md:gap-12">
+        <div className="space-y-6 lg:flex lg:justify-center lg:gap-12 lg:space-y-0">
           <CountryGuessInput
             countries={countries}
             currentGuess={currentGuess}

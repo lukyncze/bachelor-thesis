@@ -79,12 +79,13 @@ function CountryGuessInput({
           onChange={({target}) => setCurrentGuess(target.value)}
           onClick={() => setIsOpen(true)}
           onKeyDown={handleKeyDown}
-          className="block rounded-md w-[20rem] p-2 shadow-sm bg-gray-100 border border-gray-400"
+          className="block rounded-md w-full p-2 shadow-sm bg-gray-100 border border-gray-400 lg:w-[20rem] xl:w-[24rem]"
         />
 
         <button
           type="button"
-          className="rounded-lg w-32 p-2 grid h-full place-content-center border border-gray-400 bg-green-800 text-white hover:bg-green-900 animate-pulse hover:animate-none disabled:animate-none disabled:bg-red-800"
+          className="rounded-lg w-40 p-2 grid place-content-center border border-gray-400 bg-green-800 text-white animate-pulse 
+            lg:w-28 xl:w-32 hover:animate-none hover:bg-green-900 disabled:animate-none disabled:bg-red-800"
           onClick={() => {
             evaluateGuessAndUpdateState();
             setIsOpen(false);
@@ -97,7 +98,7 @@ function CountryGuessInput({
 
       <div
         className={`flex flex-col absolute top-18 w-full duration-150 opacity-0 pointer-events-none bg-gray-200 rounded-lg border border-gray-300 
-        ${isOpen ? 'group-focus-within:opacity-100 group-focus-within:pointer-events-auto' : ''}`}
+          ${isOpen ? 'group-focus-within:opacity-100 group-focus-within:pointer-events-auto' : ''}`}
       >
         {filteredCountries.map((filteredCountry, index) => {
           return (
