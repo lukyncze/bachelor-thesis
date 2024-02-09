@@ -67,7 +67,11 @@ function CountryGuesser({countries}: CountryGuesserProps) {
             evaluateGuessAndUpdateState={evaluateGuessAndUpdateState}
             guessedCountries={guessedCountries}
           />
-          <GuessedCountriesList countries={countries} guessedCountries={guessedCountries} />
+          <GuessedCountriesList
+            countries={countries}
+            guessedCountries={guessedCountries}
+            randomCountry={randomCountry}
+          />
         </div>
       </div>
 

@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  calculate-distance-between-coordinates:
+    specifier: ~1.0.5
+    version: 1.0.5
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -1125,6 +1128,10 @@ packages:
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.3)
     dev: true
+
+  /calculate-distance-between-coordinates@1.0.5:
+    resolution: {integrity: sha512-3ISl0gKm5P3DBYvsZfGQgRGr0MqSMd0hwmHRpWea1Vn1bzfq+YicNEqOiy5n3wmsxIUNf5wASXWBlUHyLEv6oA==}
+    dev: false
 
   /callsites@3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}

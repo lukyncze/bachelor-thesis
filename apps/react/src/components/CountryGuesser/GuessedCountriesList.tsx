@@ -1,25 +1,36 @@
-import {getGuessedCountriesWithFlags} from './helpers';
+import {getGuessedCountriesWithAdditionalProps} from './helpers';
 import {Country} from './useCountries';
 
 interface GuessedCountriesListProps {
   countries: ReadonlyArray<Country>;
   guessedCountries: ReadonlyArray<string>;
+  randomCountry: Country;
 }
 
-function GuessedCountriesList({countries, guessedCountries}: GuessedCountriesListProps) {
-  const guessedCountriesWithFlag = getGuessedCountriesWithFlags(countries, guessedCountries);
+function GuessedCountriesList({
+  countries,
+  guessedCountries,
+  randomCountry,
+}: GuessedCountriesListProps) {
+  const guessedCountriesWithAdditionalProps = getGuessedCountriesWithAdditionalProps(
+    countries,
+    guessedCountries,
+    randomCountry,
+  );
 
   return (
     <div>
       <h2 className="text-xl font-bold mb-3">Guessed countries</h2>
 
       <div className="flex flex-col w-full lg:w-[27rem] xl:w-[32rem]">
-        {guessedCountriesWithFlag.length > 0 ? (
+        {guessedCountriesWithAdditionalProps.length > 0 ? (
           <ul className="space-y-2">
-            {guessedCountriesWithFlag.map((country, index) => (
-              <li key={index} className="rounded-md bg-gray-100 p-1.5">
-                {/* TODO: Add kilometers */}
-                {index + 1}. {country.name} {country.flag}
+            {guessedCountriesWithAdditionalProps.map((country, index) => (
+              <li key={index} className="flex justify-between rounded-md bg-gray-100 p-1.5">
+                <span>
+                  {index + 1}. {country.name} {country.flag}
+                </span>
+                <span>{country.distanceAway} km away</span>
               </li>
             ))}
           </ul>
