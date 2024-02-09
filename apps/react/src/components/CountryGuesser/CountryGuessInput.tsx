@@ -1,5 +1,6 @@
 import {KeyboardEvent, useEffect, useState} from 'react';
 import {Country} from './useCountries';
+import Button from '../Button/Button';
 
 interface CountryGuessProps {
   countries: ReadonlyArray<Country>;
@@ -82,9 +83,8 @@ function CountryGuessInput({
           className="block rounded-md w-full p-2 shadow-sm bg-gray-100 border border-gray-400 lg:w-[20rem] xl:w-[24rem]"
         />
 
-        <button
-          type="button"
-          className="rounded-lg w-40 p-2 grid place-content-center border border-gray-400 bg-green-800 text-white animate-pulse 
+        <Button
+          className="rounded-lg w-40 !p-2 grid place-content-center border border-gray-400 bg-green-800 text-white animate-pulse 
             lg:w-28 xl:w-32 hover:animate-none hover:bg-green-900 disabled:animate-none disabled:bg-red-800"
           onClick={() => {
             evaluateGuessAndUpdateState();
@@ -93,7 +93,7 @@ function CountryGuessInput({
           disabled={!isValidGuess}
         >
           Take a guess
-        </button>
+        </Button>
       </div>
 
       <div
@@ -102,14 +102,13 @@ function CountryGuessInput({
       >
         {filteredCountries.map((filteredCountry, index) => {
           return (
-            <button
+            <Button
               key={index}
-              type="button"
               onClick={() => handleChangeSelectedGuess(filteredCountry.name.common)}
               className={`rounded-lg p-2 ${selectedGuessIndex === index ? 'bg-gray-300' : ''}`}
             >
               {filteredCountry.flag} {filteredCountry.name.common}
-            </button>
+            </Button>
           );
         })}
       </div>
