@@ -11,7 +11,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Andorra',
       official: 'Principality of Andorra',
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -41,7 +40,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'French Southern and Antarctic Lands',
       official: 'Territory of the French Southern and Antarctic Lands',
     },
-    independent: false,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -71,7 +69,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Laos',
       official: "Lao People's Democratic Republic",
     },
-    independent: true,
     currencies: {
       LAK: {
         name: 'Lao kip',
@@ -101,7 +98,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Canada',
       official: 'Canada',
     },
-    independent: true,
     currencies: {
       CAD: {
         name: 'Canadian dollar',
@@ -132,7 +128,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Nigeria',
       official: 'Federal Republic of Nigeria',
     },
-    independent: true,
     currencies: {
       NGN: {
         name: 'Nigerian naira',
@@ -162,7 +157,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Vanuatu',
       official: 'Republic of Vanuatu',
     },
-    independent: true,
     currencies: {
       VUV: {
         name: 'Vanuatu vatu',
@@ -194,7 +188,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Czechia',
       official: 'Czech Republic',
     },
-    independent: true,
     currencies: {
       CZK: {
         name: 'Czech koruna',
@@ -225,7 +218,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Malawi',
       official: 'Republic of Malawi',
     },
-    independent: true,
     currencies: {
       MWK: {
         name: 'Malawian kwacha',
@@ -256,7 +248,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Mali',
       official: 'Republic of Mali',
     },
-    independent: true,
     currencies: {
       XOF: {
         name: 'West African CFA franc',
@@ -286,7 +277,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Iceland',
       official: 'Iceland',
     },
-    independent: true,
     currencies: {
       ISK: {
         name: 'Icelandic króna',
@@ -316,7 +306,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Norway',
       official: 'Kingdom of Norway',
     },
-    independent: true,
     currencies: {
       NOK: {
         name: 'Norwegian krone',
@@ -348,7 +337,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Saint Vincent and the Grenadines',
       official: 'Saint Vincent and the Grenadines',
     },
-    independent: true,
     currencies: {
       XCD: {
         name: 'Eastern Caribbean dollar',
@@ -378,7 +366,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Guadeloupe',
       official: 'Guadeloupe',
     },
-    independent: false,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -408,7 +395,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Chile',
       official: 'Republic of Chile',
     },
-    independent: true,
     currencies: {
       CLP: {
         name: 'Chilean peso',
@@ -438,7 +424,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Bermuda',
       official: 'Bermuda',
     },
-    independent: false,
     currencies: {
       BMD: {
         name: 'Bermudian dollar',
@@ -468,7 +453,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Kuwait',
       official: 'State of Kuwait',
     },
-    independent: true,
     currencies: {
       KWD: {
         name: 'Kuwaiti dinar',
@@ -498,7 +482,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Dominica',
       official: 'Commonwealth of Dominica',
     },
-    independent: true,
     currencies: {
       XCD: {
         name: 'Eastern Caribbean dollar',
@@ -528,7 +511,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Montenegro',
       official: 'Montenegro',
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -558,7 +540,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'United States Virgin Islands',
       official: 'Virgin Islands of the United States',
     },
-    independent: false,
     currencies: {
       USD: {
         name: 'United States dollar',
@@ -588,7 +569,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Cameroon',
       official: 'Republic of Cameroon',
     },
-    independent: true,
     currencies: {
       XAF: {
         name: 'Central African CFA franc',
@@ -619,7 +599,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Sri Lanka',
       official: 'Democratic Socialist Republic of Sri Lanka',
     },
-    independent: true,
     currencies: {
       LKR: {
         name: 'Sri Lankan rupee',
@@ -650,7 +629,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'China',
       official: "People's Republic of China",
     },
-    independent: true,
     currencies: {
       CNY: {
         name: 'Chinese yuan',
@@ -697,7 +675,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Bangladesh',
       official: "People's Republic of Bangladesh",
     },
-    independent: true,
     currencies: {
       BDT: {
         name: 'Bangladeshi taka',
@@ -727,7 +704,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Sweden',
       official: 'Kingdom of Sweden',
     },
-    independent: true,
     currencies: {
       SEK: {
         name: 'Swedish krona',
@@ -763,7 +739,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       XCD: {
         name: 'Eastern Caribbean dollar',
@@ -799,7 +774,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       TRY: {
         name: 'Turkish lira',
@@ -835,7 +809,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       GNF: {
         name: 'Guinean franc',
@@ -875,7 +848,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       TZS: {
         name: 'Tanzanian shilling',
@@ -920,7 +892,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       RWF: {
         name: 'Rwandan franc',
@@ -970,7 +941,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       SGD: {
         name: 'Singapore dollar',
@@ -1013,7 +983,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       MAD: {
         name: 'Moroccan dirham',
@@ -1050,7 +1019,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -1094,7 +1062,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       IQD: {
         name: 'Iraqi dinar',
@@ -1132,7 +1099,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       BND: {
         name: 'Brunei dollar',
@@ -1176,7 +1142,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       GBP: {
         name: 'British pound',
@@ -1217,7 +1182,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       KPW: {
         name: 'North Korean won',
@@ -1253,7 +1217,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       IRR: {
         name: 'Iranian rial',
@@ -1297,7 +1260,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       ANG: {
         name: 'Netherlands Antillean guilder',
@@ -1339,7 +1301,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       PYG: {
         name: 'Paraguayan guaraní',
@@ -1376,7 +1337,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       ALL: {
         name: 'Albanian lek',
@@ -1416,7 +1376,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       TJS: {
         name: 'Tajikistani somoni',
@@ -1465,7 +1424,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       BOB: {
         name: 'Bolivian boliviano',
@@ -1504,7 +1462,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -1540,7 +1497,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       XCD: {
         name: 'Eastern Caribbean dollar',
@@ -1576,7 +1532,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       USD: {
         name: 'United States dollar',
@@ -1612,7 +1567,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       COP: {
         name: 'Colombian peso',
@@ -1696,7 +1650,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       BZD: {
         name: 'Belize dollar',
@@ -1738,7 +1691,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       XOF: {
         name: 'West African CFA franc',
@@ -1779,7 +1731,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       USD: {
         name: 'United States dollar',
@@ -1816,7 +1767,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       MMK: {
         name: 'Burmese kyat',
@@ -1852,7 +1802,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       XPF: {
         name: 'CFP franc',
@@ -1888,7 +1837,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       BRL: {
         name: 'Brazilian real',
@@ -1924,7 +1872,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -1964,7 +1911,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       SOS: {
         name: 'Somali shilling',
@@ -2009,7 +1955,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       AFN: {
         name: 'Afghan afghani',
@@ -2047,7 +1992,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       XCD: {
         name: 'Eastern Caribbean dollar',
@@ -2087,7 +2031,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       CKD: {
         name: 'Cook Islands dollar',
@@ -2136,7 +2079,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       DZD: {
         name: 'Algerian dinar',
@@ -2190,7 +2132,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       NZD: {
         name: 'New Zealand dollar',
@@ -2236,7 +2177,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       ERN: {
         name: 'Eritrean nakfa',
@@ -2274,7 +2214,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       KHR: {
         name: 'Cambodian riel',
@@ -2314,7 +2253,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       BSD: {
         name: 'Bahamian dollar',
@@ -2358,7 +2296,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       BYN: {
         name: 'Belarusian ruble',
@@ -2399,7 +2336,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       AUD: {
         name: 'Australian dollar',
@@ -2440,7 +2376,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       AUD: {
         name: 'Australian dollar',
@@ -2481,7 +2416,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       SHP: {
         name: 'Saint Helena pound',
@@ -2517,7 +2451,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       MRU: {
         name: 'Mauritanian ouguiya',
@@ -2553,7 +2486,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       XPF: {
         name: 'CFP franc',
@@ -2589,7 +2521,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       BGN: {
         name: 'Bulgarian lev',
@@ -2625,7 +2556,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       MZN: {
         name: 'Mozambican metical',
@@ -2665,7 +2595,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       NZD: {
         name: 'New Zealand dollar',
@@ -2702,7 +2631,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -2738,7 +2666,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -2778,7 +2705,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -2815,7 +2741,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -2859,7 +2784,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       INR: {
         name: 'Indian rupee',
@@ -2905,7 +2829,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       PEN: {
         name: 'Peruvian sol',
@@ -2947,7 +2870,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       BIF: {
         name: 'Burundian franc',
@@ -2984,7 +2906,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -3020,7 +2941,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       USD: {
         name: 'United States dollar',
@@ -3056,7 +2976,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       HNL: {
         name: 'Honduran lempira',
@@ -3096,7 +3015,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       TOP: {
         name: 'Tongan paʻanga',
@@ -3133,7 +3051,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       SAR: {
         name: 'Saudi riyal',
@@ -3169,7 +3086,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       SRD: {
         name: 'Surinamese dollar',
@@ -3205,7 +3121,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       QAR: {
         name: 'Qatari riyal',
@@ -3241,7 +3156,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       GBP: {
         name: 'Pound sterling',
@@ -3281,7 +3195,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       GIP: {
         name: 'Gibraltar pound',
@@ -3325,7 +3238,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       USD: {
         name: 'United States dollar',
@@ -3371,7 +3283,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       MUR: {
         name: 'Mauritian rupee',
@@ -3409,7 +3320,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       BBD: {
         name: 'Barbadian dollar',
@@ -3445,7 +3355,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -3481,7 +3390,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       USD: {
         name: 'United States dollar',
@@ -3517,7 +3425,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       SYP: {
         name: 'Syrian pound',
@@ -3553,7 +3460,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EGP: {
         name: 'Egyptian pound',
@@ -3589,7 +3495,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       STN: {
         name: 'São Tomé and Príncipe dobra',
@@ -3629,7 +3534,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       AUD: {
         name: 'Australian dollar',
@@ -3674,7 +3578,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       USD: {
         name: 'United States dollar',
@@ -3715,7 +3618,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       LSL: {
         name: 'Lesotho loti',
@@ -3756,7 +3658,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       SBD: {
         name: 'Solomon Islands dollar',
@@ -3792,7 +3693,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       LYD: {
         name: 'Libyan dinar',
@@ -3828,7 +3728,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       KRW: {
         name: 'South Korean won',
@@ -3864,7 +3763,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       CHF: {
         name: 'Swiss franc',
@@ -3900,7 +3798,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       NIO: {
         name: 'Nicaraguan córdoba',
@@ -3936,7 +3833,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       USD: {
         name: 'United States dollar',
@@ -3972,7 +3868,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       MVR: {
         name: 'Maldivian rufiyaa',
@@ -4008,7 +3903,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       DZD: {
         name: 'Algerian dinar',
@@ -4048,7 +3942,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       KGS: {
         name: 'Kyrgyzstani som',
@@ -4089,7 +3982,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -4121,7 +4013,6 @@ export const mockedData: ReadonlyArray<Country> = [
       official: 'Antarctica',
       nativeName: {},
     },
-    independent: false,
     currencies: {},
     capital: [],
     region: 'Antarctic',
@@ -4154,7 +4045,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       KES: {
         name: 'Kenyan shilling',
@@ -4191,7 +4081,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       CUC: {
         name: 'Cuban convertible peso',
@@ -4231,7 +4120,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       XCD: {
         name: 'Eastern Caribbean dollar',
@@ -4267,7 +4155,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       PLN: {
         name: 'Polish złoty',
@@ -4303,7 +4190,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -4339,7 +4225,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       ETB: {
         name: 'Ethiopian birr',
@@ -4375,7 +4260,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       XOF: {
         name: 'West African CFA franc',
@@ -4419,7 +4303,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       BAM: {
         name: 'Bosnia and Herzegovina convertible mark',
@@ -4457,7 +4340,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       UYU: {
         name: 'Uruguayan peso',
@@ -4501,7 +4383,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       USD: {
         name: 'United States dollar',
@@ -4539,7 +4420,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       CVE: {
         name: 'Cape Verdean escudo',
@@ -4579,7 +4459,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       XAF: {
         name: 'Central African CFA franc',
@@ -4620,7 +4499,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -4661,7 +4539,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       USD: {
         name: 'United States dollar',
@@ -4702,7 +4579,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       HTG: {
         name: 'Haitian gourde',
@@ -4739,7 +4615,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       YER: {
         name: 'Yemeni rial',
@@ -4779,7 +4654,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       SZL: {
         name: 'Swazi lilangeni',
@@ -4876,7 +4750,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       ZWL: {
         name: 'Zimbabwean dollar',
@@ -4926,7 +4799,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -4966,7 +4838,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       ILS: {
         name: 'Israeli new shekel',
@@ -5003,7 +4874,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -5039,7 +4909,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       XCD: {
         name: 'Eastern Caribbean dollar',
@@ -5079,7 +4948,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -5124,7 +4992,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       ANG: {
         name: 'Netherlands Antillean guilder',
@@ -5162,7 +5029,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -5206,7 +5072,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       FJD: {
         name: 'Fijian dollar',
@@ -5244,7 +5109,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       UAH: {
         name: 'Ukrainian hryvnia',
@@ -5280,7 +5144,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -5320,7 +5183,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       HKD: {
         name: 'Hong Kong dollar',
@@ -5357,7 +5219,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -5393,7 +5254,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       BTN: {
         name: 'Bhutanese ngultrum',
@@ -5433,7 +5293,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       NPR: {
         name: 'Nepalese rupee',
@@ -5469,7 +5328,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -5509,7 +5367,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -5546,7 +5403,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       AED: {
         name: 'United Arab Emirates dirham',
@@ -5590,7 +5446,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       GBP: {
         name: 'British pound',
@@ -5632,7 +5487,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       XCD: {
         name: 'Eastern Caribbean dollar',
@@ -5668,7 +5522,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       DOP: {
         name: 'Dominican peso',
@@ -5704,7 +5557,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       RSD: {
         name: 'Serbian dinar',
@@ -5744,7 +5596,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       BWP: {
         name: 'Botswana pula',
@@ -5781,7 +5632,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       XOF: {
         name: 'West African CFA franc',
@@ -5817,7 +5667,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       GHS: {
         name: 'Ghanaian cedi',
@@ -5861,7 +5710,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       KMF: {
         name: 'Comorian franc',
@@ -5899,7 +5747,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       AZN: {
         name: 'Azerbaijani manat',
@@ -5935,7 +5782,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       GBP: {
         name: 'British pound',
@@ -5975,7 +5821,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       XAF: {
         name: 'Central African CFA franc',
@@ -6012,7 +5857,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       EGP: {
         name: 'Egyptian pound',
@@ -6060,7 +5904,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       USD: {
         name: 'United States dollar',
@@ -6098,7 +5941,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       TWD: {
         name: 'New Taiwan dollar',
@@ -6134,7 +5976,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       NZD: {
         name: 'New Zealand dollar',
@@ -6170,7 +6011,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -6206,7 +6046,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       NOK: {
         name: 'krone',
@@ -6246,7 +6085,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       DJF: {
         name: 'Djiboutian franc',
@@ -6283,7 +6121,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       XPF: {
         name: 'CFP franc',
@@ -6319,7 +6156,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       DKK: {
         name: 'Danish krone',
@@ -6363,7 +6199,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       PGK: {
         name: 'Papua New Guinean kina',
@@ -6405,7 +6240,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       MGA: {
         name: 'Malagasy ariary',
@@ -6442,7 +6276,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {},
     capital: [],
     region: 'Antarctic',
@@ -6473,7 +6306,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       HUF: {
         name: 'Hungarian forint',
@@ -6517,7 +6349,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       NZD: {
         name: 'New Zealand dollar',
@@ -6555,7 +6386,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       TTD: {
         name: 'Trinidad and Tobago dollar',
@@ -6591,7 +6421,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       GMD: {
         name: 'dalasi',
@@ -6635,7 +6464,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -6673,7 +6501,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       AUD: {
         name: 'Australian dollar',
@@ -6717,7 +6544,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       XAF: {
         name: 'Central African CFA franc',
@@ -6759,7 +6585,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       ARS: {
         name: 'Argentine peso',
@@ -6812,7 +6637,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       CDF: {
         name: 'Congolese franc',
@@ -6852,7 +6676,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       DKK: {
         name: 'krone',
@@ -6888,7 +6711,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       JOD: {
         name: 'Jordanian dinar',
@@ -6932,7 +6754,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -6982,7 +6803,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       CHF: {
         name: 'Swiss franc',
@@ -7021,7 +6841,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       IDR: {
         name: 'Indonesian rupiah',
@@ -7061,7 +6880,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       LBP: {
         name: 'Lebanese pound',
@@ -7102,7 +6920,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       MYR: {
         name: 'Malaysian ringgit',
@@ -7139,7 +6956,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       KYD: {
         name: 'Cayman Islands dollar',
@@ -7175,7 +6991,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -7211,7 +7026,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       AMD: {
         name: 'Armenian dram',
@@ -7247,7 +7061,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       AUD: {
         name: 'Australian dollar',
@@ -7283,7 +7096,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       MNT: {
         name: 'Mongolian tögrög',
@@ -7319,7 +7131,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -7355,7 +7166,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       JPY: {
         name: 'Japanese yen',
@@ -7431,7 +7241,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       ZAR: {
         name: 'South African rand',
@@ -7481,7 +7290,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       PHP: {
         name: 'Philippine peso',
@@ -7518,7 +7326,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       USD: {
         name: 'United States dollar',
@@ -7554,7 +7361,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -7590,7 +7396,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -7630,7 +7435,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       JMD: {
         name: 'Jamaican dollar',
@@ -7671,7 +7475,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       MOP: {
         name: 'Macanese pataca',
@@ -7712,7 +7515,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       AUD: {
         name: 'Australian dollar',
@@ -7753,7 +7555,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       DKK: {
         name: 'Danish krone',
@@ -7794,7 +7595,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       GYD: {
         name: 'Guyanese dollar',
@@ -7830,7 +7630,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       XOF: {
         name: 'West African CFA franc',
@@ -7870,7 +7669,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       SDG: {
         name: 'Sudanese pound',
@@ -7907,7 +7705,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       RUB: {
         name: 'Russian ruble',
@@ -7958,7 +7755,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -7994,7 +7790,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       AUD: {
         name: 'Australian dollar',
@@ -8030,7 +7825,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       LRD: {
         name: 'Liberian dollar',
@@ -8066,7 +7860,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       MXN: {
         name: 'Mexican peso',
@@ -8102,7 +7895,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       TND: {
         name: 'Tunisian dinar',
@@ -8142,7 +7934,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       AWG: {
         name: 'Aruban florin',
@@ -8183,7 +7974,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       KZT: {
         name: 'Kazakhstani tenge',
@@ -8220,7 +8010,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       OMR: {
         name: 'Omani rial',
@@ -8256,7 +8045,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -8292,7 +8080,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       XOF: {
         name: 'West African CFA franc',
@@ -8332,7 +8119,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       TMT: {
         name: 'Turkmenistan manat',
@@ -8369,7 +8155,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       SLL: {
         name: 'Sierra Leonean leone',
@@ -8409,7 +8194,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       WST: {
         name: 'Samoan tālā',
@@ -8446,7 +8230,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       XOF: {
         name: 'West African CFA franc',
@@ -8482,7 +8265,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       GEL: {
         name: 'lari',
@@ -8550,7 +8332,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       NAD: {
         name: 'Namibian dollar',
@@ -8598,7 +8379,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       SSP: {
         name: 'South Sudanese pound',
@@ -8634,7 +8414,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       THB: {
         name: 'Thai baht',
@@ -8670,7 +8449,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       BHD: {
         name: 'Bahraini dinar',
@@ -8706,7 +8484,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {},
     capital: [],
     region: 'Antarctic',
@@ -8737,7 +8514,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       FKP: {
         name: 'Falkland Islands pound',
@@ -8781,7 +8557,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       GBP: {
         name: 'British pound',
@@ -8823,7 +8598,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       VND: {
         name: 'Vietnamese đồng',
@@ -8859,7 +8633,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       GTQ: {
         name: 'Guatemalan quetzal',
@@ -8895,7 +8668,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       MDL: {
         name: 'Moldovan leu',
@@ -8931,7 +8703,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       MKD: {
         name: 'denar',
@@ -8971,7 +8742,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       UZS: {
         name: 'Uzbekistani soʻm',
@@ -9008,7 +8778,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       RON: {
         name: 'Romanian leu',
@@ -9048,7 +8817,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       UGX: {
         name: 'Ugandan shilling',
@@ -9085,7 +8853,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       USD: {
         name: 'United States dollar',
@@ -9121,7 +8888,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       ZMW: {
         name: 'Zambian kwacha',
@@ -9157,7 +8923,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       XAF: {
         name: 'Central African CFA franc',
@@ -9201,7 +8966,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       XAF: {
         name: 'Central African CFA franc',
@@ -9239,7 +9003,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -9278,7 +9041,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       EUR: {
         name: 'Euro',
@@ -9314,7 +9076,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       USD: {
         name: 'United States dollar',
@@ -9350,7 +9111,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       XOF: {
         name: 'West African CFA franc',
@@ -9390,7 +9150,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       PKR: {
         name: 'Pakistani rupee',
@@ -9427,7 +9186,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       PAB: {
         name: 'Panamanian balboa',
@@ -9467,7 +9225,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       USD: {
         name: 'United States dollar',
@@ -9503,7 +9260,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       AOA: {
         name: 'Angolan kwanza',
@@ -9543,7 +9299,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: false,
     currencies: {
       USD: {
         name: 'United States dollar',
@@ -9580,7 +9335,6 @@ export const mockedData: ReadonlyArray<Country> = [
         },
       },
     },
-    independent: true,
     currencies: {
       VES: {
         name: 'Venezuelan bolívar soberano',
@@ -9610,7 +9364,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Costa Rica',
       official: 'Republic of Costa Rica',
     },
-    independent: true,
     currencies: {
       CRC: {
         name: 'Costa Rican colón',
@@ -9640,7 +9393,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Puerto Rico',
       official: 'Commonwealth of Puerto Rico',
     },
-    independent: false,
     currencies: {
       USD: {
         name: 'United States dollar',
@@ -9671,7 +9423,6 @@ export const mockedData: ReadonlyArray<Country> = [
       common: 'Seychelles',
       official: 'Republic of Seychelles',
     },
-    independent: true,
     currencies: {
       SCR: {
         name: 'Seychellois rupee',
@@ -9693,4 +9444,4 @@ export const mockedData: ReadonlyArray<Country> = [
     flag: '🇸🇨',
     population: 98462,
   },
-] as ReadonlyArray<Country>;
+] as unknown as ReadonlyArray<Country>;
