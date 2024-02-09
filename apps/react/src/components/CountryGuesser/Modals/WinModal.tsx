@@ -15,7 +15,7 @@ function WinModal({isOpen, handleClose, randomCountry, totalGuessesNeeded}: WinM
       handleClose={handleClose}
       title="Congratulations, you have guessed the country correctly!"
     >
-      The correct country was: {randomCountry.name.common}.
+      The correct country was: <strong>{randomCountry.name.common}</strong>.
       <br />
       You have guessed the country in {totalGuessesNeeded}{' '}
       {totalGuessesNeeded > 1 ? 'tries' : 'try'}.
