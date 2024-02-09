@@ -6,7 +6,7 @@ settings:
 
 dependencies:
   calculate-distance-between-coordinates:
-    specifier: ~1.0.5
+    specifier: ^1.0.5
     version: 1.0.5
   react:
     specifier: ^18.2.0
