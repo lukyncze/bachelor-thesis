@@ -1,5 +1,13 @@
 import HintBox, {HintBoxProps} from './HintBox';
 import {Country} from '../useCountries';
+import {sizeIcon} from '../../icons/sizeIcon';
+import {populationIcon} from '../../icons/populationIcon';
+import {landlockedIcon} from '../../icons/landlockedIcon';
+import {regionIcon} from '../../icons/regionIcon';
+import {languagesIcon} from '../../icons/languagesIcon';
+import {capitalIcon} from '../../icons/capitalIcon';
+import {bordersIcon} from '../../icons/bordersIcon';
+import {flagIcon} from '../../icons/flagIcon';
 
 interface HintBoxesProps {
   randomCountry: Country;
@@ -12,49 +20,53 @@ function HintBoxes({randomCountry, hintsEnabledCount}: HintBoxesProps) {
       title: 'Size',
       abbrTitle: 'The size of the country in km²',
       hint: `${randomCountry.area.toLocaleString()} km²`,
-      children: '🌍',
+      hintIcon: sizeIcon,
     },
     {
       title: 'Population',
       abbrTitle: '',
       hint: `${randomCountry.population.toLocaleString()} people`,
-      children: '👥',
+      hintIcon: populationIcon,
     },
     {
       title: 'Landlocked',
       abbrTitle: '',
       hint: randomCountry.landlocked ? 'Yes' : 'No',
-      children: '🏃‍♂️',
+      hintIcon: landlockedIcon,
     },
     {
       title: 'Region',
       abbrTitle: '',
       hint: randomCountry.region || 'None',
-      children: '🌐',
+      hintIcon: regionIcon,
     },
     {
       title: 'Languages',
       abbrTitle: '',
       hint: randomCountry.languages ? Object.values(randomCountry.languages).join(', ') : 'None',
-      children: '🗣️',
+      hintIcon: languagesIcon,
     },
     {
       title: 'Capital',
       abbrTitle: '',
       hint: randomCountry.capital.length ? Object.values(randomCountry.capital).join(', ') : 'None',
-      children: '🏛️',
+      hintIcon: capitalIcon,
     },
     {
       title: 'Borders',
       abbrTitle: '',
       hint: randomCountry.borders.length ? Object.values(randomCountry.borders).join(', ') : 'None',
-      children: '🚧',
+      hintIcon: bordersIcon,
     },
     {
       title: 'Flag',
       abbrTitle: '',
       hint: null,
-      children: <img src={randomCountry.flags.png} alt="Country flag" />,
+      hintIcon: flagIcon,
+      flagImage: {
+        src: randomCountry.flags.png,
+        alt: 'Country flag',
+      },
     },
   ];
 
