@@ -47,6 +47,8 @@ function CountryGuessInput({
     } else if (key === 'Enter') {
       handleChangeSelectedGuess(filteredCountries[selectedGuessIndex].name.common);
       currentTarget.blur();
+    } else if (key === 'Escape') {
+      setIsOpen(false);
     }
   };
 
@@ -100,8 +102,8 @@ function CountryGuessInput({
         className={`flex flex-col absolute top-18 w-full duration-150 opacity-0 pointer-events-none bg-gray-200 rounded-lg border border-gray-300 
           ${isOpen ? 'group-focus-within:opacity-100 group-focus-within:pointer-events-auto' : ''}`}
       >
-        {filteredCountries.map((filteredCountry, index) => {
-          return (
+        {filteredCountries.length > 0 ? (
+          filteredCountries.map((filteredCountry, index) => (
             <Button
               key={index}
               onClick={() => handleChangeSelectedGuess(filteredCountry.name.common)}
@@ -109,9 +111,23 @@ function CountryGuessInput({
             >
               {filteredCountry.flag} {filteredCountry.name.common}
             </Button>
-          );
-        })}
+          ))
+        ) : (
+          <div className="rounded-lg p-2">No country found. Please, try to change your input.</div>
+        )}
       </div>
+
+      {!filteredCountries.length ? (
+        <div className="rounded-lg mt-2">No country found. Please, try to change your input.</div>
+      ) : null}
+
+      {currentGuess.length && filteredCountries.length && !isValidGuess ? (
+        <div className="rounded-lg mt-2">Please enter/select a full country name.</div>
+      ) : null}
+
+      {!currentGuess.length ? (
+        <div className="rounded-lg mt-2">Enter a country you want to guess.</div>
+      ) : null}
     </div>
   );
 }
