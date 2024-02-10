@@ -19,7 +19,7 @@ function GuessedCountriesList({
   );
 
   return (
-    <div>
+    <div className="border-t border-gray-300 pt-4 lg:border-t-0 lg:pt-0">
       <h2 className="text-xl font-bold mb-3">Guessed countries</h2>
 
       <div className="flex flex-col w-full lg:w-[27rem] xl:w-[32rem]">
