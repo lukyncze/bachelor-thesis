@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {Country} from './useCountries';
+import {Country} from './country';
 import HintBoxes from './HintBoxes/HintBoxes';
 import CountryGuessInput from './CountryGuessInput';
 import WinModal from './Modals/WinModal';

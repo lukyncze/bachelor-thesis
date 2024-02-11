@@ -1,5 +1,5 @@
 import {Coordinate, getDistanceBetweenTwoPoints} from 'calculate-distance-between-coordinates';
-import {Country} from './useCountries';
+import {Country} from './country';
 
 interface GuessedCountryWithAdditionalProps {
   name: string;

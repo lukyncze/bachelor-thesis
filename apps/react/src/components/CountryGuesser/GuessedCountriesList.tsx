@@ -1,5 +1,5 @@
 import {getGuessedCountriesWithAdditionalProps} from './helpers';
-import {Country} from './useCountries';
+import {Country} from './country';
 
 interface GuessedCountriesListProps {
   countries: ReadonlyArray<Country>;

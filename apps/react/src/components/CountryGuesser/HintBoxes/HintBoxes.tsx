@@ -1,5 +1,5 @@
 import HintBox, {HintBoxProps} from './HintBox';
-import {Country} from '../useCountries';
+import {Country} from '../country';
 import {sizeIcon} from '../../icons/sizeIcon';
 import {populationIcon} from '../../icons/populationIcon';
 import {landlockedIcon} from '../../icons/landlockedIcon';

@@ -1,5 +1,5 @@
 import {KeyboardEvent, useEffect, useState} from 'react';
-import {Country} from './useCountries';
+import {Country} from './country';
 import Button from '../Button/Button';
 
 interface CountryGuessProps {

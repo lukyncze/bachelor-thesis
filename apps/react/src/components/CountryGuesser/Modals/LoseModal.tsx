@@ -1,4 +1,4 @@
-import {Country} from '../useCountries';
+import {Country} from '../country';
 import Modal from './Modal';
 
 interface LoseModalProps {

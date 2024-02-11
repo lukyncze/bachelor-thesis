@@ -1,34 +1,5 @@
 import {useEffect, useRef, useState} from 'react';
-import {mockedData} from './mockedData';
-
-export interface Country {
-  name: Name;
-  area: number;
-  population: number;
-  landlocked: boolean;
-  region: string;
-  languages: Languages;
-  capital: ReadonlyArray<string>;
-  borders: ReadonlyArray<string>;
-  flags: Flags;
-  flag: string;
-  latlng: ReadonlyArray<number>;
-}
-
-interface Flags {
-  png: string;
-  svg: string;
-  alt: string;
-}
-
-interface Name {
-  common: string;
-  official: string;
-}
-
-interface Languages {
-  [key: string]: string;
-}
+import {Country} from './country';
 
 function useCountries() {
   const [countries, setCountries] = useState<ReadonlyArray<Country>>([]);
@@ -42,12 +13,10 @@ function useCountries() {
       abortControllerRef.current = new AbortController();
 
       try {
-        // const response = await fetch(
-        //   'https://restcountries.com/v3.1/all?fields=name,area,population,landlocked,region,languages,capital,borders,flags,flag,latlng',
-        //   {signal: abortControllerRef.current?.signal},
-        // );
-        // const data = await response.json();
-        const data = mockedData;
+        const url = `${import.meta.env.VITE_REST_COUNTRIES_BASE_URL}${import.meta.env.VITE_REST_COUNTRIES_QUERY_PARAMS}`;
+        const options: RequestInit = {signal: abortControllerRef.current.signal};
+        const response = await fetch(url, options);
+        const data = await response.json();
         setCountries(data);
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
