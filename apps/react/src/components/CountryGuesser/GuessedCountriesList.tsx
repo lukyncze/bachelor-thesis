@@ -38,6 +38,10 @@ function GuessedCountriesList({
           <p>No country guessed yet. Please, take a guess!</p>
         )}
       </div>
+
+      {guessedCountriesWithAdditionalProps.length > 0 ? (
+        <p className="mt-4">Away distance is calculated from the center of each country.</p>
+      ) : null}
     </div>
   );
 }
