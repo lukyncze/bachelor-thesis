@@ -43,7 +43,9 @@ function HintBoxes({randomCountry, hintsEnabledCount}: HintBoxesProps) {
     {
       title: 'Languages',
       abbrTitle: '',
-      hint: randomCountry.languages ? Object.values(randomCountry.languages).join(', ') : 'None',
+      hint: Object.keys(randomCountry.languages).length
+        ? Object.values(randomCountry.languages).join(', ')
+        : 'None',
       hintIcon: languagesIcon,
     },
     {
