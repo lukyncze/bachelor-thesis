@@ -4,7 +4,7 @@ import InputLabel from './InputLabel';
 import {InvestFormData} from './types';
 
 interface InvestFormProps {
-  onFormSubmit: (values: InvestFormData) => void;
+  handleFormSubmit: SubmitHandler<InvestFormData>;
   defaultValues?: InvestFormData;
 }
 
@@ -14,7 +14,7 @@ interface InvestFormProps {
 // https://codesandbox.io/p/sandbox/react-hook-form-useformmethods-e3411?file=%2Fsrc%2FApp.tsx
 
 function InvestForm({
-  onFormSubmit,
+  handleFormSubmit,
   defaultValues = {
     oneOffInvestment: 500,
     investmentLength: 10,
@@ -31,15 +31,8 @@ function InvestForm({
     formState: {errors},
   } = useForm<InvestFormData>({defaultValues, mode: 'onChange'});
 
-  const onSubmit: SubmitHandler<InvestFormData> = data => onFormSubmit(data);
-
-  // useEffect(() => {
-  //   const subscription = watch(() => handleSubmit(onSubmit)());
-  //   return () => subscription.unsubscribe();
-  // }, [handleSubmit, watch]);
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(handleFormSubmit)}>
       <div className="md:flex md:gap-4">
         <div className="mb-4 md:w-1/2">
           <InputLabel id="oneOffInvestment">One-off investment (20-99.999.999€)</InputLabel>

@@ -1,4 +1,3 @@
-import {useEffect, useState} from 'react';
 import {FutureValues, InvestFormData} from './types';
 
 const calculateFutureValueOfSavings = (data: InvestFormData): number => {
@@ -19,20 +18,13 @@ const getRoundedNumber = (value: number): number => {
   return parseFloat(Math.round(value).toFixed(2));
 };
 
-function useFutureValuesCalculator() {
-  const [inputData, setInputData] = useState<InvestFormData>();
-  const [futureValues, setFutureValues] = useState<FutureValues>();
+function futureValuesCalculator(formData: InvestFormData | undefined): FutureValues | undefined {
+  if (!formData) return;
 
-  useEffect(() => {
-    if (!inputData) return;
+  const futureValueOfSavings = calculateFutureValueOfSavings(formData);
+  const futureValueOfSP500 = calculateFutureValueOfSP500(formData);
 
-    const futureValueOfSavings = calculateFutureValueOfSavings(inputData);
-    const futureValueOfSP500 = calculateFutureValueOfSP500(inputData);
-
-    setFutureValues({futureValueOfSavings, futureValueOfSP500});
-  }, [inputData]);
-
-  return [futureValues, setInputData] as const;
+  return {futureValueOfSavings, futureValueOfSP500};
 }
 
-export default useFutureValuesCalculator;
+export default futureValuesCalculator;
