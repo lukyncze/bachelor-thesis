@@ -6,6 +6,7 @@ import WinModal from './Modals/WinModal';
 import LoseModal from './Modals/LoseModal';
 import {getRandomCountry} from './helpers';
 import GuessedCountriesList from './GuessedCountriesList';
+import useCountryFlagPolyfill from './hooks/useCountryFlagPolyfill';
 
 interface CountryGuesserProps {
   countries: ReadonlyArray<Country>;
@@ -22,6 +23,8 @@ function CountryGuesser({countries}: CountryGuesserProps) {
   const [totalGuessesNeeded, setTotalGuessesNeeded] = useState(1);
   const [isWinModalOpen, setIsWinModalOpen] = useState(false);
   const [isLoseModalOpen, setIsLoseModalOpen] = useState(false);
+
+  useCountryFlagPolyfill();
 
   const hasGuessedCountry = () => currentGuess === randomCountry.name.common;
   const hasReachedMaximumGuesses = () => guessedCountries.length + 1 === maximumCountryGuesses;

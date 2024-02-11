@@ -1,7 +1,7 @@
-import {useEffect, useRef, useState} from 'react';
-import {Country} from './country';
-import {getAllCountries} from './api/getAllCountries';
 import {CanceledError} from 'axios';
+import {useEffect, useRef, useState} from 'react';
+import {getAllCountries} from '../api/getAllCountries';
+import {Country} from '../country';
 
 function useCountries() {
   const [countries, setCountries] = useState<ReadonlyArray<Country>>([]);

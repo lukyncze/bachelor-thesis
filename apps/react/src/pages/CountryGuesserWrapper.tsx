@@ -1,5 +1,5 @@
 import {PropsWithChildren} from 'react';
-import useCountries from '../components/CountryGuesser/useCountries';
+import useCountries from '../components/CountryGuesser/hooks/useCountries';
 import CountryGuesser from '../components/CountryGuesser/CountryGuesser';
 import LoadingSkeleton from '../components/CountryGuesser/LoadingSkeleton';
 import ErrorAlert from '../components/CountryGuesser/ErrorAlert';
