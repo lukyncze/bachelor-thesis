@@ -1,7 +1,7 @@
 <div class="container mx-auto">
   <invest-form [defaultValues]="defaultValues" (formChanged)="handleFormChanged($event)" />
 
-  @if (result) {
-    <future-values-info [futureValues]="result" />
+  @if (futureValues) {
+    <future-values-info [futureValues]="futureValues" />
   }
 </div>
