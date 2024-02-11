@@ -22,7 +22,6 @@ function CountryGuesser({countries}: CountryGuesserProps) {
   const [totalGuessesNeeded, setTotalGuessesNeeded] = useState(1);
   const [isWinModalOpen, setIsWinModalOpen] = useState(false);
   const [isLoseModalOpen, setIsLoseModalOpen] = useState(false);
-  console.log(`🚀 ~ CountryGuesser ~ randomCountry:`, randomCountry.name.common);
 
   const hasGuessedCountry = () => currentGuess === randomCountry.name.common;
   const hasReachedMaximumGuesses = () => guessedCountries.length + 1 === maximumCountryGuesses;
