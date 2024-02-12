@@ -18,11 +18,11 @@ export class InvestFormWrapperComponent {
     averageSavingsInterest: 2,
     averageSP500Interest: 9.8,
   };
-  protected result?: FutureValues;
+  protected futureValues?: FutureValues;
 
   constructor(private readonly futureValuesCalculator: FutureValuesCalculatorService) {}
 
   protected handleFormChanged(formValues: InvestFormData): void {
-    this.result = this.futureValuesCalculator.calculate(formValues);
+    this.futureValues = this.futureValuesCalculator.calculate(formValues);
   }
 }

@@ -1,7 +1,8 @@
+import {useState} from 'react';
 import InvestForm from '../components/InvestForm/InvestForm';
 import FutureValuesInfo from '../components/InvestForm/FutureValuesInfo';
-import {InvestFormData} from '../components/InvestForm/types';
-import useFutureValuesCalculator from '../components/InvestForm/useFutureValuesCalculator';
+import {FutureValues, InvestFormData} from '../components/InvestForm/types';
+import futureValuesCalculator from '../components/InvestForm/futureValuesCalculator';
 
 const defaultValues: InvestFormData = {
   oneOffInvestment: 10_000,
@@ -11,13 +12,18 @@ const defaultValues: InvestFormData = {
 };
 
 function InvestFormWrapper() {
-  const [result, setInputData] = useFutureValuesCalculator();
+  const [futureValues, setFutureValues] = useState<FutureValues>();
+
+  const handleFormSubmit = (formData: InvestFormData) => {
+    const futureValues = futureValuesCalculator(formData);
+    setFutureValues(futureValues);
+  };
 
   return (
     <div className="container mx-auto">
-      <InvestForm onFormSubmit={data => setInputData(data)} defaultValues={defaultValues} />
+      <InvestForm handleFormSubmit={handleFormSubmit} defaultValues={defaultValues} />
 
-      {result ? <FutureValuesInfo {...result} /> : null}
+      {futureValues ? <FutureValuesInfo {...futureValues} /> : null}
     </div>
   );
 }
