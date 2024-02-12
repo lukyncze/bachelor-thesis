@@ -29,6 +29,7 @@ export class HintBoxesComponent implements OnInit {
       },
       {
         title: 'Population',
+        // TODO: abbr titles...
         abbrTitle: '',
         hint: `${randomCountry.population.toLocaleString()} people`,
         hintComponent: BordersIconComponent,
