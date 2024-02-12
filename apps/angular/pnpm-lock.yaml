@@ -29,6 +29,15 @@ dependencies:
   '@angular/router':
     specifier: ^17.1.2
     version: 17.1.2(@angular/common@17.1.2)(@angular/core@17.1.2)(@angular/platform-browser@17.1.2)(rxjs@7.8.1)
+  calculate-distance-between-coordinates:
+    specifier: ^1.0.5
+    version: 1.0.5
+  country-flag-emoji-polyfill:
+    specifier: ^0.1.8
+    version: 0.1.8
+  ngx-load-with:
+    specifier: ^4.1.2
+    version: 4.1.2(@angular/common@17.1.2)(@angular/core@17.1.2)(rxjs@7.8.1)
   rxjs:
     specifier: ^7.8.1
     version: 7.8.1
@@ -3774,6 +3783,10 @@ packages:
       unique-filename: 3.0.0
     dev: true
 
+  /calculate-distance-between-coordinates@1.0.5:
+    resolution: {integrity: sha512-3ISl0gKm5P3DBYvsZfGQgRGr0MqSMd0hwmHRpWea1Vn1bzfq+YicNEqOiy5n3wmsxIUNf5wASXWBlUHyLEv6oA==}
+    dev: false
+
   /call-bind@1.0.5:
     resolution: {integrity: sha512-C3nQxfFZxFRVoJoGKKI8y3MOEo129NQ+FgQ08iye+Mk4zNZZGdjfs06bVTr+DBSlA66Q2VEcMki/cUCP4SercQ==}
     dependencies:
@@ -4106,6 +4119,10 @@ packages:
       path-type: 4.0.0
       typescript: 5.3.3
     dev: true
+
+  /country-flag-emoji-polyfill@0.1.8:
+    resolution: {integrity: sha512-Mbah52sADS3gshUYhK5142gtUuJpHYOXlXtLFI3Ly4RqgkmPMvhX9kMZSTqDM8P7UqtSW99eHKFphhQSGXA3Cg==}
+    dev: false
 
   /critters@0.0.20:
     resolution: {integrity: sha512-CImNRorKOl5d8TWcnAz5n5izQ6HFsvz29k327/ELy6UFcmbiZNOsinaKvzv16WZR0P6etfSWYzE47C4/56B3Uw==}
@@ -6462,6 +6479,19 @@ packages:
   /neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
+
+  /ngx-load-with@4.1.2(@angular/common@17.1.2)(@angular/core@17.1.2)(rxjs@7.8.1):
+    resolution: {integrity: sha512-+iIA1FJAT525AdWPlyU/Z5Q0elQ7S76+ARFGT93aFYyKZU6wTBkQ4m+yJ5UZ9EbszbWV10TKdK7eu0KVmRSnAg==}
+    peerDependencies:
+      '@angular/common': '>=16.0.0'
+      '@angular/core': '>=16.0.0'
+      rxjs: '>=7.0.0'
+    dependencies:
+      '@angular/common': 17.1.2(@angular/core@17.1.2)(rxjs@7.8.1)
+      '@angular/core': 17.1.2(rxjs@7.8.1)(zone.js@0.14.2)
+      rxjs: 7.8.1
+      tslib: 2.6.2
+    dev: false
 
   /nice-napi@1.0.2:
     resolution: {integrity: sha512-px/KnJAJZf5RuBGcfD+Sp2pAKq0ytz8j+1NehvgIGFkvtvFrDM3T8E4x/JJODXK9WZow8RRGrbA9QQ3hs+pDhA==}
