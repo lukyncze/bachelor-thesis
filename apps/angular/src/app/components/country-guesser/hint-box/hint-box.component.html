@@ -1,0 +1,17 @@
+<abbr
+  [title]="abbrTitle"
+  class="grid aspect-square max-w-40 md:max-w-56 rounded-lg items-center border-2 border-gray-600 no-underline"
+>
+  <div class="text-center">
+    <div>
+      @if (showFlagHint) {
+        <img [src]="flagImage?.src" [alt]="flagImage?.alt" />
+      } @else {
+        <ng-container *ngComponentOutlet="hintComponent" />
+      }
+    </div>
+
+    <h3 class="text-center">{{ title }}</h3>
+    <p>{{ hintEnabled ? hint : '?' }}</p>
+  </div>
+</abbr>

@@ -1,0 +1,42 @@
+<div class="container mx-auto space-y-6 sm:space-y-8">
+  <hint-boxes
+    [randomCountry]="countries[0]"
+    [hintsEnabledCount]="8"
+    class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-4"
+  />
+
+  <div class="space-y-6 lg:flex lg:justify-center lg:gap-12 lg:space-y-0">
+    <span>input</span>
+    <span>list</span>
+    <!-- <CountryGuessInput
+            countries={countries}
+            currentGuess={currentGuess}
+            setCurrentGuess={setCurrentGuess}
+            evaluateGuessAndUpdateState={evaluateGuessAndUpdateState}
+            guessedCountries={guessedCountries}
+          /> -->
+    <!-- <GuessedCountriesList
+            countries={countries}
+            guessedCountries={guessedCountries}
+            randomCountry={randomCountry}
+          /> -->
+  </div>
+</div>
+
+<!-- <WinModal
+isOpen={isWinModalOpen}
+handleClose={() => {
+handleSetInitialState();
+setIsWinModalOpen(false);
+}}
+randomCountry={randomCountry}
+totalGuessesNeeded={totalGuessesNeeded}
+/>
+<LoseModal
+isOpen={isLoseModalOpen}
+handleClose={() => {
+handleSetInitialState();
+setIsLoseModalOpen(false);
+}}
+randomCountry={randomCountry}
+/> -->
