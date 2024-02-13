@@ -1,10 +1,10 @@
 import {Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'borders-icon',
+  selector: 'languages-icon',
   standalone: true,
-  templateUrl: './borders-icon.component.html',
+  templateUrl: './languages-icon.component.html',
 })
-export class BordersIconComponent {
+export class LanguagesIconComponent {
   @Input() className = 'inline-block w-14 h-14';
 }
