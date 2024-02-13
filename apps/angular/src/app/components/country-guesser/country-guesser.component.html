@@ -13,20 +13,12 @@
       (setCurrentGuess)="handleSetCurrentGuess($event)"
       (evaluateGuessAndUpdateState)="handleEvaluateGuessAndUpdateState()"
     />
-    <!-- <CountryGuessInput
-      countries={countries}
-      currentGuess={currentGuess}
-      setCurrentGuess={setCurrentGuess}
-      evaluateGuessAndUpdateState={evaluateGuessAndUpdateState}
-      guessedCountries={guessedCountries}
-    /> -->
 
-    <span>list</span>
-    <!-- <GuessedCountriesList
-      countries={countries}
-      guessedCountries={guessedCountries}
-      randomCountry={randomCountry}
-    /> -->
+    <guessed-countries-list
+      [countries]="countries"
+      [guessedCountries]="guessedCountries"
+      [randomCountry]="randomCountry"
+    />
   </div>
 </div>
 
