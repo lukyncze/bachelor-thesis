@@ -1,25 +1,32 @@
 <div class="container mx-auto space-y-6 sm:space-y-8">
   <hint-boxes
-    [randomCountry]="countries[0]"
-    [hintsEnabledCount]="8"
+    [randomCountry]="randomCountry"
+    [hintsEnabledCount]="hintsEnabledCount"
     class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-4"
   />
 
   <div class="space-y-6 lg:flex lg:justify-center lg:gap-12 lg:space-y-0">
-    <span>input</span>
-    <span>list</span>
+    <country-guess-input
+      [countries]="countries"
+      [currentGuess]="currentGuess"
+      [guessedCountries]="guessedCountries"
+      (setCurrentGuess)="handleSetCurrentGuess($event)"
+      (evaluateGuessAndUpdateState)="handleEvaluateGuessAndUpdateState()"
+    />
     <!-- <CountryGuessInput
-            countries={countries}
-            currentGuess={currentGuess}
-            setCurrentGuess={setCurrentGuess}
-            evaluateGuessAndUpdateState={evaluateGuessAndUpdateState}
-            guessedCountries={guessedCountries}
-          /> -->
+      countries={countries}
+      currentGuess={currentGuess}
+      setCurrentGuess={setCurrentGuess}
+      evaluateGuessAndUpdateState={evaluateGuessAndUpdateState}
+      guessedCountries={guessedCountries}
+    /> -->
+
+    <span>list</span>
     <!-- <GuessedCountriesList
-            countries={countries}
-            guessedCountries={guessedCountries}
-            randomCountry={randomCountry}
-          /> -->
+      countries={countries}
+      guessedCountries={guessedCountries}
+      randomCountry={randomCountry}
+    /> -->
   </div>
 </div>
 
