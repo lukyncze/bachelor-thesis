@@ -29,26 +29,25 @@ export class HintBoxesComponent implements OnInit {
       },
       {
         title: 'Population',
-        // TODO: abbr titles...
-        abbrTitle: '',
+        abbrTitle: 'The number of people living in the country',
         hint: `${randomCountry.population.toLocaleString()} people`,
         hintComponent: BordersIconComponent,
       },
       {
         title: 'Landlocked',
-        abbrTitle: '',
+        abbrTitle: 'Is country landlocked (does not have a sea)?',
         hint: randomCountry.landlocked ? 'Yes' : 'No',
         hintComponent: BordersIconComponent,
       },
       {
         title: 'Region',
-        abbrTitle: '',
+        abbrTitle: 'The region of the world the country is in',
         hint: randomCountry.region || 'None',
         hintComponent: BordersIconComponent,
       },
       {
         title: 'Languages',
-        abbrTitle: '',
+        abbrTitle: 'The languages spoken in the country',
         hint: Object.keys(randomCountry.languages).length
           ? Object.values(randomCountry.languages).join(', ')
           : 'None',
@@ -56,7 +55,7 @@ export class HintBoxesComponent implements OnInit {
       },
       {
         title: 'Capital',
-        abbrTitle: '',
+        abbrTitle: 'The capital city of the country',
         hint: randomCountry.capital.length
           ? Object.values(randomCountry.capital).join(', ')
           : 'None',
@@ -64,7 +63,7 @@ export class HintBoxesComponent implements OnInit {
       },
       {
         title: 'Borders',
-        abbrTitle: '',
+        abbrTitle: 'The countries that border the country',
         hint: randomCountry.borders.length
           ? Object.values(randomCountry.borders).join(', ')
           : 'None',
@@ -72,7 +71,7 @@ export class HintBoxesComponent implements OnInit {
       },
       {
         title: 'Flag',
-        abbrTitle: '',
+        abbrTitle: 'The flag of the country',
         hint: '',
         hintComponent: BordersIconComponent,
         flagImage: {
