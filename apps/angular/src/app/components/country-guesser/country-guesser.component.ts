@@ -32,10 +32,6 @@ export class CountryGuesserComponent implements OnInit {
   }
 
   protected handleSetCurrentGuess(currentGuess: string): void {
-    console.log(
-      `🚀 ~ CountryGuesserComponent ~ handleSetCurrentGuess ~ currentGuess:`,
-      currentGuess,
-    );
     this.currentGuess = currentGuess;
   }
 
@@ -52,8 +48,8 @@ export class CountryGuesserComponent implements OnInit {
       return;
     }
 
-    this.currentGuess = '';
     this.guessedCountries = [...this.guessedCountries, this.currentGuess];
+    this.currentGuess = '';
     this.hintsEnabledCount++;
   }
 
