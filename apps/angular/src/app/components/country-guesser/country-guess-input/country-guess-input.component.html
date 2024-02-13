@@ -2,8 +2,8 @@
   <div class="flex">
     <input
       type="text"
-      [value]="currentGuess"
-      (change)="setCurrentGuess.emit(currentGuess)"
+      [(ngModel)]="currentGuess"
+      (ngModelChange)="setCurrentGuess.emit(currentGuess)"
       (click)="isOpen = true"
       (keydown)="handleKeyDown($event)"
       class="block rounded-md w-full p-2 shadow-sm bg-gray-100 border border-gray-400 lg:w-[20rem] xl:w-[24rem]"

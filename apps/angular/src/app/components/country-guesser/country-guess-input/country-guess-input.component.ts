@@ -59,7 +59,6 @@ export class CountryGuessInputComponent implements OnChanges {
   }
 
   private updateFilteredCountries(): void {
-    console.log(this.currentGuess);
     const countriesWithoutAlreadyGuesses = this.countries.filter(country =>
       this.filterOutAlreadyGuessedCountries(country),
     );
