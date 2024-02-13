@@ -1,6 +1,9 @@
+<!-- error -->
+
 @if (countries.length > 0) {
   <country-guesser [countries]="countries" />
+} @else {
+  <div class="container flex flex-col justify-center justify-items-center mx-auto">
+    <loading-skeleton />
+  </div>
 }
-
-<!-- error -->
-<!-- loading -->
