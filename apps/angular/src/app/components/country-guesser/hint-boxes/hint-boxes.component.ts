@@ -8,7 +8,7 @@ import {PopulationIconComponent} from '../../icons/population-icon/population-ic
 import {RegionIconComponent} from '../../icons/region-icon/region-icon.component';
 import {SizeIconComponent} from '../../icons/size-icon/size-icon.component';
 import {Country} from '../country';
-import {HintBox, HintBoxComponent} from '../hint-box/hint-box.component';
+import {HintBox, HintBoxComponent} from './hint-box/hint-box.component';
 
 @Component({
   selector: 'hint-boxes',
