@@ -22,20 +22,17 @@
   </div>
 </div>
 
-<!-- <WinModal
-isOpen={isWinModalOpen}
-handleClose={() => {
-handleSetInitialState();
-setIsWinModalOpen(false);
-}}
-randomCountry={randomCountry}
-totalGuessesNeeded={totalGuessesNeeded}
-/>
-<LoseModal
-isOpen={isLoseModalOpen}
-handleClose={() => {
-handleSetInitialState();
-setIsLoseModalOpen(false);
-}}
-randomCountry={randomCountry}
-/> -->
+@if (isWinModalOpen) {
+  <win-modal
+    [randomCountry]="randomCountry"
+    [totalGuessesNeeded]="totalGuessesNeeded"
+    (handleClose)="handleSetInitialState(); isWinModalOpen = false"
+  />
+}
+
+@if (isLoseModalOpen) {
+  <lose-modal
+    [randomCountry]="randomCountry"
+    (handleClose)="handleSetInitialState(); isLoseModalOpen = false"
+  />
+}

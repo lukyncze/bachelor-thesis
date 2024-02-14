@@ -1,0 +1,10 @@
+<base-modal
+  [title]="'Congratulations, you have guessed the country correctly!'"
+  (handleClose)="handleClose.emit()"
+>
+  The correct country was: <strong>{{ randomCountry.name.common }}</strong
+  >.
+  <br />
+  You have guessed the country in {{ totalGuessesNeeded }}
+  {{ totalGuessesNeeded > 1 ? 'tries' : 'try' }}.
+</base-modal>

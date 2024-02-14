@@ -2,8 +2,10 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Country} from './country';
 import {CountryGuessInputComponent} from './country-guess-input/country-guess-input.component';
 import {GuessedCountriesListComponent} from './guessed-countries-list/guessed-countries-list.component';
-import {HintBoxesComponent} from './hint-boxes/hint-boxes.component';
 import {getRandomCountry} from './helpers';
+import {HintBoxesComponent} from './hint-boxes/hint-boxes.component';
+import {LoseModalComponent} from './modals/lose-modal/lose-modal.component';
+import {WinModalComponent} from './modals/win-modal/win-modal.component';
 
 const defaultHintsEnabledCount = 1;
 const maximumCountryGuesses = 8;
@@ -12,7 +14,13 @@ const maximumCountryGuesses = 8;
   selector: 'country-guesser',
   standalone: true,
   templateUrl: './country-guesser.component.html',
-  imports: [HintBoxesComponent, CountryGuessInputComponent, GuessedCountriesListComponent],
+  imports: [
+    HintBoxesComponent,
+    CountryGuessInputComponent,
+    GuessedCountriesListComponent,
+    WinModalComponent,
+    LoseModalComponent,
+  ],
 })
 export class CountryGuesserComponent implements OnInit {
   protected randomCountry!: Country;
@@ -55,7 +63,7 @@ export class CountryGuesserComponent implements OnInit {
     this.hintsEnabledCount++;
   }
 
-  private handleSetInitialState() {
+  protected handleSetInitialState() {
     this.randomCountry = getRandomCountry(this.countries);
     this.currentGuess = '';
     this.guessedCountries = [];
@@ -65,6 +73,7 @@ export class CountryGuesserComponent implements OnInit {
   private hasGuessedCountry(): boolean {
     return this.currentGuess === this.randomCountry.name.common;
   }
+
   private hasReachedMaximumGuesses(): boolean {
     return this.guessedCountries.length + 1 === maximumCountryGuesses;
   }
