@@ -1,9 +1,17 @@
-<!-- <error-alert /> -->
-
-@if (countries.length > 0) {
+<ng-container
+  *ngxLoadWith="countries$ as countries; loadingTemplate: loading; errorTemplate: error"
+>
   <country-guesser [countries]="countries" />
-} @else {
+</ng-container>
+
+<ng-template #loading>
   <div class="container flex flex-col justify-center justify-items-center mx-auto">
     <loading-skeleton />
   </div>
-}
+</ng-template>
+
+<ng-template #error let-error>
+  <div class="container flex flex-col justify-center justify-items-center mx-auto">
+    <error-alert [message]="error.message" />
+  </div>
+</ng-template>
