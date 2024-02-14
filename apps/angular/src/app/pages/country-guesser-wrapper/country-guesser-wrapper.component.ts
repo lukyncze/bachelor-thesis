@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Country} from '../../components/country-guesser/country';
 import {CountryGuesserComponent} from '../../components/country-guesser/country-guesser.component';
+import {ErrorAlertComponent} from '../../components/country-guesser/error-alert/error-alert.component';
 import {LoadingSkeletonComponent} from '../../components/country-guesser/loading-skeleton/loading-skeleton.component';
 import {mockedData} from '../../components/country-guesser/mockedData';
 
@@ -8,7 +9,7 @@ import {mockedData} from '../../components/country-guesser/mockedData';
   selector: 'country-guesser-wrapper',
   standalone: true,
   templateUrl: './country-guesser-wrapper.component.html',
-  imports: [CountryGuesserComponent, LoadingSkeletonComponent],
+  imports: [CountryGuesserComponent, LoadingSkeletonComponent, ErrorAlertComponent],
 })
 export class CountryGuesserWrapperComponent {
   protected countries: ReadonlyArray<Country> = mockedData;
