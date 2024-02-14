@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges} from '@angular/core';
 import {BordersIconComponent} from '../../icons/borders-icon/borders-icon.component';
 import {CapitalIconComponent} from '../../icons/capital-icon/capital-icon.component';
 import {FlagIconComponent} from '../../icons/flag-icon/flag-icon.component';
@@ -16,13 +16,13 @@ import {HintBox, HintBoxComponent} from './hint-box/hint-box.component';
   templateUrl: './hint-boxes.component.html',
   imports: [HintBoxComponent],
 })
-export class HintBoxesComponent implements OnInit {
+export class HintBoxesComponent implements OnChanges {
   protected hintBoxes: ReadonlyArray<HintBox> = [];
 
   @Input({required: true}) randomCountry!: Country;
-  @Input({required: true}) hintsEnabledCount!: number;
+  @Input({required: true}) hintsEnabledCount = 1;
 
-  public ngOnInit() {
+  public ngOnChanges() {
     this.hintBoxes = this.getHintBoxesData(this.randomCountry);
   }
 
