@@ -11,10 +11,6 @@ interface GuessedCountryWithAdditionalProps {
 
 export type GuessedCountriesWithAdditionalProps = ReadonlyArray<GuessedCountryWithAdditionalProps>;
 
-export const getRandomCountry = (countries: ReadonlyArray<Country>): Country => {
-  return countries[Math.floor(Math.random() * countries.length)];
-};
-
 export const getGuessedCountriesWithAdditionalProps = (
   countries: ReadonlyArray<Country>,
   guessedCountries: ReadonlyArray<string>,

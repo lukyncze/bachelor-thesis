@@ -2,10 +2,10 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Country} from './country';
 import {CountryGuessInputComponent} from './country-guess-input/country-guess-input.component';
 import {GuessedCountriesListComponent} from './guessed-countries-list/guessed-countries-list.component';
-import {getRandomCountry} from './helpers';
 import {HintBoxesComponent} from './hint-boxes/hint-boxes.component';
 import {LoseModalComponent} from './modals/lose-modal/lose-modal.component';
 import {WinModalComponent} from './modals/win-modal/win-modal.component';
+import {CountryFlagPolyfillService} from './services/country-flag-polyfill.service';
 
 const defaultHintsEnabledCount = 1;
 const maximumCountryGuesses = 8;
@@ -33,12 +33,11 @@ export class CountryGuesserComponent implements OnInit {
 
   @Input({required: true}) countries: ReadonlyArray<Country> = [];
 
+  constructor(private readonly countryFlagPolyfillService: CountryFlagPolyfillService) {}
+
   public ngOnInit(): void {
-    this.randomCountry = getRandomCountry(this.countries);
-    console.log(
-      `🚀 ~ CountryGuesserComponent ~ ngOnInit ~ this.randomCountry:`,
-      this.randomCountry.name.common,
-    );
+    this.randomCountry = this.getRandomCountry();
+    this.countryFlagPolyfillService.usePolyfill();
   }
 
   protected handleSetCurrentGuess(currentGuess: string): void {
@@ -64,7 +63,7 @@ export class CountryGuesserComponent implements OnInit {
   }
 
   protected handleSetInitialState() {
-    this.randomCountry = getRandomCountry(this.countries);
+    this.randomCountry = this.getRandomCountry();
     this.currentGuess = '';
     this.guessedCountries = [];
     this.hintsEnabledCount = defaultHintsEnabledCount;
@@ -76,5 +75,9 @@ export class CountryGuesserComponent implements OnInit {
 
   private hasReachedMaximumGuesses(): boolean {
     return this.guessedCountries.length + 1 === maximumCountryGuesses;
+  }
+
+  private getRandomCountry(): Country {
+    return this.countries[Math.floor(Math.random() * this.countries.length)];
   }
 }
