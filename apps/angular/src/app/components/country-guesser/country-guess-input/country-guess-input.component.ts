@@ -70,6 +70,7 @@ export class CountryGuessInputComponent implements OnChanges {
     this.isValidGuess = !!countriesWithoutAlreadyGuesses.find(country =>
       this.searchForExactCountry(country),
     );
+    this.clampSelectedGuessIndex();
   }
 
   private filterOutAlreadyGuessedCountries(country: Country): boolean {
@@ -82,5 +83,11 @@ export class CountryGuessInputComponent implements OnChanges {
 
   private searchForExactCountry(country: Country): boolean {
     return country.name.common.toLowerCase() === this.currentGuess.toLowerCase();
+  }
+
+  private clampSelectedGuessIndex(): void {
+    if (this.selectedGuessIndex >= this.filteredCountries.length) {
+      this.selectedGuessIndex = this.filteredCountries.length - 1;
+    }
   }
 }
