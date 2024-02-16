@@ -62,6 +62,11 @@ function CountryGuessInput({
     const searchForExactCountry = (country: Country) => {
       return country.name.common.toLowerCase() === currentGuess.toLowerCase();
     };
+    const clampSelectedGuessIndex = () => {
+      if (selectedGuessIndex >= filteredCountries.length) {
+        setSelectedGuessIndex(filteredCountries.length - 1);
+      }
+    };
 
     const countriesWithoutAlreadyGuesses = countries.filter(country =>
       filterOutAlreadyGuessedCountries(country),
@@ -71,7 +76,8 @@ function CountryGuessInput({
     );
     setFilteredCountries(filteredCountries.slice(0, countryHintsCount));
     setIsValidGuess(!!countriesWithoutAlreadyGuesses.find(searchForExactCountry));
-  }, [currentGuess, countries, guessedCountries]);
+    clampSelectedGuessIndex();
+  }, [currentGuess, countries, guessedCountries, selectedGuessIndex]);
 
   return (
     <div className="relative group">
