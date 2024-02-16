@@ -1,5 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable, inject} from '@angular/core';
+import {retryBackoff} from 'backoff-rxjs';
 import {Observable, catchError, tap, throwError} from 'rxjs';
 import {environment} from '../../../../environments/environment';
 import {Country} from '../country';
@@ -24,6 +25,7 @@ export class CountryService {
 
     return this.httpClient.get<ReadonlyArray<Country>>(url).pipe(
       tap(response => this.checkResponseLength(response)),
+      retryBackoff({initialInterval: 1000, maxRetries: 3}),
       catchError(error => throwError(() => this.handleError(error))),
     );
   }

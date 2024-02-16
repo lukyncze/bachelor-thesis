@@ -29,6 +29,9 @@ dependencies:
   '@angular/router':
     specifier: ^17.1.2
     version: 17.1.2(@angular/common@17.1.2)(@angular/core@17.1.2)(@angular/platform-browser@17.1.2)(rxjs@7.8.1)
+  backoff-rxjs:
+    specifier: ^7.0.0
+    version: 7.0.0(rxjs@7.8.1)
   calculate-distance-between-coordinates:
     specifier: ^1.0.5
     version: 1.0.5
@@ -3589,6 +3592,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /backoff-rxjs@7.0.0(rxjs@7.8.1):
+    resolution: {integrity: sha512-ZLxc3iR7f6V4qngxL8CTBjIvQj1VCVK/EaQ26a2Xcrq0lXtSsl1ESvFFjMTSqcL93c9gcSinPf6xg/Sm+zYckg==}
+    peerDependencies:
+      rxjs: ^7.0.0
+    dependencies:
+      rxjs: 7.8.1
+    dev: false
 
   /balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
