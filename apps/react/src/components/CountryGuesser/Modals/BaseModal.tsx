@@ -2,13 +2,13 @@ import {ReactNode} from 'react';
 import Button from '../../Button/Button';
 import {closeIcon} from '../../icons/closeIcon';
 
-interface ModalProps {
+interface BaseModalProps {
   title: string;
   children: ReactNode;
   handleClose: () => void;
 }
 
-function Modal({title, children, handleClose}: ModalProps) {
+function BaseModal({title, children, handleClose}: BaseModalProps) {
   return (
     <div
       id="static-modal"
@@ -51,7 +51,7 @@ function Modal({title, children, handleClose}: ModalProps) {
   );
 }
 
-export default Modal;
+export default BaseModal;
 
 // Design taken from:
 // https://flowbite.com/docs/components/modal/

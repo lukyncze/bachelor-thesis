@@ -1,5 +1,5 @@
 import {Country} from '../country';
-import Modal from './Modal';
+import BaseModal from './BaseModal';
 
 interface WinModalProps {
   randomCountry: Country;
@@ -9,7 +9,7 @@ interface WinModalProps {
 
 function WinModal({randomCountry, totalGuessesNeeded, handleClose}: WinModalProps) {
   return (
-    <Modal
+    <BaseModal
       title="Congratulations, you have guessed the country correctly!"
       handleClose={handleClose}
     >
@@ -17,7 +17,7 @@ function WinModal({randomCountry, totalGuessesNeeded, handleClose}: WinModalProp
       <br />
       You have guessed the country in {totalGuessesNeeded}{' '}
       {totalGuessesNeeded > 1 ? 'tries' : 'try'}.
-    </Modal>
+    </BaseModal>
   );
 }
 

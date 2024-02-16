@@ -1,5 +1,5 @@
 import {Country} from '../country';
-import Modal from './Modal';
+import BaseModal from './BaseModal';
 
 interface LoseModalProps {
   randomCountry: Country;
@@ -8,9 +8,9 @@ interface LoseModalProps {
 
 function LoseModal({randomCountry, handleClose}: LoseModalProps) {
   return (
-    <Modal title="You have not guessed the country :(" handleClose={handleClose}>
+    <BaseModal title="You have not guessed the country :(" handleClose={handleClose}>
       The correct country was: {randomCountry.name.common}.
-    </Modal>
+    </BaseModal>
   );
 }
 
