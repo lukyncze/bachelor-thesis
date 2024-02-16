@@ -45,7 +45,7 @@ function CountryGuessInput({
       handleChangeSelectedGuessIndex(1);
     } else if (key === 'ArrowUp') {
       handleChangeSelectedGuessIndex(-1);
-    } else if (key === 'Enter') {
+    } else if (key === 'Enter' && filteredCountries.length > 0) {
       handleChangeSelectedGuess(filteredCountries[selectedGuessIndex].name.common);
       currentTarget.blur();
     } else if (key === 'Escape') {
