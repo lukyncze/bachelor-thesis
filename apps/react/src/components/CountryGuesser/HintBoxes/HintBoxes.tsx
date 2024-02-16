@@ -24,25 +24,25 @@ function HintBoxes({randomCountry, hintsEnabledCount}: HintBoxesProps) {
     },
     {
       title: 'Population',
-      abbrTitle: '',
+      abbrTitle: 'The number of people living in the country',
       hint: `${randomCountry.population.toLocaleString()} people`,
       hintIcon: populationIcon,
     },
     {
       title: 'Landlocked',
-      abbrTitle: '',
+      abbrTitle: 'Is country landlocked (does not have a sea)?',
       hint: randomCountry.landlocked ? 'Yes' : 'No',
       hintIcon: landlockedIcon,
     },
     {
       title: 'Region',
-      abbrTitle: '',
+      abbrTitle: 'The region of the world the country is in',
       hint: randomCountry.region || 'None',
       hintIcon: regionIcon,
     },
     {
       title: 'Languages',
-      abbrTitle: '',
+      abbrTitle: 'The languages spoken in the country',
       hint: Object.keys(randomCountry.languages).length
         ? Object.values(randomCountry.languages).join(', ')
         : 'None',
@@ -50,20 +50,20 @@ function HintBoxes({randomCountry, hintsEnabledCount}: HintBoxesProps) {
     },
     {
       title: 'Capital',
-      abbrTitle: '',
+      abbrTitle: 'The capital city of the country',
       hint: randomCountry.capital.length ? Object.values(randomCountry.capital).join(', ') : 'None',
       hintIcon: capitalIcon,
     },
     {
       title: 'Borders',
-      abbrTitle: '',
+      abbrTitle: 'The countries that border the country',
       hint: randomCountry.borders.length ? Object.values(randomCountry.borders).join(', ') : 'None',
       hintIcon: bordersIcon,
     },
     {
       title: 'Flag',
-      abbrTitle: '',
-      hint: null,
+      abbrTitle: 'The flag of the country',
+      hint: '',
       hintIcon: flagIcon,
       flagImage: {
         src: randomCountry.flags.png,
@@ -75,7 +75,7 @@ function HintBoxes({randomCountry, hintsEnabledCount}: HintBoxesProps) {
   return (
     <>
       {hintBoxes.map((hintBox, index) => (
-        <HintBox key={index} {...hintBox} hintEnabled={index + 1 <= hintsEnabledCount} />
+        <HintBox key={index} {...hintBox} hintEnabled={index < hintsEnabledCount} />
       ))}
     </>
   );
