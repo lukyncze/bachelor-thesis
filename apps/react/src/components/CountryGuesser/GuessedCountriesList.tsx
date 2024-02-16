@@ -1,4 +1,4 @@
-import {getGuessedCountriesWithAdditionalProps} from './helpers';
+import {EnrichedGuessedCountries, getEnrichedGuessedCountries} from './helpers';
 import {Countries, Country} from './country';
 import {GuessedCountries} from './CountryGuesser';
 
@@ -13,7 +13,7 @@ function GuessedCountriesList({
   guessedCountries,
   randomCountry,
 }: GuessedCountriesListProps) {
-  const guessedCountriesWithAdditionalProps = getGuessedCountriesWithAdditionalProps(
+  const enrichedGuessedCountries: EnrichedGuessedCountries = getEnrichedGuessedCountries(
     countries,
     guessedCountries,
     randomCountry,
@@ -24,14 +24,14 @@ function GuessedCountriesList({
       <h2 className="text-xl font-bold mb-3">Guessed countries</h2>
 
       <div className="flex flex-col w-full lg:w-[27rem] xl:w-[32rem]">
-        {guessedCountriesWithAdditionalProps.length > 0 ? (
+        {enrichedGuessedCountries.length > 0 ? (
           <ul className="space-y-2">
-            {guessedCountriesWithAdditionalProps.map((country, index) => (
+            {enrichedGuessedCountries.map((country, index) => (
               <li key={index} className="flex justify-between rounded-md bg-gray-100 p-1.5">
                 <span>
                   {index + 1}. {country.name} {country.flag}
                 </span>
-                <span>{country.distanceAway} km away</span>
+                <span>{country.distanceFromRandomCountry} km away</span>
               </li>
             ))}
           </ul>
@@ -40,7 +40,7 @@ function GuessedCountriesList({
         )}
       </div>
 
-      {guessedCountriesWithAdditionalProps.length > 0 ? (
+      {enrichedGuessedCountries.length > 0 ? (
         <p className="mt-4">Away distance is calculated from the center of each country.</p>
       ) : null}
     </div>

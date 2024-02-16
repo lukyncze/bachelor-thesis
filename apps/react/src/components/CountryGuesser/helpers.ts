@@ -1,28 +1,38 @@
 import {Coordinate, getDistanceBetweenTwoPoints} from 'calculate-distance-between-coordinates';
-import {Countries, Country} from './country';
 import {GuessedCountries} from './CountryGuesser';
+import {Countries, Country} from './country';
 
-interface GuessedCountryWithAdditionalProps {
+interface EnrichedGuessedCountry {
   name: string;
   flag: string;
-  distanceAway: number;
+  distanceFromRandomCountry: number;
 }
+
+export type EnrichedGuessedCountries = ReadonlyArray<EnrichedGuessedCountry>;
 
 export const getRandomCountry = (countries: Countries): Country => {
   return countries[Math.floor(Math.random() * countries.length)];
 };
 
-export const getGuessedCountriesWithAdditionalProps = (
+export const getEnrichedGuessedCountries = (
   countries: Countries,
   guessedCountries: GuessedCountries,
   randomCountry: Country,
-): ReadonlyArray<GuessedCountryWithAdditionalProps> => {
-  return guessedCountries.map(countryName => {
-    const country = findCountryByName(countries, countryName);
-    const distanceAway = calculateDistanceFromRandomCountry(country, randomCountry);
+): EnrichedGuessedCountries => {
+  return guessedCountries.map(countryName =>
+    enrichGuessedCountry(countries, countryName, randomCountry),
+  );
+};
 
-    return {name: countryName, flag: country?.flag || '', distanceAway};
-  });
+const enrichGuessedCountry = (
+  countries: Countries,
+  countryName: string,
+  randomCountry: Country,
+): EnrichedGuessedCountry => {
+  const country = findCountryByName(countries, countryName);
+  const distanceFromRandomCountry = calculateDistanceFromRandomCountry(country, randomCountry);
+
+  return {name: countryName, flag: country?.flag || '', distanceFromRandomCountry};
 };
 
 const findCountryByName = (countries: Countries, countryName: string): Country | undefined => {
