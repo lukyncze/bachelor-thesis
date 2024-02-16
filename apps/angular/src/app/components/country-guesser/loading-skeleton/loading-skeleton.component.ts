@@ -6,5 +6,5 @@ import {Component} from '@angular/core';
   templateUrl: './loading-skeleton.component.html',
 })
 export class LoadingSkeletonComponent {
-  protected items: ReadonlyArray<number> = new Array(6).fill(0);
+  protected items = Array.from({length: 6});
 }
