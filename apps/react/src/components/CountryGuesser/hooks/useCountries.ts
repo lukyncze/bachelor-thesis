@@ -1,10 +1,10 @@
 import {CanceledError} from 'axios';
 import {useEffect, useRef, useState} from 'react';
 import {getAllCountries} from '../api/getAllCountries';
-import {Country} from '../country';
+import {Countries} from '../country';
 
 function useCountries() {
-  const [countries, setCountries] = useState<ReadonlyArray<Country>>([]);
+  const [countries, setCountries] = useState<Countries>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
   const abortControllerRef = useRef<AbortController | null>(null);

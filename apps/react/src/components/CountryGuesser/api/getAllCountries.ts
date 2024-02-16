@@ -1,13 +1,13 @@
 import axios, {AxiosRequestConfig} from 'axios';
-import {Country} from '../country';
+import {Countries} from '../country';
 import {requestHandler} from './requestHandler';
 
 interface CountriesRequestOptions {
   signal: AbortSignal;
 }
 
-export const getAllCountries = requestHandler<CountriesRequestOptions, ReadonlyArray<Country>>(
-  params => axios.request(getRequestConfig(params)),
+export const getAllCountries = requestHandler<CountriesRequestOptions, Countries>(params =>
+  axios.request(getRequestConfig(params)),
 );
 
 const getRequestConfig = ({signal}: CountriesRequestOptions): AxiosRequestConfig => {

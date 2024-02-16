@@ -1,5 +1,6 @@
 import {Coordinate, getDistanceBetweenTwoPoints} from 'calculate-distance-between-coordinates';
-import {Country} from './country';
+import {Countries, Country} from './country';
+import {GuessedCountries} from './CountryGuesser';
 
 interface GuessedCountryWithAdditionalProps {
   name: string;
@@ -7,13 +8,13 @@ interface GuessedCountryWithAdditionalProps {
   distanceAway: number;
 }
 
-export const getRandomCountry = (countries: ReadonlyArray<Country>): Country => {
+export const getRandomCountry = (countries: Countries): Country => {
   return countries[Math.floor(Math.random() * countries.length)];
 };
 
 export const getGuessedCountriesWithAdditionalProps = (
-  countries: ReadonlyArray<Country>,
-  guessedCountries: ReadonlyArray<string>,
+  countries: Countries,
+  guessedCountries: GuessedCountries,
   randomCountry: Country,
 ): ReadonlyArray<GuessedCountryWithAdditionalProps> => {
   return guessedCountries.map(countryName => {
@@ -24,10 +25,7 @@ export const getGuessedCountriesWithAdditionalProps = (
   });
 };
 
-const findCountryByName = (
-  countries: ReadonlyArray<Country>,
-  countryName: string,
-): Country | undefined => {
+const findCountryByName = (countries: Countries, countryName: string): Country | undefined => {
   return countries.find(country => country.name.common === countryName);
 };
 

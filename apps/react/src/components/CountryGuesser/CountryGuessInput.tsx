@@ -1,11 +1,12 @@
 import {KeyboardEvent, useEffect, useState} from 'react';
-import {Country} from './country';
+import {Countries, Country} from './country';
 import Button from '../Button/Button';
+import {GuessedCountries} from './CountryGuesser';
 
 interface CountryGuessProps {
-  countries: ReadonlyArray<Country>;
+  countries: Countries;
   currentGuess: string;
-  guessedCountries: ReadonlyArray<string>;
+  guessedCountries: GuessedCountries;
   setCurrentGuess: (currentGuess: string) => void;
   evaluateGuessAndUpdateState: () => void;
 }
@@ -22,7 +23,7 @@ function CountryGuessInput({
   const [isOpen, setIsOpen] = useState(false);
   const [isValidGuess, setIsValidGuess] = useState(false);
   const [selectedGuessIndex, setSelectedGuessIndex] = useState(0);
-  const [filteredCountries, setFilteredCountries] = useState<ReadonlyArray<Country>>([]);
+  const [filteredCountries, setFilteredCountries] = useState<Countries>([]);
 
   const handleChangeSelectedGuess = (guess: string) => {
     setCurrentGuess(guess);

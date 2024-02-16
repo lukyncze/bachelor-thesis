@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {Country} from './country';
+import {Countries, Country} from './country';
 import HintBoxes from './HintBoxes/HintBoxes';
 import CountryGuessInput from './CountryGuessInput';
 import WinModal from './Modals/WinModal';
@@ -8,8 +8,10 @@ import {getRandomCountry} from './helpers';
 import GuessedCountriesList from './GuessedCountriesList';
 import useCountryFlagPolyfill from './hooks/useCountryFlagPolyfill';
 
+export type GuessedCountries = ReadonlyArray<string>;
+
 interface CountryGuesserProps {
-  countries: ReadonlyArray<Country>;
+  countries: Countries;
 }
 
 const defaultHintsEnabledCount = 1;
@@ -17,7 +19,7 @@ const maximumCountryGuesses = 8;
 
 function CountryGuesser({countries}: CountryGuesserProps) {
   const [randomCountry, setRandomCountry] = useState<Country>(() => getRandomCountry(countries));
-  const [guessedCountries, setGuessedCountries] = useState<ReadonlyArray<string>>([]);
+  const [guessedCountries, setGuessedCountries] = useState<GuessedCountries>([]);
   const [currentGuess, setCurrentGuess] = useState('');
   const [hintsEnabledCount, setHintsEnabledCount] = useState(defaultHintsEnabledCount);
   const [totalGuessesNeeded, setTotalGuessesNeeded] = useState(1);

@@ -1,9 +1,10 @@
 import {getGuessedCountriesWithAdditionalProps} from './helpers';
-import {Country} from './country';
+import {Countries, Country} from './country';
+import {GuessedCountries} from './CountryGuesser';
 
 interface GuessedCountriesListProps {
-  countries: ReadonlyArray<Country>;
-  guessedCountries: ReadonlyArray<string>;
+  countries: Countries;
+  guessedCountries: GuessedCountries;
   randomCountry: Country;
 }
 
