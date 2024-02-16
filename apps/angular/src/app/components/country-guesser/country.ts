@@ -12,6 +12,8 @@ export interface Country {
   latlng: ReadonlyArray<number>;
 }
 
+export type Countries = ReadonlyArray<Country>;
+
 interface Flags {
   png: string;
   svg: string;

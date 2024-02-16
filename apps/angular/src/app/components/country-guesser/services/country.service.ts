@@ -1,10 +1,10 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable, inject} from '@angular/core';
 import {retryBackoff} from 'backoff-rxjs';
-import {Observable, catchError, tap, throwError} from 'rxjs';
+import {Observable, catchError, map, tap, throwError} from 'rxjs';
 import {environment} from '../../../../environments/environment';
 import {NoResponseError} from '../../../lib/errors';
-import {Country} from '../country';
+import {Countries} from '../country';
 
 @Injectable({
   providedIn: 'root',
@@ -14,11 +14,12 @@ export class CountryService {
   private static queryParams = environment.countriesApiQueryParams;
   private readonly httpClient = inject(HttpClient);
 
-  public getCountries(): Observable<ReadonlyArray<Country>> {
+  public getCountries(): Observable<Countries> {
     const url = this.getRequestApiUrl();
 
-    return this.httpClient.get<ReadonlyArray<Country>>(url).pipe(
+    return this.httpClient.get<Countries>(url).pipe(
       tap(response => this.checkResponseLength(response)),
+      map(response => this.sortCountriesByName(response)),
       retryBackoff({initialInterval: 1000, maxRetries: 3}),
       catchError(error => throwError(() => this.handleError(error))),
     );
@@ -28,7 +29,11 @@ export class CountryService {
     return `${CountryService.url}${CountryService.queryParams}`;
   }
 
-  private checkResponseLength(response: ReadonlyArray<Country>): void {
+  private sortCountriesByName(response: Countries): Countries {
+    return response.toSorted((a, b) => a.name.common.localeCompare(b.name.common));
+  }
+
+  private checkResponseLength(response: Countries): void {
     if (response.length === 0) {
       throw new NoResponseError('There are no countries to guess. Please try again later.');
     }

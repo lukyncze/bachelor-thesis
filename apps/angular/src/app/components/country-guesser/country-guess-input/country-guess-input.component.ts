@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {Country} from '../country';
+import {Countries, Country} from '../country';
+import {GuessedCountries} from '../country-guesser.component';
 
 const countryHintsCount = 8;
 
@@ -14,11 +15,11 @@ export class CountryGuessInputComponent implements OnChanges {
   protected isOpen = false;
   protected isValidGuess = false;
   protected selectedGuessIndex = 0;
-  protected filteredCountries: ReadonlyArray<Country> = [];
+  protected filteredCountries: Countries = [];
 
-  @Input({required: true}) public countries: ReadonlyArray<Country> = [];
+  @Input({required: true}) public countries: Countries = [];
   @Input({required: true}) public currentGuess = '';
-  @Input({required: true}) public guessedCountries: ReadonlyArray<string> = [];
+  @Input({required: true}) public guessedCountries: GuessedCountries = [];
 
   @Output() public setCurrentGuess = new EventEmitter<string>();
   @Output() public evaluateGuessAndUpdateState = new EventEmitter<void>();

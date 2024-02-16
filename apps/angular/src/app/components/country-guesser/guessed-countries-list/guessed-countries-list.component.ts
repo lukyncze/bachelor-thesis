@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges, inject} from '@angular/core';
-import {Country} from '../country';
+import {Countries, Country} from '../country';
+import {GuessedCountries} from '../country-guesser.component';
 import {
   EnrichGuessedCountriesService,
   EnrichedGuessedCountries,
@@ -14,8 +15,8 @@ export class GuessedCountriesListComponent implements OnChanges {
   private readonly enrichGuessedCountriesService = inject(EnrichGuessedCountriesService);
   protected enrichedGuessedCountries: EnrichedGuessedCountries = [];
 
-  @Input({required: true}) countries: ReadonlyArray<Country> = [];
-  @Input({required: true}) guessedCountries: ReadonlyArray<string> = [];
+  @Input({required: true}) countries: Countries = [];
+  @Input({required: true}) guessedCountries: GuessedCountries = [];
   @Input({required: true}) randomCountry!: Country;
 
   public ngOnChanges(): void {

@@ -1,11 +1,13 @@
 import {Component, Input, OnInit, inject} from '@angular/core';
-import {Country} from './country';
+import {Countries, Country} from './country';
 import {CountryGuessInputComponent} from './country-guess-input/country-guess-input.component';
 import {GuessedCountriesListComponent} from './guessed-countries-list/guessed-countries-list.component';
 import {HintBoxesComponent} from './hint-boxes/hint-boxes.component';
 import {LoseModalComponent} from './modals/lose-modal/lose-modal.component';
 import {WinModalComponent} from './modals/win-modal/win-modal.component';
 import {CountryFlagPolyfillService} from './services/country-flag-polyfill.service';
+
+export type GuessedCountries = ReadonlyArray<string>;
 
 const defaultHintsEnabledCount = 1;
 const maximumCountryGuesses = 8;
@@ -25,14 +27,14 @@ const maximumCountryGuesses = 8;
 export class CountryGuesserComponent implements OnInit {
   private readonly countryFlagPolyfillService = inject(CountryFlagPolyfillService);
   protected randomCountry!: Country;
-  protected guessedCountries: ReadonlyArray<string> = [];
+  protected guessedCountries: GuessedCountries = [];
   protected currentGuess = '';
   protected hintsEnabledCount = defaultHintsEnabledCount;
   protected totalGuessesNeeded = 1;
   protected isWinModalOpen = false;
   protected isLoseModalOpen = false;
 
-  @Input({required: true}) countries: ReadonlyArray<Country> = [];
+  @Input({required: true}) countries: Countries = [];
 
   public ngOnInit(): void {
     this.randomCountry = this.getRandomCountry();

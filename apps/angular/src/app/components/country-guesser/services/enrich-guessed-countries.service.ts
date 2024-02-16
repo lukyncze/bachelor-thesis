@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Coordinate, getDistanceBetweenTwoPoints} from 'calculate-distance-between-coordinates';
-import {Country} from '../country';
+import {Countries, Country} from '../country';
+import {GuessedCountries} from '../country-guesser.component';
 
 interface EnrichedGuessedCountry {
   name: string;
@@ -15,8 +16,8 @@ export type EnrichedGuessedCountries = ReadonlyArray<EnrichedGuessedCountry>;
 })
 export class EnrichGuessedCountriesService {
   public enrich(
-    countries: ReadonlyArray<Country>,
-    guessedCountries: ReadonlyArray<string>,
+    countries: Countries,
+    guessedCountries: GuessedCountries,
     randomCountry: Country,
   ): EnrichedGuessedCountries {
     return guessedCountries.map(countryName =>
@@ -24,7 +25,7 @@ export class EnrichGuessedCountriesService {
     );
   }
   public enrichGuessedCountry(
-    countries: ReadonlyArray<Country>,
+    countries: Countries,
     countryName: string,
     randomCountry: Country,
   ): EnrichedGuessedCountry {
@@ -37,10 +38,7 @@ export class EnrichGuessedCountriesService {
     return {name: countryName, flag: country?.flag || '', distanceFromRandomCountry};
   }
 
-  private findCountryByName(
-    countries: ReadonlyArray<Country>,
-    countryName: string,
-  ): Country | undefined {
+  private findCountryByName(countries: Countries, countryName: string): Country | undefined {
     return countries.find(country => country.name.common === countryName);
   }
 
