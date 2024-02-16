@@ -1,5 +1,5 @@
 import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
+import {Injectable, inject} from '@angular/core';
 import {Observable, catchError, tap, throwError} from 'rxjs';
 import {environment} from '../../../../environments/environment';
 import {Country} from '../country';
@@ -17,8 +17,7 @@ class NoResponseError extends Error {
 export class CountryService {
   private static url = environment.countriesApiUrl;
   private static queryParams = environment.countriesApiQueryParams;
-
-  constructor(private readonly httpClient: HttpClient) {}
+  private httpClient = inject(HttpClient);
 
   public getCountries(): Observable<ReadonlyArray<Country>> {
     const url = this.getRequestApiUrl();

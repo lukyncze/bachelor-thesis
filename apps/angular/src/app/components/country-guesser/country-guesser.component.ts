@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, inject} from '@angular/core';
 import {Country} from './country';
 import {CountryGuessInputComponent} from './country-guess-input/country-guess-input.component';
 import {GuessedCountriesListComponent} from './guessed-countries-list/guessed-countries-list.component';
@@ -23,6 +23,7 @@ const maximumCountryGuesses = 8;
   ],
 })
 export class CountryGuesserComponent implements OnInit {
+  private countryFlagPolyfillService = inject(CountryFlagPolyfillService);
   protected randomCountry!: Country;
   protected guessedCountries: ReadonlyArray<string> = [];
   protected currentGuess = '';
@@ -32,8 +33,6 @@ export class CountryGuesserComponent implements OnInit {
   protected isLoseModalOpen = false;
 
   @Input({required: true}) countries: ReadonlyArray<Country> = [];
-
-  constructor(private readonly countryFlagPolyfillService: CountryFlagPolyfillService) {}
 
   public ngOnInit(): void {
     this.randomCountry = this.getRandomCountry();
