@@ -2,18 +2,16 @@ import {Country} from '../country';
 import Modal from './Modal';
 
 interface WinModalProps {
-  isOpen: boolean;
-  handleClose: () => void;
   randomCountry: Country;
   totalGuessesNeeded: number;
+  handleClose: () => void;
 }
 
-function WinModal({isOpen, handleClose, randomCountry, totalGuessesNeeded}: WinModalProps) {
+function WinModal({randomCountry, totalGuessesNeeded, handleClose}: WinModalProps) {
   return (
     <Modal
-      isOpen={isOpen}
-      handleClose={handleClose}
       title="Congratulations, you have guessed the country correctly!"
+      handleClose={handleClose}
     >
       The correct country was: <strong>{randomCountry.name.common}</strong>.
       <br />

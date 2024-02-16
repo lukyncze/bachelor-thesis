@@ -2,14 +2,13 @@ import {Country} from '../country';
 import Modal from './Modal';
 
 interface LoseModalProps {
-  isOpen: boolean;
-  handleClose: () => void;
   randomCountry: Country;
+  handleClose: () => void;
 }
 
-function LoseModal({isOpen, handleClose, randomCountry}: LoseModalProps) {
+function LoseModal({randomCountry, handleClose}: LoseModalProps) {
   return (
-    <Modal isOpen={isOpen} handleClose={handleClose} title="You have not guessed the country :(">
+    <Modal title="You have not guessed the country :(" handleClose={handleClose}>
       The correct country was: {randomCountry.name.common}.
     </Modal>
   );

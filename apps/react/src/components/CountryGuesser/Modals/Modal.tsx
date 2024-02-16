@@ -3,17 +3,12 @@ import Button from '../../Button/Button';
 import {closeIcon} from '../../icons/closeIcon';
 
 interface ModalProps {
-  isOpen: boolean;
-  handleClose: () => void;
   title: string;
   children: ReactNode;
+  handleClose: () => void;
 }
 
-function Modal({isOpen, handleClose, title, children}: ModalProps) {
-  if (!isOpen) {
-    return null;
-  }
-
+function Modal({title, children, handleClose}: ModalProps) {
   return (
     <div
       id="static-modal"

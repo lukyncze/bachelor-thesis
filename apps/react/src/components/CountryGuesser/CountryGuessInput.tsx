@@ -5,9 +5,9 @@ import Button from '../Button/Button';
 interface CountryGuessProps {
   countries: ReadonlyArray<Country>;
   currentGuess: string;
+  guessedCountries: ReadonlyArray<string>;
   setCurrentGuess: (currentGuess: string) => void;
   evaluateGuessAndUpdateState: () => void;
-  guessedCountries: ReadonlyArray<string>;
 }
 
 const countryHintsCount = 8;
@@ -15,9 +15,9 @@ const countryHintsCount = 8;
 function CountryGuessInput({
   countries,
   currentGuess,
+  guessedCountries,
   setCurrentGuess,
   evaluateGuessAndUpdateState,
-  guessedCountries,
 }: CountryGuessProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isValidGuess, setIsValidGuess] = useState(false);

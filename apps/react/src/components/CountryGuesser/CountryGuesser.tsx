@@ -42,15 +42,15 @@ function CountryGuesser({countries}: CountryGuesserProps) {
       return;
     }
 
-    setCurrentGuess('');
     setGuessedCountries([...guessedCountries, currentGuess]);
+    setCurrentGuess('');
     setHintsEnabledCount(hintsEnabledCount + 1);
   };
 
   const handleSetInitialState = () => {
     setRandomCountry(getRandomCountry(countries));
-    setCurrentGuess('');
     setGuessedCountries([]);
+    setCurrentGuess('');
     setHintsEnabledCount(defaultHintsEnabledCount);
   };
 
@@ -65,10 +65,11 @@ function CountryGuesser({countries}: CountryGuesserProps) {
           <CountryGuessInput
             countries={countries}
             currentGuess={currentGuess}
+            guessedCountries={guessedCountries}
             setCurrentGuess={setCurrentGuess}
             evaluateGuessAndUpdateState={evaluateGuessAndUpdateState}
-            guessedCountries={guessedCountries}
           />
+
           <GuessedCountriesList
             countries={countries}
             guessedCountries={guessedCountries}
@@ -77,23 +78,26 @@ function CountryGuesser({countries}: CountryGuesserProps) {
         </div>
       </div>
 
-      <WinModal
-        isOpen={isWinModalOpen}
-        handleClose={() => {
-          handleSetInitialState();
-          setIsWinModalOpen(false);
-        }}
-        randomCountry={randomCountry}
-        totalGuessesNeeded={totalGuessesNeeded}
-      />
-      <LoseModal
-        isOpen={isLoseModalOpen}
-        handleClose={() => {
-          handleSetInitialState();
-          setIsLoseModalOpen(false);
-        }}
-        randomCountry={randomCountry}
-      />
+      {isWinModalOpen ? (
+        <WinModal
+          randomCountry={randomCountry}
+          totalGuessesNeeded={totalGuessesNeeded}
+          handleClose={() => {
+            handleSetInitialState();
+            setIsWinModalOpen(false);
+          }}
+        />
+      ) : null}
+
+      {isLoseModalOpen ? (
+        <LoseModal
+          randomCountry={randomCountry}
+          handleClose={() => {
+            handleSetInitialState();
+            setIsLoseModalOpen(false);
+          }}
+        />
+      ) : null}
     </>
   );
 }
