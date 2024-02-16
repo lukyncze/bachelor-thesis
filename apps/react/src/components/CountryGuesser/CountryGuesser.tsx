@@ -46,7 +46,7 @@ function CountryGuesser({countries}: CountryGuesserProps) {
 
     setGuessedCountries([...guessedCountries, currentGuess]);
     setCurrentGuess('');
-    setHintsEnabledCount(hintsEnabledCount + 1);
+    setHintsEnabledCount(previousCount => previousCount + 1);
   };
 
   const handleSetInitialState = () => {
