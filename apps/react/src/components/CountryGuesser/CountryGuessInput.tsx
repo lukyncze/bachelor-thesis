@@ -1,4 +1,4 @@
-import {KeyboardEvent, useEffect, useState} from 'react';
+import {ChangeEvent, KeyboardEvent, useEffect, useState} from 'react';
 import {Countries, Country} from './country';
 import Button from '../Button/Button';
 import {GuessedCountries} from './CountryGuesser';
@@ -53,6 +53,16 @@ function CountryGuessInput({
     }
   };
 
+  const handleInputChange = ({target}: ChangeEvent<HTMLInputElement>) => {
+    const formattedGuess = convertToFormattedGuess(target.value);
+    setCurrentGuess(formattedGuess);
+  };
+
+  const convertToFormattedGuess = (guess: string) => {
+    const [firstLetter, ...rest] = guess;
+    return firstLetter ? `${firstLetter.toUpperCase()}${rest.join('').toLowerCase()}` : '';
+  };
+
   useEffect(() => {
     const filterOutAlreadyGuessedCountries = (country: Country) => {
       return !guessedCountries.includes(country.name.common);
@@ -64,19 +74,19 @@ function CountryGuessInput({
       return country.name.common.toLowerCase() === currentGuess.toLowerCase();
     };
     const clampSelectedGuessIndex = () => {
-      if (selectedGuessIndex >= filteredCountries.length) {
+      if (filteredCountries.length > 0 && selectedGuessIndex >= filteredCountries.length) {
         setSelectedGuessIndex(filteredCountries.length - 1);
       }
     };
 
-    const countriesWithoutAlreadyGuesses = countries.filter(country =>
+    const countriesWithoutAlreadyGuessed = countries.filter(country =>
       filterOutAlreadyGuessedCountries(country),
     );
-    const filteredCountries = countriesWithoutAlreadyGuesses.filter(country =>
+    const filteredCountries = countriesWithoutAlreadyGuessed.filter(country =>
       filterOutSearchByUserGuess(country),
     );
     setFilteredCountries(filteredCountries.slice(0, countryHintsCount));
-    setIsValidGuess(!!countriesWithoutAlreadyGuesses.find(searchForExactCountry));
+    setIsValidGuess(!!filteredCountries.find(searchForExactCountry));
     clampSelectedGuessIndex();
   }, [currentGuess, countries, guessedCountries, selectedGuessIndex]);
 
@@ -86,7 +96,7 @@ function CountryGuessInput({
         <input
           type="text"
           value={currentGuess}
-          onChange={({target}) => setCurrentGuess(target.value)}
+          onChange={handleInputChange}
           onClick={() => setIsOpen(true)}
           onKeyDown={handleKeyDown}
           className="block rounded-md w-full p-2 shadow-sm bg-gray-100 border border-gray-400 lg:w-[20rem] xl:w-[24rem]"
