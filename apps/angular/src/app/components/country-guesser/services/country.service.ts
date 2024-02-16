@@ -3,14 +3,8 @@ import {Injectable, inject} from '@angular/core';
 import {retryBackoff} from 'backoff-rxjs';
 import {Observable, catchError, tap, throwError} from 'rxjs';
 import {environment} from '../../../../environments/environment';
+import {NoResponseError} from '../../../lib/errors';
 import {Country} from '../country';
-
-class NoResponseError extends Error {
-  constructor(message = 'No response from the server') {
-    super(message);
-    this.name = 'NoResponseError';
-  }
-}
 
 @Injectable({
   providedIn: 'root',
