@@ -5,8 +5,8 @@
     @if (enrichedGuessedCountries.length > 0) {
       <ul class="space-y-2">
         @for (country of enrichedGuessedCountries; track country) {
-          <li key="{index}" class="flex justify-between rounded-md bg-gray-100 p-1.5">
-            <span> {{ $index + 1 }}. {{ country.name }} {{ country.flag }} </span>
+          <li class="flex justify-between rounded-md bg-gray-100 p-1.5">
+            <span>{{ $index + 1 }}. {{ country.name }} {{ country.flag }}</span>
             <span>{{ country.distanceFromRandomCountry }} km away</span>
           </li>
         }
