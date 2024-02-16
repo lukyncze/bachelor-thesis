@@ -11,7 +11,7 @@ import {
   templateUrl: './guessed-countries-list.component.html',
 })
 export class GuessedCountriesListComponent implements OnChanges {
-  private enrichGuessedCountriesService = inject(EnrichGuessedCountriesService);
+  private readonly enrichGuessedCountriesService = inject(EnrichGuessedCountriesService);
   protected enrichedGuessedCountries: EnrichedGuessedCountries = [];
 
   @Input({required: true}) countries: ReadonlyArray<Country> = [];

@@ -23,7 +23,7 @@ const maximumCountryGuesses = 8;
   ],
 })
 export class CountryGuesserComponent implements OnInit {
-  private countryFlagPolyfillService = inject(CountryFlagPolyfillService);
+  private readonly countryFlagPolyfillService = inject(CountryFlagPolyfillService);
   protected randomCountry!: Country;
   protected guessedCountries: ReadonlyArray<string> = [];
   protected currentGuess = '';

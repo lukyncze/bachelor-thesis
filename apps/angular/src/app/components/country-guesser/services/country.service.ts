@@ -17,7 +17,7 @@ class NoResponseError extends Error {
 export class CountryService {
   private static url = environment.countriesApiUrl;
   private static queryParams = environment.countriesApiQueryParams;
-  private httpClient = inject(HttpClient);
+  private readonly httpClient = inject(HttpClient);
 
   public getCountries(): Observable<ReadonlyArray<Country>> {
     const url = this.getRequestApiUrl();
