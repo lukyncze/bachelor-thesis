@@ -65,8 +65,8 @@ export class CountryGuesserComponent implements OnInit {
 
   protected handleSetInitialState() {
     this.randomCountry = this.getRandomCountry();
-    this.currentGuess = '';
     this.guessedCountries = [];
+    this.currentGuess = '';
     this.hintsEnabledCount = defaultHintsEnabledCount;
   }
 
