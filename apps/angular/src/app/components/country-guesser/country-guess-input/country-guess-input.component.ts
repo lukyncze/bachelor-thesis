@@ -43,7 +43,7 @@ export class CountryGuessInputComponent implements OnChanges {
       this.handleChangeSelectedGuessIndex(1);
     } else if (key === 'ArrowUp') {
       this.handleChangeSelectedGuessIndex(-1);
-    } else if (key === 'Enter') {
+    } else if (key === 'Enter' && this.filteredCountries.length > 0) {
       this.handleChangeSelectedGuess(this.filteredCountries[this.selectedGuessIndex].name.common);
     } else if (key === 'Escape') {
       this.isOpen = false;
