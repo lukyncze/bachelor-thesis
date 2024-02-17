@@ -71,7 +71,7 @@ function CountryGuessInput({
       return country.name.common.toLowerCase().includes(currentGuess.toLowerCase());
     };
     const searchForExactCountry = (country: Country) => {
-      return country.name.common.toLowerCase() === currentGuess.toLowerCase();
+      return country.name.common === currentGuess;
     };
     const clampSelectedGuessIndex = () => {
       if (filteredCountries.length > 0 && selectedGuessIndex >= filteredCountries.length) {
@@ -120,15 +120,23 @@ function CountryGuessInput({
           ${isOpen ? 'group-focus-within:opacity-100 group-focus-within:pointer-events-auto' : ''}`}
       >
         {filteredCountries.length > 0 ? (
-          filteredCountries.map((filteredCountry, index) => (
-            <Button
-              key={index}
-              onClick={() => handleChangeSelectedGuess(filteredCountry.name.common)}
-              className={`rounded-lg p-2 ${selectedGuessIndex === index ? 'bg-gray-300' : ''}`}
-            >
-              {filteredCountry.flag} {filteredCountry.name.common}
-            </Button>
-          ))
+          <>
+            {filteredCountries.map((filteredCountry, index) => (
+              <Button
+                key={index}
+                onClick={() => handleChangeSelectedGuess(filteredCountry.name.common)}
+                className={`rounded-lg p-2 ${selectedGuessIndex === index ? 'bg-gray-300' : ''}`}
+              >
+                {filteredCountry.flag} {filteredCountry.name.common}
+              </Button>
+            ))}
+
+            {filteredCountries.length === 1 ? (
+              <span className="rounded-lg p-2 text-center">
+                Hit enter to select <b>{filteredCountries[0].name.common}</b>
+              </span>
+            ) : null}
+          </>
         ) : (
           <div className="rounded-lg p-2">No country found. Please, try to change your input.</div>
         )}
@@ -139,7 +147,7 @@ function CountryGuessInput({
       ) : null}
 
       {currentGuess.length && filteredCountries.length && !isValidGuess ? (
-        <div className="rounded-lg mt-2">Please enter/select a full country name.</div>
+        <div className="rounded-lg mt-2">Please enter/select a valid full country name.</div>
       ) : null}
 
       {!currentGuess.length ? (
