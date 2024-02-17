@@ -31,20 +31,18 @@ function CountryGuessInput({
     setIsOpen(false);
   };
 
-  const handleChangeSelectedGuessIndex = (value: number) => {
-    if (selectedGuessIndex + value < 0) return;
-    if (selectedGuessIndex + value >= filteredCountries.length) return;
-
-    setSelectedGuessIndex(currentIndex => currentIndex + value);
+  const handleInputChange = ({target}: ChangeEvent<HTMLInputElement>) => {
+    const formattedGuess = convertToFormattedGuess(target.value);
+    setCurrentGuess(formattedGuess);
   };
 
   const handleKeyDown = ({key, currentTarget}: KeyboardEvent<HTMLInputElement>) => {
     if (!isOpen) return;
 
     if (key === 'ArrowDown') {
-      handleChangeSelectedGuessIndex(1);
+      changeSelectedGuessIndex(1);
     } else if (key === 'ArrowUp') {
-      handleChangeSelectedGuessIndex(-1);
+      changeSelectedGuessIndex(-1);
     } else if (key === 'Enter' && filteredCountries.length > 0) {
       handleChangeSelectedGuess(filteredCountries[selectedGuessIndex].name.common);
       currentTarget.blur();
@@ -53,9 +51,11 @@ function CountryGuessInput({
     }
   };
 
-  const handleInputChange = ({target}: ChangeEvent<HTMLInputElement>) => {
-    const formattedGuess = convertToFormattedGuess(target.value);
-    setCurrentGuess(formattedGuess);
+  const changeSelectedGuessIndex = (value: number) => {
+    if (selectedGuessIndex + value < 0) return;
+    if (selectedGuessIndex + value >= filteredCountries.length) return;
+
+    setSelectedGuessIndex(currentIndex => currentIndex + value);
   };
 
   const convertToFormattedGuess = (guess: string) => {
