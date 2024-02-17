@@ -7,9 +7,19 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
+import axios from 'axios';
+import axiosRetry, {exponentialDelay, isNetworkError, isRetryableError} from 'axios-retry';
 import AppLayout from './pages/AppLayout.tsx';
 import ErrorPage from './pages/ErrorPage.tsx';
 import {appRoutes} from './routes/appRoutes.ts';
+
+axiosRetry(axios, {
+  retries: 3,
+  retryDelay: (...arg) => exponentialDelay(...arg, 500),
+  retryCondition(error) {
+    return isNetworkError(error) || isRetryableError(error);
+  },
+});
 
 const router = createBrowserRouter(
   createRoutesFromElements(

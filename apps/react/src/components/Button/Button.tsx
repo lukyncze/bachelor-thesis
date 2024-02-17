@@ -1,14 +1,18 @@
-import {ReactNode} from 'react';
+import {ButtonHTMLAttributes, ReactNode} from 'react';
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className: string;
   onClick: () => void;
   children: ReactNode;
 }
 
-function Button({className, onClick, children}: ButtonProps): JSX.Element {
+function Button({className, children, ...props}: ButtonProps): JSX.Element {
   return (
-    <button className={`px-4 py-2 rounded-md focus:outline-none ${className}`} onClick={onClick}>
+    <button
+      type="button"
+      className={`px-4 py-2 rounded-md focus:outline-none ${className}`}
+      {...props}
+    >
       {children}
     </button>
   );
