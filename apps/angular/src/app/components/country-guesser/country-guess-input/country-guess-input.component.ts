@@ -75,7 +75,7 @@ export class CountryGuessInputComponent implements OnChanges {
   }
 
   private searchForExactCountry(country: Country): boolean {
-    return country.name.common.toLowerCase() === this.currentGuess.toLowerCase();
+    return country.name.common === this.currentGuess;
   }
 
   private clampSelectedGuessIndex(): void {
