@@ -1,0 +1,55 @@
+<div class="relative group">
+  <div class="flex">
+    <input
+      type="text"
+      [(ngModel)]="currentGuess"
+      (ngModelChange)="handleInputChange()"
+      (click)="isOpen = true"
+      (keydown)="handleKeyDown($event)"
+      class="block rounded-md w-full p-2 shadow-sm bg-gray-100 border border-gray-400 lg:w-[20rem] xl:w-[24rem]"
+    />
+
+    <button
+      class="rounded-lg w-40 !p-2 grid place-content-center border border-gray-400 bg-green-800 text-white animate-pulse lg:w-28 xl:w-32 hover:animate-none hover:bg-green-900 disabled:animate-none disabled:bg-red-800"
+      (click)="evaluateGuessAndUpdateState.emit(); isOpen = false"
+      [disabled]="!isValidGuess"
+    >
+      Take a guess
+    </button>
+  </div>
+
+  <div
+    class="flex flex-col absolute top-18 w-full duration-150 opacity-0 pointer-events-none bg-gray-200 rounded-lg border border-gray-300 {{
+      isOpen ? 'group-focus-within:opacity-100 group-focus-within:pointer-events-auto' : ''
+    }}"
+  >
+    @if (filteredCountries.length > 0) {
+      @for (filteredCountry of filteredCountries; track filteredCountry) {
+        <button
+          (click)="handleChangeSelectedGuess(filteredCountry.name.common)"
+          class="rounded-lg p-2 {{ selectedGuessIndex === $index ? 'bg-gray-300' : '' }}"
+        >
+          {{ filteredCountry.flag }} {{ filteredCountry.name.common }}
+        </button>
+      }
+
+      @if (filteredCountries.length === 1) {
+        <span class="rounded-lg p-2 text-center">
+          Hit enter to select <b>{{ filteredCountries[0].name.common }}</b>
+        </span>
+      }
+    } @else {
+      <div class="rounded-lg p-2">No country found. Please, try to change your input.</div>
+    }
+  </div>
+
+  @if (!filteredCountries.length) {
+    <div class="rounded-lg mt-2">No country found. Please, try to change your input.</div>
+  }
+  @if (currentGuess.length && filteredCountries.length && !isValidGuess) {
+    <div class="rounded-lg mt-2">Please enter/select a valid full country name.</div>
+  }
+  @if (!currentGuess.length) {
+    <div class="rounded-lg mt-2">Enter a country you want to guess.</div>
+  }
+</div>

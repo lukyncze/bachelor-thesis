@@ -25,3 +25,9 @@ export default {
 @tailwind utilities;
 
 3. Deploy (https://angular-quickstart.netlify.app/)
+
+
+Error v country-guess-input.component.html:
+
+- Property 'ɵunwrapWritableSignal' does not exist on type 'typeof import("/home/lusu/Desktop/bachelor-thesis/apps/angular/node_modules/.pnpm/@angular+core@17.1.2_rxjs@7.8.1_zone.js@0.14.2/node_modules/@angular/core/index")'.ngtsc(2339)
+- https://stackoverflow.com/questions/77986204/property-%C9%B5unwrapwritablesignal-does-not-exist-on-type

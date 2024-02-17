@@ -1,0 +1,10 @@
+@for (hintBox of hintBoxes; track hintBox; let index = $index) {
+  <hint-box
+    [title]="hintBox.title"
+    [abbrTitle]="hintBox.abbrTitle"
+    [hint]="hintBox.hint"
+    [hintComponent]="hintBox.hintComponent"
+    [hintEnabled]="index < hintsEnabledCount"
+    [flagImage]="hintBox.flagImage"
+  />
+}
