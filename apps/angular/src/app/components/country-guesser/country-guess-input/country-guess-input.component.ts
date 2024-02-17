@@ -32,45 +32,37 @@ export class CountryGuessInputComponent implements OnChanges {
     this.setCurrentGuess.emit(guess);
     this.selectedGuessIndex = 0;
     this.isOpen = false;
-
-    this.updateFilteredCountries();
   }
 
-  protected handleKeyDown = ({key}: KeyboardEvent) => {
+  protected handleInputChange(): void {
+    const formattedGuess = this.convertToFormattedGuess(this.currentGuess);
+    this.setCurrentGuess.emit(formattedGuess);
+  }
+
+  protected handleKeyDown({key}: KeyboardEvent): void {
     if (!this.isOpen) return;
 
     if (key === 'ArrowDown') {
-      this.handleChangeSelectedGuessIndex(1);
+      this.changeSelectedGuessIndex(1);
     } else if (key === 'ArrowUp') {
-      this.handleChangeSelectedGuessIndex(-1);
+      this.changeSelectedGuessIndex(-1);
     } else if (key === 'Enter' && this.filteredCountries.length > 0) {
       this.handleChangeSelectedGuess(this.filteredCountries[this.selectedGuessIndex].name.common);
     } else if (key === 'Escape') {
       this.isOpen = false;
     }
-
-    this.updateFilteredCountries();
-  };
-
-  private handleChangeSelectedGuessIndex(value: number): void {
-    if (this.selectedGuessIndex + value < 0) return;
-    if (this.selectedGuessIndex + value >= this.filteredCountries.length) return;
-
-    this.selectedGuessIndex += value;
   }
 
   private updateFilteredCountries(): void {
-    const countriesWithoutAlreadyGuesses = this.countries.filter(country =>
+    const countriesWithoutAlreadyGuessed = this.countries.filter(country =>
       this.filterOutAlreadyGuessedCountries(country),
     );
-    const filteredCountries = countriesWithoutAlreadyGuesses.filter(country =>
+    const filteredCountries = countriesWithoutAlreadyGuessed.filter(country =>
       this.filterOutSearchByUserGuess(country),
     );
 
     this.filteredCountries = filteredCountries.slice(0, countryHintsCount);
-    this.isValidGuess = !!countriesWithoutAlreadyGuesses.find(country =>
-      this.searchForExactCountry(country),
-    );
+    this.isValidGuess = !!filteredCountries.find(country => this.searchForExactCountry(country));
     this.clampSelectedGuessIndex();
   }
 
@@ -87,8 +79,23 @@ export class CountryGuessInputComponent implements OnChanges {
   }
 
   private clampSelectedGuessIndex(): void {
-    if (this.selectedGuessIndex >= this.filteredCountries.length) {
+    if (
+      this.filteredCountries.length > 0 &&
+      this.selectedGuessIndex >= this.filteredCountries.length
+    ) {
       this.selectedGuessIndex = this.filteredCountries.length - 1;
     }
+  }
+
+  private changeSelectedGuessIndex(value: number): void {
+    if (this.selectedGuessIndex + value < 0) return;
+    if (this.selectedGuessIndex + value >= this.filteredCountries.length) return;
+
+    this.selectedGuessIndex += value;
+  }
+
+  private convertToFormattedGuess(guess: string) {
+    const [firstLetter, ...rest] = guess;
+    return firstLetter ? `${firstLetter.toUpperCase()}${rest.join('').toLowerCase()}` : '';
   }
 }

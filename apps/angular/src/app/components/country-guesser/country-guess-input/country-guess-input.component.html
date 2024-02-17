@@ -3,7 +3,7 @@
     <input
       type="text"
       [(ngModel)]="currentGuess"
-      (ngModelChange)="setCurrentGuess.emit(currentGuess)"
+      (ngModelChange)="handleInputChange()"
       (click)="isOpen = true"
       (keydown)="handleKeyDown($event)"
       class="block rounded-md w-full p-2 shadow-sm bg-gray-100 border border-gray-400 lg:w-[20rem] xl:w-[24rem]"
