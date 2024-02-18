@@ -1,10 +1,13 @@
 <script lang="ts">
+  import type {Countries} from './country';
+  import HintBoxes from './hint-boxes/HintBoxes.svelte';
+
+  export let countries: Countries;
 </script>
 
 <div class="container mx-auto space-y-6 sm:space-y-8">
   <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-4">
-    Hint boxes
-    <!-- <HintBoxes {randomCountry} {hintsEnabledCount} /> -->
+    <HintBoxes randomCountry={countries[0]} hintsEnabledCount={8} />
   </div>
 
   <div class="space-y-6 lg:flex lg:justify-center lg:gap-12 lg:space-y-0">
