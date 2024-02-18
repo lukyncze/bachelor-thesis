@@ -1,53 +1,89 @@
-import {ChangeEvent, KeyboardEvent, useEffect, useState} from 'react';
-import {Countries, Country} from './country';
+import {ChangeEvent, KeyboardEvent, useState} from 'react';
+import {Countries} from './country';
 import Button from '../Button/Button';
 import {GuessedCountries} from './CountryGuesser';
 
 interface CountryGuessProps {
   countries: Countries;
-  currentGuess: string;
   guessedCountries: GuessedCountries;
-  setCurrentGuess: (currentGuess: string) => void;
-  evaluateGuessAndUpdateState: () => void;
+  evaluateGuessAndUpdateState: (guessedCountry: string) => void;
 }
 
 const countryHintsCount = 8;
 
 function CountryGuessInput({
   countries,
-  currentGuess,
   guessedCountries,
-  setCurrentGuess,
   evaluateGuessAndUpdateState,
 }: CountryGuessProps) {
+  const [currentGuess, setCurrentGuess] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isValidGuess, setIsValidGuess] = useState(false);
   const [selectedGuessIndex, setSelectedGuessIndex] = useState(0);
-  const [filteredCountries, setFilteredCountries] = useState<Countries>([]);
+  const [filteredCountries, setFilteredCountries] = useState<Countries>(
+    countries.slice(0, countryHintsCount),
+  );
 
-  const handleChangeSelectedGuess = (guess: string) => {
-    setCurrentGuess(guess);
+  const handleGuessButtonClick = () => {
+    if (isValidGuess) evaluateGuessAndUpdateState(currentGuess);
+
+    updateGuessAndFilteredCountries('');
+    setIsOpen(false);
+  };
+
+  const handleChangeSelectedGuess = (guessedCountry: string) => {
     setSelectedGuessIndex(0);
+    updateGuessAndFilteredCountries(guessedCountry);
     setIsOpen(false);
   };
 
   const handleInputChange = ({target}: ChangeEvent<HTMLInputElement>) => {
     const formattedGuess = convertToFormattedGuess(target.value);
-    setCurrentGuess(formattedGuess);
+    updateGuessAndFilteredCountries(formattedGuess);
   };
 
-  const handleKeyDown = ({key, currentTarget}: KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (!isOpen) return;
 
-    if (key === 'ArrowDown') {
-      changeSelectedGuessIndex(1);
-    } else if (key === 'ArrowUp') {
+    if (event.key === 'ArrowUp') {
       changeSelectedGuessIndex(-1);
-    } else if (key === 'Enter' && filteredCountries.length > 0) {
+      event.preventDefault();
+    } else if (event.key === 'ArrowDown') {
+      changeSelectedGuessIndex(1);
+      event.preventDefault();
+    } else if (event.key === 'Enter' && filteredCountries.length > 0) {
       handleChangeSelectedGuess(filteredCountries[selectedGuessIndex].name.common);
-      currentTarget.blur();
-    } else if (key === 'Escape') {
+      event.currentTarget.blur();
+    } else if (event.key === 'Escape') {
       setIsOpen(false);
+    }
+  };
+
+  const updateGuessAndFilteredCountries = (guessedCountry: string) => {
+    const filteredCountries = getFilteredCountries(guessedCountry);
+    const isValidGuess = !!filteredCountries.find(({name}) => name.common === guessedCountry);
+
+    setCurrentGuess(guessedCountry);
+    setIsValidGuess(isValidGuess);
+    setFilteredCountries(filteredCountries);
+    clampSelectedGuessIndex(filteredCountries);
+  };
+
+  const getCountriesWithoutAlreadyGuessed = () => {
+    return countries.filter(country => !guessedCountries.includes(country.name.common));
+  };
+
+  const getFilteredCountries = (guessedCountry: string) => {
+    const countriesWithoutAlreadyGuessed = getCountriesWithoutAlreadyGuessed();
+    const filteredCountries = countriesWithoutAlreadyGuessed.filter(country =>
+      country.name.common.toLowerCase().includes(guessedCountry.toLowerCase()),
+    );
+    return filteredCountries.splice(0, countryHintsCount);
+  };
+
+  const clampSelectedGuessIndex = (filteredCountries: Countries) => {
+    if (filteredCountries.length > 0 && selectedGuessIndex >= filteredCountries.length) {
+      setSelectedGuessIndex(filteredCountries.length - 1);
     }
   };
 
@@ -63,33 +99,6 @@ function CountryGuessInput({
     return firstLetter ? `${firstLetter.toUpperCase()}${rest.join('').toLowerCase()}` : '';
   };
 
-  useEffect(() => {
-    const filterOutAlreadyGuessedCountries = (country: Country) => {
-      return !guessedCountries.includes(country.name.common);
-    };
-    const filterOutSearchByUserGuess = (country: Country) => {
-      return country.name.common.toLowerCase().includes(currentGuess.toLowerCase());
-    };
-    const searchForExactCountry = (country: Country) => {
-      return country.name.common === currentGuess;
-    };
-    const clampSelectedGuessIndex = () => {
-      if (filteredCountries.length > 0 && selectedGuessIndex >= filteredCountries.length) {
-        setSelectedGuessIndex(filteredCountries.length - 1);
-      }
-    };
-
-    const countriesWithoutAlreadyGuessed = countries.filter(country =>
-      filterOutAlreadyGuessedCountries(country),
-    );
-    const filteredCountries = countriesWithoutAlreadyGuessed.filter(country =>
-      filterOutSearchByUserGuess(country),
-    );
-    setFilteredCountries(filteredCountries.slice(0, countryHintsCount));
-    setIsValidGuess(!!filteredCountries.find(searchForExactCountry));
-    clampSelectedGuessIndex();
-  }, [currentGuess, countries, guessedCountries, selectedGuessIndex]);
-
   return (
     <div className="relative group">
       <div className="flex">
@@ -97,7 +106,10 @@ function CountryGuessInput({
           type="text"
           value={currentGuess}
           onChange={handleInputChange}
-          onClick={() => setIsOpen(true)}
+          onClick={() => {
+            updateGuessAndFilteredCountries(currentGuess);
+            setIsOpen(true);
+          }}
           onKeyDown={handleKeyDown}
           className="block rounded-md w-full p-2 shadow-sm bg-gray-100 border border-gray-400 lg:w-[20rem] xl:w-[24rem]"
         />
@@ -105,10 +117,7 @@ function CountryGuessInput({
         <Button
           className="rounded-lg w-40 !p-2 grid place-content-center border border-gray-400 bg-green-800 text-white animate-pulse 
             lg:w-28 xl:w-32 hover:animate-none hover:bg-green-900 disabled:animate-none disabled:bg-red-800"
-          onClick={() => {
-            evaluateGuessAndUpdateState();
-            setIsOpen(false);
-          }}
+          onClick={handleGuessButtonClick}
           disabled={!isValidGuess}
         >
           Take a guess
