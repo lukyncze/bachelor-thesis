@@ -30,12 +30,10 @@ function CountryGuessInput({
   const handleGuessButtonClick = () => {
     if (isValidGuess) evaluateGuessAndUpdateState(currentGuess);
 
-    updateGuessAndFilteredCountries('');
-    setIsOpen(false);
+    handleChangeSelectedGuess('');
   };
 
   const handleChangeSelectedGuess = (guessedCountry: string) => {
-    setSelectedGuessIndex(0);
     updateGuessAndFilteredCountries(guessedCountry);
     setIsOpen(false);
   };
