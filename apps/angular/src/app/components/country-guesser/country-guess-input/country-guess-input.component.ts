@@ -35,21 +35,18 @@ export class CountryGuessInputComponent implements OnChanges {
   protected handleGuessButtonClick(): void {
     if (this.isValidGuess) {
       this.evaluateGuessAndUpdateState.emit(this.currentGuess);
+      this.handleChangeSelectedGuess('');
     }
-
-    this.updateFilteredCountries('');
-    this.isOpen = false;
   }
 
   protected handleChangeSelectedGuess(guessedCountry: string): void {
-    this.selectedGuessIndex = 0;
-    this.updateFilteredCountries(guessedCountry);
+    this.updateGuessAndFilteredCountries(guessedCountry);
     this.isOpen = false;
   }
 
   protected handleInputChange(value: string): void {
     const formattedGuess = this.convertToFormattedGuess(value);
-    this.updateFilteredCountries(formattedGuess);
+    this.updateGuessAndFilteredCountries(formattedGuess);
   }
 
   protected handleKeyDown(event: KeyboardEvent): void {
@@ -68,7 +65,7 @@ export class CountryGuessInputComponent implements OnChanges {
     }
   }
 
-  private updateFilteredCountries(guessedCountry: string): void {
+  private updateGuessAndFilteredCountries(guessedCountry: string): void {
     this.currentGuess = guessedCountry;
 
     const filteredCountries = this.getFilteredCountries();
