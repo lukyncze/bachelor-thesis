@@ -28,7 +28,6 @@ export class CountryGuesserComponent implements OnInit {
   private readonly countryFlagPolyfillService = inject(CountryFlagPolyfillService);
   protected randomCountry!: Country;
   protected guessedCountries: GuessedCountries = [];
-  protected currentGuess = '';
   protected hintsEnabledCount = defaultHintsEnabledCount;
   protected totalGuessesNeeded = 1;
   protected isWinModalOpen = false;
@@ -41,37 +40,31 @@ export class CountryGuesserComponent implements OnInit {
     this.countryFlagPolyfillService.usePolyfill();
   }
 
-  protected handleSetCurrentGuess(currentGuess: string): void {
-    this.currentGuess = currentGuess;
-  }
-
-  protected handleEvaluateGuessAndUpdateState(): void {
-    if (this.hasGuessedCountry()) {
+  protected handleEvaluateGuessAndUpdateState(guessedCountry: string): void {
+    if (this.hasGuessedCountry(guessedCountry)) {
       this.hintsEnabledCount = maximumCountryGuesses;
       this.totalGuessesNeeded = this.guessedCountries.length + 1;
       this.isWinModalOpen = true;
       return;
     }
 
-    if (this.hasReachedMaximumGuesses() && !this.hasGuessedCountry()) {
+    if (this.hasReachedMaximumGuesses() && !this.hasGuessedCountry(guessedCountry)) {
       this.isLoseModalOpen = true;
       return;
     }
 
-    this.guessedCountries = [...this.guessedCountries, this.currentGuess];
-    this.currentGuess = '';
+    this.guessedCountries = [...this.guessedCountries, guessedCountry];
     this.hintsEnabledCount++;
   }
 
   protected handleSetInitialState() {
     this.randomCountry = this.getRandomCountry();
     this.guessedCountries = [];
-    this.currentGuess = '';
     this.hintsEnabledCount = defaultHintsEnabledCount;
   }
 
-  private hasGuessedCountry(): boolean {
-    return this.currentGuess === this.randomCountry.name.common;
+  private hasGuessedCountry(guessedCountry: string): boolean {
+    return this.randomCountry.name.common === guessedCountry;
   }
 
   private hasReachedMaximumGuesses(): boolean {
