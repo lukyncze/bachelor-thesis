@@ -8,10 +8,8 @@
   <div class="space-y-6 lg:flex lg:justify-center lg:gap-12 lg:space-y-0">
     <country-guess-input
       [countries]="countries"
-      [currentGuess]="currentGuess"
       [guessedCountries]="guessedCountries"
-      (setCurrentGuess)="handleSetCurrentGuess($event)"
-      (evaluateGuessAndUpdateState)="handleEvaluateGuessAndUpdateState()"
+      (evaluateGuessAndUpdateState)="handleEvaluateGuessAndUpdateState($event)"
     />
 
     <guessed-countries-list

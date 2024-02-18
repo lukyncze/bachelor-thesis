@@ -20,7 +20,6 @@ const maximumCountryGuesses = 8;
 function CountryGuesser({countries}: CountryGuesserProps) {
   const [randomCountry, setRandomCountry] = useState<Country>(() => getRandomCountry(countries));
   const [guessedCountries, setGuessedCountries] = useState<GuessedCountries>([]);
-  const [currentGuess, setCurrentGuess] = useState('');
   const [hintsEnabledCount, setHintsEnabledCount] = useState(defaultHintsEnabledCount);
   const [totalGuessesNeeded, setTotalGuessesNeeded] = useState(1);
   const [isWinModalOpen, setIsWinModalOpen] = useState(false);
@@ -28,33 +27,34 @@ function CountryGuesser({countries}: CountryGuesserProps) {
 
   useCountryFlagPolyfill();
 
-  const hasGuessedCountry = () => currentGuess === randomCountry.name.common;
-  const hasReachedMaximumGuesses = () => guessedCountries.length + 1 === maximumCountryGuesses;
-
-  const evaluateGuessAndUpdateState = () => {
-    if (hasGuessedCountry()) {
+  const handleEvaluateGuessAndUpdateState = (guessedCountry: string) => {
+    if (hasGuessedCountry(guessedCountry)) {
       setHintsEnabledCount(maximumCountryGuesses);
       setTotalGuessesNeeded(guessedCountries.length + 1);
       setIsWinModalOpen(true);
       return;
     }
 
-    if (hasReachedMaximumGuesses() && !hasGuessedCountry()) {
+    if (hasReachedMaximumGuesses() && !hasGuessedCountry(guessedCountry)) {
       setIsLoseModalOpen(true);
       return;
     }
 
-    setGuessedCountries([...guessedCountries, currentGuess]);
-    setCurrentGuess('');
+    setGuessedCountries([...guessedCountries, guessedCountry]);
     setHintsEnabledCount(previousCount => previousCount + 1);
   };
 
   const handleSetInitialState = () => {
     setRandomCountry(getRandomCountry(countries));
     setGuessedCountries([]);
-    setCurrentGuess('');
     setHintsEnabledCount(defaultHintsEnabledCount);
   };
+
+  const hasGuessedCountry = (guessedCountry: string) => {
+    return randomCountry.name.common === guessedCountry;
+  };
+
+  const hasReachedMaximumGuesses = () => guessedCountries.length + 1 === maximumCountryGuesses;
 
   return (
     <>
@@ -66,10 +66,8 @@ function CountryGuesser({countries}: CountryGuesserProps) {
         <div className="space-y-6 lg:flex lg:justify-center lg:gap-12 lg:space-y-0">
           <CountryGuessInput
             countries={countries}
-            currentGuess={currentGuess}
             guessedCountries={guessedCountries}
-            setCurrentGuess={setCurrentGuess}
-            evaluateGuessAndUpdateState={evaluateGuessAndUpdateState}
+            evaluateGuessAndUpdateState={handleEvaluateGuessAndUpdateState}
           />
 
           <GuessedCountriesList
