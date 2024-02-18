@@ -28,8 +28,7 @@ function CountryGuessInput({
   const [selectedGuessIndex, setSelectedGuessIndex] = useState(0);
 
   const handleGuessButtonClick = () => {
-    if (isValidGuess) evaluateGuessAndUpdateState(currentGuess);
-
+    evaluateGuessAndUpdateState(currentGuess);
     handleChangeSelectedGuess('');
   };
 
