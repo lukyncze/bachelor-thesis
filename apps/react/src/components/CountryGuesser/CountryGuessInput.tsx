@@ -16,13 +16,16 @@ function CountryGuessInput({
   guessedCountries,
   evaluateGuessAndUpdateState,
 }: CountryGuessProps) {
+  const countriesWithoutAlreadyGuessed: Countries = countries.filter(
+    country => !guessedCountries.includes(country.name.common),
+  );
+  const [filteredCountries, setFilteredCountries] = useState<Countries>(
+    countriesWithoutAlreadyGuessed.slice(0, countryHintsCount),
+  );
   const [currentGuess, setCurrentGuess] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isValidGuess, setIsValidGuess] = useState(false);
   const [selectedGuessIndex, setSelectedGuessIndex] = useState(0);
-  const [filteredCountries, setFilteredCountries] = useState<Countries>(
-    countries.slice(0, countryHintsCount),
-  );
 
   const handleGuessButtonClick = () => {
     if (isValidGuess) evaluateGuessAndUpdateState(currentGuess);
@@ -69,12 +72,7 @@ function CountryGuessInput({
     clampSelectedGuessIndex(filteredCountries);
   };
 
-  const getCountriesWithoutAlreadyGuessed = () => {
-    return countries.filter(country => !guessedCountries.includes(country.name.common));
-  };
-
   const getFilteredCountries = (guessedCountry: string) => {
-    const countriesWithoutAlreadyGuessed = getCountriesWithoutAlreadyGuessed();
     const filteredCountries = countriesWithoutAlreadyGuessed.filter(country =>
       country.name.common.toLowerCase().includes(guessedCountry.toLowerCase()),
     );
