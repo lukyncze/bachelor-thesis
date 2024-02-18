@@ -33,10 +33,8 @@ export class CountryGuessInputComponent implements OnChanges {
   }
 
   protected handleGuessButtonClick(): void {
-    if (this.isValidGuess) {
-      this.evaluateGuessAndUpdateState.emit(this.currentGuess);
-      this.handleChangeSelectedGuess('');
-    }
+    this.evaluateGuessAndUpdateState.emit(this.currentGuess);
+    this.handleChangeSelectedGuess('');
   }
 
   protected handleChangeSelectedGuess(guessedCountry: string): void {
