@@ -1,4 +1,9 @@
+<script lang="ts" context="module">
+  export type GuessedCountries = ReadonlyArray<string>;
+</script>
+
 <script lang="ts">
+  import GuessedCountriesList from './GuessedCountriesList.svelte';
   import type {Countries} from './country';
   import HintBoxes from './hint-boxes/HintBoxes.svelte';
 
@@ -20,8 +25,11 @@
       {evaluateGuessAndUpdateState}
     /> -->
 
-    <span>GuessedCountriesList</span>
-    <!-- <GuessedCountriesList {countries} {guessedCountries} {randomCountry} /> -->
+    <GuessedCountriesList
+      {countries}
+      guessedCountries={countries.map(c => c.name.common).slice(0, 8)}
+      randomCountry={countries[0]}
+    />
   </div>
 </div>
 
