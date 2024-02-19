@@ -8,6 +8,8 @@
   import type {Countries, Country} from './country';
   import {getRandomCountry} from './helpers';
   import HintBoxes from './hint-boxes/HintBoxes.svelte';
+  import LoseModal from './modals/LoseModal.svelte';
+  import WinModal from './modals/WinModal.svelte';
 
   const defaultHintsEnabledCount = 1;
   const maximumCountryGuesses = 8;
@@ -69,23 +71,23 @@
   </div>
 </div>
 
-<!-- {isWinModalOpen ? (
-<WinModal
-randomCountry={randomCountry}
-totalGuessesNeeded={totalGuessesNeeded}
-handleClose={() => {
-handleSetInitialState();
-setIsWinModalOpen(false);
-}}
-/>
-) : null}
+{#if isWinModalOpen}
+  <WinModal
+    {randomCountry}
+    {totalGuessesNeeded}
+    handleClose={() => {
+      handleSetInitialState();
+      isWinModalOpen = false;
+    }}
+  />
+{/if}
 
-{isLoseModalOpen ? (
-<LoseModal
-randomCountry={randomCountry}
-handleClose={() => {
-handleSetInitialState();
-setIsLoseModalOpen(false);
-}}
-/>
-) : null} -->
+{#if isLoseModalOpen}
+  <LoseModal
+    {randomCountry}
+    handleClose={() => {
+      handleSetInitialState();
+      isLoseModalOpen = false;
+    }}
+  />
+{/if}
