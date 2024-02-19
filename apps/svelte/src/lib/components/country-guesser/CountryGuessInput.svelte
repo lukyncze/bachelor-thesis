@@ -29,9 +29,9 @@
     isOpen = false;
   };
 
-  const handleInputChange = (event: Event) => {
-    if (event.target instanceof HTMLInputElement) {
-      const formattedGuess = convertToFormattedGuess(event.target.value);
+  const handleInputChange = (target: EventTarget | null) => {
+    if (target instanceof HTMLInputElement) {
+      const formattedGuess = convertToFormattedGuess(target.value);
       updateGuessAndFilteredCountries(formattedGuess);
     }
   };
@@ -92,7 +92,7 @@
     <input
       type="text"
       value={currentGuess}
-      on:change={handleInputChange}
+      on:input={({target}) => handleInputChange(target)}
       on:click={() => {
         updateGuessAndFilteredCountries(currentGuess);
         isOpen = true;
