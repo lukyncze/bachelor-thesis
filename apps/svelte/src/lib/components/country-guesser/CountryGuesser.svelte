@@ -4,35 +4,68 @@
 
 <script lang="ts">
   import CountryGuessInput from './CountryGuessInput.svelte';
-
   import GuessedCountriesList from './GuessedCountriesList.svelte';
-  import type {Countries} from './country';
+  import type {Countries, Country} from './country';
+  import {getRandomCountry} from './helpers';
   import HintBoxes from './hint-boxes/HintBoxes.svelte';
+
+  const defaultHintsEnabledCount = 1;
+  const maximumCountryGuesses = 8;
 
   export let countries: Countries;
 
+  let randomCountry: Country = getRandomCountry(countries);
+  let guessedCountries: Array<string> = [];
+  let hintsEnabledCount = defaultHintsEnabledCount;
+  let totalGuessesNeeded = 1;
+  let isWinModalOpen = false;
+  let isLoseModalOpen = false;
+
   const handleEvaluateGuessAndUpdateState = (guessedCountry: string) => {
     console.log(`🚀 ~ handleEvaluateGuessAndUpdateState ~ guessedCountry:`, guessedCountry);
+
+    if (hasGuessedCountry(guessedCountry)) {
+      hintsEnabledCount = maximumCountryGuesses;
+      totalGuessesNeeded = guessedCountries.length + 1;
+      isWinModalOpen = true;
+      return;
+    }
+
+    if (hasReachedMaximumGuesses() && !hasGuessedCountry(guessedCountry)) {
+      isLoseModalOpen = true;
+      return;
+    }
+
+    guessedCountries.push(guessedCountry);
+    hintsEnabledCount++;
   };
+
+  const handleSetInitialState = () => {
+    randomCountry = getRandomCountry(countries);
+    guessedCountries = [];
+    hintsEnabledCount = defaultHintsEnabledCount;
+  };
+
+  const hasGuessedCountry = (guessedCountry: string) => {
+    return randomCountry.name.common === guessedCountry;
+  };
+
+  const hasReachedMaximumGuesses = () => guessedCountries.length + 1 === maximumCountryGuesses;
 </script>
 
 <div class="container mx-auto space-y-6 sm:space-y-8">
   <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-4">
-    <HintBoxes randomCountry={countries[0]} hintsEnabledCount={8} />
+    <HintBoxes {randomCountry} {hintsEnabledCount} />
   </div>
 
   <div class="space-y-6 lg:flex lg:justify-center lg:gap-12 lg:space-y-0">
     <CountryGuessInput
       {countries}
-      guessedCountries={countries.map(c => c.name.common).slice(0, 4)}
+      {guessedCountries}
       evaluateGuessAndUpdateState={handleEvaluateGuessAndUpdateState}
     />
 
-    <GuessedCountriesList
-      {countries}
-      guessedCountries={countries.map(c => c.name.common).slice(0, 8)}
-      randomCountry={countries[0]}
-    />
+    <GuessedCountriesList {countries} {guessedCountries} {randomCountry} />
   </div>
 </div>
 

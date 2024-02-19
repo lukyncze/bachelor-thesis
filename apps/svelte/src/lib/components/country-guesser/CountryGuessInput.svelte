@@ -8,6 +8,7 @@
   export let evaluateGuessAndUpdateState: (guessedCountry: string) => void;
 
   const countryHintsCount = 8;
+  // TODO: Refactor - it can be calculated in the parent component
   const countriesWithoutAlreadyGuessed: Countries = countries.filter(
     country => !guessedCountries.includes(country.name.common)
   );
