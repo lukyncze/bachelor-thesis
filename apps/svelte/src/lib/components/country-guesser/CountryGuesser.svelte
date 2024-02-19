@@ -3,11 +3,17 @@
 </script>
 
 <script lang="ts">
+  import CountryGuessInput from './CountryGuessInput.svelte';
+
   import GuessedCountriesList from './GuessedCountriesList.svelte';
   import type {Countries} from './country';
   import HintBoxes from './hint-boxes/HintBoxes.svelte';
 
   export let countries: Countries;
+
+  const handleEvaluateGuessAndUpdateState = (guessedCountry: string) => {
+    console.log(`🚀 ~ handleEvaluateGuessAndUpdateState ~ guessedCountry:`, guessedCountry);
+  };
 </script>
 
 <div class="container mx-auto space-y-6 sm:space-y-8">
@@ -16,14 +22,11 @@
   </div>
 
   <div class="space-y-6 lg:flex lg:justify-center lg:gap-12 lg:space-y-0">
-    <span>CountryGuessInput</span>
-    <!-- <CountryGuessInput
+    <CountryGuessInput
       {countries}
-      {currentGuess}
-      {guessedCountries}
-      {setCurrentGuess}
-      {evaluateGuessAndUpdateState}
-    /> -->
+      guessedCountries={countries.map(c => c.name.common).slice(0, 4)}
+      evaluateGuessAndUpdateState={handleEvaluateGuessAndUpdateState}
+    />
 
     <GuessedCountriesList
       {countries}
