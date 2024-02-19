@@ -9,7 +9,7 @@
 {#if error}
   <div class="container flex flex-col justify-center justify-items-center mx-auto">ErrorAlert</div>
 {:else if countries.length > 0}
-  <CountryGuesser {countries} />;
+  <CountryGuesser {countries} />
 {:else}
   <div class="container flex flex-col justify-center justify-items-center mx-auto">
     LoadingSkeleton
