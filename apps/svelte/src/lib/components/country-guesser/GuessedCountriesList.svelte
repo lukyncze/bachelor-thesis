@@ -1,13 +1,13 @@
 <script lang="ts">
   import {type GuessedCountries} from './CountryGuesser.svelte';
   import type {Countries, Country} from './country';
-  import {getEnrichedGuessedCountries, type EnrichedGuessedCountries} from './helpers';
+  import {getEnrichedGuessedCountries} from './helpers';
 
   export let countries: Countries;
   export let guessedCountries: GuessedCountries;
   export let randomCountry: Country;
 
-  const enrichedGuessedCountries: EnrichedGuessedCountries = getEnrichedGuessedCountries(
+  $: enrichedGuessedCountries = getEnrichedGuessedCountries(
     countries,
     guessedCountries,
     randomCountry

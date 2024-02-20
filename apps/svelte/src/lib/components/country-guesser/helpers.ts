@@ -8,8 +8,6 @@ interface EnrichedGuessedCountry {
   distanceFromRandomCountry: number;
 }
 
-export type EnrichedGuessedCountries = ReadonlyArray<EnrichedGuessedCountry>;
-
 export const getRandomCountry = (countries: Countries): Country => {
   return countries[Math.floor(Math.random() * countries.length)];
 };
@@ -18,7 +16,7 @@ export const getEnrichedGuessedCountries = (
   countries: Countries,
   guessedCountries: GuessedCountries,
   randomCountry: Country,
-): EnrichedGuessedCountries => {
+): ReadonlyArray<EnrichedGuessedCountry> => {
   return guessedCountries.map(countryName =>
     enrichGuessedCountry(countries, countryName, randomCountry),
   );

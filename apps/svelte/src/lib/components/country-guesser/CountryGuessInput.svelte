@@ -3,17 +3,18 @@
   import {type GuessedCountries} from './CountryGuesser.svelte';
   import {type Countries} from './country';
 
+  const countryHintsCount = 8;
+
   export let countries: Countries;
   export let guessedCountries: GuessedCountries;
   export let evaluateGuessAndUpdateState: (guessedCountry: string) => void;
 
-  const countryHintsCount = 8;
   // TODO: Refactor - it can be calculated in the parent component
-  const countriesWithoutAlreadyGuessed: Countries = countries.filter(
+  $: countriesWithoutAlreadyGuessed = countries.filter(
     country => !guessedCountries.includes(country.name.common)
   );
 
-  let filteredCountries: Countries = countriesWithoutAlreadyGuessed.slice(0, countryHintsCount);
+  let filteredCountries: Countries = countries.slice(0, countryHintsCount);
   let currentGuess = '';
   let isOpen = false;
   let isValidGuess = false;
@@ -56,7 +57,7 @@
     const _filteredCountries = getFilteredCountries(guessedCountry);
 
     currentGuess = guessedCountry;
-    isValidGuess = !!filteredCountries.find(({name}) => name.common === guessedCountry);
+    isValidGuess = !!_filteredCountries.find(({name}) => name.common === guessedCountry);
     filteredCountries = _filteredCountries;
     clampSelectedGuessIndex(filteredCountries);
   };
