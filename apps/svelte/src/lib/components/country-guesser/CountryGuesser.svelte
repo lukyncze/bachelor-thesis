@@ -3,6 +3,8 @@
 </script>
 
 <script lang="ts">
+  import {onMount} from 'svelte';
+  import {polyfillCountryFlagEmojis} from 'country-flag-emoji-polyfill';
   import CountryGuessInput from './CountryGuessInput.svelte';
   import GuessedCountriesList from './GuessedCountriesList.svelte';
   import type {Countries, Country} from './country';
@@ -24,6 +26,8 @@
   let totalGuessesNeeded = 1;
   let isWinModalOpen = false;
   let isLoseModalOpen = false;
+
+  onMount(() => polyfillCountryFlagEmojis());
 
   const handleEvaluateGuessAndUpdateState = (guessedCountry: string) => {
     if (hasGuessedCountry(guessedCountry)) {
@@ -55,6 +59,7 @@
   };
 
   const hasReachedMaximumGuesses = () => guessedCountries.length + 1 === maximumCountryGuesses;
+  console.log(`test 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀`);
 </script>
 
 <div class="container mx-auto space-y-6 sm:space-y-8">
