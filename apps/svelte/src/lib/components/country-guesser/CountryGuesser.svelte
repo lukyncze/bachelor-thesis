@@ -17,8 +17,9 @@
   export let countries: Countries;
 
   let randomCountry: Country = getRandomCountry(countries);
+  // TODO: Remove this console.log
   console.log(`🚀 ~ randomCountry:`, randomCountry.name.common);
-  let guessedCountries: Array<string> = [];
+  let guessedCountries: GuessedCountries = [];
   let hintsEnabledCount = defaultHintsEnabledCount;
   let totalGuessesNeeded = 1;
   let isWinModalOpen = false;
@@ -43,6 +44,7 @@
 
   const handleSetInitialState = () => {
     randomCountry = getRandomCountry(countries);
+    // TODO: Remove this console.log
     console.log(`🚀 ~ handleSetInitialState ~ randomCountry:`, randomCountry.name.common);
     guessedCountries = [];
     hintsEnabledCount = defaultHintsEnabledCount;
