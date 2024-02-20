@@ -17,6 +17,7 @@
   export let countries: Countries;
 
   let randomCountry: Country = getRandomCountry(countries);
+  console.log(`🚀 ~ randomCountry:`, randomCountry.name.common);
   let guessedCountries: Array<string> = [];
   let hintsEnabledCount = defaultHintsEnabledCount;
   let totalGuessesNeeded = 1;
@@ -24,8 +25,6 @@
   let isLoseModalOpen = false;
 
   const handleEvaluateGuessAndUpdateState = (guessedCountry: string) => {
-    console.log(`🚀 ~ handleEvaluateGuessAndUpdateState ~ guessedCountry:`, guessedCountry);
-
     if (hasGuessedCountry(guessedCountry)) {
       hintsEnabledCount = maximumCountryGuesses;
       totalGuessesNeeded = guessedCountries.length + 1;
@@ -38,12 +37,13 @@
       return;
     }
 
-    guessedCountries.push(guessedCountry);
+    guessedCountries = [...guessedCountries, guessedCountry];
     hintsEnabledCount++;
   };
 
   const handleSetInitialState = () => {
     randomCountry = getRandomCountry(countries);
+    console.log(`🚀 ~ handleSetInitialState ~ randomCountry:`, randomCountry.name.common);
     guessedCountries = [];
     hintsEnabledCount = defaultHintsEnabledCount;
   };
