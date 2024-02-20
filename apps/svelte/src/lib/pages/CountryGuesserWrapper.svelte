@@ -2,7 +2,7 @@
   import CountryGuesser from '../components/country-guesser/CountryGuesser.svelte';
   import {mockedData} from '../components/country-guesser/mockedData';
 
-  let countries = mockedData;
+  let countries = mockedData.toSorted((a, b) => a.name.common.localeCompare(b.name.common));
   let error = false;
 </script>
 
