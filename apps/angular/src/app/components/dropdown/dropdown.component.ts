@@ -43,22 +43,28 @@ export class DropdownComponent implements OnInit {
     }
   }
 
+  // K public metodám můžeme přistupovat zvenčí
   public ngOnInit(): void {
+    // Metoda ngOnInit je volána po inicializaci komponenty a jejích vlastností.
+    // Pro používání této metody musíme pro třídu implementovat rozhraní OnInit.
     this.selectedOption = this.defaultValue;
     this.getDropdownStyles();
   }
 
+  // K protected metodám můžeme přistupovat pouze z této třídy a šablony
   protected toggleDropdown(event: Event): void {
     event.stopPropagation();
     this.isOpen = !this.isOpen;
   }
 
+  // doplnit...
   protected handleOptionClick(option: Option): void {
     this.selectedOption = option;
     this.isOpen = false;
     this.changeSelected.emit(option);
   }
 
+  // K private metodám můžeme přistupovat pouze z této třídy
   private getDropdownStyles(): void {
     const {buttonStyles, divStyles, optionStyles} = dropdownVariantStyles[this.variant];
     this.buttonStyles = buttonStyles;

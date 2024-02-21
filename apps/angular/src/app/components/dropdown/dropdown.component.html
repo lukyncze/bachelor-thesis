@@ -1,3 +1,4 @@
+<!-- Dynamické atributy nastavujeme pomocí [NAZEV_ATRIBUTU] -->
 <div class="relative inline-block text-left" [id]="dropdownId">
   <div class="rounded-md shadow-sm">
     <button
@@ -7,6 +8,7 @@
       (click)="toggleDropdown($event)"
     >
       {{ selectedOption ? selectedOption.label : placeholder }}
+      <!-- Pro podmíněné vykreslovaní můžeme využít bloky @if, @else if, @else -->
       @if (isOpen) {
         <arrow-up-icon />
       } @else {
@@ -21,6 +23,7 @@
       [ngClass]="divStyles"
     >
       <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+        <!-- Pro vykreslení listu (pole hodnot) můžeme využít blok @for -->
         @for (option of options; track option.value) {
           <button
             class="block w-full text-left px-4 py-2 text-sm hover:text-gray-900"

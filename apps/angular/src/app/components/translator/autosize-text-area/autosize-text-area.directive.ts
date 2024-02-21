@@ -1,6 +1,6 @@
 import {Directive, ElementRef, HostListener, Renderer2} from '@angular/core';
 
-// Updates the height of a <textarea> when the value changes.
+// Direktiva pro automatickou aktualizaci výšky textové oblasti <textarea>.
 @Directive({
   selector: '[autosizeTextArea]',
   standalone: true,
@@ -17,17 +17,17 @@ export class AutosizeTextAreaDirective {
 
   private adjustTextAreaHeight() {
     if (this.el.nativeElement) {
-      // We need to reset the height momentarily to get the correct scrollHeight for the textarea
+      // Abychom získali správnou výšku scrollHeight pro textovou oblast, musíme výšku resetovat.
       this.renderer.setStyle(this.el.nativeElement, 'height', '0px');
 
-      // We then set the computed height directly to the native element
-      // Native element is a element on which we set this directive
+      // Vypočtenou výšku pak nastavíme přímo na nativní prvek
+      // Nativní prvek je prvek, na kterém nastavujeme tuto direktivu
       const computedHeight = `${this.el.nativeElement.scrollHeight + 36}px`;
       this.renderer.setStyle(this.el.nativeElement, 'height', computedHeight);
     }
   }
 }
 
-// Inspiration:
+// Převzato a upraveno podle:
 // https://medium.com/@oherterich/creating-a-textarea-with-dynamic-height-using-react-and-typescript-5ed2d78d9848
 // https://codesandbox.io/s/autosize-textarea-owwtu?from-embed=&file=/src/useAutosizeTextArea.ts
