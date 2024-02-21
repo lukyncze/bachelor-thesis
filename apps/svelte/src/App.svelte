@@ -1,4 +1,5 @@
 <script lang="ts">
+  import {QueryClient, QueryClientProvider} from '@sveltestack/svelte-query';
   import Router, {type RouteDefinition} from 'svelte-spa-router';
   import {wrap} from 'svelte-spa-router/wrap';
   import Header from './lib/components/layout/Header.svelte';
@@ -9,14 +10,18 @@
     (routesMap, route) => routesMap.set(route.path, wrap({component: route.component})),
     new Map()
   );
+
+  const queryClient = new QueryClient();
 </script>
 
-<div class="min-h-screen flex flex-col">
-  <Header />
+<QueryClientProvider client={queryClient}>
+  <div class="min-h-screen flex flex-col">
+    <Header />
 
-  <main class="flex-grow p-8">
-    <Router {routes} />
-  </main>
+    <main class="flex-grow p-8">
+      <Router {routes} />
+    </main>
 
-  <Footer />
-</div>
+    <Footer />
+  </div>
+</QueryClientProvider>

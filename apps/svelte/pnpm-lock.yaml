@@ -8,6 +8,9 @@ devDependencies:
   '@sveltejs/vite-plugin-svelte':
     specifier: ^2.5.3
     version: 2.5.3(svelte@4.2.9)(vite@5.0.12)
+  '@sveltestack/svelte-query':
+    specifier: ^1.6.0
+    version: 1.6.0
   '@tsconfig/svelte':
     specifier: ^5.0.2
     version: 5.0.2
@@ -490,6 +493,15 @@ packages:
       vitefu: 0.2.5(vite@5.0.12)
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@sveltestack/svelte-query@1.6.0:
+    resolution: {integrity: sha512-C0wWuh6av1zu3Pzwrg6EQmX3BhDZQ4gMAdYu6Tfv4bjbEZTB00uEDz52z92IZdONh+iUKuyo0xRZ2e16k2Xifg==}
+    peerDependencies:
+      broadcast-channel: ^4.5.0
+    peerDependenciesMeta:
+      broadcast-channel:
+        optional: true
     dev: true
 
   /@tsconfig/svelte@5.0.2:
