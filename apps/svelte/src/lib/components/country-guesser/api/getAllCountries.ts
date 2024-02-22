@@ -1,35 +1,31 @@
-import {useQuery} from '@sveltestack/svelte-query';
-import axios, {AxiosError, type AxiosRequestConfig} from 'axios';
-import type {Countries} from '../country';
+import axios, {type AxiosRequestConfig} from 'axios';
+import {type Countries} from '../country';
 import {requestHandler} from './requestHandler';
 
-const getAllCountries = async () => {
-  const getData = requestHandler<object, Countries>((params) => axios.request(getRequestConfig(params)));
-  const response = await getData({});
+export const getAllCountries = async () => {
+  const fetchCountriesData = requestHandler<object, Countries>(() =>
+    axios.request(getRequestConfig())
+  );
+  const response = await fetchCountriesData({});
 
-  if (response.code === 'success') {
-    if (response.data.length === 0) {
-      throw new Error('There are no countries to guess. Please try again later.');
-    }
-
-    return getSortedCountriesByName(response.data);
-  } else {
+  if (response.code === 'error') {
     throw new Error(
       `There was an error with getting the countries data (${response.error.message}). Please reload the page.`
     );
   }
+
+  if (response.data.length === 0) {
+    throw new Error('There are no countries to guess. Please try again later.');
+  }
+
+  return getSortedCountriesByName(response.data);
 };
 
-export const useAllCountries = () => {
-  return useQuery<Countries, AxiosError>('allCountries', getAllCountries);
-};
-
-const getRequestConfig = (params: object): AxiosRequestConfig => {
+const getRequestConfig = (): AxiosRequestConfig => {
   return {
     method: 'GET',
     url: import.meta.env.VITE_REST_COUNTRIES_BASE_URL,
     params: {fields: import.meta.env.VITE_REST_COUNTRIES_QUERY_PARAMS_FIELDS},
-    ...params
   };
 };
 

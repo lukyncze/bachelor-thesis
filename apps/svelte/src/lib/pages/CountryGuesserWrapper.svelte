@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {useAllCountries} from '../components/country-guesser/api/getAllCountries';
+  import {useAllCountries} from '../components/country-guesser/api/queries';
   import CountryGuesser from '../components/country-guesser/CountryGuesser.svelte';
   import ErrorAlert from '../components/country-guesser/ErrorAlert.svelte';
   import LoadingSkeleton from '../components/country-guesser/LoadingSkeleton.svelte';
