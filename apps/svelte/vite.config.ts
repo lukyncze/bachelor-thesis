@@ -7,4 +7,8 @@ export default defineConfig({
   css: {
     postcss: './postcss.config.js',
   },
+  // Oprava RollupError v procesu sestavení 
+  resolve: {
+    mainFields: ['browser'],
+  },
 })
