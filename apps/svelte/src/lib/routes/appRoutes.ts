@@ -4,6 +4,7 @@ import DropdownWrapper from '../pages/DropdownWrapper.svelte';
 import Landing from '../pages/Landing.svelte';
 import PageNotFound from '../pages/PageNotFound.svelte';
 import InvestFormWrapper from '../pages/InvestFormWrapper.svelte';
+import CountryGuesserWrapper from '../pages/CountryGuesserWrapper.svelte';
 
 export const appRoutes = [
   {
@@ -30,6 +31,11 @@ export const appRoutes = [
     name: 'Invest form',
     path: '/invest-form',
     component: InvestFormWrapper,
+  },
+  {
+    name: 'Country guesser',
+    path: '/country-guesser',
+    component: CountryGuesserWrapper,
   },
   {
     path: '*',
