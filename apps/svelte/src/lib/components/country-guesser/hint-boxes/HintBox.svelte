@@ -22,7 +22,6 @@
   export let hint = '?';
   export let hintComponent: ComponentType;
   export let hintEnabled = false;
-  // TODO: Pohledat zda lze vytvořit optional property
   export let flagImage: FlagImage | undefined = undefined;
 
   const HintComponent = hintComponent;
