@@ -9,7 +9,6 @@
   export let guessedCountries: GuessedCountries;
   export let evaluateGuessAndUpdateState: (guessedCountry: string) => void;
 
-  // TODO: Refactor - it can be calculated in the parent component
   $: countriesWithoutAlreadyGuessed = countries.filter(
     country => !guessedCountries.includes(country.name.common)
   );

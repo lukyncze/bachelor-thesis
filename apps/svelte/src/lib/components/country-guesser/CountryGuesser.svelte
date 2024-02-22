@@ -19,8 +19,6 @@
   export let countries: Countries;
 
   let randomCountry: Country = getRandomCountry(countries);
-  // TODO: Remove this console.log
-  console.log(`🚀 ~ randomCountry:`, randomCountry.name.common);
   let guessedCountries: GuessedCountries = [];
   let hintsEnabledCount = defaultHintsEnabledCount;
   let totalGuessesNeeded = 1;
@@ -48,8 +46,6 @@
 
   const handleSetInitialState = () => {
     randomCountry = getRandomCountry(countries);
-    // TODO: Remove this console.log
-    console.log(`🚀 ~ handleSetInitialState ~ randomCountry:`, randomCountry.name.common);
     guessedCountries = [];
     hintsEnabledCount = defaultHintsEnabledCount;
   };
@@ -59,7 +55,6 @@
   };
 
   const hasReachedMaximumGuesses = () => guessedCountries.length + 1 === maximumCountryGuesses;
-  console.log(`test 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀`);
 </script>
 
 <div class="container mx-auto space-y-6 sm:space-y-8">
