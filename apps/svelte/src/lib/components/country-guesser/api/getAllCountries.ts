@@ -2,19 +2,34 @@ import axios, {type AxiosRequestConfig} from 'axios';
 import {type Countries} from '../country';
 import {requestHandler} from './requestHandler';
 
-interface CountriesRequestOptions {
-  signal: AbortSignal;
-}
+export const getAllCountries = async () => {
+  const fetchCountriesData = requestHandler<object, Countries>(() =>
+    axios.request(getRequestConfig())
+  );
+  const response = await fetchCountriesData({});
 
-export const getAllCountries = requestHandler<CountriesRequestOptions, Countries>(params =>
-  axios.request(getRequestConfig(params))
-);
+  if (response.code === 'error') {
+    throw new Error(
+      `There was an error with getting the countries data (${response.error.message}). Please reload the page.`
+    );
+  }
 
-const getRequestConfig = ({signal}: CountriesRequestOptions): AxiosRequestConfig => {
+  if (response.data.length === 0) {
+    throw new Error('There are no countries to guess. Please try again later.');
+  }
+
+  return getSortedCountriesByName(response.data);
+};
+
+const getRequestConfig = (): AxiosRequestConfig => {
   return {
     method: 'GET',
     url: import.meta.env.VITE_REST_COUNTRIES_BASE_URL,
     params: {fields: import.meta.env.VITE_REST_COUNTRIES_QUERY_PARAMS_FIELDS},
-    signal,
   };
 };
+
+const getSortedCountriesByName = (countries: Countries): Countries => {
+  return countries.toSorted((a, b) => a.name.common.localeCompare(b.name.common));
+};
+
