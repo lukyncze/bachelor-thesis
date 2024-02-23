@@ -8,6 +8,8 @@
   viewBox="0 0 24 24"
   stroke-width="1.5"
   stroke="currentColor"
+  aria-hidden="true"
+  data-slot="icon"
   class={className}
 >
   <path
