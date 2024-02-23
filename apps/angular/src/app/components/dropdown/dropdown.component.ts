@@ -1,7 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {Component, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
-import {ArrowDownIconComponent} from '../icons/arrow-down/arrow-down-icon.component';
-import {ArrowUpIconComponent} from '../icons/arrow-up/arrow-up-icon.component';
+import {ArrowDownIconComponent} from '../icons/arrow-down-icon/arrow-down-icon.component';
+import {ArrowUpIconComponent} from '../icons/arrow-up-icon/arrow-up-icon.component';
 import {DropdownSize, dropdownSize} from './dropdownSize';
 import {DropdownVariant, dropdownVariantStyles} from './dropdownVariants';
 
