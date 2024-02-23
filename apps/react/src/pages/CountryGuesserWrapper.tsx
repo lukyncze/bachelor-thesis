@@ -1,5 +1,5 @@
 import {PropsWithChildren} from 'react';
-import useCountries from '../components/CountryGuesser/hooks/useCountries';
+import useAllCountries from '../components/CountryGuesser/hooks/useAllCountries';
 import CountryGuesser from '../components/CountryGuesser/CountryGuesser';
 import LoadingSkeleton from '../components/CountryGuesser/LoadingSkeleton';
 import ErrorAlert from '../components/CountryGuesser/ErrorAlert';
@@ -13,7 +13,7 @@ const WrapperDiv = ({children}: PropsWithChildren) => {
 };
 
 function CountryGuesserWrapper() {
-  const [countries, error] = useCountries();
+  const [countries, error] = useAllCountries();
 
   if (error) {
     return (
