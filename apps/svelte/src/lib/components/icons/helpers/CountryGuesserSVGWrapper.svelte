@@ -4,6 +4,8 @@
   viewBox="0 0 24 24"
   stroke-width="1.5"
   stroke="currentColor"
+  aria-hidden="true"
+  data-slot="icon"
   class="inline-block w-14 h-14"
 >
   <slot />

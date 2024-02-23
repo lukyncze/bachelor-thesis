@@ -5,6 +5,8 @@ export const errorIcon = (
     viewBox="0 0 24 24"
     strokeWidth="1.5"
     stroke="currentColor"
+    aria-hidden="true"
+    data-slot="icon"
     className="w-6 h-6"
   >
     <path

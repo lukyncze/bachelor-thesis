@@ -12,6 +12,8 @@ function CountryGuesserSVGWrapper({children}: CountryGuesserSVGWrapperProps) {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
+      aria-hidden="true"
+      data-slot="icon"
       className="inline-block w-14 h-14"
     >
       {children}

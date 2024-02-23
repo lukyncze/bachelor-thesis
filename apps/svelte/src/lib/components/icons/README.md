@@ -4,49 +4,49 @@ Všechny použité SVG ikony pochází z https://heroicons.com/ a jsou dostupné
 
 Seznam použitých ikon:
 
-- arrow-down-icon:
+- ArrowDownIcon:
 https://github.com/tailwindlabs/heroicons/blob/master/optimized/20/solid/chevron-down.svg
 
-- arrow-up-icon:
+- ArrowUpIcon:
 https://github.com/tailwindlabs/heroicons/blob/master/optimized/20/solid/chevron-up.svg
 
-- borders-icon:
+- BordersIcon:
 https://github.com/tailwindlabs/heroicons/blob/master/optimized/24/outline/link.svg
 
-- capital-icon:
+- CapitalIcon:
 https://github.com/tailwindlabs/heroicons/blob/master/optimized/24/outline/building-library.svg
 
-- close-icon:
+- CloseIcon:
 https://github.com/tailwindlabs/heroicons/blob/master/optimized/24/solid/x-mark.svg
 
-- copy-icon:
+- CopyIcon:
 https://github.com/tailwindlabs/heroicons/blob/master/optimized/24/solid/clipboard-document-list.svg
 
-- error-icon:
+- ErrorIcon:
 https://github.com/tailwindlabs/heroicons/blob/master/optimized/24/outline/exclamation-triangle.svg
 
-- flag-icon:
+- FlagIcon:
 https://github.com/tailwindlabs/heroicons/blob/master/optimized/24/outline/flag.svg
 
-- landlocked-icon:
+- LandlockedIcon:
 https://github.com/tailwindlabs/heroicons/blob/master/optimized/24/outline/lock-closed.svg
 
-- languages-icon:
+- LanguagesIcon:
 https://github.com/tailwindlabs/heroicons/blob/master/optimized/24/outline/language.svg
 
-- moon-icon:
+- MoonIcon:
 https://github.com/tailwindlabs/heroicons/blob/master/optimized/24/solid/moon.svg
 
-- population-icon:
+- PopulationIcon:
 https://github.com/tailwindlabs/heroicons/blob/master/optimized/24/outline/user-group.svg
 
-- region-icon:
+- RegionIcon:
 https://github.com/tailwindlabs/heroicons/blob/master/optimized/24/outline/globe-europe-africa.svg
 
-- size-icon:
+- SizeIcon:
 https://github.com/tailwindlabs/heroicons/blob/master/optimized/24/outline/adjustments-horizontal.svg
 
-- sun-icon:
+- SunIcon:
 https://github.com/tailwindlabs/heroicons/blob/master/optimized/24/solid/sun.svg
 
 -----
