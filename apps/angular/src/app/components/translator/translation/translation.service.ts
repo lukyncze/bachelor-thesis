@@ -25,7 +25,7 @@ export class TranslationService {
     // Následně v rámci operátoru pipe() můžeme zpracovat data, která nám server vrátí.
     // Po úspěšném dotazu se nám vrátí pole TranslationResponseData, které převedeme na samotný přeložený text.
     // Pro to použijeme operátor map() a případně konverzní metodu.
-    // Metoda vrací Rxjs Observable.
+    // Metoda vrací RxJS Observable.
     return this.httpClient
       .post<TranslationResponseData>(url, body, options)
       .pipe(map(data => this.convertToOutputText(data)));
