@@ -102,7 +102,7 @@
     />
 
     <Button
-      className="rounded-lg w-40 !p-2 grid place-content-center border border-gray-400 bg-green-800 text-white animate-pulse 
+      className="w-40 !p-2 grid place-content-center border border-gray-400 bg-green-800 text-white animate-pulse 
             lg:w-28 xl:w-32 hover:animate-none hover:bg-green-900 disabled:animate-none disabled:bg-red-800"
       onClick={handleGuessButtonClick}
       disabled={!isValidGuess}
