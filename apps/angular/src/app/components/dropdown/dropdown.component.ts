@@ -20,7 +20,7 @@ export class DropdownComponent implements OnInit {
   public selectedOption?: Option | null;
   public isOpen = false;
 
-  // Toto ID je třeba nastavit na root element dropdown komponenty
+  // Toto ID je třeba nastavit na root element dropdown komponenty.
   protected dropdownId = `id-${crypto.randomUUID()}`;
 
   protected buttonStyles = '';
@@ -36,6 +36,9 @@ export class DropdownComponent implements OnInit {
 
   @Output() changeSelected = new EventEmitter<Option>();
 
+  // Dekorátor @HostListener umožňuje naslouchat na události.
+  // V tomto případě nasloucháme na událost pointerdown, která je vyvolána jakémkoli kliknutí myší.
+  // Callback metoda onClickOutsideDropdown zajistí zavření dropdownu, pokud uživatel klikne mimo něj.
   @HostListener('document:pointerdown', ['$event.target'])
   onClickOutsideDropdown(target: HTMLElement): void {
     if (this.isOpen && !target.closest(`#${this.dropdownId}`)) {
@@ -43,28 +46,27 @@ export class DropdownComponent implements OnInit {
     }
   }
 
-  // K public metodám můžeme přistupovat zvenčí
+  // Metoda ngOnInit je volána po inicializaci komponenty a jejích vlastností.
+  // Pro používání této metody musíme pro třídu implementovat rozhraní OnInit.
   public ngOnInit(): void {
-    // Metoda ngOnInit je volána po inicializaci komponenty a jejích vlastností.
-    // Pro používání této metody musíme pro třídu implementovat rozhraní OnInit.
     this.selectedOption = this.defaultValue;
     this.getDropdownStyles();
   }
 
-  // K protected metodám můžeme přistupovat pouze z této třídy a šablony
+  // Ubslužná metoda, ovládá otevírání a zavírání dropdownu
   protected toggleDropdown(event: Event): void {
     event.stopPropagation();
     this.isOpen = !this.isOpen;
   }
 
-  // doplnit...
+  // Ubslužná metoda, která je volána po kliknutí na jednotlivé položky v dropdownu
   protected handleOptionClick(option: Option): void {
     this.selectedOption = option;
     this.isOpen = false;
     this.changeSelected.emit(option);
   }
 
-  // K private metodám můžeme přistupovat pouze z této třídy
+  // Pomocná metoda, která nastaví styly pro dropdown podle zvolené varianty a velikosti
   private getDropdownStyles(): void {
     const {buttonStyles, divStyles, optionStyles} = dropdownVariantStyles[this.variant];
     this.buttonStyles = buttonStyles;

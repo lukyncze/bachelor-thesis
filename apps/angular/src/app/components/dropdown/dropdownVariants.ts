@@ -1,4 +1,4 @@
-// Definice a export TypeScriptového typu
+// Definice a export TypeScriptového typu.
 export type DropdownVariant =
   | 'primary'
   | 'secondary'

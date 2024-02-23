@@ -4,8 +4,8 @@ import {TitleStrategy} from '@angular/router';
 
 const appName = 'Angular app';
 
-// Tato třída poskytuje statický titulek stránek
-// Využití třídy přepíše defaultní nastavení (DefaultTitleStrategy) dynamické strategie dle vlastnosti title v jednotlivých routách.
+// Tato třída poskytuje statický titulek stránek.
+// Využití třídy přepíše nativní nastavení (DefaultTitleStrategy) dynamického titulku.
 @Injectable({providedIn: 'root'})
 export class TemplatePageTitleStrategy extends TitleStrategy {
   constructor(private readonly title: Title) {
