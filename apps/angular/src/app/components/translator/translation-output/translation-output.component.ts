@@ -24,7 +24,7 @@ export class TranslationOutputComponent {
   }
 
   protected handleCopyClick(): void {
-    // Zkopírování textu do schránky (CTRL+C)
+    // Zkopírování textu do schránky (CTRL+C).
     navigator.clipboard.writeText(this.outputText);
   }
 }

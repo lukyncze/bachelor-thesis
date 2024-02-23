@@ -53,20 +53,20 @@ export class DropdownComponent implements OnInit {
     this.getDropdownStyles();
   }
 
-  // Ubslužná metoda, ovládá otevírání a zavírání dropdownu
+  // Ubslužná metoda, ovládá otevírání a zavírání dropdownu.
   protected toggleDropdown(event: Event): void {
     event.stopPropagation();
     this.isOpen = !this.isOpen;
   }
 
-  // Ubslužná metoda, která je volána po kliknutí na jednotlivé položky v dropdownu
+  // Ubslužná metoda, která je volána po kliknutí na jednotlivé položky v dropdownu.
   protected handleOptionClick(option: Option): void {
     this.selectedOption = option;
     this.isOpen = false;
     this.changeSelected.emit(option);
   }
 
-  // Pomocná metoda, která nastaví styly pro dropdown podle zvolené varianty a velikosti
+  // Pomocná metoda, která nastaví styly pro dropdown podle zvolené varianty a velikosti.
   private getDropdownStyles(): void {
     const {buttonStyles, divStyles, optionStyles} = dropdownVariantStyles[this.variant];
     this.buttonStyles = buttonStyles;

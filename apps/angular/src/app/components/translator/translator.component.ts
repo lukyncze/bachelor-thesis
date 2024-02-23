@@ -38,22 +38,22 @@ export class TranslatorComponent implements OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    // Slouží k manuálnímu unsubscribe všech observables při zničení komponenty
+    // Slouží k manuálnímu unsubscribe všech observables při zničení komponenty.
     this.destroy$.next();
     this.destroy$.complete();
   }
 
   protected handleInputTextChange(inputText: string): void {
     this.inputText = inputText;
-    // Synchronní aktualizace hodnoty observable (v tomto případě Subjectu)
-    // Slouží pro následné operace při změně hodnoty observable
+    // Synchronní aktualizace hodnoty observable (v tomto případě Subjectu).
+    // Slouží pro následné operace při změně hodnoty observable.
     this.inputValuesChanges$.next(inputText);
   }
 
   protected handleLanguageChange(outputLanguage: Option): void {
     this.outputLanguage = outputLanguage.value;
-    // Synchronní aktualizace hodnoty observable (v tomto případě Subjectu)
-    // Slouží pro následné operace při změně hodnoty observable
+    // Synchronní aktualizace hodnoty observable (v tomto případě Subjectu).
+    // Slouží pro následné operace při změně hodnoty observable.
     this.inputValuesChanges$.next(outputLanguage.value);
   }
 
