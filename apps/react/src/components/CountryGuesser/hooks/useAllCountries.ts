@@ -3,7 +3,7 @@ import {useEffect, useRef, useState} from 'react';
 import {getAllCountries} from '../api/getAllCountries';
 import {Countries} from '../country';
 
-function useCountries() {
+function useAllCountries() {
   const [countries, setCountries] = useState<Countries>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
@@ -51,4 +51,4 @@ function useCountries() {
   return [countries, error, isLoading] as const;
 }
 
-export default useCountries;
+export default useAllCountries;

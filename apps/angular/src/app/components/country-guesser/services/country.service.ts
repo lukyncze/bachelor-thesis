@@ -14,7 +14,7 @@ export class CountryService {
   private static queryParams = environment.countriesApiQueryParams;
   private readonly httpClient = inject(HttpClient);
 
-  public getCountries(): Observable<Countries> {
+  public getAllCountries(): Observable<Countries> {
     const url = this.getRequestApiUrl();
 
     return this.httpClient.get<Countries>(url).pipe(

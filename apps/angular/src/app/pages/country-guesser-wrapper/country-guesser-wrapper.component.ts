@@ -19,5 +19,5 @@ import {CountryService} from '../../components/country-guesser/services/country.
   ],
 })
 export class CountryGuesserWrapperComponent {
-  protected countries$: Observable<Countries> = inject(CountryService).getCountries();
+  protected countries$: Observable<Countries> = inject(CountryService).getAllCountries();
 }
