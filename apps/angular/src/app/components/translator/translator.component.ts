@@ -71,17 +71,17 @@ export class TranslatorComponent implements OnDestroy {
   private triggerTranslation(): void {
     this.loading = true;
 
-    // Volání metody pro získání překladu na základě uživatelova vstupu.
+    // Volání metody pro získání překladu na základě vstupu uživatele.
     this.translationService
       .getTranslation(this.inputText, this.outputLanguage)
       .pipe(
         // Zajišťuje, že se subscription zruší při zničení komponenty.
         takeUntil(this.destroy$),
-        // Zachytí chybu v observable
+        // Zachytí chybu v observable.
         catchError(error => this.handleError(error)),
       )
       // V metodě subscribe dostaneme transformovanou odpověď (v rámci next callbacku) nebo chybu (v rámci error callbacku).
-      // Po posledním úspěšné aktualizaci observable se volá callback funkce complete.
+      // Po poslední úspěšné aktualizaci observable se volá callback funkce complete.
       .subscribe({
         next: response => (this.outputText = response),
         error: error => (this.error = error),
