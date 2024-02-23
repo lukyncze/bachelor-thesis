@@ -8,9 +8,9 @@ devDependencies:
   '@sveltejs/vite-plugin-svelte':
     specifier: ^2.5.3
     version: 2.5.3(svelte@4.2.9)(vite@5.0.12)
-  '@sveltestack/svelte-query':
-    specifier: ^1.6.0
-    version: 1.6.0
+  '@tanstack/svelte-query':
+    specifier: ^5.22.2
+    version: 5.22.2(svelte@4.2.9)
   '@tsconfig/svelte':
     specifier: ^5.0.2
     version: 5.0.2
@@ -20,9 +20,6 @@ devDependencies:
   axios:
     specifier: ^1.6.7
     version: 1.6.7
-  axios-retry:
-    specifier: ^4.0.0
-    version: 4.0.0(axios@1.6.7)
   calculate-distance-between-coordinates:
     specifier: ^1.0.5
     version: 1.0.5
@@ -495,13 +492,17 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltestack/svelte-query@1.6.0:
-    resolution: {integrity: sha512-C0wWuh6av1zu3Pzwrg6EQmX3BhDZQ4gMAdYu6Tfv4bjbEZTB00uEDz52z92IZdONh+iUKuyo0xRZ2e16k2Xifg==}
+  /@tanstack/query-core@5.22.2:
+    resolution: {integrity: sha512-z3PwKFUFACMUqe1eyesCIKg3Jv1mysSrYfrEW5ww5DCDUD4zlpTKBvUDaEjsfZzL3ULrFLDM9yVUxI/fega1Qg==}
+    dev: true
+
+  /@tanstack/svelte-query@5.22.2(svelte@4.2.9):
+    resolution: {integrity: sha512-7ZK/EoAAIB6KIKiSC3NSTJPJYo2meOZjsyBXLtbEpLYr7U/mCJwgJ0dXKOUt9n3eKwUyX9N/stqwyD10F+KS8Q==}
     peerDependencies:
-      broadcast-channel: ^4.5.0
-    peerDependenciesMeta:
-      broadcast-channel:
-        optional: true
+      svelte: ^3.54.0 || ^4.0.0 || ^5.0.0-next.0
+    dependencies:
+      '@tanstack/query-core': 5.22.2
+      svelte: 4.2.9
     dev: true
 
   /@tsconfig/svelte@5.0.2:
@@ -584,15 +585,6 @@ packages:
       picocolors: 1.0.0
       postcss: 8.4.33
       postcss-value-parser: 4.2.0
-    dev: true
-
-  /axios-retry@4.0.0(axios@1.6.7):
-    resolution: {integrity: sha512-F6P4HVGITD/v4z9Lw2mIA24IabTajvpDZmKa6zq/gGwn57wN5j1P3uWrAV0+diqnW6kTM2fTqmWNfgYWGmMuiA==}
-    peerDependencies:
-      axios: 0.x || 1.x
-    dependencies:
-      axios: 1.6.7
-      is-retry-allowed: 2.2.0
     dev: true
 
   /axios@1.6.7:
@@ -1031,11 +1023,6 @@ packages:
     resolution: {integrity: sha512-v3rht/LgVcsdZa3O2Nqs+NMowLOxeOm7Ay9+/ARQ2F+qEoANRcqrjAZKGN0v8ymUetZGgkp26LTnGT7H0Qo9Pg==}
     dependencies:
       '@types/estree': 1.0.5
-    dev: true
-
-  /is-retry-allowed@2.2.0:
-    resolution: {integrity: sha512-XVm7LOeLpTW4jV19QSH38vkswxoLud8sQ57YwJVTPWdiaI9I8keEhGFpBlslyVsgdQy4Opg8QOLb8YRgsyZiQg==}
-    engines: {node: '>=10'}
     dev: true
 
   /isexe@2.0.0:

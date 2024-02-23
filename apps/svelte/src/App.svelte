@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {QueryClient, QueryClientProvider} from '@sveltestack/svelte-query';
+  import {QueryClient, QueryClientProvider} from '@tanstack/svelte-query';
   import Router, {type RouteDefinition} from 'svelte-spa-router';
   import {wrap} from 'svelte-spa-router/wrap';
   import Header from './lib/components/layout/Header.svelte';
