@@ -11,24 +11,32 @@
   let loading = false;
   let error: Error | null = null;
 
+  // Kontroler, který umožňuje zrušit asynchronní požadavek.
   let abortController: AbortController | null = null;
+  // Reference na časovač pro zpoždění.
   let delayTimer: number;
 
   $: if (inputText.length && outputLanguage) {
+    // Zrušení předchozího časovače.
     clearTimeout(delayTimer);
 
+    // Zpoždění překladu o 300 ms.
     delayTimer = setTimeout(() => handleTranslation(), 300);
   }
 
   onDestroy(() => {
+    // Zrušení asynchronního požadavku a časovače při zničení komponenty.
     clearTimeout(delayTimer);
     abortController?.abort();
   });
 
+  // Funkce pro zpracování přeložení textu.
   const handleTranslation = async () => {
     if (!inputText.length) return;
 
+    // Zrušení předchozího asynchronního požadavku.
     abortController?.abort();
+    // Vytvoření nového kontroleru pro zrušení asynchronního požadavku.
     abortController = new AbortController();
     loading = true;
 
@@ -48,6 +56,7 @@
     };
 
     try {
+      // Odeslání HTTP POST požadavku na server, který nám vrátí přeložený text v nějaké struktuře.
       const response = await fetch(url, options);
 
       if (!response.ok) {
@@ -57,6 +66,7 @@
       const result = await response.json();
       outputText = result[0].translations[0].text as string;
     } catch (err: any) {
+      // Pokud je chyba typu AbortError, tak ji ignorujeme.
       if (err.name === 'AbortError') return;
 
       error = err;

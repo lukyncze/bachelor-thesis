@@ -16,6 +16,7 @@
     placeholder = loading ? 'Loading ...' : '';
   });
 
+  // Funkce pro získání aktuální hodnoty výstupního textu (chyby).
   const getTextAreaValue = () => {
     if (error) return error.message;
 
@@ -24,11 +25,13 @@
     return outputText;
   };
 
+  // Zkopírování textu do schránky (CTRL+C).
   const handleCopyClick = () => navigator.clipboard.writeText(outputText);
 </script>
 
 <div class="relative w-1/2">
   <div class="border h-full bg-gray-100">
+    <!-- Svelte nebo vlastní akci přidáme na element/komponentu pomocí use:NAZEV_AKCE -->
     <textarea
       bind:value
       use:autoresizeTextArea
