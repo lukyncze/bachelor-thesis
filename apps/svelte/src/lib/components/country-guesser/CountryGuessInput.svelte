@@ -53,11 +53,11 @@
   };
 
   const updateGuessAndFilteredCountries = (guessedCountry: string) => {
-    const _filteredCountries = getFilteredCountries(guessedCountry);
+    const updatedFilteredCountries = getFilteredCountries(guessedCountry);
 
     currentGuess = guessedCountry;
-    isValidGuess = !!_filteredCountries.find(({name}) => name.common === guessedCountry);
-    filteredCountries = _filteredCountries;
+    isValidGuess = !!updatedFilteredCountries.find(({name}) => name.common === guessedCountry);
+    filteredCountries = updatedFilteredCountries;
     clampSelectedGuessIndex(filteredCountries);
   };
 
