@@ -8,7 +8,7 @@ function AppLayout() {
       <Header />
 
       <main className="flex-grow p-8">
-        {/* Outlet vykresluje šablonu (komponentu) pro aktuální URL adresu */}
+        {/* Outlet vykresluje šablonu (komponentu) pro aktuální URL adresu. */}
         <Outlet />
       </main>
 
