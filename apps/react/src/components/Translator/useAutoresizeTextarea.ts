@@ -7,7 +7,7 @@ const useAutosizeTextArea = (textAreaRef: HTMLTextAreaElement | null, value: str
       // Abychom získali správnou výšku scrollHeight pro textovou oblast, musíme výšku resetovat.
       textAreaRef.style.height = '0px';
 
-      // Výšku pak nastavíme přímo.
+      // Výšku pak nastavíme přímo na nativní prvek.
       // Při pokusu o nastavení této hodnoty pomocí stavu nebo odkazu bude výsledkem nesprávná hodnota.
       textAreaRef.style.height = `${textAreaRef.scrollHeight + 36}px`;
     }
