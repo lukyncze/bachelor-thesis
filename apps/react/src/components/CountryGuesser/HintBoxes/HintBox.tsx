@@ -6,6 +6,7 @@ export interface HintBoxProps {
   hint: string;
   hintIcon: ReactNode;
   hintEnabled?: boolean;
+  // React typy, reprezentují všechny atributy, které může mít HTML element <img>.
   flagImage?: ImgHTMLAttributes<HTMLImageElement>;
 }
 

@@ -1,6 +1,7 @@
 function LoadingSkeleton() {
   return (
     <div role="status" className="animate-pulse">
+      {/* Pole s 6 prázdnými položkami. */}
       {Array.from({length: 6}, (_, index) => (
         <div
           key={index}

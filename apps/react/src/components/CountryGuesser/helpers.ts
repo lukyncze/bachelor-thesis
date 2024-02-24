@@ -14,6 +14,7 @@ export const getRandomCountry = (countries: Countries): Country => {
   return countries[Math.floor(Math.random() * countries.length)];
 };
 
+// Tato funkce slouží k obohacení seznamu uhodnutých zemí. Obohacení zahrnuje vlajku a vzdálenost od náhodné země.
 export const getEnrichedGuessedCountries = (
   countries: Countries,
   guessedCountries: GuessedCountries,
