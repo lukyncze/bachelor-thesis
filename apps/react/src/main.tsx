@@ -22,6 +22,7 @@ axiosRetry(axios, {
   },
 });
 
+// Vytvoření routeru pomocí react-router-dom
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<AppLayout />} errorElement={<ErrorPage />}>
