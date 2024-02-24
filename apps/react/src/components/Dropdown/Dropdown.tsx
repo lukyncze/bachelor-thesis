@@ -36,10 +36,10 @@ function Dropdown({
   const sizeStyles = dropdownSize[size];
 
   return (
-    // Dynamické atributy nastavujeme pomocí NAZEV_ATRIBUTU={HODNOTA}
+    // Dynamické atributy nastavujeme pomocí NÁZEV_ATRIBUTU={HODNOTA}
     <div className="relative inline-block text-left" id={id}>
       <div className="rounded-md shadow-sm">
-        {/* Pro poslouchání na události v DOMu můžeme použít syntaxi: NAZEV_UDÁLOSTI={OBSLUŽNÁ_METODA} */}
+        {/* Pro poslouchání na události v DOMu můžeme použít syntaxi: NÁZEV_UDÁLOSTI={OBSLUŽNÁ_METODA} */}
         <button
           type="button"
           className={`inline-flex justify-center items-center w-full rounded-md ${sizeStyles} font-medium focus:outline-none focus:ring-1 focus:ring-offset-0.8 ${buttonStyles}`}

@@ -36,7 +36,7 @@
     <div class="mb-4 md:w-1/2">
       <InputLabel id="oneOffInvestment">One-off investment (20-99.999.999€)</InputLabel>
 
-      <!-- Propojení formulářového prvku se stavem formuláře pomocí bind:value={$form.NAZEV_POLE}. -->
+      <!-- Propojení formulářového prvku se stavem formuláře pomocí bind:value={$form.NÁZEV_POLE}. -->
       <!-- Propagace změn do stavu formuláře zajišťuje on:change={handleChange}. -->
       <input
         id="oneOffInvestment"
@@ -56,7 +56,7 @@
     <div class="mb-4 md:w-1/2">
       <InputLabel id="investmentLength">Investment length (3-60 years)</InputLabel>
 
-      <!-- Propojení formulářového prvku se stavem formuláře pomocí bind:value={$form.NAZEV_POLE}. -->
+      <!-- Propojení formulářového prvku se stavem formuláře pomocí bind:value={$form.NÁZEV_POLE}. -->
       <!-- Propagace změn do stavu formuláře zajišťuje on:change={handleChange}. -->
       <div class="flex">
         <input
@@ -90,7 +90,7 @@
         Average interest on a savings account (0-10 %)
       </InputLabel>
 
-      <!-- Propojení formulářového prvku se stavem formuláře pomocí bind:value={$form.NAZEV_POLE}. -->
+      <!-- Propojení formulářového prvku se stavem formuláře pomocí bind:value={$form.NÁZEV_POLE}. -->
       <!-- Propagace změn do stavu formuláře zajišťuje on:change={handleChange}. -->
       <input
         id="averageSavingsInterest"
@@ -113,7 +113,7 @@
         Average S&P 500 yield (approximate value in %)
       </InputLabel>
 
-      <!-- Propojení formulářového prvku se stavem formuláře pomocí bind:value={$form.NAZEV_POLE}. -->
+      <!-- Propojení formulářového prvku se stavem formuláře pomocí bind:value={$form.NÁZEV_POLE}. -->
       <!-- Propagace změn do stavu formuláře zajišťuje on:change={handleChange}. -->
       <input
         id="averageSP500Interest"

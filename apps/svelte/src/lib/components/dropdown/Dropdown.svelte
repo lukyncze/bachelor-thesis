@@ -48,10 +48,10 @@
   const sizeStyles = dropdownSize[size];
 </script>
 
-<!-- Dynamické atributy nastavujeme pomocí NAZEV_ATRIBUTU={HODNOTA} -->
+<!-- Dynamické atributy nastavujeme pomocí NÁZEV_ATRIBUTU={HODNOTA} -->
 <div class="relative inline-block text-left" id={dropdownId}>
   <div class="rounded-md shadow-sm">
-    <!-- Pro poslouchání na události v DOMu můžeme použít syntaxi: on:NAZEV_UDÁLOSTI={OBSLUŽNÁ_METODA} -->
+    <!-- Pro poslouchání na události v DOMu můžeme použít syntaxi: on:NÁZEV_UDÁLOSTI={OBSLUŽNÁ_METODA} -->
     <button
       type="button"
       class={`inline-flex justify-center items-center w-full rounded-md ${sizeStyles} font-medium focus:outline-none focus:ring-1 focus:ring-offset-0.8 ${buttonStyles}`}
