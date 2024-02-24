@@ -9,6 +9,7 @@ interface TranslationOutputProps {
   error: Error | null;
 }
 
+// Funkce pro získání aktuální hodnoty výstupního textu (chyby).
 function getTextAreaValue({inputText, outputText, loading, error}: TranslationOutputProps) {
   if (error) return error.message;
 
@@ -18,14 +19,16 @@ function getTextAreaValue({inputText, outputText, loading, error}: TranslationOu
 }
 
 function TranslationOutput(props: TranslationOutputProps) {
-  const textAreaRef = useRef<HTMLTextAreaElement>(null);
-
   const {inputText, outputText, loading} = props;
   const value = getTextAreaValue(props);
 
+  // Vytvoření reference pro textovou oblast.
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+
+  // Použití vlastního hooku pro automatickou aktualizaci výšky textové oblasti na základě reference.
   useAutosizeTextArea(textAreaRef.current, outputText);
 
-  // Po zkopírování by na uživatele mohla vyskočit nějaká hláška (pop-up)
+  // Zkopírování textu do schránky (CTRL+C).
   const handleCopyClick = () => navigator.clipboard.writeText(outputText);
 
   return (

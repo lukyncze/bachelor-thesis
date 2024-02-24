@@ -8,10 +8,12 @@ interface TranslationInputProps {
 }
 
 function TranslationInput({inputText, setInputText}: TranslationInputProps) {
-  const textAreaRef = useRef<HTMLTextAreaElement>(null);
-
   const maximumCharactersCount = 800;
 
+  // Vytvoření reference pro textovou oblast.
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+
+  // Použití vlastního hooku pro automatickou aktualizaci výšky textové oblasti na základě reference.
   useAutosizeTextArea(textAreaRef.current, inputText);
 
   const handleInputChange = ({target}: ChangeEvent<HTMLTextAreaElement>) => {
