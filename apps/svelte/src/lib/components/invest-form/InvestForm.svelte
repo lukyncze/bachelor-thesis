@@ -12,6 +12,7 @@
     averageSP500Interest: 10,
   };
 
+  // Validace formuláře pomocí knihovny yup.
   const validationSchema = object().shape({
     oneOffInvestment: number().min(20).max(99_999_999).required(),
     investmentLength: number().min(3).max(60).required(),
@@ -19,10 +20,12 @@
     averageSP500Interest: number().required(),
   });
 
+  // Tvorba formuláře s využitím svelte-forms-lib knihovny.
   const {form, errors, isValid, handleChange, handleSubmit} = createForm({
     initialValues: defaultValues,
     validationSchema,
     onSubmit: values => {
+      // Převede hodnoty formuláře na typ InvestFormData.
       investFormData = validationSchema.cast(values);
     },
   });
@@ -33,6 +36,8 @@
     <div class="mb-4 md:w-1/2">
       <InputLabel id="oneOffInvestment">One-off investment (20-99.999.999€)</InputLabel>
 
+      <!-- Propojení formulářového prvku se stavem formuláře pomocí bind:value={$form.NÁZEV_POLE}. -->
+      <!-- Propagace změn do stavu formuláře zajišťuje on:change={handleChange}. -->
       <input
         id="oneOffInvestment"
         type="number"
@@ -51,6 +56,8 @@
     <div class="mb-4 md:w-1/2">
       <InputLabel id="investmentLength">Investment length (3-60 years)</InputLabel>
 
+      <!-- Propojení formulářového prvku se stavem formuláře pomocí bind:value={$form.NÁZEV_POLE}. -->
+      <!-- Propagace změn do stavu formuláře zajišťuje on:change={handleChange}. -->
       <div class="flex">
         <input
           id="investmentLength"
@@ -83,6 +90,8 @@
         Average interest on a savings account (0-10 %)
       </InputLabel>
 
+      <!-- Propojení formulářového prvku se stavem formuláře pomocí bind:value={$form.NÁZEV_POLE}. -->
+      <!-- Propagace změn do stavu formuláře zajišťuje on:change={handleChange}. -->
       <input
         id="averageSavingsInterest"
         type="number"
@@ -104,6 +113,8 @@
         Average S&P 500 yield (approximate value in %)
       </InputLabel>
 
+      <!-- Propojení formulářového prvku se stavem formuláře pomocí bind:value={$form.NÁZEV_POLE}. -->
+      <!-- Propagace změn do stavu formuláře zajišťuje on:change={handleChange}. -->
       <input
         id="averageSP500Interest"
         type="number"

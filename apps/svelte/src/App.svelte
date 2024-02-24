@@ -6,11 +6,13 @@
   import Footer from './lib/components/layout/Footer.svelte';
   import {appRoutes} from './lib/routes/appRoutes';
 
+  // Vytvoření cest pro svelte-spa-router.
   const routes: RouteDefinition = appRoutes.reduce(
     (routesMap, route) => routesMap.set(route.path, wrap({component: route.component})),
     new Map()
   );
 
+  // Vytvoření instance QueryClient pro HTTP dotazy.
   const queryClient = new QueryClient();
 </script>
 
@@ -19,6 +21,7 @@
     <Header />
 
     <main class="flex-grow p-8">
+      <!-- Router vykresluje šablonu (komponentu) pro aktuální URL adresu. -->
       <Router {routes} />
     </main>
 

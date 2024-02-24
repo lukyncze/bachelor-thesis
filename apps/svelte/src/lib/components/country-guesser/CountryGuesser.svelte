@@ -25,6 +25,7 @@
   let isWinModalOpen = false;
   let isLoseModalOpen = false;
 
+  // Načtení polyfillu pro zobrazení vlajek států.
   onMount(() => polyfillCountryFlagEmojis());
 
   const handleEvaluateGuessAndUpdateState = (guessedCountry: string) => {
@@ -40,6 +41,8 @@
       return;
     }
 
+    // Přiřazení nové reference (aktualizovaného) pole pro vlastnost guessedCountries.
+    // Součástí aktualizovaného pole jsou hodnoty již hádaných zemí a nově hádanou zemí.
     guessedCountries = [...guessedCountries, guessedCountry];
     hintsEnabledCount++;
   };

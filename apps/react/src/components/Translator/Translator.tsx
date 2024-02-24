@@ -11,10 +11,13 @@ function Translator() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
+  // Kontroler, který umožňuje zrušit asynchronní požadavek.
   const abortControllerRef = useRef<AbortController | null>(null);
+  // Reference na časovač pro zpoždění.
   const delayTimerRef = useRef<number>();
 
   useEffect(() => {
+    // Zrušení asynchronního požadavku a časovače při zničení komponenty.
     return () => {
       clearTimeout(delayTimerRef.current);
       abortControllerRef?.current?.abort();
@@ -22,10 +25,13 @@ function Translator() {
   }, []);
 
   useEffect(() => {
+    // Callback funkce pro zpracování přeložení textu.
     const handleTranslation = async () => {
       if (!inputText.length) return;
 
+      // Zrušení předchozího asynchronního požadavku.
       abortControllerRef.current?.abort();
+      // Vytvoření nového kontroleru pro zrušení asynchronního požadavku.
       abortControllerRef.current = new AbortController();
       setLoading(true);
 
@@ -45,6 +51,7 @@ function Translator() {
       };
 
       try {
+        // Odeslání HTTP POST požadavku na server, který nám vrátí přeložený text v nějaké struktuře.
         const response = await fetch(url, options);
 
         if (!response.ok) {
@@ -58,6 +65,7 @@ function Translator() {
         setOutputText(translatedText);
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
+        // Pokud je chyba typu AbortError, tak ji ignorujeme.
         if (error.name === 'AbortError') return;
 
         setError(error);
@@ -66,10 +74,13 @@ function Translator() {
       }
     };
 
+    // Zrušení předchozího časovače.
     clearTimeout(delayTimerRef.current);
 
+    // Zpoždění překladu o 300 ms.
     delayTimerRef.current = setTimeout(() => handleTranslation(), 300);
 
+    // Zrušení časovače při zničení komponenty.
     return () => clearTimeout(delayTimerRef.current);
   }, [inputText, outputLanguage]);
 

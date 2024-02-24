@@ -18,8 +18,7 @@ type InvestForm = FormGroup<{
   imports: [CommonModule, ReactiveFormsModule, InputLabelComponent],
 })
 export class InvestFormComponent implements OnInit {
-  // Trik pro zajištění toho, aby v inputu byla hodnota daného datového typu předána,
-  // ale zároveň aby se nezobrazovala chyba typescriptu s neinicializovanou vlastností.
+  // Použití "!" zajistí to, že TypeScript nezobrazí chybu ohledně neinicializované vlastnosti.
   // -----
   // Pokud bychom chtěli chybu vypnout, můžeme přenastavit následující nastavení v tsconfig.json:
   // "compilerOptions": {
@@ -37,6 +36,7 @@ export class InvestFormComponent implements OnInit {
 
   @Output() formChanged = new EventEmitter<InvestFormData>();
 
+  // FormBuilder slouží k vytváření formulářů a jejich prvků.
   constructor(private readonly fb: FormBuilder) {}
 
   public ngOnInit(): void {
@@ -64,6 +64,8 @@ export class InvestFormComponent implements OnInit {
   }
 
   private initializeInvestForm() {
+    // Vytvoření formuláře s výchozími hodnotami (případně vlastnostmi) a validátory.
+    // Jednotlivé prvky FormGroup bývají označovány jako FormControl.
     return this.fb.group({
       oneOffInvestment: [
         this.defaultValues.oneOffInvestment,

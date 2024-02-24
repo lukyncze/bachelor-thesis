@@ -1,5 +1,6 @@
 <div role="status" class="animate-pulse">
   @for (item of items; track item) {
+    <!-- $index reprezentuje aktuální index ve for smyčce. -->
     <div
       class="{{
         $index === 0 ? '!h-6' : 'h-4'
@@ -9,5 +10,5 @@
   <span class="sr-only">Loading...</span>
 </div>
 
-<!-- Inspiration: -->
-<!-- https://flowbite.com/docs/components/spinner/ -->
+<!-- Převzato a upraveno podle: -->
+<!-- https://flowbite.com/docs/components/skeleton/ -->

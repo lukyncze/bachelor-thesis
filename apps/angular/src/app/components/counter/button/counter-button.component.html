@@ -3,5 +3,6 @@
   [ngClass]="className"
   (click)="buttonClicked.emit()"
 >
+  <!-- ng-content slouží k vykreslení obsahu, který vložíme mezi párové tagy (selectory) dané komponenty. -->
   <ng-content></ng-content>
 </button>

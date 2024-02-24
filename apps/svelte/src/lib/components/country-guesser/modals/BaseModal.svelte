@@ -51,5 +51,5 @@
   </div>
 </div>
 
-<!-- Design taken from: -->
+<!-- Převzato a upraveno podle: -->
 <!-- https://flowbite.com/docs/components/modal/ -->

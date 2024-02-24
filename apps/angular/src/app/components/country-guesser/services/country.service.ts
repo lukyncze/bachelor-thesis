@@ -12,11 +12,18 @@ import {Countries} from '../country';
 export class CountryService {
   private static url = environment.countriesApiUrl;
   private static queryParams = environment.countriesApiQueryParams;
+  // Metoda inject slouží k získání instance služby.
   private readonly httpClient = inject(HttpClient);
 
   public getAllCountries(): Observable<Countries> {
     const url = this.getRequestApiUrl();
 
+    // Tento kód vykonává HTTP GET požadavek na server, který nám vrátí seznam všech zemí v nějaké struktuře.
+    // V rámci operátoru pipe() můžeme zpracovat data, která nám server vrátí.
+    // Po úspěšném dotazu v operátoru tap() zkontrolujeme, zda nám server vrátil nějaká data.
+    // Dále využijeme operátor map() k seřazení zemí podle názvu země.
+    // V případě, kdy dostaneme chybu, použijeme retryBackoff funkci pro opětovné zaslání požadavku.
+    // Nakonec využijeme catchError pro zachycení chyby a následné zpracování.
     return this.httpClient.get<Countries>(url).pipe(
       tap(response => this.checkResponseLength(response)),
       map(response => this.sortCountriesByName(response)),

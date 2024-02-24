@@ -1,4 +1,5 @@
 <script lang="ts">
+  // Pole s 6 prázdnými položkami.
   const items = Array.from({length: 6});
 </script>
 
@@ -11,3 +12,6 @@
   {/each}
   <span class="sr-only">Loading...</span>
 </div>
+
+<!-- Převzato a upraveno podle: -->
+<!-- https://flowbite.com/docs/components/skeleton/ -->

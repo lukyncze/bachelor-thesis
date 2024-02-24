@@ -13,6 +13,7 @@ import AppLayout from './pages/AppLayout.tsx';
 import ErrorPage from './pages/ErrorPage.tsx';
 import {appRoutes} from './routes/appRoutes.ts';
 
+// axiosRetry konfigurace.
 axiosRetry(axios, {
   retries: 3,
   retryDelay: (...arg) => exponentialDelay(...arg, 500),
@@ -21,6 +22,7 @@ axiosRetry(axios, {
   },
 });
 
+// Vytvoření routeru pomocí react-router-dom.
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<AppLayout />} errorElement={<ErrorPage />}>

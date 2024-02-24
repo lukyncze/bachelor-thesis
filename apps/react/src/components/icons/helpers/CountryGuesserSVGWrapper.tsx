@@ -4,6 +4,7 @@ interface CountryGuesserSVGWrapperProps {
   children: ReactNode;
 }
 
+// Toto je komponenta, která obaluje SVG ikony pro CountryGuesser.
 function CountryGuesserSVGWrapper({children}: CountryGuesserSVGWrapperProps) {
   return (
     <svg

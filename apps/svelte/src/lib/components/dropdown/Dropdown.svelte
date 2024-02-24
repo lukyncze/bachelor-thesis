@@ -1,10 +1,3 @@
-<!-- <script lang="ts" context="module">
-  export interface Option {
-    label: string;
-    value: string;
-  }
-</script> -->
-
 <script lang="ts">
   import {onMount} from 'svelte';
   import ArrowUpIcon from '../icons/ArrowUpIcon.svelte';
@@ -26,6 +19,7 @@
   // Toto ID je třeba nastavit na root element dropdown komponenty
   let dropdownId = `id-${crypto.randomUUID()}`;
 
+  // Ubslužná funkce, která se stará o logiku po kliknutí na jednotlivé položky v dropdownu.
   const handleOptionClick = (option: Option) => {
     selectedOption = option;
     isOpen = false;
@@ -40,9 +34,12 @@
   };
 
   onMount(() => {
+    // Přidáme posluchač události na událost pointerdown a jeho obslužnou funkci.
     document.addEventListener('pointerdown', handleClickOutsideDropdown);
 
+    // Funkce, která se zavolá při odpojení komponenty.
     return () => {
+      // Odebereme posluchač události na událost pointerdown a jeho obslužnou funkci.
       document.removeEventListener('pointerdown', handleClickOutsideDropdown);
     };
   });
@@ -51,16 +48,17 @@
   const sizeStyles = dropdownSize[size];
 </script>
 
+<!-- Dynamické atributy nastavujeme pomocí NÁZEV_ATRIBUTU={HODNOTA}. -->
 <div class="relative inline-block text-left" id={dropdownId}>
   <div class="rounded-md shadow-sm">
-    <!-- https://chiamakaikeanyi.dev/what-is-event-bubbling-and-capturing-and-how-to-handle-them/ -->
-    <!-- https://www.freecodecamp.org/news/a-simplified-explanation-of-event-propagation-in-javascript-f9de7961a06e/ -->
+    <!-- Pro poslouchání na události v DOMu můžeme použít syntaxi: on:NÁZEV_UDÁLOSTI={OBSLUŽNÁ_METODA}. -->
     <button
       type="button"
       class={`inline-flex justify-center items-center w-full rounded-md ${sizeStyles} font-medium focus:outline-none focus:ring-1 focus:ring-offset-0.8 ${buttonStyles}`}
       on:click|stopPropagation={() => (isOpen = !isOpen)}
     >
       {selectedOption ? selectedOption.label : placeholder}
+      <!-- Pro podmíněné vykreslovaní můžeme využít bloky #if, :else if, :else a /if. -->
       {#if isOpen}
         <ArrowUpIcon />
       {:else}
@@ -74,6 +72,7 @@
       class={`origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-opacity-100 z-10 ${divStyles}`}
     >
       <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+        <!-- Pro vykreslení listu (pole hodnot) můžeme využít blok #each. -->
         {#each options as option}
           <button
             class={`block w-full text-left px-4 py-2 text-sm hover:text-gray-900 ${optionStyles}`}

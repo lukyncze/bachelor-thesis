@@ -6,6 +6,7 @@
       <ul class="space-y-2">
         @for (country of enrichedGuessedCountries; track country) {
           <li class="flex justify-between rounded-md bg-gray-100 p-1.5">
+            <!-- $index reprezentuje aktuální index ve for smyčce. -->
             <span>{{ $index + 1 }}. {{ country.name }} {{ country.flag }}</span>
             <span>{{ country.distanceFromRandomCountry }} km away</span>
           </li>

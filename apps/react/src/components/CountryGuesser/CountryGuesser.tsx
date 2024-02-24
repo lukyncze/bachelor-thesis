@@ -40,6 +40,8 @@ function CountryGuesser({countries}: CountryGuesserProps) {
       return;
     }
 
+    // Přiřazení nové reference (aktualizovaného) pole pro stav guessedCountries.
+    // Součástí aktualizovaného pole jsou hodnoty již hádaných zemí a nově hádanou zemí.
     setGuessedCountries([...guessedCountries, guessedCountry]);
     setHintsEnabledCount(previousCount => previousCount + 1);
   };

@@ -1,3 +1,4 @@
+// Definice a export TypeScriptového typu.
 export type DropdownVariant =
   | 'primary'
   | 'secondary'
@@ -9,6 +10,7 @@ export type DropdownVariant =
   | 'warning'
   | 'error';
 
+// Record je TypeScriptový typ, který definuje objekt s pevně danými klíči (typu DropdownVariant) a jeho hodnotami.
 export const dropdownVariantStyles: Record<
   DropdownVariant,
   {buttonStyles: string; divStyles: string; optionStyles: string}

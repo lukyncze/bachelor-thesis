@@ -8,11 +8,6 @@ interface InvestFormProps {
   defaultValues?: InvestFormData;
 }
 
-// Scalable validation error messages:
-// https://react-hook-form.com/docs/useformstate/errormessage
-// UseFormMethods - Advanced usage of forms:
-// https://codesandbox.io/p/sandbox/react-hook-form-useformmethods-e3411?file=%2Fsrc%2FApp.tsx
-
 function InvestForm({
   handleFormSubmit,
   defaultValues = {
@@ -25,6 +20,7 @@ function InvestForm({
   const [investmentLengthValue, setInvestmentLengthValue] = useState(
     defaultValues.investmentLength,
   );
+  // Tvorba formuláře s využitím react-hook-form knihovny.
   const {
     register,
     handleSubmit,
@@ -40,6 +36,7 @@ function InvestForm({
           <input
             id="oneOffInvestment"
             type="number"
+            // Vytvoření pole ve formuláři, přidání validátorů a jiného nastavení pole.
             {...register('oneOffInvestment', {
               required: true,
               valueAsNumber: true,
@@ -75,6 +72,7 @@ function InvestForm({
               min="3"
               max="60"
               value={investmentLengthValue}
+              // Vytvoření pole ve formuláři, přidání validátorů a jiného nastavení pole.
               {...register('investmentLength', {
                 required: true,
                 valueAsNumber: true,
@@ -109,6 +107,7 @@ function InvestForm({
             id="averageSavingsInterest"
             type="number"
             step={0.1}
+            // Vytvoření pole ve formuláři, přidání validátorů a jiného nastavení pole.
             {...register('averageSavingsInterest', {
               required: true,
               valueAsNumber: true,
@@ -143,6 +142,7 @@ function InvestForm({
           <input
             id="averageSP500Interest"
             type="number"
+            // Vytvoření pole ve formuláři, přidání validátorů a jiného nastavení pole.
             {...register('averageSP500Interest', {
               required: true,
               valueAsNumber: true,

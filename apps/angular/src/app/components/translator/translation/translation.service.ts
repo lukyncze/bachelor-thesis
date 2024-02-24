@@ -12,6 +12,7 @@ export class TranslationService {
   private static queryParams = environment.translatorApiQueryParams;
   private static apiKey = environment.translatorApiKey;
 
+  // Registrace používaných služeb.
   constructor(private readonly httpClient: HttpClient) {}
 
   public getTranslation(inputText: string, outputLanguage: string): Observable<string> {
@@ -19,6 +20,12 @@ export class TranslationService {
     const body = this.getRequestBody(inputText);
     const options = this.getRequestOptions();
 
+    // Tento kód vykonává HTTP POST požadavek na server, který nám vrátí přeložený text v nějaké struktuře.
+    // Pomocí generického typu pro metodu .post() můžeme definovat, jaký typ dat očekáváme.
+    // Následně v rámci operátoru pipe() můžeme zpracovat data, která nám server vrátí.
+    // Po úspěšném dotazu se nám vrátí pole TranslationResponseData, které převedeme na samotný přeložený text.
+    // Pro to použijeme operátor map() a případně konverzní metodu.
+    // Metoda vrací RxJS Observable.
     return this.httpClient
       .post<TranslationResponseData>(url, body, options)
       .pipe(map(data => this.convertToOutputText(data)));

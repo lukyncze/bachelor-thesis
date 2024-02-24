@@ -11,6 +11,7 @@ interface EnrichedGuessedCountry {
 
 export type EnrichedGuessedCountries = ReadonlyArray<EnrichedGuessedCountry>;
 
+// Tato služba slouží k obohacení seznamu uhodnutých zemí. Obohacení zahrnuje vlajku a vzdálenost od náhodné země.
 @Injectable({
   providedIn: 'root',
 })
@@ -24,7 +25,8 @@ export class EnrichGuessedCountriesService {
       this.enrichGuessedCountry(countries, countryName, randomCountry),
     );
   }
-  public enrichGuessedCountry(
+
+  private enrichGuessedCountry(
     countries: Countries,
     countryName: string,
     randomCountry: Country,

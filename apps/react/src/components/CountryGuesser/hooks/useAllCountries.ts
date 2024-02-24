@@ -3,6 +3,7 @@ import {useEffect, useRef, useState} from 'react';
 import {getAllCountries} from '../api/getAllCountries';
 import {Countries} from '../country';
 
+// Hook sloužící k získání všech zemí. Vrací pole obsahující všechny země, případnou chybu a stav načítání.
 function useAllCountries() {
   const [countries, setCountries] = useState<Countries>([]);
   const [isLoading, setIsLoading] = useState(false);

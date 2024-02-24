@@ -15,6 +15,7 @@ export class TranslationOutputComponent {
   @Input() loading = false;
   @Input() error: Error | null = null;
 
+  // Metoda pro získání aktuální hodnoty výstupního textu (chyby).
   protected get value(): string {
     if (this.error) return this.error.message;
 
@@ -24,6 +25,7 @@ export class TranslationOutputComponent {
   }
 
   protected handleCopyClick(): void {
+    // Zkopírování textu do schránky (CTRL+C).
     navigator.clipboard.writeText(this.outputText);
   }
 }

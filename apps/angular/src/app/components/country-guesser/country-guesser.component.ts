@@ -25,6 +25,7 @@ const maximumCountryGuesses = 8;
   ],
 })
 export class CountryGuesserComponent implements OnInit {
+  // Metoda inject slouží k získání instance služby.
   private readonly countryFlagPolyfillService = inject(CountryFlagPolyfillService);
   protected randomCountry!: Country;
   protected guessedCountries: GuessedCountries = [];
@@ -53,6 +54,8 @@ export class CountryGuesserComponent implements OnInit {
       return;
     }
 
+    // Přiřazení nové reference (aktualizovaného) pole pro vlastnost guessedCountries.
+    // Součástí aktualizovaného pole jsou hodnoty již hádaných zemí a nově hádanou zemí.
     this.guessedCountries = [...this.guessedCountries, guessedCountry];
     this.hintsEnabledCount++;
   }

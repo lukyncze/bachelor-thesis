@@ -1,15 +1,20 @@
+<!-- *ngxLoadWith je direktiva, která ulehčí práci s observables, jejich subscribe a poskytuje propojení s načítacími a chybovými šablonami. -->
+<!-- První hodnota v direktivě provádí subscribe, další hodnoty definují ukazatel na načítací a chybové šablony. -->
 <ng-container
   *ngxLoadWith="countries$ as countries; loadingTemplate: loading; errorTemplate: error"
 >
   <country-guesser [countries]="countries" />
 </ng-container>
 
+<!-- #loading je reference na načítací šablonu. -->
 <ng-template #loading>
   <div class="container flex flex-col justify-center justify-items-center mx-auto">
     <loading-skeleton />
   </div>
 </ng-template>
 
+<!-- #error je reference na chybovou šablonu. -->
+<!-- let-error umožňuje přístup k chybě. -->
 <ng-template #error let-error>
   <div class="container flex flex-col justify-center justify-items-center mx-auto">
     <error-alert [message]="error.message" />
