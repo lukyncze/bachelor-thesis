@@ -19,5 +19,6 @@ import {CountryService} from '../../components/country-guesser/services/country.
   ],
 })
 export class CountryGuesserWrapperComponent {
+  // Metoda inject slouží k získání instance služby.
   protected countries$: Observable<Countries> = inject(CountryService).getAllCountries();
 }

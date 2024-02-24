@@ -6,6 +6,7 @@
     @if (showFlagHint) {
       <img [src]="flagImage?.src" [alt]="flagImage?.alt" />
     } @else {
+      <!-- *ngComponentOutlet slouží k dynamickému vykreslení komponenty  -->
       <ng-container *ngComponentOutlet="hintComponent" />
     }
 

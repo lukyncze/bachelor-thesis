@@ -6,5 +6,6 @@ import {Component} from '@angular/core';
   templateUrl: './loading-skeleton.component.html',
 })
 export class LoadingSkeletonComponent {
+  // Pole s 6 prázdnými položkami.
   protected items = Array.from({length: 6});
 }

@@ -24,6 +24,7 @@
   >
     @if (filteredCountries.length > 0) {
       @for (filteredCountry of filteredCountries; track filteredCountry) {
+        <!-- $index reprezentuje aktuální index ve for smyčce. -->
         <button
           (click)="handleChangeSelectedGuess(filteredCountry.name.common)"
           class="rounded-lg p-2 {{ selectedGuessIndex === $index ? 'bg-gray-300' : '' }}"

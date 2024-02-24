@@ -25,6 +25,7 @@ export class CountryGuessInputComponent implements OnChanges {
 
   @Output() public evaluateGuessAndUpdateState = new EventEmitter<string>();
 
+  // Metoda ngOnChanges je volána po každé změně hodnoty vstupní vlastnosti.
   public ngOnChanges(): void {
     this.countriesWithoutAlreadyGuessed = this.countries.filter(
       country => !this.guessedCountries.includes(country.name.common),

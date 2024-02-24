@@ -22,6 +22,7 @@ export class HintBoxesComponent implements OnChanges {
   @Input({required: true}) randomCountry!: Country;
   @Input({required: true}) hintsEnabledCount = 1;
 
+  // Metoda ngOnChanges je volána po každé změně hodnoty vstupní vlastnosti.
   public ngOnChanges() {
     this.hintBoxes = this.getHintBoxesData(this.randomCountry);
   }
