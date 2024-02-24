@@ -41,6 +41,8 @@
       return;
     }
 
+    // Přiřazení nové reference (aktualizovaného) pole pro vlastnost guessedCountries.
+    // Součástí aktualizovaného pole jsou hodnoty již hádaných zemí a nově hádanou zemí.
     guessedCountries = [...guessedCountries, guessedCountry];
     hintsEnabledCount++;
   };
