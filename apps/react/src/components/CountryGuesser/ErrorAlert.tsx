@@ -18,6 +18,3 @@ function ErrorAlert({message}: ErrorAlertProps) {
 }
 
 export default ErrorAlert;
-
-// Inspiration:
-// https://flowbite.com/docs/components/alerts/

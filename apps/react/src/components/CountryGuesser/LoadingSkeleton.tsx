@@ -1,10 +1,10 @@
 function LoadingSkeleton() {
   return (
     <div role="status" className="animate-pulse">
-      {Array.from({length: 6}, (_, key) => (
+      {Array.from({length: 6}, (_, index) => (
         <div
-          key={key}
-          className={`${key === 0 ? '!h-6' : 'h-4'} bg-gray-300 rounded-full dark:bg-gray-400 w-full mt-4`}
+          key={index}
+          className={`${index === 0 ? '!h-6' : 'h-4'} bg-gray-300 rounded-full dark:bg-gray-400 w-full mt-4`}
         ></div>
       ))}
       <span className="sr-only">Loading...</span>
@@ -14,5 +14,5 @@ function LoadingSkeleton() {
 
 export default LoadingSkeleton;
 
-// Inspiration:
-// https://flowbite.com/docs/components/spinner/
+// Převzato a upraveno podle:
+// https://flowbite.com/docs/components/skeleton/

@@ -11,3 +11,6 @@
   {/each}
   <span class="sr-only">Loading...</span>
 </div>
+
+<!-- Převzato a upraveno podle: -->
+<!-- https://flowbite.com/docs/components/skeleton/ -->
