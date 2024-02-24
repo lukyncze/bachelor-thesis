@@ -66,7 +66,7 @@ function Header() {
                 <li key={route.name}>
                   <NavLink
                     to={route.path}
-                    // React-router-dom poskytuje vlastnost "isActive" pro zvýraznění aktivního odkazu.
+                    // react-router-dom poskytuje vlastnost "isActive" pro zvýraznění aktivního odkazu.
                     className={({isActive}) =>
                       'block py-2 pr-4' +
                       `${

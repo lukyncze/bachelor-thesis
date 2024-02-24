@@ -48,17 +48,17 @@
   const sizeStyles = dropdownSize[size];
 </script>
 
-<!-- Dynamické atributy nastavujeme pomocí NÁZEV_ATRIBUTU={HODNOTA} -->
+<!-- Dynamické atributy nastavujeme pomocí NÁZEV_ATRIBUTU={HODNOTA}. -->
 <div class="relative inline-block text-left" id={dropdownId}>
   <div class="rounded-md shadow-sm">
-    <!-- Pro poslouchání na události v DOMu můžeme použít syntaxi: on:NÁZEV_UDÁLOSTI={OBSLUŽNÁ_METODA} -->
+    <!-- Pro poslouchání na události v DOMu můžeme použít syntaxi: on:NÁZEV_UDÁLOSTI={OBSLUŽNÁ_METODA}. -->
     <button
       type="button"
       class={`inline-flex justify-center items-center w-full rounded-md ${sizeStyles} font-medium focus:outline-none focus:ring-1 focus:ring-offset-0.8 ${buttonStyles}`}
       on:click|stopPropagation={() => (isOpen = !isOpen)}
     >
       {selectedOption ? selectedOption.label : placeholder}
-      <!-- Pro podmíněné vykreslovaní můžeme využít bloky #if, :else if, :else a /if -->
+      <!-- Pro podmíněné vykreslovaní můžeme využít bloky #if, :else if, :else a /if. -->
       {#if isOpen}
         <ArrowUpIcon />
       {:else}
@@ -72,7 +72,7 @@
       class={`origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-opacity-100 z-10 ${divStyles}`}
     >
       <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-        <!-- Pro vykreslení listu (pole hodnot) můžeme využít blok #each -->
+        <!-- Pro vykreslení listu (pole hodnot) můžeme využít blok #each. -->
         {#each options as option}
           <button
             class={`block w-full text-left px-4 py-2 text-sm hover:text-gray-900 ${optionStyles}`}

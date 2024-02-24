@@ -31,7 +31,7 @@
 
 <div class="relative w-1/2">
   <div class="border h-full bg-gray-100">
-    <!-- Svelte nebo vlastní akci přidáme na element/komponentu pomocí use:NÁZEV_AKCE -->
+    <!-- Svelte nebo vlastní akci přidáme na element/komponentu pomocí use:NÁZEV_AKCE. -->
     <textarea
       bind:value
       use:autoresizeTextArea

@@ -38,8 +38,8 @@
         </button>
       </div>
 
-      <!-- Objekt jako hodnota v [ngClass] slouží k podmíněnému přidání CSS stylů -->
-      <!-- "hidden" je TailwindCSS třída, která se použije právě tehdy, kdy je podmínka splněna -->
+      <!-- Objekt jako hodnota v [ngClass] slouží k podmíněnému přidání CSS stylů. -->
+      <!-- "hidden" je TailwindCSS třída, která se použije právě tehdy, kdy je podmínka splněna. -->
       <div
         id="mobile-menu"
         class="justify-between items-center w-full lg:flex lg:w-auto lg:ml-auto lg:mr-10 lg:order-1"
@@ -50,7 +50,7 @@
             <li>
               <!-- Direktiva routerLinkActive rozpoznává aktivní umístění dle URL adresy. -->
               <!-- #track vytvoří ukazatel (referenci) na hodnotu routerLinkActive. -->
-              <!-- Následně přes "track" můžeme přistupovat k aktuální hodnotě direktivy např. jako v [ngClass] -->
+              <!-- Následně přes "track" můžeme přistupovat k aktuální hodnotě direktivy např. jako v [ngClass]. -->
               <a
                 [routerLink]="route.path"
                 routerLinkActive

@@ -36,10 +36,10 @@ function Dropdown({
   const sizeStyles = dropdownSize[size];
 
   return (
-    // Dynamické atributy nastavujeme pomocí NÁZEV_ATRIBUTU={HODNOTA}
+    // Dynamické atributy nastavujeme pomocí NÁZEV_ATRIBUTU={HODNOTA}.
     <div className="relative inline-block text-left" id={id}>
       <div className="rounded-md shadow-sm">
-        {/* Pro poslouchání na události v DOMu můžeme použít syntaxi: NÁZEV_UDÁLOSTI={OBSLUŽNÁ_METODA} */}
+        {/* Pro poslouchání na události v DOMu můžeme použít syntaxi: NÁZEV_UDÁLOSTI={OBSLUŽNÁ_METODA}. */}
         <button
           type="button"
           className={`inline-flex justify-center items-center w-full rounded-md ${sizeStyles} font-medium focus:outline-none focus:ring-1 focus:ring-offset-0.8 ${buttonStyles}`}
@@ -53,7 +53,7 @@ function Dropdown({
         </button>
       </div>
 
-      {/* Pro podmíněné vykreslovaní můžeme využít bloky { } a v nich klasický JavaScript */}
+      {/* Pro podmíněné vykreslovaní můžeme využít bloky { } a v nich klasický JavaScript. */}
       {isOpen && (
         <div
           className={`origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-opacity-100 z-10 ${divStyles}`}
@@ -64,7 +64,7 @@ function Dropdown({
             aria-orientation="vertical"
             aria-labelledby="options-menu"
           >
-            {/* Pro vykreslení listu (pole hodnot) můžeme využít bloky { } a JavaScriptovou funkci .map() */}
+            {/* Pro vykreslení listu (pole hodnot) můžeme využít bloky { } a JavaScriptovou funkci .map(). */}
             {options.map(option => (
               <button
                 key={option.value}
