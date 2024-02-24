@@ -53,5 +53,5 @@ function BaseModal({title, children, handleClose}: BaseModalProps) {
 
 export default BaseModal;
 
-// Design taken from:
+// Převzato a upraveno podle:
 // https://flowbite.com/docs/components/modal/

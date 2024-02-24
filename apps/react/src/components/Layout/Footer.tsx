@@ -29,5 +29,5 @@ function Footer() {
 
 export default Footer;
 
-// Design taken from:
+// Převzato a upraveno podle:
 // https://flowbite.com/blocks/marketing/footer/

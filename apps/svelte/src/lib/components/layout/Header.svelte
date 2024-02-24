@@ -115,5 +115,5 @@
   </nav>
 </header>
 
-<!-- Design taken from: -->
+<!-- Převzato a upraveno podle: -->
 <!-- https://flowbite.com/blocks/marketing/header/ -->
