@@ -1,10 +1,7 @@
 <div class="bg-gray-200 p-6 rounded-md shadow-md">
-  <!-- JavaScriptové hodnoty můžeme používat v šabloně pomocí "{{ }}" -->
   <p class="text-xl font-semibold mb-4">Current count: {{ count }}</p>
 
   <div class="flex gap-4">
-    <!-- Vstupní hodnoty pro komponentu zapisujeme pomocí [NAZEV_VSTUPU] -->
-    <!-- Výstupní hodnoty pro komponentu zapisujeme pomocí (NAZEV_VYSTUPU) -->
     <counter-button
       [className]="'bg-blue-500 text-white hover:bg-blue-600'"
       (buttonClicked)="increment()"
