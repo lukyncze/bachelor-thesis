@@ -10,6 +10,9 @@ import {Component, Input} from '@angular/core';
 export class FutureValueInfoComponent {
   protected localizedFutureValue = 'No localized future value set!';
 
+  // Vstupní vlastnost komponenty, která je vlastně "setter".
+  // Vstupní hodnotu získáme v rámci argumentu "setteru" a můžeme s ní provést libovolné operace.
+  // V tomto případě je v rámci "setteru" vstupní hodnota převedena a přeuložena do lokální vlastnosti.
   @Input({required: true}) set futureValue(value: number) {
     this.localizedFutureValue = this.getLocalizedNumber(value);
   }

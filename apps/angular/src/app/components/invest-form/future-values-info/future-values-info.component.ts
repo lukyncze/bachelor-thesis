@@ -12,7 +12,13 @@ type FutureValuesInfoProps = FutureValues;
   imports: [CommonModule, FutureValueInfoComponent],
 })
 export class FutureValuesInfoComponent {
-  // Trik pro zajištění toho, aby v inputu byla hodnota daného datového typu předána,
-  // ale zároveň aby se nezobrazovala chyba typescriptu s neinicializovanou vlastností.
+  // Použití {required: true} zajistí to, že vyplnění vstupní vlastnosti je vždy povinné.
+  // Zároveň použití "!" pak zajistí to, že TypeScript nezobrazí chybu ohledně neinicializované vlastnosti.
+  // -----
+  // Pokud bychom chtěli chybu vypnout, můžeme přenastavit následující nastavení v tsconfig.json:
+  // "compilerOptions": {
+  //   ...
+  //   "strictPropertyInitialization": false
+  // },
   @Input({required: true}) futureValues!: FutureValuesInfoProps;
 }

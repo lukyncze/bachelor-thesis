@@ -9,9 +9,9 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   imports: [CommonModule],
 })
 export class CounterButtonComponent {
-  // Vstupní vlastnosti komponenty.
+  // Vstupní vlastnost komponenty.
   @Input() public className = '';
 
-  // Výstupní vlastnosti komponenty.
+  // Výstupní vlastnost komponenty.
   @Output() public buttonClicked = new EventEmitter<void>();
 }
