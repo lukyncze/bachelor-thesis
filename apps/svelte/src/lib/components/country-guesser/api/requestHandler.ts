@@ -25,4 +25,5 @@ export const requestHandler =
     }
   };
 
+// Převzato a upraveno podle:
 // https://github.com/cosdensolutions/code/blob/master/videos/long/request-handler-example/src/api/requestHandler.ts

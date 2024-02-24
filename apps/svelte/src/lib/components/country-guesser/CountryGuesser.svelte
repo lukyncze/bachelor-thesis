@@ -25,6 +25,7 @@
   let isWinModalOpen = false;
   let isLoseModalOpen = false;
 
+  // Načtení polyfillu pro zobrazení vlajek států.
   onMount(() => polyfillCountryFlagEmojis());
 
   const handleEvaluateGuessAndUpdateState = (guessedCountry: string) => {

@@ -1,4 +1,5 @@
 <script lang="ts">
+  // Pole s 6 prázdnými položkami.
   const items = Array.from({length: 6});
 </script>
 
