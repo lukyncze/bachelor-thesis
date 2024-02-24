@@ -3,6 +3,7 @@
   export let onClick: () => void;
 </script>
 
+<!-- Proměnná $$restProps obsahuje ostatní vlastnosti, které nejsou v komponentě přijímány pomocí klíčového slova "export". -->
 <button
   type="button"
   class="px-4 py-2 rounded-md focus:outline-none {className}"

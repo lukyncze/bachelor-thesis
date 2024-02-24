@@ -1,3 +1,4 @@
+<!-- Toto je komponenta, která obaluje SVG ikony pro CountryGuesser. -->
 <svg
   xmlns="http://www.w3.org/2000/svg"
   fill="none"
