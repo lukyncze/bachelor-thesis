@@ -12,7 +12,7 @@ function useDropdown(
   // Toto ID je třeba nastavit na root element dropdown komponenty.
   const dropdownId = `id-${crypto.randomUUID()}`;
 
-  // Ubslužná metoda, která se stará o logiku po kliknutí na jednotlivé položky v dropdownu.
+  // Ubslužná funkce, která se stará o logiku po kliknutí na jednotlivé položky v dropdownu.
   const handleOptionClick = (option: Option) => {
     setSelectedOption(option);
     setIsOpen(false);
