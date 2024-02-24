@@ -1,3 +1,4 @@
+// Definice a export TypeScriptového typu.
 export type DropdownSize = 'sm' | 'md' | 'lg';
 
 // Record je TypeScriptový typ, který definuje objekt s pevně danými klíči a hodnotami.

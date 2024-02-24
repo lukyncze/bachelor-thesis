@@ -36,7 +36,7 @@ function Dropdown({
   const sizeStyles = dropdownSize[size];
 
   return (
-    // Dynamické atributy nastavujeme pomocí NAZEV_ATRIBUTU={hodnota}
+    // Dynamické atributy nastavujeme pomocí NAZEV_ATRIBUTU={HODNOTA}
     <div className="relative inline-block text-left" id={id}>
       <div className="rounded-md shadow-sm">
         {/* Pro poslouchání na události v DOMu můžeme použít syntaxi: NAZEV_UDÁLOSTI={OBSLUŽNÁ_METODA} */}
