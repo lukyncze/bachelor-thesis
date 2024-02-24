@@ -20,7 +20,7 @@ import {TranslationService} from './translation/translation.service';
   ],
 })
 export class TranslatorComponent implements OnDestroy {
-  // Slouží ke zrušení subscriptionů při zničení komponenty.
+  // Slouží ke zrušení subscriptions při zničení komponenty.
   private destroy$: Subject<void> = new Subject();
   // Slouží k naslouchání na změny vstupního textu a výstupního jazyka.
   private inputValuesChanges$ = new Subject<string>();
