@@ -2,24 +2,24 @@ import {CommonModule} from '@angular/common';
 import {Component, OnInit} from '@angular/core';
 import {IsActiveMatchOptions, RouterLink, RouterLinkActive} from '@angular/router';
 import {routes} from '../../../app.routes';
+import {BarsIconComponent} from '../../icons/bars-icon/bars-icon.component';
 import {CloseIconComponent} from '../../icons/close-icon/close-icon.component';
 import {MoonIconComponent} from '../../icons/moon-icon/moon-icon.component';
 import {SunIconComponent} from '../../icons/sun-icon/sun-icon.component';
-import { BarsIconComponent } from "../../icons/bars-icon/bars-icon.component";
 
 @Component({
-    selector: 'app-header',
-    standalone: true,
-    templateUrl: './header.component.html',
-    imports: [
-        CommonModule,
-        RouterLink,
-        RouterLinkActive,
-        MoonIconComponent,
-        SunIconComponent,
-        CloseIconComponent,
-        BarsIconComponent
-    ]
+  selector: 'app-header',
+  standalone: true,
+  templateUrl: './header.component.html',
+  imports: [
+    CommonModule,
+    RouterLink,
+    RouterLinkActive,
+    MoonIconComponent,
+    SunIconComponent,
+    CloseIconComponent,
+    BarsIconComponent,
+  ],
 })
 export class HeaderComponent implements OnInit {
   protected isMobileNavOpen = false;
