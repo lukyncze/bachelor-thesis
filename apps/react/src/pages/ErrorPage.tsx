@@ -36,4 +36,5 @@ function ErrorPage() {
 
 export default ErrorPage;
 
+// Převzato a upraveno podle:
 // https://stackoverflow.com/a/76126878/14501892
