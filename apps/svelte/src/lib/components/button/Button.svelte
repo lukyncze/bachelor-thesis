@@ -9,5 +9,6 @@
   on:click={onClick}
   {...$$restProps}
 >
+  <!-- slot slouží k vykreslení obsahu, který vložíme mezi párové tagy dané komponenty. -->
   <slot />
 </button>

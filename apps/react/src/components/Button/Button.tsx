@@ -14,7 +14,7 @@ function Button({className, children, ...props}: ButtonProps): JSX.Element {
       className={`px-4 py-2 rounded-md focus:outline-none ${className}`}
       {...props}
     >
-      {/* children slouží k vykreslení obsahu, který vložíme mezi párové tagy dané komponenty */}
+      {/* children slouží k vykreslení obsahu, který vložíme mezi párové tagy dané komponenty. */}
       {children}
     </button>
   );
