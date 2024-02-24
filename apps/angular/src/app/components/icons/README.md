@@ -10,6 +10,9 @@ https://github.com/tailwindlabs/heroicons/blob/master/optimized/20/solid/chevron
 - arrow-up-icon:
 https://github.com/tailwindlabs/heroicons/blob/master/optimized/20/solid/chevron-up.svg
 
+- bars-icon:
+https://github.com/tailwindlabs/heroicons/blob/master/optimized/24/outline/bars-3-bottom-right.svg
+
 - borders-icon:
 https://github.com/tailwindlabs/heroicons/blob/master/optimized/24/outline/link.svg
 

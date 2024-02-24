@@ -7,10 +7,13 @@ import {Directive, ElementRef, HostListener, Renderer2} from '@angular/core';
 })
 export class AutosizeTextAreaDirective {
   constructor(
+    // ElementRef je referencí na nativní prvek, na kterém je tato direktiva aplikována.
     private el: ElementRef,
+    // Renderer2 je objekt, který umožňuje manipulovat s nativními prvky.
     private renderer: Renderer2,
   ) {}
 
+  // Při změně hodnoty textové oblasti se volá obslužná metoda onInputChange.
   @HostListener('input') onInputChange() {
     this.adjustTextAreaHeight();
   }
