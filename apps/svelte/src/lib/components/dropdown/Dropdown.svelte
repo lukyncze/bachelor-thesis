@@ -1,10 +1,10 @@
 <script lang="ts">
-  import {onMount} from 'svelte';
   import ArrowUpIcon from '../icons/ArrowUpIcon.svelte';
   import ArrowDownIcon from '../icons/ArrowDownIcon.svelte';
   import {dropdownVariantStyles, type DropdownVariant} from './dropdownVariants';
   import {dropdownSize, type DropdownSize} from './dropdownSize';
   import {type Option} from './types';
+  import {clickOutsideDropdown} from './clickOutsideDropdown';
 
   export let options: ReadonlyArray<Option>;
   export let onChange: (selectedOption: Option | null) => void;
@@ -26,30 +26,18 @@
     onChange(option);
   };
 
-  // TODO: try to make it as a action :)
   const handleClickOutsideDropdown = ({target}: PointerEvent) => {
     if (isOpen && !(target as HTMLElement).closest(`#${dropdownId}`)) {
       isOpen = false;
     }
   };
 
-  onMount(() => {
-    // Přidáme posluchač události na událost pointerdown a jeho obslužnou funkci.
-    document.addEventListener('pointerdown', handleClickOutsideDropdown);
-
-    // Funkce, která se zavolá při odpojení komponenty.
-    return () => {
-      // Odebereme posluchač události na událost pointerdown a jeho obslužnou funkci.
-      document.removeEventListener('pointerdown', handleClickOutsideDropdown);
-    };
-  });
-
   const {buttonStyles, divStyles, optionStyles} = dropdownVariantStyles[variant];
   const sizeStyles = dropdownSize[size];
 </script>
 
 <!-- Dynamické atributy nastavujeme pomocí NÁZEV_ATRIBUTU={HODNOTA}. -->
-<div class="relative inline-block text-left" id={dropdownId}>
+<div class="relative inline-block text-left" id={dropdownId} use:clickOutsideDropdown={handleClickOutsideDropdown}>
   <div class="rounded-md shadow-sm">
     <!-- Pro poslouchání na události v DOMu můžeme použít syntaxi: on:NÁZEV_UDÁLOSTI={OBSLUŽNÁ_METODA}. -->
     <button
