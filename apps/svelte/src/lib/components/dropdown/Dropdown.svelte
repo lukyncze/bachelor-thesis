@@ -26,6 +26,7 @@
     onChange(option);
   };
 
+  // Ubslužná funkce, která zavře dropdown, pokud uživatel klikne mimo něj.
   const handleClickOutsideDropdown = ({target}: PointerEvent) => {
     if (isOpen && !(target as HTMLElement).closest(`#${dropdownId}`)) {
       isOpen = false;
@@ -37,7 +38,11 @@
 </script>
 
 <!-- Dynamické atributy nastavujeme pomocí NÁZEV_ATRIBUTU={HODNOTA}. -->
-<div class="relative inline-block text-left" id={dropdownId} use:clickOutsideDropdown={handleClickOutsideDropdown}>
+<div
+  class="relative inline-block text-left"
+  id={dropdownId}
+  use:clickOutsideDropdown={handleClickOutsideDropdown}
+>
   <div class="rounded-md shadow-sm">
     <!-- Pro poslouchání na události v DOMu můžeme použít syntaxi: on:NÁZEV_UDÁLOSTI={OBSLUŽNÁ_METODA}. -->
     <button
