@@ -9,7 +9,6 @@
 
 <div class="relative w-1/2">
   <div class="border h-full">
-    <!-- Svelte nebo vlastní akci přidáme na element/komponentu pomocí use:NÁZEV_AKCE. -->
     <textarea
       bind:value={inputText}
       use:autoresizeTextArea

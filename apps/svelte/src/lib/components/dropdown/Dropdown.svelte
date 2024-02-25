@@ -16,7 +16,7 @@
   let selectedOption: Option | null = defaultValue;
   let isOpen = false;
 
-  // Toto ID je třeba nastavit na root element dropdown komponenty
+  // Toto ID je třeba nastavit na root element dropdown komponenty.
   let dropdownId = `id-${crypto.randomUUID()}`;
 
   // Ubslužná funkce, která se stará o logiku po kliknutí na jednotlivé položky v dropdownu.
@@ -38,6 +38,7 @@
 </script>
 
 <!-- Dynamické atributy nastavujeme pomocí NÁZEV_ATRIBUTU={HODNOTA}. -->
+<!-- Svelte nebo vlastní akci přidáme na element/komponentu pomocí use:NÁZEV_AKCE. -->
 <div
   class="relative inline-block text-left"
   id={dropdownId}
