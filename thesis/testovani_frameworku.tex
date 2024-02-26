@@ -36,12 +36,12 @@ V této kapitole srovnáme implementaci stejných funkcionalit ve třech vybran�
 Pro implementaci jednoduchého counteru nejprve vytvoříme counter komponentu. Můžeme začít se strukturou HTML značek pro hlavní komponentu. 
 Protože chceme opakovaně použít logiku jednotlivých tlačítek, vytvoříme komponentu counter-button. 
 Ta může přijímat například nějaké CSS styly nebo přes EventEmitter (output) posílat informaci o kliknutí na tlačítko směrem nahoru ve stromě komponent. 
-Funkci emit() našeho EventEmitteru zavoláme na tlačítku v counter-buttonu právě tehdy, když uživatel klikne na tlačítko -- použijeme event listener ve formě (click). 
+Funkci emit() našeho EventEmitteru zavoláme na tlačítku v counter-buttonu právě tehdy, když uživatel klikne na tlačítko -- použijeme listener ve formě (click). 
 K propsání textu či jiných elementů nebo komponent mezi párovými tagy <counter-button></counter-button> nám pak poslouží párový či nepárový element <ng-content />.
 
 Následně v counter komponentě musíme importovat třídu CounterButtonComponent a do všech elementů counter-button předat jejich vstupy a výstupy. 
-Námi defikovanovanému outputu buttonClicked předáme v šabloně funkci, která se vykoná po emitu (kliknutí na tlačítko v child komponentě) a funkci zavoláme pomocí kulatých závorek. 
-V rámci counter komponenty pak definujeme stav jako vlastnost count na třídě. Ten pak můžeme modifikovat skrze metody třídy, které voláme v outputu buttonClicked.
+Námi defikovanovanému outputu buttonClicked předáme v šabloně metodu, která se vykoná po emitu (kliknutí na tlačítko ve vnořené komponentě) a metodu zavoláme pomocí kulatých závorek. 
+V rámci counter komponenty pak definujeme stav jako vlastnost count na třídě. Vlastnost pak můžeme modifikovat skrze metody třídy, které voláme v outputu buttonClicked.
 
 \begin{citemize}
 	\item šablony + logika komponenty
@@ -53,8 +53,8 @@ V rámci counter komponenty pak definujeme stav jako vlastnost count na třídě
   \textbf{Interakce v uživatelském prostředí}
 \end{flushleft}
 
-Při tvorbě jakékoli UI komponenty můžeme začít jak šablonou, tak i logikou. My začneme s tvorbou šablony. V případě vlastního dropdown samotným tlačítkem a listem možností. 
-Otevření možností zajístíme tak, že na tlačítko přidáme event listerner na click. Funkčnost pak zajistíme díky modifikaci stavu isOpen, který se provede při volání metody toggleDropdown. 
+Při tvorbě jakékoli UI komponenty můžeme začít jak šablonou, tak i logikou. My začneme s tvorbou šablony. V případě vlastního dropdown samotným tlačítkem a seznamem možností. 
+Otevření možností zajístíme tak, že na tlačítko přidáme click listerner. Funkčnost pak zajistíme díky modifikaci stavu isOpen, který se provede při volání metody toggleDropdown. 
 V rámci této metody je třeba zavolat i event.stopPropagation(). Předejdeme tak potenciální chybě ve formě tzv. event bubblingu -- spuštění událostí na prvcích odlišných od cílového. 
 
 Podmíněně pak můžeme vypsat list možností, které získáme v jednom z inputů. Pro vypsání všech možností použijeme blok @for. 
@@ -65,7 +65,7 @@ V případě, že máme dropdown otevřen a chceme jej po kliknutí mimo tentý�
 Pro každou komponentu vytvoříme unikátní vlastnost ve formě ID. To pak dynamicky umístíme na kořenový element dropdownu. 
 V komponentě pak budeme naslouchat na DOM eventy pomocí dekorátoru @HostListener. 
 Přijímá DOM event, na který má poslouchat -- document:pointerdown, případně další argumenty nebo také formu vypublikovaného eventu. 
-Pod dekorátorem pak definujeme handler metodu, která se volá při emitu specifikovaného eventu. V rámci metody pak zajistíme uzavření aktuálně otevřeného dropdownu.
+Pod dekorátorem pak definujeme obslužnou metodu, která se volá při emitu specifikovaného eventu. V rámci metody pak zajistíme uzavření aktuálně otevřeného dropdownu.
 
 Dropdown pak může mít různé inputy, které povedou k lepší znovupoužitelnosti. Hodnotu inputu (konkrétně např. defaultValue) v komponentě získáme až v lifecycle hooku OnInit. 
 Kupříkladu v konstruktoru bychom dostali pouze undefined. Styly ve formě JavaScriptových hodnot do šablony přidáme pomocí ngClass. 
@@ -126,69 +126,6 @@ Když těchto hodnot chceme na elementu více, musíme je zřetězit pomocí Jav
   \textbf{Předávání vlastností, získávání dat z API}
 \end{flushleft}
 
-
-\subsection{Demonstrační aplikace - v2}
-
-\subsubsection{Instalace projektu}
-
-\begin{flushleft}\textbf{Angular}\end{flushleft}
-
-\begin{citemize}
-	\item Node.js + NPM
-  \item npm init @angular@latest NAZEV\_APLIKACE
-  \item \iadresa{https://www.npmjs.com/package/@angular/create}
-  \item \iadresa{https://tailwindcss.com/docs/guides/angular}
-\end{citemize}
-
-\begin{flushleft}\textbf{React}\end{flushleft}
-
-\begin{flushleft}\textbf{Svelte}\end{flushleft}
-
-\subsubsection{Správa stavů}
-
-\begin{flushleft}\textbf{Angular}\end{flushleft}
-
-\begin{citemize}
-	\item šablony + logika komponenty
-	\item správa stavů (reaktivita)
-	\item body k vypíchnutí: boilerplate frameworku
-\end{citemize}
-
-\begin{flushleft}\textbf{React}\end{flushleft}
-
-\begin{flushleft}\textbf{Svelte}\end{flushleft}
-
-
-\subsubsection{Interakce v uživatelském prostředí}
-
-\begin{flushleft}\textbf{Angular}\end{flushleft}
-
-\begin{citemize}
-	\item body k vypíchnutí: dynamické stylování, logika v template
-	\item problémy: zavírání posledně otevřeného dropdownu před otevřením dalšího D.
-	\item výhody frameworku: podle bodů nahoře..., tvorba typů ve Svelte
-\end{citemize}
-
-\begin{flushleft}\textbf{React}\end{flushleft}
-
-\begin{flushleft}\textbf{Svelte}\end{flushleft}
-
-
-\subsubsection{Předávání vlastností, získávání dat z API}
-
-\begin{flushleft}\textbf{Angular}\end{flushleft}
-
-\begin{citemize}
-	\item předávání vlastností nahoru a dolů
-	\item fetchování dat
-	\item body k vypíchnutí: velice odlišné reakce na změny, stylování komponent nebo elementů, update textarey (hodnoty), jiné řešení modularity (update stylů textarey)
-	\item problémy:
-	\item výhody frameworku: předávání vlastností má nej Svelte
-\end{citemize}
-
-\begin{flushleft}\textbf{React}\end{flushleft}
-
-\begin{flushleft}\textbf{Svelte}\end{flushleft}
 
 \subsection{Testování aplikací a výsledky}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.11)  19 DEC 2023 21:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.11)  26 FEB 2024 20:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -419,7 +419,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write4
 \openout4 = `sablona_ukazka.toc'.
 
- [8] [9]
+ [8]
 \openout2 = `testovani_frameworku.aux'.
 
  (./testovani_frameworku.tex [19
@@ -430,7 +430,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 
-] [20] [21] [22]) [23] (./sablona_ukazka.lof)
+] [20] [21]) [22] (./sablona_ukazka.lof)
 \tf@lof=\write5
 \openout5 = `sablona_ukazka.lof'.
 
@@ -460,13 +460,13 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
 Package rerunfilecheck Info: File `sablona_ukazka.out' has not changed.
-(rerunfilecheck)             Checksum: FED06591B3426CCEA1F8E2B6AE7C1A0E;2825.
+(rerunfilecheck)             Checksum: EEA2EB264BFDC8CA9673F7DC37445D7C;1595.
  ) 
 Here is how much of TeX's memory you used:
- 11459 strings out of 479342
- 185340 string characters out of 5869177
- 510830 words of memory out of 5000000
- 29189 multiletter control sequences out of 15000+600000
+ 11447 strings out of 479342
+ 185137 string characters out of 5869177
+ 510827 words of memory out of 5000000
+ 29184 multiletter control sequences out of 15000+600000
  481515 words of font info for 50 fonts, out of 8000000 for 9000
  473 hyphenation exceptions out of 8191
  68i,11n,77p,573b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -581,10 +581,10 @@ pdfTeX warning (dest): name{section.2} has been referenced but does not exist, r
 pdfTeX warning (dest): name{section.1} has been referenced but does not exist, replaced by a fixed one
 
  </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecxc2488.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
-Output written on sablona_ukazka.pdf (17 pages, 133400 bytes).
+Output written on sablona_ukazka.pdf (15 pages, 130300 bytes).
 PDF statistics:
- 672 PDF objects out of 1000 (max. 8388607)
- 310 compressed objects within 4 object streams
- 88 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 633 PDF objects out of 1000 (max. 8388607)
+ 276 compressed objects within 3 object streams
+ 81 named destinations out of 1000 (max. 500000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
