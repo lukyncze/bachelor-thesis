@@ -36,7 +36,7 @@ function InvestForm({
           <input
             id="oneOffInvestment"
             type="number"
-            // Vytvoření pole ve formuláři, přidání validátorů a jiného nastavení pole.
+            // Vytvoření prvku ve formuláři, přidání validátorů a jiného nastavení formulářového prvku.
             {...register('oneOffInvestment', {
               required: true,
               valueAsNumber: true,
@@ -72,7 +72,7 @@ function InvestForm({
               min="3"
               max="60"
               value={investmentLengthValue}
-              // Vytvoření pole ve formuláři, přidání validátorů a jiného nastavení pole.
+              // Vytvoření prvku ve formuláři, přidání validátorů a jiného nastavení formulářového prvku.
               {...register('investmentLength', {
                 required: true,
                 valueAsNumber: true,
@@ -107,7 +107,7 @@ function InvestForm({
             id="averageSavingsInterest"
             type="number"
             step={0.1}
-            // Vytvoření pole ve formuláři, přidání validátorů a jiného nastavení pole.
+            // Vytvoření prvku ve formuláři, přidání validátorů a jiného nastavení formulářového prvku.
             {...register('averageSavingsInterest', {
               required: true,
               valueAsNumber: true,
@@ -142,7 +142,7 @@ function InvestForm({
           <input
             id="averageSP500Interest"
             type="number"
-            // Vytvoření pole ve formuláři, přidání validátorů a jiného nastavení pole.
+            // Vytvoření prvku ve formuláři, přidání validátorů a jiného nastavení formulářového prvku.
             {...register('averageSP500Interest', {
               required: true,
               valueAsNumber: true,
