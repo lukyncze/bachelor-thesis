@@ -63,7 +63,7 @@ export class InvestFormComponent implements OnInit {
     return this.investForm.controls.averageSP500Interest;
   }
 
-  private initializeInvestForm() {
+  private initializeInvestForm(): InvestForm {
     // Vytvoření formuláře s výchozími hodnotami (případně vlastnostmi) a validátory.
     // Jednotlivé prvky FormGroup bývají označovány jako FormControl.
     return this.fb.group({

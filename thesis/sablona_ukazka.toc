@@ -43,9 +43,9 @@
 \contentsline {subsection}{\numberline {3.1}Analýza a návrh testových úloh}{19}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Demonstrační aplikace}{19}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Angular}{19}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}React}{23}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Svelte}{23}{subsubsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}Testování aplikací a výsledky}{23}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.2.2}React}{24}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Svelte}{24}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Testování aplikací a výsledky}{24}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Ukázková kapitola}{24}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Struktura a formát}{24}{subsection.4.1}%
 \contentsline {subsubsection}{\numberline {4.1.1}Jak strukturovat práci}{24}{subsubsection.4.1.1}%
