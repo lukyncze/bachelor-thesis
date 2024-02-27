@@ -81,6 +81,40 @@ Když těchto hodnot chceme na elementu více, musíme je zřetězit pomocí Jav
   \textbf{Předávání vlastností, získávání dat z API}
 \end{flushleft}
 
+Pro ukázku předávání vlastností a získávání dat z API můžeme vytvořit komponentu, která bude překládat zadaný text do vybraného jazyka. 
+Začneme tedy vytvořením rodičovské komponenty, která nám při změně vlastností (zadaného textu uživatelem a výstupního jazyka) zavolá API, které nám vrátí přeložený text. 
+V rámci této komponenty vytvoříme vnořené komponenty, které budou sloužit k zadání vstupního textu, výběru jazyka a zobrazení výsledku. 
+
+LanguageDropdownComponent umožní uživateli vybrat jazyk, do kterého chce přeložit text. 
+Přes EventEmitter aktualizujeme výstupní jazyk v rodičovské komponentě. V rámci obslužné metody handleLanguageChange pak také aktualizujeme hodnotu vlastnosti inputValuesChanges\$.
+Tato vlastnost je Subject, speciální typ observable, z knihovny RxJS. Později nám na základě změny hodnoty dovolí poslat dotaz na server ve správný moment. 
+Podobným způsobem poté můžeme naslouchat na změny vstupního textu.
+
+Zadání vstupního textu pak může řešit komponenta TranslationInputComponent, která obdobným způsobem aktualizuje hodnotu vstupního textu v rodičovské komponentě. 
+Aktuální hodnotu formulářového prvku nastavíme pomocí [ngModel]. Pro naslouchání na změnu hodnoty formulářového prvku zase využijeme (ngModelChange). 
+V případě, že chceme aktualizovat výšku textového pole na základě jeho obsahu, můžeme využít vlastní direktivu AutosizeTextAreaDirective. 
+V konstruktoru direktivy získáme element, na který přidáme tuto direktivu. Dále budeme potřebovat třídu Renderer2, která nám umožní manipulovat s DOM. 
+V direktivě budeme naslouchat na změnu hodnoty textového pole pomocí dekorátoru @HostListener a události input. Následně v rámci obslužné metody zajistíme aktualizaci výšky.
+ 
+Změny hodnoty vlastnosti inputValuesChanges\$ musíme začít odebírat pomocí subscribe. 
+Abychom předešli dotazování serveru ihned po změně hodnoty vlastnosti inputValuesChanges\$, použijeme operátor debounceTime. 
+Ten nám povolí poslat dotaz na server až po uplynutí určité doby od poslední změny. 
+Subscribe zavolá věřejnou metodu služby (getTranslation), která nám vrátí přeložený text. 
+Nakonec aby nám dotazování serveru fungovalo, je třeba metodu setupInputChangeSubscription zavolat v konstruktoru nebo hooku OnInit.
+
+Se službou TranslationService a veřejnou metodou pro vykonání dotazu nám pomůže třída HttpClient. Ta je dostupná přímo v základních modulech Angularu.
+Službu HttpClient získáme v konstruktoru, kde ji pomocí klíčového slova private přiřadíme do vlastností třídy. 
+Následně na HTTP klientovi zavoláme metodu post vůči API, které nám vrátí přeložený text. 
+Pokud nám v úspěšné odpovědi ze serveru přijde nějaká složitější struktura, z které chceme vrátit jen nějakou část, pak nám s konverzí odpovědi pomůže RxJS operátor map(). 
+Metoda getTranslation vrací observable, proto musíme v translator komponentě hodnoty odebírat pomocí metody subscribe. 
+
+V momentě, kdy dostaneme odpověď ze serveru, chceme zobrazit přeložený text uživateli. 
+K tomu nám poslouží TranslationOutputComponent, které na vstupu předáme výstupní text spolu s dalšími vstupními vlastnostmi. 
+V rámci šablony pak podmíněně vykreslíme přeložený text, chybu nebo načítání. 
+
+Při zarovnání vstupního a výstupního pole v UI si musíme dát pozor na to, že šířku musíme nastavit již v prvním potomku div elementu, na kterém nastavíme flexbox. 
+Důvod je zřejmý -- Angular v DOM vytvoří speciálně element pro každou komponentu.
+
 \begin{citemize}
 	\item předávání vlastností nahoru a dolů
 	\item fetchování dat
@@ -88,6 +122,20 @@ Když těchto hodnot chceme na elementu více, musíme je zřetězit pomocí Jav
 	\item problémy:
 	\item výhody frameworku: předávání vlastností má nej Svelte
 \end{citemize}
+
+\begin{flushleft}
+  \textbf{Tvorba formulářů}
+\end{flushleft}
+
+
+
+\begin{flushleft}
+  \textbf{Country guesser}
+\end{flushleft}
+
+\begin{flushleft}
+  \textbf{Layout a routování}
+\end{flushleft}
 
 \subsubsection{React}
 
