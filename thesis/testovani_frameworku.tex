@@ -54,18 +54,18 @@ V rámci counter komponenty pak definujeme stav jako vlastnost count na třídě
 \end{flushleft}
 
 Při tvorbě jakékoli UI komponenty můžeme začít jak šablonou, tak i logikou. My začneme s tvorbou šablony. V případě vlastního dropdown samotným tlačítkem a seznamem možností. 
-Otevření možností zajístíme tak, že na tlačítko přidáme click listerner. Funkčnost pak zajistíme díky modifikaci stavu isOpen, který se provede při volání metody toggleDropdown. 
+Otevření možností zajístíme tak, že na tlačítko přidáme click listener. Funkčnost pak zajistíme díky modifikaci stavu isOpen, který se provede při volání metody toggleDropdown. 
 V rámci této metody je třeba zavolat i event.stopPropagation(). Předejdeme tak potenciální chybě ve formě tzv. event bubblingu -- spuštění událostí na prvcích odlišných od cílového. 
 
 Podmíněně pak můžeme vypsat list možností, které získáme v jednom z inputů. Pro vypsání všech možností použijeme blok @for. 
-K vybraní konkrétní možnosti použijeme zase (click) a do metody pošleme konkrétní možnost pole -- option. 
+K vybraní konkrétní možnosti použijeme zase (click) a do obslužné metody pošleme aktuální prvek v poli -- option. 
 Metoda handleOptionClick pak zajistí uložení aktuálně vybrané možnosti, zavření dropdownu a vyemitování vybrané možnosti do rodičovské komponenty.
 
-V případě, že máme dropdown otevřen a chceme jej po kliknutí mimo tentýž dropdown bezpečně zavřít nehledě na počet vykreslených dropdown komponent na stránce budeme postupovat následovně. 
+V případě, že máme dropdown otevřen a chceme jej po kliknutí mimo tentýž dropdown bezpečně zavřít, nehledě na počet vykreslených dropdown komponent na stránce, budeme postupovat následovně. 
 Pro každou komponentu vytvoříme unikátní vlastnost ve formě ID. To pak dynamicky umístíme na kořenový element dropdownu. 
-V komponentě pak budeme naslouchat na DOM eventy pomocí dekorátoru @HostListener. 
-Přijímá DOM event, na který má poslouchat -- document:pointerdown, případně další argumenty nebo také formu vypublikovaného eventu. 
-Pod dekorátorem pak definujeme obslužnou metodu, která se volá při emitu specifikovaného eventu. V rámci metody pak zajistíme uzavření aktuálně otevřeného dropdownu.
+V komponentě pak budeme naslouchat na události v DOM pomocí dekorátoru @HostListener. 
+Dekorátor přijímá DOM událost, na který má poslouchat -- document:pointerdown, případně další argumenty nebo také formu vypublikované události. 
+Pod dekorátorem pak definujeme obslužnou metodu, která se volá při emitu specifikované události. V rámci metody pak zajistíme uzavření aktuálně otevřeného dropdownu.
 
 Dropdown pak může mít různé inputy, které povedou k lepší znovupoužitelnosti. Hodnotu inputu (konkrétně např. defaultValue) v komponentě získáme až v lifecycle hooku OnInit. 
 Kupříkladu v konstruktoru bychom dostali pouze undefined. Styly ve formě JavaScriptových hodnot do šablony přidáme pomocí ngClass. 
@@ -128,15 +128,16 @@ Důvod je zřejmý -- Angular v DOM vytvoří speciálně element pro každou ko
 \end{flushleft}
 
 Angular nám umožňuje vytvářet formuláře několika způsoby. My použijeme reaktivní formuláře, které nám umožní vytvářet formuláře programaticky. 
-Komponenta, kterou vytvoříme, se bude týkat jednoduché investiční kalkulačky. Bude obsahovat dvě vnořené komponenty pro formulář a výsledek při potvrzení formuláře.
+Vytvoříme komponentu zaměřenou na jednoduché investiční kalkulace. 
+Bude obsahovat dvě vnořené komponenty: formulář pro zadání vstupních dat a výsledek kalkulace, který se zobrazí po potvrzení formuláře.
 
 Můžeme začít přímo s tvorbou reaktivního formuláře. Typ InvestForm popisuje strukturu formulářových prvků, které budeme chtít. 
 Protože prvků formuláře chceme mít více (a souvisí spolu), vytvoříme formulářovou skupinu, ve které budou samotné formulářové prvky. 
-Formulářová skupina bude vlastnost třídy, kterou lze nastavit ihned, v konstruktoru, případně některém v hooku OnInit. 
+Formulářová skupina bude vlastnost třídy, kterou lze nastavit ihned, v konstruktoru, případně v hooku OnInit. 
 Jelikož chceme nastavit počáteční hodnoty fomuláře na základě vstupní vlastnosti, musíme vlastnost investForm nastavit až v hooku OnInit. 
 
 Zde narazíme na problém s nenastavením počáteční hodnoty vlastnosti přímo nebo v konstruktoru. 
-Můžeme ho vyřešit pomocí vikričníhu -- řekneme tak TypeScriptu, že vlastnost je nenulová. Další možností je přenastavení pravidla strictPropertyInitialization v souboru tsconfig.json.
+Můžeme ho vyřešit za pomoci vikričníhu -- řekneme tak TypeScriptu, že vlastnost je nenulová. Další možností je přenastavení pravidla strictPropertyInitialization v souboru tsconfig.json.
 Po opravě chyby se vrátíme k formuláři, který nejjednodušeji vytvoříme pomocí třídy FormBuilder ze základního balíčku @angular/forms. 
 Formulář vytvoříme v samostatné metodě initializeInvestForm, jejíž výsledek přiřadíme v hooku OnInit do vlastnosti investForm. 
 Samotná metoda initializeInvestForm bude vracet instanci třídy FormGroup. Argumentem pro metodu group pak je objekt, který popisuje strukturu formuláře. 
@@ -144,18 +145,18 @@ Vlastnosti objektu budou klíče formulářových prvků a jejich hodnoty pole, 
 
 V šabloně následně propojíme formulářovou skupinu s formulářem. K tomu nám poslouží direktiva [formGroup] a její hodnotu nastavíme na vlastnost investForm. 
 V rámci formuláře pak vytvoříme formulářové prvky, které propojíme direktivou formControlName. Hodnota pak musí odpovídat klíči prvku ve formulářové skupině. 
-Při obsluze chyb formuláře si můžeme pomoct pomocí getter metod, které nám vrátí konkrétní formulářový prvek.
+Pro zajištění efektivní obsluhy chyb formuláře můžeme využít getter metody, které nám vrátí konkrétní formulářový prvek.
 
-Dále vytvoříme tlačítko, přes které uživatel formulář potvrdí. Na form značku přidáme (ngSubmit), který vyemituje událost při potvrzení formuláře. 
-V obslužné metodě pak pomocí výstupové vlastnosti vypublikujeme aktuální hodnotu reaktivního formuláře do rodičovské komponenty.
+Dále vytvoříme tlačítko s typem submit, přes které uživatel formulář potvrdí. Na form značku přidáme (ngSubmit), který vyemituje událost při potvrzení formuláře. 
+V obslužné metodě pak prostřednictvím výstupové vlastnosti vypublikujeme aktuální hodnotu reaktivního formuláře do rodičovské komponenty.
 
-Rodičovská komponenta tedy vykreslí samotný formulář, díky výstupní vlastnosti formuláře získá aktuální hodnotu formuláře. 
-Hodnotu formuláře pak pomocí služby transformuje do požadovaného formátu, který následně vykreslí na stránce. 
-V obslužné metodě handleFormChanged následně provedeme výpočet budoucí hodnoty investice pomocí služby FutureValuesCalculatorService a výsledek uložíme do vlastnosti futureValues. 
+V rámci rodičovské komponenty tedy vykreslíme samotný formulář a při jakémkoli potvrzení formuláře získáme aktuální hodnoty z formuláře díky outputu. 
+Hodnoty formuláře pak dostaneme v obslužné metodě handleFormChanged. Pomocí služby FutureValuesCalculatorService tyto hodnoty transformujeme do požadovaného formátu. 
+Výsledek uložíme do vlastnosti futureValues. 
 
-Pokud máme hodnoty vypočteny, vykreslíme je na stránce pomocí komponent future-values-info a future-value-info. 
+Když už máme hodnoty vypočteny, vykreslíme je na stránce prostřednictvím komponent future-values-info a future-value-info. 
 První z komponent slouží k rozložení výsledků do požadovaného formátu a vytvoření komponent pro jednotlivé výsledky. 
-Komponenta future-value-info pak přijímá vstupní vlastnost, kterou v šabloně před vykreslením v DOM přetransformujeme pomocí roury (LocalizedNumberPipe). 
+Komponenta future-value-info pak přijímá vstupní vlastnost, kterou v šabloně před vykreslením v DOM přetransformujeme díky rouře (LocalizedNumberPipe). 
 Stejného výsledku bychom mohli dosáhnout i přes metodu na třídě. Tento přístup Angular nedoporučuje, jelikož metody se v rámci šablony spouští opakovaně a mohou způsobit výkonové problémy. 
 Oproti tomu roura nám umožní lepší znovupoužitelnost a přehlednost.
 
