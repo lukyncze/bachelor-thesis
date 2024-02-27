@@ -143,8 +143,21 @@ Samotná metoda initializeInvestForm bude vracet instanci třídy FormGroup. Arg
 Vlastnosti objektu budou klíče formulářových prvků a jejich hodnoty pole, kde první prvek bude počáteční hodnota a druhý prvek pole validátorů.
 
 V šabloně následně propojíme formulářovou skupinu s formulářem. K tomu nám poslouží direktiva [formGroup] a její hodnotu nastavíme na vlastnost investForm. 
-V rámci formuláře pak můžeme vytvořit formulářové prvky, které propojíme direktivou formControlName. Hodnota pak musí odpovídat klíči prvku ve formulářové skupině. 
+V rámci formuláře pak vytvoříme formulářové prvky, které propojíme direktivou formControlName. Hodnota pak musí odpovídat klíči prvku ve formulářové skupině. 
 Při obsluze chyb formuláře si můžeme pomoct pomocí getter metod, které nám vrátí konkrétní formulářový prvek.
+
+Dále vytvoříme tlačítko, přes které uživatel formulář potvrdí. Na form značku přidáme (ngSubmit), který vyemituje událost při potvrzení formuláře. 
+V obslužné metodě pak pomocí výstupové vlastnosti vypublikujeme aktuální hodnotu reaktivního formuláře do rodičovské komponenty.
+
+Rodičovská komponenta tedy vykreslí samotný formulář, díky výstupní vlastnosti formuláře získá aktuální hodnotu formuláře. 
+Hodnotu formuláře pak pomocí služby transformuje do požadovaného formátu, který následně vykreslí na stránce. 
+V obslužné metodě handleFormChanged následně provedeme výpočet budoucí hodnoty investice pomocí služby FutureValuesCalculatorService a výsledek uložíme do vlastnosti futureValues. 
+
+Pokud máme hodnoty vypočteny, vykreslíme je na stránce pomocí komponent future-values-info a future-value-info. 
+První z komponent slouží k rozložení výsledků do požadovaného formátu a vytvoření komponent pro jednotlivé výsledky. 
+Komponenta future-value-info pak přijímá vstupní vlastnost, kterou v šabloně před vykreslením v DOM přetransformujeme pomocí roury (LocalizedNumberPipe). 
+Stejného výsledku bychom mohli dosáhnout i přes metodu na třídě. Tento přístup Angular nedoporučuje, jelikož metody se v rámci šablony spouští opakovaně a mohou způsobit výkonové problémy. 
+Oproti tomu roura nám umožní lepší znovupoužitelnost a přehlednost.
 
 \begin{flushleft}
   \textbf{Country guesser}
