@@ -136,7 +136,7 @@ Můžeme začít přímo s tvorbou reaktivního formuláře. Typ InvestForm popi
 Protože formulářových prvků budeme mít více (a souvisí spolu), vytvoříme formulářovou skupinu, ve které definujeme samotné formulářové prvky. 
 Formulářová skupina investForm bude vlastnost třídy, která umožní přístup k hodnotám formuláře a jeho validaci. 
 Vlastnost investForm nastavíme v rámci OnInit hooku, protože potřebujeme nastavit počáteční hodnoty formuláře na základě vstupní vlastnosti defaultValues.
-Důvodem je, že vstupní vlastnosti jsou dostupné nejdříve v rámci hooku OnInit.
+Důvodem je, že hodnoty vstupních vlastností jsou v komponentě dostupné nejdříve v rámci hooku OnInit.
 
 Zde narazíme na problém s nenastavením počáteční hodnoty vlastnosti přímo nebo v konstruktoru. 
 Můžeme ho vyřešit za pomoci vykřičníku -- řekneme tak TypeScriptu, že obsah proměnné je nenulový. Další možností je vypnout pravidlo strictPropertyInitialization v souboru tsconfig.json.
