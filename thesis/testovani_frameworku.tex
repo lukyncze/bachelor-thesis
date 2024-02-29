@@ -69,7 +69,7 @@ Pod dekorátorem pak definujeme obslužnou metodu, která se volá při emitu sp
 
 Dropdown pak může mít různé inputy, které povedou k lepší znovupoužitelnosti. Hodnotu inputu (konkrétně např. defaultValue) v komponentě získáme v metodě životního cyklu OnInit. 
 Kupříkladu v konstruktoru bychom dostali pouze undefined. Styly ve formě JavaScriptových hodnot do šablony přidáme pomocí ngClass. 
-Když těchto hodnot chceme na elementu více, zřetězíme předávané hodnoty pomocí JavaScriptu. Další možnost spočívá ve sloučení požadovaných stylů na úrovni třídy.
+Když těchto hodnot potřebujeme na elementu více, zřetězíme předávané hodnoty pomocí JavaScriptu. Další možnost spočívá ve sloučení požadovaných stylů na úrovni třídy.
 
 \begin{citemize}
 	\item body k vypíchnutí: dynamické stylování, logika v template
@@ -93,7 +93,7 @@ Podobným způsobem poté můžeme registrovat událost změny vstupního textu 
 
 Zadání vstupního textu pak může řešit komponenta TranslationInputComponent, která obdobným způsobem aktualizuje hodnotu vstupního textu v rodičovské komponentě. 
 Aktuální hodnotu formulářového prvku nastavíme pomocí [ngModel]. Pro naslouchání na změnu hodnoty formulářového prvku zase využijeme (ngModelChange). 
-V případě, že chceme aktualizovat výšku textového pole na základě jeho obsahu, můžeme využít vlastní direktivu AutosizeTextAreaDirective. 
+V případě, že potřebujeme aktualizovat výšku textového pole na základě jeho obsahu, můžeme využít vlastní direktivu AutosizeTextAreaDirective. 
 V konstruktoru direktivy získáme element, na který přidáme tuto direktivu. Dále budeme potřebovat třídu Renderer2, která umožňuje manipulovat s DOM. 
 V direktivě budeme naslouchat na změnu hodnoty textového pole pomocí dekorátoru @HostListener a události input. Následně v rámci obslužné metody zajistíme aktualizaci výšky.
  
@@ -114,7 +114,7 @@ K tomu poslouží TranslationOutputComponent, které na vstupu předáme výstup
 V rámci šablony pak podmíněně vykreslíme přeložený text, chybu nebo načítání. 
 
 Při zarovnání vstupního a výstupního pole v UI si musíme dát pozor na to, že šířku je potřeba nastavit již v prvním potomku div elementu, na kterém nastavíme flexbox. 
-Důvod spočívá v tom, že Angular vytváří v DOMu element pro každou komponentu.
+Důvod spočívá v tom, že Angular v DOMu vytváří element pro každou komponentu.
 
 \begin{citemize}
 	\item předávání vlastností nahoru a dolů
