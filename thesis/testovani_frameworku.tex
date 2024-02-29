@@ -170,6 +170,24 @@ Oproti tomu roura umožní lepší znovupoužitelnost a přehlednost.
   \textbf{Layout a routování}
 \end{flushleft}
 
+Demonstrační aplikace bude složena z hlavičky, patičky a samotného obsahu, v nemž se vykreslí jednotlivé komponenty. 
+Mezi jednotlivými stránkami se uživatel bude moct přepínat pomocí navigačního menu.
+
+K routování mezi jednotlivými stránkami využijeme modul Router přímo od Angularu. Nejprve vytvoříme cesty pro jednotlivé stránky v souboru app.routes.ts. 
+Cesty nakonfigurujeme podle předpisu Routes a pole cest exportujeme. Následně tyto cesty aplikace poskytneme routeru v rámci app.config.ts. 
+
+Pokračujeme vytvořením požadované struktury stránek v AppComponent. Šablona bude obsahovat hlavičku, patičku a obsah, který vykreslíme pomocí elementu router-outlet. 
+
+V rámci komponenty hlavičky pak vytvoříme navigační menu, které bude obsahovat odkazy na jednotlivé stránky. 
+Můžeme se inspirovat například architekturou a vzhledem navigačního menu Flowbite. 
+Pokračujeme vypsáním všech cest aplikace, s čímž nám pomohou direktivy routerLink, routerLinkActive, routerLinkActiveOptions a reference \#link. 
+Do routerLink předáme cestu a routerLinkActive umožní naslouchání na aktuální cestu, kde se nacházíme. Direktiva routerLinkActiveOptions pak přepíše výchozí nastavení routerLinkActive.
+Reference \#link nám umožní získat informaci o tom, zda je odkaz aktivní. To využijeme při podmíněném nastavení správných CSS tříd.
+
+Přepínání barevného režimu, otevírání a zavírání mobilní navigace implementujeme pomocí obslužným metod a vlastností třídy. 
+Informaci o tom, zda má uživatel zapnutý tmavý režim ukládáme do LocalStorage v prohlížeči. 
+Při kliknutí na tlačítko pro přepnutí režimu zavoláme metodu, která změní hodnotu vlastnosti a uloží ji do LocalStorage.
+
 \subsubsection{React}
 
 \begin{flushleft}
