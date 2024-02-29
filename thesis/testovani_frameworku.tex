@@ -132,19 +132,18 @@ Angular je flexibilní z pohledu možností tvorby formulářů. My použijeme r
 Vytvoříme komponentu zaměřenou na jednoduché investiční kalkulace. 
 Bude obsahovat dvě vnořené komponenty: formulář pro zadání vstupních dat a komponentu výsledku kalkulace, která se zobrazí po potvrzení formuláře.
 
-Můžeme začít přímo s tvorbou reaktivního formuláře. Typ InvestForm popisuje strukturu formulářových prvků, které bude formulář obsahovat. 
-Protože formulářových prvků budeme mít více (a souvisí spolu), vytvoříme formulářovou skupinu, ve které definujeme samotné formulářové prvky. 
-Formulářová skupina investForm bude vlastnost třídy, která umožní přístup k hodnotám formuláře a jeho validaci. 
-Vlastnost investForm nastavíme v rámci OnInit hooku, protože potřebujeme nastavit počáteční hodnoty formuláře na základě vstupní vlastnosti defaultValues.
+Začneme s tvorbou reaktivního formuláře. Typ InvestForm popisuje strukturu souvisejících formulářových prvků formuláře. 
+Protože prvků budeme mít více, deklarujeme formulářovou skupinu jako vlastnost třídy, ve které následně definujeme samotné formulářové prvky. 
+Vlastnost investForm pak umožní přístup k hodnotám formuláře a jeho validaci. Zde narazíme na problém s nenastavením počáteční hodnoty vlastnosti přímo nebo v konstruktoru. 
+Můžeme ho vyřešit za pomoci vykřičníku -- řekneme tak TypeScriptu, že obsah proměnné je nenulový. Další možností je vypnout pravidlo strictPropertyInitialization v souboru tsconfig.json.
+
+Hodnotu vlastnosti investForm nastavíme pomocí metody initializeInvestForm v rámci OnInit hooku. 
+Tento postup zvolíme, protože chceme nastavovat počáteční hodnoty formuláře na základě vstupní vlastnosti defaultValues.
 Důvodem je, že hodnoty vstupních vlastností jsou v komponentě dostupné nejdříve v rámci hooku OnInit.
 
-Zde narazíme na problém s nenastavením počáteční hodnoty vlastnosti přímo nebo v konstruktoru. 
-Můžeme ho vyřešit za pomoci vykřičníku -- řekneme tak TypeScriptu, že obsah proměnné je nenulový. Další možností je vypnout pravidlo strictPropertyInitialization v souboru tsconfig.json.
-Po opravě chyby se vrátíme k formuláři, který dle mého názoru nejsnadněji vytvoříme pomocí třídy FormBuilder ze základního balíčku @angular/forms. 
-Formulář vytvoříme v samostatné metodě initializeInvestForm, jejíž výsledek přiřadíme v hooku OnInit do vlastnosti investForm. 
-Samotná metoda initializeInvestForm bude vracet instanci třídy FormGroup. Argumentem pro metodu group pak je objekt, který popisuje strukturu formuláře. 
+Metoda initializeInvestForm vrátí instanci třídy FormGroup, kterou vytvoříme pomocí třídy FormBuilder ze základního balíčku @angular/forms. 
+Argumentem pro metodu group pak je objekt, který popisuje strukturu formuláře. 
 Vlastnosti objektu budou klíče formulářových prvků a jejich hodnoty pole, kde první prvek bude počáteční hodnota a druhý prvek pole validátorů.
-% Toto vypadá dost složite
 
 V šabloně následně propojíme formulářovou skupinu s formulářem. K tomu poslouží direktiva [formGroup] a její hodnotu nastavíme na vlastnost investForm. 
 V rámci formuláře pak vytvoříme formulářové prvky, které propojíme direktivou formControlName. Hodnota pak musí odpovídat klíči prvku ve formulářové skupině. 
