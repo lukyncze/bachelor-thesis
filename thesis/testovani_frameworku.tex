@@ -37,7 +37,7 @@ Pro implementaci jednoduchého counteru nejprve vytvoříme counter komponentu. 
 Protože chceme opakovaně použít logiku jednotlivých tlačítek, vytvoříme komponentu counter-button. 
 Ta může přijímat například nějaké CSS styly nebo přes EventEmitter (output) posílat informaci o kliknutí na tlačítko směrem nahoru ve stromě komponent. 
 Funkci emit() našeho EventEmitteru zavoláme na tlačítku v counter-buttonu právě tehdy, když uživatel klikne na tlačítko -- použijeme listener ve formě (click). 
-K propsání textu či jiných elementů nebo komponent mezi párovými tagy <counter-button></counter-button> nám pak poslouží párový či nepárový element <ng-content />.
+K propsání textu či jiných elementů nebo komponent mezi párovými tagy <counter-button></counter-button> pak poslouží párový či nepárový element <ng-content />.
 
 Následně v counter komponentě musíme importovat třídu CounterButtonComponent a do všech elementů counter-button předat jejich vstupy a výstupy. 
 Námi defikovanovanému outputu buttonClicked předáme v šabloně metodu, která se vykoná po emitu (kliknutí na tlačítko ve vnořené komponentě) a metodu zavoláme pomocí kulatých závorek. 
@@ -53,7 +53,7 @@ V rámci counter komponenty pak definujeme stav jako vlastnost count na třídě
   \textbf{Interakce v uživatelském prostředí}
 \end{flushleft}
 
-Při tvorbě jakékoli UI komponenty můžeme začít jak šablonou, tak i logikou. My začneme s tvorbou šablony. V případě vlastního dropdown samotným tlačítkem a seznamem možností. 
+Při vytváření jakékoli UI komponenty můžeme začít šablonou, nebo definovat funkční stránku. My začneme s tvorbou šablony. V případě vlastního dropdown samotným tlačítkem a seznamem možností. 
 Otevření možností zajístíme tak, že na tlačítko přidáme click listener. Funkčnost pak zajistíme díky modifikaci stavu isOpen, který se provede při volání metody toggleDropdown. 
 V rámci této metody je třeba zavolat i event.stopPropagation(). Předejdeme tak potenciální chybě ve formě tzv. event bubblingu -- spuštění událostí na prvcích odlišných od cílového. 
 
@@ -67,9 +67,9 @@ V komponentě pak budeme naslouchat na události v DOM pomocí dekorátoru @Host
 Dekorátor přijímá DOM událost, na který má poslouchat -- document:pointerdown, případně další argumenty nebo také formu vypublikované události. 
 Pod dekorátorem pak definujeme obslužnou metodu, která se volá při emitu specifikované události. V rámci metody pak zajistíme uzavření aktuálně otevřeného dropdownu.
 
-Dropdown pak může mít různé inputy, které povedou k lepší znovupoužitelnosti. Hodnotu inputu (konkrétně např. defaultValue) v komponentě získáme až v lifecycle hooku OnInit. 
+Dropdown pak může mít různé inputy, které povedou k lepší znovupoužitelnosti. Hodnotu inputu (konkrétně např. defaultValue) v komponentě získáme v metodě životního cyklu OnInit. 
 Kupříkladu v konstruktoru bychom dostali pouze undefined. Styly ve formě JavaScriptových hodnot do šablony přidáme pomocí ngClass. 
-Když těchto hodnot chceme na elementu více, musíme je zřetězit pomocí JavaScriptu, nebo sloučit již dříve.
+Když těchto hodnot potřebujeme na elementu více, zřetězíme předávané hodnoty pomocí JavaScriptu. Další možnost spočívá ve sloučení požadovaných stylů na úrovni třídy.
 
 \begin{citemize}
 	\item body k vypíchnutí: dynamické stylování, logika v template
@@ -82,38 +82,39 @@ Když těchto hodnot chceme na elementu více, musíme je zřetězit pomocí Jav
 \end{flushleft}
 
 Pro ukázku předávání vlastností a získávání dat z API můžeme vytvořit komponentu, která bude překládat zadaný text do vybraného jazyka. 
-Začneme tedy vytvořením rodičovské komponenty, která nám při změně vlastností (zadaného textu uživatelem a výstupního jazyka) zavolá API, které nám vrátí přeložený text. 
+Začneme tedy vytvořením rodičovské komponenty, která při změně vlastností (zadaného textu uživatelem a výstupního jazyka) zavolá API, které vrátí přeložený text. 
 V rámci této komponenty vytvoříme vnořené komponenty, které budou sloužit k zadání vstupního textu, výběru jazyka a zobrazení výsledku. 
 
 LanguageDropdownComponent umožní uživateli vybrat jazyk, do kterého chce přeložit text. 
 Přes EventEmitter aktualizujeme výstupní jazyk v rodičovské komponentě. V rámci obslužné metody handleLanguageChange pak také aktualizujeme hodnotu vlastnosti inputValuesChanges\$.
-Tato vlastnost je Subject, speciální typ observable, z knihovny RxJS. Později nám na základě změny hodnoty dovolí poslat dotaz na server ve správný moment. 
-Podobným způsobem poté můžeme naslouchat na změny vstupního textu.
+Tato vlastnost je Subject, speciální typ observable, z knihovny RxJS. Později dovolí na základě změny hodnoty poslat dotaz na server ve správný moment. 
+Podobným způsobem poté můžeme registrovat událost změny vstupního textu -- naslouchat na změnu vstupního textu.
+% Přidat schéma
 
 Zadání vstupního textu pak může řešit komponenta TranslationInputComponent, která obdobným způsobem aktualizuje hodnotu vstupního textu v rodičovské komponentě. 
 Aktuální hodnotu formulářového prvku nastavíme pomocí [ngModel]. Pro naslouchání na změnu hodnoty formulářového prvku zase využijeme (ngModelChange). 
-V případě, že chceme aktualizovat výšku textového pole na základě jeho obsahu, můžeme využít vlastní direktivu AutosizeTextAreaDirective. 
-V konstruktoru direktivy získáme element, na který přidáme tuto direktivu. Dále budeme potřebovat třídu Renderer2, která nám umožní manipulovat s DOM. 
+V případě, že potřebujeme aktualizovat výšku textového pole na základě jeho obsahu, můžeme využít vlastní direktivu AutosizeTextAreaDirective. 
+V konstruktoru direktivy získáme element, na který přidáme tuto direktivu. Dále budeme potřebovat třídu Renderer2, která umožňuje manipulovat s DOM. 
 V direktivě budeme naslouchat na změnu hodnoty textového pole pomocí dekorátoru @HostListener a události input. Následně v rámci obslužné metody zajistíme aktualizaci výšky.
  
-Změny hodnoty vlastnosti inputValuesChanges\$ musíme začít odebírat pomocí subscribe. 
+Změny hodnoty vlastnosti inputValuesChanges\$ začneme odebírat pomocí subscribe. 
 Abychom předešli dotazování serveru ihned po změně hodnoty vlastnosti inputValuesChanges\$, použijeme operátor debounceTime. 
-Ten nám povolí poslat dotaz na server až po uplynutí určité doby od poslední změny. 
-Subscribe zavolá věřejnou metodu služby (getTranslation), která nám vrátí přeložený text. 
-Nakonec aby nám dotazování serveru fungovalo, je třeba metodu setupInputChangeSubscription zavolat v konstruktoru nebo hooku OnInit.
+Ten povolí poslat dotaz na server až po uplynutí určité doby od poslední změny, kterou můžeme nastavit. 
+Subscribe zavolá věřejnou metodu služby (getTranslation), která vrací přeložený text. 
+Nakonec, aby dotazování serveru fungovalo, je třeba metodu setupInputChangeSubscription zavolat v konstruktoru nebo hooku OnInit.
 
 Se službou TranslationService a veřejnou metodou pro vykonání dotazu nám pomůže třída HttpClient. Ta je dostupná přímo v základních modulech Angularu.
 Službu HttpClient získáme v konstruktoru, kde ji pomocí klíčového slova private přiřadíme do vlastností třídy. 
-Následně na HTTP klientovi zavoláme metodu post vůči API, které nám vrátí přeložený text. 
-Pokud nám v úspěšné odpovědi ze serveru přijde nějaká složitější struktura, z které chceme vrátit jen nějakou část, pak nám s konverzí odpovědi pomůže RxJS operátor map(). 
-Metoda getTranslation vrací observable, proto musíme v translator komponentě hodnoty odebírat pomocí metody subscribe. 
+Následně na HTTP klientovi zavoláme metodu post vůči API, které vrátí přeložený text ze serveru. 
+Pokud úspěšná odpověď ze serveru obsahuje složitější strukturu, ze které potřebujeme získat jen nějakou část, pak s konverzí odpovědi pomůže RxJS operátor map(). 
+Metoda getTranslation vrací observable, v translator komponentě proto hodnoty odebíráme pomocí metody subscribe. 
 
-V momentě, kdy dostaneme odpověď ze serveru, chceme zobrazit přeložený text uživateli. 
-K tomu nám poslouží TranslationOutputComponent, které na vstupu předáme výstupní text spolu s dalšími vstupními vlastnostmi. 
+V momentě, kdy obdržíme odpověď ze serveru, zobrazíme přeložený text uživateli. 
+K tomu poslouží TranslationOutputComponent, které na vstupu předáme výstupní text spolu s dalšími vstupními vlastnostmi. 
 V rámci šablony pak podmíněně vykreslíme přeložený text, chybu nebo načítání. 
 
-Při zarovnání vstupního a výstupního pole v UI si musíme dát pozor na to, že šířku musíme nastavit již v prvním potomku div elementu, na kterém nastavíme flexbox. 
-Důvod je zřejmý -- Angular v DOM vytvoří speciálně element pro každou komponentu.
+Při zarovnání vstupního a výstupního pole v UI si musíme dát pozor na to, že šířku je potřeba nastavit již v prvním potomku div elementu, na kterém nastavíme flexbox. 
+Důvod spočívá v tom, že Angular v DOMu vytváří element pro každou komponentu.
 
 \begin{citemize}
 	\item předávání vlastností nahoru a dolů
@@ -127,38 +128,39 @@ Důvod je zřejmý -- Angular v DOM vytvoří speciálně element pro každou ko
   \textbf{Tvorba formulářů}
 \end{flushleft}
 
-Angular nám umožňuje vytvářet formuláře několika způsoby. My použijeme reaktivní formuláře, které nám umožní vytvářet formuláře programaticky. 
+Angular je flexibilní z pohledu možností tvorby formulářů. My použijeme reaktivní formuláře, jelikož jsou flexibilnější a umožní nám jednodušší reakce na změny prvků.
 Vytvoříme komponentu zaměřenou na jednoduché investiční kalkulace. 
-Bude obsahovat dvě vnořené komponenty: formulář pro zadání vstupních dat a výsledek kalkulace, který se zobrazí po potvrzení formuláře.
+Bude obsahovat dvě vnořené komponenty: formulář pro zadání vstupních dat a komponentu výsledku kalkulace, která se zobrazí po potvrzení formuláře.
 
-Můžeme začít přímo s tvorbou reaktivního formuláře. Typ InvestForm popisuje strukturu formulářových prvků, které budeme chtít. 
-Protože prvků formuláře chceme mít více (a souvisí spolu), vytvoříme formulářovou skupinu, ve které budou samotné formulářové prvky. 
-Formulářová skupina bude vlastnost třídy, kterou lze nastavit ihned, v konstruktoru, případně v hooku OnInit. 
-Jelikož chceme nastavit počáteční hodnoty fomuláře na základě vstupní vlastnosti, musíme vlastnost investForm nastavit až v hooku OnInit. 
+Začneme s tvorbou reaktivního formuláře. Typ InvestForm popisuje strukturu souvisejících formulářových prvků formuláře. 
+Protože prvků budeme mít více, deklarujeme formulářovou skupinu jako vlastnost třídy, ve které následně definujeme samotné formulářové prvky. 
+Vlastnost investForm pak umožní přístup k hodnotám formuláře a jeho validaci. Zde narazíme na problém s nenastavením počáteční hodnoty vlastnosti přímo nebo v konstruktoru. 
+Můžeme ho vyřešit za pomoci vykřičníku -- řekneme tak TypeScriptu, že obsah proměnné je nenulový. Další možností je vypnout pravidlo strictPropertyInitialization v souboru tsconfig.json.
 
-Zde narazíme na problém s nenastavením počáteční hodnoty vlastnosti přímo nebo v konstruktoru. 
-Můžeme ho vyřešit za pomoci vikričníhu -- řekneme tak TypeScriptu, že vlastnost je nenulová. Další možností je přenastavení pravidla strictPropertyInitialization v souboru tsconfig.json.
-Po opravě chyby se vrátíme k formuláři, který nejjednodušeji vytvoříme pomocí třídy FormBuilder ze základního balíčku @angular/forms. 
-Formulář vytvoříme v samostatné metodě initializeInvestForm, jejíž výsledek přiřadíme v hooku OnInit do vlastnosti investForm. 
-Samotná metoda initializeInvestForm bude vracet instanci třídy FormGroup. Argumentem pro metodu group pak je objekt, který popisuje strukturu formuláře. 
+Hodnotu vlastnosti investForm nastavíme pomocí metody initializeInvestForm v rámci OnInit hooku. 
+Tento postup zvolíme, protože chceme nastavovat počáteční hodnoty formuláře na základě vstupní vlastnosti defaultValues.
+Důvodem je, že hodnoty vstupních vlastností jsou v komponentě dostupné nejdříve v rámci hooku OnInit.
+
+Metoda initializeInvestForm vrátí instanci třídy FormGroup, kterou vytvoříme pomocí třídy FormBuilder ze základního balíčku @angular/forms. 
+Argumentem pro metodu group pak je objekt, který popisuje strukturu formuláře. 
 Vlastnosti objektu budou klíče formulářových prvků a jejich hodnoty pole, kde první prvek bude počáteční hodnota a druhý prvek pole validátorů.
 
-V šabloně následně propojíme formulářovou skupinu s formulářem. K tomu nám poslouží direktiva [formGroup] a její hodnotu nastavíme na vlastnost investForm. 
+V šabloně následně propojíme formulářovou skupinu s formulářem. K tomu poslouží direktiva [formGroup] a její hodnotu nastavíme na vlastnost investForm. 
 V rámci formuláře pak vytvoříme formulářové prvky, které propojíme direktivou formControlName. Hodnota pak musí odpovídat klíči prvku ve formulářové skupině. 
-Pro zajištění efektivní obsluhy chyb formuláře můžeme využít getter metody, které nám vrátí konkrétní formulářový prvek.
+Pro zajištění efektivní obsluhy chyb formuláře můžeme využít getter metody, které vrátí konkrétní formulářový prvek.
 
 Dále vytvoříme tlačítko s typem submit, přes které uživatel formulář potvrdí. Na form značku přidáme (ngSubmit), který vyemituje událost při potvrzení formuláře. 
-V obslužné metodě pak prostřednictvím výstupové vlastnosti vypublikujeme aktuální hodnotu reaktivního formuláře do rodičovské komponenty.
+Obslužná metoda pak prostřednictvím výstupové vlastnosti publikuje aktuální hodnotu reaktivního formuláře do rodičovské komponenty.
 
 V rámci rodičovské komponenty tedy vykreslíme samotný formulář a při jakémkoli potvrzení formuláře získáme aktuální hodnoty z formuláře díky outputu. 
 Hodnoty formuláře pak dostaneme v obslužné metodě handleFormChanged. Pomocí služby FutureValuesCalculatorService tyto hodnoty transformujeme do požadovaného formátu. 
 Výsledek uložíme do vlastnosti futureValues. 
 
-Když už máme hodnoty vypočteny, vykreslíme je na stránce prostřednictvím komponent future-values-info a future-value-info. 
+Když jsou hodnoty vypočteny, vykreslíme je na stránce prostřednictvím komponent future-values-info a future-value-info. 
 První z komponent slouží k rozložení výsledků do požadovaného formátu a vytvoření komponent pro jednotlivé výsledky. 
 Komponenta future-value-info pak přijímá vstupní vlastnost, kterou v šabloně před vykreslením v DOM přetransformujeme díky rouře (LocalizedNumberPipe). 
-Stejného výsledku bychom mohli dosáhnout i přes metodu na třídě. Tento přístup Angular nedoporučuje, jelikož metody se v rámci šablony spouští opakovaně a mohou způsobit výkonové problémy. 
-Oproti tomu roura nám umožní lepší znovupoužitelnost a přehlednost.
+Stejného výsledku bychom mohli dosáhnout i přes metodu na třídě. Tento přístup Angular nedoporučuje, jelikož metody se v rámci šablony spouští opakovaně a mohou způsobit problémy s výkonem. 
+Oproti tomu roura umožní lepší znovupoužitelnost a přehlednost.
 
 \begin{flushleft}
   \textbf{Country guesser}
