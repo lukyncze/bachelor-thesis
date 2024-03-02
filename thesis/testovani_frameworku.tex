@@ -365,15 +365,13 @@ Důvod spočívá v tom, že Angular v DOMu vytváří element pro každou kompo
   <translation-input 
     <!-- Vstupní a výstupní vlastnosti... -->
     class="relative w-1/2"
-    <!-- Šířka musí být nastavena zde, 
-      nikoliv v rámci root elementu translation-input... -->
+    <!-- Šířka musí být nastavena zde. -->
   />
 
   <translation-output 
     <!-- Vstupní a výstupní vlastnosti... -->
     class="relative w-1/2"
-    <!-- Šířka musí být nastavena zde, 
-      nikoliv v rámci root elementu translation-output... -->
+    <!-- Šířka musí být nastavena zde. -->
   />
 </div>
 \end{prog}
@@ -394,10 +392,28 @@ Angular je flexibilní z pohledu možností tvorby formulářů. My použijeme r
 Vytvoříme komponentu zaměřenou na jednoduché investiční kalkulace. 
 Bude obsahovat dvě vnořené komponenty: formulář pro zadání vstupních dat a komponentu výsledku kalkulace, která se zobrazí po potvrzení formuláře.
 
-Začneme s tvorbou reaktivního formuláře. Typ InvestForm popisuje strukturu souvisejících formulářových prvků formuláře. 
+Začneme s tvorbou reaktivního formuláře. Typ InvestForm popisuje strukturu souvisejících formulářových prvků formuláře.
+
+\begin{prog}
+// Část souboru invest-form.component.ts
+
+type InvestForm = FormGroup<\{
+  oneOffInvestment: FormControl<number | null>;
+  investmentLength: FormControl<number | null>;
+  averageSavingsInterest: FormControl<number | null>;
+  averageSP500Interest: FormControl<number | null>;
+\}>;
+\end{prog}
+
 Protože prvků budeme mít více, deklarujeme formulářovou skupinu jako vlastnost třídy, ve které následně definujeme samotné formulářové prvky. 
 Vlastnost investForm pak umožní přístup k hodnotám formuláře a jeho validaci. Zde narazíme na problém s nenastavením počáteční hodnoty vlastnosti přímo nebo v konstruktoru. 
 Můžeme ho vyřešit za pomoci vykřičníku -- řekneme tak TypeScriptu, že obsah proměnné je nenulový. Další možností je vypnout pravidlo strictPropertyInitialization v souboru tsconfig.json.
+
+\begin{prog}
+// Část souboru invest-form.component.ts
+
+protected investForm!: InvestForm;
+\end{prog}
 
 Hodnotu vlastnosti investForm nastavíme pomocí metody initializeInvestForm v rámci OnInit hooku. 
 Tento postup zvolíme, protože chceme nastavovat počáteční hodnoty formuláře na základě vstupní vlastnosti defaultValues.
@@ -405,11 +421,61 @@ Důvodem je, že hodnoty vstupních vlastností jsou v komponentě dostupné nej
 
 Metoda initializeInvestForm vrátí instanci třídy FormGroup, kterou vytvoříme pomocí třídy FormBuilder ze základního balíčku @angular/forms. 
 Argumentem pro metodu group pak je objekt, který popisuje strukturu formuláře. 
-Vlastnosti objektu budou klíče formulářových prvků a jejich hodnoty pole, kde první prvek bude počáteční hodnota a druhý prvek pole validátorů.
+% TODO: Zahrnout do textu tuto nepěknou větu?
+%Vlastnosti objektu budou klíče formulářových prvků a jejich hodnoty pole, kde první prvek bude počáteční hodnota a druhý prvek pole validátorů.
+
+\begin{prog}
+// Část souboru invest-form.component.ts
+
+private initializeInvestForm(): InvestForm \{
+  // Vytvoření formuláře s výchozími hodnotami 
+    (případně vlastnostmi) a validátory.
+  // Jednotlivé prvky FormGroup bývají označovány jako FormControl.
+  return this.fb.group(\{
+    oneOffInvestment: [
+      this.defaultValues.oneOffInvestment,
+      [Validators.required, Validators.min(20), Validators.max(99_999_999)],
+    ],
+    // Další formulářové prvky... 
+  \});
+\}
+\end{prog}
 
 V šabloně následně propojíme formulářovou skupinu s formulářem. K tomu poslouží direktiva [formGroup] a její hodnotu nastavíme na vlastnost investForm. 
 V rámci formuláře pak vytvoříme formulářové prvky, které propojíme direktivou formControlName. Hodnota pak musí odpovídat klíči prvku ve formulářové skupině. 
 Pro zajištění efektivní obsluhy chyb formuláře můžeme využít getter metody, které vrátí konkrétní formulářový prvek.
+
+\begin{prog}
+// Část souboru invest-form.component.html
+
+<form [formGroup]="investForm" (ngSubmit)="onSubmit()">
+  <div class="md:flex md:gap-4">
+    <div class="mb-4 md:w-1/2">
+      <input-label id="oneOffInvestment">
+        One-off investment (20-99.999.999€)
+      </input-label>
+
+      <!-- Direktiva formControlName slouží k propojení inputu 
+        s odpovídajícím FormControl v FormGroup. -->
+      <input
+        id="oneOffInvestment"
+        type="number"
+        formControlName="oneOffInvestment"
+        class="" <!-- Statické styly... -->
+      />
+
+      @if (oneOffInvestmentControl.errors?.['required']) \{
+        <p class="text-red-500 text-xs italic mt-1">
+          Please enter a valid amount of one-off investment (positive number).
+        </p>
+      \}
+      <!-- Další chybové hlášky... -->
+    </div>
+
+    <!-- Další formulářové prvky... -->
+  </div>
+</form>
+\end{prog}
 
 Dále vytvoříme tlačítko s typem submit, přes které uživatel formulář potvrdí. Na form značku přidáme (ngSubmit), který vyemituje událost při potvrzení formuláře. 
 Obslužná metoda pak prostřednictvím výstupové vlastnosti publikuje aktuální hodnotu reaktivního formuláře do rodičovské komponenty.
@@ -420,9 +486,30 @@ Výsledek uložíme do vlastnosti futureValues.
 
 Když jsou hodnoty vypočteny, vykreslíme je na stránce prostřednictvím komponent future-values-info a future-value-info. 
 První z komponent slouží k rozložení výsledků do požadovaného formátu a vytvoření komponent pro jednotlivé výsledky. 
-Komponenta future-value-info pak přijímá vstupní vlastnost, kterou v šabloně před vykreslením v DOM přetransformujeme díky rouře (LocalizedNumberPipe). 
+Komponenta future-value-info pak přijímá vstupní vlastnost, kterou v šabloně před vykreslením v DOM přetransformujeme díky rouře (LocalizedNumberPipe).
+
+\begin{prog}
+// Část souboru future-value-info.component.html
+
+<p class="text-5xl font-bold">{{ futureValue | localizedNumber }}</p>
+\end{prog}
+
 Stejného výsledku bychom mohli dosáhnout i přes metodu na třídě. Tento přístup Angular nedoporučuje, jelikož metody se v rámci šablony spouští opakovaně a mohou způsobit problémy s výkonem. 
 Oproti tomu roura umožní lepší znovupoužitelnost a přehlednost.
+
+\begin{prog}
+// Soubor localized-number.pipe.ts
+
+import {Pipe, PipeTransform} from '@angular/core';
+
+// Roura, která převede číslo na formátovaný string s měnou (€).
+@Pipe(\{name: 'localizedNumber', standalone: true\})
+export class LocalizedNumberPipe implements PipeTransform \{
+  public transform(value: number): string \{
+    return `\$\{value.toLocaleString('de-DE')\}€`;
+  \}
+\}
+\end{prog}
 
 \begin{flushleft}
   \textbf{Hra hádání země}
