@@ -36,6 +36,8 @@ V této kapitole srovnáme implementaci stejných funkcionalit ve třech vybran�
 Pro implementaci jednoduchého counteru nejprve vytvoříme counter komponentu. Můžeme začít se strukturou HTML značek pro hlavní komponentu.
 
 \begin{prog}
+<!-- Soubor counter.component.html -->
+
 <div class="bg-gray-200 p-6 rounded-md shadow-md">
   <p class="text-xl font-semibold mb-4">Current count: \{\{ count \}\}</p>
 
@@ -56,6 +58,8 @@ Jelikož potřebujeme opakovaně použít logiku jednotlivých tlačítek, vytvo
 Ta může přijímat například CSS styly nebo přes output (EventEmitter) posílat informaci o kliknutí na tlačítko směrem nahoru ve stromě komponent.
 
 \begin{prog}
+<!-- Soubor counter-button.component.ts -->
+
 import \{CommonModule\} from '@angular/common';
 import \{Component, EventEmitter, Input, Output\} from '@angular/core';
 
@@ -80,6 +84,8 @@ K propsání textu či jiných elementů nebo komponent mezi párovými tagy <co
 
 % TODO: Když mám v kódu komentář a duplikuje se s textem, mám použít komentář nebo text? 
 \begin{prog}
+<!-- Soubor counter-button.component.html -->
+
 <button
   class="px-4 py-2 rounded-md focus:outline-none"
   [ngClass]="className"
@@ -96,6 +102,8 @@ Námi defikovanovanému outputu buttonClicked předáme v šabloně metodu, kter
 V rámci counter komponenty pak definujeme stav jako vlastnost count na třídě. Vlastnost pak můžeme modifikovat skrze metody třídy, které voláme v outputu buttonClicked.
 
 \begin{prog}
+<!-- Soubor counter.component.ts -->
+
 import \{CommonModule\} from '@angular/common';
 import \{Component\} from '@angular/core';
 import \{CounterButtonComponent\} from './button/counter-button.component';
@@ -135,21 +143,91 @@ export class CounterComponent \{
 
 Při vytváření jakékoli UI komponenty můžeme začít šablonou, nebo definovat funkční stránku. My začneme s tvorbou šablony. V případě vlastního dropdown samotným tlačítkem a seznamem možností. 
 Otevření možností zajístíme tak, že na tlačítko přidáme click listener. Funkčnost pak zajistíme díky modifikaci stavu isOpen, který se provede při volání metody toggleDropdown. 
-V rámci této metody je třeba zavolat i event.stopPropagation(). Předejdeme tak potenciální chybě ve formě tzv. event bubblingu -- spuštění událostí na prvcích odlišných od cílového. 
+V rámci této metody je třeba zavolat i event.stopPropagation(). Předejdeme tak potenciální chybě ve formě tzv. event bubblingu -- spuštění událostí na prvcích odlišných od cílového.
+
+\begin{prog}
+<!-- Část souboru dropdown.component.html -->
+
+<div class="rounded-md shadow-sm">
+  <!-- Pro poslouchání na události v DOMu můžeme 
+  použít syntaxi: (NÁZEV_UDÁLOSTI)="OBSLUŽNÁ_METODA". -->
+  <button
+    type="button"
+    class="" <!-- Statické styly... -->
+    [ngClass]="buttonStyles + ' ' + sizeStyles"
+    (click)="toggleDropdown(\$event)"
+  >
+    \{\{ selectedOption ? selectedOption.label : placeholder \}\}
+    <!-- Pro podmíněné vykreslovaní můžeme využít bloky @if, @else if, @else. -->
+    @if (isOpen) \{
+      <arrow-up-icon />
+    \} @else \{
+      <arrow-down-icon />
+    \}
+  </button>
+</div>
+\end{prog}
 
 Podmíněně pak můžeme vypsat list možností, které získáme v jednom z inputů. Pro vypsání všech možností použijeme blok @for. 
 K vybraní konkrétní možnosti použijeme zase (click) a do obslužné metody pošleme aktuální prvek v poli -- option. 
 Metoda handleOptionClick pak zajistí uložení aktuálně vybrané možnosti, zavření dropdownu a vyemitování vybrané možnosti do rodičovské komponenty.
 
+\begin{prog}
+<!-- Část souboru dropdown.component.html -->
+
+@if (isOpen) {
+  <div
+    class="" <!-- Statické styly... -->
+    [ngClass]="divStyles"
+  >
+    <div class="py-1" role="menu"> <!-- WAI-ARIA atributy... -->
+      <!-- Pro vykreslení listu (pole hodnot) můžeme využít blok @for. -->
+      @for (option of options; track option.value) {
+        <button
+          class="block w-full text-left px-4 py-2 text-sm hover:text-gray-900"
+          [ngClass]="optionStyles"
+          role="menuitem"
+          (click)="handleOptionClick(option)"
+        >
+          {{ option.label }}
+        </button>
+      }
+    </div>
+  </div>
+}
+\end{prog}
+
 V případě, že máme dropdown otevřen a chceme jej po kliknutí mimo tentýž dropdown bezpečně zavřít, nehledě na počet vykreslených dropdown komponent na stránce, budeme postupovat následovně. 
-Pro každou komponentu vytvoříme unikátní vlastnost ve formě ID. To pak dynamicky umístíme na kořenový element dropdownu. 
+Pro každou komponentu vytvoříme unikátní vlastnost ve formě ID. To pak dynamicky umístíme na kořenový element dropdownu.
+
+\begin{prog}
+<!-- Část souboru dropdown.component.ts -->
+
+protected dropdownId = `id-\${crypto.randomUUID()}`;
+
+<!-- Část souboru dropdown.component.html -->
+
+<div class="relative inline-block text-left" [id]="dropdownId">
+\end{prog}
+
 V komponentě pak budeme naslouchat na události v DOM pomocí dekorátoru @HostListener. 
 Dekorátor přijímá DOM událost, na který má poslouchat -- document:pointerdown, případně další argumenty nebo také formu vypublikované události. 
 Pod dekorátorem pak definujeme obslužnou metodu, která se volá při emitu specifikované události. V rámci metody pak zajistíme uzavření aktuálně otevřeného dropdownu.
 
+\begin{prog}
+<!-- Část souboru dropdown.component.ts -->
+
+@HostListener('document:pointerdown', ['\$event.target'])
+onClickOutsideDropdown(target: HTMLElement): void \{
+  if (this.isOpen && !target.closest(`#\$\{this.dropdownId\}`)) \{
+    this.isOpen = false;
+  \}
+\}
+\end{prog}
+
 Dropdown pak může mít různé inputy, které povedou k lepší znovupoužitelnosti. Hodnotu inputu (konkrétně např. defaultValue) v komponentě získáme v metodě životního cyklu OnInit. 
-Kupříkladu v konstruktoru bychom dostali pouze undefined. Styly ve formě JavaScriptových hodnot do šablony přidáme pomocí ngClass. 
-Když těchto hodnot potřebujeme na elementu více, zřetězíme předávané hodnoty pomocí JavaScriptu. Další možnost spočívá ve sloučení požadovaných stylů na úrovni třídy.
+Styly ve formě JavaScriptových hodnot do šablony přidáme pomocí ngClass. Když těchto hodnot potřebujeme na elementu více, zřetězíme předávané hodnoty pomocí JavaScriptu. 
+Další možnost spočívá ve sloučení požadovaných stylů na úrovni třídy.
 
 \begin{citemize}
 	\item body k vypíchnutí: dynamické stylování, logika v template
