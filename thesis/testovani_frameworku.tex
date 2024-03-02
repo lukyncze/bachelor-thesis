@@ -584,9 +584,54 @@ Demonstrační aplikace bude složena z hlavičky, patičky a samotného obsahu,
 Mezi jednotlivými stránkami se uživatel bude moct přepínat pomocí navigačního menu.
 
 K routování mezi jednotlivými stránkami využijeme modul Router přímo od Angularu. Nejprve vytvoříme cesty pro jednotlivé stránky v souboru app.routes.ts. 
-Cesty nakonfigurujeme podle předpisu Routes a pole cest exportujeme. Následně tyto cesty aplikace poskytneme routeru v rámci app.config.ts. 
+Cesty nakonfigurujeme podle předpisu Routes a pole cest exportujeme. Následně tyto cesty aplikace poskytneme routeru v rámci app.config.ts.
+
+\begin{prog}
+// Část souboru app.routes.ts
+
+export const routes: Routes = [
+  \{
+    title: 'Home',
+    path: '',
+    component: LandingComponent,
+    pathMatch: 'full',
+  \},
+  \{
+    title: 'Counter',
+    path: 'counter',
+    component: CounterComponent,
+  \},
+  // Další cesty...
+  \{path: '**', component: PageNotFoundComponent\},
+];
+
+// Část souboru app.config.ts
+
+export const appConfig: ApplicationConfig = \{
+  // V tomto nastavení poskytujeme služby a poskytovatele pro celou aplikaci.
+  providers: [
+    provideRouter(routes),
+    // Další poskytované služby...
+  ],
+\};
+\end{prog}
 
 Pokračujeme vytvořením požadované struktury stránek v AppComponent. Šablona bude obsahovat hlavičku, patičku a obsah, který vykreslíme pomocí elementu router-outlet. 
+
+\begin{prog}
+// Soubor app.component.html
+
+<div class="min-h-screen flex flex-col">
+  <app-header />
+
+  <main class="flex-grow p-8">
+    <!-- Router-outlet vykresluje šablonu (komponentu) pro aktuální URL adresu. -->
+    <router-outlet></router-outlet>
+  </main>
+
+  <app-footer />
+</div>
+\end{prog}
 
 V rámci komponenty hlavičky pak vytvoříme navigační menu, které bude obsahovat odkazy na jednotlivé stránky. 
 Můžeme se inspirovat například architekturou a vzhledem navigačního menu Flowbite. 
@@ -594,9 +639,51 @@ Pokračujeme vypsáním všech cest aplikace, s čímž nám pomohou direktivy r
 Do routerLink předáme cestu a routerLinkActive umožní naslouchání na aktuální cestu, kde se nacházíme. Direktiva routerLinkActiveOptions pak přepíše výchozí nastavení routerLinkActive.
 Reference \#link nám umožní získat informaci o tom, zda je odkaz aktivní. To využijeme při podmíněném nastavení správných CSS tříd.
 
+\begin{prog}
+// Část souboru header.component.html
+
+@for (route of appRoutes; track route.title) \{
+  <li>
+    <a
+      [routerLink]="route.path"
+      routerLinkActive
+      [routerLinkActiveOptions]="routerLinkActiveOptions"
+      #link="routerLinkActive"
+      class="block py-2 pr-4 pl-3 lg:p-0"
+      [ngClass]="\{
+        'STATICKÉ_STYLY_PRO_AKTIVNÍ_LINK': link.isActive,
+        'STATICKÉ_STYLY_PRO_NEAKTIVNÍ_LINK': !link.isActive
+      \}"
+      ariaCurrentWhenActive="page"
+    >
+      \{\{ route.title \}\}
+    </a>
+  </li>
+\}
+\end{prog}
+
 Přepínání barevného režimu, otevírání a zavírání mobilní navigace implementujeme pomocí obslužným metod a vlastností třídy. 
 Informaci o tom, zda má uživatel zapnutý tmavý režim ukládáme do LocalStorage v prohlížeči. 
-Při kliknutí na tlačítko pro přepnutí režimu zavoláme metodu, která změní hodnotu vlastnosti a uloží ji do LocalStorage.
+Při kliknutí na tlačítko pro přepnutí režimu zavoláme metodu toggleDarkMode, která změní hodnotu vlastnosti a uloží ji do LocalStorage.
+
+\begin{prog}
+// Část souboru header.component.ts
+
+protected toggleDarkMode(): void \{
+  this.isDarkMode = !this.isDarkMode;
+  this.updateDarkMode();
+\}
+
+private updateDarkMode(): void \{
+  if (this.isDarkMode) \{
+    document.documentElement.setAttribute('data-mode', 'dark');
+    localStorage.setItem('data-mode', 'dark');
+  \} else \{
+    document.documentElement.removeAttribute('data-mode');
+    localStorage.removeItem('data-mode');
+  \}
+\}
+\end{prog}
 
 \subsubsection{React}
 
