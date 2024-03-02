@@ -8,6 +8,21 @@
   \textbf{Správa stavů, předávání vlastností}
 \end{flushleft}
 
+Při implementaci jednoduchého čítače začneme tím, že vytvoříme Counter komponentu. Ta bude mít stav count a setter setCount pro tento stav.
+
+Dále vytvoříme komponentu Button kvůli principu DRY a celkově znovupoužitelnosti kódu. 
+Typ ButtonProps obsahuje vlastnosti, které můžeme tlačítku předat -- className, onClick a children. 
+Díky tomu, že typ rozšiřuje ButtonHTMLAttributes<HTMLButtonElement>, můžeme předat do komponenty i další běžné atributy HTML tlačítek (např. type, value, disabled).
+
+V rámci argumentu Button komponenty použijeme ES6 destructuring assignment pro získání vlastností. 
+Z objektu vlastností získáme className a children, ostatní vlastnosti ponecháme zabalené v proměnné props pomocí spread operátoru. 
+Nyní můžeme vytvořit JSX pro samotné tlačítko. Vlastnost className přidáme do tříd tlačítka. 
+Pomocí children můžeme do tlačítka vložit libovolný obsah, který bude mezi párovými značkami <Button>. 
+Všechny ostatní vlastnosti pomocí spread operátoru předáme přímo tlačítku.
+
+V Counter komponentě v rámci JSX vrátíme hodnotu stavu count a vykreslíme Button komponenty, jimž předáme potřebné vlastnosti. 
+Pro aktualizaci stavu využijeme vlastnost onClick, které předáme anonymní funkci (arrow function) a v ní zavoláme setCount.
+
 \begin{flushleft}
   \textbf{Interakce v uživatelském prostředí}
 \end{flushleft}
