@@ -27,6 +27,27 @@ Pro aktualizaci stavu využijeme vlastnost onClick, které předáme anonymní f
   \textbf{Interakce v uživatelském prostředí}
 \end{flushleft}
 
+Pro vytvoření jakékoliv UI komponenty můžeme začít tvořit jak JSX, definici komponenty, nebo znovupoužitelný hook. 
+My začneme naprogramováním vlastního hooku, který se odděleně postará o veškerou logiku seznamu.
+
+Hook useDropdown bude mít 2 parametry -- výchozí hodnotu vybrané možnosti (defaultValue) a obslužnou funkci ke změně vybrané v možnosti v rodičovské komponentě (onChange). 
+V rámci hooku nadefinujeme stavy selectedOption, isOpen a vygenerujeme unikátní identifikátor. 
+Dále vytvoříme funkci handleOptionClick, která zajistí změnu vybrané možnosti, zavření seznamu a vypublikuje změnu hodnoty do rodičovské komponenty. 
+Z hooku vracíme potřebné stavy a funkce ve formě objektu nebo pole -- pole musíme označit jako const.
+
+Pokračujeme tvorbou JSX komponenty Dropdown, kde vložíme tlačítko a seznam možností. Otevření možností zajistíme přidáním onClick (což je vlastně MouseEventHandler). 
+V anonymní funkci pak změníme stav pomocí isOpen na opačnou hodnotu. Abychom předešli event bubblingu, v rámci anynomní obslužné funkce zavoláme event.stopPropagation().
+
+Seznam možností zobrazíme podmíněně na základě stavu isOpen. Pro vykreslení možností seznamu (options) použijeme JavaScriptovou funkci map uvnitř JavaScriptové hodnoty v JSX. 
+V Reactu je důležité vždy při použití funkce map nastavit unikátní klíč (key) pro každou položku v seznamu. Tento klíč slouží k identifikaci jednotlivých prvků a optimalizaci procesu renderování. 
+Pro vybrání konkrétní možnosti použijeme onClick, kterému předáme anonymní funkci. V anonymní funkci zavoláme funkci handleOptionClick hooku useDropdown s aktuální položkou ze seznamu.
+
+Abychom uzavřeli jakýkoli aktuálně otevřený rozbalovací seznam na stránce po kliknutí mimo tento seznam, předáme kořenovému elementu dříve vytvořený unikátní identifikátor. 
+Do useDropdown přidáme useEffect a díky němu budeme naslouchat na události pointerdown v DOM. Obslužná funkce pak zajistí zavření aktuálně otevřeného dropdownu.
+
+Dropdown samozřejmě může mít i jiné vstupy, které povedou k lepší znovupoužitelnosti. 
+Dynamické třídy ve formě JavaScriptu na element přidáme pomocí šablonových literálů (template literals) a JavaScriptové hodnoty.
+
 \begin{flushleft}
   \textbf{Reaktivita, asynchronní operace}
 \end{flushleft}
