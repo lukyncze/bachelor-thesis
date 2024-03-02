@@ -33,15 +33,95 @@ V této kapitole srovnáme implementaci stejných funkcionalit ve třech vybran�
   \textbf{Správa stavů}
 \end{flushleft}
 
-Pro implementaci jednoduchého counteru nejprve vytvoříme counter komponentu. Můžeme začít se strukturou HTML značek pro hlavní komponentu. 
-Protože chceme opakovaně použít logiku jednotlivých tlačítek, vytvoříme komponentu counter-button. 
-Ta může přijímat například nějaké CSS styly nebo přes EventEmitter (output) posílat informaci o kliknutí na tlačítko směrem nahoru ve stromě komponent. 
+Pro implementaci jednoduchého counteru nejprve vytvoříme counter komponentu. Můžeme začít se strukturou HTML značek pro hlavní komponentu.
+
+\begin{prog}
+<div class="bg-gray-200 p-6 rounded-md shadow-md">
+  <p class="text-xl font-semibold mb-4">Current count: \{\{ count \}\}</p>
+
+  <div class="flex gap-4">
+    <counter-button
+      [className]="'bg-blue-500 text-white hover:bg-blue-600'"
+      (buttonClicked)="increment()"
+    >
+      Increment
+    </counter-button>
+
+    <!-- další tlačítka... -->
+  </div>
+</div>
+\end{prog}
+
+Jelikož potřebujeme opakovaně použít logiku jednotlivých tlačítek, vytvoříme komponentu counter-button. 
+Ta může přijímat například CSS styly nebo přes output (EventEmitter) posílat informaci o kliknutí na tlačítko směrem nahoru ve stromě komponent.
+
+\begin{prog}
+import \{CommonModule\} from '@angular/common';
+import \{Component, EventEmitter, Input, Output\} from '@angular/core';
+
+// Nastavení komponenty.
+@Component(\{
+  selector: 'counter-button',
+  standalone: true,
+  templateUrl: './counter-button.component.html',
+  imports: [CommonModule],
+\})
+export class CounterButtonComponent \{
+  // Vstupní vlastnost komponenty.
+  @Input() public className = '';
+
+  // Výstupní vlastnost komponenty.
+  @Output() public buttonClicked = new EventEmitter<void>();
+\}
+\end{prog}
+
 Funkci emit() našeho EventEmitteru zavoláme na tlačítku v counter-buttonu právě tehdy, když uživatel klikne na tlačítko -- použijeme listener ve formě (click). 
 K propsání textu či jiných elementů nebo komponent mezi párovými tagy <counter-button></counter-button> pak poslouží párový či nepárový element <ng-content />.
+
+% TODO: Když mám v kódu komentář a duplikuje se s textem, mám použít komentář nebo text? 
+\begin{prog}
+<button
+  class="px-4 py-2 rounded-md focus:outline-none"
+  [ngClass]="className"
+  (click)="buttonClicked.emit()"
+>
+  <!-- ng-content slouží k vykreslení obsahu, který vložíme
+   mezi párové tagy (selectory) dané komponenty. -->
+  <ng-content></ng-content>
+</button>
+\end{prog}
 
 Následně v counter komponentě musíme importovat třídu CounterButtonComponent a do všech elementů counter-button předat jejich vstupy a výstupy. 
 Námi defikovanovanému outputu buttonClicked předáme v šabloně metodu, která se vykoná po emitu (kliknutí na tlačítko ve vnořené komponentě) a metodu zavoláme pomocí kulatých závorek. 
 V rámci counter komponenty pak definujeme stav jako vlastnost count na třídě. Vlastnost pak můžeme modifikovat skrze metody třídy, které voláme v outputu buttonClicked.
+
+\begin{prog}
+import \{CommonModule\} from '@angular/common';
+import \{Component\} from '@angular/core';
+import \{CounterButtonComponent\} from './button/counter-button.component';
+
+@Component(\{
+  selector: 'counter',
+  standalone: true,
+  templateUrl: './counter.component.html',
+  imports: [CommonModule, CounterButtonComponent],
+\})
+export class CounterComponent \{
+  protected count = 0;
+
+  protected increment(): void \{
+    this.count++;
+  \}
+
+  protected decrement(): void \{
+    this.count--;
+  \}
+
+  protected reset(): void \{
+    this.count = 0;
+  \}
+\}
+\end{prog}
 
 \begin{citemize}
 	\item šablony + logika komponenty
