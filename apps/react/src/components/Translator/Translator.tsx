@@ -25,7 +25,7 @@ function Translator() {
   }, []);
 
   useEffect(() => {
-    // Callback funkce pro zpracování přeložení textu.
+    // Funkce pro zpracování přeložení textu.
     const handleTranslation = async () => {
       if (!inputText.length) return;
 
