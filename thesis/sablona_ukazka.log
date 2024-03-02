@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.11)  2 MAR 2024 14:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.11)  2 MAR 2024 14:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -422,8 +422,8 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [8]
 \openout2 = `testovani_frameworku.aux'.
 
- (./testovani_frameworku.tex
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 38.
+ (./testovani_frameworku.tex (./testovani_angular.tex
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 20.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ) [19
@@ -435,10 +435,10 @@ File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 
 
 ] [20] [21] [22] [23] [24] [25] [26] [27] [28]
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 455.
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 437.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [29] [30] [31] [32] [33] [34] [35]) [36] (./sablona_ukazka.lof)
+) [29] [30] [31] [32] [33] [34] [35]) (./testovani_react.tex) (./testovani_svelte.tex)) [36] (./sablona_ukazka.lof)
 \tf@lof=\write5
 \openout5 = `sablona_ukazka.lof'.
 
@@ -470,10 +470,10 @@ Package rerunfilecheck Info: File `sablona_ukazka.out' has not changed.
 (rerunfilecheck)             Checksum: E4A4345FE66FE063F58D08C152FA19D4;1595.
  ) 
 Here is how much of TeX's memory you used:
- 11481 strings out of 479342
- 186035 string characters out of 5869177
+ 11499 strings out of 479342
+ 186449 string characters out of 5869177
  510402 words of memory out of 5000000
- 29207 multiletter control sequences out of 15000+600000
+ 29216 multiletter control sequences out of 15000+600000
  482888 words of font info for 53 fonts, out of 8000000 for 9000
  473 hyphenation exceptions out of 8191
  68i,11n,77p,573b,529s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -574,7 +574,7 @@ pdfTeX warning (dest): name{section.2} has been referenced but does not exist, r
 pdfTeX warning (dest): name{section.1} has been referenced but does not exist, replaced by a fixed one
 
  </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecxc2488.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
-Output written on sablona_ukazka.pdf (29 pages, 188181 bytes).
+Output written on sablona_ukazka.pdf (29 pages, 188591 bytes).
 PDF statistics:
  804 PDF objects out of 1000 (max. 8388607)
  315 compressed objects within 4 object streams
