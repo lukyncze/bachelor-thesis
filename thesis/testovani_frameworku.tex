@@ -36,7 +36,7 @@ V této kapitole srovnáme implementaci stejných funkcionalit ve třech vybran�
 Pro implementaci jednoduchého counteru nejprve vytvoříme counter komponentu. Můžeme začít se strukturou HTML značek pro hlavní komponentu.
 
 \begin{prog}
-<!-- Soubor counter.component.html -->
+// Soubor counter.component.html
 
 <div class="bg-gray-200 p-6 rounded-md shadow-md">
   <p class="text-xl font-semibold mb-4">Current count: \{\{ count \}\}</p>
@@ -58,7 +58,7 @@ Jelikož potřebujeme opakovaně použít logiku jednotlivých tlačítek, vytvo
 Ta může přijímat například CSS styly nebo přes output (EventEmitter) posílat informaci o kliknutí na tlačítko směrem nahoru ve stromě komponent.
 
 \begin{prog}
-<!-- Soubor counter-button.component.ts -->
+// Soubor counter-button.component.ts
 
 import \{CommonModule\} from '@angular/common';
 import \{Component, EventEmitter, Input, Output\} from '@angular/core';
@@ -84,7 +84,7 @@ K propsání textu či jiných elementů nebo komponent mezi párovými tagy <co
 
 % TODO: Když mám v kódu komentář a duplikuje se s textem, mám použít komentář nebo text? 
 \begin{prog}
-<!-- Soubor counter-button.component.html -->
+// Soubor counter-button.component.html
 
 <button
   class="px-4 py-2 rounded-md focus:outline-none"
@@ -102,7 +102,7 @@ Námi defikovanovanému outputu buttonClicked předáme v šabloně metodu, kter
 V rámci counter komponenty pak definujeme stav jako vlastnost count na třídě. Vlastnost pak můžeme modifikovat skrze metody třídy, které voláme v outputu buttonClicked.
 
 \begin{prog}
-<!-- Soubor counter.component.ts -->
+// Soubor counter.component.ts
 
 import \{CommonModule\} from '@angular/common';
 import \{Component\} from '@angular/core';
@@ -146,7 +146,7 @@ Otevření možností zajístíme tak, že na tlačítko přidáme click listene
 V rámci této metody je třeba zavolat i event.stopPropagation(). Předejdeme tak potenciální chybě ve formě tzv. event bubblingu -- spuštění událostí na prvcích odlišných od cílového.
 
 \begin{prog}
-<!-- Část souboru dropdown.component.html -->
+// Část souboru dropdown.component.html
 
 <div class="rounded-md shadow-sm">
   <!-- Pro poslouchání na události v DOMu můžeme 
@@ -173,7 +173,7 @@ K vybraní konkrétní možnosti použijeme zase (click) a do obslužné metody 
 Metoda handleOptionClick pak zajistí uložení aktuálně vybrané možnosti, zavření dropdownu a vyemitování vybrané možnosti do rodičovské komponenty.
 
 \begin{prog}
-<!-- Část souboru dropdown.component.html -->
+// Část souboru dropdown.component.html
 
 @if (isOpen) {
   <div
@@ -201,11 +201,11 @@ V případě, že máme dropdown otevřen a chceme jej po kliknutí mimo tentý�
 Pro každou komponentu vytvoříme unikátní vlastnost ve formě ID. To pak dynamicky umístíme na kořenový element dropdownu.
 
 \begin{prog}
-<!-- Část souboru dropdown.component.ts -->
+// Část souboru dropdown.component.ts
 
 protected dropdownId = `id-\${crypto.randomUUID()}`;
 
-<!-- Část souboru dropdown.component.html -->
+// Část souboru dropdown.component.html
 
 <div class="relative inline-block text-left" [id]="dropdownId">
 \end{prog}
@@ -215,7 +215,7 @@ Dekorátor přijímá DOM událost, na který má poslouchat -- document:pointer
 Pod dekorátorem pak definujeme obslužnou metodu, která se volá při emitu specifikované události. V rámci metody pak zajistíme uzavření aktuálně otevřeného dropdownu.
 
 \begin{prog}
-<!-- Část souboru dropdown.component.ts -->
+// Část souboru dropdown.component.ts
 
 @HostListener('document:pointerdown', ['\$event.target'])
 onClickOutsideDropdown(target: HTMLElement): void \{
@@ -249,8 +249,34 @@ Tato vlastnost je Subject, speciální typ observable, z knihovny RxJS. Později
 Podobným způsobem poté můžeme registrovat událost změny vstupního textu -- naslouchat na změnu vstupního textu.
 % Přidat schéma
 
+\begin{prog}
+// Část souboru translator.component.ts
+
+protected handleLanguageChange(outputLanguage: Option): void \{
+  this.outputLanguage = outputLanguage.value;
+  // Synchronní aktualizace hodnoty observable (v tomto případě Subjectu).
+  // Slouží pro následné operace při změně hodnoty observable.
+  this.inputValuesChanges\$.next(outputLanguage.value);
+\}
+\end{prog}
+
 Zadání vstupního textu pak může řešit komponenta TranslationInputComponent, která obdobným způsobem aktualizuje hodnotu vstupního textu v rodičovské komponentě. 
-Aktuální hodnotu formulářového prvku nastavíme pomocí [ngModel]. Pro naslouchání na změnu hodnoty formulářového prvku zase využijeme (ngModelChange). 
+Aktuální hodnotu formulářového prvku nastavíme pomocí [ngModel]. Pro naslouchání na změnu hodnoty formulářového prvku zase využijeme (ngModelChange).
+
+\begin{prog}
+// Část souboru translation-input.component.html
+
+<textarea
+  autosizeTextArea
+  class="block w-full min-h-0 p-3 pr-12 pb-8 resize-none !outline-none"
+  placeholder="Type to translate ..."
+  [ngModel]="inputText"
+  (ngModelChange)="handleInputChange(\$event)"
+>
+</textarea>
+\end{prog}
+
+% TODO: Vložit do přílohy soubor autosize-text-area.directive.ts
 V případě, že potřebujeme aktualizovat výšku textového pole na základě jeho obsahu, můžeme využít vlastní direktivu AutosizeTextAreaDirective. 
 V konstruktoru direktivy získáme element, na který přidáme tuto direktivu. Dále budeme potřebovat třídu Renderer2, která umožňuje manipulovat s DOM. 
 V direktivě budeme naslouchat na změnu hodnoty textového pole pomocí dekorátoru @HostListener a události input. Následně v rámci obslužné metody zajistíme aktualizaci výšky.
@@ -261,11 +287,69 @@ Ten povolí poslat dotaz na server až po uplynutí určité doby od poslední z
 Subscribe zavolá věřejnou metodu služby (getTranslation), která vrací přeložený text. 
 Nakonec, aby dotazování serveru fungovalo, je třeba metodu setupInputChangeSubscription zavolat v konstruktoru nebo hooku OnInit.
 
+\begin{prog}
+// Část souboru translator.component.ts
+
+private setupInputChangeSubscription(): void \{
+  // Naslouchá změnám vstupního textu a výstupního jazyka.
+  // Operátor debounceTime zajistí, že se změna vstupního textu 
+    nebo výstupního jazyka vyhodnotí až po uplynutí 300 ms.
+  // Dále operátor distinctUntilChanged zajišťuje, 
+    že se změna vyhodnotí pouze v případě, kdy je odlišná od předchozí hodnoty.
+  // Operátor takeUntil() zajišťuje, 
+    že se subscription zruší při zničení komponenty.
+  // Pokud se změní vstupní text nebo výstupní jazyk, 
+    v rámci methody subscribe se spustí překlad.
+  this.inputValuesChanges\$
+    .pipe(debounceTime(300), distinctUntilChanged(), takeUntil(this.destroy\$))
+    .subscribe(() => this.triggerTranslation());
+\}
+\end{prog}
+
 Se službou TranslationService a veřejnou metodou pro vykonání dotazu nám pomůže třída HttpClient. Ta je dostupná přímo v základních modulech Angularu.
 Službu HttpClient získáme v konstruktoru, kde ji pomocí klíčového slova private přiřadíme do vlastností třídy. 
 Následně na HTTP klientovi zavoláme metodu post vůči API, které vrátí přeložený text ze serveru. 
 Pokud úspěšná odpověď ze serveru obsahuje složitější strukturu, ze které potřebujeme získat jen nějakou část, pak s konverzí odpovědi pomůže RxJS operátor map(). 
-Metoda getTranslation vrací observable, v translator komponentě proto hodnoty odebíráme pomocí metody subscribe. 
+Metoda getTranslation vrací observable, v translator komponentě proto hodnoty odebíráme pomocí metody subscribe.
+
+% TODO: Mám zde zmínit i unsubscribe přímo v textu? (je to poměrně důležité)
+\begin{prog}
+// Část souboru translation.service.ts
+
+return this.httpClient
+  .post<TranslationResponseData>(url, body, options)
+  .pipe(map(data => this.convertToOutputText(data)));
+
+// Část souboru translator.component.ts
+
+// Slouží ke zrušení subscriptions při zničení komponenty.
+private destroy\$: Subject<void> = new Subject();
+// Slouží k naslouchání na změny vstupního textu a výstupního jazyka.
+private inputValuesChanges\$ = new Subject<string>();
+
+public ngOnDestroy(): void \{
+  // Slouží k manuálnímu unsubscribe všech observables při zničení komponenty.
+  this.destroy\$.next();
+  this.destroy\$.complete();
+\}
+
+this.translationService
+  .getTranslation(this.inputText, this.outputLanguage)
+  .pipe(
+    // Zajišťuje, že se subscription zruší při zničení komponenty.
+    takeUntil(this.destroy\$),
+    // Zachytí chybu v observable.
+    catchError(error => this.handleError(error)),
+  )
+  // V metodě subscribe dostaneme transformovanou odpověď 
+    (v rámci next callbacku) nebo chybu (v rámci error callbacku).
+  // Po poslední úspěšné aktualizaci observable se volá callback funkce complete.
+  .subscribe(\{
+    next: response => (this.outputText = response),
+    error: error => (this.error = error),
+    complete: () => (this.loading = false),
+  \});
+\end{prog}
 
 V momentě, kdy obdržíme odpověď ze serveru, zobrazíme přeložený text uživateli. 
 K tomu poslouží TranslationOutputComponent, které na vstupu předáme výstupní text spolu s dalšími vstupními vlastnostmi. 
@@ -273,6 +357,26 @@ V rámci šablony pak podmíněně vykreslíme přeložený text, chybu nebo na�
 
 Při zarovnání vstupního a výstupního pole v UI si musíme dát pozor na to, že šířku je potřeba nastavit již v prvním potomku div elementu, na kterém nastavíme flexbox. 
 Důvod spočívá v tom, že Angular v DOMu vytváří element pro každou komponentu.
+
+\begin{prog}
+// Část souboru translation.service.ts
+
+<div class="flex text-xl">
+  <translation-input 
+    <!-- Vstupní a výstupní vlastnosti... -->
+    class="relative w-1/2"
+    <!-- Šířka musí být nastavena zde, 
+      nikoliv v rámci root elementu translation-input... -->
+  />
+
+  <translation-output 
+    <!-- Vstupní a výstupní vlastnosti... -->
+    class="relative w-1/2"
+    <!-- Šířka musí být nastavena zde, 
+      nikoliv v rámci root elementu translation-output... -->
+  />
+</div>
+\end{prog}
 
 \begin{citemize}
 	\item předávání vlastností nahoru a dolů
