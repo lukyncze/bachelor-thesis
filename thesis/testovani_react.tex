@@ -52,6 +52,33 @@ Dynamické třídy ve formě JavaScriptu na element přidáme pomocí šablonov�
   \textbf{Reaktivita, asynchronní operace}
 \end{flushleft}
 
+Následující komponenta bude demonstrovat využití reaktivity a asynchronních operací. Vytvoříme komponentu, která přeloží zadaný text do cílového jazyka. 
+Začneme vytvořením komponenty Translator. Komponenta při změně stavů (zadaného textu uživatelem a výstupního jazyka) zavolá API, které vrátí přeložený text.
+V rámci komponenty vytvoříme vnořené komponenty pro zadání vstupního textu, výběr jazyka a zobrazení výsledku.
+
+Komponenta LanguageDropdown uživateli umožní vybrat jazyk, do kterého chce text přeložit. 
+Díky vlastnosti onChange (callback funkce) aktualizujeme výstupní jazyk v rodičovské komponentě. 
+
+Pokračujeme implementací komponenty TranslationInput, která bude sloužit k zadání vstupního textu přes textové pole. Aktuální hodnotu formulářového prvku nastavíme pomocí atributu value.
+Po změně hodnoty textového pole, kterou získáme v události přes atribut onChange, aktualizujeme hodnotu vstupního textu v Translator komponentě. 
+Abychom reaktivně aktualizovali výšku pole na základě obsahu, použijeme vlastní hook. 
+Hook bude potřebovat referenci elementu, a tak vytvoříme ref, který přidáme na element textového pole.
+
+Hook useAutosizeTextArea bude příjímat referenci na element. Dále také hodnotu textového pole, aby po jakékoli změně této hodnoty přepočítala výška pole. 
+V rámci hooku vytvoříme useEffect, který se znovu zavolá při každé změně textAreaRef, nebo hodnoty textu. Následně v rámci těla hooku aktualizujeme výšku textového pole.
+
+V Translator komponentě potřebujeme ukládat vstupní hodnotu a výstupní jazyk z vnořených komponent. Dále při každé změně těchto hodnot zavoláme API, k čemuž využijeme useEffect.
+V rámci hooku definujeme asynchronní funkci handleTranslation, která pomocí fetch API odešle HTTP POST požadavek na server. 
+Pokud bychom definovali funkci mimo useEffect, museli bychom ji přidat do pole závislostí hooku.
+Při úspěšné odpovědi aktualizujeme stav s přeloženým textem, v opačném případě nastavíme chybový stav.
+
+Aby dotazování fungovalo, vytvoříme referenci delayTimerRef. V rámci těla useEffect hooku nejprve zrušíme předchozí časovač. 
+Funkci handleTranslation zavoláme v callbacku funkce setTimeout, která umožní předejít dotazování serveru ihned po změně nějaké vstupní hodnoty. 
+Výsledek funkce setTimeout uložíme do delayTimerRef.current. Nesmíme také zapomenout na zrušení časovače při zničení komponenty.
+
+V okamžiku, kdy obdržíme odpověď ze serveru, zobrazíme přeložený text uživateli pomocí komponenty TranslationOutput. 
+Předáme jí samotný výstupní text a další vstupní vlastnosti, na základě kterých pak podmíněně vykreslíme přeložený text, chybu nebo načítání.
+
 \begin{flushleft}
   \textbf{Tvorba formulářů, validace}
 \end{flushleft}
