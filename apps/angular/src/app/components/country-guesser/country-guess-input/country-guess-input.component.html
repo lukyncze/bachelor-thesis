@@ -27,7 +27,8 @@
         <!-- $index reprezentuje aktuální index ve for smyčce. -->
         <button
           (click)="handleChangeSelectedGuess(filteredCountry.name.common)"
-          class="rounded-lg p-2 {{ selectedGuessIndex === $index ? 'bg-gray-300' : '' }}"
+          class="rounded-lg p-2"
+          [ngClass]="{'bg-gray-300': selectedGuessIndex === $index}"
         >
           {{ filteredCountry.flag }} {{ filteredCountry.name.common }}
         </button>
