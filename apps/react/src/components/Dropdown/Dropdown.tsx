@@ -64,7 +64,7 @@ function Dropdown({
             aria-orientation="vertical"
             aria-labelledby="options-menu"
           >
-            {/* Pro vykreslení listu (pole hodnot) můžeme využít bloky { } a JavaScriptovou funkci .map(). */}
+            {/* Pro vykreslení seznamu (listu) můžeme využít bloky { } a JavaScriptovou funkci .map(). */}
             {options.map(option => (
               <button
                 key={option.value}

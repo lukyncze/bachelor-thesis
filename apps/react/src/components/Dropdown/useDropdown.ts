@@ -36,6 +36,7 @@ function useDropdown(
       // Odebereme posluchač události na událost pointerdown a jeho obslužnou funkci.
       document.removeEventListener('pointerdown', handleClickOutsideDropdown);
     };
+    // Druhý parametr useEffectu je pole závislostí, které určuje, kdy se má useEffect spustit.
   }, [dropdownId]);
 
   // Vrátíme všechny hodnoty, které chceme aby byly dostupné zvenčí.
