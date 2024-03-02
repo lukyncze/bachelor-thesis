@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.11)  2 MAR 2024 10:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.11)  2 MAR 2024 11:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -303,7 +303,7 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \c@mdf@env@ii=\count279
 \c@mdf@zref@counter=\count280
 Package zref Info: New property: mdf@pagevalue on input line 895.
-) (./sablona_ukazka.aux (./uvodni_kapitola.aux) (./webova_aplikace.aux) (./analyza_frameworku.aux) (./testovani_frameworku.aux) (./zakladni-info.aux) (./dalsi-upozorneni.aux) (./zaver.aux) (./literatura.aux) (./seznamzkratek.aux))
+) (./sablona_ukazka.aux (./uvodni_kapitola.aux) (./webova_aplikace.aux) (./analyza_frameworku.aux) (./testovani_frameworku.aux) (./zakladni-info.aux) (./zaver.aux) (./literatura.aux) (./seznamzkratek.aux))
 \openout1 = `sablona_ukazka.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 98.
@@ -434,8 +434,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@lof=\write5
 \openout5 = `sablona_ukazka.lof'.
 
- [36
-
+ [38
 
 
 
@@ -446,27 +445,27 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@lot=\write6
 \openout6 = `sablona_ukazka.lot'.
 
- [37
+ [39
 
 
-] [39
+] [41
 
 
 
 
-] (./sablona_ukazka.aux (./uvodni_kapitola.aux) (./webova_aplikace.aux) (./analyza_frameworku.aux) (./testovani_frameworku.aux) (./zakladni-info.aux) (./dalsi-upozorneni.aux) (./zaver.aux) (./literatura.aux) (./seznamzkratek.aux))
+] (./sablona_ukazka.aux (./uvodni_kapitola.aux) (./webova_aplikace.aux) (./analyza_frameworku.aux) (./testovani_frameworku.aux) (./zakladni-info.aux) (./zaver.aux) (./literatura.aux) (./seznamzkratek.aux))
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
 Package rerunfilecheck Info: File `sablona_ukazka.out' has not changed.
-(rerunfilecheck)             Checksum: EEA2EB264BFDC8CA9673F7DC37445D7C;1595.
+(rerunfilecheck)             Checksum: E4A4345FE66FE063F58D08C152FA19D4;1595.
  ) 
 Here is how much of TeX's memory you used:
- 11454 strings out of 479342
- 185186 string characters out of 5869177
- 510827 words of memory out of 5000000
- 29184 multiletter control sequences out of 15000+600000
+ 11436 strings out of 479342
+ 184837 string characters out of 5869177
+ 510373 words of memory out of 5000000
+ 29178 multiletter control sequences out of 15000+600000
  481515 words of font info for 50 fonts, out of 8000000 for 9000
  473 hyphenation exceptions out of 8191
  68i,11n,77p,573b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -474,25 +473,11 @@ pdfTeX warning (dest): name{table.1} has been referenced but does not exist, rep
 
 pdfTeX warning (dest): name{figure.1} has been referenced but does not exist, replaced by a fixed one
 
-pdfTeX warning (dest): name{section*.9} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.6} has been referenced but does not exist, replaced by a fixed one
+pdfTeX warning (dest): name{section*.8} has been referenced but does not exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{section*.5} has been referenced but does not exist, replaced by a fixed one
 
-pdfTeX warning (dest): name{subsection.5.3} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.2} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.1} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.5} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.4} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.4.3} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.4.2.1} has been referenced but does not exist, replaced by a fixed one
+pdfTeX warning (dest): name{section*.4} has been referenced but does not exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{subsection.4.2} has been referenced but does not exist, replaced by a fixed one
 
@@ -581,10 +566,10 @@ pdfTeX warning (dest): name{section.2} has been referenced but does not exist, r
 pdfTeX warning (dest): name{section.1} has been referenced but does not exist, replaced by a fixed one
 
  </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecxc2488.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
-Output written on sablona_ukazka.pdf (22 pages, 148779 bytes).
+Output written on sablona_ukazka.pdf (22 pages, 147546 bytes).
 PDF statistics:
- 673 PDF objects out of 1000 (max. 8388607)
- 299 compressed objects within 3 object streams
- 88 named destinations out of 1000 (max. 500000)
+ 656 PDF objects out of 1000 (max. 8388607)
+ 284 compressed objects within 3 object streams
+ 81 named destinations out of 1000 (max. 500000)
  81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
