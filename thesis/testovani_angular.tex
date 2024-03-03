@@ -545,11 +545,11 @@ V rámci komponenty country-guesser budeme implementovat jednotlivé herní prvk
 Definujeme tedy vlastnosti třídy, které budou reprezentovat stav a průběh hry. V hooku OnInit získáme náhodou zemi (zemi pro uhádnutí). 
 Dále zde zavoláme veřejnou metodu usePolyfill na službě CountryFlagPolyfillService, která zajistí podporu zobrazení ikon vlajek v prohlížečích, které to přímo nepodporují.
 Do komponenty také přidáme obslužné metody handleEvaluateGuessAndUpdateState a handleSetInitialState, ve kterých implementujeme logiku hry. 
-V šabloně následně vykreslíme UI komponenty hry a podmíněně modální okna přři výhře či prohře.
+V šabloně následně vykreslíme UI komponenty hry a podmíněně modální okna při výhře či prohře.
 
 Služba CountryFlagPolyfillService, jak již bylo popsáno výše, nám dopomůže s podporou zobrazení ikon vlajek v prohlížečích, které nemají podporu zobrazení vlajek. 
-Pokud prohlížeč uživatele podporuje emojis a webové fonty, zavoláním funkce polyfillCountryFlagEmojis přes metodu usePolyfill knihovna přidá webové fonty Twemoji Country Flags do HTML hlavičky.
-Aby se programaticky přidané fonty použily, nesmíme zapomenout nastavit font-family pravidlo v rámci CSS stylů.
+Pokud prohlížeč uživatele podporuje emojis a webové fonty, zavoláním funkce polyfillCountryFlagEmojis přes metodu usePolyfill knihovna přidá webový font Twemoji Country Flags do HTML hlavičky.
+Aby se programaticky přidaný font použil, nesmíme zapomenout nastavit font-family pravidlo v rámci CSS stylů.
 
 \begin{prog}
 // Část souboru styles.css
@@ -567,7 +567,7 @@ Samotný hint-box pak dynamicky vykreslí název a SVG ikonu nápovědy, textovo
 
 % TODO: Přidat do přílohy soubor country-guess-input.component.ts
 Pokračujeme komponentou country-guess-input, která uživateli umožní zadat svůj tip. 
-Začneme šablonou, kde vytvoříme formulářový prvek pro zadání názvu země, potvrzovací tlačítko. 
+Začneme šablonou, kde vytvoříme formulářový prvek pro zadání názvu země a potvrzovací tlačítko. 
 Dále podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu -- filtrované země a chybové hlášky. 
 Můžeme také rovnout přidat obslužné metody pro akce a události nad formulářem, které následně postupně doimplementujeme.
 
@@ -589,11 +589,13 @@ Pomocná metoda changeSelectedGuessIndex aktualizuje vlastnost selectedGuessInde
 K převodu tipu uživatele slouží pomocná metoda convertToFormattedGuess. Metoda zajistí, aby tip začínal velkým písmenem a zbytek řetezce byl složen z malých písmen.
 % TODO: Přidat do přílohy soubor country-guess-input.component.ts
 
-Ke zobrazení všech již hádaných zemí uživatelem implementujeme komponentu guessed-countries-list. 
-Ze vstupních vlastností countries, guessedCountries a randomCountry pomocí služby EnrichGuessedCountriesService získáme pole již hádaných zemí s jejich vlajkou a vzdáleností od hádané země.
-Služba EnrichGuessedCountriesService ke každé hádané zemi přidá vlajku z pole všech zemí a vypočte vzdálenost od hádané země. 
-Pro vypočtení vzdálenosti použijeme metodu getDistanceBetweenTwoPoints a vlastnost latlng, kterou získáme z API při získávání všech zemí.
-Hodnotu vlastnosti enrichedGuessedCountries aktualizujeme v rámci hooku OnChanges. Jednotlivé hádané země následně vykreslíme v šabloně.
+Implementujeme komponentu guessed-countries-list, jenž zobrazí seznam již hádaných zemí. 
+Mezi vstupními vlastnostmi bude pole všech zemí (countries), pole hádaných zemí uživatelem (guessedCountries) a také země, kterou uživatel musí uhodnout (randomCountry).
+Pomocí vstupních vlastností a služby EnrichGuessedCountriesService získáme pole hádaných zemí s jejich vlajkou a vzdáleností od randomCountry (distanceFromRandomCountry).
+Služba EnrichGuessedCountriesService ke každé hádané zemi přidá vlajku z pole všech zemí a vypočte distanceFromRandomCountry. 
+Pro vypočtení vzdálenosti použijeme funkci getDistanceBetweenTwoPoints a vlastnost latlng, kterou získáme z API při získávání všech zemí. 
+Funkci getDistanceBetweenTwoPoints importujeme z knihovny calculate-distance-between-coordinates. 
+Hodnotu vlastnosti enrichedGuessedCountries aktualizujeme v rámci hooku OnChanges. Seznam hádaných zemí následně vykreslíme v šabloně.
 
 Pokračujeme implementací modálních oken, které se zobrazí při výhře či prohře. 
 Vlastnosti isWinModalOpen a isLoseModalOpen, určující, zda se mají okna zobrazit, bychom již měli aktualizovat v rámci metody handleEvaluateGuessAndUpdateState v CountryGuesserComponent. 
