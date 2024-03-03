@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.11)  3 MAR 2024 11:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.11)  3 MAR 2024 13:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -574,7 +574,7 @@ pdfTeX warning (dest): name{section.2} has been referenced but does not exist, r
 pdfTeX warning (dest): name{section.1} has been referenced but does not exist, replaced by a fixed one
 
  </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecxc2488.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
-Output written on sablona_ukazka.pdf (33 pages, 197743 bytes).
+Output written on sablona_ukazka.pdf (33 pages, 197770 bytes).
 PDF statistics:
  824 PDF objects out of 1000 (max. 8388607)
  329 compressed objects within 4 object streams
