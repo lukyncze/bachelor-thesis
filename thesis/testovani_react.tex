@@ -83,6 +83,59 @@ Předáme jí samotný výstupní text a další vstupní vlastnosti, na základ
   \textbf{Tvorba formulářů, validace}
 \end{flushleft}
 
+React sám o sobě poskytuje jen základní API pro tvorbu formulářů, avšak disponuje mnoha knihovnami, které tuto funkcionalitu rozšiřují. 
+Mezi takové knihovny patří např. Formik, Redux Form nebo React Hook Form. V této sekci se zaměříme na tvorbu formulářů pomocí React Hook Form. 
+Vytvoříme komponentu pro jednoduchou investiční kalkulaci. 
+V rámci této komponenty naprogramujeme formulář pro zadání vstupních dat a komponentu výsledku kalkulace, která se zobrazí po potvrzení formuláře.
+
+Začneme s reaktivním fomulářem, který bude přijímat počáteční hodnoty (defaultValues) a callback funkci handleFormSubmit pro předání výsledků do rodičovské komponenty. 
+Strukturu formuláře popíšeme v typu InvestFormData. Pomocí hooku useForm z knihovny React Hook Form vytvoříme instanci formuláře, které předáme defaultValues a nastavíme reaktivní validaci. 
+Následně z hooku dostameme funkce register, handleSubmit a formState, které poslouží ke správě formuláře.
+
+Následně do JSX přidáme form s onSubmit atributem, kterému předáme funkci handleSubmit z React Hook Form. Do handleSubmit pak vložíme vstup handleFormSubmit v rámci nejž získáme aktuální hodnoty formuláře. 
+Ve formuláři vytvoříme formulářové prvky, které propojíme s reaktivním formulářem pomocí funkce register. První argument představuje název formulářového prvku, druhý argument je validační objekt. 
+V rámci range inputu potřebujeme HTML atributy min a max, díky kterým omezíme rozsah vstupních hodnot. Abychom mohli zobrazit aktuální hodnotu range inputu, využijeme vlastnost value a onChange. 
+Chyby formuláře získáme z formState a vykreslíme je pod formulářovými prvky. V neposlední řadě přidáme tlačítko s typem submit, které zajistí odeslání formuláře a zavolání callback funkce handleFormSubmit.
+
+V rodičovské komponentě získáme aktuální hodnoty formuláře díky obslužné funkci handleFormSubmit. Pomocí funkce futureValuesCalculator získáme hodnoty, které následně vykreslíme v komponentě FutureValuesInfo. 
+Tato komponenta obsahuje dvě vnořené komponenty FutureValueInfo, pro zobrazení jednotlivých výsledků. Hodnotu v JSX transformujeme pomocí JavaScriptové funkce.
+
+% Angular je flexibilní z pohledu možností tvorby formulářů. My použijeme reaktivní formuláře, jelikož jsou flexibilnější a umožní nám jednodušší reakce na změny prvků.
+% Vytvoříme komponentu zaměřenou na jednoduché investiční kalkulace. 
+% Bude obsahovat dvě vnořené komponenty: formulář pro zadání vstupních dat a komponentu výsledku kalkulace, která se zobrazí po potvrzení formuláře.
+
+% Začneme s tvorbou reaktivního formuláře. Typ InvestForm popisuje strukturu souvisejících formulářových prvků formuláře.
+
+% Protože prvků budeme mít více, deklarujeme formulářovou skupinu jako vlastnost třídy, ve které následně definujeme samotné formulářové prvky. 
+% Vlastnost investForm pak umožní přístup k hodnotám formuláře a jeho validaci. Zde narazíme na problém s nenastavením počáteční hodnoty vlastnosti přímo nebo v konstruktoru. 
+% Můžeme ho vyřešit za pomoci vykřičníku -- řekneme tak TypeScriptu, že obsah proměnné je nenulový. Další možností je vypnout pravidlo strictPropertyInitialization v souboru tsconfig.json.
+
+% Hodnotu vlastnosti investForm nastavíme pomocí metody initializeInvestForm v rámci OnInit hooku. 
+% Tento postup zvolíme, protože chceme nastavovat počáteční hodnoty formuláře na základě vstupní vlastnosti defaultValues.
+% Důvodem je, že hodnoty vstupních vlastností jsou v komponentě dostupné nejdříve v rámci hooku OnInit.
+
+% Metoda initializeInvestForm vrátí instanci třídy FormGroup, kterou vytvoříme pomocí třídy FormBuilder ze základního balíčku @angular/forms. 
+% Argumentem pro metodu group pak je objekt, který popisuje strukturu formuláře.
+% % Vlastnosti objektu budou klíče formulářových prvků a jejich hodnoty pole, kde první prvek bude počáteční hodnota a druhý prvek pole validátorů
+
+% V šabloně následně propojíme formulářovou skupinu s formulářem. K tomu poslouží direktiva [formGroup] a její hodnotu nastavíme na vlastnost investForm. 
+% V rámci formuláře pak vytvoříme formulářové prvky, které propojíme direktivou formControlName. Hodnota pak musí odpovídat klíči prvku ve formulářové skupině. 
+% Pro zajištění efektivní obsluhy chyb formuláře můžeme využít getter metody, které vrátí konkrétní formulářový prvek.
+
+% Dále vytvoříme tlačítko s typem submit, přes které uživatel formulář potvrdí. Na form značku přidáme (ngSubmit), který vyemituje událost při potvrzení formuláře. 
+% Obslužná metoda pak prostřednictvím výstupové vlastnosti publikuje aktuální hodnotu reaktivního formuláře do rodičovské komponenty.
+
+% V rámci rodičovské komponenty tedy vykreslíme samotný formulář a při jakémkoli potvrzení formuláře získáme aktuální hodnoty z formuláře díky outputu. 
+% Hodnoty formuláře pak dostaneme v obslužné metodě handleFormChanged. Pomocí služby FutureValuesCalculatorService tyto hodnoty transformujeme do požadovaného formátu. 
+% Výsledek uložíme do vlastnosti futureValues. 
+
+% Když jsou hodnoty vypočteny, vykreslíme je na stránce prostřednictvím komponent future-values-info a future-value-info. 
+% První z komponent slouží k rozložení výsledků do požadovaného formátu a vytvoření komponent pro jednotlivé výsledky. 
+% Komponenta future-value-info pak přijímá vstupní vlastnost, kterou v šabloně před vykreslením v DOM přetransformujeme díky rouře (LocalizedNumberPipe).
+
+% Stejného výsledku bychom mohli dosáhnout i přes metodu na třídě. Tento přístup Angular nedoporučuje, jelikož metody se v rámci šablony spouští opakovaně a mohou způsobit problémy s výkonem. 
+% Oproti tomu roura umožní lepší znovupoužitelnost a přehlednost. - 3434
+
 \begin{flushleft}
   \textbf{Modularita, použití knihoven}
 \end{flushleft}
