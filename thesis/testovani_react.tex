@@ -130,17 +130,16 @@ Klíčová komponenta CountryGuessInput pak uživateli umožní zadat svůj tip.
 Začneme s JSX, kde vytvoříme formulářový prvek pro zadání názvu země, potvrzovací tlačítko a podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu (filtrované země). 
 Přidáme obslužné metody pro akce a události nad formulářem, které následně doimplementujeme.
 
-% přepsat funkce...
 Ve funkční komponentě CountryGuessInputComponent na základě vstupu countries získáme pole všech zemí bez těch, které uživatel již hádal (countriesWithoutAlreadyGuessed). 
-Poté definujeme a inicializujeme ostatní stavy komponenty. Funkce handleGuessButtonClick vyvolá obslužnou funkci handleEvaluateGuessAndUpdateState v rodičovské komponentě a zavolá funkci handleChangeSelectedGuess.
+Poté definujeme a inicializujeme ostatní stavy komponenty. 
+Při kliknutí na tlačíko se zavolá funkce handleGuessButtonClick, která volá obslužnou funkci handleEvaluateGuessAndUpdateState v rodičovské komponentě a také funkci handleChangeSelectedGuess. 
 Funkce handleChangeSelectedGuess aktualizuje aktuální tip, filtrované země a uzavře podmenu. Funkce handleInputChange převede tip uživatele do daného formátu, poté aktualizuje aktuální tip a filtrované země. 
-Funkce handleKeyDown umožní uživateli interagovat s podmenu díky klávesnici.
+Ovládání formulářového prvku pomocí klávesnice umožní funkce handleKeyDown.
 
 Pomocná funkce updateGuessAndFilteredCountries získá aktuálně filtrované země na základě uživatelova tipu. Následně aktualizuje stavy currentGuess, isValidGuess a filteredCountries. 
 Funkce clampSelectedGuessIndex zajistí, aby index uživatelem vybrané země byl v požadovaném rozmezí (0 až počet filtrovaných zemí). 
 Pro aktualizaci vlastnosti selectedGuessIndex slouží funkce changeSelectedGuessIndex, která index aktualizuje o hodnotu předanou v argumentu.
 V neposlední řadě funkce convertToFormattedGuess převede tip uživatele tak, aby začínal velkým písmenem a zbytek řetezce byl složen z malých písmen.
-% přepsat funkce...
 
 Ke zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. Ze vstupních vlastností countries, guessedCountries a randomCountry získáme proměnnou enrichedGuessedCountries. 
 Jde o uživatelem hádané země s vlajkou a vzdáleností od randomCountry. K převodu využijeme JavaScriptové funkce z jiného souboru. 
