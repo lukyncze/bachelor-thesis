@@ -41,6 +41,26 @@ Třídy CSS v JavaScriptové formě přidáme k elementu pomocí šablonových l
   \textbf{Reaktivita, asynchronní operace}
 \end{flushleft}
 
+V rámci následující sekce se zaměříme na reaktivitu a asynchronní operace. Naprogramujeme komponentu, která přeloží zadaný text do cílového jazyka. 
+Začneme vytvořením komponenty Translator. Komponenta reaktivně (při změně zadaného textu či výstupního jazyka) zavolá API, které vrátí přeložený text. 
+V Translator komponentě využijeme vnořené komponenty, které budou sloužit k zadání vstupního textu, výběru jazyka a zobrazení výsledku.
+
+Skrze komponentu LanguageDropdown umožníme uživateli vybrat jazyk, do kterého bude chtít text přeložit. Výstupní jazyk v rodičovské komponentě změníme přes vlastnost onChange.
+
+Pokračujeme implementací komponenty TranslationInput, která umožní zadat vstupní text (inputText) přes textové pole. Aktuální hodnotu formulářového prvku nastavíme pomocí bind:value. 
+V rámci rodičovské komponenty použijeme bind, díky čemuž pak reaktivně aktualizujeme inputText v Translator komponentě. K reaktivní změně výšky textového pole použijeme akci autoresizeTextArea. 
+Akce přijme element, na kterém se má provést změna výšky. Elementu přidáme listener na událost input. V obslužné funkci následně modifikujeme výšku pole.
+
+V rámci rodičovské komponenty zavoláme API v momentě, kdy dojde ke změně vstupního textu nebo výstupního jazyka. K tomu použijeme reaktivní prohlášení (reactive statement). 
+V těle prohlášení zrušíme předchozí časovač a pomocí funkce setTimeout zavoláme funkci handleTranslation. Tímto způsobem předejdeme dotazování serveru ihned po změně nějaké vstupní hodnoty. 
+Při zničení komponenty zrušíme časovač a asynchronní požadavky.
+
+Účelem asynchronní funkce handleTranslation pak je odeslání korektního HTTP POST požadavku na server pomocí fetch API. 
+Při úspěšné odpovědi aktualizujeme stav s přeloženým textem, v opačném případě nastavíme chybový stav.
+
+Při obdržení odpovědí ze serveru vykreslíme přeložený text uživateli pomocí komponenty TranslationOutput. 
+Komponentě předáme výstupní text spolu s dalšími vlastnostmi, na základě kterých v šabloně podmíněně vykreslíme přeložený text, chybu nebo načítání.
+
 \begin{flushleft}
   \textbf{Tvorba formulářů, validace}
 \end{flushleft}
