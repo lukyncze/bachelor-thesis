@@ -65,6 +65,27 @@ Komponentě předáme výstupní text spolu s dalšími vlastnostmi, na základ�
   \textbf{Tvorba formulářů, validace}
 \end{flushleft}
 
+Svelte, stejně jako React, nepodporuje pokročilou správu formulářů. Můžeme však využít knihovny třetích stran, jako např. svelte-forms-lib nebo Superforms, které nám umožní lépe spravovat a validovat formuláře. 
+V rámci této sekce vytvoříme komponentu pro jednoduchou investiční kalkulaci s využitím knihovny svelte-forms-lib. 
+Komponenta InvestForm bude obsahovat formulář pro zadání vstupních hodnot a komponentu FutureValuesInfo pro zobrazení výsledků kalkulace.
+
+Začneme implementací reaktivního formuláře, který bude přijímat počáteční hodnoty (defaultValues) a investFormData sloužící k předání hodnot formuláře do rodičovské komponenty. 
+Strukturu formuláře popíšeme v typu InvestFormData. Pomocí funkce createForm z knihovny svelte-forms-lib vytvoříme instanci formuláře, které předáme defaultValues do vlastnosti initialValues. 
+V rámci nastavení formuláře také definujeme validační schéma pomocí knihovny yup a onSubmit obslužnou funkci. Knihovnu yup volíme, jelikož je jedinou kompatibilní možností s knihovnou svelte-forms-lib ve verzi 2.0.1. 
+% vlastnost validationSchema musí být typu ObjectSchema<any>, který je definován jen a pouze v knihovně yup:
+% import type {ObjectSchema} from 'yup';
+% validationSchema?: ObjectSchema<any>;
+Aby výstupní data (investFormData) odpovídala InvestFormData, musíme transformovat hodnoty formuláře pomocí funkce cast na validačním schématu. V opačném případě budou hodnoty typu string. 
+Z createForm následně získáme obslužné funkce handleChange a handleSubmit, dále stavy formuláře form, errors a isValid. Ke stavům formuláře přistupujeme pomocí \$, protože jde o stores observables.
+
+Do šablony přidáme form s on:submit událostí, které předáme handleSubmit. Pokračujeme vytvořením formulářových prvků. 
+Jedlotlivé prvky propojíme s reaktivním formulářem pomocí funkce bind:value a události on:change, do které přiřadíme handleChange. Chyby formuláře získáme z errors a vykreslíme je pod formulářovými prvky. 
+V neposlední řadě přidáme tlačítko s typem submit, které se postará o odeslání formuláře a zavolání obslužné funkce onSubmit.
+
+Pokračujeme tím, že v rodičovské komponentě pomocí bind získáme aktuální hodnoty formuláře (investFormData). Po změně hodnot formuláře hodnoty transformujeme pomocí funkce futureValuesCalculator. 
+Výsledek (futureValues) pak zobrazíme v komponentě FutureValuesInfo. Jedlotlivé výsledky bude zobrazeny v rámci vnořených komponent FutureValueInfo. 
+K modifikaci vstupní hodnoty v komponentě FutureValueInfo použijeme reactive statement.
+
 \begin{flushleft}
   \textbf{Modularita, použití knihoven}
 \end{flushleft}
