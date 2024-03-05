@@ -28,7 +28,7 @@ Pro aktualizaci stavu využijeme vlastnost onClick, které předáme anonymní f
 \end{flushleft}
 
 Pro vytvoření jakékoliv UI komponenty můžeme začít tvořit jak JSX, definici komponenty, nebo znovupoužitelný hook. 
-My začneme naprogramováním vlastního hooku, který se odděleně postará o veškerou logiku seznamu.
+V tomto případě, při vývoji komponenty rozevíracího seznamu, začneme naprogramováním vlastního hooku, který se odděleně postará o veškerou logiku seznamu.
 
 Hook useDropdown bude mít 2 parametry -- výchozí hodnotu vybrané možnosti (defaultValue) a obslužnou funkci ke změně vybrané v možnosti v rodičovské komponentě (onChange). 
 V rámci hooku nadefinujeme stavy selectedOption, isOpen a vygenerujeme unikátní identifikátor. 
