@@ -88,7 +88,7 @@ Mezi takové knihovny patří např. Formik, Redux Form nebo React Hook Form. V 
 Vytvoříme komponentu pro jednoduchou investiční kalkulaci. 
 V rámci této komponenty naprogramujeme formulář pro zadání vstupních dat a komponentu výsledku kalkulace, která se zobrazí po potvrzení formuláře.
 
-Začneme s reaktivním fomulářem, který bude přijímat počáteční hodnoty (defaultValues) a callback funkci handleFormSubmit pro předání výsledků do rodičovské komponenty. 
+Začneme s reaktivním fomulářem, který bude přijímat počáteční hodnoty (defaultValues) a callback funkci handleFormSubmit pro předání hodnot formuláře do rodičovské komponenty. 
 Strukturu formuláře popíšeme v typu InvestFormData. Pomocí hooku useForm z knihovny React Hook Form vytvoříme instanci formuláře, které předáme defaultValues a nastavíme reaktivní validaci. 
 Následně z hooku dostameme funkce register, handleSubmit a formState, které poslouží ke správě formuláře.
 
