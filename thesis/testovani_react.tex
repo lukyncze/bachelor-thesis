@@ -42,11 +42,11 @@ Seznam možností zobrazíme podmíněně na základě stavu isOpen. Pro vykresl
 V Reactu je důležité vždy při použití funkce map nastavit unikátní klíč (key) pro každou položku v seznamu. Tento klíč slouží k identifikaci jednotlivých prvků a optimalizaci procesu renderování. 
 Pro vybrání konkrétní možnosti použijeme onClick, kterému předáme anonymní funkci. V anonymní funkci zavoláme funkci handleOptionClick hooku useDropdown s aktuální položkou ze seznamu.
 
-Abychom uzavřeli jakýkoli aktuálně otevřený rozbalovací seznam na stránce po kliknutí mimo tento seznam, předáme kořenovému elementu dříve vytvořený unikátní identifikátor. 
+Abychom uzavřeli jakýkoli aktuálně otevřený rozbalovací seznam na stránce, po kliknutí mimo tento seznam, předáme kořenovému elementu dříve vytvořený unikátní identifikátor. 
 Do useDropdown přidáme useEffect a díky němu budeme naslouchat na události pointerdown v DOM. Obslužná funkce pak zajistí zavření aktuálně otevřeného dropdownu.
 
 Dropdown samozřejmě může mít i jiné vstupy, které povedou k lepší znovupoužitelnosti. 
-Dynamické třídy ve formě JavaScriptu na element přidáme pomocí šablonových literálů (template literals) a JavaScriptové hodnoty.
+Dynamické CSS třídy ve formě JavaScriptu na element přidáme pomocí šablonových literálů (template literals) a JavaScriptové hodnoty.
 
 \begin{flushleft}
   \textbf{Reaktivita, asynchronní operace}
