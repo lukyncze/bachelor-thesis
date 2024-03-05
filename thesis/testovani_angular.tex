@@ -290,7 +290,7 @@ private setupInputChangeSubscription(): void \{
 
 Se službou TranslationService a veřejnou metodou pro vykonání dotazu nám pomůže třída HttpClient. Ta je dostupná přímo v základních modulech Angularu.
 Službu HttpClient získáme v konstruktoru, kde ji pomocí klíčového slova private přiřadíme do vlastností třídy. 
-Následně na HTTP klientovi zavoláme metodu post vůči API, které vrátí přeložený text ze serveru. 
+Pokračujeme zavoláním metody post na HTTP klientovi s patřičným nastavením. Ze serveru pak v odpovědi dostaneme přeložený text. 
 Pokud úspěšná odpověď ze serveru obsahuje složitější strukturu, ze které potřebujeme získat jen nějakou část, pak s konverzí odpovědi pomůže RxJS operátor map(). 
 Metoda getTranslation vrací observable, v translator komponentě proto hodnoty odebíráme pomocí metody subscribe.
 

@@ -57,7 +57,7 @@ Začneme vytvořením komponenty Translator. Komponenta při změně stavů (zad
 V rámci komponenty vytvoříme vnořené komponenty pro zadání vstupního textu, výběr jazyka a zobrazení výsledku.
 
 Komponenta LanguageDropdown uživateli umožní vybrat jazyk, do kterého chce text přeložit. 
-Díky vlastnosti onChange (callback funkce) aktualizujeme výstupní jazyk v rodičovské komponentě. 
+Díky vlastnosti onChange (callback funkci) aktualizujeme výstupní jazyk v rodičovské komponentě. 
 
 Pokračujeme implementací komponenty TranslationInput, která bude sloužit k zadání vstupního textu přes textové pole. Aktuální hodnotu formulářového prvku nastavíme pomocí atributu value.
 Po změně hodnoty textového pole, kterou získáme v události přes atribut onChange, aktualizujeme hodnotu vstupního textu v Translator komponentě. 
@@ -68,7 +68,7 @@ Hook useAutosizeTextArea bude příjímat referenci na element. Dále také hodn
 V rámci hooku vytvoříme useEffect, který se znovu zavolá při každé změně textAreaRef, nebo hodnoty textu. Následně v rámci těla hooku aktualizujeme výšku textového pole.
 
 V Translator komponentě potřebujeme ukládat vstupní hodnotu a výstupní jazyk z vnořených komponent. Dále při každé změně těchto hodnot zavoláme API, k čemuž využijeme useEffect.
-V rámci hooku definujeme asynchronní funkci handleTranslation, která pomocí fetch API odešle HTTP POST požadavek na server. 
+V rámci hooku definujeme asynchronní funkci handleTranslation, která pomocí fetch API odešle korektní HTTP POST požadavek na server. 
 Pokud bychom definovali funkci mimo useEffect, museli bychom ji přidat do pole závislostí hooku.
 Při úspěšné odpovědi aktualizujeme stav s přeloženým textem, v opačném případě nastavíme chybový stav.
 
