@@ -23,6 +23,20 @@ Pro aktualizaci stavu count použijeme obslužné funkce, v nichž přímo modif
   \textbf{Interakce v uživatelském prostředí}
 \end{flushleft}
 
+V této sekci implementujeme rozbalovací seznam s možnostmi (dropdown). Tvorbu UI komponenty můžeme začít jak vytvořením HTML struktury, tak definicí funkční stránky komponenty. 
+My začneme tvorbou šablony, v níž vytvoříme tlačítko a seznam možností. Otevření seznamu možností zajistíme přidáním on:click události na tlačítko. V obslužné funkci pak změníme stav isOpen. 
+Seznam možností zobrazíme podmíněně na základě isOpen. Pro vykreslení možností seznamu (dle vstupu options) použijeme blok \#each. 
+Pro vybrání konkrétní možnosti použijeme on:click událost, při které v anonymní funkci zavoláme funkci handleOptionClick s aktuální položkou ze seznamu.
+
+Dropdown komponenta bude přijímat vlastnosti options a onChange, případně další vlastnosti pro znovupoužitelnost. Pro každou komponentu také vytvoříme jednoznačný identifikátor, který využijeme při uzavírání seznamu.
+Obslužná funkce handleOptionClick zajistí změnu vybrané možnosti, zavření seznamu a provede změnu hodnoty v rodičovské komponentě. 
+
+K uzavření jakéhokoli otevřeného seznamu, při kliknutí mimo tento seznam, předáme kořenovému elementu komponenty dříve vytvořený unikátní identifikátor.
+V rámci akce (Svelte action) clickOutsideDropdown budeme naslouchat na události pointerdown v DOM. Obslužná funkce pak zajistí spuštění callbacku v Dropdown komponentě. 
+Samotné akci tedy předáme obslužnou funkci handleClickOutsideDropdown, která zavře aktuálně otevřený dropdown.
+
+Třídy CSS v JavaScriptové formě přidáme k elementu pomocí šablonových literálů a JavaScriptové hodnoty.
+
 \begin{flushleft}
   \textbf{Reaktivita, asynchronní operace}
 \end{flushleft}
