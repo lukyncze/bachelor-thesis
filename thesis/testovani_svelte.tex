@@ -93,3 +93,19 @@ K modifikaci vstupní hodnoty v komponentě FutureValueInfo použijeme reactive 
 \begin{flushleft}
   \textbf{Layout aplikace, routování}
 \end{flushleft}
+
+Aplikaci rozdělíme do tří částí: hlavičky, patičky a samotného obsahu, v nemž se vykreslí jednotlivé komponenty. Uživatel se bude moci přepínat mezi jednotlivými stránkami aplikace přes navigační menu. 
+
+Routovací mechanismus v aplikaci bude postaven na knihovně svelte-spa-router. Vytvořeníme seznam cest aplikace (appRoutes). 
+Následně v hlavní komponentě transformujeme appRoutes do požadovaného formátu RouteDefinition a výsledek uložíme do proměnné routes. 
+RouteDefinition je typ, který definuje seznam cest. V šabloně zobrazíme hlavičku, patičku a Router, kterému předáme proměnnou routes. 
+Router následně vykreslí šablonu pro aktuální adresu.
+
+Hlavička aplikace bude zobrazovat odkazy na jednotlivé stránky. Architekturu a vzhled navigačního menu převezmeme např. od Flowbite. 
+V rámci komponenty Header vypíšeme cesty aplikace pomocí HTML elementu a, na nějž přidáme atribut href, akce link a active, které poskytuje svelte-spa-router. 
+Akci active předáme objekt, kde přes vlastnosti className a inactiveClassName nastavíme požadovanou CSS třídu.
+K nastavení aria-current použijeme location objekt ze svelte-spa-router, díky kterému získáme aktuální cestu aplikace.
+
+Stavy isMobileNavOpen a isDarkMode nám umožňují implementovat mobilní navigaci a barevný režim. 
+Pro ukládání informace o preferenci tmavého režimu uživatele v prohlížeči budeme používat LocalStorage. 
+Aktualizaci barevného režimu provedeme v hooku beforeUpdate, jenž se volá po aktualizaci jakéhokoli stavu, ale před tím, než se aktualizuje šablona.
