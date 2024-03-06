@@ -261,7 +261,7 @@ Aktuální hodnotu formulářového prvku nastavíme pomocí [ngModel]. Pro nasl
 V případě, že potřebujeme aktualizovat výšku textového pole na základě jeho obsahu, můžeme využít vlastní direktivu AutosizeTextAreaDirective. 
 V konstruktoru direktivy získáme element, na který přidáme tuto direktivu. Dále budeme potřebovat třídu Renderer2, která umožňuje manipulovat s DOM. 
 V direktivě budeme naslouchat na změnu hodnoty textového pole pomocí dekorátoru @HostListener a události input. Následně v rámci obslužné metody zajistíme aktualizaci výšky.
- 
+
 Změny hodnoty vlastnosti inputValuesChanges\$ začneme odebírat pomocí subscribe. 
 Abychom předešli dotazování serveru ihned po změně hodnoty vlastnosti inputValuesChanges\$, použijeme operátor debounceTime. 
 Ten povolí poslat dotaz na server až po uplynutí určité doby od poslední změny, kterou můžeme nastavit. 
@@ -287,7 +287,7 @@ private setupInputChangeSubscription(): void \{
 \}
 \end{prog}
 
-Se službou TranslationService a veřejnou metodou pro vykonání dotazu nám pomůže třída HttpClient. Ta je dostupná přímo v základních modulech Angularu.
+V rámci služby TranslationService použijeme třídu HttpClient z Angular modulů, která umožňuje odesílat HTTP požadavky na server.
 Službu HttpClient získáme v konstruktoru, kde ji pomocí klíčového slova private přiřadíme do vlastností třídy. 
 Pokračujeme zavoláním metody post na HTTP klientovi s patřičným nastavením. Ze serveru pak v odpovědi dostaneme přeložený text. 
 Pokud úspěšná odpověď ze serveru obsahuje složitější strukturu, ze které potřebujeme získat jen nějakou část, pak s konverzí odpovědi pomůže RxJS operátor map(). 
@@ -540,11 +540,11 @@ Navíc se programátor nemusí starat o zrušení odběru observable.
 
 V rámci komponenty country-guesser budeme implementovat jednotlivé herní prvky, komponenta také bude vyhodnocovat průběh hry. 
 Definujeme tedy vlastnosti třídy, které budou reprezentovat stav a průběh hry. V hooku OnInit získáme náhodou zemi (zemi pro uhádnutí). 
-Dále zde zavoláme veřejnou metodu usePolyfill na službě CountryFlagPolyfillService, která zajistí podporu zobrazení ikon vlajek v prohlížečích, které to přímo nepodporují.
+Dále zde zavoláme veřejnou metodu usePolyfill na službě CountryFlagPolyfillService, která zajistí zobrazení ikon vlajek v prohlížečích, které nepodporují zobrazení vlajek.
 Do komponenty také přidáme obslužné metody handleEvaluateGuessAndUpdateState a handleSetInitialState, ve kterých implementujeme logiku hry. 
 V šabloně následně vykreslíme UI komponenty hry a podmíněně modální okna při výhře či prohře.
 
-Služba CountryFlagPolyfillService, jak již bylo popsáno výše, nám dopomůže s podporou zobrazení ikon vlajek v prohlížečích, které nemají podporu zobrazení vlajek. 
+Službu CountryFlagPolyfillService, jak již bylo popsáno výše, použijeme k zobrazení ikon vlajek. 
 Pokud prohlížeč uživatele podporuje emojis a webové fonty, zavoláním funkce polyfillCountryFlagEmojis přes metodu usePolyfill knihovna přidá webový font Twemoji Country Flags do HTML hlavičky.
 Aby se programaticky přidaný font použil, nesmíme zapomenout nastavit font-family pravidlo v rámci CSS stylů.
 
@@ -661,9 +661,9 @@ Pokračujeme vytvořením požadované struktury stránek v AppComponent. Šablo
 
 V rámci komponenty hlavičky pak vytvoříme navigační menu, které bude obsahovat odkazy na jednotlivé stránky. 
 Můžeme se inspirovat například architekturou a vzhledem navigačního menu Flowbite. 
-Pokračujeme vypsáním všech cest aplikace, s čímž nám pomohou direktivy routerLink, routerLinkActive, routerLinkActiveOptions a reference \#link. 
+Pokračujeme vypsáním všech cest aplikace, k čemuž využijeme direktivy routerLink, routerLinkActive, routerLinkActiveOptions a reference \#link. 
 Do routerLink předáme patřičnou cestu a routerLinkActive umožní naslouchat na aktuální URL. Direktiva routerLinkActiveOptions pak přepíše výchozí nastavení routerLinkActive.
-Reference \#link nám umožní získat informaci o tom, zda je odkaz aktivní. To využijeme při podmíněném nastavení správných CSS tříd.
+Díky reference \#link získáme informaci o tom, zda je odkaz aktivní. To využijeme při podmíněném nastavení správných CSS tříd na aktivních a neaktivních odkazech.
 
 \begin{prog}
 // Část souboru header.component.html
