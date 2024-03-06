@@ -64,7 +64,6 @@ export class CounterButtonComponent \{
 Funkci emit() našeho EventEmitteru zavoláme na tlačítku v counter-buttonu právě tehdy, když uživatel klikne na tlačítko -- použijeme listener ve formě (click). 
 K propsání textu či jiných elementů nebo komponent mezi párovými tagy <counter-button></counter-button> pak poslouží párový či nepárový element <ng-content />.
 
-% TODO: Když mám v kódu komentář a duplikuje se s textem, mám použít komentář nebo text? 
 \begin{prog}
 // Soubor counter-button.component.html
 
@@ -294,8 +293,7 @@ Pokračujeme zavoláním metody post na HTTP klientovi s patřičným nastavení
 Pokud úspěšná odpověď ze serveru obsahuje složitější strukturu, ze které potřebujeme získat jen nějakou část, pak s konverzí odpovědi pomůže RxJS operátor map(). 
 Metoda getTranslation vrací observable, v translator komponentě proto hodnoty odebíráme pomocí metody subscribe.
 
-% TODO: Mám zde zmínit i unsubscribe přímo v textu? (je to poměrně důležité)
-% TODO: Možná taky přesunout do přílohy soubor translation.service.ts
+% TODO: Zde zmínit unsubscribe... (je to poměrně důležité)
 \begin{prog}
 // Část souboru translation.service.ts
 
@@ -404,8 +402,7 @@ Důvodem je, že hodnoty vstupních vlastností jsou v komponentě dostupné nej
 
 Metoda initializeInvestForm vrátí instanci třídy FormGroup, kterou vytvoříme pomocí třídy FormBuilder ze základního balíčku @angular/forms. 
 Argumentem pro metodu group pak je objekt, který popisuje strukturu formuláře. 
-% TODO: Zahrnout do textu tuto nepěknou větu?
-%Vlastnosti objektu budou klíče formulářových prvků a jejich hodnoty pole, kde první prvek bude počáteční hodnota a druhý prvek pole validátorů.
+Vlastnosti objektu budou klíče formulářových prvků a jejich hodnoty pole, kde první prvek bude počáteční hodnota a druhý prvek pole validátorů.
 
 \begin{prog}
 // Část souboru invest-form.component.ts
@@ -565,7 +562,7 @@ HintBoxesComponent postupně vykreslí nápovědy. Při jakékoli změně vstupn
 V šabloně iterujeme přes pole nápověd a vykreslíme jednotlivé nápovědy. Vlastnost hintEnabled nastavíme pomocí indexu a vstupní vlastnosti hintsEnabledCount. 
 Samotný hint-box pak dynamicky vykreslí název a SVG ikonu nápovědy, textovou nápovědu, případně obrázek vlajky státu.
 
-% TODO: Přidat do přílohy soubor country-guess-input.component.ts
+% TODO: Přidat do přílohy soubor country-guess-input.component.ts - odkazovat přímo na zdroják
 Pokračujeme komponentou country-guess-input, která uživateli umožní zadat svůj tip. 
 Začneme šablonou, kde vytvoříme formulářový prvek pro zadání názvu země a potvrzovací tlačítko. 
 Dále podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu -- filtrované země a chybové hlášky. 
