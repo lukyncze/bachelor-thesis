@@ -609,8 +609,8 @@ BaseModalComponent bude přijímat titulek, obsah modálního okna a handleClose
 Demonstrační aplikace bude složena z hlavičky, patičky a samotného obsahu, v nemž se vykreslí jednotlivé komponenty. 
 Mezi jednotlivými stránkami se uživatel bude moct přepínat pomocí navigačního menu.
 
-K routování mezi jednotlivými stránkami využijeme modul Router přímo od Angularu. Nejprve vytvoříme cesty pro jednotlivé stránky v souboru app.routes.ts. 
-Cesty nakonfigurujeme podle předpisu Routes a pole cest exportujeme. Následně tyto cesty aplikace poskytneme routeru v rámci app.config.ts.
+K routování mezi jednotlivými stránkami využijeme modul Router přímo od Angularu. Nejprve vytvoříme cesty (routes) pro jednotlivé stránky v souboru app.routes.ts. 
+Proměnnou routes vytvoříme dle předpisu Routes a následně exportujeme. Cesty pak poskytneme routeru v rámci app.config.ts.
 
 \begin{prog}
 // Část souboru app.routes.ts
@@ -662,7 +662,7 @@ Pokračujeme vytvořením požadované struktury stránek v AppComponent. Šablo
 V rámci komponenty hlavičky pak vytvoříme navigační menu, které bude obsahovat odkazy na jednotlivé stránky. 
 Můžeme se inspirovat například architekturou a vzhledem navigačního menu Flowbite. 
 Pokračujeme vypsáním všech cest aplikace, s čímž nám pomohou direktivy routerLink, routerLinkActive, routerLinkActiveOptions a reference \#link. 
-Do routerLink předáme cestu a routerLinkActive umožní naslouchání na aktuální cestu, kde se nacházíme. Direktiva routerLinkActiveOptions pak přepíše výchozí nastavení routerLinkActive.
+Do routerLink předáme patřičnou cestu a routerLinkActive umožní naslouchat na aktuální URL. Direktiva routerLinkActiveOptions pak přepíše výchozí nastavení routerLinkActive.
 Reference \#link nám umožní získat informaci o tom, zda je odkaz aktivní. To využijeme při podmíněném nastavení správných CSS tříd.
 
 \begin{prog}
