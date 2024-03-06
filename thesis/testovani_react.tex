@@ -162,8 +162,8 @@ Router vytvoříme díky dvěma pomocným funkcím k tomu určených: createBrow
 Hlavní komponenta AppLayout pak v JSX vykreslí hlavičku, patičku a dynamický obsah dle aktuální URL adresy, jenž vykreslí komponenta Outlet.
 
 V hlavičce aplikace se budou nacházet odkazy na jednotlivé stránky. My se inspirujeme architekturou a vzhledem navigačního menu Flowbite. 
-V rámci komponenty Header vypíšeme všechny cesty aplikace pomocí komponenty NavLink z knihovny react-router-dom. Ta nám umožní v atributu className získat vlastnost isActive, která indikuje, zda je odkaz aktivní. 
-Pro korektní nastavení aria-current atributu použijeme hook useLocation, který nám umožní získat aktuální URL.
+V rámci komponenty Header vypíšeme všechny cesty aplikace pomocí komponenty NavLink z knihovny react-router-dom. NavLink umožňuje v rámci atributu className přistoupit k vlastnosti isActive, která indikuje, zda je odkaz aktivní. 
+Pro korektní nastavení aria-current atributu, v závislosti na aktuální URL, použijeme hook useLocation, který vrací aktuální URL.
 
 Mobilní navigaci a barevný režim implementujeme díky stavům isMobileNavOpen a isDarkMode. Informaci o tom, zda má uživatel zapnutý tmavý režim budeme ukládat do LocalStorage v prohlížeči. 
 K tomu použijeme useEffect hook, který při změně stavu isDarkMode přidá patřičný data-mode a provede aktualizaci LocalStorage.
