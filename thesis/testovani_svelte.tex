@@ -105,6 +105,6 @@ V rámci komponenty Header vypíšeme cesty aplikace pomocí HTML elementu a, na
 Akci active předáme objekt, kde přes vlastnosti className a inactiveClassName nastavíme požadovanou CSS třídu podle toho, zda je odkaz aktivní nebo neaktivní. 
 K nastavení aria-current použijeme location objekt ze svelte-spa-router, díky kterému získáme aktuální URL.
 
-Stavy isMobileNavOpen a isDarkMode nám umožní ovládat zobrazení mobilní navigace a barevného režimu. 
+Stavy isMobileNavOpen a isDarkMode umožní ovládat zobrazení mobilní navigace a barevného režimu. 
 Pro uložení informace o preferenci tmavého režimu uživatele použijeme LocalStorage v prohlížeči. Logiku pro přepnutí barevného režimu zavoláme v rámci hooku beforeUpdate. 
 Tento hook se spustí po změně lokálního stavu, ale před aktualizací HTML.
