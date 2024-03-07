@@ -130,7 +130,7 @@ Klíčová komponenta CountryGuessInput pak uživateli umožní zadat svůj tip.
 Začneme s JSX, kde vytvoříme formulářový prvek pro zadání názvu země, potvrzovací tlačítko a podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu (filtrované země). 
 Přidáme obslužné metody pro akce a události nad formulářem, které následně doimplementujeme.
 
-Ve funkční komponentě CountryGuessInputComponent na základě vstupu countries získáme pole všech zemí bez těch, které uživatel již hádal (countriesWithoutAlreadyGuessed). 
+Ve funkční komponentě CountryGuessInputComponent, na základě vstupu countries, získáme pole všech zemí bez těch, které uživatel již hádal (countriesWithoutAlreadyGuessed). 
 Poté definujeme a inicializujeme ostatní stavy komponenty. 
 Při kliknutí na tlačíko se zavolá funkce handleGuessButtonClick, která volá obslužnou funkci handleEvaluateGuessAndUpdateState v rodičovské komponentě a také funkci handleChangeSelectedGuess. 
 Funkce handleChangeSelectedGuess aktualizuje aktuální tip, filtrované země a uzavře podmenu. Funkce handleInputChange převede tip uživatele do daného formátu, poté aktualizuje aktuální tip a filtrované země. 
