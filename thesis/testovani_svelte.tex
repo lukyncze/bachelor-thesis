@@ -90,6 +90,49 @@ K modifikaci vstupní hodnoty v komponentě FutureValueInfo použijeme reactive 
   \textbf{Modularita, použití knihoven}
 \end{flushleft}
 
+Nyní vytvoříme webovou hru, ve které bude úkolem uživatele uhádnout název státu na základě poskytnutých nápovědí. Práci si zlehčíme využitím externích knihoven. 
+V rámci hry se postupně odkryje 8 nápovědí, které uživateli pomohou uhádnout název daného státu. Mezi klíčovými prvky bude textové pole pro zadání názvu země a potvrzovací tlačítko. 
+Dále ve hře bude seznam zemí, které uživatel hádal a modální okna pro vyhodnocení hry.
+
+Začneme s programováním rodičovské komponenty, jejíž úkolem bude získat země z veřejného API. K tomu využijeme balíček @tanstack/svelte-query a axios. 
+Vytvoříme funkci useAllCountries, která vrátí výsledek HTTP dotazu (CreateQueryResult) pomocí funkce createQuery. Argumentem funkce createQuery bude objekt s názvem dotazu (queryKey) a funkce, která vykoná dotaz (queryFn). 
+Dotaz na serveru provede asynchronní funkce getAllCountries, v níž využijeme převzatou asynchronní funkci requestHandler a knihovnu axios. Po získání odpovědi ošetříme chyby a vrátíme výsledek.
+
+V rámci rodičovské komponenty dostaneme výsledek dotazu a uložíme jej do proměnné countries. Následně pomocí vlastností isError a data podmíněně vykreslíme jednotlivé komponenty. 
+V případě chyby zobrazíme komponentu ErrorAlert. Když úspěšně získáme pole zemí, vykreslíme komponentu CountryGuesser. LoadingSkeleton zobrazíme, pokud se nezobrazí žádná z předchozích komponent.
+
+Komponenta CountryGuesser zobrazí jednotlivé herní prvky a bude vyhodnocovat průběh hry. Začneme definicí stavů a náhodně vybereme náhodnou zemi (randomCountry), kterou uživatel bude hádat. 
+V hooku onMount zavoláme funkci polyfillCountryFlagEmojis. Při namontování komponenty tak zajistíme zobrazení ikon vlajek v prohlížečích, které to přímo nepodporují. Prohlížeč uživatele však musí podporovat emojis a webové fonty. 
+Funkce polyfillCountryFlagEmojis přidá do hlavičky stránky webový font Twemoji Country Flags. Aby se font použil, přidáme jej do CSS stylů. 
+Pokračujeme implementací obslužných funkcí handleEvaluateGuessAndUpdateState, handleSetInitialState, které budou sloužit k aktualizaci stavu hry. V rámci šablony zobrazíme jednotlivé herní prvky a modální okna při výhře či prohře.
+
+V rámci komponenty HintBoxes postupně zobrazíme nápovědy. Podle vstupu randomCountry budeme reaktivně vytvářet pole nápověd, jelikož randomCountry se může změnit. 
+V šabloně posléze vykreslíme napovědy pomocí HintBox komponent. HintBox dynamicky vykreslí název a SVG ikonu nápovědy, textovou nápovědu, případně obrázek vlajky státu.
+
+% Klíčová komponenta CountryGuessInput pak uživateli umožní zadat svůj tip. 
+% Začneme s JSX, kde vytvoříme formulářový prvek pro zadání názvu země, potvrzovací tlačítko a podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu (filtrované země). 
+% Přidáme obslužné metody pro akce a události nad formulářem, které následně doimplementujeme.
+
+% Ve funkční komponentě CountryGuessInputComponent na základě vstupu countries získáme pole všech zemí bez těch, které uživatel již hádal (countriesWithoutAlreadyGuessed). 
+% Poté definujeme a inicializujeme ostatní stavy komponenty. 
+% Při kliknutí na tlačíko se zavolá funkce handleGuessButtonClick, která volá obslužnou funkci handleEvaluateGuessAndUpdateState v rodičovské komponentě a také funkci handleChangeSelectedGuess. 
+% Funkce handleChangeSelectedGuess aktualizuje aktuální tip, filtrované země a uzavře podmenu. Funkce handleInputChange převede tip uživatele do daného formátu, poté aktualizuje aktuální tip a filtrované země. 
+% Ovládání formulářového prvku pomocí klávesnice umožní funkce handleKeyDown.
+
+% Pomocná funkce updateGuessAndFilteredCountries získá aktuálně filtrované země na základě uživatelova tipu. Následně aktualizuje stavy currentGuess, isValidGuess a filteredCountries. 
+% Funkce clampSelectedGuessIndex zajistí, aby index uživatelem vybrané země byl v požadovaném rozmezí (0 až počet filtrovaných zemí). 
+% Pro aktualizaci vlastnosti selectedGuessIndex slouží funkce changeSelectedGuessIndex, která index aktualizuje o hodnotu předanou v argumentu.
+% V neposlední řadě funkce convertToFormattedGuess převede tip uživatele tak, aby začínal velkým písmenem a zbytek řetezce byl složen z malých písmen.
+
+% Ke zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. Ze vstupních vlastností countries, guessedCountries a randomCountry získáme proměnnou enrichedGuessedCountries. 
+% Jde o uživatelem hádané země s vlajkou a vzdáleností od randomCountry. K převodu využijeme JavaScriptové funkce z jiného souboru. 
+% K vypočtení vzdálenosti použijeme knihovnu calculate-distance-between-coordinates, která obsahuje funkci getDistanceBetweenTwoPoints. Jednotlivé prvky pole enrichedGuessedCountries pak vykreslíme v rámci JSX.
+
+% Nakonec vytvoříme modální okna, která se zobrazí při výhře či prohře. Stavy isWinModalOpen a isLoseModalOpen aktualizujeme v rámci funkce handleEvaluateGuessAndUpdateState v CountryGuesser. 
+% Na základě těchto stavů pak podmíněně vykreslíme daná modální okna. Oběma modálům předáme randomCountry a obslužnou funkci handleClose. Výhernímu modálu také počet potřebných pokusů. 
+% V jednotlivých komponentách (WinModal, LoseModal) vykreslíme komponentu BaseModal, která bude sloužit jako šablona pro obě okna. Do této komponenty vždy předáme titulek, obsah a obslužnou metodu handleClose. 
+% BaseModal následně v JSX vykreslí základní strukturu modálního okna, s dynamickými možnostmi pro titulek, obsah a obslužnou metodu handleClose. -- 5464 znaků, 3 ns
+
 \begin{flushleft}
   \textbf{Layout aplikace, routování}
 \end{flushleft}
