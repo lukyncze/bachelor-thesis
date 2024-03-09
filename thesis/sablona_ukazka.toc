@@ -44,8 +44,8 @@
 \contentsline {subsection}{\numberline {3.2}Demonstrační aplikace}{19}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Angular}{19}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}React}{36}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Svelte}{47}{subsubsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}Testování aplikací a výsledky}{54}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.2.3}Svelte}{48}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Testování aplikací a výsledky}{55}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Ukázková kapitola}{33}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Obrázky a tabulky}{33}{subsection.4.1}%
 \contentsline {subsubsection}{\numberline {4.1.1}Vkládání ukázkového kódu}{34}{subsubsection.4.1.1}%
