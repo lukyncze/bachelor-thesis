@@ -10,14 +10,73 @@
 
 Prvním krokem k vytvoření jednoduchého čítače bude definice komponenty Counter s reaktivním stavem count.
 
+\begin{prog}
+// Část souboru Counter.svelte
+
+<script lang="ts">
+  let count = 0;
+</script>
+\end{prog}
+
 Dále vytvoříme komponentu Button z důvodu dodržování principu DRY a efektivnějšímu znovupoužití kódu v budoucnu.
 Komponenta bude přijímat vlastnosti className a onClick. ClassName rozšíří CSS třídy tlačítka a onClick bude obsahovat obslužnou funkci, která se zavolá při kliknutí na tlačítko.
 Nyní do šablony přidáme tlačítko a předáme mu vlastnosti className a onClick.
 Svelte umožňuje zachytit všechny nedefinované vlastnosti do proměnné \$\$restProps. Proměnnou \$\$restProps tedy pomocí spread operátoru předáme tlačítku a tím jej obohatíme o další vlastnosti. 
 Obsah tlačítka, který definujeme mezi párovými značkami Button, vykreslíme pomocí komponenty slot.
 
+\begin{prog}
+// Soubor Button.svelte
+
+<script lang="ts">
+  export let className: string;
+  export let onClick: () => void;
+</script>
+
+<!-- Proměnná \$\$restProps obsahuje ostatní vlastnosti, 
+  které nejsou v komponentě přijímány pomocí klíčového slova "export". -->
+<button
+  type="button"
+  class="px-4 py-2 rounded-md focus:outline-none \{className\}"
+  on:click=\{onClick\}
+  \{...\$\$restProps\}
+>
+  <!-- slot slouží k vykreslení obsahu, 
+    který vložíme mezi párové tagy dané komponenty. -->
+  <slot />
+</button>
+\end{prog}
+
 V Counter komponentě pak v rámci šablony vykreslíme stav count a Button komponenty, kterým předáme příslušné vlastnosti. 
 Pro aktualizaci stavu count použijeme obslužné funkce, v nichž přímo modifikujeme count.
+
+\begin{prog}
+// Část souboru Counter.svelte
+
+<script lang="ts">
+  import Button from '../components/button/Button.svelte';
+
+  let count = 0;
+
+  const increment = () => (count += 1);
+  const decrement = () => (count -= 1);
+  const reset = () => (count = 0);
+</script>
+
+<div class="bg-gray-200 p-6 rounded-md shadow-md">
+  <p class="text-xl font-semibold mb-4">Current count: \{count\}</p>
+
+  <div class="flex gap-4">
+    <Button 
+      className="bg-blue-500 text-white hover:bg-blue-600" 
+      onClick=\{increment\}
+    >
+      Increment
+    </Button>
+
+    <!-- Další komponenty Button... -->
+  </div>
+</div>
+\end{prog}
 
 \begin{flushleft}
   \textbf{Interakce v uživatelském prostředí}
