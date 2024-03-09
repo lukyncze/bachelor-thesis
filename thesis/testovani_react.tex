@@ -126,8 +126,6 @@ function useDropdown(
   return [dropdownId, selectedOption, 
     isOpen, setIsOpen, handleOptionClick] as const;
 \}
-
-export default useDropdown;
 \end{prog}
 
 Pokračujeme tvorbou JSX komponenty Dropdown, kde vložíme tlačítko a seznam možností. Otevření možností zajistíme přidáním onClick (což je vlastně MouseEventHandler). 
@@ -285,8 +283,6 @@ const useAutosizeTextArea = (
     \}
   \}, [textAreaRef, value]);
 \};
-
-export default useAutosizeTextArea;
 \end{prog}
 
 V Translator komponentě potřebujeme ukládat vstupní hodnotu a výstupní jazyk z vnořených komponent. Dále při každé změně těchto hodnot zavoláme API, k čemuž využijeme useEffect.
