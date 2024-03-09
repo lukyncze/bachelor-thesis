@@ -499,11 +499,14 @@ export const getAllCountries =
   );
 \end{prog}
 
-Opakování asynchronních dotazů při chybě implementujeme díky knihovně axios-retry. Konfiguraci axiosRetry vložíme do souboru main.tsx. 
-Abychom sami nemuseli implementovat načítací a chybové stavy, anebo rušení či opakování asynchronních dotazů, můžeme použít knihovnu react-query.
+Opakování asynchronních dotazů při chybě zajistíme pomocí knihovny axios-retry. Opakování nakonfigujeme v souboru main.tsx. 
+Abychom nemuseli implementovat načítací a chybové stavy, anebo rušení či opakování asynchronních dotazů, můžeme použít knihovnu react-query.
 
 \begin{prog}
 // Část souboru main.tsx
+
+import axiosRetry, {exponentialDelay, isNetworkError, isRetryableError}
+from 'axios-retry';
 
 axiosRetry(axios, \{
   retries: 3,
