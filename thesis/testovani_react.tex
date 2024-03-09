@@ -478,7 +478,6 @@ Součástí také bude seznam zemí, které uživatel hádal a modální okna sl
 Začneme s implementací rodičovské komponenty, která získá země z veřejného API. Naprogramujeme hook useAllCountries, který bude vracet data (countries), chybu a stav načítání. 
 V rámci useEffect zavoláme asynchronní funkci fetchCountriesData. Uvnitř funkce fetchCountriesData zavoláme funkci getAllCountries. 
 Funkce getAllCountries využije převzatý requestHandler a knihovnu axios, které pak umožní otypování příchozí odpovědi. Po ošetření chyb aktualizujeme patřičné stavy, které následně z hooku vrátíme. 
-Implementaci načítacích a chybových stavů nebo rušení asynchronních dotazů nám do značné míry může ulehčit knihovna react-query.
 
 \begin{prog}
 // Část souboru useAllCountries.ts
@@ -502,6 +501,21 @@ export const getAllCountries =
   requestHandler<CountriesRequestOptions, Countries>(params =>
     axios.request(getRequestConfig(params)),
   );
+\end{prog}
+
+Opakování asynchronních dotazů při chybě implementujeme díky knihovně axios-retry. Konfiguraci axiosRetry vložíme do souboru main.tsx. 
+Abychom sami nemuseli implementovat načítací a chybové stavy, anebo rušení či opakování asynchronních dotazů, můžeme použít knihovnu react-query.
+
+\begin{prog}
+// Část souboru main.tsx
+
+axiosRetry(axios, \{
+  retries: 3,
+  retryDelay: (...arg) => exponentialDelay(...arg, 500),
+  retryCondition(error) \{
+    return isNetworkError(error) || isRetryableError(error);
+  \},
+\});
 \end{prog}
 
 Následně v rámci rodičovské komponenty podmíněně vykreslíme dané komponenty. V případě chyby komponentu ErrorAlert. Pokud ze serveru úspěšně dostaneme země, tak vykreslíme komponentu CountryGuesser. 
