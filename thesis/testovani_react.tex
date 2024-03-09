@@ -294,17 +294,59 @@ V rámci hooku definujeme asynchronní funkci handleTranslation, která pomocí 
 Pokud bychom definovali funkci mimo useEffect, museli bychom ji přidat do pole závislostí hooku.
 Při úspěšné odpovědi aktualizujeme stav s přeloženým textem, v opačném případě nastavíme chybový stav.
 
-Aby dotazování fungovalo, vytvoříme referenci delayTimerRef. V rámci těla useEffect hooku nejprve zrušíme předchozí časovač. 
-Funkci handleTranslation zavoláme v callbacku funkce setTimeout, která umožní předejít dotazování serveru ihned po změně nějaké vstupní hodnoty. 
-Výsledek funkce setTimeout uložíme do delayTimerRef.current. Nesmíme také zapomenout na zrušení časovače při zničení komponenty.
-
 \begin{prog}
 // Část souboru Translator.tsx
 
 useEffect(() => \{
   // Funkce pro zpracování přeložení textu.
   const handleTranslation = async () => \{
-    // Tělo asynchronní funkce handleTranslation.
+    if (!inputText.length) return;
+
+    // Zrušení předchozího asynchronního požadavku.
+    abortControllerRef.current?.abort();
+    // Vytvoření nového kontroleru pro zrušení asynchronního požadavku.
+    abortControllerRef.current = new AbortController();
+    setLoading(true);
+
+    const parsedInputText = inputText.replace(/\\n/g, '');
+    const url = `\$\{import.meta.env.VITE_RAPID_API_BASE_URL\}\$\{outputLanguage\}\$\{
+      import.meta.env.VITE_RAPID_API_QUERY_PARAMS
+    \}`;
+    const options = \{
+      method: 'POST',
+      headers: \{
+        'content-type': 'application/json',
+        'X-RapidAPI-Key': import.meta.env.VITE_RAPID_API_KEY,
+        'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com',
+      \},
+      body: `[\{"Text":"\$\{parsedInputText\}"\}]`,
+      signal: abortControllerRef.current?.signal,
+    \};
+
+    try \{
+      // Odeslání HTTP POST požadavku na server, 
+        který nám vrátí přeložený text v nějaké struktuře.
+      const response = await fetch(url, options);
+
+      if (!response.ok) \{
+        throw new Error(
+          `Something went wrong: \$\{response.status\} Error.
+          Please reload the page.`,
+        );
+      \}
+
+      const result = await response.json();
+      const translatedText = result[0].translations[0].text as string;
+      setOutputText(translatedText);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    \} catch (error: any) \{
+      // Pokud je chyba typu AbortError, tak ji ignorujeme.
+      if (error.name === 'AbortError') return;
+
+      setError(error);
+    \} finally \{
+      setLoading(false);
+    \}
   \};
 
   // Zrušení předchozího časovače.
@@ -317,6 +359,10 @@ useEffect(() => \{
   return () => clearTimeout(delayTimerRef.current);
 \}, [inputText, outputLanguage]);
 \end{prog}
+
+Aby dotazování fungovalo, vytvoříme referenci delayTimerRef. V rámci těla useEffect hooku nejprve zrušíme předchozí časovač. 
+Funkci handleTranslation zavoláme v callbacku funkce setTimeout, která umožní předejít dotazování serveru ihned po změně nějaké vstupní hodnoty. 
+Výsledek funkce setTimeout uložíme do delayTimerRef.current. Nesmíme také zapomenout na zrušení časovače při zničení komponenty.
 
 V okamžiku, kdy obdržíme odpověď ze serveru, zobrazíme přeložený text uživateli pomocí komponenty TranslationOutput. 
 Předáme jí samotný výstupní text a další vstupní vlastnosti, na základě kterých pak podmíněně vykreslíme přeložený text, chybu nebo načítání.
@@ -425,17 +471,63 @@ function FutureValueInfo(\{children, futureValue\}: FutureValueInfoProps) \{
   \textbf{Modularita, použití knihoven}
 \end{flushleft}
 
-V následující sekci vytvoříme webovou hru, ve které cílem uživatele je uhádnout název státu na základě poskytnutých nápovědí. Práci si ulehčíme pomocí externích knihoven a služeb.
+V následující sekci vytvoříme webovou hru, ve které je cílem uživatele uhádnout název státu na základě poskytnutých nápovědí. Práci si ulehčíme pomocí externích knihoven a služeb.
 Postupně se bude odkrývat 8 nápovědí, které by měly pomoci s uhádnutím daného státu. Klíčovým prvkem je textové pole, přes které uživatel zadává názvy hádaných zemí a tlačítko pro potvrzení. 
 Součástí také bude seznam zemí, které uživatel hádal a modální okna sloužící k vyhodnocení hry.
 
 Začneme s implementací rodičovské komponenty, která získá země z veřejného API. Naprogramujeme hook useAllCountries, který bude vracet data (countries), chybu a stav načítání. 
-V rámci useEffect zavoláme asynchronní funkci fetchCountriesData. Uvnitř funkce fetchCountriesData zavoláme getAllCountries. 
-Jde o převzatý requestHandler s využítím knihovny axios, jenž umožní otypování příchozí odpovědi. Po ošetření chyb aktualizujeme patřičné stavy, které následně z hooku vrátíme. 
+V rámci useEffect zavoláme asynchronní funkci fetchCountriesData. Uvnitř funkce fetchCountriesData zavoláme funkci getAllCountries. 
+Funkce getAllCountries využije převzatý requestHandler a knihovnu axios, které pak umožní otypování příchozí odpovědi. Po ošetření chyb aktualizujeme patřičné stavy, které následně z hooku vrátíme. 
 Implementaci načítacích a chybových stavů nebo rušení asynchronních dotazů nám do značné míry může ulehčit knihovna react-query.
+
+\begin{prog}
+// Část souboru useAllCountries.ts
+
+useEffect(() => \{
+  const getSortedCountriesByName = (countries: Countries): Countries => \{
+    return countries.toSorted((a, b) => 
+      a.name.common.localeCompare(b.name.common));
+  \};
+
+  const fetchCountriesData = async () => \{
+    // Tělo asynchronní funkce fetchCountriesData.
+  \};
+
+  fetchCountriesData();
+\}, []);
+
+// Část souboru getAllCountries.ts
+
+export const getAllCountries = 
+  requestHandler<CountriesRequestOptions, Countries>(params =>
+    axios.request(getRequestConfig(params)),
+  );
+\end{prog}
 
 Následně v rámci rodičovské komponenty podmíněně vykreslíme dané komponenty. V případě chyby komponentu ErrorAlert. Pokud ze serveru úspěšně dostaneme země, tak vykreslíme komponentu CountryGuesser. 
 Pokud nevykreslíme ani jednu z předchozích komponent, zobrazíme LoadingSkeleton.
+
+\begin{prog}
+// Část souboru CountryGuesserWrapper.tsx
+
+function CountryGuesserWrapper() \{
+  const [countries, error] = useAllCountries();
+
+  if (error) \{
+    return (
+      <WrapperDiv><ErrorAlert message=\{error.message\} /></WrapperDiv>
+    );
+  \}
+
+  if (countries.length > 0) \{
+    return <CountryGuesser countries=\{countries\} />;
+  \}
+
+  return (
+    <WrapperDiv><LoadingSkeleton /></WrapperDiv>
+  );
+\}
+\end{prog}
 
 Komponenta CountryGuesser bude vyhodnocovat průběh hry a zobrazovat jednotlivé herní prvky. Začneme definicí stavů a inicializujeme náhodnou zemi (randomCountry), kterou bude uživatel hádat. 
 Dále použijeme hook useCountryFlagPolyfill, který při namontování komponenty zajistí podporu zobrazení ikon vlajek v prohlížečích, které to přímo nepodporují. 
@@ -444,15 +536,24 @@ V rámci JSX pak vykreslíme jednotlivé herní prvky a modální okna při výh
 
 Hook useCountryFlagPolyfill zavolá funkci polyfillCountryFlagEmojis, která do HTML hlavičky přidá webový font Twemoji Country Flags. Aby se font využil, přidáme jej do CSS stylů.
 
+\begin{prog}
+// Část souboru index.css
+
+@layer base \{
+  html \{
+    font-family: 'Twemoji Country Flags', 'ALTERNATIVNÍ_FONTY...';
+  \}
+\}
+\end{prog}
+
 Úkolem komponenty HintBoxes bude postupné vykreslení nápověd. Na základě vstupu randomCountry vytvoříme pole nápověd. V JSX pak iterujeme přes pole nápověd a vykreslíme jednotlivé nápovědy. 
 Jednotlivé komponenty HintBox pak dynamicky vykreslí název a SVG ikonu nápovědy, textovou nápovědu, případně obrázek vlajky státu.
 
-Klíčová komponenta CountryGuessInput pak uživateli umožní zadat svůj tip. 
+Klíčová komponenta CountryGuessInput, kterou definujeme v rámci souboru CountryGuessInput.tsx, umožní uživateli zadat svůj tip. 
 Začneme s JSX, kde vytvoříme formulářový prvek pro zadání názvu země, potvrzovací tlačítko a podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu (filtrované země). 
 Přidáme obslužné funkce pro akce a události nad formulářem, které následně doimplementujeme.
 
-Ve funkční komponentě CountryGuessInputComponent, na základě vstupu countries, získáme pole všech zemí bez těch, které uživatel již hádal (countriesWithoutAlreadyGuessed). 
-Poté definujeme a inicializujeme ostatní stavy komponenty. 
+V komponentě, na základě vstupu countries, získáme pole všech zemí bez těch, které uživatel již hádal (countriesWithoutAlreadyGuessed). Poté definujeme a inicializujeme ostatní stavy. 
 Při kliknutí na tlačíko se zavolá funkce handleGuessButtonClick, která volá obslužnou funkci handleEvaluateGuessAndUpdateState v rodičovské komponentě a také funkci handleChangeSelectedGuess. 
 Funkce handleChangeSelectedGuess aktualizuje aktuální tip, filtrované země a uzavře podmenu. Funkce handleInputChange převede tip uživatele do daného formátu, poté aktualizuje aktuální tip a filtrované země. 
 Ovládání formulářového prvku pomocí klávesnice umožní funkce handleKeyDown.
