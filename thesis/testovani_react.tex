@@ -578,14 +578,126 @@ BaseModal následně v JSX vykreslí základní strukturu modálního okna, s dy
 
 Layout aplikace bude rozdělen do tří částí: hlavičky, patičky a samotného obsahu, v nemž se vykreslí jednotlivé komponenty. Uživatel bude mít možnost přepínání mezi jednotlivými stránkami pomocí navigačního menu.
 
-Pro routování využijeme knihovnu react-router-dom. Začneme vytvořením souboru s cestami (routes). Následně v kořeni aplikace vytvoříme router pomocí předem definovaných cest aplikace. 
+Pro routování využijeme knihovnu react-router-dom. Začneme vytvořením souboru s cestami (appRoutes).
+
+\begin{prog}
+// Část souboru appRoutes.ts
+
+interface AppRoute \{
+  name: string;
+  path: string;
+  component: ComponentType;
+  index?: boolean;
+\}
+
+export const appRoutes: ReadonlyArray<AppRoute> = [
+  \{
+    name: 'Home',
+    path: '/',
+    component: Landing,
+    index: true,
+  \},
+  \{
+    name: 'Counter',
+    path: '/counter',
+    component: Counter,
+  \},
+  // Další cesty...
+];
+\end{prog}
+
+Následně v kořeni aplikace vytvoříme router pomocí předem definovaných cest aplikace. 
 Router vytvoříme díky dvěma pomocným funkcím k tomu určených: createBrowserRouter a createRoutesFromElements. Pokračujeme přiřazením routeru do kořenové komponenty aplikace, konkrétně do poskytovatele routeru.
 
+\begin{prog}
+// Část souboru main.tsx
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element=\{<AppLayout />\} errorElement=\{<ErrorPage />\}>
+      \{appRoutes.map(route => (
+        <Route
+          key=\{route.name\}
+          index=\{route.index\}
+          path=\{route.path\}
+          Component=\{route.component\}
+          caseSensitive
+        />
+      ))\}
+    </Route>,
+  ),
+);
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <RouterProvider router=\{router\} />
+  </StrictMode>,
+);
+\end{prog}
+
 Hlavní komponenta AppLayout pak v JSX vykreslí hlavičku, patičku a dynamický obsah dle aktuální URL adresy, jenž vykreslí komponenta Outlet.
+
+\begin{prog}
+// Část souboru AppLayout.tsx
+
+function AppLayout() \{
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header />
+
+      <main className="flex-grow p-8">
+        \{/* Outlet vykresluje šablonu (komponentu) pro aktuální URL adresu. */\}
+        <Outlet />
+      </main>
+
+      <Footer />
+    </div>
+  );
+\}
+\end{prog}
 
 V hlavičce aplikace se budou nacházet odkazy na jednotlivé stránky. My se inspirujeme architekturou a vzhledem navigačního menu Flowbite. 
 V rámci komponenty Header vypíšeme všechny cesty aplikace pomocí komponenty NavLink z knihovny react-router-dom. NavLink umožňuje v rámci atributu className přistoupit k vlastnosti isActive, která indikuje, zda je cesta odkazu aktivní. 
 Vlastnosti isActive tedy využijeme pro podmíněné přidání CSS stylů. Pro korektní nastavení aria-current atributu, v závislosti na aktuální URL, použijeme hook useLocation, který vrací aktuální URL.
 
+\begin{prog}
+// Část souboru Header.tsx
+
+\{appRoutes.map(route => (
+  <li key=\{route.name\}>
+    <NavLink
+      to=\{route.path\}
+      // react-router-dom poskytuje vlastnost "isActive"
+        pro zvýraznění aktivního odkazu.
+      className=\{(\{isActive\}) =>
+        'block py-2 pr-4' +
+        `\$\{
+          isActive
+            ? ' STATICKÉ STYLY PRO AKTIVNÍ ODKAZ...'
+            : ' STATICKÉ STYLY PRO NEAKTIVNÍ ODKAZ...'
+        \}`
+      \}
+      aria-current=\{route.path === currentPathName ? 'page' : undefined\}
+    >
+      \{route.name\}
+    </NavLink>
+  </li>
+))\}
+\end{prog}
+
 Mobilní navigaci a barevný režim implementujeme díky stavům isMobileNavOpen a isDarkMode. Informaci o tom, zda má uživatel zapnutý tmavý režim budeme ukládat do LocalStorage v prohlížeči. 
 K tomu použijeme useEffect hook, který při změně stavu isDarkMode přidá patřičný data-mode a provede aktualizaci LocalStorage.
+
+\begin{prog}
+// Část souboru Header.tsx
+
+useEffect(() => \{
+  if (isDarkMode) \{
+    document.documentElement.setAttribute('data-mode', 'dark');
+    localStorage.setItem('data-mode', 'dark');
+  \} else \{
+    document.documentElement.removeAttribute('data-mode');
+    localStorage.removeItem('data-mode');
+  \}
+\}, [isDarkMode]);
+\end{prog}
