@@ -95,20 +95,124 @@ function Counter() \{
 Pro vytvoření jakékoliv UI komponenty můžeme začít tvořit jak JSX, definici komponenty, nebo znovupoužitelný hook. 
 V tomto případě, při vývoji komponenty rozevíracího seznamu, začneme naprogramováním vlastního hooku, který se odděleně postará o veškerou logiku seznamu.
 
-Hook useDropdown bude mít 2 parametry -- výchozí hodnotu vybrané možnosti (defaultValue) a obslužnou funkci ke změně vybrané v možnosti v rodičovské komponentě (onChange). 
+Hook useDropdown bude mít 2 parametry -- obslužnou funkci ke změně vybrané v možnosti v rodičovské komponentě (onChange) a výchozí hodnotu vybrané možnosti (defaultValue). 
 V rámci hooku nadefinujeme stavy selectedOption, isOpen a vygenerujeme unikátní identifikátor. 
 Dále vytvoříme funkci handleOptionClick, která zajistí změnu vybrané možnosti, zavření seznamu a vypublikuje změnu hodnoty do rodičovské komponenty. 
 Z hooku vracíme potřebné stavy a funkce ve formě objektu nebo pole -- pole musíme označit jako const.
 
+\begin{prog}
+// Část souboru useDropdown.ts
+
+function useDropdown(
+  onChange: (selectedOption: Option | null) => void,
+  defaultValue: Option | null,
+) \{
+  const [selectedOption, setSelectedOption] 
+    = useState<Option | null>(defaultValue);
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Toto ID je třeba nastavit na root element dropdown komponenty.
+  const dropdownId = `id-\$\{crypto.randomUUID()\}`;
+
+  // Ubslužná funkce, která se stará o logiku
+    po kliknutí na jednotlivé položky v dropdownu.
+  const handleOptionClick = (option: Option) => \{
+    setSelectedOption(option);
+    setIsOpen(false);
+    onChange(option);
+  \};
+
+  // Vrátíme všechny hodnoty, které chceme mít dostupné zvenčí.
+  return [dropdownId, selectedOption, 
+    isOpen, setIsOpen, handleOptionClick] as const;
+\}
+
+export default useDropdown;
+\end{prog}
+
 Pokračujeme tvorbou JSX komponenty Dropdown, kde vložíme tlačítko a seznam možností. Otevření možností zajistíme přidáním onClick (což je vlastně MouseEventHandler). 
 V anonymní funkci pak změníme stav pomocí isOpen na opačnou hodnotu. Abychom předešli event bubblingu, v rámci anynomní obslužné funkce zavoláme event.stopPropagation().
+
+\begin{prog}
+// Část souboru Dropdown.tsx
+
+<div className="rounded-md shadow-sm">
+  \{/* Pro poslouchání na události v DOMu můžeme použít syntaxi: 
+    NÁZEV_UDÁLOSTI=\{OBSLUŽNÁ_METODA\}. */\}
+  <button
+    type="button"
+    className=\{`STATICKÉ STYLY... \$\{sizeStyles\} \$\{buttonStyles\}`\}
+    onClick=\{event => \{
+      event.stopPropagation();
+      setIsOpen(!isOpen);
+    \}\}
+  >
+    \{selectedOption ? selectedOption.label : placeholder\}
+    \{isOpen ? arrowUpIcon : arrowDownIcon\}
+  </button>
+</div>
+\end{prog}
 
 Seznam možností zobrazíme podmíněně na základě stavu isOpen. Pro vykreslení možností seznamu (options) použijeme JavaScriptovou funkci map uvnitř JavaScriptové hodnoty v JSX. 
 V Reactu je důležité vždy při použití funkce map nastavit unikátní klíč (key) pro každou položku v seznamu. Tento klíč slouží k identifikaci jednotlivých prvků a optimalizaci procesu renderování. 
 Pro vybrání konkrétní možnosti použijeme onClick, kterému předáme anonymní funkci. V anonymní funkci zavoláme funkci handleOptionClick hooku useDropdown s aktuální položkou ze seznamu.
 
+\begin{prog}
+// Část souboru Dropdown.tsx
+
+\{isOpen && (
+  <div className=\{`STATICKÉ STYLY... \$\{divStyles\}`\}>
+    <div
+      className="py-1"
+      role="menu"
+      aria-orientation="vertical"
+      aria-labelledby="options-menu"
+    >
+      \{/* Pro vykreslení seznamu (listu) můžeme využít bloky \{ \}
+       a JavaScriptovou funkci .map(). */\}
+      \{options.map(option => (
+        <button
+          key=\{option.value\}
+          className=\{`STATICKÉ STYLY... \$\{optionStyles\}`\}
+          role="menuitem"
+          onClick=\{() => handleOptionClick(option)\}
+        >
+          \{option.label\}
+        </button>
+      ))\}
+    </div>
+  </div>
+)\}
+\end{prog}
+
 Abychom uzavřeli jakýkoli aktuálně otevřený rozbalovací seznam na stránce, po kliknutí mimo tento seznam, předáme kořenovému elementu dříve vytvořený unikátní identifikátor. 
 Do useDropdown přidáme useEffect a díky němu budeme naslouchat na události pointerdown v DOM. Obslužná funkce pak zajistí zavření aktuálně otevřeného dropdownu.
+
+\begin{prog}
+// Část souboru useDropdown.ts
+
+useEffect(() => \{
+  // Obslužná funkce handleClickOutsideDropdown zajistí zavření dropdownu,
+    pokud uživatel klikne mimo něj.
+  const handleClickOutsideDropdown = (\{target\}: PointerEvent) => \{
+    if (!(target as HTMLElement).closest(`#\$\{dropdownId\}`)) \{
+      setIsOpen(false);
+    \}
+  \};
+
+  // Přidáme posluchač události na událost pointerdown a jeho obslužnou funkci.
+  document.addEventListener('pointerdown', handleClickOutsideDropdown);
+
+  // Funkce, která se zavolá při odpojení komponenty.
+  return () => \{
+    // Odebereme posluchač události na událost
+      pointerdown a jeho obslužnou funkci.
+    document.removeEventListener('pointerdown', handleClickOutsideDropdown);
+  \};
+  // Druhý parametr useEffectu je pole závislostí, 
+    které určuje, kdy se má useEffect spustit.
+\}, [dropdownId]);
+\end{prog}
 
 Dropdown samozřejmě může mít i jiné vstupy, které povedou k lepší znovupoužitelnosti. 
 Dynamické CSS třídy ve formě JavaScriptu na element přidáme pomocí šablonových literálů (template literals) a JavaScriptové hodnoty.

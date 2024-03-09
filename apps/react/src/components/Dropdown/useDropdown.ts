@@ -39,7 +39,7 @@ function useDropdown(
     // Druhý parametr useEffectu je pole závislostí, které určuje, kdy se má useEffect spustit.
   }, [dropdownId]);
 
-  // Vrátíme všechny hodnoty, které chceme aby byly dostupné zvenčí.
+  // Vrátíme všechny hodnoty, které chceme mít dostupné zvenčí.
   return [dropdownId, selectedOption, isOpen, setIsOpen, handleOptionClick] as const;
 }
 
