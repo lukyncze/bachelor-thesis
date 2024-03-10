@@ -349,7 +349,7 @@ Z createForm následně získáme obslužné funkce handleChange a handleSubmit,
 \end{prog}
 
 Do šablony přidáme form s on:submit událostí, které předáme handleSubmit. Pokračujeme vytvořením formulářových prvků. 
-Jedlotlivé prvky propojíme s reaktivním formulářem pomocí funkce bind:value a události on:change, do které přiřadíme handleChange. Chyby formuláře získáme z errors a vykreslíme je pod formulářovými prvky. 
+Jednotlivé prvky propojíme s reaktivním formulářem pomocí funkce bind:value a události on:change, do které přiřadíme handleChange. Chyby formuláře získáme z errors a vykreslíme je pod formulářovými prvky. 
 V neposlední řadě přidáme tlačítko s typem submit, které se postará o odeslání formuláře a zavolání obslužné funkce onSubmit.
 
 \begin{prog}
@@ -395,7 +395,7 @@ V neposlední řadě přidáme tlačítko s typem submit, které se postará o o
 \end{prog}
 
 Pokračujeme tím, že v rodičovské komponentě pomocí bind získáme aktuální hodnoty formuláře (investFormData). Po změně hodnot formuláře hodnoty transformujeme pomocí funkce futureValuesCalculator. 
-Výsledek (futureValues) pak zobrazíme v komponentě FutureValuesInfo. Jedlotlivé výsledky budou zobrazeny v rámci vnořených komponent FutureValueInfo. 
+Výsledek (futureValues) pak zobrazíme v komponentě FutureValuesInfo. Jednotlivé výsledky budou zobrazeny v rámci vnořených komponent FutureValueInfo. 
 K modifikaci vstupní hodnoty v komponentě FutureValueInfo použijeme reactive statement.
 
 \begin{prog}
