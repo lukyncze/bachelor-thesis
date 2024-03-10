@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
 const selectedOption = ref<Option | null>(props.defaultValue);
 const isOpen = ref(false);
 
-// Toto ID je třeba nastavit na root element dropdown komponenty
+// Toto ID je třeba nastavit na kořenový element dropdown komponenty
 const dropdownId = `id-${crypto.randomUUID()}`;
 
 const handleOptionClick = (option: Option) => {

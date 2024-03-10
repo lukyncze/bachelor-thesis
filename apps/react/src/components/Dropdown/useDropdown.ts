@@ -9,7 +9,7 @@ function useDropdown(
   const [selectedOption, setSelectedOption] = useState<Option | null>(defaultValue);
   const [isOpen, setIsOpen] = useState(false);
 
-  // Toto ID je třeba nastavit na root element dropdown komponenty.
+  // Toto ID je třeba nastavit na kořenový element dropdown komponenty.
   const dropdownId = `id-${crypto.randomUUID()}`;
 
   // Ubslužná funkce, která se stará o logiku po kliknutí na jednotlivé položky v dropdownu.

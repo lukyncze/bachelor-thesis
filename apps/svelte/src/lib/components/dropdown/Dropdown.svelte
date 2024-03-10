@@ -16,7 +16,7 @@
   let selectedOption: Option | null = defaultValue;
   let isOpen = false;
 
-  // Toto ID je třeba nastavit na root element dropdown komponenty.
+  // Toto ID je třeba nastavit na kořenový element dropdown komponenty.
   let dropdownId = `id-${crypto.randomUUID()}`;
 
   // Ubslužná funkce, která se stará o logiku po kliknutí na jednotlivé položky v dropdownu.

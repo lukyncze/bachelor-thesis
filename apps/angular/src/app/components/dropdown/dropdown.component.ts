@@ -20,7 +20,7 @@ export class DropdownComponent implements OnInit {
   public selectedOption?: Option | null;
   public isOpen = false;
 
-  // Toto ID je třeba nastavit na root element dropdown komponenty.
+  // Toto ID je třeba nastavit na kořenový element dropdown komponenty.
   protected dropdownId = `id-${crypto.randomUUID()}`;
 
   protected buttonStyles = '';
