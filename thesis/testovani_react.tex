@@ -473,8 +473,8 @@ Součástí také bude seznam zemí, které uživatel hádal a modální okna sl
 
 Začneme s implementací rodičovské komponenty, která získá země z veřejného API. Naprogramujeme hook \emph{useAllCountries}, který bude vracet data (\emph{countries}), chybu a stav načítání. 
 V rámci \emph{useEffect} zavoláme asynchronní funkci \emph{fetchCountriesData}. Uvnitř funkce \emph{fetchCountriesData} zavoláme funkci \emph{getAllCountries}. 
-Ve funkci \emph{getAllCountries} využijeme knihovnu \emph{axios} \cite{axioslib} a převzatý requestHandler. 
-Balíček \emph{Axios} slouží jako HTTP klient pro tvorbu asynchronních dotazů, zatímco requestHandler umožňuje otypování příchozí odpovědi. Po ošetření chyb aktualizujeme patřičné stavy, které následně z hooku vrátíme. 
+Ve funkci \emph{getAllCountries} využijeme knihovnu \emph{axios} \cite{axioslib} a převzatou funkci \emph{requestHandler} \cite{axiosrequesthandler}. 
+Balíček \emph{axios} slouží jako HTTP klient pro tvorbu asynchronních dotazů, zatímco \emph{requestHandler} umožňuje otypování příchozí odpovědi. Po ošetření chyb aktualizujeme patřičné stavy, které následně z hooku vrátíme. 
 
 \begin{prog}
 // Část souboru useAllCountries.ts
