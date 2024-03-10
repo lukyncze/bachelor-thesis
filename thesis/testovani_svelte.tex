@@ -422,7 +422,24 @@ V rámci hry se postupně odkryje 8 nápovědí, které uživateli pomohou uhád
 Dále ve hře bude seznam zemí, které uživatel hádal a modální okna pro vyhodnocení hry.
 
 Začneme s programováním rodičovské komponenty, jejíž úkolem bude získat země z veřejného API. K tomu využijeme balíček @tanstack/svelte-query a axios. 
-Vytvoříme funkci useAllCountries, která vrátí výsledek HTTP dotazu (CreateQueryResult) pomocí funkce createQuery. Argumentem funkce createQuery bude objekt s názvem dotazu (queryKey) a funkce, která vykoná dotaz (queryFn).
+Nejdříve inicializujeme svelte-query klienta v rámci poskytovatele QueryClientProvider v App.svelte.
+
+\begin{prog}
+// Část souboru App.svelte
+
+<script lang="ts">
+  // Importy, konstanty, funkce...  
+
+  // Vytvoření instance QueryClient pro HTTP dotazy.
+  const queryClient = new QueryClient();
+</script>
+
+<QueryClientProvider client=\{queryClient\}>
+  <!-- Layout aplikace... -->
+</QueryClientProvider>
+\end{prog}
+
+Následně vytvoříme funkci useAllCountries, která vrátí výsledek HTTP dotazu (CreateQueryResult) pomocí funkce createQuery. Argumentem funkce createQuery bude objekt s názvem dotazu (queryKey) a funkce, která vykoná dotaz (queryFn).
 
 \begin{prog}
 // Část souboru queries.ts
@@ -536,15 +553,110 @@ V šabloně BaseModal vykreslíme základní strukturu modálního okna s dynami
 
 Aplikaci rozdělíme do tří částí: hlavičky, patičky a samotného obsahu, v němž vykreslíme jednotlivé komponenty. Uživatel se bude moci přepínat mezi jednotlivými stránkami přes navigační menu. 
 
-Pro routování v aplikaci využijeme knihovnu svelte-spa-router. Nejprve vytvoříme seznam cest aplikace (appRoutes). 
+Pro routování v aplikaci využijeme knihovnu svelte-spa-router. Nejprve vytvoříme seznam cest aplikace (appRoutes).
+
+\begin{prog}
+// Část souboru appRoutes.ts
+
+interface AppRoute \{
+  name?: string;
+  path: string;
+  component: ComponentType;
+\}
+
+export const appRoutes: ReadonlyArray<AppRoute> = [
+  \{
+    name: 'Home',
+    path: '/',
+    component: Landing,
+  \},
+  \{
+    name: 'Counter',
+    path: '/counter',
+    component: Counter,
+  \},
+  // Další cesty...
+  \{
+    path: '*',
+    component: PageNotFound,
+  \},
+];
+\end{prog}
+
 Následně v hlavní komponentě transformujeme appRoutes do požadovaného formátu (typu RouteDefinition) a výsledek uložíme do proměnné routes. 
 V šabloně zobrazíme hlavičku, patičku a Router, kterému předáme proměnnou routes. Router následně vykreslí šablonu na základě aktuální URL adresy.
+
+\begin{prog}
+// Část souboru App.svelte
+
+<script lang="ts">
+  // Importy...
+
+  // Vytvoření cest pro svelte-spa-router.
+  const routes: RouteDefinition = appRoutes.reduce(
+    (routesMap, route) => routesMap.set(route.path, wrap(\{
+      component: route.component
+    \})),
+    new Map()
+  );
+</script>
+
+<QueryClientProvider client=\{queryClient\}>
+  <div class="min-h-screen flex flex-col">
+    <Header />
+
+    <main class="flex-grow p-8">
+      <!-- Router vykresluje šablonu (komponentu) pro aktuální URL adresu. -->
+      <Router \{routes\} />
+    </main>
+
+    <Footer />
+  </div>
+</QueryClientProvider>
+\end{prog}
 
 Hlavička zobrazí odkazy na jednotlivé stránky. Architekturu a vzhled navigačního menu převezmeme např. od Flowbite. 
 V rámci komponenty Header vypíšeme cesty aplikace pomocí HTML elementu a, na nějž přidáme atribut href. Dále přidáme také akce link a active, které poskytuje svelte-spa-router. 
 Akci active předáme objekt, kde přes vlastnosti className a inactiveClassName nastavíme požadovanou CSS třídu podle toho, zda je odkaz aktivní nebo neaktivní. 
 K nastavení aria-current použijeme location objekt ze svelte-spa-router, díky kterému získáme aktuální URL.
 
+\begin{prog}
+// Část souboru Header.svelte
+
+\{#each routes as route\}
+  <li>
+    <!-- svelte-spa-router poskytuje akce "link" a také "active". -->
+    <!-- Akce active slouží k nastavení CSS na základě aktivního odkazu. -->
+    <a
+      href=\{route.path\}
+      class="block py-2 pr-4 pl-3 lg:p-0"
+      use:link
+      use:active=\{\{
+        className: 'STATICKÉ STYLY PRO AKTIVNÍ ODKAZ...',
+        inactiveClassName: 'STATICKÉ STYLY PRO NEAKTIVNÍ ODKAZ...',
+      \}\}
+      aria-current=\{route.path === \$location ? 'page' : null\}
+    >
+      \{route.name\}
+    </a>
+  </li>
+\{/each\}
+\end{prog}
+
 Stavy isMobileNavOpen a isDarkMode umožní ovládat zobrazení mobilní navigace a barevného režimu. 
 Pro uložení informace o preferenci tmavého režimu uživatele použijeme LocalStorage v prohlížeči. Logiku pro přepnutí barevného režimu zavoláme v rámci hooku beforeUpdate. 
 Tento hook se spustí po změně lokálního stavu, ale před aktualizací HTML.
+
+\begin{prog}
+// Část souboru Header.svelte
+
+beforeUpdate(() => \{
+  if (isDarkMode) \{
+    document.documentElement.setAttribute('data-mode', 'dark');
+    localStorage.setItem('data-mode', 'dark');
+  \} else \{
+    document.documentElement.removeAttribute('data-mode');
+    localStorage.removeItem('data-mode');
+  \}
+\});
+\end{prog}
