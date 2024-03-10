@@ -544,9 +544,9 @@ Dále zde zavoláme veřejnou metodu \emph{usePolyfill} na službě CountryFlagP
 Do komponenty také přidáme obslužné metody \emph{handleEvaluateGuessAndUpdateState} a \emph{handleSetInitialState}, ve kterých implementujeme logiku hry. 
 V šabloně následně vykreslíme UI komponenty hry a podmíněně modální okna při výhře či prohře.
 
-Službu CountryFlagPolyfillService, jak již bylo popsáno výše, použijeme k zobrazení ikon vlajek. 
-Pokud prohlížeč uživatele podporuje emojis a webové fonty, zavoláním funkce \emph{polyfillCountryFlagEmojis} přes metodu \emph{usePolyfill} knihovna přidá webový font Twemoji Country Flags do HTML hlavičky.
-Aby se programaticky přidaný font použil, nesmíme zapomenout nastavit font-family pravidlo v rámci CSS stylů.
+V metodě \emph{usePolyfill} služby CountryFlagPolyfillService zavoláme funkci \emph{polyfillCountryFlagEmojis} z knihovny \emph{country-flag-emoji-polyfill}. 
+Pokud prohlížeč uživatele nepodporuje zobrazení ikon vlajek, ale podporuje emojis a webové fonty, skrze funkci \emph{polyfillCountryFlagEmojis} knihovna přidá webový font do HTML hlavičky. 
+Font Twemoji Country Flags pak umožní zobrazení vlajek. Aby se programaticky přidaný font použil, nesmíme zapomenout nastavit font-family pravidlo v rámci CSS stylů.
 
 \begin{prog}
 // Část souboru styles.css
