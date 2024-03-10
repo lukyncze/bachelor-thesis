@@ -422,21 +422,93 @@ V rámci hry se postupně odkryje 8 nápovědí, které uživateli pomohou uhád
 Dále ve hře bude seznam zemí, které uživatel hádal a modální okna pro vyhodnocení hry.
 
 Začneme s programováním rodičovské komponenty, jejíž úkolem bude získat země z veřejného API. K tomu využijeme balíček @tanstack/svelte-query a axios. 
-Vytvoříme funkci useAllCountries, která vrátí výsledek HTTP dotazu (CreateQueryResult) pomocí funkce createQuery. Argumentem funkce createQuery bude objekt s názvem dotazu (queryKey) a funkce, která vykoná dotaz (queryFn). 
+Vytvoříme funkci useAllCountries, která vrátí výsledek HTTP dotazu (CreateQueryResult) pomocí funkce createQuery. Argumentem funkce createQuery bude objekt s názvem dotazu (queryKey) a funkce, která vykoná dotaz (queryFn).
+
+\begin{prog}
+// Část souboru queries.ts
+
+export const useAllCountries = (): CreateQueryResult<Countries, Error> => \{
+  return createQuery<Countries>(\{
+    queryKey: ['allCountriesQuery'], queryFn: getAllCountries
+  \});
+\};
+\end{prog}
+
 Dotaz na serveru provede asynchronní funkce getAllCountries, v níž využijeme převzatou asynchronní funkci requestHandler a knihovnu axios. Po získání odpovědi ošetříme chyby a vrátíme výsledek.
+
+\begin{prog}
+// Část souboru getAllCountries.ts
+
+export const getAllCountries = async () => \{
+  const fetchCountriesData = requestHandler<object, Countries>(() =>
+    axios.request(getRequestConfig())
+  );
+  const response = await fetchCountriesData(\{\});
+
+  if (response.code === 'error') \{
+    throw new Error(
+      `There was an error with getting the countries data 
+      (\$\{response.error.message\}). Please reload the page.`
+    );
+  \}
+
+  if (response.data.length === 0) \{
+    throw new Error('There are no countries to guess. Please try again later.');
+  \}
+
+  return getSortedCountriesByName(response.data);
+\};
+\end{prog}
 
 V rámci rodičovské komponenty dostaneme výsledek dotazu a uložíme jej do proměnné countries. Následně pomocí vlastností isError a data podmíněně vykreslíme jednotlivé komponenty. 
 V případě chyby zobrazíme komponentu ErrorAlert. Když úspěšně získáme pole zemí, vykreslíme komponentu CountryGuesser. LoadingSkeleton zobrazíme, pokud se nezobrazí žádná z předchozích komponent.
 
+\begin{prog}
+// Soubor CountryGuesserWrapper.svelte
+
+<script lang="ts">
+  // Importy...
+
+  const countries = useAllCountries();
+</script>
+
+\{#if \$countries.isError\}
+  <div 
+    class="container flex flex-col justify-center justify-items-center mx-auto"
+  >
+    <ErrorAlert message=\{\$countries.error.message\} />
+  </div>
+\{:else if \$countries.data\}
+  <CountryGuesser countries=\{\$countries.data\} />
+\{:else\}
+  <div 
+    class="container flex flex-col justify-center justify-items-center mx-auto"
+  >
+    <LoadingSkeleton />
+  </div>
+\{/if\}
+\end{prog}
+
 Komponenta CountryGuesser zobrazí jednotlivé herní prvky a bude vyhodnocovat průběh hry. Začneme definicí stavů a náhodně vybereme náhodnou zemi (randomCountry), kterou uživatel bude hádat. 
 V hooku onMount zavoláme funkci polyfillCountryFlagEmojis. Při namontování komponenty tak zajistíme zobrazení ikon vlajek v prohlížečích, které to přímo nepodporují. Prohlížeč uživatele však musí podporovat emojis a webové fonty. 
-Funkce polyfillCountryFlagEmojis přidá do hlavičky stránky webový font Twemoji Country Flags. Aby se font použil, přidáme jej do CSS stylů. 
+Funkce polyfillCountryFlagEmojis přidá do hlavičky stránky webový font Twemoji Country Flags. Aby se font použil, přidáme jej do CSS stylů.
+
+\begin{prog}
+// Část souboru app.css
+
+@layer base \{
+  html \{
+    font-family: 'Twemoji Country Flags', 'ALTERNATIVNÍ_FONTY...';
+  \}
+\}
+\end{prog}
+
 Pokračujeme implementací obslužných funkcí handleEvaluateGuessAndUpdateState, handleSetInitialState, které budou sloužit k aktualizaci stavu hry. V rámci šablony zobrazíme jednotlivé herní prvky a modální okna při výhře či prohře.
 
 V rámci komponenty HintBoxes postupně zobrazíme nápovědy. Podle vstupu randomCountry budeme reaktivně vytvářet pole nápověd, jelikož randomCountry se může změnit. 
 V šabloně posléze vykreslíme napovědy pomocí HintBox komponent. HintBox dynamicky vykreslí název a SVG ikonu nápovědy, textovou nápovědu, případně obrázek vlajky státu.
 
-Komponenta CountryGuessInput umožní uživateli zadání názvu země (uživatelova tipu). Začneme šablonou, kde vytvoříme formulářový prvek pro zadání tipu a potvrzovací tlačítko. 
+Komponenta CountryGuessInput.svelte umožní uživateli zadání názvu země (uživatelova tipu). Začneme šablonou, kde vytvoříme formulářový prvek pro zadání tipu a potvrzovací tlačítko. 
 Dále také podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu (filtrované země). Přidáme obslužné funkce pro akce a události nad formulářem, které následně doimplementujeme.
 
 V rámci skriptové části získáme, na základě vstupu countries, pole všech zemí bez těch, které uživatel již hádal (countriesWithoutAlreadyGuessed). Dále definujeme a inicializujeme ostatní stavy komponenty. 
