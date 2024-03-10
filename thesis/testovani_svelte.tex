@@ -307,12 +307,12 @@ Komponentě předáme výstupní text spolu s dalšími vlastnostmi, na základ�
 \end{flushleft}
 
 Svelte, stejně jako React, nepodporuje pokročilou správu formulářů. Můžeme však využít knihovny třetích stran, jako např. svelte-forms-lib nebo Superforms, které nám umožní lépe spravovat a validovat formuláře. 
-V rámci této sekce vytvoříme komponentu pro jednoduchou investiční kalkulaci s využitím knihovny \emph{svelte-forms-lib}. 
+V rámci této sekce vytvoříme komponentu pro jednoduchou investiční kalkulaci s využitím knihovny \emph{svelte-forms-lib} \cite{svelteformslib}. 
 Komponenta InvestForm bude obsahovat formulář pro zadání vstupních hodnot a komponentu FutureValuesInfo pro zobrazení výsledků kalkulace.
 
 Začneme implementací reaktivního formuláře, který bude přijímat počáteční hodnoty (\emph{defaultValues}) a \emph{investFormData} k předávání hodnot formuláře do rodičovské komponenty. 
 Strukturu formuláře popíšeme v typu \emph{InvestFormData}. Pomocí funkce \emph{createForm} z knihovny \emph{svelte-forms-lib} vytvoříme instanci formuláře, které předáme \emph{defaultValues} do vlastnosti \emph{initialValues}. 
-V rámci nastavení formuláře také definujeme validační schéma pomocí knihovny yup a \emph{onSubmit} obslužnou funkci. Knihovnu yup volíme, jelikož je jedinou kompatibilní možností s knihovnou \emph{svelte-forms-lib} ve verzi 2.0.1. 
+V rámci nastavení formuláře také definujeme validační schéma pomocí knihovny yup \cite{yuplibrary} a \emph{onSubmit} obslužnou funkci. Knihovnu yup volíme, jelikož je jedinou kompatibilní možností s knihovnou \emph{svelte-forms-lib} ve verzi 2.0.1. 
 % vlastnost validationSchema musí být typu ObjectSchema<any>, který je definován jen a pouze v knihovně yup:
 % import type {ObjectSchema} from 'yup';
 % validationSchema?: ObjectSchema<any>;
@@ -422,7 +422,7 @@ Nyní vytvoříme webovou hru, ve které bude úkolem uživatele uhádnout náze
 V rámci hry se postupně odkryje 8 nápovědí, které uživateli pomohou uhádnout název daného státu. Mezi klíčovými prvky bude textové pole pro zadání názvu země a potvrzovací tlačítko. 
 Dále ve hře bude seznam zemí, které uživatel hádal a modální okna pro vyhodnocení hry.
 
-Začneme s programováním rodičovské komponenty, jejíž úkolem bude získat země z veřejného API. K tomu využijeme balíčky \emph{axios} a \emph{@tanstack/svelte-query}. 
+Začneme s programováním rodičovské komponenty, jejíž úkolem bude získat země z veřejného API. K tomu využijeme balíčky \emph{axios} \cite{axiosretrylib} a \emph{@tanstack/svelte-query} \cite{tanstackquerylib}. 
 Knihovna \emph{@tanstack/svelte-query} umožní snadnou správu asynchronních operací. Její API poskytuje např. podporu načítacích i chybových stavů, také rušení či opakování dotazů a mnoho dalších funkcí. 
 Nejdříve inicializujeme \emph{svelte-query} klienta v rámci poskytovatele \emph{QueryClientProvider} v App.svelte.
 
@@ -454,7 +454,8 @@ export const useAllCountries = (): CreateQueryResult<Countries, Error> => \{
 \};
 \end{prog}
 
-Dotaz na server provede asynchronní funkce \emph{getAllCountries}, v níž využijeme převzatou asynchronní funkci requestHandler a knihovnu \emph{axios}. Po získání odpovědi ošetříme chyby a vrátíme výsledek.
+Dotaz na server provede asynchronní funkce \emph{getAllCountries}, v níž využijeme převzatou asynchronní funkci requestHandler a knihovnu \emph{axios} \cite{axioslib}. 
+Po získání odpovědi ošetříme chyby a vrátíme výsledek.
 
 \begin{prog}
 // Část souboru getAllCountries.ts
@@ -548,7 +549,7 @@ Tip uživatele v rámci funkce \emph{convertToFormattedGuess} převedeme tak, ab
 Pro zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. 
 Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a \emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
 Jde o uživatelem hádané země s vlajkou a vzdáleností od \emph{randomCountry}. K převodu využijeme JavaScriptovou funkci z jiného souboru. 
-Vzdálenost zemí vypočteme pomocí knihovny \emph{calculate-distance-between-coordinates}, která exportuje funkci \emph{getDistanceBetweenTwoPoints}. 
+Vzdálenost zemí vypočteme pomocí knihovny \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která exportuje funkci \emph{getDistanceBetweenTwoPoints}. 
 Proměnnou \emph{enrichedGuessedCountries} následně vykreslíme v rámci šablony.
 
 Nakonec vytvoříme modální okna, které vykreslíme při výhře nebo prohře. Stavy \emph{isWinModalOpen} a \emph{isLoseModalOpen} aktualizujeme v rámci funkce \emph{handleEvaluateGuessAndUpdateState} v CountryGuesser. 
@@ -562,7 +563,7 @@ V šabloně BaseModal vykreslíme základní strukturu modálního okna s dynami
 
 Aplikaci rozdělíme do tří částí: hlavičky, patičky a samotného obsahu, v němž vykreslíme jednotlivé komponenty. Uživatel se bude moci přepínat mezi jednotlivými stránkami přes navigační menu. 
 
-Pro routování v aplikaci využijeme knihovnu \emph{svelte-spa-router}. Nejprve vytvoříme seznam cest aplikace (\emph{appRoutes}).
+Pro routování v aplikaci využijeme knihovnu \emph{svelte-spa-router} \cite{sveltesparouterlib}. Nejprve vytvoříme seznam cest aplikace (\emph{appRoutes}).
 
 \begin{prog}
 // Část souboru appRoutes.ts

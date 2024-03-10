@@ -512,7 +512,7 @@ protected countries\$: Observable<Countries>
   = inject(CountryService).getAllCountries();
 \end{prog}
 
-V šabloně posléze potřebujeme odebírat hodnotu z observable. Práci v šabloně výrazně ulehčí knihovna \emph{ngx-load-with}. 
+V šabloně posléze potřebujeme odebírat hodnotu z observable. Práci v šabloně výrazně ulehčí knihovna \emph{ngx-load-with} \cite{ngxloadwith}. 
 Tato knihovna poskytuje integrovanou podporu načítání a zpracování chyb. To programátorovi umožní využívat předdefinované šablony pro dané stavy bez nutnosti další implementace. 
 Navíc se programátor nemusí starat o zrušení odběru observable.
 
@@ -544,7 +544,7 @@ Dále zde zavoláme veřejnou metodu \emph{usePolyfill} na službě CountryFlagP
 Do komponenty také přidáme obslužné metody \emph{handleEvaluateGuessAndUpdateState} a \emph{handleSetInitialState}, ve kterých implementujeme logiku hry. 
 V šabloně následně vykreslíme UI komponenty hry a podmíněně modální okna při výhře či prohře.
 
-V metodě \emph{usePolyfill} služby CountryFlagPolyfillService zavoláme funkci \emph{polyfillCountryFlagEmojis} z knihovny \emph{country-flag-emoji-polyfill}. 
+V metodě \emph{usePolyfill} služby CountryFlagPolyfillService zavoláme funkci \emph{polyfillCountryFlagEmojis} z knihovny \emph{country-flag-emoji-polyfill} \cite{countryflagemojipolyfill}. 
 Pokud prohlížeč uživatele nepodporuje zobrazení ikon vlajek, ale podporuje emojis a webové fonty, skrze funkci \emph{polyfillCountryFlagEmojis} knihovna přidá webový font do HTML hlavičky. 
 Font Twemoji Country Flags pak umožní zobrazení vlajek. Aby se programaticky přidaný font použil, nesmíme zapomenout nastavit font-family pravidlo v rámci CSS stylů.
 
@@ -589,7 +589,7 @@ Mezi vstupními vlastnostmi bude pole všech zemí (\emph{countries}), pole hád
 Pomocí vstupních vlastností a služby EnrichGuessedCountriesService získáme pole hádaných zemí s jejich vlajkou a vzdáleností od \emph{randomCountry} (\emph{distanceFromRandomCountry}).
 Služba EnrichGuessedCountriesService ke každé hádané zemi přidá vlajku z pole všech zemí a vypočte \emph{distanceFromRandomCountry}. 
 Pro vypočtení vzdálenosti použijeme funkci \emph{getDistanceBetweenTwoPoints} a vlastnost \emph{latlng}, kterou získáme z API při získávání všech zemí. 
-Funkci \emph{getDistanceBetweenTwoPoints} importujeme z knihovny \emph{calculate-distance-between-coordinates}. 
+Funkci \emph{getDistanceBetweenTwoPoints} importujeme z knihovny \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}. 
 Hodnotu vlastnosti \emph{enrichedGuessedCountries} aktualizujeme v rámci hooku \emph{OnChanges}. Seznam hádaných zemí následně vykreslíme v šabloně.
 
 Pokračujeme implementací modálních oken, které se zobrazí při výhře či prohře. 

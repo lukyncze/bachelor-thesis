@@ -368,7 +368,7 @@ Předáme jí samotný výstupní text a další vstupní vlastnosti, na základ
 \end{flushleft}
 
 React sám o sobě poskytuje jen základní API pro správu formulářů. Disponuje však mnoha knihovnami, které tuto funkcionalitu rozšiřují. 
-Mezi takové knihovny patří např. Formik, Redux Form nebo React Hook Form. V této sekci se zaměříme na tvorbu formulářů pomocí React Hook Form. 
+Mezi takové knihovny patří např. Formik, Redux Form nebo React Hook Form. V této sekci se zaměříme na tvorbu formulářů pomocí React Hook Form \cite{reacthookformlib}. 
 Vytvoříme komponentu pro jednoduchou investiční kalkulaci. 
 V rámci této komponenty naprogramujeme formulář pro zadání vstupních dat a komponentu výsledku kalkulace, která se zobrazí po potvrzení formuláře.
 
@@ -473,7 +473,7 @@ Součástí také bude seznam zemí, které uživatel hádal a modální okna sl
 
 Začneme s implementací rodičovské komponenty, která získá země z veřejného API. Naprogramujeme hook \emph{useAllCountries}, který bude vracet data (\emph{countries}), chybu a stav načítání. 
 V rámci \emph{useEffect} zavoláme asynchronní funkci \emph{fetchCountriesData}. Uvnitř funkce \emph{fetchCountriesData} zavoláme funkci \emph{getAllCountries}. 
-Ve funkci \emph{getAllCountries} využijeme knihovnu \emph{axios} a převzatý requestHandler. 
+Ve funkci \emph{getAllCountries} využijeme knihovnu \emph{axios} \cite{axioslib} a převzatý requestHandler. 
 Balíček \emph{Axios} slouží jako HTTP klient pro tvorbu asynchronních dotazů, zatímco requestHandler umožňuje otypování příchozí odpovědi. Po ošetření chyb aktualizujeme patřičné stavy, které následně z hooku vrátíme. 
 
 \begin{prog}
@@ -500,7 +500,7 @@ export const getAllCountries =
   );
 \end{prog}
 
-Opakování asynchronních dotazů při chybě zajistíme pomocí knihovny \emph{axios-retry}. Opakování nakonfigujeme v souboru \emph{main.tsx}. 
+Opakování asynchronních dotazů při chybě zajistíme pomocí knihovny \emph{axios-retry} \cite{axiosretrylib}. Opakování nakonfigujeme v souboru \emph{main.tsx}. 
 Abychom nemuseli implementovat načítací a chybové stavy, anebo rušení či opakování asynchronních dotazů, můžeme použít knihovnu \emph{react-query}.
 
 \begin{prog}
@@ -579,7 +579,8 @@ V neposlední řadě funkce \emph{convertToFormattedGuess} převede tip uživate
 
 Ke zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a \emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
 Jde o uživatelem hádané země s vlajkou a vzdáleností od \emph{randomCountry}. K převodu využijeme JavaScriptové funkce z jiného souboru. 
-K vypočtení vzdálenosti použijeme knihovnu \emph{calculate-distance-between-coordinates}, která obsahuje funkci \emph{getDistanceBetweenTwoPoints}. Jednotlivé prvky pole \emph{enrichedGuessedCountries} pak vykreslíme v rámci JSX.
+K vypočtení vzdálenosti použijeme knihovnu \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která obsahuje funkci \emph{getDistanceBetweenTwoPoints}. 
+Jednotlivé prvky pole \emph{enrichedGuessedCountries} pak vykreslíme v rámci JSX.
 
 Nakonec vytvoříme modální okna, která se zobrazí při výhře či prohře. Stavy \emph{isWinModalOpen} a \emph{isLoseModalOpen} aktualizujeme v rámci funkce \emph{handleEvaluateGuessAndUpdateState} v CountryGuesser. 
 Na základě těchto stavů pak podmíněně vykreslíme daná modální okna. Oběma modálům předáme \emph{randomCountry} a obslužnou funkci \emph{handleClose}. Výhernímu modálu také počet potřebných pokusů. 
@@ -592,7 +593,7 @@ BaseModal následně v JSX vykreslí základní strukturu modálního okna, s dy
 
 Layout aplikace bude rozdělen do tří částí: hlavičky, patičky a samotného obsahu, v nemž se vykreslí jednotlivé komponenty. Uživatel bude mít možnost přepínání mezi jednotlivými stránkami pomocí navigačního menu.
 
-Pro routování využijeme knihovnu \emph{react-router-dom}. Začneme vytvořením souboru s cestami (\emph{appRoutes}).
+Pro routování využijeme knihovnu \emph{react-router-dom} \cite{reactrouter}. Začneme vytvořením souboru s cestami (\emph{appRoutes}).
 
 \begin{prog}
 // Část souboru appRoutes.ts
