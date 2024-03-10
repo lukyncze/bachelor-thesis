@@ -9,12 +9,22 @@ function Footer() {
         </p>
         <ul className="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
           <li>
-            <Link to="#" className="mr-4 hover:underline md:mr-6">
+            <Link
+              to="https://github.com/lukyncze/bachelor-thesis/blob/main/thesis/sablona_ukazka.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mr-4 hover:underline md:mr-6"
+            >
               Text práce
             </Link>
           </li>
           <li>
-            <Link to="#" className="hover:underline">
+            <Link
+              to="https://github.com/lukyncze/bachelor-thesis"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
               Github repozitář
             </Link>
           </li>
