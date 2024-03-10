@@ -22,7 +22,7 @@ Dále vytvoříme komponentu Button z důvodu dodržování principu DRY a efekt
 Komponenta bude přijímat vlastnosti \emph{className} a \emph{onClick}. \emph{ClassName} rozšíří CSS třídy tlačítka a \emph{onClick} bude obsahovat obslužnou funkci, která se zavolá při kliknutí na tlačítko.
 Nyní do šablony přidáme tlačítko a předáme mu vlastnosti \emph{className} a \emph{onClick}.
 Svelte umožňuje zachytit všechny nedefinované vlastnosti do proměnné \emph{\$\$restProps}. Proměnnou \emph{\$\$restProps} tedy pomocí spread operátoru předáme tlačítku a tím jej obohatíme o další vlastnosti. 
-Obsah tlačítka, který definujeme mezi párovými značkami Button, vykreslíme pomocí komponenty \emph{slot}.
+Obsah tlačítka, který definujeme mezi párovými značkami Button, vykreslíme pomocí komponenty slot.
 
 \begin{prog}
 // Soubor Button.svelte
