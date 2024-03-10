@@ -1,3 +1,4 @@
+import {type ComponentType} from 'svelte';
 import Translator from '../pages/Translator.svelte';
 import Counter from '../pages/Counter.svelte';
 import DropdownWrapper from '../pages/DropdownWrapper.svelte';
@@ -6,7 +7,13 @@ import PageNotFound from '../pages/PageNotFound.svelte';
 import InvestFormWrapper from '../pages/InvestFormWrapper.svelte';
 import CountryGuesserWrapper from '../pages/CountryGuesserWrapper.svelte';
 
-export const appRoutes = [
+interface AppRoute {
+  name?: string;
+  path: string;
+  component: ComponentType;
+}
+
+export const appRoutes: ReadonlyArray<AppRoute> = [
   {
     name: 'Home',
     path: '/',
