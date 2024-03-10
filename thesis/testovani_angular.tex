@@ -37,7 +37,7 @@ Pro implementaci jednoduchého counteru nejprve vytvoříme counter komponentu. 
 \end{prog}
 
 Jelikož potřebujeme opakovaně použít logiku jednotlivých tlačítek, vytvoříme komponentu counter-button. 
-Ta může přijímat například CSS styly nebo přes output (EventEmitter) posílat informaci o kliknutí na tlačítko směrem nahoru ve stromě komponent.
+Ta může přijímat například CSS styly nebo přes output (\emph{EventEmitter}) posílat informaci o kliknutí na tlačítko směrem nahoru ve stromě komponent.
 
 \begin{prog}
 // Soubor counter-button.component.ts
@@ -61,8 +61,8 @@ export class CounterButtonComponent \{
 \}
 \end{prog}
 
-Funkci emit() našeho EventEmitteru zavoláme na tlačítku v counter-buttonu právě tehdy, když uživatel klikne na tlačítko -- použijeme listener ve formě (click). 
-K propsání textu či jiných elementů nebo komponent mezi párovými tagy <counter-button></counter-button> pak poslouží párový či nepárový element <ng-content />.
+Funkci \emph{emit()} \emph{EventEmitteru} zavoláme na tlačítku v counter-buttonu právě tehdy, když uživatel klikne na tlačítko -- použijeme listener ve formě \emph{(click)}. 
+K propsání textu či jiných elementů nebo komponent mezi párovými tagy <counter-button> pak poslouží párový či nepárový element <ng-content />.
 
 \begin{prog}
 // Soubor counter-button.component.html
@@ -79,8 +79,8 @@ K propsání textu či jiných elementů nebo komponent mezi párovými tagy <co
 \end{prog}
 
 Následně v counter komponentě importujeme třídu CounterButtonComponent a do všech elementů counter-button předáme jejich vstupy a výstupy. 
-Námi defikovanovanému outputu buttonClicked předáme v šabloně metodu, která se vykoná po emitu (kliknutí na tlačítko ve vnořené komponentě) a metodu zavoláme pomocí kulatých závorek. 
-V rámci counter komponenty pak definujeme stav jako vlastnost count na třídě. Vlastnost pak můžeme modifikovat skrze metody třídy, které voláme v outputu buttonClicked.
+Námi defikovanovanému outputu \emph{buttonClicked} předáme v šabloně metodu, která se vykoná po emitu (kliknutí na tlačítko ve vnořené komponentě) a metodu zavoláme pomocí kulatých závorek. 
+V rámci counter komponenty pak definujeme stav jako vlastnost \emph{count} na třídě. Vlastnost pak můžeme modifikovat skrze metody třídy, které voláme v outputu \emph{buttonClicked}.
 
 \begin{prog}
 // Soubor counter.component.ts
@@ -123,8 +123,8 @@ export class CounterComponent \{
 \end{flushleft}
 
 Při vytváření jakékoli UI komponenty můžeme začít šablonou, nebo definovat funkční stránku. My začneme s tvorbou šablony. V případě vlastního dropdown samotným tlačítkem a seznamem možností. 
-Otevření možností zajístíme tak, že na tlačítko přidáme click listener. Funkčnost pak zajistíme díky modifikaci stavu isOpen, který se provede při volání metody toggleDropdown. 
-V rámci této metody je třeba zavolat i event.stopPropagation(). Předejdeme tak potenciální chybě ve formě tzv. event bubblingu -- spuštění událostí na prvcích odlišných od cílového.
+Otevření možností zajístíme tak, že na tlačítko přidáme click listener. Funkčnost pak zajistíme díky modifikaci stavu \emph{isOpen}, který se provede při volání metody \emph{toggleDropdown}. 
+V rámci této metody je třeba zavolat i \emph{event.stopPropagation()}. Předejdeme tak potenciální chybě ve formě tzv. event bubblingu -- spuštění událostí na prvcích odlišných od cílového.
 
 \begin{prog}
 // Část souboru dropdown.component.html
@@ -149,9 +149,9 @@ V rámci této metody je třeba zavolat i event.stopPropagation(). Předejdeme t
 </div>
 \end{prog}
 
-Podmíněně pak můžeme vypsat list možností, které získáme v jednom z inputů. Pro vypsání všech možností použijeme blok @for. 
-K vybraní konkrétní možnosti použijeme zase (click) a do obslužné metody pošleme aktuální prvek v poli -- option. 
-Metoda handleOptionClick pak zajistí uložení aktuálně vybrané možnosti, zavření dropdownu a vyemitování vybrané možnosti do rodičovské komponenty.
+Podmíněně pak můžeme vypsat list možností, které získáme v jednom z inputů. Pro vypsání všech možností použijeme blok \emph{@for}. 
+K vybraní konkrétní možnosti použijeme zase \emph{(click)} a do obslužné metody pošleme aktuální prvek v poli -- option. 
+Metoda \emph{handleOptionClick} pak zajistí uložení aktuálně vybrané možnosti, zavření dropdownu a vyemitování vybrané možnosti do rodičovské komponenty.
 
 \begin{prog}
 // Část souboru dropdown.component.html
@@ -191,8 +191,8 @@ protected dropdownId = `id-\${crypto.randomUUID()}`;
 <div class="relative inline-block text-left" [id]="dropdownId">
 \end{prog}
 
-V komponentě pak budeme naslouchat na události v DOM pomocí dekorátoru @HostListener. 
-Dekorátor přijímá DOM událost, na který má poslouchat -- document:pointerdown, případně další argumenty nebo také formu vypublikované události. 
+V komponentě pak budeme naslouchat na události v DOM pomocí dekorátoru \emph{@HostListener}. 
+Dekorátor přijímá DOM událost, na který má poslouchat -- \emph{document:pointerdown}, případně další argumenty nebo také formu vypublikované události. 
 Pod dekorátorem pak definujeme obslužnou metodu, která se volá při emitu specifikované události. V rámci metody pak zajistíme uzavření aktuálně otevřeného dropdownu.
 
 \begin{prog}
@@ -206,8 +206,8 @@ onClickOutsideDropdown(target: HTMLElement): void \{
 \}
 \end{prog}
 
-Dropdown pak může mít různé inputy, které povedou k lepší znovupoužitelnosti. Hodnotu inputu (konkrétně např. defaultValue) v komponentě získáme v metodě životního cyklu OnInit. 
-Styly ve formě JavaScriptových hodnot do šablony přidáme pomocí ngClass. Když těchto hodnot potřebujeme na elementu více, zřetězíme předávané hodnoty pomocí JavaScriptu. 
+Dropdown pak může mít různé inputy, které povedou k lepší znovupoužitelnosti. Hodnotu inputu (konkrétně např. \emph{defaultValue}) v komponentě získáme v metodě životního cyklu \emph{OnInit}. 
+Styly ve formě JavaScriptových hodnot do šablony přidáme pomocí \emph{ngClass}. Když těchto hodnot potřebujeme na elementu více, zřetězíme předávané hodnoty pomocí JavaScriptu. 
 Další možnost spočívá ve sloučení požadovaných stylů na úrovni třídy.
 
 \begin{citemize}
@@ -225,8 +225,8 @@ Začneme tedy vytvořením rodičovské komponenty, která při změně vlastnos
 V rámci této komponenty vytvoříme vnořené komponenty, které budou sloužit k zadání vstupního textu, výběru jazyka a zobrazení výsledku. 
 
 LanguageDropdownComponent umožní uživateli vybrat jazyk, do kterého chce přeložit text. 
-Přes EventEmitter aktualizujeme výstupní jazyk v rodičovské komponentě. V rámci obslužné metody handleLanguageChange pak také aktualizujeme hodnotu vlastnosti inputValuesChanges\$.
-Tato vlastnost je Subject, speciální typ observable, z knihovny RxJS. Později dovolí na základě změny hodnoty poslat dotaz na server ve správný moment. 
+Přes \emph{EventEmitter} aktualizujeme výstupní jazyk v rodičovské komponentě. V rámci obslužné metody \emph{handleLanguageChange} pak také aktualizujeme hodnotu vlastnosti \emph{inputValuesChanges\$}.
+Tato vlastnost je \emph{Subject}, speciální typ observable, z knihovny RxJS. Později dovolí na základě změny hodnoty poslat dotaz na server ve správný moment. 
 Podobným způsobem poté můžeme registrovat událost změny vstupního textu -- naslouchat na změnu vstupního textu.
 % Přidat schéma
 
@@ -242,7 +242,7 @@ protected handleLanguageChange(outputLanguage: Option): void \{
 \end{prog}
 
 Zadání vstupního textu pak může řešit komponenta TranslationInputComponent, která obdobným způsobem aktualizuje hodnotu vstupního textu v rodičovské komponentě. 
-Aktuální hodnotu formulářového prvku nastavíme pomocí [ngModel]. Pro naslouchání na změnu hodnoty formulářového prvku zase využijeme (ngModelChange).
+Aktuální hodnotu formulářového prvku nastavíme pomocí \emph{[ngModel]}. Pro naslouchání na změnu hodnoty formulářového prvku zase využijeme \emph{(ngModelChange)}.
 
 \begin{prog}
 // Část souboru translation-input.component.html
@@ -259,14 +259,14 @@ Aktuální hodnotu formulářového prvku nastavíme pomocí [ngModel]. Pro nasl
 
 % TODO: Vložit do přílohy soubor autosize-text-area.directive.ts
 V případě, že potřebujeme aktualizovat výšku textového pole na základě jeho obsahu, můžeme využít vlastní direktivu AutosizeTextAreaDirective. 
-V konstruktoru direktivy získáme element, na který přidáme tuto direktivu. Dále budeme potřebovat třídu Renderer2, která umožňuje manipulovat s DOM. 
-V direktivě budeme naslouchat na změnu hodnoty textového pole pomocí dekorátoru @HostListener a události input. Následně v rámci obslužné metody zajistíme aktualizaci výšky.
+V konstruktoru direktivy získáme element, na který přidáme tuto direktivu. Dále budeme potřebovat třídu \emph{Renderer2}, která umožňuje manipulovat s DOM. 
+V direktivě budeme naslouchat na změnu hodnoty textového pole pomocí dekorátoru \emph{@HostListener} a události input. Následně v rámci obslužné metody zajistíme aktualizaci výšky.
 
-Změny hodnoty vlastnosti inputValuesChanges\$ začneme odebírat pomocí subscribe. 
-Abychom předešli dotazování serveru ihned po změně hodnoty vlastnosti inputValuesChanges\$, použijeme operátor debounceTime. 
+Změny hodnoty vlastnosti \emph{inputValuesChanges\$} začneme odebírat pomocí \emph{subscribe}. 
+Abychom předešli dotazování serveru ihned po změně hodnoty vlastnosti \emph{inputValuesChanges\$}, použijeme operátor \emph{debounceTime}. 
 Ten povolí poslat dotaz na server až po uplynutí určité doby od poslední změny, kterou můžeme nastavit. 
-Subscribe zavolá věřejnou metodu služby (getTranslation), která vrací přeložený text. 
-Nakonec, aby dotazování serveru fungovalo, je třeba metodu setupInputChangeSubscription zavolat v konstruktoru nebo hooku OnInit.
+Subscribe zavolá věřejnou metodu služby (\emph{getTranslation}), která vrací přeložený text. 
+Nakonec, aby dotazování serveru fungovalo, je třeba metodu \emph{setupInputChangeSubscription} zavolat v konstruktoru nebo hooku \emph{OnInit}.
 
 \begin{prog}
 // Část souboru translator.component.ts
@@ -287,11 +287,11 @@ private setupInputChangeSubscription(): void \{
 \}
 \end{prog}
 
-V rámci služby TranslationService použijeme třídu HttpClient z Angular modulů, která umožňuje odesílat HTTP požadavky na server.
-Službu HttpClient získáme v konstruktoru, kde ji pomocí klíčového slova private přiřadíme do vlastností třídy. 
-Pokračujeme zavoláním metody post na HTTP klientovi s patřičným nastavením. Ze serveru pak v odpovědi dostaneme přeložený text. 
-Pokud úspěšná odpověď ze serveru obsahuje složitější strukturu, ze které potřebujeme získat jen nějakou část, pak s konverzí odpovědi pomůže RxJS operátor map(). 
-Metoda getTranslation vrací observable, v translator komponentě proto hodnoty odebíráme pomocí metody subscribe.
+V rámci služby TranslationService použijeme třídu \emph{HttpClient} z Angular modulů, která umožňuje odesílat HTTP požadavky na server.
+Službu \emph{HttpClient} získáme v konstruktoru, kde ji pomocí klíčového slova \emph{private} přiřadíme do vlastností třídy. 
+Pokračujeme zavoláním metody \emph{post} na HTTP klientovi s patřičným nastavením. Ze serveru pak v odpovědi dostaneme přeložený text. 
+Pokud úspěšná odpověď ze serveru obsahuje složitější strukturu, ze které potřebujeme získat jen nějakou část, pak s konverzí odpovědi pomůže RxJS operátor \emph{map()}. 
+Metoda \emph{getTranslation} vrací observable, v translator komponentě proto hodnoty odebíráme pomocí metody \emph{subscribe}.
 
 % TODO: Zde zmínit unsubscribe... (je to poměrně důležité)
 \begin{prog}
@@ -373,7 +373,7 @@ Angular je flexibilní z pohledu možností tvorby formulářů. My použijeme r
 Vytvoříme komponentu zaměřenou na jednoduché investiční kalkulace. 
 Bude obsahovat dvě vnořené komponenty: formulář pro zadání vstupních dat a komponentu výsledku kalkulace, která se zobrazí po potvrzení formuláře.
 
-Začneme s tvorbou reaktivního formuláře. Typ InvestForm popisuje strukturu souvisejících formulářových prvků formuláře.
+Začneme s tvorbou reaktivního formuláře. Typ \emph{InvestForm} popisuje strukturu souvisejících formulářových prvků formuláře.
 
 \begin{prog}
 // Část souboru invest-form.component.ts
@@ -387,8 +387,8 @@ type InvestForm = FormGroup<\{
 \end{prog}
 
 Protože prvků budeme mít více, deklarujeme formulářovou skupinu jako vlastnost třídy, ve které následně definujeme samotné formulářové prvky. 
-Vlastnost investForm pak umožní přístup k hodnotám formuláře a jeho validaci. Zde narazíme na problém s nenastavením počáteční hodnoty vlastnosti přímo nebo v konstruktoru. 
-Můžeme ho vyřešit za pomoci vykřičníku -- řekneme tak TypeScriptu, že obsah proměnné je nenulový. Další možností je vypnout pravidlo strictPropertyInitialization v souboru tsconfig.json.
+Vlastnost \emph{investForm} pak umožní přístup k hodnotám formuláře a jeho validaci. Zde narazíme na problém s nenastavením počáteční hodnoty vlastnosti přímo nebo v konstruktoru. 
+Můžeme ho vyřešit za pomoci vykřičníku -- řekneme tak TypeScriptu, že obsah proměnné je nenulový. Další možností je vypnout pravidlo \emph{strictPropertyInitialization} v souboru \emph{tsconfig.json}.
 
 \begin{prog}
 // Část souboru invest-form.component.ts
@@ -396,12 +396,12 @@ Můžeme ho vyřešit za pomoci vykřičníku -- řekneme tak TypeScriptu, že o
 protected investForm!: InvestForm;
 \end{prog}
 
-Hodnotu vlastnosti investForm nastavíme pomocí metody initializeInvestForm v rámci OnInit hooku. 
-Tento postup zvolíme, protože chceme nastavovat počáteční hodnoty formuláře na základě vstupní vlastnosti defaultValues.
-Důvodem je, že hodnoty vstupních vlastností jsou v komponentě dostupné nejdříve v rámci hooku OnInit.
+Hodnotu vlastnosti \emph{investForm} nastavíme pomocí metody \emph{initializeInvestForm} v rámci \emph{OnInit} hooku. 
+Tento postup zvolíme, protože chceme nastavovat počáteční hodnoty formuláře na základě vstupní vlastnosti \emph{defaultValues}.
+Důvodem je, že hodnoty vstupních vlastností jsou v komponentě dostupné nejdříve v rámci hooku \emph{OnInit}.
 
-Metoda initializeInvestForm vrátí instanci třídy FormGroup, kterou vytvoříme pomocí třídy FormBuilder ze základního balíčku @angular/forms. 
-Argumentem pro metodu group pak je objekt, který popisuje strukturu formuláře. 
+Metoda \emph{initializeInvestForm} vrátí instanci třídy \emph{FormGroup}, kterou vytvoříme pomocí třídy \emph{FormBuilder} ze základního balíčku \emph{@angular/forms}. 
+Argumentem pro metodu \emph{group} pak je objekt, který popisuje strukturu formuláře. 
 Vlastnosti objektu budou klíče formulářových prvků a jejich hodnoty pole, kde první prvek bude počáteční hodnota a druhý prvek pole validátorů.
 
 \begin{prog}
@@ -421,8 +421,8 @@ private initializeInvestForm(): InvestForm \{
 \}
 \end{prog}
 
-V šabloně následně propojíme formulářovou skupinu s formulářem. K tomu poslouží direktiva [formGroup] a její hodnotu nastavíme na vlastnost investForm. 
-V rámci formuláře pak vytvoříme formulářové prvky, které propojíme direktivou formControlName. Hodnota pak musí odpovídat klíči prvku ve formulářové skupině. 
+V šabloně následně propojíme formulářovou skupinu s formulářem. K tomu poslouží direktiva \emph{[formGroup]} a její hodnotu nastavíme na vlastnost \emph{investForm}. 
+V rámci formuláře pak vytvoříme formulářové prvky, které propojíme direktivou \emph{formControlName}. Hodnota pak musí odpovídat klíči prvku ve formulářové skupině. 
 Pro zajištění efektivní obsluhy chyb formuláře můžeme využít getter metody, které vrátí konkrétní formulářový prvek.
 
 \begin{prog}
@@ -457,16 +457,16 @@ Pro zajištění efektivní obsluhy chyb formuláře můžeme využít getter me
 </form>
 \end{prog}
 
-Dále vytvoříme tlačítko s typem submit, přes které uživatel formulář potvrdí. Na form značku přidáme (ngSubmit), který vyemituje událost při potvrzení formuláře. 
+Dále vytvoříme tlačítko s typem submit, přes které uživatel formulář potvrdí. Na form značku přidáme \emph{(ngSubmit)}, který vyemituje událost při potvrzení formuláře. 
 Obslužná metoda pak prostřednictvím výstupové vlastnosti publikuje aktuální hodnotu reaktivního formuláře do rodičovské komponenty.
 
 V rámci rodičovské komponenty tedy vykreslíme samotný formulář a při jakémkoli potvrzení formuláře získáme aktuální hodnoty z formuláře díky outputu. 
-Hodnoty formuláře pak dostaneme v obslužné metodě handleFormChanged. Pomocí služby FutureValuesCalculatorService tyto hodnoty transformujeme do požadovaného formátu. 
-Výsledek uložíme do vlastnosti futureValues. 
+Hodnoty formuláře pak dostaneme v obslužné metodě \emph{handleFormChanged}. Pomocí služby FutureValuesCalculatorService tyto hodnoty transformujeme do požadovaného formátu. 
+Výsledek uložíme do vlastnosti \emph{futureValues}.
 
 Když jsou hodnoty vypočteny, vykreslíme je na stránce prostřednictvím komponent future-values-info a future-value-info. 
 První z komponent slouží k rozložení výsledků do požadovaného formátu a vytvoření komponent pro jednotlivé výsledky. 
-Komponenta future-value-info pak přijímá vstupní vlastnost, kterou v šabloně před vykreslením v DOM přetransformujeme díky rouře (LocalizedNumberPipe).
+Komponenta future-value-info pak přijímá vstupní vlastnost, kterou v šabloně před vykreslením v DOM přetransformujeme díky rouře (\emph{LocalizedNumberPipe}).
 
 \begin{prog}
 // Část souboru future-value-info.component.html
@@ -502,8 +502,8 @@ Součástí je také seznam již zadaných hádaných zemí a modální okna slo
 
 Začneme s implementací rodičovské komponenty, jež bude získávat data o všech zemích světa z veřejného API. 
 Další zodpovědností této komponenty bude vykreslování odpovídajících stavů při získávání dat -- stav načítání, úspěšné získání dat a chyba při získávání dat. 
-Vytvoříme službu CountryService, díky které budeme moci získávat data o zemích. Konkrétně k tomu využijeme metodu getAllCountries, která vrátí observable pole všech zemí. 
-Výsledek registrace služby a přímé zavolání metody getAllCountries uložíme do vlastnosti třídy.
+Vytvoříme službu CountryService, díky které budeme moci získávat data o zemích. Konkrétně k tomu využijeme metodu \emph{getAllCountries}, která vrátí observable pole všech zemí. 
+Výsledek registrace služby a přímé zavolání metody \emph{getAllCountries} uložíme do vlastnosti třídy.
 
 \begin{prog}
 // Soubor country-guesser-wrapper.component.ts
@@ -512,7 +512,7 @@ protected countries\$: Observable<Countries>
   = inject(CountryService).getAllCountries();
 \end{prog}
 
-V šabloně posléze potřebujeme odebírat hodnotu z observable. Práci v šabloně výrazně ulehčí knihovna ngx-load-with. 
+V šabloně posléze potřebujeme odebírat hodnotu z observable. Práci v šabloně výrazně ulehčí knihovna \emph{ngx-load-with}. 
 Tato knihovna poskytuje integrovanou podporu načítání a zpracování chyb. To programátorovi umožní využívat předdefinované šablony pro dané stavy bez nutnosti další implementace. 
 Navíc se programátor nemusí starat o zrušení odběru observable.
 
@@ -539,14 +539,14 @@ Navíc se programátor nemusí starat o zrušení odběru observable.
 \end{prog}
 
 V rámci komponenty country-guesser budeme implementovat jednotlivé herní prvky, komponenta také bude vyhodnocovat průběh hry. 
-Definujeme tedy vlastnosti třídy, které budou reprezentovat stav a průběh hry. V hooku OnInit získáme náhodou zemi (zemi pro uhádnutí). 
-Dále zde zavoláme veřejnou metodu usePolyfill na službě CountryFlagPolyfillService, která zajistí zobrazení ikon vlajek v prohlížečích, které nepodporují zobrazení vlajek.
-Do komponenty také přidáme obslužné metody handleEvaluateGuessAndUpdateState a handleSetInitialState, ve kterých implementujeme logiku hry. 
+Definujeme tedy vlastnosti třídy, které budou reprezentovat stav a průběh hry. V hooku \emph{OnInit} získáme náhodou zemi (zemi pro uhádnutí). 
+Dále zde zavoláme veřejnou metodu \emph{usePolyfill} na službě CountryFlagPolyfillService, která zajistí zobrazení ikon vlajek v prohlížečích, které nepodporují zobrazení vlajek.
+Do komponenty také přidáme obslužné metody \emph{handleEvaluateGuessAndUpdateState} a \emph{handleSetInitialState}, ve kterých implementujeme logiku hry. 
 V šabloně následně vykreslíme UI komponenty hry a podmíněně modální okna při výhře či prohře.
 
-Službu CountryFlagPolyfillService, jak již bylo popsáno výše, použijeme k zobrazení ikon vlajek. 
-Pokud prohlížeč uživatele podporuje emojis a webové fonty, zavoláním funkce polyfillCountryFlagEmojis přes metodu usePolyfill knihovna přidá webový font Twemoji Country Flags do HTML hlavičky.
-Aby se programaticky přidaný font použil, nesmíme zapomenout nastavit font-family pravidlo v rámci CSS stylů.
+V metodě \emph{usePolyfill} služby CountryFlagPolyfillService zavoláme funkci \emph{polyfillCountryFlagEmojis} z knihovny \emph{country-flag-emoji-polyfill}. 
+Pokud prohlížeč uživatele nepodporuje zobrazení ikon vlajek, ale podporuje emojis a webové fonty, skrze funkci \emph{polyfillCountryFlagEmojis} knihovna přidá webový font do HTML hlavičky. 
+Font Twemoji Country Flags pak umožní zobrazení vlajek. Aby se programaticky přidaný font použil, nesmíme zapomenout nastavit font-family pravidlo v rámci CSS stylů.
 
 \begin{prog}
 // Část souboru styles.css
@@ -562,44 +562,42 @@ HintBoxesComponent postupně vykreslí nápovědy. Při jakékoli změně vstupn
 V šabloně iterujeme přes pole nápověd a vykreslíme jednotlivé nápovědy. Vlastnost hintEnabled nastavíme pomocí indexu a vstupní vlastnosti hintsEnabledCount. 
 Samotný hint-box pak dynamicky vykreslí název a SVG ikonu nápovědy, textovou nápovědu, případně obrázek vlajky státu.
 
-% TODO: Přidat do přílohy soubor country-guess-input.component.ts - odkazovat přímo na zdroják
-Pokračujeme komponentou country-guess-input, která uživateli umožní zadat svůj tip. 
+Pokračujeme implementací komponenty country-guess-input, která uživateli umožní zadat svůj tip. 
 Začneme šablonou, kde vytvoříme formulářový prvek pro zadání názvu země a potvrzovací tlačítko. 
 Dále podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu -- filtrované země a chybové hlášky. 
 Můžeme také rovnout přidat obslužné metody pro akce a události nad formulářem, které následně postupně doimplementujeme.
 
-V třídě CountryGuessInputComponent při změně vstupních vlastností (v hooku OnChanges) aktualizujeme vlastnost countriesWithoutAlreadyGuessed a filteredCountries. 
-V případě první vlastnosti jde o pole všech zemí bez těch, které uživatel již hádal. Druhá vlastnost poté představuje pole počátečních 8 prvků vlastnosti countriesWithoutAlreadyGuessed. 
-Metoda handleGuessButtonClick zavolá obslužnou metodu rodičovské komponenty, která vyhodnotí tip a aktualizuje stav hry. 
-Aktualizujeme také hodnoty aktuálního tipu, filtrovaných zemí a uzavřeme podmenu, k čemuž slouží metoda handleChangeSelectedGuess volaná i napřímo z šablony. 
-Tělo metody handleInputChange převede uživatelům tip do správného formátu a pomocí převedené hodnoty aktualizuje aktuální tip spolu s filtrovanými zeměmi.
-Metoda handleKeyDown se postará o interakce s podmenu pomocí klávesnice. Skrze šipky nahoru a dolů povolíme uživateli vybrat hádanou zemi. 
+V souboru \emph{country-guess-input.component.ts}, tedy v rámci třídy CountryGuessInputComponent, při změně vstupních vlastností (v hooku \emph{OnChanges}) aktualizujeme vlastnost \emph{countriesWithoutAlreadyGuessed} a \emph{filteredCountries}. 
+V případě první vlastnosti jde o pole všech zemí bez těch, které uživatel již hádal. Druhá vlastnost poté představuje pole počátečních 8 prvků vlastnosti \emph{countriesWithoutAlreadyGuessed}. 
+Metoda \emph{handleGuessButtonClick} zavolá obslužnou metodu rodičovské komponenty, která vyhodnotí tip a aktualizuje stav hry. 
+Aktualizujeme také hodnoty aktuálního tipu, filtrovaných zemí a uzavřeme podmenu, k čemuž slouží metoda \emph{handleChangeSelectedGuess} volaná i napřímo z šablony. 
+Tělo metody \emph{handleInputChange} převede uživatelům tip do správného formátu a pomocí převedené hodnoty aktualizuje aktuální tip spolu s filtrovanými zeměmi.
+Metoda \emph{handleKeyDown} se postará o interakce s podmenu pomocí klávesnice. Skrze šipky nahoru a dolů povolíme uživateli vybrat hádanou zemi. 
 Enter umožní změnu aktuálního tipu názvu země na právě tu, kterou uživatel označil v podmenu. Escape poslouží k uzavření podmenu.
 
-Pomocná metoda updateGuessAndFilteredCountries pak modifikuje vlastnost currentGuess. 
-Následně pomocí metody getFilteredCountries získá aktuálně filtrované země na základě uživatelova tipu. 
-Dále nastaví vlastnost isValidGuess, která určuje, zda je uživatelův tip validní (taková země existuje). 
-V neposlední řadě se metoda stará i o aktualizaci vlastnosti selectedGuessIndex, jež určuje, která země je vybraná v podmenu. 
-K tomu slouží metoda clampSelectedGuessIndex, která index udrží v požadovaném rozmezí (0 až počet filtrovaných zemí).
-Metoda getFilteredCountries získává filtrované země na základě vlastnosti currentGuess. 
-Pomocná metoda changeSelectedGuessIndex aktualizuje vlastnost selectedGuessIndex o hodnotu předanou v argumentu. 
-K převodu tipu uživatele slouží pomocná metoda convertToFormattedGuess. Metoda zajistí, aby tip začínal velkým písmenem a zbytek řetezce byl složen z malých písmen.
-% TODO: Přidat do přílohy soubor country-guess-input.component.ts
+Pomocná metoda \emph{updateGuessAndFilteredCountries} pak modifikuje vlastnost \emph{currentGuess}. 
+Následně pomocí metody \emph{getFilteredCountries} získá aktuálně filtrované země na základě uživatelova tipu. 
+Dále nastaví vlastnost \emph{isValidGuess}, která určuje, zda je uživatelův tip validní (taková země existuje). 
+V neposlední řadě se metoda stará i o aktualizaci vlastnosti \emph{selectedGuessIndex}, jež určuje, která země je vybraná v podmenu. 
+K tomu slouží metoda \emph{clampSelectedGuessIndex}, která index udrží v požadovaném rozmezí (0 až počet filtrovaných zemí).
+Metoda \emph{getFilteredCountries} získává filtrované země na základě vlastnosti \emph{currentGuess}. 
+Pomocná metoda \emph{changeSelectedGuessIndex} aktualizuje vlastnost \emph{selectedGuessIndex} o hodnotu předanou v argumentu. 
+K převodu tipu uživatele slouží pomocná metoda \emph{convertToFormattedGuess}. Metoda zajistí, aby tip začínal velkým písmenem a zbytek řetezce byl složen z malých písmen.
 
 Implementujeme komponentu guessed-countries-list, jenž zobrazí seznam již hádaných zemí. 
-Mezi vstupními vlastnostmi bude pole všech zemí (countries), pole hádaných zemí uživatelem (guessedCountries) a také země, kterou uživatel musí uhodnout (randomCountry).
-Pomocí vstupních vlastností a služby EnrichGuessedCountriesService získáme pole hádaných zemí s jejich vlajkou a vzdáleností od randomCountry (distanceFromRandomCountry).
-Služba EnrichGuessedCountriesService ke každé hádané zemi přidá vlajku z pole všech zemí a vypočte distanceFromRandomCountry. 
-Pro vypočtení vzdálenosti použijeme funkci getDistanceBetweenTwoPoints a vlastnost latlng, kterou získáme z API při získávání všech zemí. 
-Funkci getDistanceBetweenTwoPoints importujeme z knihovny calculate-distance-between-coordinates. 
-Hodnotu vlastnosti enrichedGuessedCountries aktualizujeme v rámci hooku OnChanges. Seznam hádaných zemí následně vykreslíme v šabloně.
+Mezi vstupními vlastnostmi bude pole všech zemí (\emph{countries}), pole hádaných zemí uživatelem (\emph{guessedCountries}) a také země, kterou uživatel musí uhodnout (\emph{randomCountry}).
+Pomocí vstupních vlastností a služby EnrichGuessedCountriesService získáme pole hádaných zemí s jejich vlajkou a vzdáleností od \emph{randomCountry} (\emph{distanceFromRandomCountry}).
+Služba EnrichGuessedCountriesService ke každé hádané zemi přidá vlajku z pole všech zemí a vypočte \emph{distanceFromRandomCountry}. 
+Pro vypočtení vzdálenosti použijeme funkci \emph{getDistanceBetweenTwoPoints} a vlastnost \emph{latlng}, kterou získáme z API při získávání všech zemí. 
+Funkci \emph{getDistanceBetweenTwoPoints} importujeme z knihovny \emph{calculate-distance-between-coordinates}. 
+Hodnotu vlastnosti \emph{enrichedGuessedCountries} aktualizujeme v rámci hooku \emph{OnChanges}. Seznam hádaných zemí následně vykreslíme v šabloně.
 
 Pokračujeme implementací modálních oken, které se zobrazí při výhře či prohře. 
-Vlastnosti isWinModalOpen a isLoseModalOpen, určující, zda se mají okna zobrazit, bychom již měli aktualizovat v rámci metody handleEvaluateGuessAndUpdateState v CountryGuesserComponent. 
-Oběma modálním oknům předáme vlastnost randomCountry a output handleClose v podobě obslužné události, která se vyvolá při zavření modálního okna. 
-Výhernímu modálu také vlastnost totalGuessesNeeded, jíž využijeme v obsahu okna. 
+Vlastnosti \emph{isWinModalOpen} a \emph{isLoseModalOpen}, určující, zda se mají okna zobrazit, bychom již měli aktualizovat v rámci metody \emph{handleEvaluateGuessAndUpdateState} v CountryGuesserComponent. 
+Oběma modálním oknům předáme vlastnost \emph{randomCountry} a output \emph{handleClose} v podobě obslužné události, která se vyvolá při zavření modálního okna. 
+Výhernímu modálu také vlastnost \emph{totalGuessesNeeded}, jíž využijeme v obsahu okna. 
 Obě modální okna budou velice podobné, a proto je vhodné vytvořit komponentu base-modal, která bude sloužit jako šablona pro obě okna. 
-BaseModalComponent bude přijímat titulek, obsah modálního okna a handleClose jako výstupní vlastnost. 
+BaseModalComponent bude přijímat titulek, obsah modálního okna a \emph{handleClose} jako výstupní vlastnost. 
 Šablona base-modal pak vykreslí základní strukturu modálního okna, s dynamicky nastaveným titulkem, obsahem a obslužnou metodou volanou při zavření modálního okna.
 
 \begin{flushleft}
@@ -609,8 +607,8 @@ BaseModalComponent bude přijímat titulek, obsah modálního okna a handleClose
 Demonstrační aplikace bude složena z hlavičky, patičky a samotného obsahu, v nemž se vykreslí jednotlivé komponenty. 
 Mezi jednotlivými stránkami se uživatel bude moct přepínat pomocí navigačního menu.
 
-K routování mezi jednotlivými stránkami využijeme modul Router přímo od Angularu. Nejprve vytvoříme cesty (routes) pro jednotlivé stránky v souboru app.routes.ts. 
-Proměnnou routes vytvoříme dle předpisu Routes a následně exportujeme. Cesty pak poskytneme routeru v rámci app.config.ts.
+K routování mezi jednotlivými stránkami využijeme modul Router přímo od Angularu. Nejprve vytvoříme cesty (\emph{routes}) pro jednotlivé stránky v souboru \emph{app.routes.ts}. 
+Proměnnou \emph{routes} vytvoříme dle předpisu \emph{Routes} a následně exportujeme. Cesty pak poskytneme routeru v rámci \emph{app.config.ts}.
 
 \begin{prog}
 // Část souboru app.routes.ts
@@ -644,7 +642,7 @@ export const appConfig: ApplicationConfig = \{
 \};
 \end{prog}
 
-Pokračujeme vytvořením požadované struktury stránek v AppComponent. Šablona bude obsahovat hlavičku, patičku a obsah, který vykreslíme pomocí elementu router-outlet. 
+Pokračujeme vytvořením požadované struktury stránek v AppComponent. Šablona bude obsahovat hlavičku, patičku a obsah, který vykreslíme pomocí elementu \emph{router-outlet}. 
 
 \begin{prog}
 // Soubor app.component.html
@@ -663,9 +661,9 @@ Pokračujeme vytvořením požadované struktury stránek v AppComponent. Šablo
 
 V rámci komponenty hlavičky pak vytvoříme navigační menu, které bude obsahovat odkazy na jednotlivé stránky. 
 Můžeme se inspirovat například architekturou a vzhledem navigačního menu Flowbite. 
-Pokračujeme vypsáním všech cest aplikace, k čemuž využijeme direktivy routerLink, routerLinkActive, routerLinkActiveOptions a reference \#link. 
-Do routerLink předáme patřičnou cestu a routerLinkActive umožní naslouchat na aktuální URL. Direktiva routerLinkActiveOptions pak přepíše výchozí nastavení routerLinkActive.
-Díky referenci \#link získáme informaci o tom, zda je odkaz aktivní. To využijeme při podmíněném nastavení správných CSS tříd na aktivních a neaktivních odkazech.
+Pokračujeme vypsáním všech cest aplikace, k čemuž využijeme direktivy \emph{routerLink}, \emph{routerLinkActive}, \emph{routerLinkActiveOptions} a referenci \emph{\#link}. 
+Do \emph{routerLink} předáme patřičnou cestu a \emph{routerLinkActive} umožní naslouchat na aktuální URL. Direktiva \emph{routerLinkActiveOptions} pak přepíše výchozí nastavení \emph{routerLinkActive}.
+Díky referenci \emph{\#link} získáme informaci o tom, zda je odkaz aktivní. To využijeme při podmíněném nastavení správných CSS tříd na aktivních a neaktivních odkazech.
 
 \begin{prog}
 // Část souboru header.component.html
@@ -692,7 +690,7 @@ Díky referenci \#link získáme informaci o tom, zda je odkaz aktivní. To vyu�
 
 Přepínání barevného režimu, otevírání a zavírání mobilní navigace implementujeme pomocí obslužným metod a vlastností třídy. 
 Informaci o tom, zda má uživatel zapnutý tmavý režim ukládáme do LocalStorage v prohlížeči. 
-Při kliknutí na tlačítko pro přepnutí režimu zavoláme metodu toggleDarkMode, která změní hodnotu vlastnosti a uloží ji do LocalStorage.
+Při kliknutí na tlačítko pro přepnutí režimu zavoláme metodu \emph{toggleDarkMode}, která změní hodnotu vlastnosti a uloží ji do LocalStorage.
 
 \begin{prog}
 // Část souboru header.component.ts
