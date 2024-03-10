@@ -439,7 +439,7 @@ Nejdříve inicializujeme svelte-query klienta v rámci poskytovatele QueryClien
 </QueryClientProvider>
 \end{prog}
 
-Následně vytvoříme funkci useAllCountries, která vrátí výsledek HTTP dotazu (CreateQueryResult) pomocí funkce createQuery. Argumentem funkce createQuery bude objekt s názvem dotazu (queryKey) a funkce, která vykoná dotaz (queryFn).
+Dále vytvoříme funkci useAllCountries, která vrátí výsledek HTTP dotazu (CreateQueryResult) pomocí funkce createQuery. Argumentem funkce createQuery bude objekt s názvem dotazu (queryKey) a funkce, která vykoná dotaz (queryFn).
 
 \begin{prog}
 // Část souboru queries.ts
@@ -451,7 +451,7 @@ export const useAllCountries = (): CreateQueryResult<Countries, Error> => \{
 \};
 \end{prog}
 
-Dotaz na serveru provede asynchronní funkce getAllCountries, v níž využijeme převzatou asynchronní funkci requestHandler a knihovnu axios. Po získání odpovědi ošetříme chyby a vrátíme výsledek.
+Dotaz na server provede asynchronní funkce getAllCountries, v níž využijeme převzatou asynchronní funkci requestHandler a knihovnu axios. Po získání odpovědi ošetříme chyby a vrátíme výsledek.
 
 \begin{prog}
 // Část souboru getAllCountries.ts
@@ -643,9 +643,8 @@ K nastavení aria-current použijeme location objekt ze svelte-spa-router, díky
 \{/each\}
 \end{prog}
 
-Stavy isMobileNavOpen a isDarkMode umožní ovládat zobrazení mobilní navigace a barevného režimu. 
-Pro uložení informace o preferenci tmavého režimu uživatele použijeme LocalStorage v prohlížeči. Logiku pro přepnutí barevného režimu zavoláme v rámci hooku beforeUpdate. 
-Tento hook se spustí po změně lokálního stavu, ale před aktualizací HTML.
+Stavy isMobileNavOpen a isDarkMode umožní ovládat zobrazení mobilní navigace a barevného režimu. K uložení preference tmavého režimu využijeme LocalStorage v prohlížeči. 
+Logiku pro přepnutí barevného režimu zavoláme v rámci hooku beforeUpdate. Tento hook se spustí po změně lokálního stavu, ale před aktualizací HTML.
 
 \begin{prog}
 // Část souboru Header.svelte
