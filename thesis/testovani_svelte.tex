@@ -312,7 +312,8 @@ Komponenta InvestForm bude obsahovat formulář pro zadání vstupních hodnot a
 
 Začneme implementací reaktivního formuláře, který bude přijímat počáteční hodnoty (\emph{defaultValues}) a \emph{investFormData} k předávání hodnot formuláře do rodičovské komponenty. 
 Strukturu formuláře popíšeme v typu \emph{InvestFormData}. Pomocí funkce \emph{createForm} z knihovny \emph{svelte-forms-lib} vytvoříme instanci formuláře, které předáme \emph{defaultValues} do vlastnosti \emph{initialValues}. 
-V rámci nastavení formuláře také definujeme validační schéma pomocí knihovny yup \cite{yuplibrary} a \emph{onSubmit} obslužnou funkci. Knihovnu yup volíme, jelikož je jedinou kompatibilní možností s knihovnou \emph{svelte-forms-lib} ve verzi 2.0.1. 
+V rámci nastavení formuláře také definujeme validační schéma pomocí knihovny \emph{yup} \cite{yuplibrary} a \emph{onSubmit} obslužnou funkci. 
+Knihovnu yup volíme, jelikož je jedinou kompatibilní možností s knihovnou \emph{svelte-forms-lib} ve verzi 2.0.1. 
 % vlastnost validationSchema musí být typu ObjectSchema<any>, který je definován jen a pouze v knihovně yup:
 % import type {ObjectSchema} from 'yup';
 % validationSchema?: ObjectSchema<any>;
