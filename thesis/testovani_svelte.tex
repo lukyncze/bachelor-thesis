@@ -422,7 +422,8 @@ Nyní vytvoříme webovou hru, ve které bude úkolem uživatele uhádnout náze
 V rámci hry se postupně odkryje 8 nápovědí, které uživateli pomohou uhádnout název daného státu. Mezi klíčovými prvky bude textové pole pro zadání názvu země a potvrzovací tlačítko. 
 Dále ve hře bude seznam zemí, které uživatel hádal a modální okna pro vyhodnocení hry.
 
-Začneme s programováním rodičovské komponenty, jejíž úkolem bude získat země z veřejného API. K tomu využijeme balíček \emph{@tanstack/svelte-query} a \emph{axios}. 
+Začneme s programováním rodičovské komponenty, jejíž úkolem bude získat země z veřejného API. K tomu využijeme balíčky \emph{axios} a \emph{@tanstack/svelte-query}. 
+Knihovna \emph{@tanstack/svelte-query} umožní snadnou správu asynchronních operací. Její API poskytuje např. podporu načítacích i chybových stavů, také rušení či opakování dotazů a mnoho dalších funkcí. 
 Nejdříve inicializujeme \emph{svelte-query} klienta v rámci poskytovatele \emph{QueryClientProvider} v App.svelte.
 
 \begin{prog}
