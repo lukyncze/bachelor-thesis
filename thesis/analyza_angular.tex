@@ -30,6 +30,22 @@ V dekorátoru @Component pak je třeba importovat všechny potřebné závislost
 V šabloně vykreslíme hodnoty pomocí dvojitých závorek, které obsahují název proměnné. K podmíněnému zobrazení komponent/elementu slouží bloky @if, @else if, @else. 
 Pro iteraci přes pole hodnot slouží blok @for.\cite{angulardev}
 
+\begin{prog}
+import \{ Component \} from '@angular/core';
+
+@Component(\{
+  selector: 'my-component',
+  standalone: true,
+  template: `
+    <div>\{\{ content \}\}</div>
+  `,
+  styles: ['div \{ background-color: red; \}']
+\})
+export class MyComponent \{
+  content = 'nějaký-kontent';
+\}
+\end{prog}
+
 \subsubsection{Správa stavů}
 
 K vytvoření stavů v Angularu využijeme vlastnosti třídy (class fields). Vlastnosti mohou být veřejné (public), protected (chráněné) nebo soukromé (private). 
@@ -38,8 +54,51 @@ Veřejné vlastnosti jsou viditelné odkudkoli.\cite{angulardev,learningangular}
 
 Pro aktualizaci stavů využijeme přiřazení nové hodnoty do vlastnosti, k níž přistoupíme pomocí klíčovohé slova this.\cite{angulardev}
 
+\begin{prog}
+import \{ Component \} from '@angular/core';
+
+@Component(\{
+  selector: 'my-component',
+  standalone: true,
+  template: `
+    <button (click)="increment()">
+      Klikli jste na tlačítko \{\{ count \}\}x.
+    </button>
+  `,
+\})
+export class MyComponent \{
+  protected count = 0;
+
+  protected increment(): void \{
+    this.count++;
+  \}
+\}
+\end{prog}
+
 Počínaje verzí 16 můžeme používat také nestabilní verzi signálů (Angular Signals), přičemž se jedná o systém, který mnohem efektivněji sleduje využití stavů v rámci aplikace. 
 Signály pak umožňují efektivnější a optimalizavanější aktualizace DOM. 
+
+\begin{prog}
+import \{ Component, signal \} from '@angular/core';
+
+@Component(\{
+  selector: 'my-component',
+  standalone: true,
+  template: `
+    <button (click)="increment()">
+      Klikli jste na tlačítko \{\{ count() \}\}x.
+    </button>
+  `,
+\})
+export class MyComponent \{
+  protected count = signal(0);
+
+  protected increment(): void \{
+    this.count.update((value) => value + 1);
+  \}
+\}
+\end{prog}
+
 Od verze 17 jsou signály stabilní součástí Angularu, na druhou stranu předávání a modely signálů zatím stabilní nejsou. 
 Proto v této práci budeme využívat klasické hodnoty stavů.\cite{angulardev}
 
@@ -52,14 +111,97 @@ Ve vnořené komponentě využijeme dekorátor @Input, sloužící k získání 
 K předání hodnoty z vnořené komponenty nejprve předáme vnořené komponentě název výstupu v kulatých závorkách a obslužnou metodu, která se vykoná po předání vlastnosti. 
 Dále definujeme @Output ve vnořené komponentě, na němž zavoláme metodu emit(), která přes argument metody umožňuje předání (vypublikování) hodnot z vnořené do rodičovské komponenty.\cite{angulardev,learningangular}
 
+\begin{prog}
+import \{ CommonModule \} from '@angular/common';
+import \{ Component, Input, Output, EventEmitter \} from '@angular/core';
+
+@Component(\{
+  selector: 'parent-component',
+  standalone: true,
+  imports: [ChildComponent],
+  template: `
+    <child-component 
+      [color]="someProps.color" 
+      (colorClicked)="handleColorClicked(\$event)" 
+    />
+    <p>\{\{ colorClickedText \}\}</p>
+  `,
+\})
+export class ParentComponent \{
+  protected someProps = \{ color: 'cervena' \};
+  protected colorClickedText = 'Na název barvy jste zatím neklikli.';
+
+  protected handleColorClicked(clickCount: number): void \{
+    this.colorClickedText = `Na název barvy 
+      v ChildComponent jste klikli: \$\{clickCount\}x`;
+  \}
+\}
+
+@Component(\{
+  selector: 'child-component',
+  standalone: true,
+  imports: [CommonModule],
+  template: `<p [ngClass]="color" (click)="handleClick()">\{\{ color \}\}</p>`,
+\})
+export class ChildComponent \{
+  private clickCount = 0;
+
+  @Input() color = 'Žádná barva nebyla specifikována.';
+  @Output() colorClicked = new EventEmitter<number>();
+
+  protected handleClick(): void \{
+    this.clickCount++;
+    this.colorClicked.emit(this.clickCount);
+  \}
+\}
+\end{prog}
+
 \subsubsection{Služby, direktivy, roury}
 
 Angular disponuje pestrou škálou možností, jak sdílet bloky kódu či logiku mezi různými částmi aplikace. Služby, direktivy, nebo také roury tvoříme pomocí JavaScriptových tříd. 
 Služby (services) umožňují znovupoužití určité části kódu např. v rámci více komponent. 
 Služby obvykle používáme ke komunikaci s HTTP endpointy, sdílíme v nich stavy více komponent, a také je využíváme k transformacím.\cite{angulardev,learningangular}
 
+\begin{prog}
+import \{ Injectable \} from '@angular/core';
+  
+@Injectable(\{ providedIn: 'root' \})
+export class DataService \{
+  private data = 'Initial data';
+
+  getCurrentData(): string \{
+    return this.data;
+  \}
+      
+  setNewData(newData: string): void \{
+    this.data = newData;
+  \}
+\}
+\end{prog}
+
 Direktivy (directives), ať už zabudované či vlastní, slouží k obohacení HTML elementů o různé funkce (dynamické atributy, CSS třídy) nebo manipulaci s DOM elementy. 
 Roury (pipes) umožňují trasformaci hodnot v šabloně.\cite{angulardev,angulario}
+
+\begin{prog}
+import \{ Component, Pipe, PipeTransform \} from '@angular/core';
+
+@Pipe(\{ name: 'czechDate', standalone: true \})
+export class CzechDateFormatPipe implements PipeTransform \{
+  transform(value: Date): string \{
+    return value.toLocaleDateString('cs-CZ');
+  \}
+\}
+
+@Component(\{
+  selector: 'my-component',
+  standalone: true,
+  imports: [CzechDateFormatPipe],
+  template: `<p>\{\{ today | czechDate\}\}</p>`,
+\})
+export class MyComponent \{
+  protected today = ;
+\}
+\end{prog}
 
 \subsubsection{Životní cyklus}
 
