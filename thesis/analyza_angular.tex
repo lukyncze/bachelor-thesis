@@ -10,7 +10,7 @@ První verze Angularu byla vydána v roce 2012 pod názvem AngularJS.
 V roce 2016, po kolaboraci se společností Microsoft, Google vydal novou verzi, o které mluvíme jako o Angular 2. 
 Verze 2 byla kompletně přepsána, framework byl přepsán z JavaScriptu do jazyku TypeScript. 
 Součástí frameworku je i knihovna RxJS pro práci s asynchronními událostmi. 
-Knihovnu reaktivního programování, RxJS, mohou využívat také programátoři při vývoji Angular aplikací. 
+Knihovnu reaktivních rozšíření, RxJS, mohou využívat také programátoři při vývoji Angular aplikací. 
 Angular se samozřejmě neustále vyvíjí a v současné době můžeme pracovat s verzí 17.\cite{angulardev,learningangular}
 
 Díky robusnosti a velikosti frameworku je Angular vhodnější pro větší aplikace, které vyžadují mnoho funkcí a komplexních struktur. 
@@ -18,14 +18,15 @@ V poslední době framework spíše ztrácí na popularitě, stále jej však po
 
 \subsubsection{Komponenty}
 
-Hlavní bloky kódu v Angularu tvoří komponenty. Komponenta je OOP třída definovaná v rámci Typescript souboru ve formátu nazev-tridy.component.ts. 
-Komponenta také musí mít dekorátor @Component, jenž definuje metadata komponenty: selektor, ostatní části komponenty a případně použité API. 
-Ostatní části komponenty jsou nepovinné, obvykle jsou však žádoucí a vedou k lepší organizaci kódu. 
-Mezi další části komponenty patří soubor šablony, kaskádové styly a testovací scénáře.
+Hlavní bloky kódu v Angularu tvoří komponenty. Komponenta je OOP třída definovaná v rámci TypeScript souboru ve formátu nazev-tridy.component.ts. 
+Komponenta obsahuje nastavení v dekorátoru @Component, v němž definujeme selektor a ostatní části (soubory) komponenty. 
+Dále v metadatech může být nastavení použitého API, šablona nebo kaskádové styly. 
+Mezi další části komponenty patří soubor s šablonou, kaskádovými styly či testovací scénáře. 
+Tyto soubory jsou nepovinné, obvykle jsou však žádoucí a vedou k lepší organizaci kódu. 
 
 Původní komponenty byly tvořeny pomocí modulů (NgModules), které obsahovaly deklarace komponent, direktiv a služeb. 
-Od verze 14 je možné využít standalone API, které umožňuje vytvářet komponenty bez nutnosti vytvářet moduly v jiných souborech, a díky tomu je kód kratší. 
-V dekorátoru @Component pak je třeba importovat všechny potřebné závislosti -- direktivy, služby, či jiné komponenty.\cite{angulardev,learningangular}
+Od verze 14 je možné využít standalone API, které umožňuje vytvářet komponenty bez nutnosti tvoření a registrace modulů v jiných souborech, a díky tomu je kód kratší. 
+V dekorátoru @Component pak je třeba importovat všechny potřebné závislosti -- direktivy, služby či jiné komponenty.\cite{angulardev,learningangular}
 
 V šabloně vykreslíme hodnoty pomocí dvojitých závorek, které obsahují název proměnné. K podmíněnému zobrazení komponent/elementu slouží bloky @if, @else if, @else. 
 Pro iteraci přes pole hodnot slouží blok @for.\cite{angulardev}
@@ -226,12 +227,12 @@ V případě, že potřebujeme sdílet stavy globálně (mezi různými částmi
 
 \subsubsection{Routování}
 
-Angular poskytuje vestavěný systém routování -- konkrétně balíček \@angular/router, který na straně klienta umožňuje přepínat mezi různými částmi aplikace. 
+Angular poskytuje vestavěný systém routování -- konkrétně balíček @angular/router, který na straně klienta umožňuje přepínat mezi různými částmi aplikace. 
 Klasické webové stránky při změně URL pokaždé žádají o nové dokumenty. Routování na straně klienta může provést aktualizaci stránky bez dalších duplikátních dotazů. 
 Při vyžádání dané cesty pak vykreslíme požadovaný obsah a požádáme pouze o data potřebné pro vykreslení. 
 Výstup činí rychlejší uživatelskou zkušenost, jelikož prohližeč nevyžaduje nové dokumenty a nemusí vyhodnocovat kaskádové styly či JavaScript.
 
-Abychom zaregistrovali cesty aplikace pomocí knihovny \@angular/router, poskytneme samotný router pomocí funkce provideRouter do aplikačního nastavení. 
+Abychom zaregistrovali cesty aplikace pomocí knihovny @angular/router, poskytneme samotný router pomocí funkce provideRouter do aplikačního nastavení. 
 Routeru následně předáme pole cest aplikace. Jednotlivé obsahy stránek, které se mají zobrazit, vykreslíme pomocí elementu router-outlet.\cite{angulardev,learningangular}
 
 \subsubsection{Ekosystém}
