@@ -11,7 +11,7 @@
 \usepackage{graphicx}
 
 \usepackage{alltt}  % pro zapis programoveho kodu: jestlize nepouzivate, klidne odstrante
-
+\usepackage{pdfpages}
 
 % nastaveni barev a dalsich vlastnosti pro interaktivni odkazy:
 \usepackage{color}
@@ -78,11 +78,15 @@ citecolor={zelena},urlcolor={modra}]{hyperref}
 
 % pouze pro potřeby demonstračního dokumentu, jinak dovnitř tohoto makra doplňte vlastní podklad zadání práce a případně upravte rozměr:
 \renewcommand{\kopiepodkladu}{
-  \begin{picture}(0,0)
-  \put(10,-50){\rotatebox{-35}{\scalebox{3}{\color{seda}Kopie podkladu zadání práce}}}
-  \put(10,-130){\rotatebox{-35}{\scalebox{3}{\color{seda}z IS, podepsaná}}}
-  \end{picture}}
+  \includepdf[pages={1-2},scale=0.7]{zadani_BP_lukas_sukenik.pdf}
+}
 
+% původní obsah vlastního zadání práce...
+% \renewcommand{\kopiepodkladu}{
+%   \begin{picture}(0,0)
+%   \put(10,-50){\rotatebox{-35}{\scalebox{3}{\color{seda}Kopie podkladu zadání práce}}}
+%   \put(10,-130){\rotatebox{-35}{\scalebox{3}{\color{seda}z IS, podepsaná}}}
+%   \end{picture}}
 
 \cestneprohlaseni{%
   Prohlašuji, že jsem tuto práci vypracoval samostatně.
