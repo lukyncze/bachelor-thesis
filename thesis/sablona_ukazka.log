@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.11)  13 MAR 2024 11:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.11)  13 MAR 2024 12:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -467,7 +467,7 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
 Package rerunfilecheck Info: File `sablona_ukazka.out' has not changed.
-(rerunfilecheck)             Checksum: CB3D62F90B7E768FD9C5503C8DA3840F;1951.
+(rerunfilecheck)             Checksum: 729FBE9A27CA644C385445D4C2CE6B92;1892.
  ) 
 Here is how much of TeX's memory you used:
  11588 strings out of 479342
@@ -598,9 +598,9 @@ pdfTeX warning (dest): name{section.2} has been referenced but does not exist, r
 pdfTeX warning (dest): name{section.1} has been referenced but does not exist, replaced by a fixed one
 
  </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecxc2488.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
-Output written on sablona_ukazka.pdf (62 pages, 277546 bytes).
+Output written on sablona_ukazka.pdf (62 pages, 277152 bytes).
 PDF statistics:
- 1082 PDF objects out of 1200 (max. 8388607)
+ 1081 PDF objects out of 1200 (max. 8388607)
  497 compressed objects within 5 object streams
  156 named destinations out of 1000 (max. 500000)
  97 words of extra memory for PDF output out of 10000 (max. 10000000)
