@@ -47,7 +47,7 @@
 \contentsline {subsubsection}{\numberline {3.2.1}Angular}{28}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}React}{44}{subsubsection.3.2.2}%
 \contentsline {subsubsection}{\numberline {3.2.3}Svelte}{61}{subsubsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}Srovnání frameworků}{75}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.3}Srovnání implementace aplikací}{75}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Ukázková kapitola}{76}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Obrázky a tabulky}{76}{subsection.4.1}%
 \contentsline {subsubsection}{\numberline {4.1.1}Vkládání ukázkového kódu}{77}{subsubsection.4.1.1}%
