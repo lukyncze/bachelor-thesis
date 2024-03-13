@@ -44,9 +44,9 @@
 \contentsline {subsubsection}{\numberline {3.1.1}Funkční požadavky}{25}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}Nefunkční požadavky}{26}{subsubsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.2}Implementace webových aplikací}{27}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Angular}{27}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.1}Angular}{28}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}React}{44}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Svelte}{60}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.3}Svelte}{61}{subsubsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.3}Srovnání frameworků}{75}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Ukázková kapitola}{76}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Obrázky a tabulky}{76}{subsection.4.1}%
@@ -55,7 +55,7 @@
 \contentsline {paragraph}{Pojmenovaný odstavec.}{78}{section*.3}%
 \contentsline {section}{Závěr}{79}{section*.4}%
 \contentsline {section}{Seznam použité literatury}{80}{section*.5}%
-\contentsline {section}{Seznam obr\'azk\r {u}}{85}{section*.6}%
-\contentsline {section}{Seznam tabulek}{86}{section*.7}%
-\contentsline {section}{Seznam zkratek}{87}{section*.8}%
-\contentsline {section}{{Přílohy }}{88}{section*.8}%
+\contentsline {section}{Seznam obr\'azk\r {u}}{86}{section*.6}%
+\contentsline {section}{Seznam tabulek}{87}{section*.7}%
+\contentsline {section}{Seznam zkratek}{88}{section*.8}%
+\contentsline {section}{{Přílohy }}{89}{section*.8}%
