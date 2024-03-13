@@ -38,7 +38,7 @@
 \contentsline {subsubsection}{\numberline {2.4.6}State management}{23}{subsubsection.2.4.6}%
 \contentsline {subsubsection}{\numberline {2.4.7}Routování}{23}{subsubsection.2.4.7}%
 \contentsline {subsubsection}{\numberline {2.4.8}Ekosystém}{24}{subsubsection.2.4.8}%
-\contentsline {subsection}{\numberline {2.5}Porovnání}{24}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.5}Porovnání analyzovaných frameworků}{24}{subsection.2.5}%
 \contentsline {section}{\numberline {3}Testování frameworků}{25}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Návrh aplikace}{25}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Funkční požadavky}{25}{subsubsection.3.1.1}%
