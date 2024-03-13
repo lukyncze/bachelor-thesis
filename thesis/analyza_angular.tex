@@ -230,7 +230,7 @@ V případě, že potřebujeme sdílet stavy globálně (mezi různými částmi
 Angular poskytuje vestavěný systém routování -- konkrétně balíček @angular/router, který na straně klienta umožňuje přepínat mezi různými částmi aplikace. 
 Klasické webové stránky při změně URL pokaždé žádají o nové dokumenty. Routování na straně klienta může provést aktualizaci stránky bez dalších duplikátních dotazů. 
 Při vyžádání dané cesty pak vykreslíme požadovaný obsah a požádáme pouze o data potřebné pro vykreslení. 
-Výstup činí rychlejší uživatelskou zkušenost, jelikož prohližeč nevyžaduje nové dokumenty a nemusí vyhodnocovat kaskádové styly či JavaScript.
+Získáme tak rychlejší uživatelskou zkušenost, jelikož prohližeč nevyžaduje nové dokumenty a nemusí vyhodnocovat kaskádové styly či JavaScript.
 
 Abychom zaregistrovali cesty aplikace pomocí knihovny @angular/router, poskytneme samotný router pomocí funkce provideRouter do aplikačního nastavení. 
 Routeru následně předáme pole cest aplikace. Jednotlivé obsahy stránek, které se mají zobrazit, vykreslíme pomocí elementu router-outlet.\cite{angulardev,learningangular}
