@@ -39,21 +39,23 @@
 \contentsline {subsubsection}{\numberline {2.4.7}Routování}{23}{subsubsection.2.4.7}%
 \contentsline {subsubsection}{\numberline {2.4.8}Ekosystém}{24}{subsubsection.2.4.8}%
 \contentsline {subsection}{\numberline {2.5}Porovnání}{24}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Testování frameworků}{23}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Analýza a návrh testových úloh}{23}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Demonstrační aplikace}{23}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Angular}{23}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}React}{40}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Svelte}{56}{subsubsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}Testování aplikací a výsledky}{71}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Ukázková kapitola}{72}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Obrázky a tabulky}{72}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Vkládání ukázkového kódu}{73}{subsubsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.2}Pojmenované odstavce}{73}{subsection.4.2}%
-\contentsline {paragraph}{Pojmenovaný odstavec.}{74}{section*.3}%
-\contentsline {section}{Závěr}{75}{section*.4}%
-\contentsline {section}{Seznam použité literatury}{76}{section*.5}%
-\contentsline {section}{Seznam obr\'azk\r {u}}{81}{section*.2}%
-\contentsline {section}{Seznam tabulek}{82}{section*.3}%
-\contentsline {section}{Seznam zkratek}{83}{section*.8}%
-\contentsline {section}{{Přílohy }}{84}{section*.3}%
+\contentsline {section}{\numberline {3}Testování frameworků}{25}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Návrh aplikace}{25}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Funkční požadavky}{25}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Nefunkční požadavky}{26}{subsubsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Implementace webových aplikací}{27}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Angular}{27}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}React}{43}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Svelte}{60}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Testování aplikací a výsledky}{75}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Ukázková kapitola}{76}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Obrázky a tabulky}{76}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Vkládání ukázkového kódu}{77}{subsubsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.2}Pojmenované odstavce}{77}{subsection.4.2}%
+\contentsline {paragraph}{Pojmenovaný odstavec.}{78}{section*.3}%
+\contentsline {section}{Závěr}{79}{section*.4}%
+\contentsline {section}{Seznam použité literatury}{80}{section*.5}%
+\contentsline {section}{Seznam obr\'azk\r {u}}{85}{section*.2}%
+\contentsline {section}{Seznam tabulek}{86}{section*.3}%
+\contentsline {section}{Seznam zkratek}{87}{section*.8}%
+\contentsline {section}{{Přílohy }}{88}{section*.3}%

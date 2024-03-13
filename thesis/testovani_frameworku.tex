@@ -1,20 +1,109 @@
 \section{Testování frameworků}
 
+V rámci této kapitoly se zaměříme na srovnání tří vybraných frameworků. V první části navrhneme funkční a nefunkční požadavky demonstračních aplikací. 
+Následně vytvoříme demonstrační aplikaci, která bude obsahovat stejné funkcionality ve všech třech vybraných frameworcích. 
+V poslední části srovnáme ... .
+
+\subsection{Návrh aplikace}
+
+Začneme návrhem aplikace, kterou později implementujeme v rámci vybraných frameworků. 
+Webová aplikace se bude skládat z několika stránek, které zobrazí navrhnuté funkcionality. 
+Ty následně poslouží při porovnání přístupu a implementace jednolivých nástrojů.
+
+\subsubsection{Funkční požadavky}
+
 \begin{citemize}
-	\item proč a co je obsahem kapitoly?
+	\item Správa stavů, předávání vlastností -- Counter komponenta:
+	
+	\begin{cenumerate}
+		\item Uživateli bude zobrazen aktuální stav čítače.
+		\item Uživateli bude umožněno zvýšit a snížit hodnotu čítače o 1.
+		\item Uživatel bude mít možnost resetovat hodnotu čítače na 0.
+	\end{cenumerate}
+
+	\item Interakce v uživatelském prostředí -- Dropdown komponenta:
+	
+	\begin{cenumerate}
+		\item Komponenta bude zobrazovat rozbalovací menu.
+		\item Po kliknutí na menu se zobrazí seznam položek.
+		\item Uživatel bude mít možnost vybrat jednu z položek, nebo zavřít menu.
+		\item Aktuálně vybraná položka bude zobrazena v obsahu rozbalovacího menu.
+	\end{cenumerate}
+
+	\item Reaktivita, asynchronní operace -- Translator komponenta:
+	
+	\begin{cenumerate}
+		\item Uživatel bude mít možnost zadat text, který chce přeložit.
+		\item Uživatel bude mít možnost vybrat jazyk, do kterého chce text přeložit.
+		\item Uživateli bude zobrazen přeložený text.
+		\item V případě chyby při překladu bude uživateli zobrazena chybová hláška.
+	\end{cenumerate}
+
+	\item Tvorba formulářů, validace -- InvestForm komponenta:
+	
+	\begin{cenumerate}
+		\item Uživatel bude mít možnost zadat vstupní hodnoty formuláře.
+		\item Formulář bude obsahovat validaci vstupních hodnot a nedovolí uživateli potvrdit formulář s jakoukoli nevalidní hodnotou formuláře.
+		\item Po potvrzení formuláře bude provedena kalkulace výsledků a ty budou zobrazeny uživateli.
+	\end{cenumerate}
+
+	\item Modularita, použití knihoven -- CountryGuesser komponenta:
+	
+	\begin{cenumerate}
+		\item Uživateli se v rámci hry budou postupně zobrazovat informace (nápovědy) o hádané zemi.
+		\item Uživatel bude mít možnost zadat či vybrat pouze existující název země, který chce zkusit uhádnout.
+		\item Uživatel následně uvidí již zadané země a vzdálenost dané země od hádané země.
+		\item Uživateli bude při výhře a prohře zobrazeno modální okno s informacemi o výsledku hry.
+		\item V případě chyby při získávání dat o zemích bude uživateli zobrazena chybová hláška.
+	\end{cenumerate}
+
+	\item Layout aplikace, routování:
+	
+	\begin{cenumerate}
+		\item Uživatel bude umožněna navigace mezi jednotlivými stránkami aplikace.
+		\item Uživatel bude mít možnost zapnout a vypnout tmavý režim aplikace.
+	\end{cenumerate}
 \end{citemize}
 
-\subsection{Analýza a návrh testových úloh}
+\subsubsection{Nefunkční požadavky}
 
 \begin{citemize}
-	\item co a proč porovnávám,
-	\item v návrhu - jak, jaké testové úlohy?
-	\item (dokumentace - možná nahoře, syntax, výkonnostní testy, velikosti bundlů, účel aplikace, rychlost, srozumitelnost, ...)
+	\item Webová aplikace bude uživatelsky přívětivá.
+	\item Webová aplikace bude responzivní a bude se správně zobrazovat na různých zařízeních.
+	\item Implementace bude dodržovat principy čistého kódu, také principy KISS, DRY a SOLID.
+	\item Aplikace bude získávat data z veřejných API.
+	\item Při implementaci budeme dbát na použití moderních technologií a nástrojů.
+	\item Budou využity open source knihovny, nástroje a ikony. 
 \end{citemize}
 
-\subsection{Demonstrační aplikace}
+\subsection{Implementace webových aplikací}
 
-V této kapitole srovnáme implementaci stejných funkcionalit ve třech vybraných frameworcích.
+V této kapitole popíšeme implementaci jednotlivých částí aplikace v rámci vybraných frameworků. Použijeme následující nástroje v níže uvedených verzích:
+
+\begin{citemize}
+	\item Angular -- verze 17.x.x
+	\item React -- verze 18.x.x
+	\item Svelte -- verze 4.x.x
+\end{citemize}
+
+% \subsubsection{Instalace projektů}
+
+% K vytvoření nového projektu v jednotlivých frameworcích budeme potřebovat NodeJS a npm (případně jiného správce balíčků).
+
+% \begin{table}[htb]
+% 	\centering
+% 	\caption{Instalace projektů v jednotlivých frameworcích.}
+% 	\medskip
+% 	\radkovani[1.2]
+% 		\begin{tabular}{|l|l|}
+% 		\hline
+% 		\textbf{Framework} & \textbf{Příkazy pro instalaci}                                                                                                                                                                                                                                                               \\ \hline
+% 		Angular   & \begin{tabular}[c]{@{}l@{}}npm init @angular@latest nazev-projektu\\ cd nazev-projektu\\ npm install -D tailwindcss postcss autoprefixer\\ npx tailwindcss init -p\\ manuální konfigurace TailwindCSS (\iadresa{https://tailwindcss.com/docs/guides/angular})\\ npm run start\end{tabular} \\ \hline
+% 		React     & \begin{tabular}[c]{@{}l@{}}npm create vite@latest\\ cd nazev-projektu\\ npm install -D tailwindcss postcss autoprefixer\\ npx tailwindcss init -p\\ manuální konfigurace TailwindCSS (\iadresa{https://tailwindcss.com/docs/guides/vite\#react})\\ npm run dev\end{tabular}                \\ \hline
+% 		Svelte    & \begin{tabular}[c]{@{}l@{}}npm create vite@latest\\ cd nazev-projektu\\ npx svelte-add@latest tailwindcss (\iadresa{https://github.com/svelte-add/tailwindcss})\\ npm install\\ npm run dev\end{tabular}                                                                                   \\ \hline
+% 		\end{tabular}
+% 	\label{tab:test}
+% \end{table}
 
 \input{testovani_angular}
 \input{testovani_react}
