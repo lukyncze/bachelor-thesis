@@ -86,24 +86,27 @@ V této kapitole popíšeme implementaci jednotlivých částí aplikace v rámc
 	\item Svelte -- verze 4.x.x
 \end{citemize}
 
-% \subsubsection{Instalace projektů}
+K vytvoření nového projektu v jednotlivých frameworcích budeme potřebovat NodeJS a správce balíčků npm (případně jiného správce balíčků).
 
-% K vytvoření nového projektu v jednotlivých frameworcích budeme potřebovat NodeJS a npm (případně jiného správce balíčků).
+\begin{table}[htb]
+	\centering
+	\caption{Instalace projektů v jednotlivých frameworcích.}
+	\medskip
+	\radkovani[1.2]
+		\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Framework} & \textbf{Příkazy pro instalaci} \\ \hline
+		Angular   & \begin{tabular}[c]{@{}l@{}}npm init @angular@latest nazev-projektu\\ cd nazev-projektu\\ npm install -D tailwindcss postcss autoprefixer\\ npx tailwindcss init -p\\ manuální konfigurace TailwindCSS\footnotemark[1]\\ npm run start\end{tabular} \\ \hline
+		React     & \begin{tabular}[c]{@{}l@{}}npm create vite@latest\\ cd nazev-projektu\\ npm install -D tailwindcss postcss autoprefixer\\ npx tailwindcss init -p\\ manuální konfigurace TailwindCSS\footnotemark[2]\\ npm run dev\end{tabular}       \\ \hline
+		Svelte    & \begin{tabular}[c]{@{}l@{}}npm create vite@latest\\ cd nazev-projektu\\ npx svelte-add@latest tailwindcss\footnotemark[3]\\ npm install\\ npm run dev\end{tabular}                                                                                 \\ \hline
+		\end{tabular}
+	\label{tab:test}
+\end{table}
 
-% \begin{table}[htb]
-% 	\centering
-% 	\caption{Instalace projektů v jednotlivých frameworcích.}
-% 	\medskip
-% 	\radkovani[1.2]
-% 		\begin{tabular}{|l|l|}
-% 		\hline
-% 		\textbf{Framework} & \textbf{Příkazy pro instalaci}                                                                                                                                                                                                                                                               \\ \hline
-% 		Angular   & \begin{tabular}[c]{@{}l@{}}npm init @angular@latest nazev-projektu\\ cd nazev-projektu\\ npm install -D tailwindcss postcss autoprefixer\\ npx tailwindcss init -p\\ manuální konfigurace TailwindCSS (\iadresa{https://tailwindcss.com/docs/guides/angular})\\ npm run start\end{tabular} \\ \hline
-% 		React     & \begin{tabular}[c]{@{}l@{}}npm create vite@latest\\ cd nazev-projektu\\ npm install -D tailwindcss postcss autoprefixer\\ npx tailwindcss init -p\\ manuální konfigurace TailwindCSS (\iadresa{https://tailwindcss.com/docs/guides/vite\#react})\\ npm run dev\end{tabular}                \\ \hline
-% 		Svelte    & \begin{tabular}[c]{@{}l@{}}npm create vite@latest\\ cd nazev-projektu\\ npx svelte-add@latest tailwindcss (\iadresa{https://github.com/svelte-add/tailwindcss})\\ npm install\\ npm run dev\end{tabular}                                                                                   \\ \hline
-% 		\end{tabular}
-% 	\label{tab:test}
-% \end{table}
+% TODO - citovat
+\footnotetext[1]{\iadresa{https://tailwindcss.com/docs/guides/angular}}
+\footnotetext[2]{\iadresa{https://tailwindcss.com/docs/guides/vite\#react}}
+\footnotetext[3]{\iadresa{https://github.com/svelte-add/tailwindcss}}
 
 \input{testovani_angular}
 \input{testovani_react}
