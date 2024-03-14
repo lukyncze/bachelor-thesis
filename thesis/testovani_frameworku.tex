@@ -35,7 +35,7 @@ Ty následně poslouží při porovnání přístupu a implementace jednolivých
 	\begin{cenumerate}
 		\item Uživatel bude mít možnost zadat text, který chce přeložit.
 		\item Uživatel bude mít možnost vybrat jazyk, do kterého chce text přeložit.
-		\item Na základě vstupních hodnot budeme získávat překlad z veřejného API.
+		\item Přeložený text získáme díky veřejnému API.
 		\item Uživateli bude zobrazen přeložený text.
 		\item V případě chyby při překladu bude uživateli zobrazena chybová hláška.
 	\end{cenumerate}
@@ -52,6 +52,8 @@ Ty následně poslouží při porovnání přístupu a implementace jednolivých
 	\item Modularita, použití knihoven -- CountryGuesser komponenta:
 	
 	\begin{cenumerate}
+		\item Data o zemích získáme pomocí veřejného API.
+		\item V rámci hry bude náhodně vybrána země, kterou bude uživatel hádat.
 		\item Uživateli se v rámci hry budou postupně zobrazovat informace (nápovědy) o hádané zemi.
 		\item Uživatel bude mít možnost zadat či vybrat pouze existující název země, který chce tipovat.
 		\item Uživatel následně uvidí již zadané země a vzdálenost jím dané země od hádané země.
