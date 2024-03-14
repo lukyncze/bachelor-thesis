@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.11)  14 MAR 2024 15:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.11)  14 MAR 2024 20:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -539,7 +539,7 @@ l.122 \include{webova_aplikace}
 \openout2 = `analyza_frameworku.aux'.
 
  (./analyza_frameworku.tex (./analyza_angular.tex
-<images/angular-logo.png, id=367, 985.6825pt x 239.89626pt>
+<images/angular-logo.png, id=370, 985.6825pt x 239.89626pt>
 File: images/angular-logo.png Graphic file (type png)
 <use images/angular-logo.png>
 Package pdftex.def Info: images/angular-logo.png  used on input line 11.
@@ -578,7 +578,7 @@ l.200   \}
                    \relax 
 l.241 
        [8]) (./analyza_react.tex
-<images/react-logo.png, id=431, 27.05898pt x 24.09pt>
+<images/react-logo.png, id=434, 27.05898pt x 24.09pt>
 File: images/react-logo.png Graphic file (type png)
 <use images/react-logo.png>
 Package pdftex.def Info: images/react-logo.png  used on input line 9.
@@ -588,13 +588,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has b
                    \relax 
 l.18 
       [9] [10 <./images/react-logo.png>] [11] [12]) (./analyza_svelte.tex [13]
-<images/svelte-logo.png, id=487, 20.03378pt x 24.09pt>
+<images/svelte-logo.png, id=490, 20.03378pt x 24.09pt>
 File: images/svelte-logo.png Graphic file (type png)
 <use images/svelte-logo.png>
 Package pdftex.def Info: images/svelte-logo.png  used on input line 13.
 (pdftex.def)             Requested size: 128.0387pt x 153.98125pt.
  [14 <./images/svelte-logo.png>] [15] [16] [17] [18]) (./analyza_vue.tex [19]
-<images/vue-logo.png, id=551, 27.91222pt x 27.10126pt>
+<images/vue-logo.png, id=554, 27.91222pt x 27.10126pt>
 File: images/vue-logo.png Graphic file (type png)
 <use images/vue-logo.png>
 Package pdftex.def Info: images/vue-logo.png  used on input line 16.
@@ -625,7 +625,7 @@ File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 \openout2 = `zakladni-info.aux'.
 
  (./zakladni-info.tex
-<slecna-s-notebookem.png, id=897, 236.082pt x 157.18726pt>
+<slecna-s-notebookem.png, id=901, 236.082pt x 157.18726pt>
 File: slecna-s-notebookem.png Graphic file (type png)
 <use slecna-s-notebookem.png>
 Package pdftex.def Info: slecna-s-notebookem.png  used on input line 12.
@@ -651,7 +651,12 @@ Package pdftex.def Info: slecna-s-notebookem.png  used on input line 12.
 
 
 
-] [83] [84] [85] [86]) [87] (./sablona_ukazka.lof)
+]
+Overfull \hbox (166.7689pt too wide) in paragraph at lines 67--69
+[][]\T1/cmss/m/n/12 https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=4c272a54fad90a38e2a218c54653303f1203438d[][]\T1/cmr/m/n/12 . 
+ []
+
+[83] [84] [85] [86]) [87] (./sablona_ukazka.lof)
 \tf@lof=\write5
 \openout5 = `sablona_ukazka.lof'.
 
@@ -687,18 +692,18 @@ Package rerunfilecheck Info: File `sablona_ukazka.out' has not changed.
 (rerunfilecheck)             Checksum: D206324C8C1A22823D522BE0B864CD14;9561.
  ) 
 Here is how much of TeX's memory you used:
- 13150 strings out of 479342
- 214825 string characters out of 5869177
- 535838 words of memory out of 5000000
- 30636 multiletter control sequences out of 15000+600000
+ 13154 strings out of 479342
+ 214907 string characters out of 5869177
+ 535918 words of memory out of 5000000
+ 30638 multiletter control sequences out of 15000+600000
  488543 words of font info for 63 fonts, out of 8000000 for 9000
  473 hyphenation exceptions out of 8191
  68i,19n,77p,1565b,537s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecxc2488.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0800.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcti1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
-Output written on sablona_ukazka.pdf (100 pages, 877293 bytes).
+ </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecxc2488.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0800.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcti1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
+Output written on sablona_ukazka.pdf (100 pages, 880692 bytes).
 PDF statistics:
- 1910 PDF objects out of 2073 (max. 8388607)
- 1051 compressed objects within 11 object streams
- 248 named destinations out of 1000 (max. 500000)
+ 1921 PDF objects out of 2073 (max. 8388607)
+ 1057 compressed objects within 11 object streams
+ 250 named destinations out of 1000 (max. 500000)
  523 words of extra memory for PDF output out of 10000 (max. 10000000)
 
