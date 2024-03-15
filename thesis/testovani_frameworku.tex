@@ -160,7 +160,8 @@ Problém je řešitelný dvěma způsoby, z nichž ani jeden není zcela ideáln
 % - input je třeba vždy inicializovat (lze to obejít - bad practise)
 % - během vývoje problém s vscode pluginem
 
-Implementace v Reactu ukázala jeho silné stránky v podobě nejlépe propracovaných knihoven a celkově ekosystému kolem něj. 
+Implementace v Reactu ukázala silné stránky v podobě silného ekosystému a velmi dobře propracovaných balíčků. 
+React disponuje dokumentací na vysoké úrovni a internet je rovněž plný kvalitních návodů a tutoriálů. 
 S tím souvisi i kvalitní chybové hlášky, které pomáhají programátorovi při odhalování chyb. 
 React vývojářům poskytuje typy pro atributy běžných HTML elementů, což výrazně zjednodušuje a zefektivnǔje práci. 
 Vlastnosti jsou v rámci vnořených komponent k dispozici ihned a jsou vždy aktualizované, což u dalších frameworků neplatí. 
@@ -168,6 +169,7 @@ Velkou výhodu představuje možnost použití destrukturování pro předáván
 Jako výhodu lze také uvést modularitu, které dosáhneme při implmenetaci vlastních hooků. 
 Nevýhody frameworku se projevily při vykreslování a využívání zabudovaných hooků. 
 Při špatném použití vykreslovací techniky (pomocí \&\& nebo || operátorů) můžeme zobrazit nechtěné výsledky v DOM. 
+V rámci funkce map nesmíme zapomenout každému elementu přidělit unikátní klíč. 
 Co se týče hooků, především useEffect hook umožňuje programátorům snadné zavedení chyb, pokud není správně použit. 
 S tím se rovněž pojí problémy se závislostmi useEffect a neintuitivní kontrola životního cyklu komponenty. 
 Vývojáři také musí počítat s tím, že aktualizace stavů je vždy asynchronní. V praxi to znamená, že se stav neaktualizuje okamžitě. 
@@ -175,6 +177,7 @@ Jako nevýhodu můžeme uvést předávání vlastností do rodiče, což minim�
 
 % React:
 % + nejvíce propracované knihovny a super ekosystém
+% + kvalitní dokumentace, návody, tutoriály
 % + nejlepší chybové hlášky
 % + poskytuje typy pro atributy HTML elementů
 % + props jsou k dostání ihned a jsou aktualizované
@@ -186,6 +189,8 @@ Jako nevýhodu můžeme uvést předávání vlastností do rodiče, což minim�
 % - nejméně intuitivní kontrola lifecycle
 % - aktualizace stavu je asynchronní
 % - je třeba si zvyknout na předávání vlastností do rodiče
+
+
 
 % Svelte:
 % + nejrychlejší hot-reload při vývoji
