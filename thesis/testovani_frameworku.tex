@@ -200,10 +200,10 @@ Svelte také oproti předchozím frameworkům nabízí přehledný systém metod
 V neposlední řadě je třeba zmínit jednoduchý each blok a observables systém, který vývojářům zbytečně nekomplikuje práci.
 Mezi slabší stránky frameworku rozhodně patří jeho ekosystém a komunita, která je nejmenší a zatím se rozvíjí. 
 Svelte proto disponuje nejméně kvalitními knihovnami určené tomuto frameworku. 
-Syntax může být někdy matoucí, například klíčové slovo export u vstupních vlastností, nebo divná syntaxe \#if, :else if, :else, /if. 
+Syntax může být někdy matoucí, například klíčové slovo export u vstupních vlastností, nebo zvláštní syntax \#if, :else if, :else, /if. 
 Vývojáři musí mít na paměti modifikaci vstupních vlastností po jejich aktualizaci, kterou je třeba provést reaktivně. 
 V neposlední řadě můžeme zmínit nevýhody při práci s TypeScriptem. Pro importování TS typů používáme ve Svelte navíc klíčové slovo type. 
-Do TS souboru nelze importovat TS typ ze Svelte komponenty, takový typ můžeme založit v context="module" skriptu v rámci komponenty.
+Do TS souboru nelze importovat TS typ ze Svelte komponenty, takový typ můžeme založit v context="'module"' skriptu v rámci komponenty.
 Při porovnání s ostatními frameworky, Svelte disponuje hůře otypovanými událostmi, což prodlužuje práci v obslužných funkcích.
 
 % Svelte:
