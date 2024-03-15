@@ -209,7 +209,7 @@ useEffect(() => \{
 \end{prog}
 
 Dropdown samozřejmě může mít i jiné vstupy, které povedou k lepší znovupoužitelnosti. 
-Dynamické CSS třídy ve formě JavaScriptu na element přidáme pomocí šablonových literálů (template literals) a JavaScriptové hodnoty.
+Dynamické CSS třídy ve formě JavaScriptu na element přidáme pomocí šablonových literálů (template literals) a JS hodnoty.
 
 \begin{flushleft}
   \textbf{Reaktivita, asynchronní operace}
@@ -439,7 +439,7 @@ return (
 \end{prog}
 
 V rodičovské komponentě získáme aktuální hodnoty formuláře díky obslužné funkci \emph{handleFormSubmit}. Pomocí funkce \emph{futureValuesCalculator} získáme hodnoty, které následně vykreslíme v komponentě FutureValuesInfo. 
-Tato komponenta obsahuje dvě vnořené komponenty FutureValueInfo, pro zobrazení jednotlivých výsledků. Hodnotu v JSX transformujeme pomocí JavaScriptové funkce.
+Tato komponenta obsahuje dvě vnořené komponenty FutureValueInfo, pro zobrazení jednotlivých výsledků. Hodnotu v JSX transformujeme pomocí JS funkce.
 
 \begin{prog}
 // Část souboru FutureValueInfo.tsx
@@ -574,7 +574,7 @@ Pro aktualizaci vlastnosti \emph{selectedGuessIndex} slouží funkce \emph{chang
 V neposlední řadě funkce \emph{convertToFormattedGuess} převede tip uživatele tak, aby začínal velkým písmenem a zbytek řetezce byl složen z malých písmen.
 
 Ke zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a \emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
-Jde o uživatelem hádané země s vlajkou a vzdáleností od \emph{randomCountry}. K převodu využijeme JavaScriptové funkce z jiného souboru. 
+Jde o uživatelem hádané země s vlajkou a vzdáleností od \emph{randomCountry}. K převodu využijeme JS funkce z jiného souboru. 
 K vypočtení vzdálenosti použijeme knihovnu \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která obsahuje funkci \emph{getDistanceBetweenTwoPoints}. 
 Jednotlivé prvky pole \emph{enrichedGuessedCountries} pak vykreslíme v rámci JSX.
 
