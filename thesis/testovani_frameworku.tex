@@ -125,10 +125,10 @@ V této podkapitole se zaměříme na srovnání aspektů implementace aplikací
 Cílem je provést detailnější srovnání s ohledem na poznatky z provedených implementací. 
 
 Využití Angularu při implementaci aplikace se vyznačovalo objektově orientovaným přístupem, který umožňuje využít například výhodu zapouzdření. 
-Angular, dle autora práce, oproti ostatním frameworkům nabízí intuitivnější syntax pro podmíněné vykreslení v šabloně. 
 Nespornou výhodu tvořila modularita frameworku, která podporuje rozšiřitelnost a robustnost aplikace. 
 Framework poskytuje nativní podporu pro router, formuláře, validace a mnoho dalších funcionalit, čímž snižuje závislost na třetích stranách. 
-Angular také poskytuje řadu metod životního cyklu, což může být výhodou. Na druhou stranu začátečník může být z množství metod životního cyklu zmatený. 
+Angular, dle autora práce, oproti ostatním frameworkům nabízí intuitivnější syntax pro podmíněné vykreslení v šabloně. 
+Framework také disponuje řadou metod životního cyklu, což může být výhodou. Na druhou stranu začátečník může být z množství metod životního cyklu zmatený. 
 U stylování komponent Angular rozlišuje statické a dynamické styly, což umožňuje lepší organizaci a přehlednost. 
 Při implementaci rozhodně nemůžeme opomenout Angular CLI, jenž zjednodušuje opakující se operace v rámci vývoje. 
 Jako výhodu také můžeme uvést podporu jazyka TypeScript již v základu. 
@@ -136,7 +136,7 @@ Na druhou stranu Angular vyžaduje více konfigurace. Implementace je tak oproti
 V rámci vývoje se ukázalo, že Angular je náročný na naučení a framework sám o sobě umožňuje programátorovi udělat mnoho chyb. 
 Tomu rozhodně nepomáhá implementace reaktivity pomocí knihovny RxJS. 
 Programátor rovněž musí počítat s tím, že Angular generuje element dané komponenty v DOM, což může zkomplikovat např. stylování. 
-Angular rovněž neposkytuje možnost použití destrukturování při předávání vlastností. 
+Angular neposkytuje možnost použití destrukturování při předávání vlastností. 
 Tím pádem je třeba vždy předat všechny vlastnosti zvlášť nebo je uložit ve vhodnější datové struktuře (např. objektu).
 Běhěm vývoje jsme také narazili na problém s neinicializováním vstupních vlastností, což může být problematické. 
 Problém je řešitelný dvěma způsoby, z nichž ani jeden není zcela ideální.
@@ -162,8 +162,8 @@ Problém je řešitelný dvěma způsoby, z nichž ani jeden není zcela ideáln
 
 Implementace v Reactu ukázala silné stránky v podobě silného ekosystému a velmi dobře propracovaných balíčků. 
 React disponuje dokumentací na vysoké úrovni a internet je rovněž plný kvalitních návodů a tutoriálů. 
-S tím souvisi i kvalitní chybové hlášky, které pomáhají programátorovi při odhalování chyb. 
-React vývojářům poskytuje typy pro atributy běžných HTML elementů, což výrazně zjednodušuje a zefektivnǔje práci. 
+S tím souvisí i kvalitní chybové hlášky, které pomáhají programátorům řešit dané chyby. 
+React poskytuje typy pro atributy běžných HTML elementů, což výrazně zjednodušuje a zefektivnǔje práci. 
 Vlastnosti jsou v rámci vnořených komponent k dispozici ihned a jsou vždy aktualizované, což u dalších frameworků neplatí. 
 Velkou výhodu představuje možnost použití destrukturování pro předávání vlastností. 
 Jako výhodu lze také uvést modularitu, které dosáhneme při implmenetaci vlastních hooků. 
@@ -172,8 +172,8 @@ Při špatném použití vykreslovací techniky (pomocí \&\& nebo || operátor�
 V rámci funkce map nesmíme zapomenout každému elementu přidělit unikátní klíč. 
 Co se týče hooků, především useEffect hook umožňuje programátorům snadné zavedení chyb, pokud není správně použit. 
 S tím se rovněž pojí problémy se závislostmi useEffect a neintuitivní kontrola životního cyklu komponenty. 
-Vývojáři také musí počítat s tím, že aktualizace stavů je vždy asynchronní. V praxi to znamená, že se stav neaktualizuje okamžitě. 
-Jako nevýhodu můžeme uvést předávání vlastností do rodiče, což minimálně zpočátku může vypadat složitě.
+Vývojáři také musí počítat s tím, že aktualizace stavů je vždy asynchronní. V praxi to znamená, že stav není aktualizován okamžitě. 
+Jako nevýhodu můžeme uvést i předávání vlastností do rodičovské komponenty, které minimálně zpočátku může vypadat složitě.
 
 % React:
 % + nejvíce propracované knihovny a super ekosystém
@@ -203,7 +203,7 @@ Svelte proto disponuje nejméně kvalitními knihovnami určené tomuto framewor
 Syntax může být někdy matoucí, například klíčové slovo export u vstupních vlastností, nebo zvláštní syntax \#if, :else if, :else, /if. 
 Vývojáři musí mít na paměti modifikaci vstupních vlastností po jejich aktualizaci, kterou je třeba provést reaktivně. 
 V neposlední řadě můžeme zmínit nevýhody při práci s TypeScriptem. Pro importování TS typů používáme ve Svelte navíc klíčové slovo type. 
-Do TS souboru nelze importovat TS typ ze Svelte komponenty, takový typ můžeme založit v context="'module"' skriptu v rámci komponenty.
+Do TS souboru nelze importovat TS typ ze Svelte komponenty, takový typ pak zakládáme v rámci context="'module"' skriptu v komponentě.
 Při porovnání s ostatními frameworky, Svelte disponuje hůře otypovanými událostmi, což prodlužuje práci v obslužných funkcích.
 
 % Svelte:
