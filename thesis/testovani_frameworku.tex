@@ -190,23 +190,36 @@ Jako nevýhodu můžeme uvést předávání vlastností do rodiče, což minim�
 % - aktualizace stavu je asynchronní
 % - je třeba si zvyknout na předávání vlastností do rodiče
 
-
+Implementace ve Svelte poukázala na jednoduchost a přímočarost tohoto frameworku. 
+Syntax je velmi čitelná a bez zbytečného boilerplate kódu, což v porovnání s dalšími frameworky znamená nejkratší kód. 
+Svelte elegantním způsobem řeší předávání vlastností mezi komponentami. 
+Díky \$\$restProps můžeme získat všechny vlastnosti, které nejsou explicitně deklarovány. 
+Musíme si však dávat pozor na to, že při předání nekorektní vlastnosti do komponenty můžeme narazit na problémy. 
+Reactive statement dokáže reagovat na změny hodnot v rámci svého těla, což je velice efektivní a užitečné. 
+Svelte také oproti předchozím frameworkům nabízí přehledný systém metod životního cyklu a modifikaci DOM přes akce. 
+V neposlední řadě je třeba zmínit jednoduchý each blok a observables systém, který vývojářům zbytečně nekomplikuje práci.
+Mezi slabší stránky frameworku rozhodně patří jeho ekosystém a komunita, která je nejmenší a zatím se rozvíjí. 
+Svelte proto disponuje nejméně kvalitními knihovnami určené tomuto frameworku. 
+Syntax může být někdy matoucí, například klíčové slovo export u vstupních vlastností, nebo divná syntaxe \#if, :else if, :else, /if. 
+Vývojáři musí mít na paměti modifikaci vstupních vlastností po jejich aktualizaci, kterou je třeba provést reaktivně. 
+V neposlední řadě můžeme zmínit nevýhody při práci s TypeScriptem. Pro importování TS typů používáme ve Svelte navíc klíčové slovo type. 
+Do TS souboru nelze importovat TS typ ze Svelte komponenty, takový typ můžeme založit v context="module" skriptu v rámci komponenty.
+Při porovnání s ostatními frameworky, Svelte disponuje hůře otypovanými událostmi, což prodlužuje práci v obslužných funkcích.
 
 % Svelte:
-% + nejrychlejší hot-reload při vývoji
 % + nejméně boilerplate kódu -> opravdu jednoduchý na naučení (obvykle nejkratší kód)
 % + easy to read syntax
 % + nejjednodušší předávání vlastností (nahoru i dolů)
 % + restProps -> výhoda i nevýhoda (při předání nekorektní vlastnosti)
 % + reactive statement funguje dle jeho implemenetace
-% + modifikace/poslouchání DOM přes akce
 % + vyváženost u lifecycle metod (fungují jak mají a jsou jednoduché)
+% + modifikace/poslouchání DOM přes akce
 % + intuituvní for (each) - jednoduchý, ale mocný
 % + jednoduchý systém observables
 % - nejmladší s nejmenší komunitou, nejčastěji potkáme chyby (které nemusí být hned vyřešeny)
 % - nejslabší knihovny (router není tak vyšperkovaný, balíčkům chybí funkce...)
 % - syntax je někdy matoucí (export u input vlastností, if, else if, else, /if divná syntaxe)
 % - modifikace inputů musí být prováděna pomocí reactive statementu
-% - do ts souboru nelze importovat TS typ ze Svelte komponenty (typ musí být založen v context="module" skriptu)
 % - znaky navíc při importu TS typů (type)
+% - do ts souboru nelze importovat TS typ ze Svelte komponenty (typ musí být založen v context="module" skriptu)
 % - nejméně otypované handlery eventů
