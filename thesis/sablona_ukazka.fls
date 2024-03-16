@@ -894,7 +894,6 @@ INPUT testovani_frameworku.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0800.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0700.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecss1000.tfm
 INPUT ./testovani_angular.tex
 INPUT ./testovani_angular.tex
 INPUT ./testovani_angular.tex
@@ -1017,7 +1016,7 @@ INPUT /home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600
 INPUT /home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1440.600pk
 INPUT /home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk
 INPUT /home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1000.600pk
-INPUT /home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1000.600pk
+INPUT /home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk
 INPUT /home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk
 INPUT /home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk
 INPUT /home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk
