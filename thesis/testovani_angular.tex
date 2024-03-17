@@ -205,7 +205,7 @@ LanguageDropdownComponent umožní uživateli vybrat jazyk, do kterého chce př
 Přes \emph{EventEmitter} aktualizujeme výstupní jazyk v rodičovské komponentě. V rámci obslužné metody \emph{handleLanguageChange} pak také aktualizujeme hodnotu vlastnosti \emph{inputValuesChanges\$}.
 Tato vlastnost je \emph{Subject}, speciální typ observable, z knihovny RxJS. Později dovolí na základě změny hodnoty poslat dotaz na server ve správný moment. 
 Podobným způsobem poté můžeme registrovat událost změny vstupního textu -- naslouchat na změnu vstupního textu.
-% Přidat schéma
+% TODO: Přidat schéma
 
 \begin{prog}
 // Část souboru translator.component.ts
@@ -234,7 +234,6 @@ Aktuální hodnotu formulářového prvku nastavíme pomocí \emph{[ngModel]}. P
 </textarea>
 \end{prog}
 
-% TODO: Vložit do přílohy soubor autosize-text-area.directive.ts
 V případě, že potřebujeme aktualizovat výšku textového pole na základě jeho obsahu, můžeme využít vlastní direktivu AutosizeTextAreaDirective. 
 V konstruktoru direktivy získáme element, na který přidáme tuto direktivu. Dále budeme potřebovat třídu \emph{Renderer2}, která umožňuje manipulovat s DOM. 
 V direktivě budeme naslouchat na změnu hodnoty textového pole pomocí dekorátoru \emph{@HostListener} a události input. Následně v rámci obslužné metody zajistíme aktualizaci výšky.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  17 MAR 2024 21:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  17 MAR 2024 21:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -576,7 +576,7 @@ l.200   \}
            [7]pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.241 
+l.242 
        [8]) (./analyza_react.tex
 <images/react-logo.png, id=438, 27.05898pt x 24.09pt>
 File: images/react-logo.png Graphic file (type png)
@@ -618,7 +618,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 118.
  (./testovani_angular.tex [29] [30] [31] [32] [33] [34] [35] [36] [37] [38]
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 405.
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 404.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ) [39] [40] [41] [42] [43] [44] [45]) (./testovani_react.tex [46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61]) (./testovani_svelte.tex [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76]) [77] [78] [79]) [80]
