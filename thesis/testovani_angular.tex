@@ -101,12 +101,6 @@ export class CounterComponent \{
 \}
 \end{prog}
 
-\begin{citemize}
-	\item šablony + logika komponenty
-	\item správa stavů (reaktivita)
-	\item body k vypíchnutí: boilerplate frameworku
-\end{citemize}
-
 \begin{flushleft}
   \textbf{Interakce v uživatelském prostředí}
 \end{flushleft}
@@ -198,12 +192,6 @@ onClickOutsideDropdown(target: HTMLElement): void \{
 Dropdown pak může mít různé inputy, které povedou k lepší znovupoužitelnosti. Hodnotu inputu (konkrétně např. \emph{defaultValue}) v komponentě získáme v metodě životního cyklu \emph{OnInit}. 
 Styly ve formě JS hodnot do šablony přidáme pomocí \emph{ngClass}. Když těchto hodnot potřebujeme na elementu více, zřetězíme předávané hodnoty pomocí JavaScriptu. 
 Další možnost spočívá ve sloučení požadovaných stylů na úrovni třídy.
-
-\begin{citemize}
-	\item body k vypíchnutí: dynamické stylování, logika v template
-	\item problémy: zavírání posledně otevřeného dropdownu před otevřením dalšího D.
-	\item výhody frameworku: podle bodů nahoře..., tvorba typů ve Svelte
-\end{citemize}
 
 \begin{flushleft}
   \textbf{Reaktivita, asynchronní operace}
@@ -345,14 +333,6 @@ Důvod spočívá v tom, že Angular v DOMu vytváří element pro každou kompo
   />
 </div>
 \end{prog}
-
-\begin{citemize}
-	\item předávání vlastností nahoru a dolů
-	\item fetchování dat
-	\item body k vypíchnutí: velice odlišné reakce na změny, stylování komponent nebo elementů, update textarey (hodnoty), jiné řešení modularity (update stylů textarey)
-	\item problémy:
-	\item výhody frameworku: předávání vlastností má nej Svelte
-\end{citemize}
 
 \begin{flushleft}
   \textbf{Tvorba formulářů, validace}
