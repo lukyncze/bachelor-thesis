@@ -242,7 +242,7 @@ V direktivě budeme naslouchat na změnu hodnoty textového pole pomocí dekorá
 Změny hodnoty vlastnosti \emph{inputValuesChanges\$} začneme odebírat pomocí \emph{subscribe}. 
 Abychom předešli dotazování serveru ihned po změně hodnoty vlastnosti \emph{inputValuesChanges\$}, použijeme operátor \emph{debounceTime}. 
 Ten povolí poslat dotaz na server až po uplynutí určité doby od poslední změny, kterou můžeme nastavit. 
-Subscribe zavolá věřejnou metodu služby (\emph{getTranslation}), která vrací přeložený text. 
+Subscribe zavolá veřejnou metodu služby (\emph{getTranslation}), která vrací přeložený text. 
 Nakonec, aby dotazování serveru fungovalo, je třeba metodu \emph{setupInputChangeSubscription} zavolat v konstruktoru nebo hooku \emph{OnInit}.
 
 \begin{prog}
