@@ -19,10 +19,10 @@
 \contentsline {subsubsection}{\numberline {2.2.5}Životní cyklus}{12}{subsubsection.2.2.5}%
 \contentsline {subsubsection}{\numberline {2.2.6}State management}{13}{subsubsection.2.2.6}%
 \contentsline {subsubsection}{\numberline {2.2.7}Routování}{13}{subsubsection.2.2.7}%
-\contentsline {subsubsection}{\numberline {2.2.8}Ekosystém}{13}{subsubsection.2.2.8}%
+\contentsline {subsubsection}{\numberline {2.2.8}Ekosystém}{14}{subsubsection.2.2.8}%
 \contentsline {subsection}{\numberline {2.3}Svelte}{14}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}Komponenty}{15}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Reaktivita}{15}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.2}Reaktivita}{16}{subsubsection.2.3.2}%
 \contentsline {subsubsection}{\numberline {2.3.3}Předávání vlastností}{16}{subsubsection.2.3.3}%
 \contentsline {subsubsection}{\numberline {2.3.4}Eventy}{17}{subsubsection.2.3.4}%
 \contentsline {subsubsection}{\numberline {2.3.5}Životní cyklus}{18}{subsubsection.2.3.5}%
@@ -34,7 +34,7 @@
 \contentsline {subsubsection}{\numberline {2.4.2}Reaktivita}{21}{subsubsection.2.4.2}%
 \contentsline {subsubsection}{\numberline {2.4.3}Předávání vlastností}{22}{subsubsection.2.4.3}%
 \contentsline {subsubsection}{\numberline {2.4.4}Direktivy a eventy}{23}{subsubsection.2.4.4}%
-\contentsline {subsubsection}{\numberline {2.4.5}Životní cyklus}{23}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.5}Životní cyklus}{24}{subsubsection.2.4.5}%
 \contentsline {subsubsection}{\numberline {2.4.6}State management}{24}{subsubsection.2.4.6}%
 \contentsline {subsubsection}{\numberline {2.4.7}Routování}{24}{subsubsection.2.4.7}%
 \contentsline {subsubsection}{\numberline {2.4.8}Ekosystém}{25}{subsubsection.2.4.8}%
