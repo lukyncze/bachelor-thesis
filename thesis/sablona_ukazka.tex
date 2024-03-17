@@ -1,16 +1,13 @@
 \documentclass{vdocdiplcz}
 
 \usepackage[czech]{babel}
-
 %\usepackage[cp1250]{inputenc}  % vyberte podle toho, jaké kódování používáte - jestli ``Windows'' nebo UTF-8
-%
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 %\usepackage{comment}   % komentare pres vice radku \begin{comment} .... \end{comment}
-%
 \usepackage{graphicx}
-
-\usepackage{alltt}  % pro zapis programoveho kodu: jestlize nepouzivate, klidne odstrante
+\usepackage{alltt}  % pro zapis programoveho kodu
+\usepackage{listings} % pro zapis programoveho kodu
 \usepackage{pdfpages}
 
 % nastaveni barev a dalsich vlastnosti pro interaktivni odkazy:
@@ -18,13 +15,56 @@
 \definecolor{seda}{rgb}{.5,.5,.5}
 \definecolor{modra}{rgb}{.02,.02,.4}
 \definecolor{zelena}{rgb}{.02,.4,.01}
-\definecolor{fialova}{rgb}{.5,.05,.5}
 \definecolor{zluta}{rgb}{.5,.5,.05}
 \definecolor{cervena}{rgb}{.7,.2,.2}
 \definecolor{oranzova}{rgb}{.8,.4,.05}
+\definecolor{svetleseda}{rgb}{.85,.85,.85}
+\definecolor{tmaveseda}{rgb}{.4,.4,.4}
+\definecolor{fialova}{rgb}{0.65, 0.12, 0.82}
 \usepackage[bookmarkstype={toc},colorlinks,bookmarksnumbered,%
 unicode,linkcolor={modra},%
 citecolor={zelena},urlcolor={modra}]{hyperref}
+
+% nastaveni pro zobrazeni zdrojoveho kodu
+\renewcommand{\lstlistingname}{Zdrojový kód}% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{Seznam zdrojových kódů}% List of Listings -> List of Algorithms
+\lstdefinelanguage{TypeScript}{
+  keywords={abstract, any, as, boolean, break, case, catch, class, console, 
+    const, continue, debugger, declare, default, delete, do, else, enum, export, 
+    extends, false, finally, for, from, function, get, if, implements, import, in, 
+    infer, instanceof, interface, keyof, let, module, namespace, never, new, null, 
+    number, object, package, private, protected, public, readonly, require, return, 
+    set, static, string, super, switch, symbol, this, throw, true, try, type, typeof, 
+    undefined, unique, unknown, var, void, while, with, yield},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{tmaveseda}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{fialova}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+  language=TypeScript,
+  backgroundcolor=\color{svetleseda},
+  extendedchars=true,
+  basicstyle=\linespread{1}\footnotesize\ttfamily,
+  showstringspaces=false,
+  showspaces=false,
+  numbers=left,
+  numberstyle=\footnotesize,
+  numbersep=9pt,
+  tabsize=1,
+  breaklines=true,
+  showtabs=false,
+  captionpos=b
+  label={lst:myjavascriptexample}
+}
 
 % nastaveni zvyrazneni pozadi
 % pouziti:
@@ -36,14 +76,12 @@ citecolor={zelena},urlcolor={modra}]{hyperref}
 
 %\usepackage{picins,wrapfig}   % obtekani obrazku - picins pro obrazky bez popisku, wrapfig pro obrazky s popiskem
 %\usepackage{multicol}    % vicesloupcova sazba, pokud ji potrebujeme
-%
+
 %\usepackage{subfigure}  % sada zvlast oznacenych objektu v jednom figure
 %\usepackage{appendix}  % prilohy, obvykle neni nutne
 
 %\usepackage{textcomp,gensymb,bbding,amsfonts,mathrsfs}  									%  balicky pro symboly
 %\usepackage{wasysym,latexsym,gensymb,pifont,phonetic,mathcomp,fancybox}	% balicky se symboly
-
-
 
 %******************************************************************************
 % pokud pracujeme na konkretni kapitole a chceme prekladat jenom ji, pouzijeme:

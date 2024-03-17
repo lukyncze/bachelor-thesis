@@ -38,6 +38,22 @@ V dekorátoru @Component pak je třeba importovat všechny potřebné závislost
 V šabloně vykreslíme hodnoty pomocí dvojitých závorek, které obsahují název proměnné. K podmíněnému zobrazení komponent/elementu slouží bloky @if, @else if, @else. 
 Pro iteraci přes pole hodnot slouží blok @for.\cite{angulardev}
 
+\begin{lstlisting}[caption=My Javascript Example]
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'my-component',
+  standalone: true,
+  template: `
+    <div>{{ content }}</div>
+  `,
+  styles: ['div { background-color: red; }']
+})
+export class MyComponent {
+  content = 'nejaky-obsah';
+}
+\end{lstlisting}
+
 \begin{prog}
 import \{ Component \} from '@angular/core';
 
