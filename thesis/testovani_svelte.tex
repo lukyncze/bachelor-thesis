@@ -266,9 +266,9 @@ const resizeTextArea = (element: HTMLTextAreaElement) => \{
 \};
 \end{prog}
 
-V rámci rodičovské komponenty zavoláme API v momentě, kdy dojde ke změně vstupního textu nebo výstupního jazyka. K tomu použijeme reaktivní prohlášení (reactive statement). 
-V těle prohlášení zrušíme předchozí časovač a pomocí funkce \emph{setTimeout} zavoláme funkci \emph{handleTranslation}. Tímto způsobem předejdeme dotazování serveru ihned po změně nějaké vstupní hodnoty. 
-Při zničení komponenty zrušíme časovač a asynchronní požadavky.
+V rámci rodičovské komponenty zavoláme Microsoft Translator Text API \cite{translatortextapi} v momentě, kdy dojde ke změně vstupního textu nebo výstupního jazyka. 
+K tomu použijeme reaktivní prohlášení (reactive statement). V těle prohlášení zrušíme předchozí časovač a pomocí funkce \emph{setTimeout} zavoláme funkci \emph{handleTranslation}. 
+Tímto způsobem předejdeme dotazování serveru ihned po změně nějaké vstupní hodnoty. Při zničení komponenty zrušíme časovač a asynchronní požadavky.
 
 \begin{prog}
 // Část souboru Translator.svelte

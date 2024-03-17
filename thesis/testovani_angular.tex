@@ -266,7 +266,8 @@ private setupInputChangeSubscription(): void \{
 
 V rámci služby TranslationService použijeme třídu \emph{HttpClient} z Angular modulů, která umožňuje odesílat HTTP požadavky na server.
 Službu \emph{HttpClient} získáme v konstruktoru, kde ji pomocí klíčového slova \emph{private} přiřadíme do vlastností třídy. 
-Pokračujeme zavoláním metody \emph{post} na HTTP klientovi s patřičným nastavením. Ze serveru pak v odpovědi dostaneme přeložený text. 
+Pokračujeme implementací metody \emph{getTranslation}, v níž zavoláme metodu \emph{post} na HTTP klientovi s patřičným nastavením. 
+Tímto způsobem budeme dotazovat Microsoft Translator Text API \cite{translatortextapi}, díky kterému v odpovědi obdržíme přeložený text. 
 Pokud úspěšná odpověď ze serveru obsahuje složitější strukturu, ze které potřebujeme získat jen nějakou část, pak s konverzí odpovědi pomůže RxJS operátor \emph{map()}. 
 Metoda \emph{getTranslation} vrací observable, v translator komponentě proto hodnoty odebíráme pomocí metody \emph{subscribe}.
 

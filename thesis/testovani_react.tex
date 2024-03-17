@@ -281,7 +281,8 @@ const useAutosizeTextArea = (
 \};
 \end{prog}
 
-V Translator komponentě potřebujeme ukládat vstupní hodnotu a výstupní jazyk z vnořených komponent. Dále při každé změně těchto hodnot zavoláme API, k čemuž využijeme \emph{useEffect}.
+V Translator komponentě potřebujeme ukládat vstupní hodnotu a výstupní jazyk z vnořených komponent. 
+Dále při každé změně těchto hodnot odešleme dotaz na Microsoft Translator Text API \cite{translatortextapi}, k čemuž využijeme \emph{useEffect}.
 V rámci hooku definujeme asynchronní funkci \emph{handleTranslation}, která pomocí fetch API odešle korektní HTTP POST požadavek na server. 
 Pokud bychom definovali funkci mimo \emph{useEffect}, museli bychom ji přidat do pole závislostí hooku.
 Při úspěšné odpovědi aktualizujeme stav s přeloženým textem, v opačném případě nastavíme chybový stav.
