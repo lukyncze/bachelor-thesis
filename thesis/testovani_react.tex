@@ -468,7 +468,7 @@ V následující sekci vytvoříme webovou hru, ve které je cílem uživatele u
 Postupně se bude odkrývat 8 nápovědí, které by měly pomoci s uhádnutím daného státu. Klíčovým prvkem je textové pole, přes které uživatel zadává názvy hádaných zemí a tlačítko pro potvrzení. 
 Součástí také bude seznam zemí, které uživatel hádal a modální okna sloužící k vyhodnocení hry.
 
-Začneme s implementací rodičovské komponenty, která získá země z veřejného API. Naprogramujeme hook \emph{useAllCountries}, který bude vracet data (\emph{countries}), chybu a stav načítání. 
+Začneme s implementací rodičovské komponenty, která získá země z REST Countries API \cite{restcountriesapi}. Naprogramujeme hook \emph{useAllCountries}, který bude vracet data (\emph{countries}), chybu a stav načítání. 
 V rámci \emph{useEffect} zavoláme asynchronní funkci \emph{fetchCountriesData}. Uvnitř funkce \emph{fetchCountriesData} zavoláme funkci \emph{getAllCountries}. 
 Ve funkci \emph{getAllCountries} využijeme knihovnu \emph{axios} \cite{axioslib} a převzatou funkci \emph{requestHandler} \cite{axiosrequesthandler}. 
 Balíček \emph{axios} slouží jako HTTP klient pro tvorbu asynchronních dotazů, zatímco \emph{requestHandler} umožňuje otypování příchozí odpovědi. Po ošetření chyb aktualizujeme patřičné stavy, které následně z hooku vrátíme. 

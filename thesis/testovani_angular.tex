@@ -470,9 +470,9 @@ Ve hře se postupně bude odkrývat 8 nápovědí, které by měly pomoct s uhá
 Klíčovým prvkem je textové pole, přes které uživatel zadává názvy hádaných zemí a tlačítko pro potvrzení. 
 Součástí je také seznam již zadaných hádaných zemí a modální okna sloužící k vyhodnocení hry.
 
-Začneme s implementací rodičovské komponenty, jež bude získávat data o všech zemích světa z veřejného API. 
+Začneme s implementací rodičovské komponenty, jež bude získávat data o všech zemích světa z REST Countries API \cite{restcountriesapi}. 
 Další zodpovědností této komponenty bude vykreslování odpovídajících stavů při získávání dat -- stav načítání, úspěšné získání dat a chyba při získávání dat. 
-Vytvoříme službu CountryService, díky které budeme moci získávat data o zemích. Konkrétně k tomu využijeme metodu \emph{getAllCountries}, která vrátí observable pole všech zemí. 
+Vytvoříme službu CountryService, díky které získáme data o zemích. Pro tyto účely vytvoříme metodu \emph{getAllCountries}, která vrátí observable pole všech zemí. 
 Výsledek registrace služby a přímé zavolání metody \emph{getAllCountries} uložíme do vlastnosti třídy.
 
 \begin{prog}
@@ -558,7 +558,7 @@ Implementujeme komponentu guessed-countries-list, jenž zobrazí seznam již há
 Mezi vstupními vlastnostmi bude pole všech zemí (\emph{countries}), pole hádaných zemí uživatelem (\emph{guessedCountries}) a také země, kterou uživatel musí uhodnout (\emph{randomCountry}).
 Pomocí vstupních vlastností a služby EnrichGuessedCountriesService získáme pole hádaných zemí s jejich vlajkou a vzdáleností od \emph{randomCountry} (\emph{distanceFromRandomCountry}).
 Služba EnrichGuessedCountriesService ke každé hádané zemi přidá vlajku z pole všech zemí a vypočte \emph{distanceFromRandomCountry}. 
-Pro vypočtení vzdálenosti použijeme funkci \emph{getDistanceBetweenTwoPoints} a vlastnost \emph{latlng}, kterou získáme z API při získávání všech zemí. 
+Pro vypočtení vzdálenosti použijeme funkci \emph{getDistanceBetweenTwoPoints} a vlastnost \emph{latlng}, kterou získáme ze serveru při získávání všech zemí. 
 Funkci \emph{getDistanceBetweenTwoPoints} importujeme z knihovny \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}. 
 Hodnotu vlastnosti \emph{enrichedGuessedCountries} aktualizujeme v rámci hooku \emph{OnChanges}. Seznam hádaných zemí následně vykreslíme v šabloně.
 
