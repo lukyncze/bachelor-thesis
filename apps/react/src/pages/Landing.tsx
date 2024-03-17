@@ -6,7 +6,7 @@ function Landing() {
         xmlnsXlink="http://www.w3.org/1999/xlink"
         aria-hidden="true"
         role="img"
-        className="iconify iconify--logos max-w-64 sm:max-w-80"
+        className="max-w-64 sm:max-w-80"
         preserveAspectRatio="xMidYMid meet"
         viewBox="0 0 256 228"
       >
