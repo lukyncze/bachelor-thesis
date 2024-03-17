@@ -2,7 +2,12 @@
 
 V rámci této kapitoly se zaměříme na testování tří vybraných frameworků. V první části navrhneme funkční a nefunkční požadavky demonstračních aplikací. 
 Následně vytvoříme demonstrační aplikaci, která bude obsahovat stejné funkcionality ve všech třech vybraných frameworcích. 
-V poslední části srovnáme implementaci aplikací, identifikujeme přednosti a nedostatky použitých frameworků. 
+V poslední části srovnáme implementaci aplikací, identifikujeme přednosti a nedostatky použitých frameworků.
+
+Do této kapitoly zahrneme frameworky Angular, React a Svelte. V rámci analýzy se tyto technologie jevily jako nejvhodnější k dalšímu zkoumání a srovnání, jelikož jde o nástroje velmi odlišné. 
+Naopak framework Vue byl z praktické části vyloučen. Odlišoval se od ostatních především v rámci vývojových aspektů. 
+Technologie například toleruje využití neimportovaných komponent a programátorovi nezobrazí kompilační chybu. 
+Vue je také převážně orientováno na čínský trh, což může komplikovat řešení problémů a hledání informací vývojářům mimo Čínu.
 
 \subsection{Návrh aplikace}
 
@@ -82,7 +87,7 @@ Ty následně poslouží při porovnání přístupu a implementace jednolivých
 
 \subsection{Implementace webových aplikací}
 
-V této kapitole popíšeme implementaci jednotlivých částí aplikace v rámci vybraných frameworků. Použijeme následující nástroje v níže uvedených verzích:
+V této kapitole popíšeme implementaci jednotlivých částí aplikace v rámci vybraných frameworků -- Angular, React a Svelte. Použijeme následující nástroje v níže uvedených verzích:
 
 \begin{citemize}
 	\item Angular -- verze 17.x.x
@@ -94,6 +99,7 @@ Pro grafickou stránku aplikací využijeme CSS framework Tailwind CSS \cite{tai
 Obě knihovny jsou open source a zdarma k použití pod licencí MIT License. 
 K vytvoření nového projektu v jednotlivých frameworcích budeme potřebovat NodeJS a správce balíčků npm (případně jiného správce balíčků).
 
+% TODO: Zkontrolovat správné vysázení tabulky! 
 \begin{table}[htb]
 	\centering
 	\caption{Instalace projektů v jednotlivých frameworcích.}
