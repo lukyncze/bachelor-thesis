@@ -1,6 +1,6 @@
 {
-  "name": "angular",
-  "version": "0.0.0",
+  "name": "angular-app",
+  "version": "0.1.0",
   "scripts": {
     "dev": "ng serve",
     "build": "ng build",
