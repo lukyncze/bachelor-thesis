@@ -101,12 +101,6 @@ export class CounterComponent \{
 \}
 \end{prog}
 
-\begin{citemize}
-	\item šablony + logika komponenty
-	\item správa stavů (reaktivita)
-	\item body k vypíchnutí: boilerplate frameworku
-\end{citemize}
-
 \begin{flushleft}
   \textbf{Interakce v uživatelském prostředí}
 \end{flushleft}
@@ -199,12 +193,6 @@ Dropdown pak může mít různé inputy, které povedou k lepší znovupoužitel
 Styly ve formě JS hodnot do šablony přidáme pomocí \emph{ngClass}. Když těchto hodnot potřebujeme na elementu více, zřetězíme předávané hodnoty pomocí JavaScriptu. 
 Další možnost spočívá ve sloučení požadovaných stylů na úrovni třídy.
 
-\begin{citemize}
-	\item body k vypíchnutí: dynamické stylování, logika v template
-	\item problémy: zavírání posledně otevřeného dropdownu před otevřením dalšího D.
-	\item výhody frameworku: podle bodů nahoře..., tvorba typů ve Svelte
-\end{citemize}
-
 \begin{flushleft}
   \textbf{Reaktivita, asynchronní operace}
 \end{flushleft}
@@ -217,7 +205,7 @@ LanguageDropdownComponent umožní uživateli vybrat jazyk, do kterého chce př
 Přes \emph{EventEmitter} aktualizujeme výstupní jazyk v rodičovské komponentě. V rámci obslužné metody \emph{handleLanguageChange} pak také aktualizujeme hodnotu vlastnosti \emph{inputValuesChanges\$}.
 Tato vlastnost je \emph{Subject}, speciální typ observable, z knihovny RxJS. Později dovolí na základě změny hodnoty poslat dotaz na server ve správný moment. 
 Podobným způsobem poté můžeme registrovat událost změny vstupního textu -- naslouchat na změnu vstupního textu.
-% Přidat schéma
+% TODO: Přidat schéma
 
 \begin{prog}
 // Část souboru translator.component.ts
@@ -246,7 +234,6 @@ Aktuální hodnotu formulářového prvku nastavíme pomocí \emph{[ngModel]}. P
 </textarea>
 \end{prog}
 
-% TODO: Vložit do přílohy soubor autosize-text-area.directive.ts
 V případě, že potřebujeme aktualizovat výšku textového pole na základě jeho obsahu, můžeme využít vlastní direktivu AutosizeTextAreaDirective. 
 V konstruktoru direktivy získáme element, na který přidáme tuto direktivu. Dále budeme potřebovat třídu \emph{Renderer2}, která umožňuje manipulovat s DOM. 
 V direktivě budeme naslouchat na změnu hodnoty textového pole pomocí dekorátoru \emph{@HostListener} a události input. Následně v rámci obslužné metody zajistíme aktualizaci výšky.
@@ -254,7 +241,7 @@ V direktivě budeme naslouchat na změnu hodnoty textového pole pomocí dekorá
 Změny hodnoty vlastnosti \emph{inputValuesChanges\$} začneme odebírat pomocí \emph{subscribe}. 
 Abychom předešli dotazování serveru ihned po změně hodnoty vlastnosti \emph{inputValuesChanges\$}, použijeme operátor \emph{debounceTime}. 
 Ten povolí poslat dotaz na server až po uplynutí určité doby od poslední změny, kterou můžeme nastavit. 
-Subscribe zavolá věřejnou metodu služby (\emph{getTranslation}), která vrací přeložený text. 
+Subscribe zavolá veřejnou metodu služby (\emph{getTranslation}), která vrací přeložený text. 
 Nakonec, aby dotazování serveru fungovalo, je třeba metodu \emph{setupInputChangeSubscription} zavolat v konstruktoru nebo hooku \emph{OnInit}.
 
 \begin{prog}
@@ -278,11 +265,12 @@ private setupInputChangeSubscription(): void \{
 
 V rámci služby TranslationService použijeme třídu \emph{HttpClient} z Angular modulů, která umožňuje odesílat HTTP požadavky na server.
 Službu \emph{HttpClient} získáme v konstruktoru, kde ji pomocí klíčového slova \emph{private} přiřadíme do vlastností třídy. 
-Pokračujeme zavoláním metody \emph{post} na HTTP klientovi s patřičným nastavením. Ze serveru pak v odpovědi dostaneme přeložený text. 
+Pokračujeme implementací metody \emph{getTranslation}, v níž zavoláme metodu \emph{post} na HTTP klientovi s patřičným nastavením. 
+Tímto způsobem budeme dotazovat Microsoft Translator Text API \cite{translatortextapi}, díky kterému v odpovědi obdržíme přeložený text. 
 Pokud úspěšná odpověď ze serveru obsahuje složitější strukturu, ze které potřebujeme získat jen nějakou část, pak s konverzí odpovědi pomůže RxJS operátor \emph{map()}. 
-Metoda \emph{getTranslation} vrací observable, v translator komponentě proto hodnoty odebíráme pomocí metody \emph{subscribe}.
+Metoda \emph{getTranslation} vrací observable, v translator komponentě proto hodnoty odebíráme pomocí metody \emph{subscribe}. 
+Subscription bychom také vždy měli zrušit, abychom předešli možným únikům paměti či chybám.
 
-% TODO: Zde zmínit unsubscribe... (je to poměrně důležité)
 \begin{prog}
 // Část souboru translation.service.ts
 
@@ -345,14 +333,6 @@ Důvod spočívá v tom, že Angular v DOMu vytváří element pro každou kompo
   />
 </div>
 \end{prog}
-
-\begin{citemize}
-	\item předávání vlastností nahoru a dolů
-	\item fetchování dat
-	\item body k vypíchnutí: velice odlišné reakce na změny, stylování komponent nebo elementů, update textarey (hodnoty), jiné řešení modularity (update stylů textarey)
-	\item problémy:
-	\item výhody frameworku: předávání vlastností má nej Svelte
-\end{citemize}
 
 \begin{flushleft}
   \textbf{Tvorba formulářů, validace}
@@ -489,9 +469,9 @@ Ve hře se postupně bude odkrývat 8 nápovědí, které by měly pomoct s uhá
 Klíčovým prvkem je textové pole, přes které uživatel zadává názvy hádaných zemí a tlačítko pro potvrzení. 
 Součástí je také seznam již zadaných hádaných zemí a modální okna sloužící k vyhodnocení hry.
 
-Začneme s implementací rodičovské komponenty, jež bude získávat data o všech zemích světa z veřejného API. 
+Začneme s implementací rodičovské komponenty, jež bude získávat data o všech zemích světa z REST Countries API \cite{restcountriesapi}. 
 Další zodpovědností této komponenty bude vykreslování odpovídajících stavů při získávání dat -- stav načítání, úspěšné získání dat a chyba při získávání dat. 
-Vytvoříme službu CountryService, díky které budeme moci získávat data o zemích. Konkrétně k tomu využijeme metodu \emph{getAllCountries}, která vrátí observable pole všech zemí. 
+Vytvoříme službu CountryService, díky které získáme data o zemích. Pro tyto účely vytvoříme metodu \emph{getAllCountries}, která vrátí observable pole všech zemí. 
 Výsledek registrace služby a přímé zavolání metody \emph{getAllCountries} uložíme do vlastnosti třídy.
 
 \begin{prog}
@@ -577,7 +557,7 @@ Implementujeme komponentu guessed-countries-list, jenž zobrazí seznam již há
 Mezi vstupními vlastnostmi bude pole všech zemí (\emph{countries}), pole hádaných zemí uživatelem (\emph{guessedCountries}) a také země, kterou uživatel musí uhodnout (\emph{randomCountry}).
 Pomocí vstupních vlastností a služby EnrichGuessedCountriesService získáme pole hádaných zemí s jejich vlajkou a vzdáleností od \emph{randomCountry} (\emph{distanceFromRandomCountry}).
 Služba EnrichGuessedCountriesService ke každé hádané zemi přidá vlajku z pole všech zemí a vypočte \emph{distanceFromRandomCountry}. 
-Pro vypočtení vzdálenosti použijeme funkci \emph{getDistanceBetweenTwoPoints} a vlastnost \emph{latlng}, kterou získáme z API při získávání všech zemí. 
+Pro vypočtení vzdálenosti použijeme funkci \emph{getDistanceBetweenTwoPoints} a vlastnost \emph{latlng}, kterou získáme ze serveru při získávání všech zemí. 
 Funkci \emph{getDistanceBetweenTwoPoints} importujeme z knihovny \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}. 
 Hodnotu vlastnosti \emph{enrichedGuessedCountries} aktualizujeme v rámci hooku \emph{OnChanges}. Seznam hádaných zemí následně vykreslíme v šabloně.
 

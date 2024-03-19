@@ -25,12 +25,12 @@ Z těch největších jde například o Metu, Uber, Twitter a~Airbnb.\cite{react
 
 Hlavním stavebním kamenem Reactu jsou komponenty, jež představují nezávislé, vnořitelné a~opakovaně použitelné bloky kódu. 
 Komponentu v Reactu tvoří JavaScript funkce a~HTML šablona. Validně seskládané komponenty poté tvoří webovou aplikaci.
-V Reactu se můžeme setkat s funkčními a~třídními komponentami. Vytváření třídních komponent oficiální dokumentace nedoporučuje.
+V Reactu se můžeme setkat s funkčními a~třídními komponentami. Vytváření třídních komponent je na ústupu a oficiální dokumentace je rovněž nedoporučuje. 
+Výstup komponent tvoří elementy ve formě JSX. Tyto elementy obsahují informace o vzhledu a~funkcionalitě dané komponenty.
 
-% přidat info o předávání vlastností dolů i nahoru ve stromě
-% chybí informace o tom, že je nutné komponenty importovat
-Pro komunikaci mezi komponentami se používá předávání vlastností (props), přes které je možné předávat hodnoty jakýchkoli datových typů.
-Výstup komponent tvoří elementy ve formě JSX. Tyto elementy obsahují informace o vzhledu a~funkcionalitě dané komponenty.\cite{reactbanks,react}
+Pro komunikaci mezi komponentami se používá předávání vlastností (props), přes které je možné předávat hodnoty jakýchkoli datových typů. 
+Vlastnost vnořené komponentě předáme stejně jako atribut HTML elementu. 
+Pro předání hodnoty do rodičovské komponenty slouží tzv. callback funkce, které se volají ve vnořené komponentě, ale modifikují vlastnosti rodičovské komponenty.\cite{reactbanks,react}
 
 \begin{prog}
 import React from 'react';

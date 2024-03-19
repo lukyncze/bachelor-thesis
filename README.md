@@ -10,6 +10,11 @@ Autor se seznámí s problematikou tvorby webových aplikací s využitím JavaS
 V teoretické části bude analyzovat možnosti vývoje frontendu webových aplikací postavených na JavaScriptu, vybere tři frameworky, kterým se bude dále věnovat. 
 V praktické části autor navrhne aplikaci a její funkce. S využitím zvolených frameworků vytvoří tři demonstrační aplikace, uvede postupy jejich vývoje a závěrečné porovnání.
 
+### Repozitáře:
+
+- [Text bakalářské práce](https://github.com/lukyncze/bachelor-thesis/tree/main/thesis)
+- [Webové aplikace](https://github.com/lukyncze/bachelor-thesis/tree/main/apps)
+
 #### Doporučená literatura:
 
 - BANKS, Alex a PORCELLO, Eve. Learning React. Online. 2nd Edition. O'Reilly Media, 2020. ISBN 9781492051725. Dostupné z: https://www.oreilly.com/library/view/learning-react-2nd/9781492051718/. [cit. 2023-10-05].

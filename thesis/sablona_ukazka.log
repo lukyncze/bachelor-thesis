@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  17 MAR 2024 09:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  18 MAR 2024 08:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -526,29 +526,37 @@ l.132 \include{uvodni_kapitola}
 ]
 \openout2 = `webova_aplikace.aux'.
 
- (./webova_aplikace.tex)pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
+ (./webova_aplikace.tex
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 37.
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.37 \end{zvyraznenyodstavec}
+                              [2
+
+
+
+
+])pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.133 \include{webova_aplikace}
-                                [2
-
-
-
-
-]
+                                [3]
 \openout2 = `analyza_frameworku.aux'.
 
  (./analyza_frameworku.tex (./analyza_angular.tex
-<images/angular-logo.png, id=374, 985.6825pt x 239.89626pt>
+<images/angular-logo.png, id=377, 985.6825pt x 239.89626pt>
 File: images/angular-logo.png Graphic file (type png)
 <use images/angular-logo.png>
 Package pdftex.def Info: images/angular-logo.png  used on input line 11.
 (pdftex.def)             Requested size: 213.39566pt x 51.93541pt.
-pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.23 D
-      Ã­ky robusnosti a velikosti frameworku je Angular vhodnÄ›jÅ¡Ã­ pro vÄ›... [3
+l.22 
+      [4
 
 
 
@@ -557,88 +565,84 @@ l.23 D
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 41.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
+)pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.62 
-      [4]pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has been already used, duplicate ignored
+l.54 \}
+        [5]pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.106   \}
-           [5]pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.149   selector: 'child-component',
+l.102   protected count = signal(0);
                                      [6]pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.200   \}
-           [7]pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has been already used, duplicate ignored
+l.144 ...omponent jste klikli: \$\{clickCount\}x`;
+                                                   [7]pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.241 
-       [8]) (./analyza_react.tex
-<images/react-logo.png, id=438, 27.05898pt x 24.09pt>
+l.195 
+       [8]pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.236 \subsubsection
+                    {RoutovÃ¡nÃ­} [9]) (./analyza_react.tex
+<images/react-logo.png, id=439, 27.05898pt x 24.09pt>
 File: images/react-logo.png Graphic file (type png)
 <use images/react-logo.png>
 Package pdftex.def Info: images/react-logo.png  used on input line 9.
 (pdftex.def)             Requested size: 128.0387pt x 114.04042pt.
-pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.18 
-      [9] [10 <./images/react-logo.png>] [11] [12]) (./analyza_svelte.tex [13]
-<images/svelte-logo.png, id=494, 20.03378pt x 24.09pt>
+ [10] [11 <./images/react-logo.png>] [12] [13] [14]) (./analyza_svelte.tex
+<images/svelte-logo.png, id=497, 20.03378pt x 24.09pt>
 File: images/svelte-logo.png Graphic file (type png)
 <use images/svelte-logo.png>
 Package pdftex.def Info: images/svelte-logo.png  used on input line 13.
 (pdftex.def)             Requested size: 128.0387pt x 153.98125pt.
- [14 <./images/svelte-logo.png>] [15] [16] [17] [18]) (./analyza_vue.tex [19]
-<images/vue-logo.png, id=558, 27.91222pt x 27.10126pt>
+ [15] [16 <./images/svelte-logo.png>] [17] [18] [19] [20]) (./analyza_vue.tex
+<images/vue-logo.png, id=561, 27.91222pt x 27.10126pt>
 File: images/vue-logo.png Graphic file (type png)
 <use images/vue-logo.png>
 Package pdftex.def Info: images/vue-logo.png  used on input line 16.
 (pdftex.def)             Requested size: 128.0387pt x 124.3447pt.
- [20 <./images/vue-logo.png>] [21] [22] [23] [24])
-Overfull \hbox (2.217pt too wide) in paragraph at lines 21--23
+ [21 <./images/vue-logo.png>] [22] [23] [24] [25])
+Overfull \hbox (2.217pt too wide) in paragraph at lines 23--25
 []\T1/cmr/m/n/12 Analyzované tech-no-lo-gie vy-u-ºí-vají po-dobné zá-kladní kon-cepty, coº vý-vo-já°i ocení
  []
 
-[25]) [26]
+[26]) [27]
 \openout2 = `testovani_frameworku.aux'.
 
- (./testovani_frameworku.tex [27
+ (./testovani_frameworku.tex [28
 
 
 
 
-] [28]
+] [29]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 112.
+(Font)              <7> on input line 124.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 112.
- (./testovani_angular.tex [29] [30] [31] [32] [33] [34] [35] [36] [37] [38]
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 424.
+(Font)              <5> on input line 124.
+ (./testovani_angular.tex [30] [31] [32] [33] [34] [35] [36] [37] [38] [39]
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 404.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [39] [40] [41] [42] [43] [44] [45]) (./testovani_react.tex [46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61]) (./testovani_svelte.tex [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76]) [77] [78] [79]) [80]
+) [40] [41] [42] [43] [44] [45] [46]) (./testovani_react.tex [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63]) (./testovani_svelte.tex [64] [65] [66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78]) [79] [80]) [81]
 \openout2 = `zakladni-info.aux'.
 
  (./zakladni-info.tex
-<slecna-s-notebookem.png, id=920, 236.082pt x 157.18726pt>
+<slecna-s-notebookem.png, id=932, 236.082pt x 157.18726pt>
 File: slecna-s-notebookem.png Graphic file (type png)
 <use slecna-s-notebookem.png>
 Package pdftex.def Info: slecna-s-notebookem.png  used on input line 12.
 (pdftex.def)             Requested size: 213.39566pt x 142.08362pt.
- [81
+ [82
 
 
 
 
- <./slecna-s-notebookem.png>] [82]) [83]
+ <./slecna-s-notebookem.png>] [83]) [84]
 \openout2 = `zaver.aux'.
 
- (./zaver.tex) [84
+ (./zaver.tex) [85
 
 
 
@@ -646,16 +650,16 @@ Package pdftex.def Info: slecna-s-notebookem.png  used on input line 12.
 ]
 \openout2 = `literatura.aux'.
 
- (./literatura.tex [85
+ (./literatura.tex [86
 
 
 
 
-] [86] [87] [88] [89]) [90] (./sablona_ukazka.lof)
+] [87] [88] [89] [90]) [91] (./sablona_ukazka.lof)
 \tf@lof=\write5
 \openout5 = `sablona_ukazka.lof'.
 
- [91
+ [92
 
 
 
@@ -663,17 +667,17 @@ Package pdftex.def Info: slecna-s-notebookem.png  used on input line 12.
 \tf@lot=\write6
 \openout6 = `sablona_ukazka.lot'.
 
- [92
+ [93
 
 
 ]
 \openout2 = `seznamzkratek.aux'.
 
- (./seznamzkratek.tex) [93
+ (./seznamzkratek.tex) [94
 
 
 
-] [94
+] [95
 
 
 
@@ -687,18 +691,18 @@ Package rerunfilecheck Info: File `sablona_ukazka.out' has not changed.
 (rerunfilecheck)             Checksum: D206324C8C1A22823D522BE0B864CD14;9561.
  ) 
 Here is how much of TeX's memory you used:
- 13168 strings out of 479342
- 215109 string characters out of 5869178
- 548358 words of memory out of 5000000
- 30645 multiletter control sequences out of 15000+600000
+ 13173 strings out of 479342
+ 215196 string characters out of 5869178
+ 544437 words of memory out of 5000000
+ 30647 multiletter control sequences out of 15000+600000
  487782 words of font info for 62 fonts, out of 8000000 for 9000
  473 hyphenation exceptions out of 8191
- 68i,19n,77p,573b,537s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecxc2488.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0800.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcti1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
-Output written on sablona_ukazka.pdf (103 pages, 896145 bytes).
+ 68i,19n,77p,573b,539s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecxc2488.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0800.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcti1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
+Output written on sablona_ukazka.pdf (104 pages, 898249 bytes).
 PDF statistics:
- 1966 PDF objects out of 2073 (max. 8388607)
- 1081 compressed objects within 11 object streams
- 258 named destinations out of 1000 (max. 500000)
+ 1981 PDF objects out of 2073 (max. 8388607)
+ 1096 compressed objects within 11 object streams
+ 261 named destinations out of 1000 (max. 500000)
  523 words of extra memory for PDF output out of 10000 (max. 10000000)
 
