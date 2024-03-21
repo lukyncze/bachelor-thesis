@@ -21,7 +21,7 @@ Níže jsou vyjmenovány technologie, které nejsou v aplikacích nainstalovány
 #### Loga frameworků
 
 - jednotlivá loga frameworků pochází z daných instalací aplikací:
-  - [Angular](https://www.npmjs.com/package/@angular/create) pod [MIT License](https://github.com/angular/angular-cli/blob/main/LICENSE),
-  - [React](https://vitejs.dev/guide/) pod [MIT License](https://github.com/vitejs/vite/blob/main/LICENSE),
-  - [Svelte](https://vitejs.dev/guide/) pod [MIT License](https://github.com/vitejs/vite/blob/main/LICENSE).
+  - [Angular](https://github.com/angular/angular-cli/blob/c452531828416b75091ae84682a92b7f714309b1/packages/schematics/angular/application/files/common-files/src/app/app.component.html.template#L183) pod [MIT License](https://github.com/angular/angular-cli/blob/main/LICENSE),
+  - [React](https://github.com/vitejs/vite/blob/main/packages/create-vite/template-react-ts/src/assets/react.svg) pod [MIT License](https://github.com/vitejs/vite/blob/main/LICENSE),
+  - [Svelte](https://github.com/vitejs/vite/blob/main/packages/create-vite/template-svelte-ts/src/assets/svelte.svg) pod [MIT License](https://github.com/vitejs/vite/blob/main/LICENSE).
 
