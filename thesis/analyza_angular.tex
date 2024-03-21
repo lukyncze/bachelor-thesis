@@ -15,7 +15,7 @@ Dále také nástroje, které vývojářům usnadňují vývoj, testování či 
 
 První verze Angularu byla vydána v roce 2012 pod názvem AngularJS. 
 V roce 2016, po kolaboraci se společností Microsoft, Google vydal novou verzi, o které mluvíme jako o Angular 2. 
-Verze 2 byla kompletně přepsána, framework byl přepsán z JavaScriptu do jazyku TypeScript. 
+Verze 2 byla kompletně přepsána z JavaScriptu do jazyku TypeScript. 
 Součástí frameworku je i knihovna RxJS pro práci s asynchronními událostmi. 
 Knihovnu reaktivních rozšíření, RxJS, mohou využívat také programátoři při vývoji Angular aplikací. 
 Angular se samozřejmě neustále vyvíjí a v současné době můžeme pracovat s verzí 17.\cite{angulardev,learningangular}
@@ -25,10 +25,9 @@ V poslední době framework spíše ztrácí na popularitě, stále jej však po
 
 \subsubsection{Komponenty}
 
-Hlavní bloky kódu v Angularu tvoří komponenty. Komponenta je OOP třída definovaná v rámci TypeScript souboru ve formátu nazev-tridy.component.ts. 
-Komponenta obsahuje nastavení v dekorátoru @Component, v němž definujeme selektor a ostatní části (soubory) komponenty. 
-Dále v metadatech může být nastavení použitého API, šablona nebo kaskádové styly. 
-Mezi další části komponenty patří soubor s šablonou, kaskádovými styly či testovací scénáře. 
+Hlavní bloky kódu Angularu tvoří komponenty. Komponenta je OOP třída definovaná v TypeScript souboru ve formátu nazev-tridy.component.ts. 
+Komponentu nastavujeme pomocí dekorátoru @Component, v němž definujeme selektor (HTML značku komponenty), šablonu, případně kaskádové styly a použité API. 
+Komponenta se může skládat z dalších částí: šablony, kaskádových stylů a testovacích scénářů definovaných v samostatném souboru. 
 Tyto soubory jsou nepovinné, obvykle jsou však žádoucí a vedou k lepší organizaci kódu. 
 
 Původní komponenty byly tvořeny pomocí modulů (NgModules), které obsahovaly deklarace komponent, direktiv a služeb. 
@@ -84,7 +83,7 @@ export class MyComponent \{
 \end{prog}
 
 Počínaje verzí 16 můžeme používat také nestabilní verzi signálů (Angular Signals), přičemž se jedná o systém, který mnohem efektivněji sleduje využití stavů v rámci aplikace. 
-Signály pak umožňují efektivnější a optimalizavanější aktualizace DOM. 
+Signály pak umožňují efektivnější a optimalizovanější aktualizace DOM. 
 
 \begin{prog}
 import \{ Component, signal \} from '@angular/core';
@@ -116,8 +115,8 @@ Předávat vlastnosti či jiné hodnoty je možné pomocí vstupního dekorátor
 V rámci šablony danou hodnotu předáme do vnořené komponenty skrze název vstupu v hranatých závorkách.   
 Ve vnořené komponentě využijeme dekorátor @Input, sloužící k získání hodnot z rodičovské komponenty. K předaným hodnotám není možné přistupovat v rámci konstruktoru. 
 
-K předání hodnoty z vnořené komponenty nejprve předáme vnořené komponentě název výstupu v kulatých závorkách a obslužnou metodu, která se vykoná po předání vlastnosti. 
-Dále definujeme @Output ve vnořené komponentě, na němž zavoláme metodu emit(), která přes argument metody umožňuje předání (vypublikování) hodnot z vnořené do rodičovské komponenty.\cite{angulardev,learningangular}
+K předání hodnoty z vnořené komponenty nejprve přidáme vnořené komponentě název výstupu v kulatých závorkách a obslužnou metodu, která se vykoná po předání vlastnosti. 
+Posléze definujeme @Output ve vnořené komponentě, na němž zavoláme metodu emit(), která přes argument metody umožňuje předání (vypublikování) hodnot z vnořené do rodičovské komponenty.\cite{angulardev,learningangular}
 
 \begin{prog}
 import \{ CommonModule \} from '@angular/common';
@@ -217,7 +216,7 @@ export class MyComponent \{
 Životní cyklus může být rozdělen do čtyř částí: vytvoření, aktualizace, vykreslení a zničení. 
 
 První metoda, která se spouští při vytvoření komponenty, je konstruktor. 
-Dále můžeme využít metody ngOnInit, ngOnChanges, ngDoCheck, ngAfterViewInit, ngAfterContentInit, ngAfterViewChecked, ngAfterContentChecked, jež se spouští v různých fázích aktualizace (detekce). 
+Poté můžeme využít metody ngOnInit, ngOnChanges, ngDoCheck, ngAfterViewInit, ngAfterContentInit, ngAfterViewChecked, ngAfterContentChecked, jež se spouští v různých fázích aktualizace (detekce). 
 Nedávno byly přidány také metody po vykreslení komponenty -- afterNextRender a afterRender. V neposlední řadě je možné využít metodu ngOnDestroy, která se spouští při zničení komponenty.\cite{angulardev,learningangular} 
 % TODO: možná by bylo fajn přidat tabulky/obrázky pro životní cyklus komponenty
 % super tabulka: https://angular.dev/guide/components/lifecycle
@@ -237,7 +236,7 @@ V případě, že potřebujeme sdílet stavy globálně (mezi různými částmi
 
 Angular poskytuje vestavěný systém routování -- konkrétně balíček @angular/router, který na straně klienta umožňuje přepínat mezi různými částmi aplikace. 
 Klasické webové stránky při změně URL pokaždé žádají o nové dokumenty. Routování na straně klienta může provést aktualizaci stránky bez dalších duplikátních dotazů. 
-Při vyžádání dané cesty pak vykreslíme požadovaný obsah a požádáme pouze o data potřebné pro vykreslení. 
+Při vyžádání dané cesty pak vykreslíme požadovaný obsah a požádáme pouze o data potřebná k vykreslení. 
 Získáme tak rychlejší uživatelskou zkušenost, jelikož prohlížeč nevyžaduje nové dokumenty a nemusí vyhodnocovat kaskádové styly či JavaScript.
 
 Abychom zaregistrovali cesty aplikace pomocí knihovny @angular/router, poskytneme samotný router pomocí funkce provideRouter do aplikačního nastavení. 
@@ -247,5 +246,5 @@ Routeru následně předáme pole cest aplikace. Jednotlivé obsahy stránek, kt
 
 Angular je komplexní framework, v němž jsou obsaženy základní balíčky všeho druhu potřebné pro vývoj webových aplikací. 
 Framework se stále vyvíjí a jeho ekosystém se neustále rozrůstá, a to i přes velikost projektu. 
-Angular nepostrádá ani v množství balíčků třetích stran, které vývojáři využívají pro usnadnění práce s různými částmi aplikace. 
+Angular nabízí rozsáhlou kolekci balíčků třetích stran, které vývojáři využívají pro usnadnění práce s různými částmi aplikace. 
 Nechybí ani balíček @angular/cli, jenž usnadňuje vývoj aplikace, testování, aktualizaci kódu a jeho nasazení.\cite{angulardev,learningangular}
