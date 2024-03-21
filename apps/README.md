@@ -2,8 +2,8 @@
 
 ### Použité technologie a grafika:
 
-Využité technologie jsou vypsány v `package.json` souborech jednotlivých aplikací. Technologie jsou převážně pod volnou licencí, nebo licencí MIT License.
-Výjimku tvoří tyto technologie:
+Využité technologie jsou vypsány v `package.json` souborech jednotlivých aplikací. Knihovny jsou převážně pod volnou licencí, nebo licencí MIT License.
+Výjimku tvoří tyto balíčky:
 
 - [axios-retry](https://github.com/softonic/axios-retry) pod licencí [Apache License Version 2.0](https://github.com/softonic/axios-retry/blob/master/LICENSE)
 
