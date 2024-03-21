@@ -102,7 +102,8 @@ V této kapitole popíšeme implementaci jednotlivých částí aplikace v rámc
 \begin{zvyraznenyodstavec}
 Pro grafickou stránku aplikací využijeme CSS framework Tailwind CSS \cite{tailwindcssframework} a ikony od tvůrců Tailwind CSS -- Heroicons \cite{heroiconslib}. 
 Obě knihovny jsou open source a zdarma k použití pod licencí MIT License. 
-K vytvoření nového projektu v jednotlivých frameworcích budeme potřebovat NodeJS a správce balíčků npm (případně jiného správce balíčků).
+K vytvoření nového projektu v jednotlivých frameworcích budeme potřebovat NodeJS a správce balíčků npm (případně jiného správce balíčků). 
+Příklad instalací nalezneme v Tabulce \ref{tab:frameworkinstall}.
 \end{zvyraznenyodstavec}
 
 % TODO: Zkontrolovat správné vysázení tabulky! 
@@ -114,11 +115,11 @@ K vytvoření nového projektu v jednotlivých frameworcích budeme potřebovat 
 		\begin{tabular}{|l|l|}
 		\hline
 		\textbf{Framework} & \textbf{Příkazy pro instalaci} \\ \hline
-		Angular   & \begin{tabular}[c]{@{}l@{}}npm init @angular@latest nazev-projektu\\ cd nazev-projektu\\ npm install -D tailwindcss postcss autoprefixer\\ npx tailwindcss init -p\\ manuální konfigurace Tailwind CSS\footnotemark[1]\\ npm run start\end{tabular} \\ \hline
-		React     & \begin{tabular}[c]{@{}l@{}}npm create vite@latest\\ cd nazev-projektu\\ npm install -D tailwindcss postcss autoprefixer\\ npx tailwindcss init -p\\ manuální konfigurace Tailwind CSS\footnotemark[2]\\ npm run dev\end{tabular}       							\\ \hline
-		Svelte    & \begin{tabular}[c]{@{}l@{}}npm create vite@latest\\ cd nazev-projektu\\ npx svelte-add@latest tailwindcss\footnotemark[3]\\ npm install\\ npm run dev\end{tabular}                                                                                 	\\ \hline
+		Angular   & \begin{tabular}[c]{@{}l@{}}npx npm init @angular@latest nazev-projektu\\ cd nazev-projektu\\ npm install -D tailwindcss postcss autoprefixer\\ npx tailwindcss init -p\\ manuální konfigurace Tailwind CSS\footnotemark[1]\\ npm run start\end{tabular} \\ \hline
+		React     & \begin{tabular}[c]{@{}l@{}}npx npm create vite@latest\\ cd nazev-projektu\\ npm install -D tailwindcss postcss autoprefixer\\ npx tailwindcss init -p\\ manuální konfigurace Tailwind CSS\footnotemark[2]\\ npm run dev\end{tabular}       							\\ \hline
+		Svelte    & \begin{tabular}[c]{@{}l@{}}npx npm create vite@latest\\ cd nazev-projektu\\ npx svelte-add@latest tailwindcss\footnotemark[3]\\ npm install\\ npm run dev\end{tabular}                                                                                 	\\ \hline
 		\end{tabular}
-	\label{tab:test}
+	\label{tab:frameworkinstall}
 \end{table}
 
 \footnotetext[1]{Konfigurace Tailwind CSS v Angular projektu dle oficiální dokumentace.\cite{twconfigangular}}
