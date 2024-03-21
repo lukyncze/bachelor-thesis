@@ -1,6 +1,6 @@
 \subsection{React}
 
-Pod pojmem React rozumíme open-source JavaScript framework, který vyvinula a~dále vyvíjí společnost Meta (dříve Facebook). 
+Pod pojmem React rozumíme open-source JavaScript framework, který vytvořila a~dále rozvíjí společnost Meta (dříve Facebook). 
 Podle \cite{reactbanks} jde spíše o knihovnu funkcí, než-li o komplexní nástroj pro tvorbu webových aplikací (framework). 
 Tato technologie se používá pro vývoj interaktivních uživatelských rozhraní a~webových aplikací.\cite{reacthubspot}
 
@@ -18,7 +18,7 @@ V roce 2013 byl na konferenci JS ConfUS představen široké veřejnosti a~stal 
 
 Od roku 2014 vývojáři představují nespočet vylepšení samotné knihovny, stejně jako spoustu rozšíření pro zlepšení vývojových procesů. 
 Kolem roku 2015 postupně React nabývá na popularitě i celkové stabilitě. Následně je představen také React Native, což je framework pro vývoj nativních aplikací.
-V dnešní době je React využíván společnostmi každého rozsahu po celém světě. 
+React používá široká škála společností, od malých startupů až po velké nadnárodní korporace. 
 Z těch největších jde například o Metu, Uber, Twitter a~Airbnb.\cite{reactbanks,reactrisingstack}
 
 \subsubsection{Komponenty}
@@ -84,7 +84,7 @@ Stav lze definovat jako lokální vnitřní vlastnost či proměnnou dané kompo
 Pro aktualizaci komponenty je tedy nutné stav změnit. React pak na tuto skutečnost zareaguje a~vyvolá tzv. re-render neboli překreslení komponenty s novými daty.
 
 Za účelem ukládání stavu se využívá hook (funkce) useState. Ten poskytuje stavovou proměnnou, přes kterou se dostaneme k aktuálnímu stavu. 
-Dále useState poskytuje state setter funkci, díky které můžeme stav aktualizovat. Jediný argument useState definuje počátační hodnotu daného stavu.\cite{reactitnetwork,react}
+Dále useState poskytuje state setter funkci, díky které můžeme stav aktualizovat. Jediný argument useState definuje počáteční hodnotu daného stavu.\cite{reactitnetwork,react}
 
 \begin{prog}
 import React, \{ useState \} from 'react';
@@ -127,8 +127,8 @@ useEffect(() => \{
 Ve třídních komponentách existovaly speciální metody, tzv. lifecycle metody, starající se o provedení určité části kódu při daném okamžiku v životě komponenty. 
 Nyní React disponuje pár hooky, které umožňují provádět side-effects podobně jako lifecycle metody.
 
-O momentu, kdy je komponenta přidána na obrazovku, mluvíme jako o namontování (mount) komponenty. Při změně stavu či obdržení nových parametrů hovoříme o aktualizaci (update) komponenty. 
-A v neposlední řadě okamžik, kdy je komponenta odstraněna z obrazovky, nazýváme odmontování (unmount) komponenty.\cite{reactlifecycle, react}
+O momentu, kdy je komponenta přidána na stránku, mluvíme jako o namontování (mount). Při změně stavu či obdržení nových parametrů hovoříme o aktualizaci (update) komponenty. 
+Po odstranění komponenty z DOM proběhne odmontování (unmount).\cite{reactlifecycle, react}
 
 \subsubsection{State management}
 
@@ -153,10 +153,8 @@ K vykreslení požadované komponenty, která je spojena s danou cestou, slouž�
 
 \subsubsection{Ekosystém}
 
-Tato knihovna sama o sobě není úplně komplexním nástrojem. I přesto se stále vyvíjí a její ekosystém se neustále rozrůstá. 
-Na druhou stranu pak existuje mnoho různých nástrojů třetích stran, funkcí, API, které mohou vývojáři při vývoji použít.
-Knihovny jsou velmi diverzifikované. Začíná to knihovnami zameřenými na stylování, či předpřipravenými komponentami pro uživatelské rozhraní. 
-Samozřejmě najdeme i balíčky pro tvorbu tabulek, formulářů, grafů nebo grafikcých animací.
-Dále můžeme využít mnohých knihoven, které řeší správu stavů, routování, dotazování na API. 
+Tento framework sám o sobě není úplně komplexním nástrojem. I přesto se stále vyvíjí a jeho ekosystém se neustále rozrůstá. 
+Na druhou stranu React disponuje velmi diverzifikovaným ekosystémem knihoven, který nabízí bohatý výběr nástrojů pro různé aspekty vývoje. 
+Knihovny jsou převážně zaměřené na stylování, tvorbu tabulek, formulářů, grafů či grafických animací, správu stavů, routování, dotazování na API. 
 Nechybí ani dokumentační knihovny, vývojářské rozšíření pro prohlížeče, striktní typování, překlady, testovací balíčky. 
-V neposlední řadě pro React existují nadstavby ve formě frameworků, které pak poskytují lepší základy pro produkční aplikace.\cite{awesomereact,builderreacteco,react}
+V neposlední řadě pro React existují nadstavby ve formě frameworků, které poskytují komplexnější nástroje pro produkční aplikace.\cite{awesomereact,builderreacteco,react}
