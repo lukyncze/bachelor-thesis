@@ -14,15 +14,15 @@
 \contentsline {subsection}{\numberline {2.2}React}{10}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Komponenty}{11}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}JSX}{12}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Správa stavů}{13}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.3}Správa stavů}{12}{subsubsection.2.2.3}%
 \contentsline {subsubsection}{\numberline {2.2.4}Hooky}{13}{subsubsection.2.2.4}%
-\contentsline {subsubsection}{\numberline {2.2.5}Životní cyklus}{14}{subsubsection.2.2.5}%
+\contentsline {subsubsection}{\numberline {2.2.5}Životní cyklus}{13}{subsubsection.2.2.5}%
 \contentsline {subsubsection}{\numberline {2.2.6}State management}{14}{subsubsection.2.2.6}%
 \contentsline {subsubsection}{\numberline {2.2.7}Routování}{14}{subsubsection.2.2.7}%
 \contentsline {subsubsection}{\numberline {2.2.8}Ekosystém}{15}{subsubsection.2.2.8}%
 \contentsline {subsection}{\numberline {2.3}Svelte}{15}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}Komponenty}{16}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Reaktivita}{17}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.2}Reaktivita}{16}{subsubsection.2.3.2}%
 \contentsline {subsubsection}{\numberline {2.3.3}Předávání vlastností}{17}{subsubsection.2.3.3}%
 \contentsline {subsubsection}{\numberline {2.3.4}Eventy}{18}{subsubsection.2.3.4}%
 \contentsline {subsubsection}{\numberline {2.3.5}Životní cyklus}{19}{subsubsection.2.3.5}%
@@ -34,7 +34,7 @@
 \contentsline {subsubsection}{\numberline {2.4.2}Reaktivita}{22}{subsubsection.2.4.2}%
 \contentsline {subsubsection}{\numberline {2.4.3}Předávání vlastností}{23}{subsubsection.2.4.3}%
 \contentsline {subsubsection}{\numberline {2.4.4}Direktivy a eventy}{24}{subsubsection.2.4.4}%
-\contentsline {subsubsection}{\numberline {2.4.5}Životní cyklus}{25}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.5}Životní cyklus}{24}{subsubsection.2.4.5}%
 \contentsline {subsubsection}{\numberline {2.4.6}State management}{25}{subsubsection.2.4.6}%
 \contentsline {subsubsection}{\numberline {2.4.7}Routování}{25}{subsubsection.2.4.7}%
 \contentsline {subsubsection}{\numberline {2.4.8}Ekosystém}{26}{subsubsection.2.4.8}%
