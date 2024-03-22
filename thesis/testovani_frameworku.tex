@@ -4,12 +4,10 @@ V rámci této kapitoly se zaměříme na testování tří vybraných framework
 Následně vytvoříme demonstrační aplikaci, která bude obsahovat stejné funkcionality ve všech třech vybraných frameworcích. 
 V poslední části srovnáme implementaci aplikací, identifikujeme přednosti a nedostatky použitých frameworků.
 
-\begin{zvyraznenyodstavec}
 Do této kapitoly zahrneme frameworky Angular, React a Svelte. V rámci analýzy se tyto technologie jevily jako nejvhodnější k dalšímu zkoumání a srovnání, jelikož jde o nástroje velmi odlišné. 
 Naopak framework Vue byl z praktické části vyloučen. Odlišoval se od ostatních především v rámci vývojových aspektů. 
 Technologie například toleruje využití neimportovaných komponent a programátorovi nezobrazí kompilační chybu. 
 Vue je také převážně orientováno na čínský trh, což může komplikovat řešení problémů a hledání informací vývojářům mimo Čínu.
-\end{zvyraznenyodstavec}
 
 \subsection{Návrh aplikace}
 
@@ -90,9 +88,7 @@ Jednotlivé komponenty poslouží ke srovnání implementací a přístupů vybr
 
 \subsection{Implementace webových aplikací}
 
-\begin{zvyraznenyodstavec}
 V této kapitole popíšeme implementaci jednotlivých částí aplikace v rámci vybraných frameworků -- Angular, React a Svelte. Použijeme následující nástroje v níže uvedených verzích:
-\end{zvyraznenyodstavec}
 
 \begin{citemize}
 	\item Angular -- verze 17.x.x
@@ -100,12 +96,10 @@ V této kapitole popíšeme implementaci jednotlivých částí aplikace v rámc
 	\item Svelte -- verze 4.x.x
 \end{citemize}
 
-\begin{zvyraznenyodstavec}
 Pro grafickou stránku aplikací využijeme CSS framework Tailwind CSS \cite{tailwindcssframework} a ikony od tvůrců Tailwind CSS -- Heroicons \cite{heroiconslib}. 
 Obě knihovny jsou open source a zdarma k použití pod licencí MIT License. 
 K vytvoření nového projektu v jednotlivých frameworcích budeme potřebovat NodeJS a správce balíčků npm (případně jiného správce balíčků). 
 Příklad instalací nalezneme v Tabulce \ref{tab:frameworkinstall}.
-\end{zvyraznenyodstavec}
 
 % TODO: Zkontrolovat správné vysázení tabulky! 
 \begin{table}[htb]
@@ -131,7 +125,6 @@ Příklad instalací nalezneme v Tabulce \ref{tab:frameworkinstall}.
 \input{testovani_react}
 \input{testovani_svelte}
 
-\begin{zvyraznenyodstavec}
 \subsection{Srovnání implementace aplikací}
 % s čím se jak pracovalo, velikosti souborů, řádky, jak pomohla dokumentace
 
@@ -242,4 +235,3 @@ Srovnání implementace aplikací v rámci vybraných frameworků ukázalo, že 
 Angular se vyznačuje robustností a modularitou, což může být výhodou zejména u větších projektů. 
 React disponuje obrovským ekosystémem i kvalitními knihovnami, a to mohou ocenit především začátečníci. 
 Svelte zase nabízí jednoduchost, přímočarost a může být vhodný spíše pro menší projekty.
-\end{zvyraznenyodstavec}
