@@ -1,4 +1,6 @@
-<div class="container flex flex-col justify-center space-y-8 mx-auto xl:my-3 xl:flex-row xl:space-y-0">
+<div
+  class="container flex flex-col justify-center space-y-8 mx-auto xl:my-3 xl:flex-row xl:space-y-0"
+>
   <div class="space-y-6 text-justify xl:w-1/2">
     <p class="rounded-md px-4 py-3 bg-gray-200">
       Svelte je relativně novým open-source JavaScript frameworkem, za jejímž stvořením stojí

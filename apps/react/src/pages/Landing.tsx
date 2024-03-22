@@ -3,7 +3,7 @@ function Landing() {
     <div className="container flex flex-col justify-center space-y-8 mx-auto xl:my-3 xl:flex-row xl:space-y-0">
       <div className="space-y-6 text-justify xl:w-1/2">
         <p className="rounded-md px-4 py-3 bg-gray-200">
-          Pod pojmem React rozumíme open-source JavaScript framework, který vyvinula a dále vyvíjí
+          Pod pojmem React rozumíme open-source JavaScript framework, který vytvořila a dále rozvíjí
           společnost Meta (dříve Facebook). Podle knihy Learning React od Bankse jde spíše o
           knihovnu funkcí, než-li o komplexní nástroj pro tvorbu webových aplikací (framework). Tato
           technologie se používá pro vývoj interaktivních uživatelských rozhraní a webových
@@ -22,8 +22,9 @@ function Landing() {
           Od roku 2014 vývojáři představují nespočet vylepšení samotné knihovny, stejně jako spoustu
           rozšíření pro zlepšení vývojových procesů. Kolem roku 2015 postupně React nabývá na
           popularitě i celkové stabilitě. Následně je představen také React Native, což je framework
-          pro vývoj nativních aplikací. V dnešní době je React využíván společnostmi každého rozsahu
-          po celém světě. Z těch největších jde například o Metu, Uber, Twitter a Airbnb.
+          pro vývoj nativních aplikací. React používá široká škála společností, od malých startupů
+          až po velké nadnárodní korporace. Z těch největších jde například o Metu, Uber, Twitter a
+          Airbnb.
         </p>
       </div>
 
