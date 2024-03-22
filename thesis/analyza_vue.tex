@@ -33,7 +33,7 @@ Díky tomu si Vue oblíbily společnosti jako Xiaomi, Adobe, Gitlab, Trivago, BM
 \subsubsection{Single-File Components}
 
 Základní funkcí Vue jsou tzv. Single-File Components (SFC). Jedná se o hlavní stavební blok frameworku, který reprezenzuje část webové stránky. 
-Komponenta se skládá z šablony, dat komponenty, funkcí a kaskádových stylů. Hlavní výhodu tohoto přístupu představuje znovupoužitelnost. 
+Komponenta se skládá ze šablony, dat komponenty, funkcí a kaskádových stylů. Hlavní výhodu tohoto přístupu představuje znovupoužitelnost. 
 JavaScriptové funkce musí být zapsány mezi párové značky script s atributem setup, šablona do template tagů a styly do style bloku.\cite{vuemacrae,vue}
 
 \begin{prog}
@@ -58,7 +58,7 @@ JavaScriptové funkce musí být zapsány mezi párové značky script s atribut
 
 V komponentě můžeme uchovávat informace pomocí reaktivních stavů. Oficiální dokumentace doporučuje používat funkci ref, která vyžaduje počáteční hodnotu. 
 K hodnotě stavu pak v rámci skriptu přistupujeme pomocí klíčového slova value. V šabloně nám stačí pouze název stavu. 
-Modifikaci stavu lze provést pomocí přiřazení nové hodnoty. Při změně jakéhokoli stavu komponenty pak Vue automaticky aktualizuje DOM s novými daty.\cite{vue}
+Modifikaci stavu lze provést pomocí přiřazení nové hodnoty. Při změně jakéhokoli stavu komponenty pak Vue automaticky aktualizuje DOM novými daty.\cite{vue}
 
 \begin{prog}
 <script setup>
@@ -155,11 +155,11 @@ Můžeme také zvolit ekvivalentní zápis s @. Další možnost představuje vy
 
 \subsubsection{Životní cyklus}
 
-Každá instance Vue komponenty má daný životní cyklus. Ten můžeme rozdělit na 3 části -- inicializační část, část, při které se mění data a část, kdy komponenta zaniká. 
-Pro zajištění kontroly životního cyklu slouží tzv. hooks, které se vyznačují tím, že vždy přes svým názvem mají předponu on.
+Každá Vue komponenta má daný životní cyklus, který konkrétně můžeme rozdělit na 3~části -- inicializační část, část, při které se mění data a část, kdy komponenta zaniká. 
+Pro zajištění kontroly životního cyklu slouží tzv. hooks, které se vyznačují tím, že vždy před svým názvem mají předponu on.
 
 Při inicializaci komponenty můžeme využít hook akce beforeMount či mount. BeforeMount se volá ještě před tím, než se komponenta přidá na stránku. 
-Mount až poté, kdy je vytvořen element komponenty -- komponenta však ještě nemusý být v DOM. 
+Mount až poté, kdy je vytvořen element komponenty -- komponenta však ještě nemusí být v DOM. 
 Před chystanou změnou dat v DOM se volá beforeUpdate, po vykonání změny je zavoláno updated. Před samotným zánikem komponenty Vue volá beforeUnmount. 
 Po dokončení zničení se pak volá unmounted.\cite{vuemacrae,vue}
 % super obrázek: https://vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram
