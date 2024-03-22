@@ -23,12 +23,12 @@ export class DropdownWrapperComponent {
     'error',
   ];
   protected colors: ReadonlyArray<Option> = [
-    {label: 'Alice Blue', value: '#F0F8FF'},
-    {label: 'Antique White', value: '#FAEBD7'},
-    {label: 'Aqua', value: '#00FFFF'},
-    {label: 'Aquamarine', value: '#7FFFD4'},
-    {label: 'Azure', value: '#F0FFFF'},
-    {label: 'Beige', value: '#F5F5DC'},
+    {label: 'Rose', value: '#be123c'},
+    {label: 'Amber', value: '#b45309'},
+    {label: 'Lime', value: '#4d7c0f'},
+    {label: 'Cyan', value: '#0e7490'},
+    {label: 'Indigo', value: '#4338ca'},
+    {label: 'Fuchsia', value: '#a21caf'},
   ];
   protected sizes: ReadonlyArray<DropdownSize> = ['sm', 'md', 'lg'];
 
