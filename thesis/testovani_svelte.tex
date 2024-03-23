@@ -4,7 +4,7 @@
   \textbf{Správa stavů, předávání vlastností}
 \end{flushleft}
 
-Prvním krokem k vytvoření jednoduchého čítače bude definice komponenty Counter s reaktivním stavem \emph{count}.
+Prvním krokem k~vytvoření jednoduchého čítače bude definice komponenty Counter s reaktivním stavem \emph{count}.
 
 \begin{prog}
 // Část souboru Counter.svelte
@@ -207,7 +207,7 @@ Akci následně předáme obslužnou funkci \emph{handleClickOutsideDropdown}, k
 </div>
 \end{prog}
 
-Třídy CSS v JavaScriptové formě přidáme k elementu pomocí šablonových literálů a~JS hodnoty.
+Třídy CSS v JavaScriptové formě přidáme k~elementu pomocí šablonových literálů a~JS hodnoty.
 
 \begin{flushleft}
   \textbf{Reaktivita, asynchronní operace}
@@ -215,7 +215,7 @@ Třídy CSS v JavaScriptové formě přidáme k elementu pomocí šablonových l
 
 V rámci této sekce se zaměříme na reaktivitu a~asynchronní operace. Naprogramujeme komponentu, která přeloží zadaný text do cílového jazyka. 
 Začneme vytvořením komponenty Translator. Komponenta reaktivně (při změně zadaného textu či výstupního jazyka) zavolá API, které vrátí přeložený text. 
-V Translator komponentě využijeme vnořené komponenty, které budou sloužit k zadání vstupního textu, výběru jazyka a~zobrazení výsledku.
+V Translator komponentě využijeme vnořené komponenty, které budou sloužit k~zadání vstupního textu, výběru jazyka a~zobrazení výsledku.
 
 Skrze komponentu LanguageDropdown umožníme uživateli vybrat jazyk, do kterého bude chtít text přeložit. Výstupní jazyk v rodičovské komponentě změníme přes vlastnost \emph{onChange}.
 
@@ -306,7 +306,7 @@ Svelte, stejně jako React, nepodporuje pokročilou správu formulářů. Může
 V rámci této sekce vytvoříme komponentu pro jednoduchou investiční kalkulaci s využitím knihovny \emph{svelte-forms-lib} \cite{svelteformslib}. 
 Komponenta InvestForm bude obsahovat formulář pro zadání vstupních hodnot a~komponentu FutureValuesInfo pro zobrazení výsledků kalkulace.
 
-Začneme implementací reaktivního formuláře, který bude přijímat počáteční hodnoty (\emph{defaultValues}) a~\emph{investFormData} k předávání hodnot formuláře do rodičovské komponenty. 
+Začneme implementací reaktivního formuláře, který bude přijímat počáteční hodnoty (\emph{defaultValues}) a~\emph{investFormData} k~předávání hodnot formuláře do rodičovské komponenty. 
 Strukturu formuláře popíšeme v typu \emph{InvestFormData}. Pomocí funkce \emph{createForm} z knihovny \emph{svelte-forms-lib} vytvoříme instanci formuláře, které předáme \emph{defaultValues} do vlastnosti \emph{initialValues}. 
 V rámci nastavení formuláře také definujeme validační schéma pomocí knihovny \emph{yup} \cite{yuplibrary} a~\emph{onSubmit} obslužnou funkci. 
 Knihovnu yup volíme, jelikož je jedinou kompatibilní možností s knihovnou \emph{svelte-forms-lib} ve verzi 2.0.1. 
@@ -524,7 +524,7 @@ Aby se font použil, přidáme jej do CSS stylů.
 \}
 \end{prog}
 
-Dále naprogramujeme obslužné funkce \emph{handleEvaluateGuessAndUpdateState}, \emph{handleSetInitialState}, které budou sloužit k aktualizaci stavu hry. 
+Dále naprogramujeme obslužné funkce \emph{handleEvaluateGuessAndUpdateState}, \emph{handleSetInitialState}, které budou sloužit k~aktualizaci stavu hry. 
 V rámci šablony zobrazíme jednotlivé herní prvky a~modální okna při výhře či prohře.
 
 V rámci komponenty HintBoxes postupně zobrazíme nápovědy. Dle vstupu \emph{randomCountry} budeme reaktivně vytvářet pole nápověd, jelikož \emph{randomCountry} se může změnit. 
@@ -546,7 +546,7 @@ Tip uživatele v rámci funkce \emph{convertToFormattedGuess} převedeme tak, ab
 
 Pro zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. 
 Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a~\emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
-Jde o uživatelem hádané země s vlajkou a~vzdáleností od \emph{randomCountry}. K převodu využijeme JS funkci z jiného souboru. 
+Jde o uživatelem hádané země s vlajkou a~vzdáleností od \emph{randomCountry}. k~převodu využijeme JS funkci z jiného souboru. 
 Vzdálenost zemí vypočteme pomocí knihovny \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která exportuje funkci \emph{getDistanceBetweenTwoPoints}. 
 Proměnnou \emph{enrichedGuessedCountries} následně vykreslíme v rámci šablony.
 
@@ -653,7 +653,7 @@ K nastavení aria-current použijeme \emph{location} objekt ze \emph{svelte-spa-
 \{/each\}
 \end{prog}
 
-Stavy \emph{isMobileNavOpen} a~\emph{isDarkMode} umožní ovládat zobrazení mobilní navigace a~barevného režimu. K uložení preference tmavého režimu využijeme LocalStorage v prohlížeči. 
+Stavy \emph{isMobileNavOpen} a~\emph{isDarkMode} umožní ovládat zobrazení mobilní navigace a~barevného režimu. K~uložení preference tmavého režimu využijeme LocalStorage v prohlížeči. 
 Logiku pro přepnutí barevného režimu zavoláme v rámci hooku \emph{beforeUpdate}. Tento hook se spustí po změně lokálního stavu, ale před aktualizací HTML.
 
 \begin{prog}

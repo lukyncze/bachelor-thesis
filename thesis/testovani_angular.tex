@@ -62,7 +62,7 @@ K propsání textu či jiných elementů nebo komponent mezi párovými tagy <co
   (click)="buttonClicked.emit()"
 >
   <!-- ng-content slouží k vykreslení obsahu, který vložíme
-   mezi párové tagy (selectory) dané komponenty. -->
+    mezi párové tagy (selectory) dané komponenty. -->
   <ng-content></ng-content>
 </button>
 \end{prog}
@@ -189,7 +189,7 @@ onClickOutsideDropdown(target: HTMLElement): void \{
 \}
 \end{prog}
 
-Dropdown pak může mít různé inputy, které povedou k lepší znovupoužitelnosti. Hodnotu inputu (konkrétně např. \emph{defaultValue}) v komponentě získáme v metodě životního cyklu \emph{OnInit}. 
+Dropdown pak může mít různé inputy, které povedou k~lepší znovupoužitelnosti. Hodnotu inputu (konkrétně např. \emph{defaultValue}) v komponentě získáme v metodě životního cyklu \emph{OnInit}. 
 Styly ve formě JS hodnot do šablony přidáme pomocí \emph{ngClass}. Když těchto hodnot potřebujeme na elementu více, zřetězíme předávané hodnoty pomocí JavaScriptu. 
 Další možnost spočívá ve sloučení požadovaných stylů na úrovni třídy.
 
@@ -199,7 +199,7 @@ Další možnost spočívá ve sloučení požadovaných stylů na úrovni tří
 
 Pro ukázku reaktivity a~asynchronních operací můžeme vytvořit komponentu, která bude překládat zadaný text do vybraného jazyka. 
 Začneme tedy vytvořením rodičovské komponenty, která při změně vlastností (zadaného textu uživatelem a~výstupního jazyka) zavolá API, které vrátí přeložený text. 
-V rámci této komponenty vytvoříme vnořené komponenty, které budou sloužit k zadání vstupního textu, výběru jazyka a~zobrazení výsledku. 
+V rámci této komponenty vytvoříme vnořené komponenty, které budou sloužit k~zadání vstupního textu, výběru jazyka a~zobrazení výsledku. 
 
 LanguageDropdownComponent umožní uživateli vybrat jazyk, do kterého chce přeložit text. 
 Přes \emph{EventEmitter} aktualizujeme výstupní jazyk v rodičovské komponentě. V rámci obslužné metody \emph{handleLanguageChange} pak také aktualizujeme hodnotu vlastnosti \emph{inputValuesChanges\$}.
@@ -356,7 +356,7 @@ type InvestForm = FormGroup<\{
 \end{prog}
 
 Protože prvků budeme mít více, deklarujeme formulářovou skupinu jako vlastnost třídy, ve které následně definujeme samotné formulářové prvky. 
-Vlastnost \emph{investForm} pak umožní přístup k hodnotám formuláře a~jeho validaci. Zde narazíme na problém s nenastavením počáteční hodnoty vlastnosti přímo nebo v konstruktoru. 
+Vlastnost \emph{investForm} pak umožní přístup k~hodnotám formuláře a~jeho validaci. Zde narazíme na problém s nenastavením počáteční hodnoty vlastnosti přímo nebo v konstruktoru. 
 Můžeme ho vyřešit za pomoci vykřičníku -- řekneme tak TypeScriptu, že obsah proměnné je nenulový. Další možností je vypnout pravidlo \emph{strictPropertyInitialization} v souboru \emph{tsconfig.json}.
 
 \begin{prog}
@@ -390,7 +390,7 @@ private initializeInvestForm(): InvestForm \{
 \}
 \end{prog}
 
-V šabloně následně propojíme formulářovou skupinu s formulářem. K tomu poslouží direktiva \emph{[formGroup]} a~její hodnotu nastavíme na vlastnost \emph{investForm}. 
+V šabloně následně propojíme formulářovou skupinu s formulářem. k~tomu poslouží direktiva \emph{[formGroup]} a~její hodnotu nastavíme na vlastnost \emph{investForm}. 
 V rámci formuláře pak vytvoříme formulářové prvky, které propojíme direktivou \emph{formControlName}. Hodnota pak musí odpovídat klíči prvku ve formulářové skupině. 
 Pro zajištění efektivní obsluhy chyb formuláře můžeme využít getter metody, které vrátí konkrétní formulářový prvek.
 
@@ -434,7 +434,7 @@ Hodnoty formuláře pak dostaneme v obslužné metodě \emph{handleFormChanged}.
 Výsledek uložíme do vlastnosti \emph{futureValues}.
 
 Když jsou hodnoty vypočteny, vykreslíme je na stránce prostřednictvím komponent future-values-info a~future-value-info. 
-První z komponent slouží k rozložení výsledků do požadovaného formátu a~vytvoření komponent pro jednotlivé výsledky. 
+První z komponent slouží k~rozložení výsledků do požadovaného formátu a~vytvoření komponent pro jednotlivé výsledky. 
 Komponenta future-value-info pak přijímá vstupní vlastnost, kterou v šabloně před vykreslením v DOM přetransformujeme díky rouře (\emph{LocalizedNumberPipe}).
 
 \begin{prog}
@@ -467,7 +467,7 @@ export class LocalizedNumberPipe implements PipeTransform \{
 V této sekci vytvoříme webovou hru, kde cílem uživatele bude uhádnout název státu na základě poskytnutých nápovědí. Práci si ulehčíme pomocí externích knihoven a~služeb.
 Ve hře se postupně bude odkrývat 8 nápovědí, které by měly pomoct s uhádnutím daného státu. 
 Klíčovým prvkem je textové pole, přes které uživatel zadává názvy hádaných zemí a~tlačítko pro potvrzení. 
-Součástí je také seznam již zadaných hádaných zemí a~modální okna sloužící k vyhodnocení hry.
+Součástí je také seznam již zadaných hádaných zemí a~modální okna sloužící k~vyhodnocení hry.
 
 Začneme s implementací rodičovské komponenty, jež bude získávat data o všech zemích světa z REST Countries API \cite{restcountriesapi}. 
 Další zodpovědností této komponenty bude vykreslování odpovídajících stavů při získávání dat -- stav načítání, úspěšné získání dat a~chyba při získávání dat. 
@@ -539,10 +539,10 @@ Můžeme také rovnout přidat obslužné metody pro akce a~události nad formul
 V souboru \emph{country-guess-input.component.ts}, tedy v rámci třídy CountryGuessInputComponent, při změně vstupních vlastností (v hooku \emph{OnChanges}) aktualizujeme vlastnost \emph{countriesWithoutAlreadyGuessed} a~\emph{filteredCountries}. 
 V případě první vlastnosti jde o pole všech zemí bez těch, které uživatel již hádal. Druhá vlastnost poté představuje pole počátečních 8 prvků vlastnosti \emph{countriesWithoutAlreadyGuessed}. 
 Metoda \emph{handleGuessButtonClick} zavolá obslužnou metodu rodičovské komponenty, která vyhodnotí tip a~aktualizuje stav hry. 
-Aktualizujeme také hodnoty aktuálního tipu, filtrovaných zemí a~uzavřeme podmenu, k čemuž slouží metoda \emph{handleChangeSelectedGuess} volaná i~napřímo z šablony. 
+Aktualizujeme také hodnoty aktuálního tipu, filtrovaných zemí a~uzavřeme podmenu, k~čemuž slouží metoda \emph{handleChangeSelectedGuess} volaná i~napřímo z šablony. 
 Tělo metody \emph{handleInputChange} převede uživatelům tip do správného formátu a~pomocí převedené hodnoty aktualizuje aktuální tip spolu s filtrovanými zeměmi.
 Metoda \emph{handleKeyDown} se postará o interakce s podmenu pomocí klávesnice. Skrze šipky nahoru a~dolů povolíme uživateli vybrat hádanou zemi. 
-Enter umožní změnu aktuálního tipu názvu země na právě tu, kterou uživatel označil v podmenu. Escape poslouží k uzavření podmenu.
+Enter umožní změnu aktuálního tipu názvu země na právě tu, kterou uživatel označil v podmenu. Escape poslouží k~uzavření podmenu.
 
 Pomocná metoda \emph{updateGuessAndFilteredCountries} pak modifikuje vlastnost \emph{currentGuess}. 
 Následně pomocí metody \emph{getFilteredCountries} získá aktuálně filtrované země na základě uživatelova tipu. 
@@ -630,7 +630,7 @@ Pokračujeme vytvořením požadované struktury stránek v AppComponent. Šablo
 
 V rámci komponenty hlavičky pak vytvoříme navigační menu, které bude obsahovat odkazy na jednotlivé stránky. 
 Můžeme se inspirovat například architekturou a~vzhledem navigačního menu Flowbite. 
-Pokračujeme vypsáním všech cest aplikace, k čemuž využijeme direktivy \emph{routerLink}, \emph{routerLinkActive}, \emph{routerLinkActiveOptions} a~referenci \emph{\#link}. 
+Pokračujeme vypsáním všech cest aplikace, k~čemuž využijeme direktivy \emph{routerLink}, \emph{routerLinkActive}, \emph{routerLinkActiveOptions} a~referenci \emph{\#link}. 
 Do \emph{routerLink} předáme patřičnou cestu a~\emph{routerLinkActive} umožní naslouchat na aktuální URL. Direktiva \emph{routerLinkActiveOptions} pak přepíše výchozí nastavení \emph{routerLinkActive}.
 Díky referenci \emph{\#link} získáme informaci o tom, zda je odkaz aktivní. To využijeme při podmíněném nastavení správných CSS tříd na aktivních a~neaktivních odkazech.
 

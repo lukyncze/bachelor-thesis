@@ -1,7 +1,7 @@
 \subsection{Angular}
 
 Angular byl původně interní JavaScriptový framework společnosti Google. 
-Dle oficiální dokumentace \cite{angulario} je Angular kompletní platforma, určená k vývoji webových aplikací. 
+Dle oficiální dokumentace \cite{angulario} je Angular kompletní platforma, určená k~vývoji webových aplikací. 
 Framework je postaven na principu komponent, jež tvoří základní stavební jednotku aplikace. 
 Součástí frameworku jsou knihovny, které jsou velmi dobře integrovatelné a~usnadňují práci s různými částmi aplikace. 
 Dále také nástroje, které vývojářům usnadňují vývoj, testování či aktualizaci kódu.\cite{angulario,learningangular}
@@ -28,13 +28,13 @@ V poslední době framework spíše ztrácí na popularitě, stále jej však po
 Hlavní bloky kódu Angularu tvoří komponenty. Komponenta je OOP třída definovaná v TypeScript souboru ve formátu nazev-tridy.component.ts. 
 Komponentu nastavujeme pomocí dekorátoru @Component, v němž definujeme selektor (HTML značku komponenty), šablonu, případně kaskádové styly a~použité API. 
 Komponenta se může skládat z dalších částí: šablony, kaskádových stylů a~testovacích scénářů definovaných v samostatném souboru. 
-Tyto soubory jsou nepovinné, obvykle jsou však žádoucí a~vedou k lepší organizaci kódu. 
+Tyto soubory jsou nepovinné, obvykle jsou však žádoucí a~vedou k~lepší organizaci kódu. 
 
 Původní komponenty byly tvořeny pomocí modulů (NgModules), které obsahovaly deklarace komponent, direktiv a~služeb. 
 Od verze 14 je možné využít standalone API, které umožňuje vytvářet komponenty bez nutnosti tvoření a~registrace modulů v jiných souborech, a~díky tomu je kód kratší. 
 V dekorátoru @Component pak je třeba importovat všechny potřebné závislosti -- direktivy, služby či jiné komponenty.\cite{angulardev,learningangular}
 
-V šabloně vykreslíme hodnoty pomocí dvojitých závorek, které obsahují název proměnné. K podmíněnému zobrazení komponent/elementu slouží bloky @if, @else if, @else. 
+V šabloně vykreslíme hodnoty pomocí dvojitých závorek, které obsahují název proměnné. k~podmíněnému zobrazení komponent/elementu slouží bloky @if, @else if, @else. 
 Pro iteraci přes pole hodnot slouží blok @for.\cite{angulardev}
 
 \begin{prog}
@@ -59,7 +59,7 @@ K vytvoření stavů v Angularu využijeme vlastnosti třídy (class fields). Vl
 V případě, že viditelnost nespecifikujeme, je vlastnost veřejná. Soukromé vlastnosti jsou viditelné pouze v rámci třídy, chráněné v rámci třídy a~šablony. 
 Veřejné vlastnosti jsou viditelné odkudkoli.\cite{angulardev,learningangular}
 
-Pro aktualizaci stavů využijeme přiřazení nové hodnoty do vlastnosti, k níž přistoupíme pomocí klíčového slova this.\cite{angulardev}
+Pro aktualizaci stavů využijeme přiřazení nové hodnoty do vlastnosti, k~níž přistoupíme pomocí klíčového slova this.\cite{angulardev}
 
 \begin{prog}
 import \{ Component \} from '@angular/core';
@@ -113,7 +113,7 @@ Proto v této práci budeme využívat klasické hodnoty stavů.\cite{angulardev
 
 Předávat vlastnosti či jiné hodnoty je možné pomocí vstupního dekorátoru @Input a~výstupního dekorátoru @Output. 
 V rámci šablony danou hodnotu předáme do vnořené komponenty skrze název vstupu v hranatých závorkách.   
-Ve vnořené komponentě využijeme dekorátor @Input, sloužící k získání hodnot z rodičovské komponenty. K předaným hodnotám není možné přistupovat v rámci konstruktoru. 
+Ve vnořené komponentě využijeme dekorátor @Input, sloužící k~získání hodnot z rodičovské komponenty. k~předaným hodnotám není možné přistupovat v rámci konstruktoru. 
 
 K předání hodnoty z vnořené komponenty nejprve přidáme vnořené komponentě název výstupu v kulatých závorkách a~obslužnou metodu, která se vykoná po předání vlastnosti. 
 Posléze definujeme @Output ve vnořené komponentě, na němž zavoláme metodu emit(), která přes argument metody umožňuje předání (vypublikování) hodnot z vnořené do rodičovské komponenty.\cite{angulardev,learningangular}
@@ -167,7 +167,7 @@ export class ChildComponent \{
 
 Angular disponuje pestrou škálou možností, jak sdílet bloky kódu či logiku mezi různými částmi aplikace. Služby, direktivy, nebo také roury tvoříme pomocí JavaScriptových tříd. 
 Služby (services) umožňují znovupoužití určité části kódu např. v rámci více komponent. 
-Služby obvykle používáme ke komunikaci s HTTP endpointy, sdílíme v nich stavy více komponent, a~také je využíváme k transformacím.\cite{angulardev,learningangular}
+Služby obvykle používáme ke komunikaci s HTTP endpointy, sdílíme v nich stavy více komponent, a~také je využíváme k~transformacím.\cite{angulardev,learningangular}
 
 \begin{prog}
 import \{ Injectable \} from '@angular/core';
@@ -186,7 +186,7 @@ export class DataService \{
 \}
 \end{prog}
 
-Direktivy (directives), ať už zabudované či vlastní, slouží k obohacení HTML elementů o různé funkce (dynamické atributy, CSS třídy) nebo manipulaci s DOM elementy. 
+Direktivy (directives), ať už zabudované či vlastní, slouží k~obohacení HTML elementů o různé funkce (dynamické atributy, CSS třídy) nebo manipulaci s DOM elementy. 
 Roury (pipes) umožňují trasformaci hodnot v šabloně.\cite{angulardev,angulario}
 
 \begin{prog}
@@ -236,7 +236,7 @@ V případě, že potřebujeme sdílet stavy globálně (mezi různými částmi
 
 Angular poskytuje vestavěný systém routování -- konkrétně balíček @angular/router, který na straně klienta umožňuje přepínat mezi různými částmi aplikace. 
 Klasické webové stránky při změně URL pokaždé žádají o nové dokumenty. Routování na straně klienta může provést aktualizaci stránky bez dalších duplikátních dotazů. 
-Při vyžádání dané cesty pak vykreslíme požadovaný obsah a~požádáme pouze o data potřebná k vykreslení. 
+Při vyžádání dané cesty pak vykreslíme požadovaný obsah a~požádáme pouze o data potřebná k~vykreslení. 
 Získáme tak rychlejší uživatelskou zkušenost, jelikož prohlížeč nevyžaduje nové dokumenty a~nemusí vyhodnocovat kaskádové styly či JavaScript.
 
 Abychom zaregistrovali cesty aplikace pomocí knihovny @angular/router, poskytneme samotný router pomocí funkce provideRouter do aplikačního nastavení. 
