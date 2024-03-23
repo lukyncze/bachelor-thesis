@@ -29,7 +29,7 @@ Všechny tři části komponenty jsou nepovinné. Logika komponenty musí být z
 V neposlední řadě kaskádové styly se zapisují mezi style tagy.
 
 V rámci šablony Svelte umožňuje využívat logické bloky pro podmíněné vykreslování nebe také iterace přes pole hodnot (list). 
-Zabudovaná je i podpora manipulace s asynchronním JavaScriptem - promises.\cite{svelte}
+Zabudovaná je i~podpora manipulace s asynchronním JavaScriptem - promises.\cite{svelte}
 
 \begin{prog}
 <script>
@@ -75,7 +75,7 @@ K předání vlastnosti do vnořené komponenty využijeme HTML atribut, pomocí
 Uvnitř vnořené komponenty vytvoříme stejnojmennou vlastnost s klíčovým slovem export.
 
 V případě, že chceme předávat aktualizovanou vlastnost z vnořené do rodičovské komponenty, je třeba vytvořit vlastnost již na rodiči. 
-Následně ji předáme vnořené komponentě pomocí bind direktivy. Bind zajistí aktualizaci hodnoty stavu i v rodičovké komponentě.\cite{svelte}
+Následně ji předáme vnořené komponentě pomocí bind direktivy. Bind zajistí aktualizaci hodnoty stavu i~v rodičovké komponentě.\cite{svelte}
 
 \begin{prog}
 // Parent.svelte
@@ -163,13 +163,13 @@ Základním přístupem pro správu stavů je ukládání a~manipulace se stavy 
 To zahranuje tvorbu reaktivních stavů a~jejich distribuci ve stromě pomocí předávání vlastností, bindování či eventů. 
 
 Další možnost představuje využití Context API, které umožňuje jednorázové uložení jakékoli hodnoty. 
-Hodnotu uloženou v kontextu můžeme získat i v rámci neincidentních komponent. Ukládání a~získávání kontextu umožňují funkce setContext a~getContext.
+Hodnotu uloženou v kontextu můžeme získat i~v rámci neincidentních komponent. Ukládání a~získávání kontextu umožňují funkce setContext a~getContext.
 
 Pro sofistikovanější práci se stavy slouží tzv. stores. V podstatě se jedná o globání úložiště stavů, které umožňuje uchovávat a~získávat data. 
 Store je jednoduše objekt s metodou subscribe, která umožní konzumentům dostat aktualizovaná data. 
 Jednodušší variantu pro získání aktuálních dat představuje použití znaku \$ před názvem proměnné. Svelte nám poskytuje hned několik podob storu. 
 Mezi ně patří writable a~readable stores, kde jediný rozdíl spočívá v možnosti aktualizace dat. 
-Pro stavy, které jsou odvozeny z jiných stores, existuje tzv. derived store. Svelte rovněž povoluje vytvořit i vlastní store. 
+Pro stavy, které jsou odvozeny z jiných stores, existuje tzv. derived store. Svelte rovněž povoluje vytvořit i~vlastní store. 
 % Store je možné používat i v klasických JS filech, např pomocí subscribe... 
 
 Již zabudované globální úložiště můžeme jednoduše vytvořit pomocí metod writable, readable a~derived. Writable požaduje jako argument počáteční hodnotu. 
@@ -178,8 +178,8 @@ Readable navíc jako druhý argument může přijímat funkci start, jež implem
 \subsubsection{Routování}
 
 Svelte nemá přímou podporu routování v aplikacích. Oficiální dokumentace uvádí jako oficiální knihovnu pro routování SvelteKit. 
-Ve skutečnosti se jedná o framework nad Svelte, který poskytuje i další možnosti rozšíření webové aplikace. 
-Dokumentace však doporučuje i jiné knihovny pro routování na základě odlišných přístupů. 
+Ve skutečnosti se jedná o framework nad Svelte, který poskytuje i~další možnosti rozšíření webové aplikace. 
+Dokumentace však doporučuje i~jiné knihovny pro routování na základě odlišných přístupů. 
 Konkrétně knihovny page.js, svelte-routing, svelte-navigator, svelte-spa-router nebo routify.\cite{svelte,svelteforbeginners}
 
 Routování ve SvelteKit je implementováno pomocí file systému. Komponenta s názvem +page.svelte definuje stránku aplikace. 

@@ -18,7 +18,7 @@ export default Counter;
 
 Dále vytvoříme komponentu Button kvůli principu DRY a~celkově znovupoužitelnosti kódu. 
 Typ \emph{ButtonProps} obsahuje vlastnosti, které můžeme tlačítku předat -- \emph{className}, \emph{onClick} a~\emph{children}. 
-Díky tomu, že typ rozšiřuje \emph{ButtonHTMLAttributes<HTMLButtonElement>}, můžeme předat do komponenty i další běžné atributy HTML tlačítek (např. type, value, disabled).
+Díky tomu, že typ rozšiřuje \emph{ButtonHTMLAttributes<HTMLButtonElement>}, můžeme předat do komponenty i~další běžné atributy HTML tlačítek (např. type, value, disabled).
 
 \begin{prog}
 // Část souboru Button.tsx
@@ -208,7 +208,7 @@ useEffect(() => \{
 \}, [dropdownId]);
 \end{prog}
 
-Dropdown samozřejmě může mít i jiné vstupy, které povedou k lepší znovupoužitelnosti. 
+Dropdown samozřejmě může mít i~jiné vstupy, které povedou k lepší znovupoužitelnosti. 
 Dynamické CSS třídy ve formě JavaScriptu na element přidáme pomocí šablonových literálů (template literals) a~JS hodnoty.
 
 \begin{flushleft}

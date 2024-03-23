@@ -107,7 +107,7 @@ export class CounterComponent \{
 
 Při vytváření jakékoli UI komponenty můžeme začít šablonou, nebo definovat funkční stránku. My začneme s tvorbou šablony. V případě vlastního dropdown samotným tlačítkem a~seznamem možností. 
 Otevření možností zajístíme tak, že na tlačítko přidáme click listener. Funkčnost pak zajistíme díky modifikaci stavu \emph{isOpen}, který se provede při volání metody \emph{toggleDropdown}. 
-V rámci této metody je třeba zavolat i \emph{event.stopPropagation()}. Předejdeme tak potenciální chybě ve formě tzv. event bubblingu -- spuštění událostí na prvcích odlišných od cílového.
+V rámci této metody je třeba zavolat i~\emph{event.stopPropagation()}. Předejdeme tak potenciální chybě ve formě tzv. event bubblingu -- spuštění událostí na prvcích odlišných od cílového.
 
 \begin{prog}
 // Část souboru dropdown.component.html
@@ -443,7 +443,7 @@ Komponenta future-value-info pak přijímá vstupní vlastnost, kterou v šablon
 <p class="text-5xl font-bold">{{ futureValue | localizedNumber }}</p>
 \end{prog}
 
-Stejného výsledku bychom mohli dosáhnout i přes metodu na třídě. Tento přístup Angular nedoporučuje, jelikož metody se v rámci šablony spouští opakovaně a~mohou způsobit problémy s výkonem. 
+Stejného výsledku bychom mohli dosáhnout i~přes metodu na třídě. Tento přístup Angular nedoporučuje, jelikož metody se v rámci šablony spouští opakovaně a~mohou způsobit problémy s výkonem. 
 Oproti tomu roura umožní lepší znovupoužitelnost a~přehlednost.
 
 \begin{prog}
@@ -539,7 +539,7 @@ Můžeme také rovnout přidat obslužné metody pro akce a~události nad formul
 V souboru \emph{country-guess-input.component.ts}, tedy v rámci třídy CountryGuessInputComponent, při změně vstupních vlastností (v hooku \emph{OnChanges}) aktualizujeme vlastnost \emph{countriesWithoutAlreadyGuessed} a~\emph{filteredCountries}. 
 V případě první vlastnosti jde o pole všech zemí bez těch, které uživatel již hádal. Druhá vlastnost poté představuje pole počátečních 8 prvků vlastnosti \emph{countriesWithoutAlreadyGuessed}. 
 Metoda \emph{handleGuessButtonClick} zavolá obslužnou metodu rodičovské komponenty, která vyhodnotí tip a~aktualizuje stav hry. 
-Aktualizujeme také hodnoty aktuálního tipu, filtrovaných zemí a~uzavřeme podmenu, k čemuž slouží metoda \emph{handleChangeSelectedGuess} volaná i napřímo z šablony. 
+Aktualizujeme také hodnoty aktuálního tipu, filtrovaných zemí a~uzavřeme podmenu, k čemuž slouží metoda \emph{handleChangeSelectedGuess} volaná i~napřímo z šablony. 
 Tělo metody \emph{handleInputChange} převede uživatelům tip do správného formátu a~pomocí převedené hodnoty aktualizuje aktuální tip spolu s filtrovanými zeměmi.
 Metoda \emph{handleKeyDown} se postará o interakce s podmenu pomocí klávesnice. Skrze šipky nahoru a~dolů povolíme uživateli vybrat hádanou zemi. 
 Enter umožní změnu aktuálního tipu názvu země na právě tu, kterou uživatel označil v podmenu. Escape poslouží k uzavření podmenu.
@@ -547,7 +547,7 @@ Enter umožní změnu aktuálního tipu názvu země na právě tu, kterou uživ
 Pomocná metoda \emph{updateGuessAndFilteredCountries} pak modifikuje vlastnost \emph{currentGuess}. 
 Následně pomocí metody \emph{getFilteredCountries} získá aktuálně filtrované země na základě uživatelova tipu. 
 Dále nastaví vlastnost \emph{isValidGuess}, která určuje, zda je uživatelův tip validní (taková země existuje). 
-V neposlední řadě se metoda stará i o aktualizaci vlastnosti \emph{selectedGuessIndex}, jež určuje, která země je vybraná v podmenu. 
+V neposlední řadě se metoda stará i~o aktualizaci vlastnosti \emph{selectedGuessIndex}, jež určuje, která země je vybraná v podmenu. 
 K tomu slouží metoda \emph{clampSelectedGuessIndex}, která index udrží v požadovaném rozmezí (0 až počet filtrovaných zemí).
 Metoda \emph{getFilteredCountries} získává filtrované země na základě vlastnosti \emph{currentGuess}. 
 Pomocná metoda \emph{changeSelectedGuessIndex} aktualizuje vlastnost \emph{selectedGuessIndex} o hodnotu předanou v argumentu. 
