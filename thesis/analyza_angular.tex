@@ -3,7 +3,7 @@
 Angular byl původně interní JavaScriptový framework společnosti Google. 
 Dle oficiální dokumentace \cite{angulario} je Angular kompletní platforma, určená k~vývoji webových aplikací. 
 Framework je postaven na principu komponent, jež tvoří základní stavební jednotku aplikace. 
-Součástí frameworku jsou knihovny, které jsou velmi dobře integrovatelné a~usnadňují práci s různými částmi aplikace. 
+Součástí frameworku jsou knihovny, které jsou velmi dobře integrovatelné a~usnadňují práci s~různými částmi aplikace. 
 Dále také nástroje, které vývojářům usnadňují vývoj, testování či aktualizaci kódu.\cite{angulario,learningangular}
 
 \begin{figure}[htb]
@@ -16,9 +16,9 @@ Dále také nástroje, které vývojářům usnadňují vývoj, testování či 
 První verze Angularu byla vydána v roce 2012 pod názvem AngularJS. 
 V roce 2016, po kolaboraci se společností Microsoft, Google vydal novou verzi, o~které mluvíme jako o~Angular 2. 
 Verze 2 byla kompletně přepsána z JavaScriptu do jazyku TypeScript. 
-Součástí frameworku je i~knihovna RxJS pro práci s asynchronními událostmi. 
+Součástí frameworku je i~knihovna RxJS pro práci s~asynchronními událostmi. 
 Knihovnu reaktivních rozšíření, RxJS, mohou využívat také programátoři při vývoji Angular aplikací. 
-Angular se samozřejmě neustále vyvíjí a~v současné době můžeme pracovat s verzí 17.\cite{angulardev,learningangular}
+Angular se samozřejmě neustále vyvíjí a~v současné době můžeme pracovat s~verzí 17.\cite{angulardev,learningangular}
 
 Díky robusnosti a~velikosti frameworku je Angular vhodnější pro větší aplikace, které vyžadují mnoho funkcí a~komplexních struktur. 
 V poslední době framework spíše ztrácí na popularitě, stále jej však používá mnoho společností včetně Google.\cite{learningangular}
@@ -167,7 +167,7 @@ export class ChildComponent \{
 
 Angular disponuje pestrou škálou možností, jak sdílet bloky kódu či logiku mezi různými částmi aplikace. Služby, direktivy, nebo také roury tvoříme pomocí JavaScriptových tříd. 
 Služby (services) umožňují znovupoužití určité části kódu např. v rámci více komponent. 
-Služby obvykle používáme ke komunikaci s HTTP endpointy, sdílíme v nich stavy více komponent, a~také je využíváme k~transformacím.\cite{angulardev,learningangular}
+Služby obvykle používáme ke komunikaci s~HTTP endpointy, sdílíme v nich stavy více komponent, a~také je využíváme k~transformacím.\cite{angulardev,learningangular}
 
 \begin{prog}
 import \{ Injectable \} from '@angular/core';
@@ -186,7 +186,7 @@ export class DataService \{
 \}
 \end{prog}
 
-Direktivy (directives), ať už zabudované či vlastní, slouží k~obohacení HTML elementů o~různé funkce (dynamické atributy, CSS třídy) nebo manipulaci s DOM elementy. 
+Direktivy (directives), ať už zabudované či vlastní, slouží k~obohacení HTML elementů o~různé funkce (dynamické atributy, CSS třídy) nebo manipulaci s~DOM elementy. 
 Roury (pipes) umožňují trasformaci hodnot v šabloně.\cite{angulardev,angulario}
 
 \begin{prog}
@@ -224,7 +224,7 @@ Nedávno byly přidány také metody po vykreslení komponenty -- afterNextRende
 \subsubsection{State management}
 
 K základní práci se stavy slouží vlastnosti třídy, které inicializujeme JavaScriptovou hodnotou. 
-Do budoucna můžeme počítat s lepší podporou signálů, které aktualizují DOM efektivněji a~rychleji. 
+Do budoucna můžeme počítat s~lepší podporou signálů, které aktualizují DOM efektivněji a~rychleji. 
 Pokročilejší způsob sdílení stavů v rámci aplikace spočívá ve využití služeb, v nichž uložíme stavy a~následně je sdílíme mezi komponentami.\cite{angulardev}
 
 Pro reaktivní či asynchronní operace, nebo obecně složitější funkcionality, využijeme balíček RxJS, který je již součástí Angularu. 
@@ -246,5 +246,5 @@ Routeru následně předáme pole cest aplikace. Jednotlivé obsahy stránek, kt
 
 Angular je komplexní framework, v němž jsou obsaženy základní balíčky všeho druhu potřebné pro vývoj webových aplikací. 
 Framework se stále vyvíjí a~jeho ekosystém se neustále rozrůstá, a~to i~přes velikost projektu. 
-Angular nabízí rozsáhlou kolekci balíčků třetích stran, které vývojáři využívají pro usnadnění práce s různými částmi aplikace. 
+Angular nabízí rozsáhlou kolekci balíčků třetích stran, které vývojáři využívají pro usnadnění práce s~různými částmi aplikace. 
 Nechybí ani balíček @angular/cli, jenž usnadňuje vývoj aplikace, testování, aktualizaci kódu i~nasazení.\cite{angulardev,learningangular}

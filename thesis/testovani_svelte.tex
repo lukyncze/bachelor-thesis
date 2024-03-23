@@ -4,7 +4,7 @@
   \textbf{Správa stavů, předávání vlastností}
 \end{flushleft}
 
-Prvním krokem k~vytvoření jednoduchého čítače bude definice komponenty Counter s reaktivním stavem \emph{count}.
+Prvním krokem k~vytvoření jednoduchého čítače bude definice komponenty Counter s~reaktivním stavem \emph{count}.
 
 \begin{prog}
 // Část souboru Counter.svelte
@@ -78,7 +78,7 @@ Pro aktualizaci stavu \emph{count} použijeme obslužné funkce, v nichž přím
   \textbf{Interakce v uživatelském prostředí}
 \end{flushleft}
 
-V této sekci implementujeme rozbalovací seznam s možnostmi (dropdown). Tvorbu UI komponenty můžeme začít jak vytvořením HTML struktury, tak definicí funkční stránky komponenty.
+V této sekci implementujeme rozbalovací seznam s~možnostmi (dropdown). Tvorbu UI komponenty můžeme začít jak vytvořením HTML struktury, tak definicí funkční stránky komponenty.
 
 My začneme tvorbou šablony, v níž vytvoříme tlačítko a~seznam možností. Otevření seznamu možností zajistíme přidáním \emph{on:click} události na tlačítko. V obslužné funkci pak změníme stav \emph{isOpen}.
 
@@ -106,7 +106,7 @@ My začneme tvorbou šablony, v níž vytvoříme tlačítko a~seznam možností
 \end{prog}
 
 Seznam možností zobrazíme podmíněně na základě \emph{isOpen}. Pro vykreslení možností seznamu (dle vstupu \emph{options}) použijeme blok \emph{\#each}. 
-Pro vybrání konkrétní možnosti použijeme \emph{on:click} událost, při které v anonymní funkci zavoláme funkci \emph{handleOptionClick} s aktuální položkou ze seznamu.
+Pro vybrání konkrétní možnosti použijeme \emph{on:click} událost, při které v anonymní funkci zavoláme funkci \emph{handleOptionClick} s~aktuální položkou ze seznamu.
 
 \begin{prog}
 // Část souboru Dropdown.svelte
@@ -293,23 +293,23 @@ Tímto způsobem předejdeme dotazování serveru ihned po změně nějaké vstu
 \end{prog}
 
 Účelem asynchronní funkce \emph{handleTranslation} pak je odeslání korektního HTTP POST požadavku na server pomocí fetch API. 
-Při úspěšné odpovědi aktualizujeme stav s přeloženým textem, v opačném případě nastavíme chybový stav.
+Při úspěšné odpovědi aktualizujeme stav s~přeloženým textem, v opačném případě nastavíme chybový stav.
 
 Při obdržení odpovědí ze serveru vykreslíme přeložený text uživateli pomocí komponenty TranslationOutput. 
-Komponentě předáme výstupní text spolu s dalšími vlastnostmi, na základě kterých v šabloně podmíněně vykreslíme přeložený text, chybu nebo načítání.
+Komponentě předáme výstupní text spolu s~dalšími vlastnostmi, na základě kterých v šabloně podmíněně vykreslíme přeložený text, chybu nebo načítání.
 
 \begin{flushleft}
   \textbf{Tvorba formulářů, validace}
 \end{flushleft}
 
 Svelte, stejně jako React, nepodporuje pokročilou správu formulářů. Můžeme však využít knihovny třetích stran, jako např. svelte-forms-lib nebo Superforms, které nám umožní lépe spravovat a~validovat formuláře. 
-V rámci této sekce vytvoříme komponentu pro jednoduchou investiční kalkulaci s využitím knihovny \emph{svelte-forms-lib} \cite{svelteformslib}. 
+V rámci této sekce vytvoříme komponentu pro jednoduchou investiční kalkulaci s~využitím knihovny \emph{svelte-forms-lib} \cite{svelteformslib}. 
 Komponenta InvestForm bude obsahovat formulář pro zadání vstupních hodnot a~komponentu FutureValuesInfo pro zobrazení výsledků kalkulace.
 
 Začneme implementací reaktivního formuláře, který bude přijímat počáteční hodnoty (\emph{defaultValues}) a~\emph{investFormData} k~předávání hodnot formuláře do rodičovské komponenty. 
 Strukturu formuláře popíšeme v typu \emph{InvestFormData}. Pomocí funkce \emph{createForm} z knihovny \emph{svelte-forms-lib} vytvoříme instanci formuláře, které předáme \emph{defaultValues} do vlastnosti \emph{initialValues}. 
 V rámci nastavení formuláře také definujeme validační schéma pomocí knihovny \emph{yup} \cite{yuplibrary} a~\emph{onSubmit} obslužnou funkci. 
-Knihovnu yup volíme, jelikož je jedinou kompatibilní možností s knihovnou \emph{svelte-forms-lib} ve verzi 2.0.1. 
+Knihovnu yup volíme, jelikož je jedinou kompatibilní možností s~knihovnou \emph{svelte-forms-lib} ve verzi 2.0.1. 
 % vlastnost validationSchema musí být typu ObjectSchema<any>, který je definován jen a pouze v knihovně yup:
 % import type {ObjectSchema} from 'yup';
 % validationSchema?: ObjectSchema<any>;
@@ -345,10 +345,10 @@ Z \emph{createForm} následně získáme obslužné funkce \emph{handleChange} a
 </script>
 \end{prog}
 
-Do šablony přidáme form s \emph{on:submit} událostí, které předáme \emph{handleSubmit}. Pokračujeme vytvořením formulářových prvků. 
-Jednotlivé prvky propojíme s reaktivním formulářem pomocí \emph{bind:value} a~události \emph{on:change}, do které přiřadíme funkci \emph{handleChange}. 
+Do šablony přidáme form s~\emph{on:submit} událostí, které předáme \emph{handleSubmit}. Pokračujeme vytvořením formulářových prvků. 
+Jednotlivé prvky propojíme s~reaktivním formulářem pomocí \emph{bind:value} a~události \emph{on:change}, do které přiřadíme funkci \emph{handleChange}. 
 Chyby formuláře získáme z \emph{errors} a~vykreslíme je pod formulářovými prvky. 
-V neposlední řadě přidáme tlačítko s typem submit, které se postará o~odeslání formuláře a~zavolání obslužné funkce \emph{onSubmit}.
+V neposlední řadě přidáme tlačítko s~typem submit, které se postará o~odeslání formuláře a~zavolání obslužné funkce \emph{onSubmit}.
 
 \begin{prog}
 // Část souboru InvestForm.svelte
@@ -440,7 +440,7 @@ Nejdříve inicializujeme \emph{svelte-query} klienta v rámci poskytovatele \em
 \end{prog}
 
 Dále vytvoříme funkci \emph{useAllCountries}, která vrátí výsledek HTTP dotazu (\emph{CreateQueryResult}) pomocí funkce \emph{createQuery}. 
-Argumentem funkce \emph{createQuery} bude objekt s názvem dotazu (\emph{queryKey}) a~funkce, která vykoná dotaz (\emph{queryFn}).
+Argumentem funkce \emph{createQuery} bude objekt s~názvem dotazu (\emph{queryKey}) a~funkce, která vykoná dotaz (\emph{queryFn}).
 
 \begin{prog}
 // Část souboru queries.ts
@@ -546,14 +546,14 @@ Tip uživatele v rámci funkce \emph{convertToFormattedGuess} převedeme tak, ab
 
 Pro zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. 
 Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a~\emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
-Jde o~uživatelem hádané země s vlajkou a~vzdáleností od \emph{randomCountry}. K~převodu využijeme JS funkci z jiného souboru. 
+Jde o~uživatelem hádané země s~vlajkou a~vzdáleností od \emph{randomCountry}. K~převodu využijeme JS funkci z jiného souboru. 
 Vzdálenost zemí vypočteme pomocí knihovny \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která exportuje funkci \emph{getDistanceBetweenTwoPoints}. 
 Proměnnou \emph{enrichedGuessedCountries} následně vykreslíme v rámci šablony.
 
 Nakonec vytvoříme modální okna, které vykreslíme při výhře nebo prohře. Stavy \emph{isWinModalOpen} a~\emph{isLoseModalOpen} aktualizujeme v rámci funkce \emph{handleEvaluateGuessAndUpdateState} v CountryGuesser. 
 Na základě těchto stavů podmíněně zobrazíme daná modální okna. Oběma oknům předáme \emph{randomCountry} a~obslužnou funkci \emph{handleClose}. Do výherního modálu také počet potřebných pokusů. 
 V jednotlivých komponentách (WinModal, LoseModal) vykreslíme komponentu BaseModal, která bude sloužit jako šablona pro obě okna. Do této komponenty pak předáme titulek, obsah modálu a~obslužnou metodu \emph{handleClose}. 
-V šabloně BaseModal vykreslíme základní strukturu modálního okna s dynamickými vlastnostmi.
+V šabloně BaseModal vykreslíme základní strukturu modálního okna s~dynamickými vlastnostmi.
 
 \begin{flushleft}
   \textbf{Routování a layout aplikace}

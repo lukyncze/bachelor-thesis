@@ -51,7 +51,7 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 	\begin{cenumerate}
 		\item Komponenta bude zobrazovat formulář pro výpočet výnosu investice.
 		\item Uživatel bude mít možnost zadat vstupní hodnoty formuláře.
-		\item Formulář bude obsahovat validaci vstupních hodnot a~nedovolí uživateli potvrdit formulář s jakoukoli nevalidní hodnotou formuláře.
+		\item Formulář bude obsahovat validaci vstupních hodnot a~nedovolí uživateli potvrdit formulář s~jakoukoli nevalidní hodnotou formuláře.
 		\item Po potvrzení formuláře bude provedena kalkulace výsledků a~ty budou zobrazeny uživateli.
 	\end{cenumerate}
 
@@ -63,7 +63,7 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 		\item Uživateli se v rámci hry budou postupně zobrazovat informace (nápovědy) o~hádané zemi.
 		\item Uživatel bude mít možnost zadat či vybrat pouze existující název země, který chce tipovat.
 		\item Uživatel následně uvidí již zadané země a~vzdálenost jím dané země od hádané země.
-		\item Uživateli bude při výhře a~prohře zobrazeno modální okno s informacemi o~výsledku hry.
+		\item Uživateli bude při výhře a~prohře zobrazeno modální okno s~informacemi o~výsledku hry.
 		\item V případě chyby při získávání dat o~zemích bude uživateli zobrazena chybová hláška.
 	\end{cenumerate}
 
@@ -138,7 +138,7 @@ Příklad instalací nalezneme v Tabulce \ref{tab:frameworkinstall}.
 % s čím se jak pracovalo, velikosti souborů, řádky, jak pomohla dokumentace
 
 V této podkapitole se zaměříme na srovnání aspektů implementace aplikací v rámci vybraných frameworků. 
-Cílem je provést detailnější srovnání s ohledem na poznatky z provedených implementací. 
+Cílem je provést detailnější srovnání s~ohledem na poznatky z provedených implementací. 
 
 Využití Angularu při implementaci aplikace se vyznačovalo objektově orientovaným přístupem, který umožňuje využít například výhodu zapouzdření. 
 Nespornou výhodu tvořila modularita frameworku, která podporuje rozšiřitelnost a~robustnost aplikace. 
@@ -151,10 +151,10 @@ Jako výhodu také můžeme uvést podporu jazyka TypeScript již v základu.
 Na druhou stranu Angular vyžaduje více konfigurace. Implementace je tak oproti dalším dvěma frameworkům nejdelší a~nejsložitější. 
 V rámci vývoje se ukázalo, že Angular je náročný na naučení a~framework sám o~sobě umožňuje programátorovi udělat mnoho chyb. 
 Tomu rozhodně nepomáhá implementace reaktivity pomocí knihovny RxJS. 
-Programátor rovněž musí počítat s tím, že Angular generuje element dané komponenty v DOM, což může zkomplikovat např. stylování. 
+Programátor rovněž musí počítat s~tím, že Angular generuje element dané komponenty v DOM, což může zkomplikovat např. stylování. 
 Angular neposkytuje možnost použití destrukturování při předávání vlastností. 
 Tím pádem je třeba vždy předat všechny vlastnosti zvlášť nebo je uložit ve vhodnější datové struktuře (např. objektu).
-Běhěm vývoje jsme také narazili na problém s neinicializováním vstupních vlastností, což může být problematické. 
+Běhěm vývoje jsme také narazili na problém s~neinicializováním vstupních vlastností, což může být problematické. 
 Problém je řešitelný dvěma způsoby, z nichž ani jeden není zcela ideální.
 
 % Angular:
@@ -188,7 +188,7 @@ Při špatném použití vykreslovací techniky (pomocí \&\& nebo || operátor�
 V rámci funkce map nesmíme zapomenout každému elementu přidělit unikátní klíč. 
 Co se týče hooků, především useEffect hook umožňuje programátorům snadné zavedení chyb, pokud není správně použit. 
 S tím se rovněž pojí problémy se závislostmi useEffect a~neintuitivní kontrola životního cyklu komponenty. 
-Vývojáři také musí počítat s tím, že aktualizace stavů je vždy asynchronní. V praxi to znamená, že stav není aktualizován okamžitě. 
+Vývojáři také musí počítat s~tím, že aktualizace stavů je vždy asynchronní. V praxi to znamená, že stav není aktualizován okamžitě. 
 Jako nevýhodu můžeme uvést i~předávání vlastností do rodičovské komponenty, které minimálně zpočátku může vypadat složitě.
 
 % React:
@@ -207,7 +207,7 @@ Jako nevýhodu můžeme uvést i~předávání vlastností do rodičovské kompo
 % - je třeba si zvyknout na předávání vlastností do rodiče
 
 Implementace ve Svelte poukázala na jednoduchost a~přímočarost tohoto frameworku. 
-Syntax je velmi čitelná a~bez zbytečného boilerplate kódu, což v porovnání s dalšími frameworky znamená nejkratší kód. 
+Syntax je velmi čitelná a~bez zbytečného boilerplate kódu, což v porovnání s~dalšími frameworky znamená nejkratší kód. 
 Svelte elegantním způsobem řeší předávání vlastností mezi komponentami. 
 Díky \$\$restProps můžeme získat všechny vlastnosti, které nejsou explicitně deklarovány. 
 Musíme si však dávat pozor na to, že při předání nekorektní vlastnosti do komponenty můžeme narazit na problémy. 
@@ -218,9 +218,9 @@ Mezi slabší stránky frameworku rozhodně patří jeho ekosystém a~komunita, 
 Svelte proto disponuje nejméně kvalitními knihovnami určené tomuto frameworku. 
 Syntax může být někdy matoucí, například klíčové slovo export u vstupních vlastností, nebo zvláštní syntax \#if, :else if, :else, /if. 
 Vývojáři musí mít na paměti modifikaci vstupních vlastností po jejich aktualizaci, kterou je třeba provést reaktivně. 
-V neposlední řadě můžeme zmínit nevýhody při práci s TypeScriptem. Pro importování TS typů používáme ve Svelte navíc klíčové slovo type. 
+V neposlední řadě můžeme zmínit nevýhody při práci s~TypeScriptem. Pro importování TS typů používáme ve Svelte navíc klíčové slovo type. 
 Do TS souboru nelze importovat TS typ ze Svelte komponenty, takový typ pak zakládáme v rámci context="'module"' skriptu v komponentě.
-Při porovnání s ostatními frameworky, Svelte disponuje hůře otypovanými událostmi, což prodlužuje práci v obslužných funkcích.
+Při porovnání s~ostatními frameworky, Svelte disponuje hůře otypovanými událostmi, což prodlužuje práci v obslužných funkcích.
 
 % Svelte:
 % + nejméně boilerplate kódu -> opravdu jednoduchý na naučení (obvykle nejkratší kód)
