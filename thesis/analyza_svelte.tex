@@ -149,7 +149,7 @@ Zdroj zdrojového kódu: \cite{svelte}
 \subsubsection{Životní cyklus}
 
 Komponenty ve Svelte disponují životním cyklem, který začíná v~momentě vytvoření komponenty a~končí jejím zničením. 
-Funkce onMount tvoří callback, který je zavolán po přidání komponenty do DOMu. Pokud chceme vykonat určité akce při zničení komponenty, můžeme toho dosáhnout dvěma způsoby. 
+Funkce onMount tvoří callback, který je zavolán po přidání komponenty do DOM. Pokud chceme vykonat určité akce při zničení komponenty, můžeme toho dosáhnout dvěma způsoby. 
 Prvním způsobem je vracení callback funkce v~rámci onMount funkce. Druhou možnost představuje využití funkce onDestroy, která v~argumentu přijímá callback funkci. 
 
 Pro práci převážně s~imperativními akcemi slouží zabudované funkce beforeUpdate a~afterUpdate. 
