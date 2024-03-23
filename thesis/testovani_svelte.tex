@@ -302,7 +302,7 @@ Komponentě předáme výstupní text spolu s~dalšími vlastnostmi, na základ�
   \textbf{Tvorba formulářů, validace}
 \end{flushleft}
 
-Svelte, stejně jako React, nepodporuje pokročilou správu formulářů. Můžeme však využít knihovny třetích stran, jako např. svelte-forms-lib nebo Superforms, které nám umožní lépe spravovat a~validovat formuláře. 
+Svelte, stejně jako React, nepodporuje pokročilou správu formulářů. Můžeme však využít knihovny třetích stran, jako např.~svelte-forms-lib nebo Superforms, které nám umožní lépe spravovat a~validovat formuláře. 
 V~rámci této sekce vytvoříme komponentu pro jednoduchou investiční kalkulaci s~využitím knihovny \emph{svelte-forms-lib} \cite{svelteformslib}. 
 Komponenta InvestForm bude obsahovat formulář pro zadání vstupních hodnot a~komponentu FutureValuesInfo pro zobrazení výsledků kalkulace.
 
@@ -421,7 +421,7 @@ Dále ve hře bude seznam zemí, které uživatel hádal a~modální okna pro vy
 
 Začneme implementací rodičovské komponenty, jejíž úkolem bude získat země z~REST Countries API \cite{restcountriesapi}. 
 K~tomu využijeme balíčky \emph{axios} \cite{axioslib} a~\emph{@tanstack/svelte-query} \cite{tanstackquerylib}. 
-Knihovna \emph{@tanstack/svelte-query} umožní snadnou správu asynchronních operací. Její API poskytuje např. podporu načítacích i~chybových stavů, také rušení či opakování dotazů a~mnoho dalších funkcí. 
+Knihovna \emph{@tanstack/svelte-query} umožní snadnou správu asynchronních operací. Její API poskytuje např.~podporu načítacích i~chybových stavů, také rušení či opakování dotazů a~mnoho dalších funkcí. 
 Nejdříve inicializujeme \emph{svelte-query} klienta v~rámci poskytovatele \emph{QueryClientProvider} v~\emph{App.svelte}.
 
 \begin{prog}
@@ -624,7 +624,7 @@ V~šabloně zobrazíme hlavičku, patičku a~\emph{Router}, kterému předáme p
 </QueryClientProvider>
 \end{prog}
 
-Hlavička zobrazí odkazy na jednotlivé stránky. Architekturu a~vzhled navigačního menu převezmeme např. od Flowbite. 
+Hlavička zobrazí odkazy na jednotlivé stránky. Architekturu a~vzhled navigačního menu převezmeme např.~od Flowbite. 
 V~rámci komponenty Header vypíšeme cesty aplikace pomocí HTML elementu a, na nějž přidáme atribut href. 
 Dále přidáme také akce \emph{link} a~\emph{active}, které poskytuje \emph{svelte-spa-router}. 
 Akci \emph{active} předáme objekt, kde přes vlastnosti \emph{className} a~\emph{inactiveClassName} nastavíme požadovanou CSS třídu podle toho, zda je odkaz aktivní nebo neaktivní. 

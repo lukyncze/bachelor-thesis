@@ -18,7 +18,7 @@ export default Counter;
 
 Dále vytvoříme komponentu Button kvůli principu DRY a~celkově znovupoužitelnosti kódu. 
 Typ \emph{ButtonProps} obsahuje vlastnosti, které můžeme tlačítku předat -- \emph{className}, \emph{onClick} a~\emph{children}. 
-Díky tomu, že typ rozšiřuje \emph{ButtonHTMLAttributes<HTMLButtonElement>}, můžeme předat do komponenty i~další běžné atributy HTML tlačítek (např. type, value, disabled).
+Díky tomu, že typ rozšiřuje \emph{ButtonHTMLAttributes<HTMLButtonElement>}, můžeme předat do komponenty i~další běžné atributy HTML tlačítek (např.~type, value, disabled).
 
 \begin{prog}
 // Část souboru Button.tsx
@@ -365,7 +365,7 @@ Předáme jí samotný výstupní text a~další vstupní vlastnosti, na základ
 \end{flushleft}
 
 React sám o~sobě poskytuje jen základní API pro správu formulářů. Disponuje však mnoha knihovnami, které tuto funkcionalitu rozšiřují. 
-Mezi takové knihovny patří např. Formik, Redux Form nebo React Hook Form. V~této sekci se zaměříme na tvorbu formulářů pomocí React Hook Form \cite{reacthookformlib}. 
+Mezi takové knihovny patří např.~Formik, Redux Form nebo React Hook Form. V~této sekci se zaměříme na tvorbu formulářů pomocí React Hook Form \cite{reacthookformlib}. 
 Vytvoříme komponentu pro jednoduchou investiční kalkulaci. 
 V~rámci této komponenty naprogramujeme formulář pro zadání vstupních dat a~komponentu výsledku kalkulace, která se zobrazí po potvrzení formuláře.
 
