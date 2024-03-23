@@ -15,7 +15,7 @@ Dále také nástroje, které vývojářům usnadňují vývoj, testování či 
 
 První verze Angularu byla vydána v roce 2012 pod názvem AngularJS. 
 V roce 2016, po kolaboraci se společností Microsoft, Google vydal novou verzi, o~které mluvíme jako o~Angular 2. 
-Verze 2 byla kompletně přepsána z JavaScriptu do jazyku TypeScript. 
+Verze 2 byla kompletně přepsána z~JavaScriptu do jazyku TypeScript. 
 Součástí frameworku je i~knihovna RxJS pro práci s~asynchronními událostmi. 
 Knihovnu reaktivních rozšíření, RxJS, mohou využívat také programátoři při vývoji Angular aplikací. 
 Angular se samozřejmě neustále vyvíjí a~v současné době můžeme pracovat s~verzí 17.\cite{angulardev,learningangular}
@@ -27,7 +27,7 @@ V poslední době framework spíše ztrácí na popularitě, stále jej však po
 
 Hlavní bloky kódu Angularu tvoří komponenty. Komponenta je OOP třída definovaná v TypeScript souboru ve formátu nazev-tridy.component.ts. 
 Komponentu nastavujeme pomocí dekorátoru @Component, v němž definujeme selektor (HTML značku komponenty), šablonu, případně kaskádové styly a~použité API. 
-Komponenta se může skládat z dalších částí: šablony, kaskádových stylů a~testovacích scénářů definovaných v samostatném souboru. 
+Komponenta se může skládat z~dalších částí: šablony, kaskádových stylů a~testovacích scénářů definovaných v samostatném souboru. 
 Tyto soubory jsou nepovinné, obvykle jsou však žádoucí a~vedou k~lepší organizaci kódu. 
 
 Původní komponenty byly tvořeny pomocí modulů (NgModules), které obsahovaly deklarace komponent, direktiv a~služeb. 
@@ -113,10 +113,10 @@ Proto v této práci budeme využívat klasické hodnoty stavů.\cite{angulardev
 
 Předávat vlastnosti či jiné hodnoty je možné pomocí vstupního dekorátoru @Input a~výstupního dekorátoru @Output. 
 V rámci šablony danou hodnotu předáme do vnořené komponenty skrze název vstupu v hranatých závorkách.   
-Ve vnořené komponentě využijeme dekorátor @Input, sloužící k~získání hodnot z rodičovské komponenty. K~předaným hodnotám není možné přistupovat v rámci konstruktoru. 
+Ve vnořené komponentě využijeme dekorátor @Input, sloužící k~získání hodnot z~rodičovské komponenty. K~předaným hodnotám není možné přistupovat v rámci konstruktoru. 
 
-K předání hodnoty z vnořené komponenty nejprve přidáme vnořené komponentě název výstupu v kulatých závorkách a~obslužnou metodu, která se vykoná po předání vlastnosti. 
-Posléze definujeme @Output ve vnořené komponentě, na němž zavoláme metodu emit(), která přes argument metody umožňuje předání (vypublikování) hodnot z vnořené do rodičovské komponenty.\cite{angulardev,learningangular}
+K předání hodnoty z~vnořené komponenty nejprve přidáme vnořené komponentě název výstupu v kulatých závorkách a~obslužnou metodu, která se vykoná po předání vlastnosti. 
+Posléze definujeme @Output ve vnořené komponentě, na němž zavoláme metodu emit(), která přes argument metody umožňuje předání (vypublikování) hodnot z~vnořené do rodičovské komponenty.\cite{angulardev,learningangular}
 
 \begin{prog}
 import \{ CommonModule \} from '@angular/common';

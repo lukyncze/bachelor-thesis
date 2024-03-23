@@ -74,7 +74,7 @@ Pro komunikaci mezi komponentami slouží mechanismus předávání vlastností.
 K předání vlastnosti do vnořené komponenty využijeme HTML atribut, pomocí kterého získáme danou hodnotu ve vnořené komponentě.  
 Uvnitř vnořené komponenty vytvoříme stejnojmennou vlastnost s~klíčovým slovem export.
 
-V případě, že chceme předávat aktualizovanou vlastnost z vnořené do rodičovské komponenty, je třeba vytvořit vlastnost již na rodiči. 
+V případě, že chceme předávat aktualizovanou vlastnost z~vnořené do rodičovské komponenty, je třeba vytvořit vlastnost již na rodiči. 
 Následně ji předáme vnořené komponentě pomocí bind direktivy. Bind zajistí aktualizaci hodnoty stavu i~v rodičovké komponentě.\cite{svelte}
 
 \begin{prog}
@@ -169,7 +169,7 @@ Pro sofistikovanější práci se stavy slouží tzv. stores. V podstatě se jed
 Store je jednoduše objekt s~metodou subscribe, která umožní konzumentům dostat aktualizovaná data. 
 Jednodušší variantu pro získání aktuálních dat představuje použití znaku \$ před názvem proměnné. Svelte nám poskytuje hned několik podob storu. 
 Mezi ně patří writable a~readable stores, kde jediný rozdíl spočívá v možnosti aktualizace dat. 
-Pro stavy, které jsou odvozeny z jiných stores, existuje tzv. derived store. Svelte rovněž povoluje vytvořit i~vlastní store. 
+Pro stavy, které jsou odvozeny z~jiných stores, existuje tzv. derived store. Svelte rovněž povoluje vytvořit i~vlastní store. 
 % Store je možné používat i v klasických JS filech, např pomocí subscribe... 
 
 Již zabudované globální úložiště můžeme jednoduše vytvořit pomocí metod writable, readable a~derived. Writable požaduje jako argument počáteční hodnotu. 

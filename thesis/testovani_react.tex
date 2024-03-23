@@ -281,7 +281,7 @@ const useAutosizeTextArea = (
 \};
 \end{prog}
 
-V Translator komponentě potřebujeme ukládat vstupní hodnotu a~výstupní jazyk z vnořených komponent. 
+V Translator komponentě potřebujeme ukládat vstupní hodnotu a~výstupní jazyk z~vnořených komponent. 
 Dále při každé změně těchto hodnot odešleme dotaz na Microsoft Translator Text API \cite{translatortextapi}, k~čemuž využijeme \emph{useEffect}.
 V rámci hooku definujeme asynchronní funkci \emph{handleTranslation}, která pomocí fetch API odešle korektní HTTP POST požadavek na server. 
 Pokud bychom definovali funkci mimo \emph{useEffect}, museli bychom ji přidat do pole závislostí hooku.
@@ -370,8 +370,8 @@ Vytvoříme komponentu pro jednoduchou investiční kalkulaci.
 V rámci této komponenty naprogramujeme formulář pro zadání vstupních dat a~komponentu výsledku kalkulace, která se zobrazí po potvrzení formuláře.
 
 Začneme s~reaktivním fomulářem, který bude přijímat počáteční hodnoty (\emph{defaultValues}) a~callback funkci \emph{handleFormSubmit} pro předání hodnot formuláře do rodičovské komponenty. 
-Strukturu formuláře popíšeme v typu \emph{InvestFormData}. Pomocí hooku \emph{useForm} z knihovny React Hook Form vytvoříme instanci formuláře, které předáme \emph{defaultValues} a~nastavíme reaktivní validaci. 
-Následně z hooku dostameme funkce \emph{register}, \emph{handleSubmit} a~\emph{formState}, které poslouží ke správě formuláře.
+Strukturu formuláře popíšeme v typu \emph{InvestFormData}. Pomocí hooku \emph{useForm} z~knihovny React Hook Form vytvoříme instanci formuláře, které předáme \emph{defaultValues} a~nastavíme reaktivní validaci. 
+Následně z~hooku dostameme funkce \emph{register}, \emph{handleSubmit} a~\emph{formState}, které poslouží ke správě formuláře.
 
 \begin{prog}
 // Část souboru types.ts
@@ -392,10 +392,10 @@ const \{
 \} = useForm<InvestFormData>(\{defaultValues, mode: 'onChange'\});
 \end{prog}
 
-Následně do JSX přidáme form s~\emph{onSubmit} atributem, kterému předáme funkci \emph{handleSubmit} z React Hook Form. Do \emph{handleSubmit} pak vložíme vstup \emph{handleFormSubmit} v rámci nějž získáme aktuální hodnoty formuláře. 
+Následně do JSX přidáme form s~\emph{onSubmit} atributem, kterému předáme funkci \emph{handleSubmit} z~React Hook Form. Do \emph{handleSubmit} pak vložíme vstup \emph{handleFormSubmit} v rámci nějž získáme aktuální hodnoty formuláře. 
 Ve formuláři vytvoříme formulářové prvky, které propojíme s~reaktivním formulářem pomocí funkce \emph{register}. První argument představuje název formulářového prvku, druhý argument je validační objekt. 
 V rámci range inputu potřebujeme HTML atributy min a~max, díky kterým omezíme rozsah vstupních hodnot. Abychom mohli měli přístup k~aktuální hodnotě range inputu, využijeme vlastnost \emph{value} a~\emph{onChange}. 
-Chyby formuláře získáme z \emph{formState} a~vykreslíme je pod formulářovými prvky. V neposlední řadě přidáme tlačítko s~typem submit, které zajistí odeslání formuláře a~zavolání callback funkce \emph{handleFormSubmit}.
+Chyby formuláře získáme z~\emph{formState} a~vykreslíme je pod formulářovými prvky. V neposlední řadě přidáme tlačítko s~typem submit, které zajistí odeslání formuláře a~zavolání callback funkce \emph{handleFormSubmit}.
 
 \begin{prog}
 // Část souboru InvestForm.tsx
@@ -468,10 +468,10 @@ V následující sekci vytvoříme webovou hru, ve které je cílem uživatele u
 Postupně se bude odkrývat 8 nápovědí, které by měly pomoci s~uhádnutím daného státu. Klíčovým prvkem je textové pole, přes které uživatel zadává názvy hádaných zemí a~tlačítko pro potvrzení. 
 Součástí také bude seznam zemí, které uživatel hádal a~modální okna sloužící k~vyhodnocení hry.
 
-Začneme s~implementací rodičovské komponenty, která získá země z REST Countries API \cite{restcountriesapi}. Naprogramujeme hook \emph{useAllCountries}, který bude vracet data (\emph{countries}), chybu a~stav načítání. 
+Začneme s~implementací rodičovské komponenty, která získá země z~REST Countries API \cite{restcountriesapi}. Naprogramujeme hook \emph{useAllCountries}, který bude vracet data (\emph{countries}), chybu a~stav načítání. 
 V rámci \emph{useEffect} zavoláme asynchronní funkci \emph{fetchCountriesData}. Uvnitř funkce \emph{fetchCountriesData} zavoláme funkci \emph{getAllCountries}. 
 Ve funkci \emph{getAllCountries} využijeme knihovnu \emph{axios} \cite{axioslib} a~převzatou funkci \emph{requestHandler} \cite{axiosrequesthandler}. 
-Balíček \emph{axios} slouží jako HTTP klient pro tvorbu asynchronních dotazů, zatímco \emph{requestHandler} umožňuje otypování příchozí odpovědi. Po ošetření chyb aktualizujeme patřičné stavy, které následně z hooku vrátíme. 
+Balíček \emph{axios} slouží jako HTTP klient pro tvorbu asynchronních dotazů, zatímco \emph{requestHandler} umožňuje otypování příchozí odpovědi. Po ošetření chyb aktualizujeme patřičné stavy, které následně z~hooku vrátíme. 
 
 \begin{prog}
 // Část souboru useAllCountries.ts
@@ -516,7 +516,7 @@ axiosRetry(axios, \{
 \end{prog}
 
 Následně v rámci rodičovské komponenty podmíněně vykreslíme dané komponenty. V případě chyby komponentu ErrorAlert. Pokud ze serveru úspěšně dostaneme země, tak vykreslíme komponentu CountryGuesser. 
-Pokud nevykreslíme ani jednu z předchozích komponent, zobrazíme LoadingSkeleton.
+Pokud nevykreslíme ani jednu z~předchozích komponent, zobrazíme LoadingSkeleton.
 
 \begin{prog}
 // Část souboru CountryGuesserWrapper.tsx
@@ -572,10 +572,10 @@ Ovládání formulářového prvku pomocí klávesnice umožní funkce \emph{han
 Pomocná funkce \emph{updateGuessAndFilteredCountries} získá aktuálně filtrované země na základě uživatelova tipu. Následně aktualizuje stavy \emph{currentGuess}, \emph{isValidGuess} a~\emph{filteredCountries}. 
 Funkce \emph{clampSelectedGuessIndex} zajistí, aby index uživatelem vybrané země byl v požadovaném rozmezí (0 až počet filtrovaných zemí). 
 Pro aktualizaci vlastnosti \emph{selectedGuessIndex} slouží funkce \emph{changeSelectedGuessIndex}, která index aktualizuje o~hodnotu předanou v argumentu.
-V neposlední řadě funkce \emph{convertToFormattedGuess} převede tip uživatele tak, aby začínal velkým písmenem a~zbytek řetezce byl složen z malých písmen.
+V neposlední řadě funkce \emph{convertToFormattedGuess} převede tip uživatele tak, aby začínal velkým písmenem a~zbytek řetezce byl složen z~malých písmen.
 
 Ke zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a~\emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
-Jde o~uživatelem hádané země s~vlajkou a~vzdáleností od \emph{randomCountry}. K~převodu využijeme JS funkce z jiného souboru. 
+Jde o~uživatelem hádané země s~vlajkou a~vzdáleností od \emph{randomCountry}. K~převodu využijeme JS funkce z~jiného souboru. 
 K vypočtení vzdálenosti použijeme knihovnu \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která obsahuje funkci \emph{getDistanceBetweenTwoPoints}. 
 Jednotlivé prvky pole \emph{enrichedGuessedCountries} pak vykreslíme v rámci JSX.
 
@@ -670,7 +670,8 @@ function AppLayout() \{
 \end{prog}
 
 V hlavičce aplikace se budou nacházet odkazy na jednotlivé stránky. My se inspirujeme architekturou a~vzhledem navigačního menu Flowbite. 
-V rámci komponenty Header vypíšeme všechny cesty aplikace pomocí komponenty \emph{NavLink} z knihovny \emph{react-router-dom}. NavLink umožňuje v rámci atributu \emph{className} přistoupit k~vlastnosti \emph{isActive}, která indikuje, zda je cesta odkazu aktivní. 
+V rámci komponenty Header vypíšeme všechny cesty aplikace pomocí komponenty \emph{NavLink} z~knihovny \emph{react-router-dom}. 
+NavLink umožňuje v rámci atributu \emph{className} přistoupit k~vlastnosti \emph{isActive}, která indikuje, zda je cesta odkazu aktivní. 
 Vlastnosti \emph{isActive} tedy využijeme pro podmíněné přidání CSS stylů. Pro korektní nastavení aria-current atributu, v závislosti na aktuální URL, použijeme hook \emph{useLocation}, který vrací aktuální URL.
 
 \begin{prog}

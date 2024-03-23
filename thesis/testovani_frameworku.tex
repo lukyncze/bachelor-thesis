@@ -5,14 +5,14 @@ Následně vytvoříme demonstrační aplikaci, která bude obsahovat stejné fu
 V poslední části srovnáme implementaci aplikací, identifikujeme přednosti a~nedostatky použitých frameworků.
 
 Do této kapitoly zahrneme frameworky Angular, React a~Svelte. V rámci analýzy se tyto technologie jevily jako nejvhodnější k~dalšímu zkoumání a~srovnání, jelikož jde o~nástroje velmi odlišné. 
-Naopak framework Vue byl z praktické části vyloučen. Odlišoval se od ostatních především v rámci vývojových aspektů. 
+Naopak framework Vue byl z~praktické části vyloučen. Odlišoval se od ostatních především v rámci vývojových aspektů. 
 Technologie například toleruje využití neimportovaných komponent a~programátorovi nezobrazí kompilační chybu. 
 Vue je také převážně orientováno na čínský trh, což může komplikovat řešení problémů a~hledání informací vývojářům mimo Čínu.
 
 \subsection{Návrh aplikace}
 
 Začneme návrhem aplikace, kterou posléze implementujeme pomocí vybraných technologií. 
-Webová aplikace bude složena z podstránek, které zobrazí navrhnuté funkcionality. 
+Webová aplikace bude složena z~podstránek, které zobrazí navrhnuté funkcionality. 
 Do podstránek zahrneme jednoduchý čítač, rozbalovací menu, překladač, formulář a~webovou hru. 
 Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybraných frameworků.
 
@@ -32,7 +32,7 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 	\begin{cenumerate}
 		\item Komponenta bude zobrazovat rozbalovací menu.
 		\item Po kliknutí na menu se zobrazí seznam položek.
-		\item Uživatel bude mít možnost vybrat jednu z položek, nebo zavřít menu.
+		\item Uživatel bude mít možnost vybrat jednu z~položek, nebo zavřít menu.
 		\item Aktuálně vybraná položka bude zobrazena v obsahu rozbalovacího menu.
 	\end{cenumerate}
 
@@ -81,7 +81,7 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 	\item Webová aplikace bude uživatelsky přívětivá.
 	\item Webová aplikace bude responzivní a~bude se správně zobrazovat na různých zařízeních.
 	\item Implementace bude dodržovat principy čistého kódu, také principy KISS, DRY a~SOLID.
-	\item Aplikace bude získávat data z veřejných API.
+	\item Aplikace bude získávat data z~veřejných API.
 	\item Při implementaci budeme dbát na použití moderních technologií a~nástrojů.
 	\item Budou využity open source knihovny, nástroje a~ikony. 
 \end{citemize}
@@ -138,13 +138,13 @@ Příklad instalací nalezneme v Tabulce \ref{tab:frameworkinstall}.
 % s čím se jak pracovalo, velikosti souborů, řádky, jak pomohla dokumentace
 
 V této podkapitole se zaměříme na srovnání aspektů implementace aplikací v rámci vybraných frameworků. 
-Cílem je provést detailnější srovnání s~ohledem na poznatky z provedených implementací. 
+Cílem je provést detailnější srovnání s~ohledem na poznatky z~provedených implementací. 
 
 Využití Angularu při implementaci aplikace se vyznačovalo objektově orientovaným přístupem, který umožňuje využít například výhodu zapouzdření. 
 Nespornou výhodu tvořila modularita frameworku, která podporuje rozšiřitelnost a~robustnost aplikace. 
 Framework poskytuje nativní podporu pro router, formuláře, validace a~mnoho dalších funcionalit, čímž snižuje závislost na třetích stranách. 
 Angular, dle autora práce, oproti ostatním frameworkům nabízí intuitivnější syntax pro podmíněné vykreslení v šabloně. 
-Framework také disponuje řadou metod životního cyklu, což může být výhodou. Na druhou stranu začátečník může být z množství metod životního cyklu zmatený. 
+Framework také disponuje řadou metod životního cyklu, což může být výhodou. Na druhou stranu začátečník může být z~množství metod životního cyklu zmatený. 
 U stylování komponent Angular rozlišuje statické a~dynamické styly, což umožňuje lepší organizaci a~přehlednost. 
 Při implementaci rozhodně nemůžeme opomenout Angular CLI, jenž zjednodušuje opakující se operace v rámci vývoje. 
 Jako výhodu také můžeme uvést podporu jazyka TypeScript již v základu. 
@@ -155,7 +155,7 @@ Programátor rovněž musí počítat s~tím, že Angular generuje element dané
 Angular neposkytuje možnost použití destrukturování při předávání vlastností. 
 Tím pádem je třeba vždy předat všechny vlastnosti zvlášť nebo je uložit ve vhodnější datové struktuře (např. objektu).
 Běhěm vývoje jsme také narazili na problém s~neinicializováním vstupních vlastností, což může být problematické. 
-Problém je řešitelný dvěma způsoby, z nichž ani jeden není zcela ideální.
+Problém je řešitelný dvěma způsoby, z~nichž ani jeden není zcela ideální.
 
 % Angular:
 % + OOP přístup (lze použít např. zapouzdření...)

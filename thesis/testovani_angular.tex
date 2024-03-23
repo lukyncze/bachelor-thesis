@@ -132,7 +132,7 @@ V rámci této metody je třeba zavolat i~\emph{event.stopPropagation()}. Přede
 </div>
 \end{prog}
 
-Podmíněně pak můžeme vypsat list možností, které získáme v jednom z inputů. Pro vypsání všech možností použijeme blok \emph{@for}. 
+Podmíněně pak můžeme vypsat list možností, které získáme v jednom z~inputů. Pro vypsání všech možností použijeme blok \emph{@for}. 
 K vybraní konkrétní možnosti použijeme zase \emph{(click)} a~do obslužné metody pošleme aktuální prvek v poli -- option. 
 Metoda \emph{handleOptionClick} pak zajistí uložení aktuálně vybrané možnosti, zavření dropdownu a~vyemitování vybrané možnosti do rodičovské komponenty.
 
@@ -203,7 +203,7 @@ V rámci této komponenty vytvoříme vnořené komponenty, které budou slouži
 
 LanguageDropdownComponent umožní uživateli vybrat jazyk, do kterého chce přeložit text. 
 Přes \emph{EventEmitter} aktualizujeme výstupní jazyk v rodičovské komponentě. V rámci obslužné metody \emph{handleLanguageChange} pak také aktualizujeme hodnotu vlastnosti \emph{inputValuesChanges\$}.
-Tato vlastnost je \emph{Subject}, speciální typ observable, z knihovny RxJS. Později dovolí na základě změny hodnoty poslat dotaz na server ve správný moment. 
+Tato vlastnost je \emph{Subject}, speciální typ observable, z~knihovny RxJS. Později dovolí na základě změny hodnoty poslat dotaz na server ve správný moment. 
 Podobným způsobem poté můžeme registrovat událost změny vstupního textu -- naslouchat na změnu vstupního textu.
 % TODO: Přidat schéma
 
@@ -263,7 +263,7 @@ private setupInputChangeSubscription(): void \{
 \}
 \end{prog}
 
-V rámci služby TranslationService použijeme třídu \emph{HttpClient} z Angular modulů, která umožňuje odesílat HTTP požadavky na server.
+V rámci služby TranslationService použijeme třídu \emph{HttpClient} z~Angular modulů, která umožňuje odesílat HTTP požadavky na server.
 Službu \emph{HttpClient} získáme v konstruktoru, kde ji pomocí klíčového slova \emph{private} přiřadíme do vlastností třídy. 
 Pokračujeme implementací metody \emph{getTranslation}, v níž zavoláme metodu \emph{post} na HTTP klientovi s~patřičným nastavením. 
 Tímto způsobem budeme dotazovat Microsoft Translator Text API \cite{translatortextapi}, díky kterému v odpovědi obdržíme přeložený text. 
@@ -338,7 +338,7 @@ Důvod spočívá v tom, že Angular v DOMu vytváří element pro každou kompo
   \textbf{Tvorba formulářů, validace}
 \end{flushleft}
 
-Angular je flexibilní z pohledu možností tvorby formulářů. My použijeme reaktivní formuláře, jelikož jsou flexibilnější a~umožní nám jednodušší reakce na změny prvků.
+Angular je flexibilní z~pohledu možností tvorby formulářů. My použijeme reaktivní formuláře, jelikož jsou flexibilnější a~umožní nám jednodušší reakce na změny prvků.
 Vytvoříme komponentu zaměřenou na jednoduché investiční kalkulace. 
 Bude obsahovat dvě vnořené komponenty: formulář pro zadání vstupních dat a~komponentu výsledku kalkulace, která se zobrazí po potvrzení formuláře.
 
@@ -429,12 +429,12 @@ Pro zajištění efektivní obsluhy chyb formuláře můžeme využít getter me
 Dále vytvoříme tlačítko s~typem submit, přes které uživatel formulář potvrdí. Na form značku přidáme \emph{(ngSubmit)}, který vyemituje událost při potvrzení formuláře. 
 Obslužná metoda pak prostřednictvím výstupové vlastnosti publikuje aktuální hodnotu reaktivního formuláře do rodičovské komponenty.
 
-V rámci rodičovské komponenty tedy vykreslíme samotný formulář a~při jakémkoli potvrzení formuláře získáme aktuální hodnoty z formuláře díky outputu. 
+V rámci rodičovské komponenty tedy vykreslíme samotný formulář a~při jakémkoli potvrzení formuláře získáme aktuální hodnoty z~formuláře díky outputu. 
 Hodnoty formuláře pak dostaneme v obslužné metodě \emph{handleFormChanged}. Pomocí služby FutureValuesCalculatorService tyto hodnoty transformujeme do požadovaného formátu. 
 Výsledek uložíme do vlastnosti \emph{futureValues}.
 
 Když jsou hodnoty vypočteny, vykreslíme je na stránce prostřednictvím komponent future-values-info a~future-value-info. 
-První z komponent slouží k~rozložení výsledků do požadovaného formátu a~vytvoření komponent pro jednotlivé výsledky. 
+První z~komponent slouží k~rozložení výsledků do požadovaného formátu a~vytvoření komponent pro jednotlivé výsledky. 
 Komponenta future-value-info pak přijímá vstupní vlastnost, kterou v šabloně před vykreslením v DOM přetransformujeme díky rouře (\emph{LocalizedNumberPipe}).
 
 \begin{prog}
@@ -469,7 +469,7 @@ Ve hře se postupně bude odkrývat 8 nápovědí, které by měly pomoct s~uhá
 Klíčovým prvkem je textové pole, přes které uživatel zadává názvy hádaných zemí a~tlačítko pro potvrzení. 
 Součástí je také seznam již zadaných hádaných zemí a~modální okna sloužící k~vyhodnocení hry.
 
-Začneme s~implementací rodičovské komponenty, která bude získávat data o~všech zemích světa z REST Countries API \cite{restcountriesapi}. 
+Začneme s~implementací rodičovské komponenty, která bude získávat data o~všech zemích světa z~REST Countries API \cite{restcountriesapi}. 
 Další zodpovědností této komponenty bude vykreslování odpovídajících stavů při získávání dat -- stav načítání, úspěšné získání dat a~chyba při získávání dat. 
 Vytvoříme službu CountryService, díky které získáme data o~zemích. Pro tyto účely vytvoříme metodu \emph{getAllCountries}, která vrátí observable pole všech zemí. 
 Výsledek registrace služby a~přímé zavolání metody \emph{getAllCountries} uložíme do vlastnosti třídy.
@@ -481,7 +481,7 @@ protected countries\$: Observable<Countries>
   = inject(CountryService).getAllCountries();
 \end{prog}
 
-V šabloně posléze potřebujeme odebírat hodnotu z observable. Práci v šabloně výrazně ulehčí knihovna \emph{ngx-load-with} \cite{ngxloadwith}. 
+V šabloně posléze potřebujeme odebírat hodnotu z~observable. Práci v šabloně výrazně ulehčí knihovna \emph{ngx-load-with} \cite{ngxloadwith}. 
 Tato knihovna poskytuje integrovanou podporu načítání a~zpracování chyb. To programátorovi umožní využívat předdefinované šablony pro dané stavy bez nutnosti další implementace. 
 Navíc se programátor nemusí starat o~zrušení odběru observable.
 
@@ -513,7 +513,7 @@ Dále zde zavoláme veřejnou metodu \emph{usePolyfill} na službě CountryFlagP
 Do komponenty také přidáme obslužné metody \emph{handleEvaluateGuessAndUpdateState} a~\emph{handleSetInitialState}, ve kterých implementujeme logiku hry. 
 V šabloně následně vykreslíme UI komponenty hry a~podmíněně modální okna při výhře či prohře.
 
-V metodě \emph{usePolyfill} služby CountryFlagPolyfillService zavoláme funkci \emph{polyfillCountryFlagEmojis} z knihovny \emph{country-flag-emoji-polyfill} \cite{countryflagemojipolyfill}. 
+V metodě \emph{usePolyfill} služby CountryFlagPolyfillService zavoláme funkci \emph{polyfillCountryFlagEmojis} z~knihovny \emph{country-flag-emoji-polyfill} \cite{countryflagemojipolyfill}. 
 Pokud prohlížeč uživatele nepodporuje zobrazení ikon vlajek, ale podporuje emojis a~webové fonty, skrze funkci \emph{polyfillCountryFlagEmojis} knihovna přidá webový font do HTML hlavičky. 
 Font Twemoji Country Flags pak umožní zobrazení vlajek. Aby se programaticky přidaný font použil, nesmíme zapomenout nastavit font-family pravidlo v rámci CSS stylů.
 
@@ -539,7 +539,7 @@ Můžeme také rovnout přidat obslužné metody pro akce a~události nad formul
 V souboru \emph{country-guess-input.component.ts}, tedy v rámci třídy CountryGuessInputComponent, při změně vstupních vlastností (v hooku \emph{OnChanges}) aktualizujeme vlastnost \emph{countriesWithoutAlreadyGuessed} a~\emph{filteredCountries}. 
 V případě první vlastnosti jde o~pole všech zemí bez těch, které uživatel již hádal. Druhá vlastnost poté představuje pole počátečních 8 prvků vlastnosti \emph{countriesWithoutAlreadyGuessed}. 
 Metoda \emph{handleGuessButtonClick} zavolá obslužnou metodu rodičovské komponenty, která vyhodnotí tip a~aktualizuje stav hry. 
-Aktualizujeme také hodnoty aktuálního tipu, filtrovaných zemí a~uzavřeme podmenu, k~čemuž slouží metoda \emph{handleChangeSelectedGuess} volaná i~napřímo z šablony. 
+Aktualizujeme také hodnoty aktuálního tipu, filtrovaných zemí a~uzavřeme podmenu, k~čemuž slouží metoda \emph{handleChangeSelectedGuess} volaná i~napřímo z~šablony. 
 Tělo metody \emph{handleInputChange} převede uživatelům tip do správného formátu a~pomocí převedené hodnoty aktualizuje aktuální tip spolu s~filtrovanými zeměmi.
 Metoda \emph{handleKeyDown} se postará o~interakce s~podmenu pomocí klávesnice. Skrze šipky nahoru a~dolů povolíme uživateli vybrat hádanou zemi. 
 Enter umožní změnu aktuálního tipu názvu země na právě tu, kterou uživatel označil v podmenu. Escape poslouží k~uzavření podmenu.
@@ -551,14 +551,14 @@ V neposlední řadě se metoda stará i~o aktualizaci vlastnosti \emph{selectedG
 K tomu slouží metoda \emph{clampSelectedGuessIndex}, která index udrží v požadovaném rozmezí (0 až počet filtrovaných zemí).
 Metoda \emph{getFilteredCountries} získává filtrované země na základě vlastnosti \emph{currentGuess}. 
 Pomocná metoda \emph{changeSelectedGuessIndex} aktualizuje vlastnost \emph{selectedGuessIndex} o~hodnotu předanou v argumentu. 
-K převodu tipu uživatele slouží pomocná metoda \emph{convertToFormattedGuess}. Metoda zajistí, aby tip začínal velkým písmenem a~zbytek řetezce byl složen z malých písmen.
+K převodu tipu uživatele slouží pomocná metoda \emph{convertToFormattedGuess}. Metoda zajistí, aby tip začínal velkým písmenem a~zbytek řetezce byl složen z~malých písmen.
 
 Implementujeme komponentu guessed-countries-list, jenž zobrazí seznam již hádaných zemí. 
 Mezi vstupními vlastnostmi bude pole všech zemí (\emph{countries}), pole hádaných zemí uživatelem (\emph{guessedCountries}) a~také země, kterou uživatel musí uhodnout (\emph{randomCountry}).
 Pomocí vstupních vlastností a~služby EnrichGuessedCountriesService získáme pole hádaných zemí s~jejich vlajkou a~vzdáleností od \emph{randomCountry} (\emph{distanceFromRandomCountry}).
-Služba EnrichGuessedCountriesService ke každé hádané zemi přidá vlajku z pole všech zemí a~vypočte \emph{distanceFromRandomCountry}. 
+Služba EnrichGuessedCountriesService ke každé hádané zemi přidá vlajku z~pole všech zemí a~vypočte \emph{distanceFromRandomCountry}. 
 Pro vypočtení vzdálenosti použijeme funkci \emph{getDistanceBetweenTwoPoints} a~vlastnost \emph{latlng}, kterou získáme ze serveru při získávání všech zemí. 
-Funkci \emph{getDistanceBetweenTwoPoints} importujeme z knihovny \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}. 
+Funkci \emph{getDistanceBetweenTwoPoints} importujeme z~knihovny \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}. 
 Hodnotu vlastnosti \emph{enrichedGuessedCountries} aktualizujeme v rámci hooku \emph{OnChanges}. Seznam hádaných zemí následně vykreslíme v šabloně.
 
 Pokračujeme implementací modálních oken, které se zobrazí při výhře či prohře. 
@@ -573,7 +573,7 @@ BaseModalComponent bude přijímat titulek, obsah modálního okna a~\emph{handl
   \textbf{Routování a layout aplikace}
 \end{flushleft}
 
-Demonstrační aplikace bude složena z hlavičky, patičky a~samotného obsahu, v němž se vykreslí jednotlivé komponenty. 
+Demonstrační aplikace bude složena z~hlavičky, patičky a~samotného obsahu, v němž se vykreslí jednotlivé komponenty. 
 Mezi jednotlivými stránkami se uživatel bude moct přepínat pomocí navigačního menu.
 
 K routování mezi jednotlivými stránkami využijeme modul Router přímo od Angularu. Nejprve vytvoříme cesty (\emph{routes}) pro jednotlivé stránky v souboru \emph{app.routes.ts}. 

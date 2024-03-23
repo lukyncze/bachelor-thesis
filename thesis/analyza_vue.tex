@@ -9,7 +9,7 @@
 
 Vue dostalo svůj název díky anglickému slovu view. Jedná se o~deklarativní JavaScriptový open-source framework. 
 Je určen k~efektivní tvorbě jak jednoduchých, tak i~komplexních uživatelských rozhraní na webu. 
-Framework je v současné době jedním z nejpopulárnějších frameworků pro tvorbu webových aplikací.\cite{vuemacrae,vue}
+Framework je v současné době jedním z~nejpopulárnějších frameworků pro tvorbu webových aplikací.\cite{vuemacrae,vue}
 
 \begin{figure}[htb]
 	\centering
@@ -84,7 +84,7 @@ Komponenty spolu komunikují pomocí předávání vlastností. V rodičovské k
 Uvnitř vnořené komponenty pak definujeme props vlastnost, kterou vytvoříme pomocí funkce defineProps. 
 DefineProps funkce vyžaduje objekt s~názvem a~datovým typem předávané vlastnosti.
 
-Pro předání vlastnosti z vnořené do rodičovské komponenty se využívá tzv. emitování eventů. 
+Pro předání vlastnosti z~vnořené do rodičovské komponenty se využívá tzv. emitování eventů. 
 V potomku vytvoříme vlastnost emit, v níž nadeklarujeme pole emitovaných hodnot pomocí funkce defineEmits. Dále je třeba definovat jednotlivé emity. 
 První argumentem je název emitu, další argumenty jsou již předávané hodnoty. Rodičovská komponenta musí naslouchat na emitované eventy. 
 Toho lze docílit pomocí @response direktivy, která typicky v callback funkci přeukládá argumenty na lokalní stavy.\cite{vuemacrae,vue}
@@ -169,7 +169,7 @@ Po dokončení zničení se pak volá unmounted.\cite{vuemacrae,vue}
 Framework Vue v sobě nemá implementovaný žádný sofistikovaný state management. 
 K základní práci se stavy aplikace poslouží reaktivní stavy jednotlivých komponent a~jejich sdílení ve stromě komponent.
 
-Pro komplexnější aplikace je třeba využít některou z knihoven třetích stran. Dokumentace doporučuje knihovnu Pinia, o~kterou se starají vývojáři samotného Vue. 
+Pro komplexnější aplikace je třeba využít některou z~knihoven třetích stran. Dokumentace doporučuje knihovnu Pinia, o~kterou se starají vývojáři samotného Vue. 
 Pinia je inspirována Vuex a~využívá principu Composition API. Tato knihovna nabízí jednoduché API pro správu stavů v aplikaci. 
 Hlavním prvkem jsou tzv. stores, do kterých ukládáme globální stavy aplikace. 
 Store vytvoříme pomocí funkce defineStore, která požaduje identifikátor daného store a~callback funkci. 

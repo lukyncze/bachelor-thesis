@@ -14,7 +14,7 @@ Prvním krokem k~vytvoření jednoduchého čítače bude definice komponenty Co
 </script>
 \end{prog}
 
-Dále vytvoříme komponentu Button z důvodu dodržování principu DRY a~efektivnějšímu znovupoužití kódu v budoucnu.
+Dále vytvoříme komponentu Button z~důvodu dodržování principu DRY a~efektivnějšímu znovupoužití kódu v budoucnu.
 Komponenta bude přijímat vlastnosti \emph{className} a~\emph{onClick}. \emph{ClassName} rozšíří CSS třídy tlačítka a~\emph{onClick} bude obsahovat obslužnou funkci, která se zavolá při kliknutí na tlačítko.
 Nyní do šablony přidáme tlačítko a~předáme mu vlastnosti \emph{className} a~\emph{onClick}.
 Svelte umožňuje zachytit všechny nedefinované vlastnosti do proměnné \emph{\$\$restProps}. Proměnnou \emph{\$\$restProps} tedy pomocí spread operátoru předáme tlačítku a~tím jej obohatíme o~další vlastnosti. 
@@ -307,7 +307,7 @@ V rámci této sekce vytvoříme komponentu pro jednoduchou investiční kalkula
 Komponenta InvestForm bude obsahovat formulář pro zadání vstupních hodnot a~komponentu FutureValuesInfo pro zobrazení výsledků kalkulace.
 
 Začneme implementací reaktivního formuláře, který bude přijímat počáteční hodnoty (\emph{defaultValues}) a~\emph{investFormData} k~předávání hodnot formuláře do rodičovské komponenty. 
-Strukturu formuláře popíšeme v typu \emph{InvestFormData}. Pomocí funkce \emph{createForm} z knihovny \emph{svelte-forms-lib} vytvoříme instanci formuláře, které předáme \emph{defaultValues} do vlastnosti \emph{initialValues}. 
+Strukturu formuláře popíšeme v typu \emph{InvestFormData}. Pomocí funkce \emph{createForm} z~knihovny \emph{svelte-forms-lib} vytvoříme instanci formuláře, které předáme \emph{defaultValues} do vlastnosti \emph{initialValues}. 
 V rámci nastavení formuláře také definujeme validační schéma pomocí knihovny \emph{yup} \cite{yuplibrary} a~\emph{onSubmit} obslužnou funkci. 
 Knihovnu yup volíme, jelikož je jedinou kompatibilní možností s~knihovnou \emph{svelte-forms-lib} ve verzi 2.0.1. 
 % vlastnost validationSchema musí být typu ObjectSchema<any>, který je definován jen a pouze v knihovně yup:
@@ -347,7 +347,7 @@ Z \emph{createForm} následně získáme obslužné funkce \emph{handleChange} a
 
 Do šablony přidáme form s~\emph{on:submit} událostí, které předáme \emph{handleSubmit}. Pokračujeme vytvořením formulářových prvků. 
 Jednotlivé prvky propojíme s~reaktivním formulářem pomocí \emph{bind:value} a~události \emph{on:change}, do které přiřadíme funkci \emph{handleChange}. 
-Chyby formuláře získáme z \emph{errors} a~vykreslíme je pod formulářovými prvky. 
+Chyby formuláře získáme z~\emph{errors} a~vykreslíme je pod formulářovými prvky. 
 V neposlední řadě přidáme tlačítko s~typem submit, které se postará o~odeslání formuláře a~zavolání obslužné funkce \emph{onSubmit}.
 
 \begin{prog}
@@ -419,7 +419,7 @@ Nyní vytvoříme webovou hru, ve které bude úkolem uživatele uhádnout náze
 V rámci hry se postupně odkryje 8 nápovědí, které uživateli pomohou uhádnout název daného státu. Mezi klíčovými prvky bude textové pole pro zadání názvu země a~potvrzovací tlačítko. 
 Dále ve hře bude seznam zemí, které uživatel hádal a~modální okna pro vyhodnocení hry.
 
-Začneme implementací rodičovské komponenty, jejíž úkolem bude získat země z REST Countries API \cite{restcountriesapi}. 
+Začneme implementací rodičovské komponenty, jejíž úkolem bude získat země z~REST Countries API \cite{restcountriesapi}. 
 K tomu využijeme balíčky \emph{axios} \cite{axioslib} a~\emph{@tanstack/svelte-query} \cite{tanstackquerylib}. 
 Knihovna \emph{@tanstack/svelte-query} umožní snadnou správu asynchronních operací. Její API poskytuje např. podporu načítacích i~chybových stavů, také rušení či opakování dotazů a~mnoho dalších funkcí. 
 Nejdříve inicializujeme \emph{svelte-query} klienta v rámci poskytovatele \emph{QueryClientProvider} v App.svelte.
@@ -480,7 +480,7 @@ export const getAllCountries = async () => \{
 \end{prog}
 
 V rámci rodičovské komponenty dostaneme výsledek dotazu a~uložíme jej do proměnné \emph{countries}. Následně pomocí vlastností \emph{isError} a~\emph{data} podmíněně vykreslíme jednotlivé komponenty. 
-V případě chyby zobrazíme komponentu ErrorAlert. Když úspěšně získáme pole zemí, vykreslíme komponentu CountryGuesser. LoadingSkeleton zobrazíme, pokud se nezobrazí žádná z předchozích komponent.
+V případě chyby zobrazíme komponentu ErrorAlert. Když úspěšně získáme pole zemí, vykreslíme komponentu CountryGuesser. LoadingSkeleton zobrazíme, pokud se nezobrazí žádná z~předchozích komponent.
 
 \begin{prog}
 // Soubor CountryGuesserWrapper.svelte
@@ -542,11 +542,11 @@ Funkce \emph{handleInputChange} převede tip uživatele do daného formátu, akt
 V pomocné funkci \emph{updateGuessAndFilteredCountries} nejprve získáme filtrované země podle uživatelova tipu. Následně aktualizujeme stavy \emph{currentGuess}, \emph{isValidGuess} a~\emph{filteredCountries}. 
 Funkce \emph{clampSelectedGuessIndex} zajistí, aby index vybrané země byl v požadovaném rozmezí (0 až počet filtrovaných zemí). 
 K modifikaci stavu \emph{selectedGuessIndex} použijeme funkci \emph{changeSelectedGuessIndex}, která index aktualizuje o~hodnotu předanou v argumentu. 
-Tip uživatele v rámci funkce \emph{convertToFormattedGuess} převedeme tak, aby začínal velkým písmenem a~zbytek řetezce byl složen z malých písmen.
+Tip uživatele v rámci funkce \emph{convertToFormattedGuess} převedeme tak, aby začínal velkým písmenem a~zbytek řetezce byl složen z~malých písmen.
 
 Pro zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. 
 Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a~\emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
-Jde o~uživatelem hádané země s~vlajkou a~vzdáleností od \emph{randomCountry}. K~převodu využijeme JS funkci z jiného souboru. 
+Jde o~uživatelem hádané země s~vlajkou a~vzdáleností od \emph{randomCountry}. K~převodu využijeme JS funkci z~jiného souboru. 
 Vzdálenost zemí vypočteme pomocí knihovny \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která exportuje funkci \emph{getDistanceBetweenTwoPoints}. 
 Proměnnou \emph{enrichedGuessedCountries} následně vykreslíme v rámci šablony.
 
