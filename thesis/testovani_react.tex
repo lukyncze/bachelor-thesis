@@ -669,7 +669,7 @@ function AppLayout() \{
 \}
 \end{prog}
 
-V hlavičce aplikace se budou nacházet odkazy na jednotlivé stránky. My se inspirujeme architekturou a~vzhledem navigačního menu Flowbite. 
+V hlavičce se budou nacházet odkazy na jednotlivé stránky. My se inspirujeme architekturou a~vzhledem navigačního menu Flowbite. 
 V rámci komponenty Header vypíšeme všechny cesty aplikace pomocí komponenty \emph{NavLink} z~knihovny \emph{react-router-dom}. 
 NavLink umožňuje v rámci atributu \emph{className} přistoupit k~vlastnosti \emph{isActive}, která indikuje, zda je cesta odkazu aktivní. 
 Vlastnosti \emph{isActive} tedy využijeme pro podmíněné přidání CSS stylů. Pro korektní nastavení aria-current atributu, v závislosti na aktuální URL, použijeme hook \emph{useLocation}, který vrací aktuální URL.
