@@ -4,7 +4,7 @@
   \textbf{Správa stavů, předávání vlastností}
 \end{flushleft}
 
-Při implementaci jednoduchého čítače začneme tím, že vytvoříme Counter komponentu. Ta bude mít stav \emph{count} a setter \emph{setCount} pro tento stav.
+Při implementaci jednoduchého čítače začneme tím, že vytvoříme Counter komponentu. Ta bude mít stav \emph{count} a~setter \emph{setCount} pro tento stav.
 
 \begin{prog}
 // Část souboru Counter.tsx
@@ -16,9 +16,9 @@ function Counter() \{
 export default Counter;
 \end{prog}
 
-Dále vytvoříme komponentu Button kvůli principu DRY a celkově znovupoužitelnosti kódu. 
-Typ \emph{ButtonProps} obsahuje vlastnosti, které můžeme tlačítku předat -- \emph{className}, \emph{onClick} a \emph{children}. 
-Díky tomu, že typ rozšiřuje \emph{ButtonHTMLAttributes<HTMLButtonElement>}, můžeme předat do komponenty i další běžné atributy HTML tlačítek (např. type, value, disabled).
+Dále vytvoříme komponentu Button kvůli principu DRY a~celkově znovupoužitelnosti kódu. 
+Typ \emph{ButtonProps} obsahuje vlastnosti, které můžeme tlačítku předat -- \emph{className}, \emph{onClick} a~\emph{children}. 
+Díky tomu, že typ rozšiřuje \emph{ButtonHTMLAttributes<HTMLButtonElement>}, můžeme předat do komponenty i~další běžné atributy HTML tlačítek (např. type, value, disabled).
 
 \begin{prog}
 // Část souboru Button.tsx
@@ -30,8 +30,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> \{
 \}
 \end{prog}
 
-V rámci argumentu Button komponenty použijeme ES6 destructuring assignment pro získání vlastností. 
-Z objektu vlastností získáme \emph{className} a \emph{children}, ostatní vlastnosti ponecháme zabalené v proměnné props pomocí spread operátoru. 
+V~rámci argumentu Button komponenty použijeme ES6 destructuring assignment pro získání vlastností. 
+Z~objektu vlastností získáme \emph{className} a~\emph{children}, ostatní vlastnosti ponecháme zabalené v~proměnné props pomocí spread operátoru. 
 Nyní můžeme vytvořit JSX pro samotné tlačítko. Vlastnost \emph{className} přidáme do tříd tlačítka. 
 Pomocí \emph{children} můžeme do tlačítka vložit libovolný obsah, který bude mezi párovými značkami <Button>. 
 Všechny ostatní vlastnosti pomocí spread operátoru předáme přímo tlačítku.
@@ -56,8 +56,8 @@ function Button(\{className, children, ...props\}: ButtonProps): JSX.Element \{
 export default Button;
 \end{prog}
 
-V Counter komponentě v rámci JSX vrátíme hodnotu stavu \emph{count} a vykreslíme Button komponenty, jimž předáme potřebné vlastnosti. 
-Pro aktualizaci stavu využijeme vlastnost \emph{onClick}, které předáme anonymní funkci (arrow function) a v ní zavoláme \emph{setCount}.
+V~Counter komponentě v~rámci JSX vrátíme hodnotu stavu \emph{count} a~vykreslíme Button komponenty, jimž předáme potřebné vlastnosti. 
+Pro aktualizaci stavu využijeme vlastnost \emph{onClick}, které předáme anonymní funkci (arrow function) a~v~ní zavoláme \emph{setCount}.
 
 \begin{prog}
 // Část souboru Counter.tsx
@@ -89,12 +89,12 @@ function Counter() \{
 \end{flushleft}
 
 Pro vytvoření jakékoliv UI komponenty můžeme začít tvořit jak JSX, definici komponenty, nebo znovupoužitelný hook. 
-V tomto případě, při vývoji komponenty rozevíracího seznamu, začneme naprogramováním vlastního hooku, který se odděleně postará o veškerou logiku seznamu.
+V~tomto případě, při vývoji komponenty rozevíracího seznamu, začneme naprogramováním vlastního hooku, který se odděleně postará o~veškerou logiku seznamu.
 
-Hook \emph{useDropdown} bude mít 2 parametry -- obslužnou funkci ke změně vybrané v možnosti v rodičovské komponentě (\emph{onChange}) a výchozí hodnotu vybrané možnosti (\emph{defaultValue}). 
-V rámci hooku nadefinujeme stavy \emph{selectedOption}, \emph{isOpen} a vygenerujeme unikátní identifikátor. 
-Dále vytvoříme funkci \emph{handleOptionClick}, která zajistí změnu vybrané možnosti, zavření seznamu a vypublikuje změnu hodnoty do rodičovské komponenty. 
-Z hooku vracíme potřebné stavy a funkce ve formě objektu nebo pole -- pole musíme označit jako \emph{const}.
+Hook \emph{useDropdown} bude mít 2 parametry -- obslužnou funkci ke změně vybrané možnosti v~rodičovské komponentě (\emph{onChange}) a~výchozí hodnotu vybrané možnosti (\emph{defaultValue}). 
+V~rámci hooku nadefinujeme stavy \emph{selectedOption}, \emph{isOpen} a~vygenerujeme unikátní identifikátor. 
+Dále vytvoříme funkci \emph{handleOptionClick}, která zajistí změnu vybrané možnosti, zavření seznamu a~vypublikuje změnu hodnoty do rodičovské komponenty. 
+Z~hooku vracíme potřebné stavy a~funkce ve formě objektu nebo pole -- pole musíme označit jako \emph{const}.
 
 \begin{prog}
 // Část souboru useDropdown.ts
@@ -124,8 +124,8 @@ function useDropdown(
 \}
 \end{prog}
 
-Pokračujeme tvorbou JSX komponenty Dropdown, kde vložíme tlačítko a seznam možností. Otevření možností zajistíme přidáním \emph{onClick} (což je vlastně \emph{MouseEventHandler}). 
-V anonymní funkci pak změníme stav pomocí \emph{isOpen} na opačnou hodnotu. Abychom předešli event bubblingu, v rámci anynomní obslužné funkce zavoláme \emph{event.stopPropagation()}.
+Pokračujeme tvorbou JSX komponenty Dropdown, kde vložíme tlačítko a~seznam možností. Otevření možností zajistíme přidáním \emph{onClick} (což je vlastně \emph{MouseEventHandler}). 
+V~anonymní funkci pak změníme stav pomocí \emph{isOpen} na opačnou hodnotu. Abychom předešli event bubblingu, v~rámci anynomní obslužné funkce zavoláme \emph{event.stopPropagation()}.
 
 \begin{prog}
 // Část souboru Dropdown.tsx
@@ -147,9 +147,9 @@ V anonymní funkci pak změníme stav pomocí \emph{isOpen} na opačnou hodnotu.
 </div>
 \end{prog}
 
-Seznam možností zobrazíme podmíněně na základě stavu \emph{isOpen}. Pro vykreslení možností seznamu (\emph{options}) použijeme JavaScriptovou funkci \emph{map} uvnitř JavaScriptové hodnoty v JSX. 
-V Reactu je důležité vždy při použití funkce \emph{map} nastavit unikátní klíč (\emph{key}) pro každou položku v seznamu. Tento klíč slouží k identifikaci jednotlivých prvků a optimalizaci procesu renderování. 
-Pro vybrání konkrétní možnosti použijeme \emph{onClick}, kterému předáme anonymní funkci. V anonymní funkci zavoláme funkci \emph{handleOptionClick} hooku \emph{useDropdown} s aktuální položkou ze seznamu.
+Seznam možností zobrazíme podmíněně na základě stavu \emph{isOpen}. Pro vykreslení možností seznamu (\emph{options}) použijeme JavaScriptovou funkci \emph{map} uvnitř JavaScriptové hodnoty v~JSX. 
+V~Reactu je důležité vždy při použití funkce \emph{map} nastavit unikátní klíč (\emph{key}) pro každou položku v~seznamu. Tento klíč slouží k~identifikaci jednotlivých prvků a~optimalizaci procesu renderování. 
+Pro vybrání konkrétní možnosti použijeme \emph{onClick}, kterému předáme anonymní funkci. V~anonymní funkci zavoláme funkci \emph{handleOptionClick} hooku \emph{useDropdown} s~aktuální položkou ze seznamu.
 
 \begin{prog}
 // Část souboru Dropdown.tsx
@@ -180,7 +180,7 @@ Pro vybrání konkrétní možnosti použijeme \emph{onClick}, kterému předám
 \end{prog}
 
 Abychom uzavřeli jakýkoli aktuálně otevřený rozbalovací seznam na stránce, po kliknutí mimo tento seznam, předáme kořenovému elementu dříve vytvořený unikátní identifikátor. 
-Do \emph{useDropdown} přidáme \emph{useEffect} a díky němu budeme naslouchat na události pointerdown v DOM. Obslužná funkce pak zajistí zavření aktuálně otevřeného dropdownu.
+Do \emph{useDropdown} přidáme \emph{useEffect} a~díky němu budeme naslouchat na události pointerdown v~DOM. Obslužná funkce pak zajistí zavření aktuálně otevřeného dropdownu.
 
 \begin{prog}
 // Část souboru useDropdown.ts
@@ -208,22 +208,22 @@ useEffect(() => \{
 \}, [dropdownId]);
 \end{prog}
 
-Dropdown samozřejmě může mít i jiné vstupy, které povedou k lepší znovupoužitelnosti. 
-Dynamické CSS třídy ve formě JavaScriptu na element přidáme pomocí šablonových literálů (template literals) a JS hodnoty.
+Dropdown samozřejmě může mít i~jiné vstupy, které povedou k~lepší znovupoužitelnosti. 
+Dynamické CSS třídy ve formě JavaScriptu na element přidáme pomocí šablonových literálů (template literals) a~JS hodnoty.
 
 \begin{flushleft}
   \textbf{Reaktivita, asynchronní operace}
 \end{flushleft}
 
-Následující komponenta bude demonstrovat využití reaktivity a asynchronních operací. Vytvoříme komponentu, která přeloží zadaný text do cílového jazyka. 
-Začneme vytvořením komponenty Translator. Komponenta při změně stavů (zadaného textu uživatelem a výstupního jazyka) zavolá API, které vrátí přeložený text.
-V rámci komponenty vytvoříme vnořené komponenty pro zadání vstupního textu, výběr jazyka a zobrazení výsledku.
+Následující komponenta bude demonstrovat využití reaktivity a~asynchronních operací. Vytvoříme komponentu, která přeloží zadaný text do cílového jazyka. 
+Začneme vytvořením komponenty Translator. Komponenta při změně stavů (zadaného textu uživatelem a~výstupního jazyka) zavolá API, které vrátí přeložený text.
+V~rámci komponenty vytvoříme vnořené komponenty pro zadání vstupního textu, výběr jazyka a~zobrazení výsledku.
 
 Komponenta LanguageDropdown uživateli umožní vybrat jazyk, do kterého chce text přeložit. 
-Díky vlastnosti \emph{onChange} (callback funkci) aktualizujeme výstupní jazyk v rodičovské komponentě. 
+Díky vlastnosti \emph{onChange} (callback funkci) aktualizujeme výstupní jazyk v~rodičovské komponentě. 
 
-Pokračujeme implementací komponenty TranslationInput, která bude sloužit k zadání vstupního textu přes textové pole. Aktuální hodnotu formulářového prvku nastavíme pomocí atributu \emph{value}.
-Po změně hodnoty textového pole, kterou získáme v události přes atribut \emph{onChange}, aktualizujeme hodnotu vstupního textu v Translator komponentě.
+Pokračujeme implementací komponenty TranslationInput, která bude sloužit k~zadání vstupního textu přes textové pole. Aktuální hodnotu formulářového prvku nastavíme pomocí atributu \emph{value}.
+Po změně hodnoty textového pole, kterou získáme v~události přes atribut \emph{onChange}, aktualizujeme hodnotu vstupního textu v~Translator komponentě.
 
 \begin{prog}
 // Část souboru TranslationInput.tsx
@@ -238,7 +238,7 @@ Po změně hodnoty textového pole, kterou získáme v události přes atribut \
 \end{prog}
 
 Abychom reaktivně aktualizovali výšku pole na základě obsahu, použijeme vlastní hook. 
-Hook bude potřebovat referenci elementu, a tak vytvoříme ref, který přidáme na element textového pole.
+Hook bude potřebovat referenci elementu, a~tak vytvoříme ref, který přidáme na element textového pole.
 
 \begin{prog}
 // Část souboru TranslationInput.tsx
@@ -258,7 +258,7 @@ function TranslationInput(\{inputText, setInputText\}: TranslationInputProps) \{
 \end{prog}
 
 Hook \emph{useAutosizeTextArea} bude příjímat referenci na element. Dále také hodnotu textového pole, aby po jakékoli změně této hodnoty přepočítala výška pole. 
-V rámci hooku vytvoříme \emph{useEffect}, který se znovu zavolá při každé změně \emph{textAreaRef}, nebo hodnoty textu. Následně v rámci těla hooku aktualizujeme výšku textového pole.
+V~rámci hooku vytvoříme \emph{useEffect}, který se znovu zavolá při každé změně \emph{textAreaRef}, nebo hodnoty textu. Následně v~rámci těla hooku aktualizujeme výšku textového pole.
 
 \begin{prog}
 // Část souboru useAutoresizeTextarea.ts
@@ -281,11 +281,11 @@ const useAutosizeTextArea = (
 \};
 \end{prog}
 
-V Translator komponentě potřebujeme ukládat vstupní hodnotu a výstupní jazyk z vnořených komponent. 
-Dále při každé změně těchto hodnot odešleme dotaz na Microsoft Translator Text API \cite{translatortextapi}, k čemuž využijeme \emph{useEffect}.
-V rámci hooku definujeme asynchronní funkci \emph{handleTranslation}, která pomocí fetch API odešle korektní HTTP POST požadavek na server. 
+V~Translator komponentě potřebujeme ukládat vstupní hodnotu a~výstupní jazyk z~vnořených komponent. 
+Dále při každé změně těchto hodnot odešleme dotaz na Microsoft Translator Text API \cite{translatortextapi}, k~čemuž využijeme \emph{useEffect}.
+V~rámci hooku definujeme asynchronní funkci \emph{handleTranslation}, která pomocí fetch API odešle korektní HTTP POST požadavek na server. 
 Pokud bychom definovali funkci mimo \emph{useEffect}, museli bychom ji přidat do pole závislostí hooku.
-Při úspěšné odpovědi aktualizujeme stav s přeloženým textem, v opačném případě nastavíme chybový stav.
+Při úspěšné odpovědi aktualizujeme stav s~přeloženým textem, v~opačném případě nastavíme chybový stav.
 
 \begin{prog}
 // Část souboru Translator.tsx
@@ -353,25 +353,25 @@ useEffect(() => \{
 \}, [inputText, outputLanguage]);
 \end{prog}
 
-Aby dotazování fungovalo, vytvoříme referenci \emph{delayTimerRef}. V rámci těla \emph{useEffect} hooku nejprve zrušíme předchozí časovač. 
-Funkci \emph{handleTranslation} zavoláme v callbacku funkce \emph{setTimeout}, která umožní předejít dotazování serveru ihned po změně nějaké vstupní hodnoty. 
+Aby dotazování fungovalo, vytvoříme referenci \emph{delayTimerRef}. V~rámci těla \emph{useEffect} hooku nejprve zrušíme předchozí časovač. 
+Funkci \emph{handleTranslation} zavoláme v~callbacku funkce \emph{setTimeout}, která umožní předejít dotazování serveru ihned po změně nějaké vstupní hodnoty. 
 Výsledek funkce \emph{setTimeout} uložíme do \emph{delayTimerRef.current}. Nesmíme také zapomenout na zrušení časovače při zničení komponenty.
 
-V okamžiku, kdy obdržíme odpověď ze serveru, zobrazíme přeložený text uživateli pomocí komponenty TranslationOutput. 
-Předáme jí samotný výstupní text a další vstupní vlastnosti, na základě kterých pak podmíněně vykreslíme přeložený text, chybu nebo načítání.
+V~okamžiku, kdy obdržíme odpověď ze serveru, zobrazíme přeložený text uživateli pomocí komponenty TranslationOutput. 
+Předáme jí samotný výstupní text a~další vstupní vlastnosti, na základě kterých pak podmíněně vykreslíme přeložený text, chybu nebo načítání.
 
 \begin{flushleft}
   \textbf{Tvorba formulářů, validace}
 \end{flushleft}
 
-React sám o sobě poskytuje jen základní API pro správu formulářů. Disponuje však mnoha knihovnami, které tuto funkcionalitu rozšiřují. 
-Mezi takové knihovny patří např. Formik, Redux Form nebo React Hook Form. V této sekci se zaměříme na tvorbu formulářů pomocí React Hook Form \cite{reacthookformlib}. 
+React sám o~sobě poskytuje jen základní API pro správu formulářů. Disponuje však mnoha knihovnami, které tuto funkcionalitu rozšiřují. 
+Mezi takové knihovny patří např. Formik, Redux Form nebo React Hook Form. V~této sekci se zaměříme na tvorbu formulářů pomocí React Hook Form \cite{reacthookformlib}. 
 Vytvoříme komponentu pro jednoduchou investiční kalkulaci. 
-V rámci této komponenty naprogramujeme formulář pro zadání vstupních dat a komponentu výsledku kalkulace, která se zobrazí po potvrzení formuláře.
+V~rámci této komponenty naprogramujeme formulář pro zadání vstupních dat a~komponentu výsledku kalkulace, která se zobrazí po potvrzení formuláře.
 
-Začneme s reaktivním fomulářem, který bude přijímat počáteční hodnoty (\emph{defaultValues}) a callback funkci \emph{handleFormSubmit} pro předání hodnot formuláře do rodičovské komponenty. 
-Strukturu formuláře popíšeme v typu \emph{InvestFormData}. Pomocí hooku \emph{useForm} z knihovny React Hook Form vytvoříme instanci formuláře, které předáme \emph{defaultValues} a nastavíme reaktivní validaci. 
-Následně z hooku dostameme funkce \emph{register}, \emph{handleSubmit} a \emph{formState}, které poslouží ke správě formuláře.
+Začneme s~reaktivním fomulářem, který bude přijímat počáteční hodnoty (\emph{defaultValues}) a~callback funkci \emph{handleFormSubmit} pro předání hodnot formuláře do rodičovské komponenty. 
+Strukturu formuláře popíšeme v~typu \emph{InvestFormData}. Pomocí hooku \emph{useForm} z~knihovny React Hook Form vytvoříme instanci formuláře, které předáme \emph{defaultValues} a~nastavíme reaktivní validaci. 
+Následně z~hooku dostameme funkce \emph{register}, \emph{handleSubmit} a~\emph{formState}, které poslouží ke správě formuláře.
 
 \begin{prog}
 // Část souboru types.ts
@@ -392,10 +392,10 @@ const \{
 \} = useForm<InvestFormData>(\{defaultValues, mode: 'onChange'\});
 \end{prog}
 
-Následně do JSX přidáme form s \emph{onSubmit} atributem, kterému předáme funkci \emph{handleSubmit} z React Hook Form. Do \emph{handleSubmit} pak vložíme vstup \emph{handleFormSubmit} v rámci nějž získáme aktuální hodnoty formuláře. 
-Ve formuláři vytvoříme formulářové prvky, které propojíme s reaktivním formulářem pomocí funkce \emph{register}. První argument představuje název formulářového prvku, druhý argument je validační objekt. 
-V rámci range inputu potřebujeme HTML atributy min a max, díky kterým omezíme rozsah vstupních hodnot. Abychom mohli měli přístup k aktuální hodnotě range inputu, využijeme vlastnost \emph{value} a \emph{onChange}. 
-Chyby formuláře získáme z \emph{formState} a vykreslíme je pod formulářovými prvky. V neposlední řadě přidáme tlačítko s typem submit, které zajistí odeslání formuláře a zavolání callback funkce \emph{handleFormSubmit}.
+Následně do JSX přidáme form s~\emph{onSubmit} atributem, kterému předáme funkci \emph{handleSubmit} z~React Hook Form. Do \emph{handleSubmit} pak vložíme vstup \emph{handleFormSubmit} v~rámci nějž získáme aktuální hodnoty formuláře. 
+Ve formuláři vytvoříme formulářové prvky, které propojíme s~reaktivním formulářem pomocí funkce \emph{register}. První argument představuje název formulářového prvku, druhý argument je validační objekt. 
+V~rámci range inputu potřebujeme HTML atributy min a~max, díky kterým omezíme rozsah vstupních hodnot. Abychom měli přístup k~aktuální hodnotě range inputu, využijeme vlastnost \emph{value} a~\emph{onChange}. 
+Chyby formuláře získáme z~\emph{formState} a~vykreslíme je pod formulářovými prvky. V~neposlední řadě přidáme tlačítko s~typem submit, které zajistí odeslání formuláře a~zavolání callback funkce \emph{handleFormSubmit}.
 
 \begin{prog}
 // Část souboru InvestForm.tsx
@@ -439,8 +439,8 @@ return (
 );
 \end{prog}
 
-V rodičovské komponentě získáme aktuální hodnoty formuláře díky obslužné funkci \emph{handleFormSubmit}. Pomocí funkce \emph{futureValuesCalculator} získáme hodnoty, které následně vykreslíme v komponentě FutureValuesInfo. 
-Tato komponenta obsahuje dvě vnořené komponenty FutureValueInfo, pro zobrazení jednotlivých výsledků. Hodnotu v JSX transformujeme pomocí JS funkce.
+V~rodičovské komponentě získáme aktuální hodnoty formuláře díky obslužné funkci \emph{handleFormSubmit}. Pomocí funkce \emph{futureValuesCalculator} získáme hodnoty, které následně vykreslíme v~komponentě FutureValuesInfo. 
+Tato komponenta obsahuje dvě vnořené komponenty FutureValueInfo, pro zobrazení jednotlivých výsledků. Hodnotu v~JSX transformujeme pomocí JS funkce.
 
 \begin{prog}
 // Část souboru FutureValueInfo.tsx
@@ -464,14 +464,14 @@ function FutureValueInfo(\{children, futureValue\}: FutureValueInfoProps) \{
   \textbf{Modularita, použití knihoven}
 \end{flushleft}
 
-V následující sekci vytvoříme webovou hru, ve které je cílem uživatele uhádnout název státu na základě poskytnutých nápovědí. Práci si ulehčíme pomocí externích knihoven a služeb.
-Postupně se bude odkrývat 8 nápovědí, které by měly pomoci s uhádnutím daného státu. Klíčovým prvkem je textové pole, přes které uživatel zadává názvy hádaných zemí a tlačítko pro potvrzení. 
-Součástí také bude seznam zemí, které uživatel hádal a modální okna sloužící k vyhodnocení hry.
+V~následující sekci vytvoříme webovou hru, ve které je cílem uživatele uhádnout název státu na základě poskytnutých nápovědí. Práci si ulehčíme pomocí externích knihoven a~služeb.
+Postupně se bude odkrývat 8 nápovědí, které by měly pomoci s~uhádnutím daného státu. Klíčovým prvkem je textové pole, přes které uživatel zadává názvy hádaných zemí a~tlačítko pro potvrzení. 
+Součástí také bude seznam zemí, které uživatel hádal a~modální okna sloužící k~vyhodnocení hry.
 
-Začneme s implementací rodičovské komponenty, která získá země z REST Countries API \cite{restcountriesapi}. Naprogramujeme hook \emph{useAllCountries}, který bude vracet data (\emph{countries}), chybu a stav načítání. 
-V rámci \emph{useEffect} zavoláme asynchronní funkci \emph{fetchCountriesData}. Uvnitř funkce \emph{fetchCountriesData} zavoláme funkci \emph{getAllCountries}. 
-Ve funkci \emph{getAllCountries} využijeme knihovnu \emph{axios} \cite{axioslib} a převzatou funkci \emph{requestHandler} \cite{axiosrequesthandler}. 
-Balíček \emph{axios} slouží jako HTTP klient pro tvorbu asynchronních dotazů, zatímco \emph{requestHandler} umožňuje otypování příchozí odpovědi. Po ošetření chyb aktualizujeme patřičné stavy, které následně z hooku vrátíme. 
+Začneme s~implementací rodičovské komponenty, která získá země z~REST Countries API \cite{restcountriesapi}. Naprogramujeme hook \emph{useAllCountries}, který bude vracet data (\emph{countries}), chybu a~stav načítání. 
+V~rámci \emph{useEffect} zavoláme asynchronní funkci \emph{fetchCountriesData}. Uvnitř funkce \emph{fetchCountriesData} zavoláme funkci \emph{getAllCountries}. 
+Ve funkci \emph{getAllCountries} využijeme knihovnu \emph{axios} \cite{axioslib} a~převzatou funkci \emph{requestHandler} \cite{axiosrequesthandler}. 
+Balíček \emph{axios} slouží jako HTTP klient pro tvorbu asynchronních dotazů, zatímco \emph{requestHandler} umožňuje otypování příchozí odpovědi. Po ošetření chyb aktualizujeme patřičné stavy, které následně z~hooku vrátíme. 
 
 \begin{prog}
 // Část souboru useAllCountries.ts
@@ -497,8 +497,8 @@ export const getAllCountries =
   );
 \end{prog}
 
-Opakování asynchronních dotazů při chybě zajistíme pomocí knihovny \emph{axios-retry} \cite{axiosretrylib}. Opakování nakonfigujeme v souboru \emph{main.tsx}. 
-Abychom nemuseli implementovat načítací a chybové stavy, anebo rušení či opakování asynchronních dotazů, můžeme použít knihovnu \emph{react-query}.
+Opakování asynchronních dotazů při chybě zajistíme pomocí knihovny \emph{axios-retry} \cite{axiosretrylib}. Opakování nakonfigujeme v~souboru \emph{main.tsx}. 
+Abychom nemuseli implementovat načítací a~chybové stavy, anebo rušení či opakování asynchronních dotazů, můžeme použít knihovnu \emph{react-query}.
 
 \begin{prog}
 // Část souboru main.tsx
@@ -515,8 +515,8 @@ axiosRetry(axios, \{
 \});
 \end{prog}
 
-Následně v rámci rodičovské komponenty podmíněně vykreslíme dané komponenty. V případě chyby komponentu ErrorAlert. Pokud ze serveru úspěšně dostaneme země, tak vykreslíme komponentu CountryGuesser. 
-Pokud nevykreslíme ani jednu z předchozích komponent, zobrazíme LoadingSkeleton.
+Následně v~rámci rodičovské komponenty podmíněně vykreslíme dané komponenty. V~případě chyby komponentu ErrorAlert. Pokud ze serveru úspěšně dostaneme země, tak vykreslíme komponentu CountryGuesser. 
+Pokud nevykreslíme ani jednu z~předchozích komponent, zobrazíme LoadingSkeleton.
 
 \begin{prog}
 // Část souboru CountryGuesserWrapper.tsx
@@ -540,10 +540,10 @@ function CountryGuesserWrapper() \{
 \}
 \end{prog}
 
-Komponenta CountryGuesser bude vyhodnocovat průběh hry a zobrazovat jednotlivé herní prvky. Začneme definicí stavů a inicializujeme náhodnou zemi (\emph{randomCountry}), kterou bude uživatel hádat. 
-Dále použijeme hook \emph{useCountryFlagPolyfill}, který při namontování komponenty zajistí podporu zobrazení ikon vlajek v prohlížečích, které to přímo nepodporují. 
-Prohlížeč pak však musí podporovat emojis a webové fonty. Pokračujeme implementací obslužných funkcí \emph{handleEvaluateGuessAndUpdateState} a \emph{handleSetInitialState}, které budou sloužit k aktualizaci stavu hry. 
-V rámci JSX pak vykreslíme jednotlivé herní prvky a modální okna při výhře či prohře.
+Komponenta CountryGuesser bude vyhodnocovat průběh hry a~zobrazovat jednotlivé herní prvky. Začneme definicí stavů a~inicializujeme náhodnou zemi (\emph{randomCountry}), kterou bude uživatel hádat. 
+Dále použijeme hook \emph{useCountryFlagPolyfill}, který při namontování komponenty zajistí podporu zobrazení ikon vlajek v~prohlížečích, které to přímo nepodporují. 
+Prohlížeč pak však musí podporovat emojis a~webové fonty. Pokračujeme implementací obslužných funkcí \emph{handleEvaluateGuessAndUpdateState} a~\emph{handleSetInitialState}, které budou sloužit k~aktualizaci stavu hry. 
+V~rámci JSX pak vykreslíme jednotlivé herní prvky a~modální okna při výhře či prohře.
 
 Hook \emph{useCountryFlagPolyfill} zavolá funkci \emph{polyfillCountryFlagEmojis}, která do HTML hlavičky přidá webový font Twemoji Country Flags. Aby se font využil, přidáme jej do CSS stylů.
 
@@ -557,40 +557,40 @@ Hook \emph{useCountryFlagPolyfill} zavolá funkci \emph{polyfillCountryFlagEmoji
 \}
 \end{prog}
 
-Úkolem komponenty HintBoxes bude postupné vykreslení nápověd. Na základě vstupu \emph{randomCountry} vytvoříme pole nápověd. V JSX pak iterujeme přes pole nápověd a vykreslíme jednotlivé nápovědy. 
-Jednotlivé komponenty HintBox pak dynamicky vykreslí název a SVG ikonu nápovědy, textovou nápovědu, případně obrázek vlajky státu.
+Úkolem komponenty HintBoxes bude postupné vykreslení nápověd. Na základě vstupu \emph{randomCountry} vytvoříme pole nápověd. V~JSX pak iterujeme přes pole nápověd a~vykreslíme jednotlivé nápovědy. 
+Jednotlivé komponenty HintBox pak dynamicky vykreslí název a~SVG ikonu nápovědy, textovou nápovědu, případně obrázek vlajky státu.
 
-Klíčová komponenta CountryGuessInput, kterou definujeme v rámci souboru \emph{CountryGuessInput.tsx}, umožní uživateli zadat svůj tip. 
-Začneme s JSX, kde vytvoříme formulářový prvek pro zadání názvu země, potvrzovací tlačítko a podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu (filtrované země). 
-Přidáme obslužné funkce pro akce a události nad formulářem, které následně doimplementujeme.
+Klíčová komponenta CountryGuessInput, kterou definujeme v~rámci souboru \emph{CountryGuessInput.tsx}, umožní uživateli zadat svůj tip. 
+Začneme s~JSX, kde vytvoříme formulářový prvek pro zadání názvu země, potvrzovací tlačítko a~podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu (filtrované země). 
+Přidáme obslužné funkce pro akce a~události nad formulářem, které následně doimplementujeme.
 
-V komponentě, na základě vstupu \emph{countries}, získáme pole všech zemí bez těch, které uživatel již hádal (\emph{countriesWithoutAlreadyGuessed}). Poté definujeme a inicializujeme ostatní stavy. 
-Při kliknutí na tlačíko se zavolá funkce \emph{handleGuessButtonClick}, která volá obslužnou funkci \emph{handleEvaluateGuessAndUpdateState} v rodičovské komponentě a také funkci \emph{handleChangeSelectedGuess}. 
-Funkce \emph{handleChangeSelectedGuess} aktualizuje aktuální tip, filtrované země a uzavře podmenu. Funkce \emph{handleInputChange} převede tip uživatele do daného formátu, poté aktualizuje aktuální tip a filtrované země. 
+V~komponentě, na základě vstupu \emph{countries}, získáme pole všech zemí bez těch, které uživatel již hádal (\emph{countriesWithoutAlreadyGuessed}). Poté definujeme a~inicializujeme ostatní stavy. 
+Při kliknutí na tlačíko se zavolá funkce \emph{handleGuessButtonClick}, která volá obslužnou funkci \emph{handleEvaluateGuessAndUpdateState} v~rodičovské komponentě a~také funkci \emph{handleChangeSelectedGuess}. 
+Funkce \emph{handleChangeSelectedGuess} aktualizuje aktuální tip, filtrované země a~uzavře podmenu. Funkce \emph{handleInputChange} převede tip uživatele do daného formátu, poté aktualizuje aktuální tip a~filtrované země. 
 Ovládání formulářového prvku pomocí klávesnice umožní funkce \emph{handleKeyDown}.
 
-Pomocná funkce \emph{updateGuessAndFilteredCountries} získá aktuálně filtrované země na základě uživatelova tipu. Následně aktualizuje stavy \emph{currentGuess}, \emph{isValidGuess} a \emph{filteredCountries}. 
-Funkce \emph{clampSelectedGuessIndex} zajistí, aby index uživatelem vybrané země byl v požadovaném rozmezí (0 až počet filtrovaných zemí). 
-Pro aktualizaci vlastnosti \emph{selectedGuessIndex} slouží funkce \emph{changeSelectedGuessIndex}, která index aktualizuje o hodnotu předanou v argumentu.
-V neposlední řadě funkce \emph{convertToFormattedGuess} převede tip uživatele tak, aby začínal velkým písmenem a zbytek řetezce byl složen z malých písmen.
+Pomocná funkce \emph{updateGuessAndFilteredCountries} získá aktuálně filtrované země na základě uživatelova tipu. Následně aktualizuje stavy \emph{currentGuess}, \emph{isValidGuess} a~\emph{filteredCountries}. 
+Funkce \emph{clampSelectedGuessIndex} zajistí, aby index uživatelem vybrané země byl v~požadovaném rozmezí (0 až počet filtrovaných zemí). 
+Pro aktualizaci vlastnosti \emph{selectedGuessIndex} slouží funkce \emph{changeSelectedGuessIndex}, která index aktualizuje o~hodnotu předanou v~argumentu.
+V~neposlední řadě funkce \emph{convertToFormattedGuess} převede tip uživatele tak, aby začínal velkým písmenem a~zbytek řetezce byl složen z~malých písmen.
 
-Ke zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a \emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
-Jde o uživatelem hádané země s vlajkou a vzdáleností od \emph{randomCountry}. K převodu využijeme JS funkce z jiného souboru. 
-K vypočtení vzdálenosti použijeme knihovnu \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která obsahuje funkci \emph{getDistanceBetweenTwoPoints}. 
-Jednotlivé prvky pole \emph{enrichedGuessedCountries} pak vykreslíme v rámci JSX.
+Ke zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a~\emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
+Jde o~uživatelem hádané země s~vlajkou a~vzdáleností od \emph{randomCountry}. K~převodu využijeme JS funkce z~jiného souboru. 
+K~vypočtení vzdálenosti použijeme knihovnu \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která obsahuje funkci \emph{getDistanceBetweenTwoPoints}. 
+Jednotlivé prvky pole \emph{enrichedGuessedCountries} pak vykreslíme v~rámci JSX.
 
-Nakonec vytvoříme modální okna, která se zobrazí při výhře či prohře. Stavy \emph{isWinModalOpen} a \emph{isLoseModalOpen} aktualizujeme v rámci funkce \emph{handleEvaluateGuessAndUpdateState} v CountryGuesser. 
-Na základě těchto stavů pak podmíněně vykreslíme daná modální okna. Oběma modálům předáme \emph{randomCountry} a obslužnou funkci \emph{handleClose}. Výhernímu modálu také počet potřebných pokusů. 
-V jednotlivých komponentách (WinModal, LoseModal) vykreslíme komponentu BaseModal, která bude sloužit jako šablona pro obě okna. Do této komponenty vždy předáme titulek, obsah a obslužnou funkci \emph{handleClose}. 
-BaseModal následně v JSX vykreslí základní strukturu modálního okna, s dynamickými možnostmi pro titulek, obsah a obslužnou funkci \emph{handleClose}.
+Nakonec vytvoříme modální okna, která se zobrazí při výhře či prohře. Stavy \emph{isWinModalOpen} a~\emph{isLoseModalOpen} aktualizujeme v~rámci funkce \emph{handleEvaluateGuessAndUpdateState} v~CountryGuesser. 
+Na základě těchto stavů pak podmíněně vykreslíme daná modální okna. Oběma modálům předáme \emph{randomCountry} a~obslužnou funkci \emph{handleClose}. Výhernímu modálu také počet potřebných pokusů. 
+V~jednotlivých komponentách (WinModal, LoseModal) vykreslíme komponentu BaseModal, která bude sloužit jako šablona pro obě okna. Do této komponenty vždy předáme titulek, obsah a~obslužnou funkci \emph{handleClose}. 
+BaseModal následně v~JSX vykreslí základní strukturu modálního okna, s~dynamickými možnostmi pro titulek, obsah a~obslužnou funkci \emph{handleClose}.
 
 \begin{flushleft}
   \textbf{Routování a layout aplikace}
 \end{flushleft}
 
-Layout aplikace bude rozdělen do tří částí: hlavičky, patičky a samotného obsahu, v nemž se vykreslí jednotlivé komponenty. Uživatel bude mít možnost přepínání mezi jednotlivými stránkami pomocí navigačního menu.
+Layout aplikace bude rozdělen do tří částí: hlavičky, patičky a~samotného obsahu, v~němž se vykreslí jednotlivé komponenty. Uživatel bude mít možnost přepínání mezi jednotlivými stránkami pomocí navigačního menu.
 
-Pro routování využijeme knihovnu \emph{react-router-dom} \cite{reactrouter}. Začneme vytvořením souboru s cestami (\emph{appRoutes}).
+Pro routování využijeme knihovnu \emph{react-router-dom} \cite{reactrouter}. Začneme vytvořením souboru s~cestami (\emph{appRoutes}).
 
 \begin{prog}
 // Část souboru appRoutes.ts
@@ -618,8 +618,8 @@ export const appRoutes: ReadonlyArray<AppRoute> = [
 ];
 \end{prog}
 
-Následně v kořeni aplikace vytvoříme \emph{router} pomocí předem definovaných cest aplikace. 
-\emph{Router} vytvoříme díky dvěma pomocným funkcím k tomu určených: \emph{createBrowserRouter} a \emph{createRoutesFromElements}. 
+Následně v~kořeni aplikace vytvoříme \emph{router} pomocí předem definovaných cest aplikace. 
+\emph{Router} vytvoříme díky dvěma pomocným funkcím k~tomu určených: \emph{createBrowserRouter} a~\emph{createRoutesFromElements}. 
 Pokračujeme přiřazením proměnné \emph{router} do kořenové komponenty aplikace, konkrétně do poskytovatele \emph{RouterProvider}.
 
 \begin{prog}
@@ -648,7 +648,7 @@ createRoot(document.getElementById('root')!).render(
 );
 \end{prog}
 
-Hlavní komponenta AppLayout pak v JSX vykreslí hlavičku, patičku a dynamický obsah dle aktuální URL adresy, jenž vykreslí komponenta \emph{Outlet}.
+Hlavní komponenta AppLayout pak v~JSX vykreslí hlavičku, patičku a~dynamický obsah dle aktuální URL adresy, jenž vykreslí komponenta \emph{Outlet}.
 
 \begin{prog}
 // Část souboru AppLayout.tsx
@@ -669,9 +669,10 @@ function AppLayout() \{
 \}
 \end{prog}
 
-V hlavičce aplikace se budou nacházet odkazy na jednotlivé stránky. My se inspirujeme architekturou a vzhledem navigačního menu Flowbite. 
-V rámci komponenty Header vypíšeme všechny cesty aplikace pomocí komponenty \emph{NavLink} z knihovny \emph{react-router-dom}. NavLink umožňuje v rámci atributu \emph{className} přistoupit k vlastnosti \emph{isActive}, která indikuje, zda je cesta odkazu aktivní. 
-Vlastnosti \emph{isActive} tedy využijeme pro podmíněné přidání CSS stylů. Pro korektní nastavení aria-current atributu, v závislosti na aktuální URL, použijeme hook \emph{useLocation}, který vrací aktuální URL.
+V~hlavičce se budou nacházet odkazy na jednotlivé stránky. My se inspirujeme architekturou a~vzhledem navigačního menu Flowbite. 
+V~rámci komponenty Header vypíšeme všechny cesty aplikace pomocí komponenty \emph{NavLink} z~knihovny \emph{react-router-dom}. 
+NavLink pomocí atributu \emph{className} umožňuje přistoupit k~vlastnosti \emph{isActive}, která indikuje, zda je cesta odkazu aktivní. 
+Vlastnosti \emph{isActive} tedy využijeme pro podmíněné přidání CSS stylů. Pro korektní nastavení aria-current atributu, v~závislosti na aktuální URL, použijeme hook \emph{useLocation}, který vrací aktuální URL.
 
 \begin{prog}
 // Část souboru Header.tsx
@@ -698,8 +699,8 @@ Vlastnosti \emph{isActive} tedy využijeme pro podmíněné přidání CSS styl�
 ))\}
 \end{prog}
 
-Mobilní navigaci a barevný režim implementujeme díky stavům \emph{isMobileNavOpen} a \emph{isDarkMode}. Informaci o tom, zda má uživatel zapnutý tmavý režim budeme ukládat do LocalStorage v prohlížeči. 
-K tomu použijeme \emph{useEffect} hook, který při změně stavu \emph{isDarkMode} přidá patřičný data-mode a provede aktualizaci LocalStorage.
+Mobilní navigaci a~barevný režim implementujeme díky stavům \emph{isMobileNavOpen} a~\emph{isDarkMode}. Informaci o~tom, zda má uživatel zapnutý tmavý režim budeme ukládat do LocalStorage v~prohlížeči. 
+K~tomu použijeme \emph{useEffect} hook, který při změně stavu \emph{isDarkMode} přidá patřičný data-mode a~provede aktualizaci LocalStorage.
 
 \begin{prog}
 // Část souboru Header.tsx

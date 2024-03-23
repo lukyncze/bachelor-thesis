@@ -4,7 +4,7 @@
   \textbf{Správa stavů, předávání vlastností}
 \end{flushleft}
 
-Prvním krokem k vytvoření jednoduchého čítače bude definice komponenty Counter s reaktivním stavem \emph{count}.
+Prvním krokem k~vytvoření jednoduchého čítače bude definice komponenty Counter s~reaktivním stavem \emph{count}.
 
 \begin{prog}
 // Část souboru Counter.svelte
@@ -14,10 +14,10 @@ Prvním krokem k vytvoření jednoduchého čítače bude definice komponenty Co
 </script>
 \end{prog}
 
-Dále vytvoříme komponentu Button z důvodu dodržování principu DRY a efektivnějšímu znovupoužití kódu v budoucnu.
-Komponenta bude přijímat vlastnosti \emph{className} a \emph{onClick}. \emph{ClassName} rozšíří CSS třídy tlačítka a \emph{onClick} bude obsahovat obslužnou funkci, která se zavolá při kliknutí na tlačítko.
-Nyní do šablony přidáme tlačítko a předáme mu vlastnosti \emph{className} a \emph{onClick}.
-Svelte umožňuje zachytit všechny nedefinované vlastnosti do proměnné \emph{\$\$restProps}. Proměnnou \emph{\$\$restProps} tedy pomocí spread operátoru předáme tlačítku a tím jej obohatíme o další vlastnosti. 
+Dále vytvoříme komponentu Button z~důvodu dodržování principu DRY a~efektivnějšímu znovupoužití kódu v~budoucnu.
+Komponenta bude přijímat vlastnosti \emph{className} a~\emph{onClick}. \emph{ClassName} rozšíří CSS třídy tlačítka a~\emph{onClick} bude obsahovat obslužnou funkci, která se zavolá při kliknutí na tlačítko.
+Nyní do šablony přidáme tlačítko a~předáme mu vlastnosti \emph{className} a~\emph{onClick}.
+Svelte umožňuje zachytit všechny nedefinované vlastnosti do proměnné \emph{\$\$restProps}. Proměnnou \emph{\$\$restProps} tedy pomocí spread operátoru předáme tlačítku a~tím jej obohatíme o~další vlastnosti. 
 Obsah tlačítka, který definujeme mezi párovými značkami Button, vykreslíme pomocí komponenty slot.
 
 \begin{prog}
@@ -42,8 +42,8 @@ Obsah tlačítka, který definujeme mezi párovými značkami Button, vykreslím
 </button>
 \end{prog}
 
-V Counter komponentě pak v rámci šablony vykreslíme stav \emph{count} a Button komponenty, kterým předáme příslušné vlastnosti. 
-Pro aktualizaci stavu \emph{count} použijeme obslužné funkce, v nichž přímo tento stav modifikujeme.
+V~Counter komponentě pak v~rámci šablony vykreslíme stav \emph{count} a~Button komponenty, kterým předáme příslušné vlastnosti. 
+Pro aktualizaci stavu \emph{count} použijeme obslužné funkce, v~nichž přímo tento stav modifikujeme.
 
 \begin{prog}
 // Část souboru Counter.svelte
@@ -78,9 +78,9 @@ Pro aktualizaci stavu \emph{count} použijeme obslužné funkce, v nichž přím
   \textbf{Interakce v uživatelském prostředí}
 \end{flushleft}
 
-V této sekci implementujeme rozbalovací seznam s možnostmi (dropdown). Tvorbu UI komponenty můžeme začít jak vytvořením HTML struktury, tak definicí funkční stránky komponenty.
+V~této sekci implementujeme rozbalovací seznam s~možnostmi (dropdown). Tvorbu UI komponenty můžeme začít jak vytvořením HTML struktury, tak definicí funkční stránky komponenty.
 
-My začneme tvorbou šablony, v níž vytvoříme tlačítko a seznam možností. Otevření seznamu možností zajistíme přidáním \emph{on:click} události na tlačítko. V obslužné funkci pak změníme stav \emph{isOpen}.
+My začneme tvorbou šablony, v~níž vytvoříme tlačítko a~seznam možností. Otevření seznamu možností zajistíme přidáním \emph{on:click} události na tlačítko. V~obslužné funkci pak změníme stav \emph{isOpen}.
 
 \begin{prog}
 // Část souboru Dropdown.svelte
@@ -106,7 +106,7 @@ My začneme tvorbou šablony, v níž vytvoříme tlačítko a seznam možností
 \end{prog}
 
 Seznam možností zobrazíme podmíněně na základě \emph{isOpen}. Pro vykreslení možností seznamu (dle vstupu \emph{options}) použijeme blok \emph{\#each}. 
-Pro vybrání konkrétní možnosti použijeme \emph{on:click} událost, při které v anonymní funkci zavoláme funkci \emph{handleOptionClick} s aktuální položkou ze seznamu.
+Pro vybrání konkrétní možnosti použijeme \emph{on:click} událost, při které v~anonymní funkci zavoláme funkci \emph{handleOptionClick} s~aktuální položkou ze seznamu.
 
 \begin{prog}
 // Část souboru Dropdown.svelte
@@ -132,8 +132,8 @@ Pro vybrání konkrétní možnosti použijeme \emph{on:click} událost, při kt
 \{/if\}
 \end{prog}
 
-Dropdown komponenta bude přijímat vlastnosti \emph{options} a \emph{onChange}, případně další vlastnosti pro znovupoužitelnost. Pro každou komponentu také vytvoříme jednoznačný identifikátor, který využijeme při uzavírání seznamu.
-Obslužná funkce \emph{handleOptionClick} zajistí změnu vybrané možnosti, zavření seznamu a provede změnu hodnoty v rodičovské komponentě. 
+Dropdown komponenta bude přijímat vlastnosti \emph{options} a~\emph{onChange}, případně další vlastnosti pro znovupoužitelnost. Pro každou komponentu také vytvoříme jednoznačný identifikátor, který využijeme při uzavírání seznamu.
+Obslužná funkce \emph{handleOptionClick} zajistí změnu vybrané možnosti, zavření seznamu a~provede změnu hodnoty v~rodičovské komponentě. 
 
 \begin{prog}
 // Část souboru Dropdown.svelte
@@ -159,8 +159,8 @@ Obslužná funkce \emph{handleOptionClick} zajistí změnu vybrané možnosti, z
 </script>
 \end{prog}
 
-K uzavření jakéhokoli otevřeného seznamu, při kliknutí mimo tento seznam, vytvoříme akci (Svelte action) \emph{clickOutsideDropdown}. 
-V rámci akce \emph{clickOutsideDropdown} budeme naslouchat na události pointerdown v DOM. Obslužná funkce pak zajistí spuštění callbacku v Dropdown komponentě.
+K~uzavření jakéhokoli otevřeného seznamu, při kliknutí mimo tento seznam, vytvoříme akci (Svelte action) \emph{clickOutsideDropdown}. 
+V~rámci akce \emph{clickOutsideDropdown} budeme naslouchat na události pointerdown v~DOM. Obslužná funkce pak zajistí spuštění callbacku v~Dropdown komponentě.
 
 \begin{prog}
 // Soubor clickOutsideDropdown.ts
@@ -181,7 +181,7 @@ export const clickOutsideDropdown = (
 \};
 \end{prog}
 
-Na kořenový element komponenty přidáme dříve vytvořený unikátní identifikátor a akci pomocí direktivy \emph{use}. 
+Na kořenový element komponenty přidáme dříve vytvořený unikátní identifikátor a~akci pomocí direktivy \emph{use}. 
 Akci následně předáme obslužnou funkci \emph{handleClickOutsideDropdown}, která zavře aktuálně otevřený dropdown.
 
 \begin{prog}
@@ -207,20 +207,20 @@ Akci následně předáme obslužnou funkci \emph{handleClickOutsideDropdown}, k
 </div>
 \end{prog}
 
-Třídy CSS v JavaScriptové formě přidáme k elementu pomocí šablonových literálů a JS hodnoty.
+Třídy CSS v~JavaScriptové formě přidáme k~elementu pomocí šablonových literálů a~JS hodnoty.
 
 \begin{flushleft}
   \textbf{Reaktivita, asynchronní operace}
 \end{flushleft}
 
-V rámci této sekce se zaměříme na reaktivitu a asynchronní operace. Naprogramujeme komponentu, která přeloží zadaný text do cílového jazyka. 
+V~rámci této sekce se zaměříme na reaktivitu a~asynchronní operace. Naprogramujeme komponentu, která přeloží zadaný text do cílového jazyka. 
 Začneme vytvořením komponenty Translator. Komponenta reaktivně (při změně zadaného textu či výstupního jazyka) zavolá API, které vrátí přeložený text. 
-V Translator komponentě využijeme vnořené komponenty, které budou sloužit k zadání vstupního textu, výběru jazyka a zobrazení výsledku.
+V~Translator komponentě využijeme vnořené komponenty, které budou sloužit k~zadání vstupního textu, výběru jazyka a~zobrazení výsledku.
 
-Skrze komponentu LanguageDropdown umožníme uživateli vybrat jazyk, do kterého bude chtít text přeložit. Výstupní jazyk v rodičovské komponentě změníme přes vlastnost \emph{onChange}.
+Skrze komponentu LanguageDropdown umožníme uživateli vybrat jazyk, do kterého bude chtít text přeložit. Výstupní jazyk v~rodičovské komponentě změníme přes vlastnost \emph{onChange}.
 
 Pokračujeme implementací komponenty TranslationInput, která umožní zadat vstupní text (\emph{inputText}) přes textové pole. Aktuální hodnotu formulářového prvku nastavíme pomocí \emph{bind:value}. 
-V rámci rodičovské komponenty použijeme \emph{bind}, díky čemuž pak reaktivně aktualizujeme \emph{inputText} v Translator komponentě.
+V~rámci rodičovské komponenty použijeme \emph{bind}, díky čemuž pak reaktivně aktualizujeme \emph{inputText} v~Translator komponentě.
 
 \begin{prog}
 // Část souboru TranslationInput.svelte
@@ -241,8 +241,8 @@ V rámci rodičovské komponenty použijeme \emph{bind}, díky čemuž pak reakt
 <TranslationInput bind:inputText />
 \end{prog}
 
-K reaktivní změně výšky textového pole použijeme akci \emph{autoresizeTextArea}. Akce přijme element, na kterém se má provést změna výšky. Elementu přidáme listener na událost input. 
-V obslužné funkci následně modifikujeme výšku pole.
+K~reaktivní změně výšky textového pole použijeme akci \emph{autoresizeTextArea}. Akce přijme element, na kterém se má provést změna výšky. Elementu přidáme listener na událost input. 
+V~obslužné funkci následně modifikujeme výšku pole.
 
 \begin{prog}
 // Soubor autoresizeTextArea.ts
@@ -266,9 +266,9 @@ const resizeTextArea = (element: HTMLTextAreaElement) => \{
 \};
 \end{prog}
 
-V rámci rodičovské komponenty zavoláme Microsoft Translator Text API \cite{translatortextapi} v momentě, kdy dojde ke změně vstupního textu nebo výstupního jazyka. 
-K tomu použijeme reaktivní prohlášení (reactive statement). V těle prohlášení zrušíme předchozí časovač a pomocí funkce \emph{setTimeout} zavoláme funkci \emph{handleTranslation}. 
-Tímto způsobem předejdeme dotazování serveru ihned po změně nějaké vstupní hodnoty. Při zničení komponenty zrušíme časovač a asynchronní požadavky.
+V~rámci rodičovské komponenty zavoláme Microsoft Translator Text API \cite{translatortextapi} v~momentě, kdy dojde ke změně vstupního textu nebo výstupního jazyka. 
+K~tomu použijeme reaktivní prohlášení (reactive statement). V~těle prohlášení zrušíme předchozí časovač a~pomocí funkce \emph{setTimeout} zavoláme funkci \emph{handleTranslation}. 
+Tímto způsobem předejdeme dotazování serveru ihned po změně nějaké vstupní hodnoty. Při zničení komponenty zrušíme časovač a~asynchronní požadavky.
 
 \begin{prog}
 // Část souboru Translator.svelte
@@ -293,23 +293,23 @@ Tímto způsobem předejdeme dotazování serveru ihned po změně nějaké vstu
 \end{prog}
 
 Účelem asynchronní funkce \emph{handleTranslation} pak je odeslání korektního HTTP POST požadavku na server pomocí fetch API. 
-Při úspěšné odpovědi aktualizujeme stav s přeloženým textem, v opačném případě nastavíme chybový stav.
+Při úspěšné odpovědi aktualizujeme stav s~přeloženým textem, v~opačném případě nastavíme chybový stav.
 
 Při obdržení odpovědí ze serveru vykreslíme přeložený text uživateli pomocí komponenty TranslationOutput. 
-Komponentě předáme výstupní text spolu s dalšími vlastnostmi, na základě kterých v šabloně podmíněně vykreslíme přeložený text, chybu nebo načítání.
+Komponentě předáme výstupní text spolu s~dalšími vlastnostmi, na základě kterých v~šabloně podmíněně vykreslíme přeložený text, chybu nebo načítání.
 
 \begin{flushleft}
   \textbf{Tvorba formulářů, validace}
 \end{flushleft}
 
-Svelte, stejně jako React, nepodporuje pokročilou správu formulářů. Můžeme však využít knihovny třetích stran, jako např. svelte-forms-lib nebo Superforms, které nám umožní lépe spravovat a validovat formuláře. 
-V rámci této sekce vytvoříme komponentu pro jednoduchou investiční kalkulaci s využitím knihovny \emph{svelte-forms-lib} \cite{svelteformslib}. 
-Komponenta InvestForm bude obsahovat formulář pro zadání vstupních hodnot a komponentu FutureValuesInfo pro zobrazení výsledků kalkulace.
+Svelte, stejně jako React, nepodporuje pokročilou správu formulářů. Můžeme však využít knihovny třetích stran, jako např. svelte-forms-lib nebo Superforms, které nám umožní lépe spravovat a~validovat formuláře. 
+V~rámci této sekce vytvoříme komponentu pro jednoduchou investiční kalkulaci s~využitím knihovny \emph{svelte-forms-lib} \cite{svelteformslib}. 
+Komponenta InvestForm bude obsahovat formulář pro zadání vstupních hodnot a~komponentu FutureValuesInfo pro zobrazení výsledků kalkulace.
 
-Začneme implementací reaktivního formuláře, který bude přijímat počáteční hodnoty (\emph{defaultValues}) a \emph{investFormData} k předávání hodnot formuláře do rodičovské komponenty. 
-Strukturu formuláře popíšeme v typu \emph{InvestFormData}. Pomocí funkce \emph{createForm} z knihovny \emph{svelte-forms-lib} vytvoříme instanci formuláře, které předáme \emph{defaultValues} do vlastnosti \emph{initialValues}. 
-V rámci nastavení formuláře také definujeme validační schéma pomocí knihovny \emph{yup} \cite{yuplibrary} a \emph{onSubmit} obslužnou funkci. 
-Knihovnu yup volíme, jelikož je jedinou kompatibilní možností s knihovnou \emph{svelte-forms-lib} ve verzi 2.0.1. 
+Začneme implementací reaktivního formuláře, který bude přijímat počáteční hodnoty (\emph{defaultValues}) a~\emph{investFormData} k~předávání hodnot formuláře do rodičovské komponenty. 
+Strukturu formuláře popíšeme v~typu \emph{InvestFormData}. Pomocí funkce \emph{createForm} z~knihovny \emph{svelte-forms-lib} vytvoříme instanci formuláře, které předáme \emph{defaultValues} do vlastnosti \emph{initialValues}. 
+V~rámci nastavení formuláře také definujeme validační schéma pomocí knihovny \emph{yup} \cite{yuplibrary} a~\emph{onSubmit} obslužnou funkci. 
+Knihovnu yup volíme, jelikož je jedinou kompatibilní možností s~knihovnou \emph{svelte-forms-lib} ve verzi 2.0.1. 
 % vlastnost validationSchema musí být typu ObjectSchema<any>, který je definován jen a pouze v knihovně yup:
 % import type {ObjectSchema} from 'yup';
 % validationSchema?: ObjectSchema<any>;
@@ -327,8 +327,8 @@ Knihovnu yup volíme, jelikož je jedinou kompatibilní možností s knihovnou \
 </script>
 \end{prog}
 
-Aby nastavená výstupní data (\emph{investFormData}) odpovídala typu \emph{InvestFormData}, musíme transformovat hodnoty formuláře pomocí funkce \emph{cast} na validačním schématu. V opačném případě budou hodnoty typu string. 
-Z \emph{createForm} následně získáme obslužné funkce \emph{handleChange} a \emph{handleSubmit}, dále stavy formuláře \emph{form}, \emph{errors} a \emph{isValid}. Ke stavům formuláře přistupujeme pomocí \$, protože jde o stores observables.
+Aby nastavená výstupní data (\emph{investFormData}) odpovídala typu \emph{InvestFormData}, musíme transformovat hodnoty formuláře pomocí funkce \emph{cast} na validačním schématu. V~opačném případě budou hodnoty typu string. 
+Z~\emph{createForm} následně získáme obslužné funkce \emph{handleChange} a~\emph{handleSubmit}, dále stavy formuláře \emph{form}, \emph{errors} a~\emph{isValid}. Ke stavům formuláře přistupujeme pomocí \$, protože jde o~stores observables.
 
 \begin{prog}
 // Část souboru InvestForm.svelte
@@ -345,10 +345,10 @@ Z \emph{createForm} následně získáme obslužné funkce \emph{handleChange} a
 </script>
 \end{prog}
 
-Do šablony přidáme form s \emph{on:submit} událostí, které předáme \emph{handleSubmit}. Pokračujeme vytvořením formulářových prvků. 
-Jednotlivé prvky propojíme s reaktivním formulářem pomocí \emph{bind:value} a události \emph{on:change}, do které přiřadíme funkci \emph{handleChange}. 
-Chyby formuláře získáme z \emph{errors} a vykreslíme je pod formulářovými prvky. 
-V neposlední řadě přidáme tlačítko s typem submit, které se postará o odeslání formuláře a zavolání obslužné funkce \emph{onSubmit}.
+Do šablony přidáme form s~\emph{on:submit} událostí, které předáme \emph{handleSubmit}. Pokračujeme vytvořením formulářových prvků. 
+Jednotlivé prvky propojíme s~reaktivním formulářem pomocí \emph{bind:value} a~události \emph{on:change}, do které přiřadíme funkci \emph{handleChange}. 
+Chyby formuláře získáme z~\emph{errors} a~vykreslíme je pod formulářovými prvky. 
+V~neposlední řadě přidáme tlačítko s~typem submit, které se postará o~odeslání formuláře a~zavolání obslužné funkce \emph{onSubmit}.
 
 \begin{prog}
 // Část souboru InvestForm.svelte
@@ -392,9 +392,9 @@ V neposlední řadě přidáme tlačítko s typem submit, které se postará o o
 </form>
 \end{prog}
 
-Pokračujeme tím, že v rodičovské komponentě pomocí \emph{bind} získáme aktuální hodnoty formuláře (\emph{investFormData}). Po změně hodnot formuláře hodnoty transformujeme pomocí funkce \emph{futureValuesCalculator}. 
-Výsledek (\emph{futureValues}) pak zobrazíme v komponentě FutureValuesInfo. Jednotlivé výsledky budou zobrazeny v rámci vnořených komponent FutureValueInfo. 
-K modifikaci vstupní hodnoty v komponentě FutureValueInfo použijeme reactive statement.
+Pokračujeme tím, že v~rodičovské komponentě pomocí \emph{bind} získáme aktuální hodnoty formuláře (\emph{investFormData}). Po změně hodnot formuláře hodnoty transformujeme pomocí funkce \emph{futureValuesCalculator}. 
+Výsledek (\emph{futureValues}) pak zobrazíme v~komponentě FutureValuesInfo. Jednotlivé výsledky budou zobrazeny v~rámci vnořených komponent FutureValueInfo. 
+K~modifikaci vstupní hodnoty v~komponentě FutureValueInfo použijeme reactive statement.
 
 \begin{prog}
 // Soubor FutureValueInfo.svelte
@@ -416,13 +416,13 @@ K modifikaci vstupní hodnoty v komponentě FutureValueInfo použijeme reactive 
 \end{flushleft}
 
 Nyní vytvoříme webovou hru, ve které bude úkolem uživatele uhádnout název státu na základě poskytnutých nápovědí. Práci si zlehčíme využitím externích knihoven. 
-V rámci hry se postupně odkryje 8 nápovědí, které uživateli pomohou uhádnout název daného státu. Mezi klíčovými prvky bude textové pole pro zadání názvu země a potvrzovací tlačítko. 
-Dále ve hře bude seznam zemí, které uživatel hádal a modální okna pro vyhodnocení hry.
+V~rámci hry se postupně odkryje 8 nápovědí, které uživateli pomohou uhádnout název daného státu. Mezi klíčovými prvky bude textové pole pro zadání názvu země a~potvrzovací tlačítko. 
+Dále ve hře bude seznam zemí, které uživatel hádal a~modální okna pro vyhodnocení hry.
 
-Začneme implementací rodičovské komponenty, jejíž úkolem bude získat země z REST Countries API \cite{restcountriesapi}. 
-K tomu využijeme balíčky \emph{axios} \cite{axioslib} a \emph{@tanstack/svelte-query} \cite{tanstackquerylib}. 
-Knihovna \emph{@tanstack/svelte-query} umožní snadnou správu asynchronních operací. Její API poskytuje např. podporu načítacích i chybových stavů, také rušení či opakování dotazů a mnoho dalších funkcí. 
-Nejdříve inicializujeme \emph{svelte-query} klienta v rámci poskytovatele \emph{QueryClientProvider} v App.svelte.
+Začneme implementací rodičovské komponenty, jejíž úkolem bude získat země z~REST Countries API \cite{restcountriesapi}. 
+K~tomu využijeme balíčky \emph{axios} \cite{axioslib} a~\emph{@tanstack/svelte-query} \cite{tanstackquerylib}. 
+Knihovna \emph{@tanstack/svelte-query} umožní snadnou správu asynchronních operací. Její API poskytuje např. podporu načítacích i~chybových stavů, také rušení či opakování dotazů a~mnoho dalších funkcí. 
+Nejdříve inicializujeme \emph{svelte-query} klienta v~rámci poskytovatele \emph{QueryClientProvider} v~\emph{App.svelte}.
 
 \begin{prog}
 // Část souboru App.svelte
@@ -440,7 +440,7 @@ Nejdříve inicializujeme \emph{svelte-query} klienta v rámci poskytovatele \em
 \end{prog}
 
 Dále vytvoříme funkci \emph{useAllCountries}, která vrátí výsledek HTTP dotazu (\emph{CreateQueryResult}) pomocí funkce \emph{createQuery}. 
-Argumentem funkce \emph{createQuery} bude objekt s názvem dotazu (\emph{queryKey}) a funkce, která vykoná dotaz (\emph{queryFn}).
+Argumentem funkce \emph{createQuery} bude objekt s~názvem dotazu (\emph{queryKey}) a~funkce, která vykoná dotaz (\emph{queryFn}).
 
 \begin{prog}
 // Část souboru queries.ts
@@ -452,8 +452,8 @@ export const useAllCountries = (): CreateQueryResult<Countries, Error> => \{
 \};
 \end{prog}
 
-Dotaz na server provede asynchronní funkce \emph{getAllCountries}, v níž využijeme převzatou asynchronní funkci \emph{requestHandler} \cite{axiosrequesthandler} a knihovnu \emph{axios} \cite{axioslib}. 
-Po získání odpovědi ošetříme chyby a vrátíme výsledek.
+Dotaz na server provede asynchronní funkce \emph{getAllCountries}, v~níž využijeme převzatou asynchronní funkci \emph{requestHandler} \cite{axiosrequesthandler} a~knihovnu \emph{axios} \cite{axioslib}. 
+Po získání odpovědi ošetříme chyby a~vrátíme výsledek.
 
 \begin{prog}
 // Část souboru getAllCountries.ts
@@ -479,8 +479,8 @@ export const getAllCountries = async () => \{
 \};
 \end{prog}
 
-V rámci rodičovské komponenty dostaneme výsledek dotazu a uložíme jej do proměnné \emph{countries}. Následně pomocí vlastností \emph{isError} a \emph{data} podmíněně vykreslíme jednotlivé komponenty. 
-V případě chyby zobrazíme komponentu ErrorAlert. Když úspěšně získáme pole zemí, vykreslíme komponentu CountryGuesser. LoadingSkeleton zobrazíme, pokud se nezobrazí žádná z předchozích komponent.
+V~rámci rodičovské komponenty dostaneme výsledek dotazu a~uložíme jej do proměnné \emph{countries}. Následně pomocí vlastností \emph{isError} a~\emph{data} podmíněně vykreslíme jednotlivé komponenty. 
+V~případě chyby zobrazíme komponentu ErrorAlert. Když úspěšně získáme pole zemí, vykreslíme komponentu CountryGuesser. LoadingSkeleton zobrazíme, pokud se nezobrazí žádná z~předchozích komponent.
 
 \begin{prog}
 // Soubor CountryGuesserWrapper.svelte
@@ -508,10 +508,10 @@ V případě chyby zobrazíme komponentu ErrorAlert. Když úspěšně získáme
 \{/if\}
 \end{prog}
 
-Komponenta CountryGuesser zobrazí jednotlivé herní prvky a bude vyhodnocovat průběh hry. 
-Začneme definicí stavů a náhodně vybereme náhodnou zemi (\emph{randomCountry}), kterou uživatel bude hádat. 
-V hooku \emph{onMount} zavoláme funkci \emph{polyfillCountryFlagEmojis}. Při namontování komponenty tak zajistíme zobrazení ikon vlajek v prohlížečích, které to přímo nepodporují. 
-Prohlížeč uživatele však musí podporovat emojis a webové fonty. Funkce \emph{polyfillCountryFlagEmojis} přidá do hlavičky stránky webový font Twemoji Country Flags. 
+Komponenta CountryGuesser zobrazí jednotlivé herní prvky a~bude vyhodnocovat průběh hry. 
+Začneme definicí stavů a~náhodně vybereme náhodnou zemi (\emph{randomCountry}), kterou uživatel bude hádat. 
+V~hooku \emph{onMount} zavoláme funkci \emph{polyfillCountryFlagEmojis}. Při namontování komponenty tak zajistíme zobrazení ikon vlajek v~prohlížečích, které to přímo nepodporují. 
+Prohlížeč uživatele však musí podporovat emojis a~webové fonty. Funkce \emph{polyfillCountryFlagEmojis} přidá do hlavičky stránky webový font Twemoji Country Flags. 
 Aby se font použil, přidáme jej do CSS stylů.
 
 \begin{prog}
@@ -524,44 +524,44 @@ Aby se font použil, přidáme jej do CSS stylů.
 \}
 \end{prog}
 
-Dále naprogramujeme obslužné funkce \emph{handleEvaluateGuessAndUpdateState}, \emph{handleSetInitialState}, které budou sloužit k aktualizaci stavu hry. 
-V rámci šablony zobrazíme jednotlivé herní prvky a modální okna při výhře či prohře.
+Dále naprogramujeme obslužné funkce \emph{handleEvaluateGuessAndUpdateState}, \emph{handleSetInitialState}, které budou sloužit k~aktualizaci stavu hry. 
+V~rámci šablony zobrazíme jednotlivé herní prvky a~modální okna při výhře či prohře.
 
-V rámci komponenty HintBoxes postupně zobrazíme nápovědy. Dle vstupu \emph{randomCountry} budeme reaktivně vytvářet pole nápověd, jelikož \emph{randomCountry} se může změnit. 
-V šabloně posléze vykreslíme napovědy pomocí HintBox komponent. HintBox dynamicky vykreslí název a SVG ikonu nápovědy, textovou nápovědu, případně obrázek vlajky státu.
+V~rámci komponenty HintBoxes postupně zobrazíme nápovědy. Dle vstupu \emph{randomCountry} budeme reaktivně vytvářet pole nápověd, jelikož \emph{randomCountry} se může změnit. 
+V~šabloně posléze vykreslíme napovědy pomocí HintBox komponent. HintBox dynamicky vykreslí název a~SVG ikonu nápovědy, textovou nápovědu, případně obrázek vlajky státu.
 
-Komponenta \emph{CountryGuessInput.svelte} umožní uživateli zadání názvu země (uživatelova tipu). Začneme šablonou, kde vytvoříme formulářový prvek pro zadání tipu a potvrzovací tlačítko. 
-Dále také podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu (filtrované země). Přidáme obslužné funkce pro akce a události nad formulářem, které následně doimplementujeme.
+Komponenta \emph{CountryGuessInput.svelte} umožní uživateli zadání názvu země (uživatelova tipu). Začneme šablonou, kde vytvoříme formulářový prvek pro zadání tipu a~potvrzovací tlačítko. 
+Dále také podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu (filtrované země). Přidáme obslužné funkce pro akce a~události nad formulářem, které následně doimplementujeme.
 
-V rámci skriptové části, na základě vstupu \emph{countries}, získáme pole všech zemí bez těch, které uživatel již hádal (\emph{countriesWithoutAlreadyGuessed}). 
-Dále definujeme a inicializujeme ostatní stavy komponenty. Po kliknutí na potvrzovací tlačítko zavoláme funkci \emph{handleGuessButtonClick}. 
-V tělě funkce zavoláme obslužnou funkci \emph{evaluateGuessAndUpdateState}, pomocí níž vyhodnotíme stav hry v rodičovské komponentě. 
-Následně také funkci \emph{handleChangeSelectedGuess}, která aktualizuje aktuální tip, filtrované země a uzavře podmenu. 
-Funkce \emph{handleInputChange} převede tip uživatele do daného formátu, aktualizuje aktuální tip a filtrované země. Ovládání textového pole pomocí klávesnice umožní funkce \emph{handleKeyDown}.
+V~rámci skriptové části, na základě vstupu \emph{countries}, získáme pole všech zemí bez těch, které uživatel již hádal (\emph{countriesWithoutAlreadyGuessed}). 
+Dále definujeme a~inicializujeme ostatní stavy komponenty. Po kliknutí na potvrzovací tlačítko zavoláme funkci \emph{handleGuessButtonClick}. 
+V~tělě funkce zavoláme obslužnou funkci \emph{evaluateGuessAndUpdateState}, pomocí níž vyhodnotíme stav hry v~rodičovské komponentě. 
+Následně také funkci \emph{handleChangeSelectedGuess}, která aktualizuje aktuální tip, filtrované země a~uzavře podmenu. 
+Funkce \emph{handleInputChange} převede tip uživatele do daného formátu, aktualizuje aktuální tip a~filtrované země. Ovládání textového pole pomocí klávesnice umožní funkce \emph{handleKeyDown}.
 
-V pomocné funkci \emph{updateGuessAndFilteredCountries} nejprve získáme filtrované země podle uživatelova tipu. Následně aktualizujeme stavy \emph{currentGuess}, \emph{isValidGuess} a \emph{filteredCountries}. 
-Funkce \emph{clampSelectedGuessIndex} zajistí, aby index vybrané země byl v požadovaném rozmezí (0 až počet filtrovaných zemí). 
-K modifikaci stavu \emph{selectedGuessIndex} použijeme funkci \emph{changeSelectedGuessIndex}, která index aktualizuje o hodnotu předanou v argumentu. 
-Tip uživatele v rámci funkce \emph{convertToFormattedGuess} převedeme tak, aby začínal velkým písmenem a zbytek řetezce byl složen z malých písmen.
+V~pomocné funkci \emph{updateGuessAndFilteredCountries} nejprve získáme filtrované země podle uživatelova tipu. Následně aktualizujeme stavy \emph{currentGuess}, \emph{isValidGuess} a~\emph{filteredCountries}. 
+Funkce \emph{clampSelectedGuessIndex} zajistí, aby index vybrané země byl v~požadovaném rozmezí (0 až počet filtrovaných zemí). 
+K~modifikaci stavu \emph{selectedGuessIndex} použijeme funkci \emph{changeSelectedGuessIndex}, která index aktualizuje o~hodnotu předanou v~argumentu. 
+Tip uživatele v~rámci funkce \emph{convertToFormattedGuess} převedeme tak, aby začínal velkým písmenem a~zbytek řetezce byl složen z~malých písmen.
 
 Pro zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. 
-Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a \emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
-Jde o uživatelem hádané země s vlajkou a vzdáleností od \emph{randomCountry}. K převodu využijeme JS funkci z jiného souboru. 
+Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a~\emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
+Jde o~uživatelem hádané země s~vlajkou a~vzdáleností od \emph{randomCountry}. K~převodu využijeme JS funkci z~jiného souboru. 
 Vzdálenost zemí vypočteme pomocí knihovny \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která exportuje funkci \emph{getDistanceBetweenTwoPoints}. 
-Proměnnou \emph{enrichedGuessedCountries} následně vykreslíme v rámci šablony.
+Proměnnou \emph{enrichedGuessedCountries} následně vykreslíme v~rámci šablony.
 
-Nakonec vytvoříme modální okna, které vykreslíme při výhře nebo prohře. Stavy \emph{isWinModalOpen} a \emph{isLoseModalOpen} aktualizujeme v rámci funkce \emph{handleEvaluateGuessAndUpdateState} v CountryGuesser. 
-Na základě těchto stavů podmíněně zobrazíme daná modální okna. Oběma oknům předáme \emph{randomCountry} a obslužnou funkci \emph{handleClose}. Do výherního modálu také počet potřebných pokusů. 
-V jednotlivých komponentách (WinModal, LoseModal) vykreslíme komponentu BaseModal, která bude sloužit jako šablona pro obě okna. Do této komponenty pak předáme titulek, obsah modálu a obslužnou metodu \emph{handleClose}. 
-V šabloně BaseModal vykreslíme základní strukturu modálního okna s dynamickými vlastnostmi.
+Nakonec vytvoříme modální okna, které vykreslíme při výhře nebo prohře. Stavy \emph{isWinModalOpen} a~\emph{isLoseModalOpen} aktualizujeme v~rámci funkce \emph{handleEvaluateGuessAndUpdateState} v~CountryGuesser. 
+Na základě těchto stavů podmíněně zobrazíme daná modální okna. Oběma oknům předáme \emph{randomCountry} a~obslužnou funkci \emph{handleClose}. Do výherního modálu také počet potřebných pokusů. 
+V~jednotlivých komponentách (WinModal, LoseModal) vykreslíme komponentu BaseModal, která bude sloužit jako šablona pro obě okna. Do této komponenty pak předáme titulek, obsah modálu a~obslužnou metodu \emph{handleClose}. 
+V~šabloně BaseModal vykreslíme základní strukturu modálního okna s~dynamickými vlastnostmi.
 
 \begin{flushleft}
   \textbf{Routování a layout aplikace}
 \end{flushleft}
 
-Aplikaci rozdělíme do tří částí: hlavičky, patičky a samotného obsahu, v němž vykreslíme jednotlivé komponenty. Uživatel se bude moci přepínat mezi jednotlivými stránkami přes navigační menu. 
+Aplikaci rozdělíme do tří částí: hlavičky, patičky a~samotného obsahu, v~němž vykreslíme jednotlivé komponenty. Uživatel se bude moci přepínat mezi jednotlivými stránkami přes navigační menu. 
 
-Pro routování v aplikaci využijeme knihovnu \emph{svelte-spa-router} \cite{sveltesparouterlib}. Nejprve vytvoříme seznam cest aplikace (\emph{appRoutes}).
+Pro routování v~aplikaci využijeme knihovnu \emph{svelte-spa-router} \cite{sveltesparouterlib}. Nejprve vytvoříme seznam cest aplikace (\emph{appRoutes}).
 
 \begin{prog}
 // Část souboru appRoutes.ts
@@ -591,8 +591,8 @@ export const appRoutes: ReadonlyArray<AppRoute> = [
 ];
 \end{prog}
 
-Následně v hlavní komponentě transformujeme \emph{appRoutes} do požadovaného formátu (typu \emph{RouteDefinition}) a výsledek uložíme do proměnné \emph{routes}. 
-V šabloně zobrazíme hlavičku, patičku a \emph{Router}, kterému předáme proměnnou \emph{routes}. 
+Následně v~hlavní komponentě transformujeme \emph{appRoutes} do požadovaného formátu (typu \emph{RouteDefinition}) a~výsledek uložíme do proměnné \emph{routes}. 
+V~šabloně zobrazíme hlavičku, patičku a~\emph{Router}, kterému předáme proměnnou \emph{routes}. 
 \emph{Router} následně vykreslí šablonu na základě aktuální URL adresy.
 
 \begin{prog}
@@ -624,11 +624,11 @@ V šabloně zobrazíme hlavičku, patičku a \emph{Router}, kterému předáme p
 </QueryClientProvider>
 \end{prog}
 
-Hlavička zobrazí odkazy na jednotlivé stránky. Architekturu a vzhled navigačního menu převezmeme např. od Flowbite. 
-V rámci komponenty Header vypíšeme cesty aplikace pomocí HTML elementu a, na nějž přidáme atribut href. 
-Dále přidáme také akce \emph{link} a \emph{active}, které poskytuje \emph{svelte-spa-router}. 
-Akci \emph{active} předáme objekt, kde přes vlastnosti \emph{className} a \emph{inactiveClassName} nastavíme požadovanou CSS třídu podle toho, zda je odkaz aktivní nebo neaktivní. 
-K nastavení aria-current použijeme \emph{location} objekt ze \emph{svelte-spa-router}, díky kterému získáme aktuální URL.
+Hlavička zobrazí odkazy na jednotlivé stránky. Architekturu a~vzhled navigačního menu převezmeme např. od Flowbite. 
+V~rámci komponenty Header vypíšeme cesty aplikace pomocí HTML elementu a, na nějž přidáme atribut href. 
+Dále přidáme také akce \emph{link} a~\emph{active}, které poskytuje \emph{svelte-spa-router}. 
+Akci \emph{active} předáme objekt, kde přes vlastnosti \emph{className} a~\emph{inactiveClassName} nastavíme požadovanou CSS třídu podle toho, zda je odkaz aktivní nebo neaktivní. 
+K~nastavení aria-current použijeme \emph{location} objekt ze \emph{svelte-spa-router}, díky kterému získáme aktuální URL.
 
 \begin{prog}
 // Část souboru Header.svelte
@@ -653,8 +653,8 @@ K nastavení aria-current použijeme \emph{location} objekt ze \emph{svelte-spa-
 \{/each\}
 \end{prog}
 
-Stavy \emph{isMobileNavOpen} a \emph{isDarkMode} umožní ovládat zobrazení mobilní navigace a barevného režimu. K uložení preference tmavého režimu využijeme LocalStorage v prohlížeči. 
-Logiku pro přepnutí barevného režimu zavoláme v rámci hooku \emph{beforeUpdate}. Tento hook se spustí po změně lokálního stavu, ale před aktualizací HTML.
+Stavy \emph{isMobileNavOpen} a~\emph{isDarkMode} umožní ovládat zobrazení mobilní navigace a~barevného režimu. K~uložení preference tmavého režimu využijeme LocalStorage v~prohlížeči. 
+Logiku pro přepnutí barevného režimu zavoláme v~rámci hooku \emph{beforeUpdate}. Tento hook se spustí po změně lokálního stavu, ale před aktualizací HTML.
 
 \begin{prog}
 // Část souboru Header.svelte
