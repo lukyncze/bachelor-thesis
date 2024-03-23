@@ -25,7 +25,7 @@ Z těch největších jde například o Metu, Uber, Twitter a~Airbnb.\cite{react
 
 Hlavním stavebním kamenem Reactu jsou komponenty, jež představují nezávislé, vnořitelné a~opakovaně použitelné bloky kódu. 
 Komponentu v Reactu tvoří JavaScript funkce a~HTML šablona. Validně seskládané komponenty poté tvoří webovou aplikaci.
-V Reactu se můžeme setkat s funkčními a~třídními komponentami. Vytváření třídních komponent je na ústupu a oficiální dokumentace je rovněž nedoporučuje. 
+V Reactu se můžeme setkat s funkčními a~třídními komponentami. Vytváření třídních komponent je na ústupu a~oficiální dokumentace je rovněž nedoporučuje. 
 Výstup komponent tvoří elementy ve formě JSX. Tyto elementy obsahují informace o vzhledu a~funkcionalitě dané komponenty.
 
 Pro komunikaci mezi komponentami se používá předávání vlastností (props), přes které je možné předávat hodnoty jakýchkoli datových typů. 
@@ -123,7 +123,7 @@ useEffect(() => \{
 
 \subsubsection{Životní cyklus}
 
-Životní cyklus komponenty je sekvence událostí, jež nastanou mezi vytvořením a zničením komponenty. 
+Životní cyklus komponenty je sekvence událostí, jež nastanou mezi vytvořením a~zničením komponenty. 
 Ve třídních komponentách existovaly speciální metody, tzv. lifecycle metody, starající se o provedení určité části kódu při daném okamžiku v životě komponenty. 
 Nyní React disponuje pár hooky, které umožňují provádět side-effects podobně jako lifecycle metody.
 
@@ -132,14 +132,14 @@ Po odstranění komponenty z DOM proběhne odmontování (unmount).\cite{reactli
 
 \subsubsection{State management}
 
-Základní práce se stavy spočívá v lokálních stavech komponent a následným předáváním stavu do potomků či rodičů. 
+Základní práce se stavy spočívá v lokálních stavech komponent a~následným předáváním stavu do potomků či rodičů. 
 V případě, že potřebujeme sdílet stav mezi komponentami, měli bychom zvážit odlišné řešení. React sám o sobě disponuje pouze základním řešením, kterému říká Context API. 
 Context umožňuje sdílet data celému podstromu dané komponenty. 
 To se může hodit například při vytváření barevných módů aplikace, sdílení informace o přihlášeném uživateli, anebo routování.\cite{react}
 
 Správa stavů v komplexních aplikacích se stává výzvou. Problémy začínají při potřebě sdílení identických dat mezi větším množstvím konzumentů. 
 Existuje však mnoho knihoven třetích stran, které vývojáři využívají pro usnadnění manipulace se stavy. 
-Společné cíle state management knihoven spočívají v ukládání a získávání globálního stavu, jednodušší správě stavů a rozšiřitelnosti aplikace.
+Společné cíle state management knihoven spočívají v ukládání a~získávání globálního stavu, jednodušší správě stavů a~rozšiřitelnosti aplikace.
 Mezi tyto knihovny patří kupříkladu Redux, MobX, Recoil nebo Jotai.\cite{statemanagementreact,reactstatemanagement}
 
 \subsubsection{Routování}
@@ -153,7 +153,7 @@ K vykreslení požadované komponenty, která je spojena s danou cestou, slouž�
 
 \subsubsection{Ekosystém}
 
-Tento framework sám o sobě není úplně komplexním nástrojem. I přesto se stále vyvíjí a jeho ekosystém se neustále rozrůstá. 
+Tento framework sám o sobě není úplně komplexním nástrojem. I přesto se stále vyvíjí a~jeho ekosystém se neustále rozrůstá. 
 Na druhou stranu React disponuje velmi diverzifikovaným ekosystémem knihoven, který nabízí bohatý výběr nástrojů pro různé aspekty vývoje. 
 Knihovny jsou převážně zaměřené na stylování, tvorbu tabulek, formulářů, grafů či grafických animací, správu stavů, routování, dotazování na API. 
 Nechybí ani dokumentační knihovny, vývojářské rozšíření pro prohlížeče, striktní typování, překlady, testovací balíčky. 

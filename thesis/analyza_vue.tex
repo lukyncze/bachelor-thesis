@@ -19,22 +19,22 @@ Framework je v současné době jedním z nejpopulárnějších frameworků pro 
 \end{figure}
 
 Evan You, tvůrce Vue.js, se inspiroval určitými částmi frameworku AngularJS, který však měl velmi strmou křivku učení. 
-Vue tedy mělo být lehké, přizpůsobivé a snadné k naučení. Bylo vytvořeno roku 2013, uvolněno do světa až o rok později. 
+Vue tedy mělo být lehké, přizpůsobivé a~snadné k naučení. Bylo vytvořeno roku 2013, uvolněno do světa až o rok později. 
 Od té doby byly vydány pouze 3 majoritní verze, avšak ty přinesly mnoho změn.\cite{vueflexiple,vuemedium}
 
-Vue nabízí svobodnou volbu při tvorbě komponent ve formě dvou hlavních API -- Options a Composition API. 
+Vue nabízí svobodnou volbu při tvorbě komponent ve formě dvou hlavních API -- Options a~Composition API. 
 Options API můžeme přirovnat k objektovému přístupu, kdežto Composition API využívá funkcionální přístup. 
-Podle \cite{vue} Composition API přináší větší flexibilitu a umožňuje efektivnější návrhové vzory pro organizaci a znovupoužitelnost kódu. 
+Podle \cite{vue} Composition API přináší větší flexibilitu a~umožňuje efektivnější návrhové vzory pro organizaci a~znovupoužitelnost kódu. 
 Z tohoto důvodu v analýze budeme využívat Composition API.
 
-Framework klade důraz na progresivitu, což znamená, že roste s vývojářem a přizpůsobuje se jeho potřebám. 
+Framework klade důraz na progresivitu, což znamená, že roste s vývojářem a~přizpůsobuje se jeho potřebám. 
 Díky tomu si Vue oblíbily společnosti jako Xiaomi, Adobe, Gitlab, Trivago, BMW.\cite{vuetriodev,vue}
 
 \subsubsection{Single-File Components}
 
 Základní funkcí Vue jsou tzv. Single-File Components (SFC). Jedná se o hlavní stavební blok frameworku, který reprezenzuje část webové stránky. 
-Komponenta se skládá ze šablony, dat komponenty, funkcí a kaskádových stylů. Hlavní výhodu tohoto přístupu představuje znovupoužitelnost. 
-JavaScriptové funkce musí být zapsány mezi párové značky script s atributem setup, šablona do template tagů a styly do style bloku.\cite{vuemacrae,vue}
+Komponenta se skládá ze šablony, dat komponenty, funkcí a~kaskádových stylů. Hlavní výhodu tohoto přístupu představuje znovupoužitelnost. 
+JavaScriptové funkce musí být zapsány mezi párové značky script s atributem setup, šablona do template tagů a~styly do style bloku.\cite{vuemacrae,vue}
 
 \begin{prog}
 <script setup>
@@ -80,11 +80,11 @@ Modifikaci stavu lze provést pomocí přiřazení nové hodnoty. Při změně j
 
 \subsubsection{Předávání vlastností}
 
-Komponenty spolu komunikují pomocí předávání vlastností. V parent komponentě je třeba předat požadovanou hodnotu do proměnné child komponenty. 
-V child komponentě pak definujeme props vlastnost, kterou vytvoříme pomocí funkce defineProps. 
-DefineProps funkce vyžaduje objekt s názvem a datovým typem předávané vlastnosti.
+Komponenty spolu komunikují pomocí předávání vlastností. V rodičovské komponentě je třeba předat požadovanou hodnotu do proměnné vnořené komponenty. 
+Uvnitř vnořené komponenty pak definujeme props vlastnost, kterou vytvoříme pomocí funkce defineProps. 
+DefineProps funkce vyžaduje objekt s názvem a~datovým typem předávané vlastnosti.
 
-Pro předání vlastnosti z child to parent komponenty se využívá tzv. emitování eventů. 
+Pro předání vlastnosti z vnořené do rodičovské komponenty se využívá tzv. emitování eventů. 
 V potomku vytvoříme vlastnost emit, v níž nadeklarujeme pole emitovaných hodnot pomocí funkce defineEmits. Dále je třeba definovat jednotlivé emity. 
 První argumentem je název emitu, další argumenty jsou již předávané hodnoty. Rodičovská komponenta musí naslouchat na emitované eventy. 
 Toho lze docílit pomocí @response direktivy, která typicky v callback funkci přeukládá argumenty na lokalní stavy.\cite{vuemacrae,vue}
@@ -117,8 +117,8 @@ Toho lze docílit pomocí @response direktivy, která typicky v callback funkci 
 
 \subsubsection{Direktivy a eventy}
 
-Framework disponuje mnoha direktivami, které umožňují přidávat do šablony různé funkce. Logiku vykreslování umožňují direktivy v-if, v-else-if a v-else. 
-Pro iteraci přes pole hodnot slouží v-for. Mezi další užitečné direktivy patří v-bind a v-model. 
+Framework disponuje mnoha direktivami, které umožňují přidávat do šablony různé funkce. Logiku vykreslování umožňují direktivy v-if, v-else-if a~v-else. 
+Pro iteraci přes pole hodnot slouží v-for. Mezi další užitečné direktivy patří v-bind a~v-model. 
 Díky v-bind je možné přidat jakémukoli elementu dynamickou hodnotu atributu, direktivu můžeme zkrátit i pomocí dvojtečky. 
 Direktiva v-model zase zajistí obousměrné propojení pro formulářové prvky.
 
@@ -136,7 +136,7 @@ Direktiva v-model zase zajistí obousměrné propojení pro formulářové prvky
 </template> 
 \end{prog}
 
-Vue také umožnuje naslouchat na DOM eventy pomocí direktivy v-on. Ta pak vyžaduje libovolný DOM event a callback funkci, jež se vykoná při daném DOM eventu. 
+Vue také umožnuje naslouchat na DOM eventy pomocí direktivy v-on. Ta pak vyžaduje libovolný DOM event a~callback funkci, jež se vykoná při daném DOM eventu. 
 Můžeme také zvolit ekvivalentní zápis s @. Další možnost představuje využití modifkátorů eventů, které se postarají například o vypnutí výchozího chování prvku.\cite{vuemacrae,vue}
 
 \begin{prog}
@@ -155,7 +155,7 @@ Můžeme také zvolit ekvivalentní zápis s @. Další možnost představuje vy
 
 \subsubsection{Životní cyklus}
 
-Každá Vue komponenta má daný životní cyklus, který konkrétně můžeme rozdělit na 3~části -- inicializační část, část, při které se mění data a část, kdy komponenta zaniká. 
+Každá Vue komponenta má daný životní cyklus, který konkrétně můžeme rozdělit na 3~části -- inicializační část, část, při které se mění data a~část, kdy komponenta zaniká. 
 Pro zajištění kontroly životního cyklu slouží tzv. hooks, které se vyznačují tím, že vždy před svým názvem mají předponu on.
 
 Při inicializaci komponenty můžeme využít hook akce beforeMount či mount. BeforeMount se volá ještě před tím, než se komponenta přidá na stránku. 
@@ -167,13 +167,13 @@ Po dokončení zničení se pak volá unmounted.\cite{vuemacrae,vue}
 \subsubsection{State management}
 
 Framework Vue v sobě nemá implementovaný žádný sofistikovaný state management. 
-K základní práci se stavy aplikace poslouží reaktivní stavy jednotlivých komponent a jejich sdílení ve stromě komponent.
+K základní práci se stavy aplikace poslouží reaktivní stavy jednotlivých komponent a~jejich sdílení ve stromě komponent.
 
 Pro komplexnější aplikace je třeba využít některou z knihoven třetích stran. Dokumentace doporučuje knihovnu Pinia, o kterou se starají vývojáři samotného Vue. 
-Pinia je inspirována Vuex a využívá principu Composition API. Tato knihovna nabízí jednoduché API pro správu stavů v aplikaci. 
+Pinia je inspirována Vuex a~využívá principu Composition API. Tato knihovna nabízí jednoduché API pro správu stavů v aplikaci. 
 Hlavním prvkem jsou tzv. stores, do kterých ukládáme globální stavy aplikace. 
-Store vytvoříme pomocí funkce defineStore, která požaduje identifikátor daného store a callback funkci. 
-Ta by měla vracet samotný state definovaný pomocí ref() a akce (funkce, jež mění stavy) nad storem, případně computed state -- jiný stav, který je typicky odvozen od původního stavu.\cite{pinia,vue}
+Store vytvoříme pomocí funkce defineStore, která požaduje identifikátor daného store a~callback funkci. 
+Ta by měla vracet samotný state definovaný pomocí ref() a~akce (funkce, jež mění stavy) nad storem, případně computed state -- jiný stav, který je typicky odvozen od původního stavu.\cite{pinia,vue}
 
 \subsubsection{Routování}
 
@@ -182,15 +182,15 @@ Základní využití routeru spočívá ve vytvoření instance routeru. Tuto in
 V rámci šablony pak můžeme použít router-link element, jež představuje odkaz na jinou cestu. Pro vykreslení obsahu po změně cesty slouží router-view. 
 V podstatě se jedná o wrapper pro vykreslení komponenty, která je spojena s uživatelem vybranou cestou.
 
-Vue Router disponuje také dynamickým routingem, který umožňuje definovat parametry cesty a vykreslit tedy stránku s dynamickými daty. 
-Mezi další funkce patří např. zanořené routování a routování dle pojmenovaných cest aplikace.\cite{vue,vuerouter}
+Vue Router disponuje také dynamickým routingem, který umožňuje definovat parametry cesty a~vykreslit tedy stránku s dynamickými daty. 
+Mezi další funkce patří např. zanořené routování a~routování dle pojmenovaných cest aplikace.\cite{vue,vuerouter}
 
 \subsubsection{Ekosystém}
 
 Vue framework sice nabízí solidní základ pro vývoj webových aplikací, sám o sobě ale není komplexním nástrojem pro vývoj aplikací většího rozsahu. 
-Většina vývojářů využívá kromě frameworku i další knihovny třetích stran, které zvyšují produktivitu a zjednodušují vývoj požadovaných funkcí. 
+Většina vývojářů využívá kromě frameworku i další knihovny třetích stran, které zvyšují produktivitu a~zjednodušují vývoj požadovaných funkcí. 
 V rámci ekosystému lze využít například knihovny pro práci s UI komponenty, routováním, state managementem. 
 Nechybí ani knihovny pro typování, testování, statické generování či formátování kódu.
 
-Při rostoucí komplexitě webových aplikací můžeme zvážit použití pokročilého frameworku Nuxt. Nuxt je postaven na základech Vue.js a poskytuje production-ready nástroje. 
+Při rostoucí komplexitě webových aplikací můžeme zvážit použití pokročilého frameworku Nuxt. Nuxt je postaven na základech Vue.js a~poskytuje production-ready nástroje. 
 Konkrétně řeší například pokročilou správu stavů, routing, hydrataci stránek či Server Side Rendering.\cite{awesomevue,vue}
