@@ -31,7 +31,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> \{
 \end{prog}
 
 V~rámci argumentu Button komponenty použijeme ES6 destructuring assignment pro získání vlastností. 
-Z objektu vlastností získáme \emph{className} a~\emph{children}, ostatní vlastnosti ponecháme zabalené v~proměnné props pomocí spread operátoru. 
+Z~objektu vlastností získáme \emph{className} a~\emph{children}, ostatní vlastnosti ponecháme zabalené v~proměnné props pomocí spread operátoru. 
 Nyní můžeme vytvořit JSX pro samotné tlačítko. Vlastnost \emph{className} přidáme do tříd tlačítka. 
 Pomocí \emph{children} můžeme do tlačítka vložit libovolný obsah, který bude mezi párovými značkami <Button>. 
 Všechny ostatní vlastnosti pomocí spread operátoru předáme přímo tlačítku.
@@ -94,7 +94,7 @@ V~tomto případě, při vývoji komponenty rozevíracího seznamu, začneme nap
 Hook \emph{useDropdown} bude mít 2 parametry -- obslužnou funkci ke změně vybrané možnosti v~rodičovské komponentě (\emph{onChange}) a~výchozí hodnotu vybrané možnosti (\emph{defaultValue}). 
 V~rámci hooku nadefinujeme stavy \emph{selectedOption}, \emph{isOpen} a~vygenerujeme unikátní identifikátor. 
 Dále vytvoříme funkci \emph{handleOptionClick}, která zajistí změnu vybrané možnosti, zavření seznamu a~vypublikuje změnu hodnoty do rodičovské komponenty. 
-Z hooku vracíme potřebné stavy a~funkce ve formě objektu nebo pole -- pole musíme označit jako \emph{const}.
+Z~hooku vracíme potřebné stavy a~funkce ve formě objektu nebo pole -- pole musíme označit jako \emph{const}.
 
 \begin{prog}
 // Část souboru useDropdown.ts
