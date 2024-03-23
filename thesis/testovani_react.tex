@@ -576,7 +576,7 @@ V~neposlední řadě funkce \emph{convertToFormattedGuess} převede tip uživate
 
 Ke zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a~\emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
 Jde o~uživatelem hádané země s~vlajkou a~vzdáleností od \emph{randomCountry}. K~převodu využijeme JS funkce z~jiného souboru. 
-K vypočtení vzdálenosti použijeme knihovnu \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která obsahuje funkci \emph{getDistanceBetweenTwoPoints}. 
+K~vypočtení vzdálenosti použijeme knihovnu \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která obsahuje funkci \emph{getDistanceBetweenTwoPoints}. 
 Jednotlivé prvky pole \emph{enrichedGuessedCountries} pak vykreslíme v~rámci JSX.
 
 Nakonec vytvoříme modální okna, která se zobrazí při výhře či prohře. Stavy \emph{isWinModalOpen} a~\emph{isLoseModalOpen} aktualizujeme v~rámci funkce \emph{handleEvaluateGuessAndUpdateState} v~CountryGuesser. 
@@ -700,7 +700,7 @@ Vlastnosti \emph{isActive} tedy využijeme pro podmíněné přidání CSS styl�
 \end{prog}
 
 Mobilní navigaci a~barevný režim implementujeme díky stavům \emph{isMobileNavOpen} a~\emph{isDarkMode}. Informaci o~tom, zda má uživatel zapnutý tmavý režim budeme ukládat do LocalStorage v~prohlížeči. 
-K tomu použijeme \emph{useEffect} hook, který při změně stavu \emph{isDarkMode} přidá patřičný data-mode a~provede aktualizaci LocalStorage.
+K~tomu použijeme \emph{useEffect} hook, který při změně stavu \emph{isDarkMode} přidá patřičný data-mode a~provede aktualizaci LocalStorage.
 
 \begin{prog}
 // Část souboru Header.tsx

@@ -159,7 +159,7 @@ Obslužná funkce \emph{handleOptionClick} zajistí změnu vybrané možnosti, z
 </script>
 \end{prog}
 
-K uzavření jakéhokoli otevřeného seznamu, při kliknutí mimo tento seznam, vytvoříme akci (Svelte action) \emph{clickOutsideDropdown}. 
+K~uzavření jakéhokoli otevřeného seznamu, při kliknutí mimo tento seznam, vytvoříme akci (Svelte action) \emph{clickOutsideDropdown}. 
 V~rámci akce \emph{clickOutsideDropdown} budeme naslouchat na události pointerdown v~DOM. Obslužná funkce pak zajistí spuštění callbacku v~Dropdown komponentě.
 
 \begin{prog}
@@ -241,7 +241,7 @@ V~rámci rodičovské komponenty použijeme \emph{bind}, díky čemuž pak reakt
 <TranslationInput bind:inputText />
 \end{prog}
 
-K reaktivní změně výšky textového pole použijeme akci \emph{autoresizeTextArea}. Akce přijme element, na kterém se má provést změna výšky. Elementu přidáme listener na událost input. 
+K~reaktivní změně výšky textového pole použijeme akci \emph{autoresizeTextArea}. Akce přijme element, na kterém se má provést změna výšky. Elementu přidáme listener na událost input. 
 V~obslužné funkci následně modifikujeme výšku pole.
 
 \begin{prog}
@@ -267,7 +267,7 @@ const resizeTextArea = (element: HTMLTextAreaElement) => \{
 \end{prog}
 
 V~rámci rodičovské komponenty zavoláme Microsoft Translator Text API \cite{translatortextapi} v~momentě, kdy dojde ke změně vstupního textu nebo výstupního jazyka. 
-K tomu použijeme reaktivní prohlášení (reactive statement). V~těle prohlášení zrušíme předchozí časovač a~pomocí funkce \emph{setTimeout} zavoláme funkci \emph{handleTranslation}. 
+K~tomu použijeme reaktivní prohlášení (reactive statement). V~těle prohlášení zrušíme předchozí časovač a~pomocí funkce \emph{setTimeout} zavoláme funkci \emph{handleTranslation}. 
 Tímto způsobem předejdeme dotazování serveru ihned po změně nějaké vstupní hodnoty. Při zničení komponenty zrušíme časovač a~asynchronní požadavky.
 
 \begin{prog}
@@ -394,7 +394,7 @@ V~neposlední řadě přidáme tlačítko s~typem submit, které se postará o~o
 
 Pokračujeme tím, že v~rodičovské komponentě pomocí \emph{bind} získáme aktuální hodnoty formuláře (\emph{investFormData}). Po změně hodnot formuláře hodnoty transformujeme pomocí funkce \emph{futureValuesCalculator}. 
 Výsledek (\emph{futureValues}) pak zobrazíme v~komponentě FutureValuesInfo. Jednotlivé výsledky budou zobrazeny v~rámci vnořených komponent FutureValueInfo. 
-K modifikaci vstupní hodnoty v~komponentě FutureValueInfo použijeme reactive statement.
+K~modifikaci vstupní hodnoty v~komponentě FutureValueInfo použijeme reactive statement.
 
 \begin{prog}
 // Soubor FutureValueInfo.svelte
@@ -420,7 +420,7 @@ V~rámci hry se postupně odkryje 8 nápovědí, které uživateli pomohou uhád
 Dále ve hře bude seznam zemí, které uživatel hádal a~modální okna pro vyhodnocení hry.
 
 Začneme implementací rodičovské komponenty, jejíž úkolem bude získat země z~REST Countries API \cite{restcountriesapi}. 
-K tomu využijeme balíčky \emph{axios} \cite{axioslib} a~\emph{@tanstack/svelte-query} \cite{tanstackquerylib}. 
+K~tomu využijeme balíčky \emph{axios} \cite{axioslib} a~\emph{@tanstack/svelte-query} \cite{tanstackquerylib}. 
 Knihovna \emph{@tanstack/svelte-query} umožní snadnou správu asynchronních operací. Její API poskytuje např. podporu načítacích i~chybových stavů, také rušení či opakování dotazů a~mnoho dalších funkcí. 
 Nejdříve inicializujeme \emph{svelte-query} klienta v~rámci poskytovatele \emph{QueryClientProvider} v~\emph{App.svelte}.
 
@@ -541,7 +541,7 @@ Funkce \emph{handleInputChange} převede tip uživatele do daného formátu, akt
 
 V~pomocné funkci \emph{updateGuessAndFilteredCountries} nejprve získáme filtrované země podle uživatelova tipu. Následně aktualizujeme stavy \emph{currentGuess}, \emph{isValidGuess} a~\emph{filteredCountries}. 
 Funkce \emph{clampSelectedGuessIndex} zajistí, aby index vybrané země byl v~požadovaném rozmezí (0 až počet filtrovaných zemí). 
-K modifikaci stavu \emph{selectedGuessIndex} použijeme funkci \emph{changeSelectedGuessIndex}, která index aktualizuje o~hodnotu předanou v~argumentu. 
+K~modifikaci stavu \emph{selectedGuessIndex} použijeme funkci \emph{changeSelectedGuessIndex}, která index aktualizuje o~hodnotu předanou v~argumentu. 
 Tip uživatele v~rámci funkce \emph{convertToFormattedGuess} převedeme tak, aby začínal velkým písmenem a~zbytek řetezce byl složen z~malých písmen.
 
 Pro zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. 
@@ -628,7 +628,7 @@ Hlavička zobrazí odkazy na jednotlivé stránky. Architekturu a~vzhled naviga�
 V~rámci komponenty Header vypíšeme cesty aplikace pomocí HTML elementu a, na nějž přidáme atribut href. 
 Dále přidáme také akce \emph{link} a~\emph{active}, které poskytuje \emph{svelte-spa-router}. 
 Akci \emph{active} předáme objekt, kde přes vlastnosti \emph{className} a~\emph{inactiveClassName} nastavíme požadovanou CSS třídu podle toho, zda je odkaz aktivní nebo neaktivní. 
-K nastavení aria-current použijeme \emph{location} objekt ze \emph{svelte-spa-router}, díky kterému získáme aktuální URL.
+K~nastavení aria-current použijeme \emph{location} objekt ze \emph{svelte-spa-router}, díky kterému získáme aktuální URL.
 
 \begin{prog}
 // Část souboru Header.svelte

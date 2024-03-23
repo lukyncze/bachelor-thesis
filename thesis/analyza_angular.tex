@@ -55,7 +55,7 @@ export class MyComponent \{
 
 \subsubsection{Správa stavů}
 
-K vytvoření stavů v~Angularu využijeme vlastnosti třídy (class fields). Vlastnosti mohou být veřejné (public), protected (chráněné) nebo soukromé (private). 
+K~vytvoření stavů v~Angularu využijeme vlastnosti třídy (class fields). Vlastnosti mohou být veřejné (public), protected (chráněné) nebo soukromé (private). 
 V~případě, že viditelnost nespecifikujeme, je vlastnost veřejná. Soukromé vlastnosti jsou viditelné pouze v~rámci třídy, chráněné v~rámci třídy a~šablony. 
 Veřejné vlastnosti jsou viditelné odkudkoli.\cite{angulardev,learningangular}
 
@@ -115,7 +115,7 @@ Předávat vlastnosti či jiné hodnoty je možné pomocí vstupního dekorátor
 V~rámci šablony danou hodnotu předáme do vnořené komponenty skrze název vstupu v~hranatých závorkách.   
 Ve vnořené komponentě využijeme dekorátor @Input, sloužící k~získání hodnot z~rodičovské komponenty. K~předaným hodnotám není možné přistupovat v~rámci konstruktoru. 
 
-K předání hodnoty z~vnořené komponenty nejprve přidáme vnořené komponentě název výstupu v~kulatých závorkách a~obslužnou metodu, která se vykoná po předání vlastnosti. 
+K~předání hodnoty z~vnořené komponenty nejprve přidáme vnořené komponentě název výstupu v~kulatých závorkách a~obslužnou metodu, která se vykoná po předání vlastnosti. 
 Posléze definujeme @Output ve vnořené komponentě, na němž zavoláme metodu emit(), která přes argument metody umožňuje předání (vypublikování) hodnot z~vnořené do rodičovské komponenty.\cite{angulardev,learningangular}
 
 \begin{prog}
@@ -224,7 +224,7 @@ V~neposlední řadě metoda ngOnDestroy je volána při zničení komponenty.\ci
 
 \subsubsection{State management}
 
-K základní práci se stavy slouží vlastnosti třídy, které inicializujeme JavaScriptovou hodnotou. 
+K~základní práci se stavy slouží vlastnosti třídy, které inicializujeme JavaScriptovou hodnotou. 
 Do budoucna můžeme počítat s~lepší podporou signálů, které aktualizují DOM efektivněji a~rychleji. 
 Pokročilejší způsob sdílení stavů v~rámci aplikace spočívá ve využití služeb, v~nichž uložíme stavy a~následně je sdílíme mezi komponentami.\cite{angulardev}
 

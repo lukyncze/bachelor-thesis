@@ -51,7 +51,7 @@ export class CounterButtonComponent \{
 \end{prog}
 
 Funkci \emph{emit()} \emph{EventEmitteru} zavoláme na tlačítku v~counter-buttonu právě tehdy, když uživatel klikne na tlačítko -- použijeme listener ve formě \emph{(click)}. 
-K propsání textu či jiných elementů nebo komponent mezi párovými tagy <counter-button> pak poslouží párový či nepárový element <ng-content />.
+K~propsání textu či jiných elementů nebo komponent mezi párovými tagy <counter-button> pak poslouží párový či nepárový element <ng-content />.
 
 \begin{prog}
 // Soubor counter-button.component.html
@@ -133,7 +133,7 @@ V~rámci této metody je třeba zavolat i~\emph{event.stopPropagation()}. Přede
 \end{prog}
 
 Podmíněně pak můžeme vypsat list možností, které získáme v~jednom z~inputů. Pro vypsání všech možností použijeme blok \emph{@for}. 
-K vybraní konkrétní možnosti použijeme zase \emph{(click)} a~do obslužné metody pošleme aktuální prvek v~poli -- option. 
+K~vybraní konkrétní možnosti použijeme zase \emph{(click)} a~do obslužné metody pošleme aktuální prvek v~poli -- option. 
 Metoda \emph{handleOptionClick} pak zajistí uložení aktuálně vybrané možnosti, zavření dropdownu a~vyemitování vybrané možnosti do rodičovské komponenty.
 
 \begin{prog}
@@ -310,7 +310,7 @@ this.translationService
 \end{prog}
 
 V~momentě, kdy obdržíme odpověď ze serveru, zobrazíme přeložený text uživateli. 
-K tomu poslouží TranslationOutputComponent, které na vstupu předáme výstupní text spolu s~dalšími vstupními vlastnostmi. 
+K~tomu poslouží TranslationOutputComponent, které na vstupu předáme výstupní text spolu s~dalšími vstupními vlastnostmi. 
 V~rámci šablony pak podmíněně vykreslíme přeložený text, chybu nebo načítání. 
 
 Při zarovnání vstupního a~výstupního pole v~UI si musíme dát pozor na to, že šířku je potřeba nastavit již v~prvním potomku div elementu, na kterém nastavíme flexbox. 
@@ -548,10 +548,10 @@ Pomocná metoda \emph{updateGuessAndFilteredCountries} pak modifikuje vlastnost 
 Následně pomocí metody \emph{getFilteredCountries} získá aktuálně filtrované země na základě uživatelova tipu. 
 Dále nastaví vlastnost \emph{isValidGuess}, která určuje, zda je uživatelův tip validní (taková země existuje). 
 V~neposlední řadě se metoda stará i~o aktualizaci vlastnosti \emph{selectedGuessIndex}, jež určuje, která země je vybraná v~podmenu. 
-K tomu slouží metoda \emph{clampSelectedGuessIndex}, která index udrží v~požadovaném rozmezí (0 až počet filtrovaných zemí).
+K~tomu slouží metoda \emph{clampSelectedGuessIndex}, která index udrží v~požadovaném rozmezí (0 až počet filtrovaných zemí).
 Metoda \emph{getFilteredCountries} získává filtrované země na základě vlastnosti \emph{currentGuess}. 
 Pomocná metoda \emph{changeSelectedGuessIndex} aktualizuje vlastnost \emph{selectedGuessIndex} o~hodnotu předanou v~argumentu. 
-K převodu tipu uživatele slouží pomocná metoda \emph{convertToFormattedGuess}. Metoda zajistí, aby tip začínal velkým písmenem a~zbytek řetezce byl složen z~malých písmen.
+K~převodu tipu uživatele slouží pomocná metoda \emph{convertToFormattedGuess}. Metoda zajistí, aby tip začínal velkým písmenem a~zbytek řetezce byl složen z~malých písmen.
 
 Implementujeme komponentu guessed-countries-list, jenž zobrazí seznam již hádaných zemí. 
 Mezi vstupními vlastnostmi bude pole všech zemí (\emph{countries}), pole hádaných zemí uživatelem (\emph{guessedCountries}) a~také země, kterou uživatel musí uhodnout (\emph{randomCountry}).
@@ -576,7 +576,7 @@ BaseModalComponent bude přijímat titulek, obsah modálního okna a~\emph{handl
 Demonstrační aplikace bude složena z~hlavičky, patičky a~samotného obsahu, v~němž se vykreslí jednotlivé komponenty. 
 Mezi jednotlivými stránkami se uživatel bude moct přepínat pomocí navigačního menu.
 
-K routování mezi jednotlivými stránkami využijeme modul Router přímo od Angularu. Nejprve vytvoříme cesty (\emph{routes}) pro jednotlivé stránky v~souboru \emph{app.routes.ts}. 
+K~routování mezi jednotlivými stránkami využijeme modul Router přímo od Angularu. Nejprve vytvoříme cesty (\emph{routes}) pro jednotlivé stránky v~souboru \emph{app.routes.ts}. 
 Proměnnou \emph{routes} vytvoříme dle předpisu \emph{Routes} a~následně exportujeme. Cesty pak poskytneme routeru v~rámci \emph{app.config.ts}.
 
 \begin{prog}

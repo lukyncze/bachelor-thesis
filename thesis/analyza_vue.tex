@@ -57,7 +57,7 @@ JavaScriptové funkce musí být zapsány mezi párové značky script s~atribut
 \subsubsection{Reaktivita}
 
 V~komponentě můžeme uchovávat informace pomocí reaktivních stavů. Oficiální dokumentace doporučuje používat funkci ref, která vyžaduje počáteční hodnotu. 
-K hodnotě stavu pak v~rámci skriptu přistupujeme pomocí vlastnosti value. V~šabloně postačí pouze název stavu. 
+K~hodnotě stavu pak v~rámci skriptu přistupujeme pomocí vlastnosti value. V~šabloně postačí pouze název stavu. 
 Modifikaci stavu lze provést pomocí přiřazení nové hodnoty. Při změně jakéhokoli stavu komponenty pak Vue automaticky aktualizuje DOM novými daty.\cite{vue}
 
 \begin{prog}
@@ -167,7 +167,7 @@ Po dokončení zničení se volá hook unmounted.\cite{vuemacrae,vue}
 \subsubsection{State management}
 
 Framework Vue v~sobě nemá implementovaný žádný sofistikovaný state management. 
-K základní práci se stavy aplikace poslouží reaktivní stavy jednotlivých komponent a~jejich sdílení ve stromě komponent.
+K~základní práci se stavy aplikace poslouží reaktivní stavy jednotlivých komponent a~jejich sdílení ve stromě komponent.
 
 Pro komplexnější aplikace je třeba využít některou z~knihoven třetích stran. Dokumentace doporučuje knihovnu Pinia, o~kterou se starají vývojáři samotného Vue. 
 Pinia je inspirována Vuex a~využívá principu Composition API. Tato knihovna nabízí jednoduché API pro správu stavů v~aplikaci. 
