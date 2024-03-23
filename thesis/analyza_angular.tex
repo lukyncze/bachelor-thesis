@@ -14,7 +14,7 @@ Dále také nástroje, které vývojářům usnadňují vývoj, testování či 
 \end{figure}
 
 První verze Angularu byla vydána v roce 2012 pod názvem AngularJS. 
-V roce 2016, po kolaboraci se společností Microsoft, Google vydal novou verzi, o které mluvíme jako o Angular 2. 
+V roce 2016, po kolaboraci se společností Microsoft, Google vydal novou verzi, o~které mluvíme jako o~Angular 2. 
 Verze 2 byla kompletně přepsána z JavaScriptu do jazyku TypeScript. 
 Součástí frameworku je i~knihovna RxJS pro práci s asynchronními událostmi. 
 Knihovnu reaktivních rozšíření, RxJS, mohou využívat také programátoři při vývoji Angular aplikací. 
@@ -34,7 +34,7 @@ Původní komponenty byly tvořeny pomocí modulů (NgModules), které obsahoval
 Od verze 14 je možné využít standalone API, které umožňuje vytvářet komponenty bez nutnosti tvoření a~registrace modulů v jiných souborech, a~díky tomu je kód kratší. 
 V dekorátoru @Component pak je třeba importovat všechny potřebné závislosti -- direktivy, služby či jiné komponenty.\cite{angulardev,learningangular}
 
-V šabloně vykreslíme hodnoty pomocí dvojitých závorek, které obsahují název proměnné. k~podmíněnému zobrazení komponent/elementu slouží bloky @if, @else if, @else. 
+V šabloně vykreslíme hodnoty pomocí dvojitých závorek, které obsahují název proměnné. K~podmíněnému zobrazení komponent/elementu slouží bloky @if, @else if, @else. 
 Pro iteraci přes pole hodnot slouží blok @for.\cite{angulardev}
 
 \begin{prog}
@@ -82,7 +82,7 @@ export class MyComponent \{
 \}
 \end{prog}
 
-Počínaje verzí 16 můžeme používat také nestabilní verzi signálů (Angular Signals), přičemž se jedná o systém, který mnohem efektivněji sleduje využití stavů v rámci aplikace. 
+Počínaje verzí 16 můžeme používat také nestabilní verzi signálů (Angular Signals), přičemž se jedná o~systém, který mnohem efektivněji sleduje využití stavů v rámci aplikace. 
 Signály pak umožňují efektivnější a~optimalizovanější aktualizace DOM. 
 
 \begin{prog}
@@ -113,7 +113,7 @@ Proto v této práci budeme využívat klasické hodnoty stavů.\cite{angulardev
 
 Předávat vlastnosti či jiné hodnoty je možné pomocí vstupního dekorátoru @Input a~výstupního dekorátoru @Output. 
 V rámci šablony danou hodnotu předáme do vnořené komponenty skrze název vstupu v hranatých závorkách.   
-Ve vnořené komponentě využijeme dekorátor @Input, sloužící k~získání hodnot z rodičovské komponenty. k~předaným hodnotám není možné přistupovat v rámci konstruktoru. 
+Ve vnořené komponentě využijeme dekorátor @Input, sloužící k~získání hodnot z rodičovské komponenty. K~předaným hodnotám není možné přistupovat v rámci konstruktoru. 
 
 K předání hodnoty z vnořené komponenty nejprve přidáme vnořené komponentě název výstupu v kulatých závorkách a~obslužnou metodu, která se vykoná po předání vlastnosti. 
 Posléze definujeme @Output ve vnořené komponentě, na němž zavoláme metodu emit(), která přes argument metody umožňuje předání (vypublikování) hodnot z vnořené do rodičovské komponenty.\cite{angulardev,learningangular}
@@ -186,7 +186,7 @@ export class DataService \{
 \}
 \end{prog}
 
-Direktivy (directives), ať už zabudované či vlastní, slouží k~obohacení HTML elementů o různé funkce (dynamické atributy, CSS třídy) nebo manipulaci s DOM elementy. 
+Direktivy (directives), ať už zabudované či vlastní, slouží k~obohacení HTML elementů o~různé funkce (dynamické atributy, CSS třídy) nebo manipulaci s DOM elementy. 
 Roury (pipes) umožňují trasformaci hodnot v šabloně.\cite{angulardev,angulario}
 
 \begin{prog}
@@ -235,8 +235,8 @@ V případě, že potřebujeme sdílet stavy globálně (mezi různými částmi
 \subsubsection{Routování}
 
 Angular poskytuje vestavěný systém routování -- konkrétně balíček @angular/router, který na straně klienta umožňuje přepínat mezi různými částmi aplikace. 
-Klasické webové stránky při změně URL pokaždé žádají o nové dokumenty. Routování na straně klienta může provést aktualizaci stránky bez dalších duplikátních dotazů. 
-Při vyžádání dané cesty pak vykreslíme požadovaný obsah a~požádáme pouze o data potřebná k~vykreslení. 
+Klasické webové stránky při změně URL pokaždé žádají o~nové dokumenty. Routování na straně klienta může provést aktualizaci stránky bez dalších duplikátních dotazů. 
+Při vyžádání dané cesty pak vykreslíme požadovaný obsah a~požádáme pouze o~data potřebná k~vykreslení. 
 Získáme tak rychlejší uživatelskou zkušenost, jelikož prohlížeč nevyžaduje nové dokumenty a~nemusí vyhodnocovat kaskádové styly či JavaScript.
 
 Abychom zaregistrovali cesty aplikace pomocí knihovny @angular/router, poskytneme samotný router pomocí funkce provideRouter do aplikačního nastavení. 

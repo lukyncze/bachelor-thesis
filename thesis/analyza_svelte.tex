@@ -51,7 +51,7 @@ Srdcem Svelte jsou reaktivní stavy komponenty, které jednoduše definujeme jak
 Kupříkladu stav datového typu pole nelze aktualizovat pomocí metody push či splice. Je nutné využít jiné intuitivní řešení pomocí přidělení nové hodnoty.
 O všechno ostatní se pak postará sám Svelte v pozadí. Svelte aktualizuje DOM při každé změně stavu komponenty. 
 
-Mezi specifické funkce Svelte patří reaktivní deklarace, které se starají o aktualizaci stavů na základě stavů jiných. 
+Mezi specifické funkce Svelte patří reaktivní deklarace, které se starají o~aktualizaci stavů na základě stavů jiných. 
 Další zabudovanou funkcí jsou tzv. reactive statements, jež umožní definovat akce, které se mají vykonat reaktivně -- jako reakce na nějaký výrok.\cite{sveltehandbook,svelte}
 
 \begin{prog}
@@ -153,7 +153,7 @@ Funkce onMount tvoří callback, který je zavolán po přidání komponenty do 
 Prvním způsobem je vracení callback funkce v rámci onMount funkce. Druhou možnost představuje využití funkce onDestroy, která v argumentu přijímá callback funkci. 
 
 Pro práci převážně s imperativními akcemi slouží zabudované funkce beforeUpdate a~afterUpdate. 
-V případě beforeUpdate funkce jde o callback, který se volá před aktualizací komponenty, tj. před prvním voláním onMount nebo po každé změně stavu. 
+V případě beforeUpdate funkce jde o~callback, který se volá před aktualizací komponenty, tj. před prvním voláním onMount nebo po každé změně stavu. 
 Oproti tomu, afterUpdate je callbackem, jenž Svelte vykoná po prvním zavolání onMount nebo po každé aktualizaci komponenty.\cite{sveltehandbook,svelte}
 
 \subsubsection{State management}
@@ -165,7 +165,7 @@ To zahranuje tvorbu reaktivních stavů a~jejich distribuci ve stromě pomocí p
 Další možnost představuje využití Context API, které umožňuje jednorázové uložení jakékoli hodnoty. 
 Hodnotu uloženou v kontextu můžeme získat i~v rámci neincidentních komponent. Ukládání a~získávání kontextu umožňují funkce setContext a~getContext.
 
-Pro sofistikovanější práci se stavy slouží tzv. stores. V podstatě se jedná o globání úložiště stavů, které umožňuje uchovávat a~získávat data. 
+Pro sofistikovanější práci se stavy slouží tzv. stores. V podstatě se jedná o~globání úložiště stavů, které umožňuje uchovávat a~získávat data. 
 Store je jednoduše objekt s metodou subscribe, která umožní konzumentům dostat aktualizovaná data. 
 Jednodušší variantu pro získání aktuálních dat představuje použití znaku \$ před názvem proměnné. Svelte nám poskytuje hned několik podob storu. 
 Mezi ně patří writable a~readable stores, kde jediný rozdíl spočívá v možnosti aktualizace dat. 
@@ -178,12 +178,12 @@ Readable navíc jako druhý argument může přijímat funkci start, jež implem
 \subsubsection{Routování}
 
 Svelte nemá přímou podporu routování v aplikacích. Oficiální dokumentace uvádí jako oficiální knihovnu pro routování SvelteKit. 
-Ve skutečnosti se jedná o framework nad Svelte, který poskytuje i~další možnosti rozšíření webové aplikace. 
+Ve skutečnosti se jedná o~framework nad Svelte, který poskytuje i~další možnosti rozšíření webové aplikace. 
 Dokumentace však doporučuje i~jiné knihovny pro routování na základě odlišných přístupů. 
 Konkrétně knihovny page.js, svelte-routing, svelte-navigator, svelte-spa-router nebo routify.\cite{svelte,svelteforbeginners}
 
 Routování ve SvelteKit je implementováno pomocí file systému. Komponenta s názvem +page.svelte definuje stránku aplikace. 
-Framework umožňuje pro opakující se uživatelská prostředí využít tzv. layouts. Jde o soubor, který aplikuje určité elementy (duplicitní kód) pro aktuální adresář komponent. 
+Framework umožňuje pro opakující se uživatelská prostředí využít tzv. layouts. Jde o~soubor, který aplikuje určité elementy (duplicitní kód) pro aktuální adresář komponent. 
 Pro vykreslení obsahu na základě samotných komponent se využívá element slot. SvelteKit také umožňuje vytváření dynamických parametrů přímo v souborovém systému. 
 Díky takovým cestám je možné tvořit např. individuální příspěvky na blogu. Pomocí +server.js můžeme definovat API routy (endpointy) aplikace. 
 Chybové stránky implementujeme pomocí +error.svelte souborů.\cite{svelte,sveltekit}

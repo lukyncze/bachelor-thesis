@@ -4,7 +4,7 @@ V rámci této kapitoly se zaměříme na testování tří vybraných framework
 Následně vytvoříme demonstrační aplikaci, která bude obsahovat stejné funkcionality ve všech třech vybraných frameworcích. 
 V poslední části srovnáme implementaci aplikací, identifikujeme přednosti a~nedostatky použitých frameworků.
 
-Do této kapitoly zahrneme frameworky Angular, React a~Svelte. V rámci analýzy se tyto technologie jevily jako nejvhodnější k~dalšímu zkoumání a~srovnání, jelikož jde o nástroje velmi odlišné. 
+Do této kapitoly zahrneme frameworky Angular, React a~Svelte. V rámci analýzy se tyto technologie jevily jako nejvhodnější k~dalšímu zkoumání a~srovnání, jelikož jde o~nástroje velmi odlišné. 
 Naopak framework Vue byl z praktické části vyloučen. Odlišoval se od ostatních především v rámci vývojových aspektů. 
 Technologie například toleruje využití neimportovaných komponent a~programátorovi nezobrazí kompilační chybu. 
 Vue je také převážně orientováno na čínský trh, což může komplikovat řešení problémů a~hledání informací vývojářům mimo Čínu.
@@ -23,7 +23,7 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 	
 	\begin{cenumerate}
 		\item Uživateli bude zobrazen aktuální stav čítače.
-		\item Uživateli bude umožněno zvýšit a~snížit hodnotu čítače o 1.
+		\item Uživateli bude umožněno zvýšit a~snížit hodnotu čítače o~1.
 		\item Uživatel bude mít možnost resetovat hodnotu čítače na 0.
 	\end{cenumerate}
 
@@ -58,13 +58,13 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 	\item Modularita, použití knihoven -- CountryGuesser komponenta:
 	
 	\begin{cenumerate}
-		\item Data o zemích získáme pomocí veřejného API.
+		\item Data o~zemích získáme pomocí veřejného API.
 		\item V rámci hry bude náhodně vybrána země, kterou bude uživatel hádat.
-		\item Uživateli se v rámci hry budou postupně zobrazovat informace (nápovědy) o hádané zemi.
+		\item Uživateli se v rámci hry budou postupně zobrazovat informace (nápovědy) o~hádané zemi.
 		\item Uživatel bude mít možnost zadat či vybrat pouze existující název země, který chce tipovat.
 		\item Uživatel následně uvidí již zadané země a~vzdálenost jím dané země od hádané země.
-		\item Uživateli bude při výhře a~prohře zobrazeno modální okno s informacemi o výsledku hry.
-		\item V případě chyby při získávání dat o zemích bude uživateli zobrazena chybová hláška.
+		\item Uživateli bude při výhře a~prohře zobrazeno modální okno s informacemi o~výsledku hry.
+		\item V případě chyby při získávání dat o~zemích bude uživateli zobrazena chybová hláška.
 	\end{cenumerate}
 
 	\item Routování a layout aplikace:
@@ -149,7 +149,7 @@ U stylování komponent Angular rozlišuje statické a~dynamické styly, což um
 Při implementaci rozhodně nemůžeme opomenout Angular CLI, jenž zjednodušuje opakující se operace v rámci vývoje. 
 Jako výhodu také můžeme uvést podporu jazyka TypeScript již v základu. 
 Na druhou stranu Angular vyžaduje více konfigurace. Implementace je tak oproti dalším dvěma frameworkům nejdelší a~nejsložitější. 
-V rámci vývoje se ukázalo, že Angular je náročný na naučení a~framework sám o sobě umožňuje programátorovi udělat mnoho chyb. 
+V rámci vývoje se ukázalo, že Angular je náročný na naučení a~framework sám o~sobě umožňuje programátorovi udělat mnoho chyb. 
 Tomu rozhodně nepomáhá implementace reaktivity pomocí knihovny RxJS. 
 Programátor rovněž musí počítat s tím, že Angular generuje element dané komponenty v DOM, což může zkomplikovat např. stylování. 
 Angular neposkytuje možnost použití destrukturování při předávání vlastností. 

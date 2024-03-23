@@ -26,7 +26,7 @@ Pro implementaci jednoduchého counteru nejprve vytvoříme counter komponentu. 
 \end{prog}
 
 Jelikož potřebujeme opakovaně použít logiku jednotlivých tlačítek, vytvoříme komponentu counter-button. 
-Ta může přijímat například CSS styly nebo přes output (\emph{EventEmitter}) posílat informaci o kliknutí na tlačítko směrem nahoru ve stromě komponent.
+Ta může přijímat například CSS styly nebo přes output (\emph{EventEmitter}) posílat informaci o~kliknutí na tlačítko směrem nahoru ve stromě komponent.
 
 \begin{prog}
 // Soubor counter-button.component.ts
@@ -390,7 +390,7 @@ private initializeInvestForm(): InvestForm \{
 \}
 \end{prog}
 
-V šabloně následně propojíme formulářovou skupinu s formulářem. k~tomu poslouží direktiva \emph{[formGroup]} a~její hodnotu nastavíme na vlastnost \emph{investForm}. 
+V šabloně následně propojíme formulářovou skupinu s formulářem. K~tomu poslouží direktiva \emph{[formGroup]} a~její hodnotu nastavíme na vlastnost \emph{investForm}. 
 V rámci formuláře pak vytvoříme formulářové prvky, které propojíme direktivou \emph{formControlName}. Hodnota pak musí odpovídat klíči prvku ve formulářové skupině. 
 Pro zajištění efektivní obsluhy chyb formuláře můžeme využít getter metody, které vrátí konkrétní formulářový prvek.
 
@@ -469,9 +469,9 @@ Ve hře se postupně bude odkrývat 8 nápovědí, které by měly pomoct s uhá
 Klíčovým prvkem je textové pole, přes které uživatel zadává názvy hádaných zemí a~tlačítko pro potvrzení. 
 Součástí je také seznam již zadaných hádaných zemí a~modální okna sloužící k~vyhodnocení hry.
 
-Začneme s implementací rodičovské komponenty, jež bude získávat data o všech zemích světa z REST Countries API \cite{restcountriesapi}. 
+Začneme s implementací rodičovské komponenty, která bude získávat data o~všech zemích světa z REST Countries API \cite{restcountriesapi}. 
 Další zodpovědností této komponenty bude vykreslování odpovídajících stavů při získávání dat -- stav načítání, úspěšné získání dat a~chyba při získávání dat. 
-Vytvoříme službu CountryService, díky které získáme data o zemích. Pro tyto účely vytvoříme metodu \emph{getAllCountries}, která vrátí observable pole všech zemí. 
+Vytvoříme službu CountryService, díky které získáme data o~zemích. Pro tyto účely vytvoříme metodu \emph{getAllCountries}, která vrátí observable pole všech zemí. 
 Výsledek registrace služby a~přímé zavolání metody \emph{getAllCountries} uložíme do vlastnosti třídy.
 
 \begin{prog}
@@ -483,7 +483,7 @@ protected countries\$: Observable<Countries>
 
 V šabloně posléze potřebujeme odebírat hodnotu z observable. Práci v šabloně výrazně ulehčí knihovna \emph{ngx-load-with} \cite{ngxloadwith}. 
 Tato knihovna poskytuje integrovanou podporu načítání a~zpracování chyb. To programátorovi umožní využívat předdefinované šablony pro dané stavy bez nutnosti další implementace. 
-Navíc se programátor nemusí starat o zrušení odběru observable.
+Navíc se programátor nemusí starat o~zrušení odběru observable.
 
 \begin{prog}
 // Část souboru country-guesser-wrapper.component.html
@@ -537,11 +537,11 @@ Dále podmenu textového pole, které zobrazí nejpodobnější země na základ
 Můžeme také rovnout přidat obslužné metody pro akce a~události nad formulářem, které následně postupně doimplementujeme.
 
 V souboru \emph{country-guess-input.component.ts}, tedy v rámci třídy CountryGuessInputComponent, při změně vstupních vlastností (v hooku \emph{OnChanges}) aktualizujeme vlastnost \emph{countriesWithoutAlreadyGuessed} a~\emph{filteredCountries}. 
-V případě první vlastnosti jde o pole všech zemí bez těch, které uživatel již hádal. Druhá vlastnost poté představuje pole počátečních 8 prvků vlastnosti \emph{countriesWithoutAlreadyGuessed}. 
+V případě první vlastnosti jde o~pole všech zemí bez těch, které uživatel již hádal. Druhá vlastnost poté představuje pole počátečních 8 prvků vlastnosti \emph{countriesWithoutAlreadyGuessed}. 
 Metoda \emph{handleGuessButtonClick} zavolá obslužnou metodu rodičovské komponenty, která vyhodnotí tip a~aktualizuje stav hry. 
 Aktualizujeme také hodnoty aktuálního tipu, filtrovaných zemí a~uzavřeme podmenu, k~čemuž slouží metoda \emph{handleChangeSelectedGuess} volaná i~napřímo z šablony. 
 Tělo metody \emph{handleInputChange} převede uživatelům tip do správného formátu a~pomocí převedené hodnoty aktualizuje aktuální tip spolu s filtrovanými zeměmi.
-Metoda \emph{handleKeyDown} se postará o interakce s podmenu pomocí klávesnice. Skrze šipky nahoru a~dolů povolíme uživateli vybrat hádanou zemi. 
+Metoda \emph{handleKeyDown} se postará o~interakce s podmenu pomocí klávesnice. Skrze šipky nahoru a~dolů povolíme uživateli vybrat hádanou zemi. 
 Enter umožní změnu aktuálního tipu názvu země na právě tu, kterou uživatel označil v podmenu. Escape poslouží k~uzavření podmenu.
 
 Pomocná metoda \emph{updateGuessAndFilteredCountries} pak modifikuje vlastnost \emph{currentGuess}. 
@@ -550,7 +550,7 @@ Dále nastaví vlastnost \emph{isValidGuess}, která určuje, zda je uživatelů
 V neposlední řadě se metoda stará i~o aktualizaci vlastnosti \emph{selectedGuessIndex}, jež určuje, která země je vybraná v podmenu. 
 K tomu slouží metoda \emph{clampSelectedGuessIndex}, která index udrží v požadovaném rozmezí (0 až počet filtrovaných zemí).
 Metoda \emph{getFilteredCountries} získává filtrované země na základě vlastnosti \emph{currentGuess}. 
-Pomocná metoda \emph{changeSelectedGuessIndex} aktualizuje vlastnost \emph{selectedGuessIndex} o hodnotu předanou v argumentu. 
+Pomocná metoda \emph{changeSelectedGuessIndex} aktualizuje vlastnost \emph{selectedGuessIndex} o~hodnotu předanou v argumentu. 
 K převodu tipu uživatele slouží pomocná metoda \emph{convertToFormattedGuess}. Metoda zajistí, aby tip začínal velkým písmenem a~zbytek řetezce byl složen z malých písmen.
 
 Implementujeme komponentu guessed-countries-list, jenž zobrazí seznam již hádaných zemí. 
@@ -632,7 +632,7 @@ V rámci komponenty hlavičky pak vytvoříme navigační menu, které bude obsa
 Můžeme se inspirovat například architekturou a~vzhledem navigačního menu Flowbite. 
 Pokračujeme vypsáním všech cest aplikace, k~čemuž využijeme direktivy \emph{routerLink}, \emph{routerLinkActive}, \emph{routerLinkActiveOptions} a~referenci \emph{\#link}. 
 Do \emph{routerLink} předáme patřičnou cestu a~\emph{routerLinkActive} umožní naslouchat na aktuální URL. Direktiva \emph{routerLinkActiveOptions} pak přepíše výchozí nastavení \emph{routerLinkActive}.
-Díky referenci \emph{\#link} získáme informaci o tom, zda je odkaz aktivní. To využijeme při podmíněném nastavení správných CSS tříd na aktivních a~neaktivních odkazech.
+Díky referenci \emph{\#link} získáme informaci o~tom, zda je odkaz aktivní. To využijeme při podmíněném nastavení správných CSS tříd na aktivních a~neaktivních odkazech.
 
 \begin{prog}
 // Část souboru header.component.html
@@ -658,7 +658,7 @@ Díky referenci \emph{\#link} získáme informaci o tom, zda je odkaz aktivní. 
 \end{prog}
 
 Přepínání barevného režimu, otevírání a~zavírání mobilní navigace implementujeme pomocí obslužným metod a~vlastností třídy. 
-Informaci o tom, zda má uživatel zapnutý tmavý režim ukládáme do LocalStorage v prohlížeči. 
+Informaci o~tom, zda má uživatel zapnutý tmavý režim ukládáme do LocalStorage v prohlížeči. 
 Při kliknutí na tlačítko pro přepnutí režimu zavoláme metodu \emph{toggleDarkMode}, která změní hodnotu vlastnosti a~uloží ji do LocalStorage.
 
 \begin{prog}

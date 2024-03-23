@@ -17,7 +17,7 @@ Prvním krokem k~vytvoření jednoduchého čítače bude definice komponenty Co
 Dále vytvoříme komponentu Button z důvodu dodržování principu DRY a~efektivnějšímu znovupoužití kódu v budoucnu.
 Komponenta bude přijímat vlastnosti \emph{className} a~\emph{onClick}. \emph{ClassName} rozšíří CSS třídy tlačítka a~\emph{onClick} bude obsahovat obslužnou funkci, která se zavolá při kliknutí na tlačítko.
 Nyní do šablony přidáme tlačítko a~předáme mu vlastnosti \emph{className} a~\emph{onClick}.
-Svelte umožňuje zachytit všechny nedefinované vlastnosti do proměnné \emph{\$\$restProps}. Proměnnou \emph{\$\$restProps} tedy pomocí spread operátoru předáme tlačítku a~tím jej obohatíme o další vlastnosti. 
+Svelte umožňuje zachytit všechny nedefinované vlastnosti do proměnné \emph{\$\$restProps}. Proměnnou \emph{\$\$restProps} tedy pomocí spread operátoru předáme tlačítku a~tím jej obohatíme o~další vlastnosti. 
 Obsah tlačítka, který definujeme mezi párovými značkami Button, vykreslíme pomocí komponenty slot.
 
 \begin{prog}
@@ -328,7 +328,7 @@ Knihovnu yup volíme, jelikož je jedinou kompatibilní možností s knihovnou \
 \end{prog}
 
 Aby nastavená výstupní data (\emph{investFormData}) odpovídala typu \emph{InvestFormData}, musíme transformovat hodnoty formuláře pomocí funkce \emph{cast} na validačním schématu. V opačném případě budou hodnoty typu string. 
-Z \emph{createForm} následně získáme obslužné funkce \emph{handleChange} a~\emph{handleSubmit}, dále stavy formuláře \emph{form}, \emph{errors} a~\emph{isValid}. Ke stavům formuláře přistupujeme pomocí \$, protože jde o stores observables.
+Z \emph{createForm} následně získáme obslužné funkce \emph{handleChange} a~\emph{handleSubmit}, dále stavy formuláře \emph{form}, \emph{errors} a~\emph{isValid}. Ke stavům formuláře přistupujeme pomocí \$, protože jde o~stores observables.
 
 \begin{prog}
 // Část souboru InvestForm.svelte
@@ -348,7 +348,7 @@ Z \emph{createForm} následně získáme obslužné funkce \emph{handleChange} a
 Do šablony přidáme form s \emph{on:submit} událostí, které předáme \emph{handleSubmit}. Pokračujeme vytvořením formulářových prvků. 
 Jednotlivé prvky propojíme s reaktivním formulářem pomocí \emph{bind:value} a~události \emph{on:change}, do které přiřadíme funkci \emph{handleChange}. 
 Chyby formuláře získáme z \emph{errors} a~vykreslíme je pod formulářovými prvky. 
-V neposlední řadě přidáme tlačítko s typem submit, které se postará o odeslání formuláře a~zavolání obslužné funkce \emph{onSubmit}.
+V neposlední řadě přidáme tlačítko s typem submit, které se postará o~odeslání formuláře a~zavolání obslužné funkce \emph{onSubmit}.
 
 \begin{prog}
 // Část souboru InvestForm.svelte
@@ -541,12 +541,12 @@ Funkce \emph{handleInputChange} převede tip uživatele do daného formátu, akt
 
 V pomocné funkci \emph{updateGuessAndFilteredCountries} nejprve získáme filtrované země podle uživatelova tipu. Následně aktualizujeme stavy \emph{currentGuess}, \emph{isValidGuess} a~\emph{filteredCountries}. 
 Funkce \emph{clampSelectedGuessIndex} zajistí, aby index vybrané země byl v požadovaném rozmezí (0 až počet filtrovaných zemí). 
-K modifikaci stavu \emph{selectedGuessIndex} použijeme funkci \emph{changeSelectedGuessIndex}, která index aktualizuje o hodnotu předanou v argumentu. 
+K modifikaci stavu \emph{selectedGuessIndex} použijeme funkci \emph{changeSelectedGuessIndex}, která index aktualizuje o~hodnotu předanou v argumentu. 
 Tip uživatele v rámci funkce \emph{convertToFormattedGuess} převedeme tak, aby začínal velkým písmenem a~zbytek řetezce byl složen z malých písmen.
 
 Pro zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. 
 Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a~\emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
-Jde o uživatelem hádané země s vlajkou a~vzdáleností od \emph{randomCountry}. k~převodu využijeme JS funkci z jiného souboru. 
+Jde o~uživatelem hádané země s vlajkou a~vzdáleností od \emph{randomCountry}. K~převodu využijeme JS funkci z jiného souboru. 
 Vzdálenost zemí vypočteme pomocí knihovny \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která exportuje funkci \emph{getDistanceBetweenTwoPoints}. 
 Proměnnou \emph{enrichedGuessedCountries} následně vykreslíme v rámci šablony.
 

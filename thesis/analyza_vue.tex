@@ -7,7 +7,7 @@
 % https://worldline.github.io/vuejs-training/
 % https://www.rascasone.com/cs/blog/co-je-framework-vuejs
 
-Vue dostalo svůj název díky anglickému slovu view. Jedná se o deklarativní JavaScriptový open-source framework. 
+Vue dostalo svůj název díky anglickému slovu view. Jedná se o~deklarativní JavaScriptový open-source framework. 
 Je určen k~efektivní tvorbě jak jednoduchých, tak i~komplexních uživatelských rozhraní na webu. 
 Framework je v současné době jedním z nejpopulárnějších frameworků pro tvorbu webových aplikací.\cite{vuemacrae,vue}
 
@@ -19,7 +19,7 @@ Framework je v současné době jedním z nejpopulárnějších frameworků pro 
 \end{figure}
 
 Evan You, tvůrce Vue.js, se inspiroval určitými částmi frameworku AngularJS, který však měl velmi strmou křivku učení. 
-Vue tedy mělo být lehké, přizpůsobivé a~snadné k~naučení. Bylo vytvořeno roku 2013, uvolněno do světa až o rok později. 
+Vue tedy mělo být lehké, přizpůsobivé a~snadné k~naučení. Bylo vytvořeno roku 2013, uvolněno do světa až o~rok později. 
 Od té doby byly vydány pouze 3 majoritní verze, avšak ty přinesly mnoho změn.\cite{vueflexiple,vuemedium}
 
 Vue nabízí svobodnou volbu při tvorbě komponent ve formě dvou hlavních API -- Options a~Composition API. 
@@ -32,7 +32,7 @@ Díky tomu si Vue oblíbily společnosti jako Xiaomi, Adobe, Gitlab, Trivago, BM
 
 \subsubsection{Single-File Components}
 
-Základní funkcí Vue jsou tzv. Single-File Components (SFC). Jedná se o hlavní stavební blok frameworku, který reprezenzuje část webové stránky. 
+Základní funkcí Vue jsou tzv. Single-File Components (SFC). Jedná se o~hlavní stavební blok frameworku, který reprezenzuje část webové stránky. 
 Komponenta se skládá ze šablony, dat komponenty, funkcí a~kaskádových stylů. Hlavní výhodu tohoto přístupu představuje znovupoužitelnost. 
 JavaScriptové funkce musí být zapsány mezi párové značky script s atributem setup, šablona do template tagů a~styly do style bloku.\cite{vuemacrae,vue}
 
@@ -137,7 +137,7 @@ Direktiva v-model zase zajistí obousměrné propojení pro formulářové prvky
 \end{prog}
 
 Vue také umožnuje naslouchat na DOM eventy pomocí direktivy v-on. Ta pak vyžaduje libovolný DOM event a~callback funkci, jež se vykoná při daném DOM eventu. 
-Můžeme také zvolit ekvivalentní zápis s @. Další možnost představuje využití modifkátorů eventů, které se postarají například o vypnutí výchozího chování prvku.\cite{vuemacrae,vue}
+Můžeme také zvolit ekvivalentní zápis s @. Další možnost představuje využití modifkátorů eventů, které se postarají například o~vypnutí výchozího chování prvku.\cite{vuemacrae,vue}
 
 \begin{prog}
 <script setup>
@@ -169,7 +169,7 @@ Po dokončení zničení se pak volá unmounted.\cite{vuemacrae,vue}
 Framework Vue v sobě nemá implementovaný žádný sofistikovaný state management. 
 K základní práci se stavy aplikace poslouží reaktivní stavy jednotlivých komponent a~jejich sdílení ve stromě komponent.
 
-Pro komplexnější aplikace je třeba využít některou z knihoven třetích stran. Dokumentace doporučuje knihovnu Pinia, o kterou se starají vývojáři samotného Vue. 
+Pro komplexnější aplikace je třeba využít některou z knihoven třetích stran. Dokumentace doporučuje knihovnu Pinia, o~kterou se starají vývojáři samotného Vue. 
 Pinia je inspirována Vuex a~využívá principu Composition API. Tato knihovna nabízí jednoduché API pro správu stavů v aplikaci. 
 Hlavním prvkem jsou tzv. stores, do kterých ukládáme globální stavy aplikace. 
 Store vytvoříme pomocí funkce defineStore, která požaduje identifikátor daného store a~callback funkci. 
@@ -180,14 +180,14 @@ Ta by měla vracet samotný state definovaný pomocí ref() a~akce (funkce, jež
 Samotný Vue framework neposkytuje zabudovanou podporu pro routování. Oficiální dokumentace doporučuje využití knihovny Vue Router, která umožňuje routování na straně klienta. 
 Základní využití routeru spočívá ve vytvoření instance routeru. Tuto instanci inicializujeme polem požadovaných cest aplikace s konkrétními komponentami pro vykreslení. 
 V rámci šablony pak můžeme použít router-link element, jež představuje odkaz na jinou cestu. Pro vykreslení obsahu po změně cesty slouží router-view. 
-V podstatě se jedná o wrapper pro vykreslení komponenty, která je spojena s uživatelem vybranou cestou.
+V podstatě se jedná o~wrapper pro vykreslení komponenty, která je spojena s uživatelem vybranou cestou.
 
 Vue Router disponuje také dynamickým routingem, který umožňuje definovat parametry cesty a~vykreslit tedy stránku s dynamickými daty. 
 Mezi další funkce patří např. zanořené routování a~routování dle pojmenovaných cest aplikace.\cite{vue,vuerouter}
 
 \subsubsection{Ekosystém}
 
-Vue framework sice nabízí solidní základ pro vývoj webových aplikací, sám o sobě ale není komplexním nástrojem pro vývoj aplikací většího rozsahu. 
+Vue framework sice nabízí solidní základ pro vývoj webových aplikací, sám o~sobě ale není komplexním nástrojem pro vývoj aplikací většího rozsahu. 
 Většina vývojářů využívá kromě frameworku i~další knihovny třetích stran, které zvyšují produktivitu a~zjednodušují vývoj požadovaných funkcí. 
 V rámci ekosystému lze využít například knihovny pro práci s UI komponenty, routováním, state managementem. 
 Nechybí ani knihovny pro typování, testování, statické generování či formátování kódu.

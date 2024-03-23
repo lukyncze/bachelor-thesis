@@ -89,7 +89,7 @@ function Counter() \{
 \end{flushleft}
 
 Pro vytvoření jakékoliv UI komponenty můžeme začít tvořit jak JSX, definici komponenty, nebo znovupoužitelný hook. 
-V tomto případě, při vývoji komponenty rozevíracího seznamu, začneme naprogramováním vlastního hooku, který se odděleně postará o veškerou logiku seznamu.
+V tomto případě, při vývoji komponenty rozevíracího seznamu, začneme naprogramováním vlastního hooku, který se odděleně postará o~veškerou logiku seznamu.
 
 Hook \emph{useDropdown} bude mít 2 parametry -- obslužnou funkci ke změně vybrané v možnosti v rodičovské komponentě (\emph{onChange}) a~výchozí hodnotu vybrané možnosti (\emph{defaultValue}). 
 V rámci hooku nadefinujeme stavy \emph{selectedOption}, \emph{isOpen} a~vygenerujeme unikátní identifikátor. 
@@ -364,7 +364,7 @@ Předáme jí samotný výstupní text a~další vstupní vlastnosti, na základ
   \textbf{Tvorba formulářů, validace}
 \end{flushleft}
 
-React sám o sobě poskytuje jen základní API pro správu formulářů. Disponuje však mnoha knihovnami, které tuto funkcionalitu rozšiřují. 
+React sám o~sobě poskytuje jen základní API pro správu formulářů. Disponuje však mnoha knihovnami, které tuto funkcionalitu rozšiřují. 
 Mezi takové knihovny patří např. Formik, Redux Form nebo React Hook Form. V této sekci se zaměříme na tvorbu formulářů pomocí React Hook Form \cite{reacthookformlib}. 
 Vytvoříme komponentu pro jednoduchou investiční kalkulaci. 
 V rámci této komponenty naprogramujeme formulář pro zadání vstupních dat a~komponentu výsledku kalkulace, která se zobrazí po potvrzení formuláře.
@@ -571,11 +571,11 @@ Ovládání formulářového prvku pomocí klávesnice umožní funkce \emph{han
 
 Pomocná funkce \emph{updateGuessAndFilteredCountries} získá aktuálně filtrované země na základě uživatelova tipu. Následně aktualizuje stavy \emph{currentGuess}, \emph{isValidGuess} a~\emph{filteredCountries}. 
 Funkce \emph{clampSelectedGuessIndex} zajistí, aby index uživatelem vybrané země byl v požadovaném rozmezí (0 až počet filtrovaných zemí). 
-Pro aktualizaci vlastnosti \emph{selectedGuessIndex} slouží funkce \emph{changeSelectedGuessIndex}, která index aktualizuje o hodnotu předanou v argumentu.
+Pro aktualizaci vlastnosti \emph{selectedGuessIndex} slouží funkce \emph{changeSelectedGuessIndex}, která index aktualizuje o~hodnotu předanou v argumentu.
 V neposlední řadě funkce \emph{convertToFormattedGuess} převede tip uživatele tak, aby začínal velkým písmenem a~zbytek řetezce byl složen z malých písmen.
 
 Ke zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a~\emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
-Jde o uživatelem hádané země s vlajkou a~vzdáleností od \emph{randomCountry}. k~převodu využijeme JS funkce z jiného souboru. 
+Jde o~uživatelem hádané země s vlajkou a~vzdáleností od \emph{randomCountry}. K~převodu využijeme JS funkce z jiného souboru. 
 K vypočtení vzdálenosti použijeme knihovnu \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která obsahuje funkci \emph{getDistanceBetweenTwoPoints}. 
 Jednotlivé prvky pole \emph{enrichedGuessedCountries} pak vykreslíme v rámci JSX.
 
@@ -698,7 +698,7 @@ Vlastnosti \emph{isActive} tedy využijeme pro podmíněné přidání CSS styl�
 ))\}
 \end{prog}
 
-Mobilní navigaci a~barevný režim implementujeme díky stavům \emph{isMobileNavOpen} a~\emph{isDarkMode}. Informaci o tom, zda má uživatel zapnutý tmavý režim budeme ukládat do LocalStorage v prohlížeči. 
+Mobilní navigaci a~barevný režim implementujeme díky stavům \emph{isMobileNavOpen} a~\emph{isDarkMode}. Informaci o~tom, zda má uživatel zapnutý tmavý režim budeme ukládat do LocalStorage v prohlížeči. 
 K tomu použijeme \emph{useEffect} hook, který při změně stavu \emph{isDarkMode} přidá patřičný data-mode a~provede aktualizaci LocalStorage.
 
 \begin{prog}
