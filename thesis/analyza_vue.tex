@@ -9,7 +9,7 @@
 
 Vue dostalo svůj název díky anglickému slovu view. Jedná se o~deklarativní JavaScriptový open-source framework. 
 Je určen k~efektivní tvorbě jak jednoduchých, tak i~komplexních uživatelských rozhraní na webu. 
-Framework je v současné době jedním z~nejpopulárnějších frameworků pro tvorbu webových aplikací.\cite{vuemacrae,vue}
+Framework je v~současné době jedním z~nejpopulárnějších frameworků pro tvorbu webových aplikací.\cite{vuemacrae,vue}
 
 \begin{figure}[htb]
 	\centering
@@ -25,7 +25,7 @@ Od té doby byly vydány pouze 3 majoritní verze, avšak ty přinesly mnoho zm�
 Vue nabízí svobodnou volbu při tvorbě komponent ve formě dvou hlavních API -- Options a~Composition API. 
 Options API můžeme přirovnat k~objektovému přístupu, kdežto Composition API využívá funkcionální přístup. 
 Podle \cite{vue} Composition API přináší větší flexibilitu a~umožňuje efektivnější návrhové vzory pro organizaci a~znovupoužitelnost kódu. 
-Z tohoto důvodu v analýze budeme využívat Composition API.
+Z tohoto důvodu v~analýze budeme využívat Composition API.
 
 Framework klade důraz na progresivitu, což znamená, že roste s~vývojářem a~přizpůsobuje se jeho potřebám. 
 Díky tomu si Vue oblíbily společnosti jako Xiaomi, Adobe, Gitlab, Trivago, BMW.\cite{vuetriodev,vue}
@@ -56,8 +56,8 @@ JavaScriptové funkce musí být zapsány mezi párové značky script s~atribut
 
 \subsubsection{Reaktivita}
 
-V komponentě můžeme uchovávat informace pomocí reaktivních stavů. Oficiální dokumentace doporučuje používat funkci ref, která vyžaduje počáteční hodnotu. 
-K hodnotě stavu pak v rámci skriptu přistupujeme pomocí klíčového slova value. V šabloně nám stačí pouze název stavu. 
+V~komponentě můžeme uchovávat informace pomocí reaktivních stavů. Oficiální dokumentace doporučuje používat funkci ref, která vyžaduje počáteční hodnotu. 
+K hodnotě stavu pak v~rámci skriptu přistupujeme pomocí vlastnosti value. V~šabloně postačí pouze název stavu. 
 Modifikaci stavu lze provést pomocí přiřazení nové hodnoty. Při změně jakéhokoli stavu komponenty pak Vue automaticky aktualizuje DOM novými daty.\cite{vue}
 
 \begin{prog}
@@ -80,14 +80,14 @@ Modifikaci stavu lze provést pomocí přiřazení nové hodnoty. Při změně j
 
 \subsubsection{Předávání vlastností}
 
-Komponenty spolu komunikují pomocí předávání vlastností. V rodičovské komponentě je třeba předat požadovanou hodnotu do proměnné vnořené komponenty. 
+Komponenty spolu komunikují pomocí předávání vlastností. V~rodičovské komponentě je třeba předat požadovanou hodnotu do proměnné vnořené komponenty. 
 Uvnitř vnořené komponenty pak definujeme props vlastnost, kterou vytvoříme pomocí funkce defineProps. 
 DefineProps funkce vyžaduje objekt s~názvem a~datovým typem předávané vlastnosti.
 
 Pro předání vlastnosti z~vnořené do rodičovské komponenty se využívá tzv. emitování eventů. 
-V potomku vytvoříme vlastnost emit, v níž nadeklarujeme pole emitovaných hodnot pomocí funkce defineEmits. Dále je třeba definovat jednotlivé emity. 
+V~potomku vytvoříme vlastnost emit, v~níž nadeklarujeme pole emitovaných hodnot pomocí funkce defineEmits. Dále je třeba definovat jednotlivé emity. 
 První argumentem je název emitu, další argumenty jsou již předávané hodnoty. Rodičovská komponenta musí naslouchat na emitované eventy. 
-Toho lze docílit pomocí @response direktivy, která typicky v callback funkci přeukládá argumenty na lokalní stavy.\cite{vuemacrae,vue}
+Toho lze docílit pomocí @response direktivy, která typicky v~callback funkci přeukládá argumenty na lokalní stavy.\cite{vuemacrae,vue}
 
 \begin{prog}
 // Parent.vue
@@ -159,18 +159,18 @@ Každá Vue komponenta má daný životní cyklus, který konkrétně můžeme r
 Pro zajištění kontroly životního cyklu slouží tzv. hooks, které se vyznačují tím, že vždy před svým názvem mají předponu on.
 
 Při inicializaci komponenty můžeme využít hook akce beforeMount či mount. BeforeMount se volá ještě před tím, než se komponenta přidá na stránku. 
-Mount až poté, kdy je vytvořen element komponenty -- komponenta však ještě nemusí být v DOM. 
-Před chystanou změnou dat v DOM se volá beforeUpdate, po vykonání změny je zavoláno updated. Před samotným zánikem komponenty Vue volá beforeUnmount. 
-Po dokončení zničení se pak volá unmounted.\cite{vuemacrae,vue}
+Mount až poté, kdy je vytvořen element komponenty -- komponenta však ještě nemusí být v~DOM. 
+Před chystanou změnou dat v~DOM se volá beforeUpdate, po vykonání změny se volá hook updated. Před samotným zánikem komponenty Vue volá beforeUnmount. 
+Po dokončení zničení se volá hook unmounted.\cite{vuemacrae,vue}
 % super obrázek: https://vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram
 
 \subsubsection{State management}
 
-Framework Vue v sobě nemá implementovaný žádný sofistikovaný state management. 
+Framework Vue v~sobě nemá implementovaný žádný sofistikovaný state management. 
 K základní práci se stavy aplikace poslouží reaktivní stavy jednotlivých komponent a~jejich sdílení ve stromě komponent.
 
 Pro komplexnější aplikace je třeba využít některou z~knihoven třetích stran. Dokumentace doporučuje knihovnu Pinia, o~kterou se starají vývojáři samotného Vue. 
-Pinia je inspirována Vuex a~využívá principu Composition API. Tato knihovna nabízí jednoduché API pro správu stavů v aplikaci. 
+Pinia je inspirována Vuex a~využívá principu Composition API. Tato knihovna nabízí jednoduché API pro správu stavů v~aplikaci. 
 Hlavním prvkem jsou tzv. stores, do kterých ukládáme globální stavy aplikace. 
 Store vytvoříme pomocí funkce defineStore, která požaduje identifikátor daného store a~callback funkci. 
 Ta by měla vracet samotný state definovaný pomocí ref() a~akce (funkce, jež mění stavy) nad storem, případně computed state -- jiný stav, který je typicky odvozen od původního stavu.\cite{pinia,vue}
@@ -179,8 +179,8 @@ Ta by měla vracet samotný state definovaný pomocí ref() a~akce (funkce, jež
 
 Samotný Vue framework neposkytuje zabudovanou podporu pro routování. Oficiální dokumentace doporučuje využití knihovny Vue Router, která umožňuje routování na straně klienta. 
 Základní využití routeru spočívá ve vytvoření instance routeru. Tuto instanci inicializujeme polem požadovaných cest aplikace s~konkrétními komponentami pro vykreslení. 
-V rámci šablony pak můžeme použít router-link element, jež představuje odkaz na jinou cestu. Pro vykreslení obsahu po změně cesty slouží router-view. 
-V podstatě se jedná o~wrapper pro vykreslení komponenty, která je spojena s~uživatelem vybranou cestou.
+V~rámci šablony pak můžeme použít router-link element, jež představuje odkaz na jinou cestu. Pro vykreslení obsahu po změně cesty slouží router-view. 
+V~podstatě se jedná o~wrapper pro vykreslení komponenty, která je spojena s~uživatelem vybranou cestou.
 
 Vue Router disponuje také dynamickým routingem, který umožňuje definovat parametry cesty a~vykreslit tedy stránku s~dynamickými daty. 
 Mezi další funkce patří např. zanořené routování a~routování dle pojmenovaných cest aplikace.\cite{vue,vuerouter}
@@ -189,7 +189,7 @@ Mezi další funkce patří např. zanořené routování a~routování dle pojm
 
 Vue framework sice nabízí solidní základ pro vývoj webových aplikací, sám o~sobě ale není komplexním nástrojem pro vývoj aplikací většího rozsahu. 
 Většina vývojářů využívá kromě frameworku i~další knihovny třetích stran, které zvyšují produktivitu a~zjednodušují vývoj požadovaných funkcí. 
-V rámci ekosystému lze využít například knihovny pro práci s~UI komponenty, routováním, state managementem. 
+V~rámci ekosystému lze využít například knihovny pro práci s~UI komponenty, routováním, state managementem. 
 Nechybí ani knihovny pro typování, testování, statické generování či formátování kódu.
 
 Při rostoucí komplexitě webových aplikací můžeme zvážit použití pokročilého frameworku Nuxt. Nuxt je postaven na základech Vue.js a~poskytuje production-ready nástroje. 

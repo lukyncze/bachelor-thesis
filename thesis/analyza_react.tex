@@ -14,7 +14,7 @@ Tato technologie se používá pro vývoj interaktivních uživatelských rozhra
 První kořeny Reactu sahají až do roku 2010, kdy tehdejší společnost Facebook přidala novou technologii XHP do PHP. 
 Jde o~možnost znovu použít určitý blok kódu, stejného principu posléze využívá i~React. Následně Jordan Walke vytvořil FaxJS, jenž byl prvním prototypem Reactu.
 O rok později byl přejmenován na React a~začal jej využívat Facebook. 
-V roce 2013 byl na konferenci JS ConfUS představen široké veřejnosti a~stal se open-source.
+V~roce 2013 byl na konferenci JS ConfUS představen široké veřejnosti a~stal se open-source.
 
 Od roku 2014 vývojáři představují nespočet vylepšení samotné knihovny, stejně jako spoustu rozšíření pro zlepšení vývojových procesů. 
 Kolem roku 2015 postupně React nabývá na popularitě i~celkové stabilitě. Následně je představen také React Native, což je framework pro vývoj nativních aplikací.
@@ -24,8 +24,8 @@ Z těch největších jde například o~Metu, Uber, Twitter a~Airbnb.\cite{react
 \subsubsection{Komponenty}
 
 Hlavním stavebním kamenem Reactu jsou komponenty, jež představují nezávislé, vnořitelné a~opakovaně použitelné bloky kódu. 
-Komponentu v Reactu tvoří JavaScript funkce a~HTML šablona. Validně seskládané komponenty poté tvoří webovou aplikaci.
-V Reactu se můžeme setkat s~funkčními a~třídními komponentami. Vytváření třídních komponent je na ústupu a~oficiální dokumentace je rovněž nedoporučuje. 
+Komponentu v~Reactu tvoří JavaScript funkce a~HTML šablona. Validně seskládané komponenty poté tvoří webovou aplikaci.
+V~Reactu se můžeme setkat s~funkčními a~třídními komponentami. Vytváření třídních komponent je na ústupu a~oficiální dokumentace je rovněž nedoporučuje. 
 Výstup komponent tvoří elementy ve formě JSX. Tyto elementy obsahují informace o~vzhledu a~funkcionalitě dané komponenty.
 
 Pro komunikaci mezi komponentami se používá předávání vlastností (props), přes které je možné předávat hodnoty jakýchkoli datových typů. 
@@ -57,8 +57,8 @@ function ChildComponent(\{color\}) \{
 \subsubsection{JSX}
 
 Název JSX kombinuje zkratku jazyka JavaScript -- JS a~počáteční písmeno ze zkratky XML. 
-Konkrétně jde o~syntaktické rozšíření, které vývojářům umožňuje tvořit React elementy pomocí hypertextového značkovacího jazyku přímo v JavaScriptu. 
-V rámci JSX pak je možné dynamicky vykreslovat obsah na základě logiky definované pomocí JS hodnot.
+Konkrétně jde o~syntaktické rozšíření, které vývojářům umožňuje tvořit React elementy pomocí hypertextového značkovacího jazyku přímo v~JavaScriptu. 
+V~rámci JSX pak je možné dynamicky vykreslovat obsah na základě logiky definované pomocí JS hodnot.
 Při kompilaci se JSX překládá do JavaScriptu pomocí nástroje Babel.\cite{reactbanks,react}
 
 \begin{prog}
@@ -124,7 +124,7 @@ useEffect(() => \{
 \subsubsection{Životní cyklus}
 
 Životní cyklus komponenty je sekvence událostí, jež nastanou mezi vytvořením a~zničením komponenty. 
-Ve třídních komponentách existovaly speciální metody, tzv. lifecycle metody, starající se o~provedení určité části kódu při daném okamžiku v životě komponenty. 
+Ve třídních komponentách existovaly speciální metody, tzv. lifecycle metody, starající se o~provedení určité části kódu při daném okamžiku v~životě komponenty. 
 Nyní React disponuje pár hooky, které umožňují provádět side-effects podobně jako lifecycle metody.
 
 O~momentu, kdy je komponenta přidána na stránku, mluvíme jako o~namontování (mount). Při změně stavu či obdržení nových parametrů hovoříme o~aktualizaci (update) komponenty. 
@@ -132,14 +132,14 @@ Po odstranění komponenty z~DOM proběhne odmontování (unmount).\cite{reactli
 
 \subsubsection{State management}
 
-Základní práce se stavy spočívá v lokálních stavech komponent a~následným předáváním stavu do potomků či rodičů. 
-V případě, že potřebujeme sdílet stav mezi komponentami, měli bychom zvážit odlišné řešení. React sám o~sobě disponuje pouze základním řešením, kterému říká Context API. 
+Základní práce se stavy spočívá v~lokálních stavech komponent a~následným předáváním stavu do potomků či rodičů. 
+V~případě, že potřebujeme sdílet stav mezi komponentami, měli bychom zvážit odlišné řešení. React sám o~sobě disponuje pouze základním řešením, kterému říká Context API. 
 Context umožňuje sdílet data celému podstromu dané komponenty. 
 To se může hodit například při vytváření barevných módů aplikace, sdílení informace o~přihlášeném uživateli, anebo routování.\cite{react}
 
-Správa stavů v komplexních aplikacích se stává výzvou. Problémy začínají při potřebě sdílení identických dat mezi větším množstvím konzumentů. 
+Správa stavů v~komplexních aplikacích se stává výzvou. Problémy začínají při potřebě sdílení identických dat mezi větším množstvím konzumentů. 
 Existuje však mnoho knihoven třetích stran, které vývojáři využívají pro usnadnění manipulace se stavy. 
-Společné cíle state management knihoven spočívají v ukládání a~získávání globálního stavu, jednodušší správě stavů a~rozšiřitelnosti aplikace.
+Společné cíle state management knihoven spočívají v~ukládání a~získávání globálního stavu, jednodušší správě stavů a~rozšiřitelnosti aplikace.
 Mezi tyto knihovny patří kupříkladu Redux, MobX, Recoil nebo Jotai.\cite{statemanagementreact,reactstatemanagement}
 
 \subsubsection{Routování}
@@ -157,4 +157,4 @@ Tento framework sám o~sobě není úplně komplexním nástrojem. I~přesto se 
 Na druhou stranu React disponuje velmi diverzifikovaným ekosystémem knihoven, který nabízí bohatý výběr nástrojů pro různé aspekty vývoje. 
 Knihovny jsou převážně zaměřené na stylování, tvorbu tabulek, formulářů, grafů či grafických animací, správu stavů, routování, dotazování na API. 
 Nechybí ani dokumentační knihovny, vývojářské rozšíření pro prohlížeče, striktní typování, překlady, testovací balíčky. 
-V neposlední řadě pro React existují nadstavby ve formě frameworků, které poskytují komplexnější nástroje pro produkční aplikace.\cite{awesomereact,builderreacteco,react}
+V~neposlední řadě pro React existují nadstavby ve formě frameworků, které poskytují komplexnější nástroje pro produkční aplikace.\cite{awesomereact,builderreacteco,react}

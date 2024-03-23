@@ -1,11 +1,11 @@
 \section{Testování frameworků}
 
-V rámci této kapitoly se zaměříme na testování tří vybraných frameworků. V první části navrhneme funkční a~nefunkční požadavky demonstračních aplikací. 
+V~rámci této kapitoly se zaměříme na testování tří vybraných frameworků. V~první části navrhneme funkční a~nefunkční požadavky demonstračních aplikací. 
 Následně vytvoříme demonstrační aplikaci, která bude obsahovat stejné funkcionality ve všech třech vybraných frameworcích. 
-V poslední části srovnáme implementaci aplikací, identifikujeme přednosti a~nedostatky použitých frameworků.
+V~poslední části srovnáme implementaci aplikací, identifikujeme přednosti a~nedostatky použitých frameworků.
 
-Do této kapitoly zahrneme frameworky Angular, React a~Svelte. V rámci analýzy se tyto technologie jevily jako nejvhodnější k~dalšímu zkoumání a~srovnání, jelikož jde o~nástroje velmi odlišné. 
-Naopak framework Vue byl z~praktické části vyloučen. Odlišoval se od ostatních především v rámci vývojových aspektů. 
+Do této kapitoly zahrneme frameworky Angular, React a~Svelte. V~rámci analýzy se tyto technologie jevily jako nejvhodnější k~dalšímu zkoumání a~srovnání, jelikož jde o~nástroje velmi odlišné. 
+Naopak framework Vue byl z~praktické části vyloučen. Odlišoval se od ostatních především v~rámci vývojových aspektů. 
 Technologie například toleruje využití neimportovaných komponent a~programátorovi nezobrazí kompilační chybu. 
 Vue je také převážně orientováno na čínský trh, což může komplikovat řešení problémů a~hledání informací vývojářům mimo Čínu.
 
@@ -33,7 +33,7 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 		\item Komponenta bude zobrazovat rozbalovací menu.
 		\item Po kliknutí na menu se zobrazí seznam položek.
 		\item Uživatel bude mít možnost vybrat jednu z~položek, nebo zavřít menu.
-		\item Aktuálně vybraná položka bude zobrazena v obsahu rozbalovacího menu.
+		\item Aktuálně vybraná položka bude zobrazena v~obsahu rozbalovacího menu.
 	\end{cenumerate}
 
 	\item Reaktivita, asynchronní operace -- Translator komponenta:
@@ -43,7 +43,7 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 		\item Uživatel bude mít možnost vybrat jazyk, do kterého chce text přeložit.
 		\item Přeložený text získáme díky veřejnému API.
 		\item Uživateli bude zobrazen přeložený text.
-		\item V případě chyby při překladu bude uživateli zobrazena chybová hláška.
+		\item V~případě chyby při překladu bude uživateli zobrazena chybová hláška.
 	\end{cenumerate}
 
 	\item Tvorba formulářů, validace -- InvestForm komponenta:
@@ -59,12 +59,12 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 	
 	\begin{cenumerate}
 		\item Data o~zemích získáme pomocí veřejného API.
-		\item V rámci hry bude náhodně vybrána země, kterou bude uživatel hádat.
-		\item Uživateli se v rámci hry budou postupně zobrazovat informace (nápovědy) o~hádané zemi.
+		\item V~rámci hry bude náhodně vybrána země, kterou bude uživatel hádat.
+		\item Uživateli se v~rámci hry budou postupně zobrazovat informace (nápovědy) o~hádané zemi.
 		\item Uživatel bude mít možnost zadat či vybrat pouze existující název země, který chce tipovat.
 		\item Uživatel následně uvidí již zadané země a~vzdálenost jím dané země od hádané země.
 		\item Uživateli bude při výhře a~prohře zobrazeno modální okno s~informacemi o~výsledku hry.
-		\item V případě chyby při získávání dat o~zemích bude uživateli zobrazena chybová hláška.
+		\item V~případě chyby při získávání dat o~zemích bude uživateli zobrazena chybová hláška.
 	\end{cenumerate}
 
 	\item Routování a layout aplikace:
@@ -88,7 +88,7 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 
 \subsection{Implementace webových aplikací}
 
-V této kapitole popíšeme implementaci jednotlivých částí aplikace v rámci vybraných frameworků -- Angular, React a~Svelte. Použijeme následující nástroje v níže uvedených verzích:
+V~této kapitole popíšeme implementaci jednotlivých částí aplikace v~rámci vybraných frameworků -- Angular, React a~Svelte. Použijeme následující nástroje v~níže uvedených verzích:
 
 \begin{citemize}
 	\item Angular -- verze 17.x.x
@@ -107,8 +107,8 @@ Vyvinuté aplikace budou dostupné na webových adresách:
 	\item Svelte -- \iadresa{https://sukenik-svelte.netlify.app/}
 \end{citemize}
 
-K vytvoření nového projektu v jednotlivých frameworcích budeme potřebovat NodeJS a~správce balíčků npm (případně jiného správce balíčků). 
-Příklad instalací nalezneme v Tabulce \ref{tab:frameworkinstall}.
+K vytvoření nového projektu v~jednotlivých frameworcích budeme potřebovat NodeJS a~správce balíčků npm (případně jiného správce balíčků). 
+Příklad instalací nalezneme v~Tabulce~\ref{tab:frameworkinstall}.
 
 % TODO: Zkontrolovat správné vysázení tabulky! 
 \begin{table}[htb]
@@ -126,8 +126,8 @@ Příklad instalací nalezneme v Tabulce \ref{tab:frameworkinstall}.
 	\label{tab:frameworkinstall}
 \end{table}
 
-\footnotetext[1]{Konfigurace Tailwind CSS v Angular projektu dle oficiální dokumentace.\cite{twconfigangular}}
-\footnotetext[2]{Konfigurace Tailwind CSS v React projektu dle oficiální dokumentace.\cite{twconfigreact}}
+\footnotetext[1]{Konfigurace Tailwind CSS v~Angular projektu dle oficiální dokumentace.\cite{twconfigangular}}
+\footnotetext[2]{Konfigurace Tailwind CSS v~React projektu dle oficiální dokumentace.\cite{twconfigreact}}
 \footnotetext[3]{Automatická instalace Tailwind CSS ve Svelte projektu pomocí svelte-add balíčku.\cite{twconfigsvelte}}
 
 \input{testovani_angular}
@@ -137,21 +137,21 @@ Příklad instalací nalezneme v Tabulce \ref{tab:frameworkinstall}.
 \subsection{Srovnání implementace aplikací}
 % s čím se jak pracovalo, velikosti souborů, řádky, jak pomohla dokumentace
 
-V této podkapitole se zaměříme na srovnání aspektů implementace aplikací v rámci vybraných frameworků. 
+V~této podkapitole se zaměříme na srovnání aspektů implementace aplikací v~rámci vybraných frameworků. 
 Cílem je provést detailnější srovnání s~ohledem na poznatky z~provedených implementací. 
 
 Využití Angularu při implementaci aplikace se vyznačovalo objektově orientovaným přístupem, který umožňuje využít například výhodu zapouzdření. 
 Nespornou výhodu tvořila modularita frameworku, která podporuje rozšiřitelnost a~robustnost aplikace. 
 Framework poskytuje nativní podporu pro router, formuláře, validace a~mnoho dalších funcionalit, čímž snižuje závislost na třetích stranách. 
-Angular, dle autora práce, oproti ostatním frameworkům nabízí intuitivnější syntax pro podmíněné vykreslení v šabloně. 
+Angular, dle autora práce, oproti ostatním frameworkům nabízí intuitivnější syntax pro podmíněné vykreslení v~šabloně. 
 Framework také disponuje řadou metod životního cyklu, což může být výhodou. Na druhou stranu začátečník může být z~množství metod životního cyklu zmatený. 
 U stylování komponent Angular rozlišuje statické a~dynamické styly, což umožňuje lepší organizaci a~přehlednost. 
-Při implementaci rozhodně nemůžeme opomenout Angular CLI, jenž zjednodušuje opakující se operace v rámci vývoje. 
-Jako výhodu také můžeme uvést podporu jazyka TypeScript již v základu. 
+Rozhodně nemůžeme opomenout Angular CLI, jenž zjednodušuje opakující se operace při vývoji. 
+Jako výhodu také můžeme uvést podporu jazyka TypeScript již v~základu. 
 Na druhou stranu Angular vyžaduje více konfigurace. Implementace je tak oproti dalším dvěma frameworkům nejdelší a~nejsložitější. 
-V rámci vývoje se ukázalo, že Angular je náročný na naučení a~framework sám o~sobě umožňuje programátorovi udělat mnoho chyb. 
+V~rámci vývoje se ukázalo, že Angular je náročný na naučení a~framework sám o~sobě umožňuje programátorovi udělat mnoho chyb. 
 Tomu rozhodně nepomáhá implementace reaktivity pomocí knihovny RxJS. 
-Programátor rovněž musí počítat s~tím, že Angular generuje element dané komponenty v DOM, což může zkomplikovat např. stylování. 
+Programátor rovněž musí počítat s~tím, že Angular generuje element dané komponenty v~DOM, což může zkomplikovat např. stylování. 
 Angular neposkytuje možnost použití destrukturování při předávání vlastností. 
 Tím pádem je třeba vždy předat všechny vlastnosti zvlášť nebo je uložit ve vhodnější datové struktuře (např. objektu).
 Běhěm vývoje jsme také narazili na problém s~neinicializováním vstupních vlastností, což může být problematické. 
@@ -176,19 +176,19 @@ Problém je řešitelný dvěma způsoby, z~nichž ani jeden není zcela ideáln
 % - input je třeba vždy inicializovat (lze to obejít - bad practise)
 % - během vývoje problém s vscode pluginem
 
-Implementace v Reactu ukázala silné stránky v podobě silného ekosystému a~velmi dobře propracovaných balíčků. 
+Implementace v~Reactu ukázala silné stránky v~podobě silného ekosystému a~velmi dobře propracovaných balíčků. 
 React disponuje dokumentací na vysoké úrovni a~internet je rovněž plný kvalitních návodů a~tutoriálů. 
 S tím souvisí i~kvalitní chybové hlášky, které pomáhají programátorům řešit dané chyby. 
 React poskytuje typy pro atributy běžných HTML elementů, což výrazně zjednodušuje a~zefektivnǔje práci. 
-Vlastnosti jsou v rámci vnořených komponent k~dispozici ihned a~jsou vždy aktualizované, což u~dalších frameworků neplatí. 
+Vlastnosti jsou v~rámci vnořených komponent k~dispozici ihned a~jsou vždy aktualizované, což u~dalších frameworků neplatí. 
 Velkou výhodu představuje možnost použití destrukturování pro předávání vlastností. 
 Jako výhodu lze také uvést modularitu, které dosáhneme při implmenetaci vlastních hooků. 
 Nevýhody frameworku se projevily při vykreslování a~využívání zabudovaných hooků. 
-Při špatném použití vykreslovací techniky (pomocí \&\& nebo || operátorů) můžeme zobrazit nechtěné výsledky v DOM. 
-V rámci funkce map nesmíme zapomenout každému elementu přidělit unikátní klíč. 
+Při špatném použití vykreslovací techniky (pomocí \&\& nebo || operátorů) můžeme zobrazit nechtěné výsledky v~DOM. 
+V~rámci funkce map nesmíme zapomenout každému elementu přidělit unikátní klíč. 
 Co se týče hooků, především useEffect hook umožňuje programátorům snadné zavedení chyb, pokud není správně použit. 
 S tím se rovněž pojí problémy se závislostmi useEffect a~neintuitivní kontrola životního cyklu komponenty. 
-Vývojáři také musí počítat s~tím, že aktualizace stavů je vždy asynchronní. V praxi to znamená, že stav není aktualizován okamžitě. 
+Vývojáři také musí počítat s~tím, že aktualizace stavů je vždy asynchronní. V~praxi to znamená, že stav není aktualizován okamžitě. 
 Jako nevýhodu můžeme uvést i~předávání vlastností do rodičovské komponenty, které minimálně zpočátku může vypadat složitě.
 
 % React:
@@ -207,20 +207,20 @@ Jako nevýhodu můžeme uvést i~předávání vlastností do rodičovské kompo
 % - je třeba si zvyknout na předávání vlastností do rodiče
 
 Implementace ve Svelte poukázala na jednoduchost a~přímočarost tohoto frameworku. 
-Syntax je velmi čitelná a~bez zbytečného boilerplate kódu, což v porovnání s~dalšími frameworky znamená nejkratší kód. 
+Syntax je velmi čitelná a~bez zbytečného boilerplate kódu, což v~porovnání s~dalšími frameworky znamená nejkratší kód. 
 Svelte elegantním způsobem řeší předávání vlastností mezi komponentami. 
 Díky \$\$restProps můžeme získat všechny vlastnosti, které nejsou explicitně deklarovány. 
 Musíme si však dávat pozor na to, že při předání nekorektní vlastnosti do komponenty můžeme narazit na problémy. 
-Reactive statement dokáže reagovat na změny hodnot v rámci svého těla, což je velice efektivní a~užitečné. 
+Reactive statement dokáže reagovat na změny hodnot v~rámci svého těla, což je velice efektivní a~užitečné. 
 Svelte také oproti předchozím frameworkům nabízí přehledný systém metod životního cyklu a~modifikaci DOM přes akce. 
-V neposlední řadě je třeba zmínit jednoduchý each blok a~observables systém, který vývojářům zbytečně nekomplikuje práci.
+Rovněž je třeba zmínit jednoduchý each blok a~observables systém, který vývojářům zbytečně nekomplikuje práci.
 Mezi slabší stránky frameworku rozhodně patří jeho ekosystém a~komunita, která je nejmenší a~zatím se rozvíjí. 
 Svelte proto disponuje nejméně kvalitními knihovnami určené tomuto frameworku. 
 Syntax může být někdy matoucí, například klíčové slovo export u~vstupních vlastností, nebo zvláštní syntax \#if, :else if, :else, /if. 
 Vývojáři musí mít na paměti modifikaci vstupních vlastností po jejich aktualizaci, kterou je třeba provést reaktivně. 
-V neposlední řadě můžeme zmínit nevýhody při práci s~TypeScriptem. Pro importování TS typů používáme ve Svelte navíc klíčové slovo type. 
-Do TS souboru nelze importovat TS typ ze Svelte komponenty, takový typ pak zakládáme v rámci context="'module"' skriptu v komponentě.
-Při porovnání s~ostatními frameworky, Svelte disponuje hůře otypovanými událostmi, což prodlužuje práci v obslužných funkcích.
+V~neposlední řadě můžeme zmínit nevýhody při práci s~TypeScriptem. Pro importování TS typů používáme ve Svelte navíc klíčové slovo type. 
+Do TS souboru nelze importovat TS typ ze Svelte komponenty, takový typ pak zakládáme v~rámci context="'module"' skriptu v~komponentě.
+Při porovnání s~ostatními frameworky, Svelte disponuje hůře otypovanými událostmi, což prodlužuje práci v~obslužných funkcích.
 
 % Svelte:
 % + nejméně boilerplate kódu -> opravdu jednoduchý na naučení (obvykle nejkratší kód)
@@ -240,7 +240,7 @@ Při porovnání s~ostatními frameworky, Svelte disponuje hůře otypovanými u
 % - do ts souboru nelze importovat TS typ ze Svelte komponenty (typ musí být založen v context="module" skriptu)
 % - nejméně otypované handlery eventů
 
-Srovnání implementace aplikací v rámci vybraných frameworků ukázalo, že každý framework má své přednosti i~nedostatky. 
+Srovnání implementace aplikací v~rámci vybraných frameworků ukázalo, že každý framework má své přednosti i~nedostatky. 
 Angular se vyznačuje robustností a~modularitou, což může být výhodou zejména u~větších projektů. 
 React disponuje obrovským ekosystémem i~kvalitními knihovnami, a~to mohou ocenit především začátečníci. 
 Svelte zase nabízí jednoduchost, přímočarost a~může být vhodný spíše pro menší projekty.
