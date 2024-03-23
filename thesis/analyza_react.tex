@@ -124,8 +124,8 @@ useEffect(() => \{
 \subsubsection{Životní cyklus}
 
 Životní cyklus komponenty je sekvence událostí, jež nastanou mezi vytvořením a~zničením komponenty. 
-Ve třídních komponentách existovaly speciální metody, tzv. lifecycle metody, starající se o~provedení určité části kódu při daném okamžiku v~životě komponenty. 
-Nyní React disponuje pár hooky, které umožňují provádět side-effects podobně jako lifecycle metody.
+Ve třídních komponentách existovaly speciální metody životního cyklu (lifecycle metody). Sloužily k~provedení určité části kódu v konkrétní fázi životního cyklu.  
+Nyní React disponuje pár hooky, které umožňují provádět vedlejší efekty podobně jako lifecycle metody. Používá se převedším hook useEffect.
 
 O~momentu, kdy je komponenta přidána na stránku, mluvíme jako o~namontování (mount). Při změně stavu či obdržení nových parametrů hovoříme o~aktualizaci (update) komponenty. 
 Po odstranění komponenty z~DOM proběhne odmontování (unmount).\cite{reactlifecycle, react}
