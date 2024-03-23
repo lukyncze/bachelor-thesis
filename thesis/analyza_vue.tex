@@ -19,7 +19,7 @@ Framework je v~současné době jedním z~nejpopulárnějších frameworků pro 
 \end{figure}
 
 Evan You, tvůrce Vue.js, se inspiroval určitými částmi frameworku AngularJS, který však měl velmi strmou křivku učení. 
-Vue tedy mělo být lehké, přizpůsobivé a~snadné k~naučení. Bylo vytvořeno roku 2013, uvolněno do světa až o~rok později. 
+Vue tedy mělo být lehké, přizpůsobivé a~snadné k~naučení. Bylo vytvořeno roku~2013, uvolněno do světa až o~rok později. 
 Od té doby byly vydány pouze 3 majoritní verze, avšak ty přinesly mnoho změn.\cite{vueflexiple,vuemedium}
 
 Vue nabízí svobodnou volbu při tvorbě komponent ve formě dvou hlavních API -- Options a~Composition API. 
@@ -80,14 +80,48 @@ Modifikaci stavu lze provést pomocí přiřazení nové hodnoty. Při změně j
 
 \subsubsection{Předávání vlastností}
 
-Komponenty spolu komunikují pomocí předávání vlastností. V~rodičovské komponentě je třeba předat požadovanou hodnotu do proměnné vnořené komponenty. 
+Komponenty spolu komunikují pomocí předávání vlastností. 
+Pro předání vlastnosti do vnořené komponenty je třeba v~rodičovské komponentě předat požadovanou hodnotu do proměnné vnořené komponenty. 
 Uvnitř vnořené komponenty pak definujeme props vlastnost, kterou vytvoříme pomocí funkce defineProps. 
 DefineProps funkce vyžaduje objekt s~názvem a~datovým typem předávané vlastnosti.
 
-Pro předání vlastnosti z~vnořené do rodičovské komponenty se využívá tzv. emitování eventů. 
+K~předání vlastností z~vnořené do rodičovské komponenty se využívá principu emitování eventů. 
 V~potomku vytvoříme vlastnost emit, v~níž nadeklarujeme pole emitovaných hodnot pomocí funkce defineEmits. Dále je třeba definovat jednotlivé emity. 
-První argumentem je název emitu, další argumenty jsou již předávané hodnoty. Rodičovská komponenta musí naslouchat na emitované eventy. 
+Prvním argumentem je název emitu, další argumenty jsou již předávané hodnoty. Rodičovská komponenta musí naslouchat na emitované eventy. 
 Toho lze docílit pomocí @response direktivy, která typicky v~callback funkci přeukládá argumenty na lokalní stavy.\cite{vuemacrae,vue}
+
+% TODO: přidat příklad s emitováním eventu
+% <script setup>
+% import { ref } from 'vue'
+% import ChildComponent from './Comp.vue'
+
+% const msg = ref('Hello World!')
+
+% function handleChildSubmit(data) {
+%  console.log(data.message) // Outputs: "Form submitted!"
+% }
+% </script>
+
+% <template>
+%   <h1>{{ msg }}</h1>
+%   <input v-model="msg" />
+
+%   <ChildComponent @submit="handleChildSubmit" />
+% </template>
+
+
+% <script setup>
+%   const emit = defineEmits(['submit'])
+  
+%   function handleSubmit() {
+%   // Emit the 'submit' event with some data
+%     emit('submit', { message: 'Form submitted!' })
+%   }
+% </script>
+
+% <template>
+%   <button @click="handleSubmit">Submit</button>
+% </template>
 
 \begin{prog}
 // Parent.vue
@@ -119,7 +153,7 @@ Toho lze docílit pomocí @response direktivy, která typicky v~callback funkci 
 
 Framework disponuje mnoha direktivami, které umožňují přidávat do šablony různé funkce. Logiku vykreslování umožňují direktivy v-if, v-else-if a~v-else. 
 Pro iteraci přes pole hodnot slouží v-for. Mezi další užitečné direktivy patří v-bind a~v-model. 
-Díky v-bind je možné přidat jakémukoli elementu dynamickou hodnotu atributu, direktivu můžeme zkrátit i~pomocí dvojtečky. 
+Díky v-bind je možné přidat jakémukoli elementu dynamickou hodnotu atributu, direktivu můžeme zkrátit pomocí dvojtečky. 
 Direktiva v-model zase zajistí obousměrné propojení pro formulářové prvky.
 
 \begin{prog}
@@ -158,9 +192,9 @@ Můžeme také zvolit ekvivalentní zápis s~@. Další možnost představuje vy
 Každá Vue komponenta má daný životní cyklus, který konkrétně můžeme rozdělit na 3~části -- inicializační část, část, při které se mění data a~část, kdy komponenta zaniká. 
 Pro zajištění kontroly životního cyklu slouží tzv. hooks, které se vyznačují tím, že vždy před svým názvem mají předponu on.
 
-Při inicializaci komponenty můžeme využít hook akce beforeMount či mount. BeforeMount se volá ještě před tím, než se komponenta přidá na stránku. 
+Při inicializaci komponenty můžeme využít hook akce beforeMount či mount. BeforeMount je volán ještě před tím, než se komponenta přidá na stránku. 
 Mount až poté, kdy je vytvořen element komponenty -- komponenta však ještě nemusí být v~DOM. 
-Před chystanou změnou dat v~DOM se volá beforeUpdate, po vykonání změny se volá hook updated. Před samotným zánikem komponenty Vue volá beforeUnmount. 
+Před chystanou změnou dat v~DOM se volá beforeUpdate, po vykonání změny je volán hook updated. Před samotným zánikem komponenty pak Vue volá beforeUnmount. 
 Po dokončení zničení se volá hook unmounted.\cite{vuemacrae,vue}
 % super obrázek: https://vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram
 
@@ -169,9 +203,9 @@ Po dokončení zničení se volá hook unmounted.\cite{vuemacrae,vue}
 Framework Vue v~sobě nemá implementovaný žádný sofistikovaný state management. 
 K~základní práci se stavy aplikace poslouží reaktivní stavy jednotlivých komponent a~jejich sdílení ve stromě komponent.
 
-Pro komplexnější aplikace je třeba využít některou z~knihoven třetích stran. Dokumentace doporučuje knihovnu Pinia, o~kterou se starají vývojáři samotného Vue. 
-Pinia je inspirována Vuex a~využívá principu Composition API. Tato knihovna nabízí jednoduché API pro správu stavů v~aplikaci. 
-Hlavním prvkem jsou tzv. stores, do kterých ukládáme globální stavy aplikace. 
+Pro komplexnější aplikace je žádoucí využít některou z~knihoven třetích stran. Dokumentace nabízí knihovnu Pinia, která byla vyvinuta Vue týmem. 
+Pinia je inspirována balíkem Vuex a~využívá Composition API přístup. Knihovna nabízí jednoduché API pro správu stavů aplikace. 
+Hlavním prvkem jsou tzv.~stores, do kterých ukládáme globální stavy aplikace. 
 Store vytvoříme pomocí funkce defineStore, která požaduje identifikátor daného store a~callback funkci. 
 Ta by měla vracet samotný state definovaný pomocí ref() a~akce (funkce, jež mění stavy) nad storem, případně computed state -- jiný stav, který je typicky odvozen od původního stavu.\cite{pinia,vue}
 
