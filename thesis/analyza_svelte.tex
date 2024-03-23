@@ -99,7 +99,8 @@ Následně ji předáme vnořené komponentě pomocí bind direktivy. Bind zajis
 
 \subsubsection{Eventy} % Přidat actions
 
-Svelte má velice jednoduché API pro práci s~DOM eventy. Stačí použít direktivu on na HTML elementu, která vyžaduje název eventu a~callback funkci.
+Svelte má velice jednoduché API pro práci s~DOM událostmi (eventy). Na element stačí přidat direktivu on s~názvem eventu. 
+Následně předáme callback funkci, v~níž provedeme požadovanou akci.
 
 \begin{prog}
 <script>
@@ -112,7 +113,7 @@ Svelte má velice jednoduché API pro práci s~DOM eventy. Stačí použít dire
 \end{prog}
 
 Vývojáři také přišli s~možností odesílání a~přijímání eventů pro komponenty. 
-Uvnitř vnořené komponentě je třeba mít DOM event handler, na který chceme reagovat v~rodičovské komponentě. 
+Uvnitř vnořené komponenty je třeba mít DOM event handler, na který chceme reagovat v~rodičovské komponentě. 
 Poté je nutné využít zabudovanou funkci createEventDispatcher, které předáme potřebné parametry -- libovolný název pro event komponenty a~hodnotu. 
 V~rodičovské komponentě pak reagujeme na event pomocí klíčového slova on a~našeho libovolného názvu pro event. Hodnotu poté získáme v~callback funkci.\cite{sveltehandbook,svelte}
 
