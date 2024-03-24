@@ -562,7 +562,7 @@ Funkci \emph{getDistanceBetweenTwoPoints} importujeme z~knihovny \emph{calculate
 Hodnotu vlastnosti \emph{enrichedGuessedCountries} aktualizujeme v~rámci hooku \emph{OnChanges}. Seznam hádaných zemí vykreslíme v~šabloně.
 
 Pokračujeme implementací modálních oken, které se zobrazí při výhře či prohře. 
-Vlastnosti \emph{isWinModalOpen} a~\emph{isLoseModalOpen}, určující, zda se mají okna zobrazit, bychom měli aktualizovat v metodě \emph{handleEvaluateGuessAndUpdateState} v~CountryGuesserComponent. 
+Vlastnosti \emph{isWinModalOpen} a~\emph{isLoseModalOpen}, určující, zda se mají okna zobrazit, bychom měli aktualizovat v~metodě \emph{handleEvaluateGuessAndUpdateState} v~CountryGuesserComponent. 
 Oběma modálním oknům předáme vlastnost \emph{randomCountry} a~output \emph{handleClose} v~podobě obslužné události, která se vyvolá při zavření modálního okna. 
 Do výherního modálu rovněž poskytneme vstupní vlastnost \emph{totalGuessesNeeded}, jíž využijeme v~obsahu okna. 
 Obě modální okna budou velice podobné, a~proto vytvoříme komponentu base-modal, která bude sloužit jako šablona pro obě okna. 

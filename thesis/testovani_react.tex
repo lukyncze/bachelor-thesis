@@ -577,7 +577,7 @@ V~neposlední řadě funkce \emph{convertToFormattedGuess} převede tip uživate
 Pro zobrazení všech doposud hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a~\emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
 Jde o~uživatelem hádané země s~vlajkou a~vzdáleností od \emph{randomCountry}. K~převodu využijeme JS funkce z~jiného souboru. 
 Pro vypočtení vzdáleností použijeme knihovnu \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která obsahuje funkci \emph{getDistanceBetweenTwoPoints}. 
-Jednotlivé prvky \emph{enrichedGuessedCountries} posléze vykreslíme v JSX.
+Jednotlivé prvky \emph{enrichedGuessedCountries} posléze vykreslíme v~JSX.
 
 Nakonec vytvoříme modální okna, která se zobrazí při výhře či prohře. Stavy \emph{isWinModalOpen} a~\emph{isLoseModalOpen} aktualizujeme v~rámci funkce \emph{handleEvaluateGuessAndUpdateState} v~CountryGuesser. 
 Na základě těchto stavů pak podmíněně vykreslíme daná modální okna. Oběma modálům předáme \emph{randomCountry} a~obslužnou funkci \emph{handleClose}. Výhernímu modálu také počet potřebných pokusů. 
