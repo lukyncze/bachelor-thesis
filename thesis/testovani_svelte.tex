@@ -80,7 +80,8 @@ Pro aktualizaci stavu \emph{count} použijeme obslužné funkce, v~nichž přím
 
 V~této sekci implementujeme rozbalovací seznam s~možnostmi (dropdown). Tvorbu UI komponenty můžeme začít jak vytvořením HTML struktury, tak definicí funkční stránky komponenty.
 
-My začneme tvorbou šablony, v~níž vytvoříme tlačítko a~seznam možností. Otevření seznamu možností zajistíme přidáním \emph{on:click} události na tlačítko. V~obslužné funkci pak změníme stav \emph{isOpen}.
+My začneme tvorbou šablony, v~níž vytvoříme tlačítko a~seznam možností. 
+Otevření možností rozevíracího seznamu zajistíme přidáním \emph{on:click} události na tlačítko a~následně v~obslužné funkci změníme stav \emph{isOpen}.
 
 \begin{prog}
 // Část souboru Dropdown.svelte
@@ -213,7 +214,7 @@ Třídy CSS v~JavaScriptové formě přidáme k~elementu pomocí šablonových l
   \textbf{Reaktivita, asynchronní operace}
 \end{flushleft}
 
-V~rámci této sekce se zaměříme na reaktivitu a~asynchronní operace. Naprogramujeme komponentu, která přeloží zadaný text do cílového jazyka. 
+Uvnitř této sekce se zaměříme na reaktivitu a~asynchronní operace. Naprogramujeme komponentu, která přeloží zadaný text do cílového jazyka. 
 Začneme vytvořením komponenty Translator. Komponenta reaktivně (při změně zadaného textu či výstupního jazyka) zavolá API, které vrátí přeložený text. 
 V~Translator komponentě využijeme vnořené komponenty, které budou sloužit k~zadání vstupního textu, výběru jazyka a~zobrazení výsledku.
 
@@ -266,9 +267,9 @@ const resizeTextArea = (element: HTMLTextAreaElement) => \{
 \};
 \end{prog}
 
-V~rámci rodičovské komponenty zavoláme Microsoft Translator Text API \cite{translatortextapi} v~momentě, kdy dojde ke změně vstupního textu nebo výstupního jazyka. 
-K~tomu použijeme reaktivní prohlášení (reactive statement). V~těle prohlášení zrušíme předchozí časovač a~pomocí funkce \emph{setTimeout} zavoláme funkci \emph{handleTranslation}. 
-Tímto způsobem předejdeme dotazování serveru ihned po změně nějaké vstupní hodnoty. Při zničení komponenty zrušíme časovač a~asynchronní požadavky.
+V rodičovské komponentě budeme odesílat dotazy na Microsoft Translator Text API \cite{translatortextapi} v~momentě, kdy dojde ke změně vstupního textu nebo výstupního jazyka. 
+K~tomu využijeme reaktivní prohlášení (reactive statement). V~těle prohlášení nejprve zrušíme předchozí časovač a~pomocí funkce \emph{setTimeout} zavoláme funkci \emph{handleTranslation}. 
+Tímto způsobem předejdeme dotazování serveru ihned po změně nějaké vstupní hodnoty. Při zničení komponenty zrušíme časovač a~stávající asynchronní požadavky.
 
 \begin{prog}
 // Část souboru Translator.svelte
@@ -348,7 +349,7 @@ Z~\emph{createForm} následně získáme obslužné funkce \emph{handleChange} a
 Do šablony přidáme form s~\emph{on:submit} událostí, které předáme \emph{handleSubmit}. Pokračujeme vytvořením formulářových prvků. 
 Jednotlivé prvky propojíme s~reaktivním formulářem pomocí \emph{bind:value} a~události \emph{on:change}, do které přiřadíme funkci \emph{handleChange}. 
 Chyby formuláře získáme z~\emph{errors} a~vykreslíme je pod formulářovými prvky. 
-V~neposlední řadě přidáme tlačítko s~typem submit, které se postará o~odeslání formuláře a~zavolání obslužné funkce \emph{onSubmit}.
+Také přidáme tlačítko s~typem submit, které se postará o~odeslání formuláře a~zavolání obslužné funkce \emph{onSubmit}.
 
 \begin{prog}
 // Část souboru InvestForm.svelte
@@ -415,8 +416,8 @@ K~modifikaci vstupní hodnoty v~komponentě FutureValueInfo použijeme reactive 
   \textbf{Modularita, použití knihoven}
 \end{flushleft}
 
-Nyní vytvoříme webovou hru, ve které bude úkolem uživatele uhádnout název státu na základě poskytnutých nápovědí. Práci si zlehčíme využitím externích knihoven. 
-V~rámci hry se postupně odkryje 8 nápovědí, které uživateli pomohou uhádnout název daného státu. Mezi klíčovými prvky bude textové pole pro zadání názvu země a~potvrzovací tlačítko. 
+Nyní vytvoříme webovou hru, ve které bude úkolem uživatele uhádnout název státu na základě poskytnutých nápověd. Práci si zlehčíme využitím externích knihoven. 
+V~rámci hry se postupně odkryje 8 nápověd, které uživateli pomohou uhádnout název daného státu. Mezi klíčovými prvky bude textové pole pro zadání názvu země a~potvrzovací tlačítko. 
 Dále ve hře bude seznam zemí, které uživatel hádal a~modální okna pro vyhodnocení hry.
 
 Začneme implementací rodičovské komponenty, jejíž úkolem bude získat země z~REST Countries API \cite{restcountriesapi}. 
@@ -479,7 +480,7 @@ export const getAllCountries = async () => \{
 \};
 \end{prog}
 
-V~rámci rodičovské komponenty dostaneme výsledek dotazu a~uložíme jej do proměnné \emph{countries}. Následně pomocí vlastností \emph{isError} a~\emph{data} podmíněně vykreslíme jednotlivé komponenty. 
+V~rámci rodičovské komponenty dostaneme výsledek dotazu a~uložíme jej do proměnné \emph{countries}. Pomocí vlastností \emph{isError} a~\emph{data} podmíněně vykreslíme jednotlivé komponenty. 
 V~případě chyby zobrazíme komponentu ErrorAlert. Když úspěšně získáme pole zemí, vykreslíme komponentu CountryGuesser. LoadingSkeleton zobrazíme, pokud se nezobrazí žádná z~předchozích komponent.
 
 \begin{prog}
@@ -524,7 +525,7 @@ Aby se font použil, přidáme jej do CSS stylů.
 \}
 \end{prog}
 
-Dále naprogramujeme obslužné funkce \emph{handleEvaluateGuessAndUpdateState}, \emph{handleSetInitialState}, které budou sloužit k~aktualizaci stavu hry. 
+Poté naprogramujeme obslužné funkce \emph{handleEvaluateGuessAndUpdateState}, \emph{handleSetInitialState}, které budou sloužit k~aktualizaci stavu hry. 
 V~rámci šablony zobrazíme jednotlivé herní prvky a~modální okna při výhře či prohře.
 
 V~rámci komponenty HintBoxes postupně zobrazíme nápovědy. Dle vstupu \emph{randomCountry} budeme reaktivně vytvářet pole nápověd, jelikož \emph{randomCountry} se může změnit. 
@@ -533,10 +534,10 @@ V~šabloně posléze vykreslíme napovědy pomocí HintBox komponent. HintBox dy
 Komponenta \emph{CountryGuessInput.svelte} umožní uživateli zadání názvu země (uživatelova tipu). Začneme šablonou, kde vytvoříme formulářový prvek pro zadání tipu a~potvrzovací tlačítko. 
 Dále také podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu (filtrované země). Přidáme obslužné funkce pro akce a~události nad formulářem, které následně doimplementujeme.
 
-V~rámci skriptové části, na základě vstupu \emph{countries}, získáme pole všech zemí bez těch, které uživatel již hádal (\emph{countriesWithoutAlreadyGuessed}). 
-Dále definujeme a~inicializujeme ostatní stavy komponenty. Po kliknutí na potvrzovací tlačítko zavoláme funkci \emph{handleGuessButtonClick}. 
+Ve skriptové části, na základě vstupu \emph{countries}, získáme pole všech zemí bez těch, které uživatel již hádal (\emph{countriesWithoutAlreadyGuessed}). 
+Následně definujeme a~inicializujeme ostatní stavy komponenty. Po kliknutí na potvrzovací tlačítko zavoláme funkci \emph{handleGuessButtonClick}. 
 V~tělě funkce zavoláme obslužnou funkci \emph{evaluateGuessAndUpdateState}, pomocí níž vyhodnotíme stav hry v~rodičovské komponentě. 
-Následně také funkci \emph{handleChangeSelectedGuess}, která aktualizuje aktuální tip, filtrované země a~uzavře podmenu. 
+Dále také funkci \emph{handleChangeSelectedGuess}, která aktualizuje aktuální tip, filtrované země a~uzavře podmenu. 
 Funkce \emph{handleInputChange} převede tip uživatele do daného formátu, aktualizuje aktuální tip a~filtrované země. Ovládání textového pole pomocí klávesnice umožní funkce \emph{handleKeyDown}.
 
 V~pomocné funkci \emph{updateGuessAndFilteredCountries} nejprve získáme filtrované země podle uživatelova tipu. Následně aktualizujeme stavy \emph{currentGuess}, \emph{isValidGuess} a~\emph{filteredCountries}. 
@@ -548,7 +549,7 @@ Pro zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu G
 Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a~\emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
 Jde o~uživatelem hádané země s~vlajkou a~vzdáleností od \emph{randomCountry}. K~převodu využijeme JS funkci z~jiného souboru. 
 Vzdálenost zemí vypočteme pomocí knihovny \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která exportuje funkci \emph{getDistanceBetweenTwoPoints}. 
-Proměnnou \emph{enrichedGuessedCountries} následně vykreslíme v~rámci šablony.
+Proměnnou \emph{enrichedGuessedCountries} poté vykreslíme v~rámci šablony.
 
 Nakonec vytvoříme modální okna, které vykreslíme při výhře nebo prohře. Stavy \emph{isWinModalOpen} a~\emph{isLoseModalOpen} aktualizujeme v~rámci funkce \emph{handleEvaluateGuessAndUpdateState} v~CountryGuesser. 
 Na základě těchto stavů podmíněně zobrazíme daná modální okna. Oběma oknům předáme \emph{randomCountry} a~obslužnou funkci \emph{handleClose}. Do výherního modálu také počet potřebných pokusů. 
@@ -591,7 +592,7 @@ export const appRoutes: ReadonlyArray<AppRoute> = [
 ];
 \end{prog}
 
-Následně v~hlavní komponentě transformujeme \emph{appRoutes} do požadovaného formátu (typu \emph{RouteDefinition}) a~výsledek uložíme do proměnné \emph{routes}. 
+Uvnitř hlavní komponenty transformujeme \emph{appRoutes} do požadovaného formátu (typu \emph{RouteDefinition}) a~výsledek uložíme do proměnné \emph{routes}. 
 V~šabloně zobrazíme hlavičku, patičku a~\emph{Router}, kterému předáme proměnnou \emph{routes}. 
 \emph{Router} následně vykreslí šablonu na základě aktuální URL adresy.
 
