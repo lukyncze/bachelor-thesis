@@ -68,7 +68,7 @@ K~propsání textu či jiných elementů nebo komponent mezi párovými tagy <co
 \end{prog}
 
 Následně v~counter komponentě importujeme třídu CounterButtonComponent a~do všech elementů counter-button předáme jejich vstupy a~výstupy. 
-Námi defikovanovanému outputu \emph{buttonClicked} předáme v~šabloně metodu, která se vykoná po emitu (kliknutí na tlačítko ve vnořené komponentě) a~metodu zavoláme pomocí kulatých závorek. 
+Námi definovanovanému outputu \emph{buttonClicked} předáme v~šabloně metodu, která se vykoná po emitu (kliknutí na tlačítko ve vnořené komponentě) a~metodu zavoláme pomocí kulatých závorek. 
 V~rámci counter komponenty pak definujeme stav jako vlastnost \emph{count} na třídě. Vlastnost pak můžeme modifikovat skrze metody třídy, které voláme v~outputu \emph{buttonClicked}.
 
 \begin{prog}
@@ -132,8 +132,8 @@ V~rámci této metody je třeba zavolat i~\emph{event.stopPropagation()}. Přede
 </div>
 \end{prog}
 
-Podmíněně pak můžeme vypsat list možností, které získáme v~jednom z~inputů. Pro vypsání všech možností použijeme blok \emph{@for}. 
-K~vybraní konkrétní možnosti použijeme zase \emph{(click)} a~do obslužné metody pošleme aktuální prvek v~poli -- option. 
+Podmíněně zobrazíme seznam možností, které získáme v~jednom z~inputů. K~vykreslení všech možností použijeme blok \emph{@for}. 
+Pro vybraní konkrétní možnosti využijeme \emph{(click)} a~do obslužné metody předáme aktuální prvek v~poli -- option. 
 Metoda \emph{handleOptionClick} pak zajistí uložení aktuálně vybrané možnosti, zavření dropdownu a~vyemitování vybrané možnosti do rodičovské komponenty.
 
 \begin{prog}
@@ -202,7 +202,7 @@ Začneme tedy vytvořením rodičovské komponenty, která při změně vlastnos
 V~rámci této komponenty vytvoříme vnořené komponenty, které budou sloužit k~zadání vstupního textu, výběru jazyka a~zobrazení výsledku. 
 
 LanguageDropdownComponent umožní uživateli vybrat jazyk, do kterého chce přeložit text. 
-Přes \emph{EventEmitter} aktualizujeme výstupní jazyk v~rodičovské komponentě. V~rámci obslužné metody \emph{handleLanguageChange} pak také aktualizujeme hodnotu vlastnosti \emph{inputValuesChanges\$}.
+Přes \emph{EventEmitter} aktualizujeme výstupní jazyk v~rodičovské komponentě. V~rámci obslužné metody \emph{handleLanguageChange} pak také modifikujeme hodnotu vlastnosti \emph{inputValuesChanges\$}.
 Tato vlastnost je \emph{Subject}, speciální typ observable, z~knihovny RxJS. Později dovolí na základě změny hodnoty poslat dotaz na server ve správný moment. 
 Podobným způsobem poté můžeme registrovat událost změny vstupního textu -- naslouchat na změnu vstupního textu.
 % TODO: Přidat schéma
@@ -464,8 +464,8 @@ export class LocalizedNumberPipe implements PipeTransform \{
   \textbf{Modularita, použití knihoven}
 \end{flushleft}
 
-V~této sekci vytvoříme webovou hru, kde cílem uživatele bude uhádnout název státu na základě poskytnutých nápovědí. Práci si ulehčíme pomocí externích knihoven a~služeb.
-Ve hře se postupně bude odkrývat 8 nápovědí, které by měly pomoct s~uhádnutím daného státu. 
+V~této sekci vytvoříme webovou hru, kde cílem uživatele bude uhádnout název státu na základě poskytnutých nápověd. Práci si ulehčíme pomocí externích knihoven a~služeb.
+Ve hře se postupně bude odkrývat 8 nápověd, které by měly pomoct s~uhádnutím daného státu. 
 Klíčovým prvkem je textové pole, přes které uživatel zadává názvy hádaných zemí a~tlačítko pro potvrzení. 
 Součástí je také seznam již zadaných hádaných zemí a~modální okna sloužící k~vyhodnocení hry.
 
@@ -508,8 +508,8 @@ Navíc se programátor nemusí starat o~zrušení odběru observable.
 \end{prog}
 
 V~rámci komponenty country-guesser budeme implementovat jednotlivé herní prvky, komponenta také bude vyhodnocovat průběh hry. 
-Definujeme tedy vlastnosti třídy, které budou reprezentovat stav a~průběh hry. V~hooku \emph{OnInit} získáme náhodou zemi (zemi pro uhádnutí). 
-Dále zde zavoláme veřejnou metodu \emph{usePolyfill} na službě CountryFlagPolyfillService, která zajistí zobrazení ikon vlajek v~prohlížečích, které nepodporují zobrazení vlajek.
+Definujeme tedy vlastnosti třídy, které budou reprezentovat stav a~průběh hry. V~hooku \emph{OnInit} získáme náhodnou zemi (zemi pro uhádnutí). 
+Uvnitř zavoláme veřejnou metodu \emph{usePolyfill} na službě CountryFlagPolyfillService, která zajistí zobrazení ikon vlajek v~prohlížečích, které nepodporují zobrazení vlajek.
 Do komponenty také přidáme obslužné metody \emph{handleEvaluateGuessAndUpdateState} a~\emph{handleSetInitialState}, ve kterých implementujeme logiku hry. 
 V~šabloně následně vykreslíme UI komponenty hry a~podmíněně modální okna při výhře či prohře.
 
@@ -534,7 +534,7 @@ Samotný hint-box pak dynamicky vykreslí název a~SVG ikonu nápovědy, textovo
 Pokračujeme implementací komponenty country-guess-input, která uživateli umožní zadat svůj tip. 
 Začneme šablonou, kde vytvoříme formulářový prvek pro zadání názvu země a~potvrzovací tlačítko. 
 Dále podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu -- filtrované země a~chybové hlášky. 
-Můžeme také rovnout přidat obslužné metody pro akce a~události nad formulářem, které následně postupně doimplementujeme.
+Můžeme také rovnou přidat obslužné metody pro akce a~události nad formulářem, které následně postupně doimplementujeme.
 
 V~souboru \emph{country-guess-input.component.ts}, tedy v~rámci třídy CountryGuessInputComponent, při změně vstupních vlastností (v~hooku \emph{OnChanges}) aktualizujeme vlastnost \emph{countriesWithoutAlreadyGuessed} a~\emph{filteredCountries}. 
 V~případě první vlastnosti jde o~pole všech zemí bez těch, které uživatel již hádal. Druhá vlastnost poté představuje pole počátečních 8 prvků vlastnosti \emph{countriesWithoutAlreadyGuessed}. 
@@ -544,28 +544,28 @@ Tělo metody \emph{handleInputChange} převede uživatelům tip do správného f
 Metoda \emph{handleKeyDown} se postará o~interakce s~podmenu pomocí klávesnice. Skrze šipky nahoru a~dolů povolíme uživateli vybrat hádanou zemi. 
 Enter umožní změnu aktuálního tipu názvu země na právě tu, kterou uživatel označil v~podmenu. Escape poslouží k~uzavření podmenu.
 
-Pomocná metoda \emph{updateGuessAndFilteredCountries} pak modifikuje vlastnost \emph{currentGuess}. 
-Následně pomocí metody \emph{getFilteredCountries} získá aktuálně filtrované země na základě uživatelova tipu. 
-Dále nastaví vlastnost \emph{isValidGuess}, která určuje, zda je uživatelův tip validní (taková země existuje). 
-V~neposlední řadě se metoda stará i~o~aktualizaci vlastnosti \emph{selectedGuessIndex}, jež určuje, která země je vybraná v~podmenu. 
+Uvnitř pomocné metody \emph{updateGuessAndFilteredCountries} následně modifikujeme vlastnost \emph{currentGuess}. 
+Dle metody \emph{getFilteredCountries} získáme aktuálně filtrované země na základě uživatelova tipu. 
+Rovněž přenastavíme vlastnost \emph{isValidGuess}, která určuje, zda je uživatelův tip validní (taková země existuje). 
+V~neposlední řadě aktualizujeme vlastnost \emph{selectedGuessIndex}, jež určuje, která země je vybraná v~podmenu. 
 K~tomu slouží metoda \emph{clampSelectedGuessIndex}, která index udrží v~požadovaném rozmezí (0 až počet filtrovaných zemí).
-Metoda \emph{getFilteredCountries} získává filtrované země na základě vlastnosti \emph{currentGuess}. 
-Pomocná metoda \emph{changeSelectedGuessIndex} aktualizuje vlastnost \emph{selectedGuessIndex} o~hodnotu předanou v~argumentu. 
+V~metodě \emph{getFilteredCountries} získáme filtrované země na základě vlastnosti \emph{currentGuess}. 
+Metoda \emph{changeSelectedGuessIndex} aktualizuje vlastnost \emph{selectedGuessIndex} o~hodnotu předanou v~argumentu. 
 K~převodu tipu uživatele slouží pomocná metoda \emph{convertToFormattedGuess}. Metoda zajistí, aby tip začínal velkým písmenem a~zbytek řetezce byl složen z~malých písmen.
 
 Implementujeme komponentu guessed-countries-list, jenž zobrazí seznam již hádaných zemí. 
 Mezi vstupními vlastnostmi bude pole všech zemí (\emph{countries}), pole hádaných zemí uživatelem (\emph{guessedCountries}) a~také země, kterou uživatel musí uhodnout (\emph{randomCountry}).
 Pomocí vstupních vlastností a~služby EnrichGuessedCountriesService získáme pole hádaných zemí s~jejich vlajkou a~vzdáleností od \emph{randomCountry} (\emph{distanceFromRandomCountry}).
-Služba EnrichGuessedCountriesService ke každé hádané zemi přidá vlajku z~pole všech zemí a~vypočte \emph{distanceFromRandomCountry}. 
+Služba EnrichGuessedCountriesService ke každé hádané zemi přidá vlajku a~vypočte \emph{distanceFromRandomCountry}. 
 Pro vypočtení vzdálenosti použijeme funkci \emph{getDistanceBetweenTwoPoints} a~vlastnost \emph{latlng}, kterou získáme ze serveru při získávání všech zemí. 
 Funkci \emph{getDistanceBetweenTwoPoints} importujeme z~knihovny \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}. 
-Hodnotu vlastnosti \emph{enrichedGuessedCountries} aktualizujeme v~rámci hooku \emph{OnChanges}. Seznam hádaných zemí následně vykreslíme v~šabloně.
+Hodnotu vlastnosti \emph{enrichedGuessedCountries} aktualizujeme v~rámci hooku \emph{OnChanges}. Seznam hádaných zemí vykreslíme v~šabloně.
 
 Pokračujeme implementací modálních oken, které se zobrazí při výhře či prohře. 
-Vlastnosti \emph{isWinModalOpen} a~\emph{isLoseModalOpen}, určující, zda se mají okna zobrazit, bychom již měli aktualizovat v~rámci metody \emph{handleEvaluateGuessAndUpdateState} v~CountryGuesserComponent. 
+Vlastnosti \emph{isWinModalOpen} a~\emph{isLoseModalOpen}, určující, zda se mají okna zobrazit, bychom měli aktualizovat v~metodě \emph{handleEvaluateGuessAndUpdateState} v~CountryGuesserComponent. 
 Oběma modálním oknům předáme vlastnost \emph{randomCountry} a~output \emph{handleClose} v~podobě obslužné události, která se vyvolá při zavření modálního okna. 
-Výhernímu modálu také vlastnost \emph{totalGuessesNeeded}, jíž využijeme v~obsahu okna. 
-Obě modální okna budou velice podobné, a~proto je vhodné vytvořit komponentu base-modal, která bude sloužit jako šablona pro obě okna. 
+Do výherního modálu rovněž poskytneme vstupní vlastnost \emph{totalGuessesNeeded}, jíž využijeme v~obsahu okna. 
+Obě modální okna budou velice podobné, a~proto vytvoříme komponentu base-modal, která bude sloužit jako šablona pro obě okna. 
 BaseModalComponent bude přijímat titulek, obsah modálního okna a~\emph{handleClose} jako výstupní vlastnost. 
 Šablona base-modal pak vykreslí základní strukturu modálního okna, s~dynamicky nastaveným titulkem, obsahem a~obslužnou metodou volanou při zavření modálního okna.
 
@@ -574,7 +574,7 @@ BaseModalComponent bude přijímat titulek, obsah modálního okna a~\emph{handl
 \end{flushleft}
 
 Demonstrační aplikace bude složena z~hlavičky, patičky a~samotného obsahu, v~němž se vykreslí jednotlivé komponenty. 
-Mezi jednotlivými stránkami se uživatel bude moct přepínat pomocí navigačního menu.
+Mezi jednotlivými stránkami se uživatel bude moci přepínat pomocí navigačního menu.
 
 K~routování mezi jednotlivými stránkami využijeme modul Router přímo od Angularu. Nejprve vytvoříme cesty (\emph{routes}) pro jednotlivé stránky v~souboru \emph{app.routes.ts}. 
 Proměnnou \emph{routes} vytvoříme dle předpisu \emph{Routes} a~následně exportujeme. Cesty pak poskytneme routeru v~rámci \emph{app.config.ts}.
@@ -657,7 +657,7 @@ Díky referenci \emph{\#link} získáme informaci o~tom, zda je odkaz aktivní. 
 \}
 \end{prog}
 
-Přepínání barevného režimu, otevírání a~zavírání mobilní navigace implementujeme pomocí obslužným metod a~vlastností třídy. 
+Přepínání barevného režimu, otevírání a~zavírání mobilní navigace implementujeme pomocí obslužných metod a~vlastností třídy. 
 Informaci o~tom, zda má uživatel zapnutý tmavý režim ukládáme do LocalStorage v~prohlížeči. 
 Při kliknutí na tlačítko pro přepnutí režimu zavoláme metodu \emph{toggleDarkMode}, která změní hodnotu vlastnosti a~uloží ji do LocalStorage.
 

@@ -16,7 +16,7 @@ function Counter() \{
 export default Counter;
 \end{prog}
 
-Dále vytvoříme komponentu Button kvůli principu DRY a~celkově znovupoužitelnosti kódu. 
+Naprogramujeme komponentu Button kvůli principu DRY a~celkově znovupoužitelnosti kódu. 
 Typ \emph{ButtonProps} obsahuje vlastnosti, které můžeme tlačítku předat -- \emph{className}, \emph{onClick} a~\emph{children}. 
 Díky tomu, že typ rozšiřuje \emph{ButtonHTMLAttributes<HTMLButtonElement>}, můžeme předat do komponenty i~další běžné atributy HTML tlačítek (např.~type, value, disabled).
 
@@ -216,8 +216,8 @@ Dynamické CSS třídy ve formě JavaScriptu na element přidáme pomocí šablo
 \end{flushleft}
 
 Následující komponenta bude demonstrovat využití reaktivity a~asynchronních operací. Vytvoříme komponentu, která přeloží zadaný text do cílového jazyka. 
-Začneme vytvořením komponenty Translator. Komponenta při změně stavů (zadaného textu uživatelem a~výstupního jazyka) zavolá API, které vrátí přeložený text.
-V~rámci komponenty vytvoříme vnořené komponenty pro zadání vstupního textu, výběr jazyka a~zobrazení výsledku.
+Začneme implementací komponenty Translator. Komponenta při změně stavů (zadaného textu uživatelem a~výstupního jazyka) zavolá API, které vrátí přeložený text.
+V~rámci komponenty naprogramujeme vnořené komponenty pro zadání vstupního textu, výběr jazyka a~zobrazení výsledku.
 
 Komponenta LanguageDropdown uživateli umožní vybrat jazyk, do kterého chce text přeložit. 
 Díky vlastnosti \emph{onChange} (callback funkci) aktualizujeme výstupní jazyk v~rodičovské komponentě. 
@@ -257,8 +257,8 @@ function TranslationInput(\{inputText, setInputText\}: TranslationInputProps) \{
 \}
 \end{prog}
 
-Hook \emph{useAutosizeTextArea} bude příjímat referenci na element. Dále také hodnotu textového pole, aby po jakékoli změně této hodnoty přepočítala výška pole. 
-V~rámci hooku vytvoříme \emph{useEffect}, který se znovu zavolá při každé změně \emph{textAreaRef}, nebo hodnoty textu. Následně v~rámci těla hooku aktualizujeme výšku textového pole.
+Hook \emph{useAutosizeTextArea} bude příjímat referenci na element. Dále také hodnotu textového pole, aby se po jakékoli změně této hodnoty přepočítala výška pole. 
+Do hooku přidáme \emph{useEffect}, který se znovu zavolá při každé změně \emph{textAreaRef}, nebo hodnoty textu. V~neposlední řadě aktualizujeme výšku textového pole.
 
 \begin{prog}
 // Část souboru useAutoresizeTextarea.ts
@@ -392,7 +392,7 @@ const \{
 \} = useForm<InvestFormData>(\{defaultValues, mode: 'onChange'\});
 \end{prog}
 
-Následně do JSX přidáme form s~\emph{onSubmit} atributem, kterému předáme funkci \emph{handleSubmit} z~React Hook Form. Do \emph{handleSubmit} pak vložíme vstup \emph{handleFormSubmit} v~rámci nějž získáme aktuální hodnoty formuláře. 
+Do JSX přidáme form značku s~\emph{onSubmit} atributem, kterému předáme funkci \emph{handleSubmit} z~React Hook Form. Do \emph{handleSubmit} pak vložíme vstup \emph{handleFormSubmit} v~rámci nějž získáme aktuální hodnoty formuláře. 
 Ve formuláři vytvoříme formulářové prvky, které propojíme s~reaktivním formulářem pomocí funkce \emph{register}. První argument představuje název formulářového prvku, druhý argument je validační objekt. 
 V~rámci range inputu potřebujeme HTML atributy min a~max, díky kterým omezíme rozsah vstupních hodnot. Abychom měli přístup k~aktuální hodnotě range inputu, využijeme vlastnost \emph{value} a~\emph{onChange}. 
 Chyby formuláře získáme z~\emph{formState} a~vykreslíme je pod formulářovými prvky. V~neposlední řadě přidáme tlačítko s~typem submit, které zajistí odeslání formuláře a~zavolání callback funkce \emph{handleFormSubmit}.
@@ -464,11 +464,11 @@ function FutureValueInfo(\{children, futureValue\}: FutureValueInfoProps) \{
   \textbf{Modularita, použití knihoven}
 \end{flushleft}
 
-V~následující sekci vytvoříme webovou hru, ve které je cílem uživatele uhádnout název státu na základě poskytnutých nápovědí. Práci si ulehčíme pomocí externích knihoven a~služeb.
-Postupně se bude odkrývat 8 nápovědí, které by měly pomoci s~uhádnutím daného státu. Klíčovým prvkem je textové pole, přes které uživatel zadává názvy hádaných zemí a~tlačítko pro potvrzení. 
+V~této sekci vytvoříme webovou hru, ve které je cílem uživatele uhádnout název státu na základě poskytnutých nápověd. Práci si ulehčíme pomocí externích knihoven a~služeb.
+Postupně se bude odkrývat 8 nápověd, které by měly pomoci s~uhádnutím daného státu. Klíčovým prvkem je textové pole, přes které uživatel zadává názvy hádaných zemí a~tlačítko pro potvrzení. 
 Součástí také bude seznam zemí, které uživatel hádal a~modální okna sloužící k~vyhodnocení hry.
 
-Začneme s~implementací rodičovské komponenty, která získá země z~REST Countries API \cite{restcountriesapi}. Naprogramujeme hook \emph{useAllCountries}, který bude vracet data (\emph{countries}), chybu a~stav načítání. 
+V~prvé řadě implementujeme rodičovskou komponentu, která získá země z~REST Countries API \cite{restcountriesapi}. Naprogramujeme hook \emph{useAllCountries}, který bude vracet data (\emph{countries}), chybu a~stav načítání. 
 V~rámci \emph{useEffect} zavoláme asynchronní funkci \emph{fetchCountriesData}. Uvnitř funkce \emph{fetchCountriesData} zavoláme funkci \emph{getAllCountries}. 
 Ve funkci \emph{getAllCountries} využijeme knihovnu \emph{axios} \cite{axioslib} a~převzatou funkci \emph{requestHandler} \cite{axiosrequesthandler}. 
 Balíček \emph{axios} slouží jako HTTP klient pro tvorbu asynchronních dotazů, zatímco \emph{requestHandler} umožňuje otypování příchozí odpovědi. Po ošetření chyb aktualizujeme patřičné stavy, které následně z~hooku vrátíme. 
@@ -515,7 +515,7 @@ axiosRetry(axios, \{
 \});
 \end{prog}
 
-Následně v~rámci rodičovské komponenty podmíněně vykreslíme dané komponenty. V~případě chyby komponentu ErrorAlert. Pokud ze serveru úspěšně dostaneme země, tak vykreslíme komponentu CountryGuesser. 
+Následně v~rodičovské komponentě podmíněně vykreslíme dané komponenty. V~případě chyby komponentu ErrorAlert. Pokud ze serveru úspěšně dostaneme země, tak vykreslíme komponentu CountryGuesser. 
 Pokud nevykreslíme ani jednu z~předchozích komponent, zobrazíme LoadingSkeleton.
 
 \begin{prog}
@@ -574,10 +574,10 @@ Funkce \emph{clampSelectedGuessIndex} zajistí, aby index uživatelem vybrané z
 Pro aktualizaci vlastnosti \emph{selectedGuessIndex} slouží funkce \emph{changeSelectedGuessIndex}, která index aktualizuje o~hodnotu předanou v~argumentu.
 V~neposlední řadě funkce \emph{convertToFormattedGuess} převede tip uživatele tak, aby začínal velkým písmenem a~zbytek řetezce byl složen z~malých písmen.
 
-Ke zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a~\emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
+Pro zobrazení všech doposud hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a~\emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 
 Jde o~uživatelem hádané země s~vlajkou a~vzdáleností od \emph{randomCountry}. K~převodu využijeme JS funkce z~jiného souboru. 
-K~vypočtení vzdálenosti použijeme knihovnu \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která obsahuje funkci \emph{getDistanceBetweenTwoPoints}. 
-Jednotlivé prvky pole \emph{enrichedGuessedCountries} pak vykreslíme v~rámci JSX.
+Pro vypočtení vzdáleností použijeme knihovnu \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která obsahuje funkci \emph{getDistanceBetweenTwoPoints}. 
+Jednotlivé prvky \emph{enrichedGuessedCountries} posléze vykreslíme v~JSX.
 
 Nakonec vytvoříme modální okna, která se zobrazí při výhře či prohře. Stavy \emph{isWinModalOpen} a~\emph{isLoseModalOpen} aktualizujeme v~rámci funkce \emph{handleEvaluateGuessAndUpdateState} v~CountryGuesser. 
 Na základě těchto stavů pak podmíněně vykreslíme daná modální okna. Oběma modálům předáme \emph{randomCountry} a~obslužnou funkci \emph{handleClose}. Výhernímu modálu také počet potřebných pokusů. 
