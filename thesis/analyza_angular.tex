@@ -218,9 +218,14 @@ export class MyComponent \{
 První metoda, která se spouští při vytvoření komponenty, je konstruktor. 
 Poté můžeme využít metody ngOnInit, ngOnChanges, ngDoCheck, ngAfterViewInit, ngAfterContentInit, ngAfterViewChecked, ngAfterContentChecked, jež se spouští v~různých fázích aktualizace (detekce). 
 Nedávno byly přidány také metody, které se volají po vykreslení komponenty -- afterNextRender a~afterRender. 
-V~neposlední řadě metoda ngOnDestroy je volána při zničení komponenty.\cite{angulardev,learningangular} 
-% TODO: možná by bylo fajn přidat tabulky/obrázky pro životní cyklus komponenty
-% super tabulka: https://angular.dev/guide/components/lifecycle
+V~neposlední řadě metoda ngOnDestroy je volána při zničení komponenty.\cite{angulardev,learningangular}
+
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=.8\textwidth]{images/angularlifecycle.png}
+	\caption[Životní cyklus Angularu]{Životní cyklus Angularu \cite{angularlifecycle}}
+	\label{fig:angularlifecycle}
+\end{figure}
 
 \subsubsection{State management}
 

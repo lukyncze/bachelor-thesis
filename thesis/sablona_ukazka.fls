@@ -880,6 +880,11 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm
+INPUT ./images/angularlifecycle.png
+INPUT ./images/angularlifecycle.png
+INPUT images/angularlifecycle.png
+INPUT ./images/angularlifecycle.png
+INPUT ./images/angularlifecycle.png
 INPUT ./analyza_react.tex
 INPUT ./analyza_react.tex
 INPUT ./analyza_react.tex
@@ -892,6 +897,11 @@ INPUT ./images/react-logo.png
 INPUT images/react-logo.png
 INPUT ./images/react-logo.png
 INPUT ./images/react-logo.png
+INPUT ./images/reactlifecycle.png
+INPUT ./images/reactlifecycle.png
+INPUT images/reactlifecycle.png
+INPUT ./images/reactlifecycle.png
+INPUT ./images/reactlifecycle.png
 INPUT ./analyza_svelte.tex
 INPUT ./analyza_svelte.tex
 INPUT ./analyza_svelte.tex
@@ -904,6 +914,11 @@ INPUT ./images/svelte-logo.png
 INPUT images/svelte-logo.png
 INPUT ./images/svelte-logo.png
 INPUT ./images/svelte-logo.png
+INPUT ./images/sveltelifecycle.png
+INPUT ./images/sveltelifecycle.png
+INPUT images/sveltelifecycle.png
+INPUT ./images/sveltelifecycle.png
+INPUT ./images/sveltelifecycle.png
 INPUT ./analyza_vue.tex
 INPUT ./analyza_vue.tex
 INPUT ./analyza_vue.tex
@@ -916,6 +931,11 @@ INPUT ./images/vue-logo.png
 INPUT images/vue-logo.png
 INPUT ./images/vue-logo.png
 INPUT ./images/vue-logo.png
+INPUT ./images/vuelifecycle.png
+INPUT ./images/vuelifecycle.png
+INPUT images/vuelifecycle.png
+INPUT ./images/vuelifecycle.png
+INPUT ./images/vuelifecycle.png
 INPUT ./testovani_frameworku.tex
 INPUT ./testovani_frameworku.tex
 INPUT ./testovani_frameworku.tex
