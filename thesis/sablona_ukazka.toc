@@ -45,7 +45,7 @@
 \contentsline {subsubsection}{\numberline {3.1.2}Nefunkční požadavky}{29}{subsubsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.2}Implementace webových aplikací}{29}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Angular}{30}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}React}{46}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2}React}{47}{subsubsection.3.2.2}%
 \contentsline {subsubsection}{\numberline {3.2.3}Svelte}{63}{subsubsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.3}Srovnání implementace aplikací}{78}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Ukázková kapitola}{81}{section.4}%

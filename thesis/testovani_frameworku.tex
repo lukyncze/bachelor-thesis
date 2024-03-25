@@ -119,16 +119,25 @@ Příklad instalací nalezneme v~Tabulce~\ref{tab:frameworkinstall}.
 		\begin{tabular}{|l|l|}
 		\hline
 		\textbf{Framework} & \textbf{Příkazy pro instalaci} \\ \hline
-		Angular   & \begin{tabular}[c]{@{}l@{}}npx npm init @angular@latest nazev-projektu\\ cd nazev-projektu\\ npm install -D tailwindcss postcss autoprefixer\\ npx tailwindcss init -p\\ manuální konfigurace Tailwind CSS\footnotemark[1]\\ npm run start\end{tabular} \\ \hline
-		React     & \begin{tabular}[c]{@{}l@{}}npx npm create vite@latest\\ cd nazev-projektu\\ npm install -D tailwindcss postcss autoprefixer\\ npx tailwindcss init -p\\ manuální konfigurace Tailwind CSS\footnotemark[2]\\ npm run dev\end{tabular}       							\\ \hline
-		Svelte    & \begin{tabular}[c]{@{}l@{}}npx npm create vite@latest\\ cd nazev-projektu\\ npx svelte-add@latest tailwindcss\footnotemark[3]\\ npm install\\ npm run dev\end{tabular}                                                                                 	\\ \hline
+		Angular   & \begin{tabular}[c]{@{}l@{}}npx npm init @angular@latest nazev-projektu\\ 
+			cd nazev-projektu\\
+			npm install -D tailwindcss postcss autoprefixer\\
+			npx tailwindcss init -p\\
+			manuální konfigurace Tailwind CSS\tablefootnote{Konfigurace Tailwind CSS v~Angular projektu dle oficiální dokumentace.\cite{twconfigangular}}\\
+			npm run start\end{tabular}\\	\hline
+		React     & \begin{tabular}[c]{@{}l@{}}npx npm create vite@latest\\
+			cd nazev-projektu\\
+			npm install -D tailwindcss postcss autoprefixer\\
+			npx tailwindcss init -p\\
+			manuální konfigurace Tailwind CSS\tablefootnote{Konfigurace Tailwind CSS v~React projektu dle oficiální dokumentace.\cite{twconfigreact}}\\
+			npm run dev\end{tabular}\\	\hline
+		Svelte    & \begin{tabular}[c]{@{}l@{}}npx npm create vite@latest\\
+			cd nazev-projektu\\
+			npx svelte-add@latest tailwindcss\tablefootnote{Automatická instalace Tailwind CSS ve Svelte projektu pomocí svelte-add balíčku.\cite{twconfigsvelte}}\\
+			npm install\\ npm run dev\end{tabular}\\	\hline
 		\end{tabular}
 	\label{tab:frameworkinstall}
 \end{table}
-
-\footnotetext[1]{Konfigurace Tailwind CSS v~Angular projektu dle oficiální dokumentace.\cite{twconfigangular}}
-\footnotetext[2]{Konfigurace Tailwind CSS v~React projektu dle oficiální dokumentace.\cite{twconfigreact}}
-\footnotetext[3]{Automatická instalace Tailwind CSS ve Svelte projektu pomocí svelte-add balíčku.\cite{twconfigsvelte}}
 
 \input{testovani_angular}
 \input{testovani_react}
