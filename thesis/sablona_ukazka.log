@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  25 MAR 2024 17:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  25 MAR 2024 17:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -615,9 +615,9 @@ LaTeX Font Info:    Trying to load font information for T1+cmss on input line 10
 File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 127.
+(Font)              <7> on input line 140.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 127.
+(Font)              <5> on input line 140.
  (./testovani_angular.tex [29] [30] [31] [32] [33] [34] [35] [36] [37] [38]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 404.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
