@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  25 MAR 2024 20:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  26 MAR 2024 17:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -549,78 +549,78 @@ Package pdftex.def Info: images/angular-logo.png  used on input line 11.
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.23 D
+l.22 D
       íky robusnosti a~velikosti frameworku je Angular vhodnější pro vě... [3
 
 
 
 
  <./images/angular-logo.png>]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 40.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 39.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.61 
+l.60 
       [4]pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.105   \}
+l.104   \}
            [5]pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.148   selector: 'child-component',
+l.147   selector: 'child-component',
                                      [6]pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.199   \}
+l.198   \}
            [7]
-<images/angularlifecycle.png, id=399, 770.88pt x 403.5075pt>
+<images/angularlifecycle.png, id=401, 770.88pt x 403.5075pt>
 File: images/angularlifecycle.png Graphic file (type png)
 <use images/angularlifecycle.png>
-Package pdftex.def Info: images/angularlifecycle.png  used on input line 225.
+Package pdftex.def Info: images/angularlifecycle.png  used on input line 224.
 (pdftex.def)             Requested size: 341.43436pt x 178.71983pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.235 
+l.234 
        [8 <./images/angularlifecycle.png>]) (./analyza_react.texpdfTeX warning (ext4): destination with the same identifier (name{page.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.6 
      [9]
-<images/react-logo.png, id=423, 27.05898pt x 24.09pt>
+<images/react-logo.png, id=424, 27.05898pt x 24.09pt>
 File: images/react-logo.png Graphic file (type png)
 <use images/react-logo.png>
 Package pdftex.def Info: images/react-logo.png  used on input line 9.
 (pdftex.def)             Requested size: 128.0387pt x 114.04042pt.
  [10 <./images/react-logo.png>] [11] [12]
-<images/reactlifecycle.png, id=458, 901.3675pt x 622.325pt>
+<images/reactlifecycle.png, id=459, 901.3675pt x 622.325pt>
 File: images/reactlifecycle.png Graphic file (type png)
 <use images/reactlifecycle.png>
 Package pdftex.def Info: images/reactlifecycle.png  used on input line 135.
 (pdftex.def)             Requested size: 341.43436pt x 235.73578pt.
  [13 <./images/reactlifecycle.png>]) (./analyza_svelte.tex [14]
-<images/svelte-logo.png, id=488, 20.03378pt x 24.09pt>
+<images/svelte-logo.png, id=489, 20.03378pt x 24.09pt>
 File: images/svelte-logo.png Graphic file (type png)
 <use images/svelte-logo.png>
 Package pdftex.def Info: images/svelte-logo.png  used on input line 13.
 (pdftex.def)             Requested size: 128.0387pt x 153.98125pt.
  [15 <./images/svelte-logo.png>] [16] [17] [18]
-<images/sveltelifecycle.png, id=527, 1310.8975pt x 873.2625pt>
+<images/sveltelifecycle.png, id=528, 1310.8975pt x 873.2625pt>
 File: images/sveltelifecycle.png Graphic file (type png)
 <use images/sveltelifecycle.png>
 Package pdftex.def Info: images/sveltelifecycle.png  used on input line 162.
 (pdftex.def)             Requested size: 341.43436pt x 227.44264pt.
  [19 <./images/sveltelifecycle.png>] [20]) (./analyza_vue.tex
-<images/vue-logo.png, id=556, 27.91222pt x 27.10126pt>
+<images/vue-logo.png, id=557, 27.91222pt x 27.10126pt>
 File: images/vue-logo.png Graphic file (type png)
 <use images/vue-logo.png>
 Package pdftex.def Info: images/vue-logo.png  used on input line 16.
 (pdftex.def)             Requested size: 128.0387pt x 124.3447pt.
  [21 <./images/vue-logo.png>] [22] [23] [24]
-<images/vuelifecycle.png, id=598, 1270.7475pt x 2009.5075pt>
+<images/vuelifecycle.png, id=599, 1270.7475pt x 2009.5075pt>
 File: images/vuelifecycle.png Graphic file (type png)
 <use images/vuelifecycle.png>
 Package pdftex.def Info: images/vuelifecycle.png  used on input line 197.
@@ -706,10 +706,10 @@ Here is how much of TeX's memory you used:
  473 hyphenation exceptions out of 8191
  68i,20n,77p,556b,536s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecxc2488.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcti1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
-Output written on sablona_ukazka.pdf (102 pages, 873979 bytes).
+Output written on sablona_ukazka.pdf (102 pages, 873913 bytes).
 PDF statistics:
- 1916 PDF objects out of 2073 (max. 8388607)
- 1068 compressed objects within 11 object streams
+ 1917 PDF objects out of 2073 (max. 8388607)
+ 1069 compressed objects within 11 object streams
  254 named destinations out of 1000 (max. 500000)
  506 words of extra memory for PDF output out of 10000 (max. 10000000)
 
