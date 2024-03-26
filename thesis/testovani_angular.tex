@@ -531,10 +531,24 @@ HintBoxesComponent postupně vykreslí nápovědy. Při jakékoli změně vstupn
 V~šabloně iterujeme přes pole nápověd a~vykreslíme jednotlivé nápovědy. Vlastnost hintEnabled nastavíme pomocí indexu a~vstupní vlastnosti hintsEnabledCount. 
 Samotný hint-box pak dynamicky vykreslí název a~SVG ikonu nápovědy, textovou nápovědu, případně obrázek vlajky státu.
 
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=.9\textwidth]{images/HintBoxes.jpg}
+	\caption[HintBoxesComponent]{HintBoxesComponent - vlastní zpracování}
+	\label{fig:angularhintboxes}
+\end{figure}
+
 Pokračujeme implementací komponenty country-guess-input, která uživateli umožní zadat svůj tip. 
 Začneme šablonou, kde vytvoříme formulářový prvek pro zadání názvu země a~potvrzovací tlačítko. 
 Dále podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu -- filtrované země a~chybové hlášky. 
 Můžeme také rovnou přidat obslužné metody pro akce a~události nad formulářem, které následně postupně doimplementujeme.
+
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=.5\textwidth]{images/CountryGuessInput.jpg}
+	\caption[CountryGuessInputComponent]{CountryGuessInputComponent - vlastní zpracování}
+	\label{fig:angularcountryguessinput}
+\end{figure}
 
 V~souboru \emph{country-guess-input.component.ts}, tedy v~rámci třídy CountryGuessInputComponent, při změně vstupních vlastností (v~hooku \emph{OnChanges}) aktualizujeme vlastnost \emph{countriesWithoutAlreadyGuessed} a~\emph{filteredCountries}. 
 V~případě první vlastnosti jde o~pole všech zemí bez těch, které uživatel již hádal. Druhá vlastnost poté představuje pole počátečních 8 prvků vlastnosti \emph{countriesWithoutAlreadyGuessed}. 
@@ -560,6 +574,13 @@ Služba EnrichGuessedCountriesService ke každé hádané zemi přidá vlajku a~
 Pro vypočtení vzdálenosti použijeme funkci \emph{getDistanceBetweenTwoPoints} a~vlastnost \emph{latlng}, kterou získáme ze serveru při získávání všech zemí. 
 Funkci \emph{getDistanceBetweenTwoPoints} importujeme z~knihovny \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}. 
 Hodnotu vlastnosti \emph{enrichedGuessedCountries} aktualizujeme v~rámci hooku \emph{OnChanges}. Seznam hádaných zemí vykreslíme v~šabloně.
+
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=.5\textwidth]{images/GuessedCountriesList.jpg}
+	\caption[GuessedCountriesListComponent]{GuessedCountriesListComponent - vlastní zpracování}
+	\label{fig:angularguessedcountrieslist}
+\end{figure}
 
 Pokračujeme implementací modálních oken, které se zobrazí při výhře či prohře. 
 Vlastnosti \emph{isWinModalOpen} a~\emph{isLoseModalOpen}, určující, zda se mají okna zobrazit, bychom měli aktualizovat v~metodě \emph{handleEvaluateGuessAndUpdateState} v~CountryGuesserComponent. 

@@ -531,8 +531,22 @@ V~rámci šablony zobrazíme jednotlivé herní prvky a~modální okna při výh
 V~rámci komponenty HintBoxes postupně zobrazíme nápovědy. Dle vstupu \emph{randomCountry} budeme reaktivně vytvářet pole nápověd, jelikož \emph{randomCountry} se může změnit. 
 V~šabloně posléze vykreslíme napovědy pomocí HintBox komponent. HintBox dynamicky vykreslí název a~SVG ikonu nápovědy, textovou nápovědu, případně obrázek vlajky státu.
 
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=.9\textwidth]{images/HintBoxes.jpg}
+	\caption[HintBoxes]{HintBoxes - vlastní zpracování}
+	\label{fig:sveltehintboxes}
+\end{figure}
+
 Komponenta \emph{CountryGuessInput.svelte} umožní uživateli zadání názvu země (uživatelova tipu). Začneme šablonou, kde vytvoříme formulářový prvek pro zadání tipu a~potvrzovací tlačítko. 
 Dále také podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu (filtrované země). Přidáme obslužné funkce pro akce a~události nad formulářem, které následně doimplementujeme.
+
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=.5\textwidth]{images/CountryGuessInput.jpg}
+	\caption[CountryGuessInput]{CountryGuessInput - vlastní zpracování}
+	\label{fig:sveltecountryguessinput}
+\end{figure}
 
 Ve skriptové části, na základě vstupu \emph{countries}, získáme pole všech zemí bez těch, které uživatel již hádal (\emph{countriesWithoutAlreadyGuessed}). 
 Následně definujeme a~inicializujeme ostatní stavy komponenty. Po kliknutí na potvrzovací tlačítko zavoláme funkci \emph{handleGuessButtonClick}. 
@@ -550,6 +564,13 @@ Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a~\emph{rand
 Jde o~uživatelem hádané země s~vlajkou a~vzdáleností od \emph{randomCountry}. K~převodu využijeme JS funkci z~jiného souboru. 
 Vzdálenost zemí vypočteme pomocí knihovny \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která exportuje funkci \emph{getDistanceBetweenTwoPoints}. 
 Proměnnou \emph{enrichedGuessedCountries} poté vykreslíme v~rámci šablony.
+
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=.5\textwidth]{images/GuessedCountriesList.jpg}
+	\caption[GuessedCountriesList]{GuessedCountriesList - vlastní zpracování}
+	\label{fig:svelteguessedcountrieslist}
+\end{figure}
 
 Nakonec vytvoříme modální okna, které vykreslíme při výhře nebo prohře. Stavy \emph{isWinModalOpen} a~\emph{isLoseModalOpen} aktualizujeme v~rámci funkce \emph{handleEvaluateGuessAndUpdateState} v~CountryGuesser. 
 Na základě těchto stavů podmíněně zobrazíme daná modální okna. Oběma oknům předáme \emph{randomCountry} a~obslužnou funkci \emph{handleClose}. Do výherního modálu také počet potřebných pokusů. 
