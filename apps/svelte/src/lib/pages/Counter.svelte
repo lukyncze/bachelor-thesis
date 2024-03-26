@@ -8,7 +8,7 @@
   const reset = () => (count = 0);
 </script>
 
-<div class="bg-gray-200 p-6 rounded-md shadow-md">
+<div class="container mx-auto bg-gray-200 p-6 rounded-md shadow-md">
   <p class="text-xl font-semibold mb-4">Current count: {count}</p>
 
   <div class="flex gap-4">

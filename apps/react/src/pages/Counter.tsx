@@ -5,7 +5,7 @@ function Counter() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="bg-gray-200 p-6 rounded-md shadow-md">
+    <div className="container mx-auto bg-gray-200 p-6 rounded-md shadow-md">
       <p className="text-xl font-semibold mb-4">Current count: {count}</p>
 
       <div className="flex gap-4">
