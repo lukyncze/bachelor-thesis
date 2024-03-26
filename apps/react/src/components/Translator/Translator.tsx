@@ -87,7 +87,7 @@ function Translator() {
   return (
     <div className="container mx-auto">
       <div className="flex border border-b-0 py-1 items-center">
-        <h3 className="w-1/2 pl-2">Automatické rozpoznávání jazyka</h3>
+        <h3 className="w-1/2 pl-2">Automatic language recognition</h3>
 
         <LanguageDropdown
           options={languages}
