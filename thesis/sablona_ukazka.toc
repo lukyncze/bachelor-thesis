@@ -48,9 +48,9 @@
 \contentsline {subsubsection}{\numberline {3.2.2}React}{52}{subsubsection.3.2.2}%
 \contentsline {subsubsection}{\numberline {3.2.3}Svelte}{69}{subsubsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.3}Srovnání implementace aplikací}{85}{subsection.3.3}%
-\contentsline {section}{Závěr}{88}{section*.6}%
-\contentsline {section}{Seznam použité literatury}{89}{section*.7}%
-\contentsline {section}{Seznam obr\'azk\r {u}}{95}{section*.8}%
-\contentsline {section}{Seznam tabulek}{96}{section*.9}%
-\contentsline {section}{Seznam zkratek}{97}{section*.10}%
-\contentsline {section}{{Přílohy }}{98}{section*.10}%
+\contentsline {section}{Závěr}{88}{section*.24}%
+\contentsline {section}{Seznam použité literatury}{89}{section*.25}%
+\contentsline {section}{Seznam obr\'azk\r {u}}{95}{section*.26}%
+\contentsline {section}{Seznam tabulek}{96}{section*.27}%
+\contentsline {section}{Seznam zkratek}{97}{section*.28}%
+\contentsline {section}{{Přílohy }}{98}{section*.28}%
