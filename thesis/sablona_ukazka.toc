@@ -1,56 +1,56 @@
 \babel@toc {czech}{}\relax 
 \contentsline {section}{Úvod}{1}{section*.2}%
 \contentsline {section}{\numberline {1}Webové aplikace}{2}{section.1}%
-\contentsline {section}{\numberline {2}Analýza frameworků}{3}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Angular}{3}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Komponenty}{4}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}Správa stavů}{5}{subsubsection.2.1.2}%
-\contentsline {subsubsection}{\numberline {2.1.3}Předávání vlastností}{6}{subsubsection.2.1.3}%
-\contentsline {subsubsection}{\numberline {2.1.4}Služby, direktivy, roury}{7}{subsubsection.2.1.4}%
-\contentsline {subsubsection}{\numberline {2.1.5}Životní cyklus}{8}{subsubsection.2.1.5}%
-\contentsline {subsubsection}{\numberline {2.1.6}State management}{9}{subsubsection.2.1.6}%
-\contentsline {subsubsection}{\numberline {2.1.7}Routování}{9}{subsubsection.2.1.7}%
-\contentsline {subsubsection}{\numberline {2.1.8}Ekosystém}{9}{subsubsection.2.1.8}%
-\contentsline {subsection}{\numberline {2.2}React}{10}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Komponenty}{10}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}JSX}{11}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Správa stavů}{12}{subsubsection.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.4}Hooky}{12}{subsubsection.2.2.4}%
-\contentsline {subsubsection}{\numberline {2.2.5}Životní cyklus}{13}{subsubsection.2.2.5}%
-\contentsline {subsubsection}{\numberline {2.2.6}State management}{14}{subsubsection.2.2.6}%
-\contentsline {subsubsection}{\numberline {2.2.7}Routování}{14}{subsubsection.2.2.7}%
-\contentsline {subsubsection}{\numberline {2.2.8}Ekosystém}{14}{subsubsection.2.2.8}%
-\contentsline {subsection}{\numberline {2.3}Svelte}{15}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Komponenty}{16}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Reaktivita}{16}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Předávání vlastností}{17}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}Eventy}{17}{subsubsection.2.3.4}%
-\contentsline {subsubsection}{\numberline {2.3.5}Životní cyklus}{18}{subsubsection.2.3.5}%
-\contentsline {subsubsection}{\numberline {2.3.6}State management}{19}{subsubsection.2.3.6}%
-\contentsline {subsubsection}{\numberline {2.3.7}Routování}{20}{subsubsection.2.3.7}%
-\contentsline {subsubsection}{\numberline {2.3.8}Ekosystém}{20}{subsubsection.2.3.8}%
-\contentsline {subsection}{\numberline {2.4}Vue}{21}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Single\unhbox \voidb@x \kern \z@ \char `\-File Components}{22}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Reaktivita}{22}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Předávání vlastností}{23}{subsubsection.2.4.3}%
-\contentsline {subsubsection}{\numberline {2.4.4}Direktivy a eventy}{24}{subsubsection.2.4.4}%
-\contentsline {subsubsection}{\numberline {2.4.5}Životní cyklus}{25}{subsubsection.2.4.5}%
-\contentsline {subsubsection}{\numberline {2.4.6}State management}{25}{subsubsection.2.4.6}%
-\contentsline {subsubsection}{\numberline {2.4.7}Routování}{25}{subsubsection.2.4.7}%
-\contentsline {subsubsection}{\numberline {2.4.8}Ekosystém}{27}{subsubsection.2.4.8}%
-\contentsline {subsection}{\numberline {2.5}Porovnání analyzovaných frameworků}{27}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Testování frameworků}{29}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Návrh aplikace}{29}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Funkční požadavky}{29}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Nefunkční požadavky}{32}{subsubsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.2}Implementace webových aplikací}{32}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Angular}{34}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}React}{51}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Svelte}{68}{subsubsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}Srovnání implementace aplikací}{84}{subsection.3.3}%
-\contentsline {section}{Závěr}{87}{section*.3}%
-\contentsline {section}{Seznam použité literatury}{88}{section*.4}%
-\contentsline {section}{Seznam obr\'azk\r {u}}{94}{section*.5}%
-\contentsline {section}{Seznam tabulek}{95}{section*.6}%
-\contentsline {section}{Seznam zkratek}{96}{section*.7}%
-\contentsline {section}{{Přílohy }}{97}{section*.7}%
+\contentsline {section}{\numberline {2}Analýza frameworků}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Angular}{4}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Komponenty}{5}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Správa stavů}{6}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Předávání vlastností}{7}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.4}Služby, direktivy, roury}{8}{subsubsection.2.1.4}%
+\contentsline {subsubsection}{\numberline {2.1.5}Životní cyklus}{9}{subsubsection.2.1.5}%
+\contentsline {subsubsection}{\numberline {2.1.6}State management}{10}{subsubsection.2.1.6}%
+\contentsline {subsubsection}{\numberline {2.1.7}Routování}{10}{subsubsection.2.1.7}%
+\contentsline {subsubsection}{\numberline {2.1.8}Ekosystém}{10}{subsubsection.2.1.8}%
+\contentsline {subsection}{\numberline {2.2}React}{11}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Komponenty}{11}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}JSX}{12}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Správa stavů}{13}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Hooky}{13}{subsubsection.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.5}Životní cyklus}{14}{subsubsection.2.2.5}%
+\contentsline {subsubsection}{\numberline {2.2.6}State management}{15}{subsubsection.2.2.6}%
+\contentsline {subsubsection}{\numberline {2.2.7}Routování}{15}{subsubsection.2.2.7}%
+\contentsline {subsubsection}{\numberline {2.2.8}Ekosystém}{15}{subsubsection.2.2.8}%
+\contentsline {subsection}{\numberline {2.3}Svelte}{16}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Komponenty}{17}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Reaktivita}{17}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Předávání vlastností}{18}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Eventy}{18}{subsubsection.2.3.4}%
+\contentsline {subsubsection}{\numberline {2.3.5}Životní cyklus}{19}{subsubsection.2.3.5}%
+\contentsline {subsubsection}{\numberline {2.3.6}State management}{20}{subsubsection.2.3.6}%
+\contentsline {subsubsection}{\numberline {2.3.7}Routování}{21}{subsubsection.2.3.7}%
+\contentsline {subsubsection}{\numberline {2.3.8}Ekosystém}{21}{subsubsection.2.3.8}%
+\contentsline {subsection}{\numberline {2.4}Vue}{22}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Single\unhbox \voidb@x \kern \z@ \char `\-File Components}{23}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Reaktivita}{23}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Předávání vlastností}{24}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Direktivy a eventy}{25}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Životní cyklus}{26}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}State management}{26}{subsubsection.2.4.6}%
+\contentsline {subsubsection}{\numberline {2.4.7}Routování}{26}{subsubsection.2.4.7}%
+\contentsline {subsubsection}{\numberline {2.4.8}Ekosystém}{28}{subsubsection.2.4.8}%
+\contentsline {subsection}{\numberline {2.5}Porovnání analyzovaných frameworků}{28}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Testování frameworků}{30}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Návrh aplikace}{30}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Funkční požadavky}{30}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Nefunkční požadavky}{33}{subsubsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Implementace webových aplikací}{33}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Angular}{35}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}React}{52}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Svelte}{69}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Srovnání implementace aplikací}{85}{subsection.3.3}%
+\contentsline {section}{Závěr}{88}{section*.6}%
+\contentsline {section}{Seznam použité literatury}{89}{section*.7}%
+\contentsline {section}{Seznam obr\'azk\r {u}}{95}{section*.8}%
+\contentsline {section}{Seznam tabulek}{96}{section*.9}%
+\contentsline {section}{Seznam zkratek}{97}{section*.10}%
+\contentsline {section}{{Přílohy }}{98}{section*.10}%
