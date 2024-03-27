@@ -491,11 +491,10 @@ useEffect(() => \{
 
 // Část souboru getAllCountries.ts
 
-export const getAllCountries = 
-  requestHandler<CountriesRequestOptions, Countries>(params =>
-    axios.request(getRequestConfig(params)),
-  );
+export const getAllCountries = requestHandler<CountriesRequestOptions, Countries>
+  (params => axios.request(getRequestConfig(params)));
 \end{prog}
+% TODO: Možná to půjde vykreslit lepším způsobem...
 
 Opakování asynchronních dotazů při chybě zajistíme pomocí knihovny \emph{axios-retry}\footnote{Knihovna axios-retry je dostupná pod Apache License, Version~2.0.\cite{axiosretrylib}}. 
 Rekapitulaci nakonfigujeme v~souboru \emph{main.tsx}. 
@@ -563,7 +562,7 @@ Jednotlivé komponenty HintBox pak dynamicky vykreslí název a~SVG ikonu nápov
 
 \begin{figure}[htb]
 	\centering
-		\includegraphics[width=.9\textwidth]{images/HintBoxes.jpg}
+		\includegraphics[width=.97\textwidth]{images/HintBoxes.jpg}
 	\caption[HintBoxes]{HintBoxes - vlastní zpracování}
 	\label{fig:reacthintboxes}
 \end{figure}
@@ -596,7 +595,7 @@ Jednotlivé prvky \emph{enrichedGuessedCountries} posléze vykreslíme v~JSX.
 
 \begin{figure}[htb]
 	\centering
-		\includegraphics[width=.5\textwidth]{images/GuessedCountriesList.jpg}
+		\includegraphics[width=.7\textwidth]{images/GuessedCountriesList.jpg}
 	\caption[GuessedCountriesList]{GuessedCountriesList - vlastní zpracování}
 	\label{fig:reactguessedcountrieslist}
 \end{figure}
