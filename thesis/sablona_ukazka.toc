@@ -35,22 +35,22 @@
 \contentsline {subsubsection}{\numberline {2.4.3}Předávání vlastností}{23}{subsubsection.2.4.3}%
 \contentsline {subsubsection}{\numberline {2.4.4}Direktivy a eventy}{24}{subsubsection.2.4.4}%
 \contentsline {subsubsection}{\numberline {2.4.5}Životní cyklus}{25}{subsubsection.2.4.5}%
-\contentsline {subsubsection}{\numberline {2.4.6}State management}{26}{subsubsection.2.4.6}%
-\contentsline {subsubsection}{\numberline {2.4.7}Routování}{26}{subsubsection.2.4.7}%
+\contentsline {subsubsection}{\numberline {2.4.6}State management}{25}{subsubsection.2.4.6}%
+\contentsline {subsubsection}{\numberline {2.4.7}Routování}{25}{subsubsection.2.4.7}%
 \contentsline {subsubsection}{\numberline {2.4.8}Ekosystém}{27}{subsubsection.2.4.8}%
 \contentsline {subsection}{\numberline {2.5}Porovnání analyzovaných frameworků}{27}{subsection.2.5}%
 \contentsline {section}{\numberline {3}Testování frameworků}{29}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Návrh aplikace}{29}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Funkční požadavky}{29}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Nefunkční požadavky}{31}{subsubsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.2}Implementace webových aplikací}{31}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Angular}{32}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}React}{49}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Svelte}{65}{subsubsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}Srovnání implementace aplikací}{80}{subsection.3.3}%
-\contentsline {section}{Závěr}{83}{section*.3}%
-\contentsline {section}{Seznam použité literatury}{84}{section*.4}%
-\contentsline {section}{Seznam obr\'azk\r {u}}{90}{section*.5}%
-\contentsline {section}{Seznam tabulek}{91}{section*.6}%
-\contentsline {section}{Seznam zkratek}{92}{section*.7}%
-\contentsline {section}{{Přílohy }}{93}{section*.7}%
+\contentsline {subsubsection}{\numberline {3.1.2}Nefunkční požadavky}{32}{subsubsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Implementace webových aplikací}{32}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Angular}{34}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}React}{51}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Svelte}{68}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Srovnání implementace aplikací}{84}{subsection.3.3}%
+\contentsline {section}{Závěr}{87}{section*.3}%
+\contentsline {section}{Seznam použité literatury}{88}{section*.4}%
+\contentsline {section}{Seznam obr\'azk\r {u}}{94}{section*.5}%
+\contentsline {section}{Seznam tabulek}{95}{section*.6}%
+\contentsline {section}{Seznam zkratek}{96}{section*.7}%
+\contentsline {section}{{Přílohy }}{97}{section*.7}%

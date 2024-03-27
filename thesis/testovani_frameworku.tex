@@ -5,9 +5,8 @@ Následně vytvoříme demonstrační aplikaci, která bude obsahovat stejné fu
 V~poslední části srovnáme implementaci aplikací, identifikujeme přednosti a~nedostatky použitých frameworků.
 
 Do této kapitoly zahrneme frameworky Angular, React a~Svelte. V~analýze se tyto technologie jevily jako nejvhodnější k~dalšímu zkoumání a~srovnání, jelikož jde o~nástroje velmi odlišné. 
-Naopak progresivní framework Vue byl z~praktické části vyloučen. Odlišoval se od ostatních technologií především ve vývojovém zážitku programátora. 
-Technologie kupříkladu v~základním nastavení toleruje využití neimportovaných komponent a~nezobrazí vývojáři kompilační chybu. 
-Vue je také převážně orientován na čínský trh, což může komplikovat řešení problémů a~hledání informací programátorům mimo Čínu.
+Framework Vue byl z~praktické části vyloučen. Technologie v~základním nastavení toleruje využití neimportovaných komponent a~nezobrazí vývojáři kompilační chybu. 
+Vue je převážně orientován na čínský trh, což může komplikovat řešení problémů a~hledání informací programátorům bez znalostní čínštiny.
 
 \subsection{Návrh aplikace}
 
@@ -19,7 +18,7 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 \subsubsection{Funkční požadavky}
 
 \begin{citemize}
-	\item Správa stavů, předávání vlastností -- Counter komponenta:
+	\item Správa stavů, předávání vlastností -- Counter komponenta (viz. Obrázek \ref{fig:counterwireframe}):
 	
 	\begin{cenumerate}
 		\item Uživateli bude zobrazen aktuální stav čítače.
@@ -27,7 +26,14 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 		\item Uživatel bude mít možnost resetovat hodnotu čítače na 0.
 	\end{cenumerate}
 
-	\item Interakce v uživatelském prostředí -- Dropdown komponenta:
+	\begin{figure}[htb]
+		\centering
+			\includegraphics[width=.5\textwidth]{images/Counter-wireframe.png}
+		\caption[Wireframe Counter komponenty]{Wireframe Counter komponenty - vlastní zpracování}
+		\label{fig:counterwireframe}
+	\end{figure}
+
+	\item Interakce v uživatelském prostředí -- Dropdown komponenta (viz. Obrázek \ref{fig:dropdownwireframe}):
 	
 	\begin{cenumerate}
 		\item Komponenta bude zobrazovat rozbalovací menu.
@@ -36,7 +42,14 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 		\item Aktuálně vybraná položka bude zobrazena v~obsahu rozbalovacího menu.
 	\end{cenumerate}
 
-	\item Reaktivita, asynchronní operace -- Translator komponenta:
+	\begin{figure}[htb]
+		\centering
+			\includegraphics[width=.4\textwidth]{images/Dropdown-wireframe.png}
+		\caption[Wireframe Dropdown komponenty]{Wireframe Dropdown komponenty - vlastní zpracování}
+		\label{fig:dropdownwireframe}
+	\end{figure}
+
+	\item Reaktivita, asynchronní operace -- Translator komponenta (viz. Obrázek \ref{fig:translatorwireframe}):
 	
 	\begin{cenumerate}
 		\item Uživatel bude mít možnost zadat text, který chce přeložit.
@@ -46,7 +59,14 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 		\item V~případě chyby při překladu bude uživateli zobrazena chybová hláška.
 	\end{cenumerate}
 
-	\item Tvorba formulářů, validace -- InvestForm komponenta:
+	\begin{figure}[htb]
+		\centering
+			\includegraphics[width=1\textwidth]{images/Translator-wireframe.png}
+		\caption[Wireframe Translator komponenty]{Wireframe Translator komponenty - vlastní zpracování}
+		\label{fig:translatorwireframe}
+	\end{figure}
+
+	\item Tvorba formulářů, validace -- InvestForm komponenta (viz. Obrázek \ref{fig:investformwireframe}):
 	
 	\begin{cenumerate}
 		\item Komponenta bude zobrazovat formulář pro výpočet výnosu investice.
@@ -55,7 +75,14 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 		\item Po potvrzení formuláře bude provedena kalkulace výsledků a~ty budou zobrazeny uživateli.
 	\end{cenumerate}
 
-	\item Modularita, použití knihoven -- CountryGuesser komponenta:
+	\begin{figure}[htb]
+		\centering
+			\includegraphics[width=1\textwidth]{images/InvestForm-wireframe.png}
+		\caption[Wireframe InvestForm komponenty]{Wireframe InvestForm komponenty - vlastní zpracování}
+		\label{fig:investformwireframe}
+	\end{figure}
+
+	\item Modularita, použití knihoven -- CountryGuesser komponenta (viz. Obrázek \ref{fig:countryguesserwireframe}):
 	
 	\begin{cenumerate}
 		\item Data o~zemích získáme pomocí veřejného API.
@@ -66,6 +93,13 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 		\item Uživateli bude při výhře a~prohře zobrazeno modální okno s~informacemi o~výsledku hry.
 		\item V~případě chyby při získávání dat o~zemích bude uživateli zobrazena chybová hláška.
 	\end{cenumerate}
+
+	\begin{figure}[htb]
+		\centering
+			\includegraphics[width=1\textwidth]{images/CountryGuesser-wireframe.png}
+		\caption[Wireframe CountryGuesser komponenty]{Wireframe CountryGuesser komponenty - vlastní zpracování}
+		\label{fig:countryguesserwireframe}
+	\end{figure}
 
 	\item Routování a layout aplikace:
 	
@@ -139,6 +173,7 @@ Příklad instalací nalezneme v~Tabulce~\ref{tab:frameworkinstall}.
 	\label{tab:frameworkinstall}
 \end{table}
 
+\newpage
 \input{testovani_angular}
 \input{testovani_react}
 \input{testovani_svelte}

@@ -491,11 +491,10 @@ useEffect(() => \{
 
 // Část souboru getAllCountries.ts
 
-export const getAllCountries = 
-  requestHandler<CountriesRequestOptions, Countries>(params =>
-    axios.request(getRequestConfig(params)),
-  );
+export const getAllCountries = requestHandler<CountriesRequestOptions, Countries>
+  (params => axios.request(getRequestConfig(params)));
 \end{prog}
+% TODO: Možná to půjde vykreslit lepším způsobem...
 
 Opakování asynchronních dotazů při chybě zajistíme pomocí knihovny \emph{axios-retry}\footnote{Knihovna axios-retry je dostupná pod Apache License, Version~2.0.\cite{axiosretrylib}}. 
 Rekapitulaci nakonfigujeme v~souboru \emph{main.tsx}. 
@@ -561,9 +560,23 @@ Hook \emph{useCountryFlagPolyfill} zavolá funkci \emph{polyfillCountryFlagEmoji
 Úkolem komponenty HintBoxes bude postupné vykreslení nápověd. Na základě vstupu \emph{randomCountry} vytvoříme pole nápověd. V~JSX pak iterujeme přes pole nápověd a~vykreslíme jednotlivé nápovědy. 
 Jednotlivé komponenty HintBox pak dynamicky vykreslí název a~SVG ikonu nápovědy, textovou nápovědu, případně obrázek vlajky státu.
 
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=.97\textwidth]{images/HintBoxes.jpg}
+	\caption[HintBoxes]{HintBoxes - vlastní zpracování}
+	\label{fig:reacthintboxes}
+\end{figure}
+
 Klíčová komponenta CountryGuessInput, kterou definujeme v~rámci souboru \emph{CountryGuessInput.tsx}, umožní uživateli zadat svůj tip. 
 Začneme s~JSX, kde vytvoříme formulářový prvek pro zadání názvu země, potvrzovací tlačítko a~podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu (filtrované země). 
 Přidáme obslužné funkce pro akce a~události nad formulářem, které následně doimplementujeme.
+
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=.5\textwidth]{images/CountryGuessInput.jpg}
+	\caption[CountryGuessInput]{CountryGuessInput - vlastní zpracování}
+	\label{fig:reactcountryguessinput}
+\end{figure}
 
 V~komponentě, na základě vstupu \emph{countries}, získáme pole všech zemí bez těch, které uživatel již hádal (\emph{countriesWithoutAlreadyGuessed}). Poté definujeme a~inicializujeme ostatní stavy. 
 Při kliknutí na tlačíko se zavolá funkce \emph{handleGuessButtonClick}, která volá obslužnou funkci \emph{handleEvaluateGuessAndUpdateState} v~rodičovské komponentě a~také funkci \emph{handleChangeSelectedGuess}. 
@@ -579,6 +592,13 @@ Pro zobrazení všech doposud hádaných zemí uživatelem vytvoříme komponent
 Jde o~uživatelem hádané země s~vlajkou a~vzdáleností od \emph{randomCountry}. K~převodu využijeme JS funkce z~jiného souboru. 
 Pro vypočtení vzdáleností použijeme knihovnu \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}, která obsahuje funkci \emph{getDistanceBetweenTwoPoints}. 
 Jednotlivé prvky \emph{enrichedGuessedCountries} posléze vykreslíme v~JSX.
+
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=.7\textwidth]{images/GuessedCountriesList.jpg}
+	\caption[GuessedCountriesList]{GuessedCountriesList - vlastní zpracování}
+	\label{fig:reactguessedcountrieslist}
+\end{figure}
 
 Nakonec vytvoříme modální okna, která se zobrazí při výhře či prohře. Stavy \emph{isWinModalOpen} a~\emph{isLoseModalOpen} aktualizujeme v~rámci funkce \emph{handleEvaluateGuessAndUpdateState} v~CountryGuesser. 
 Na základě těchto stavů pak podmíněně vykreslíme daná modální okna. Oběma modálům předáme \emph{randomCountry} a~obslužnou funkci \emph{handleClose}. Výhernímu modálu také počet potřebných pokusů. 
