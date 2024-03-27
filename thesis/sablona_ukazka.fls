@@ -847,6 +847,16 @@ INPUT ./webova_aplikace.tex
 INPUT webova_aplikace.tex
 INPUT ./webova_aplikace.tex
 INPUT webova_aplikace.tex
+INPUT ./images/webapparchitecture.jpg
+INPUT ./images/webapparchitecture.jpg
+INPUT images/webapparchitecture.jpg
+INPUT ./images/webapparchitecture.jpg
+INPUT ./images/webapparchitecture.jpg
+INPUT ./images/SPAvsMPA.jpg
+INPUT ./images/SPAvsMPA.jpg
+INPUT images/SPAvsMPA.jpg
+INPUT ./images/SPAvsMPA.jpg
+INPUT ./images/SPAvsMPA.jpg
 INPUT ./analyza_frameworku.tex
 INPUT ./analyza_frameworku.tex
 INPUT ./analyza_frameworku.tex

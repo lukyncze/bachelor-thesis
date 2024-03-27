@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  27 MAR 2024 21:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  27 MAR 2024 21:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -528,24 +528,36 @@ l.139 \include{uvodni_kapitola}
 ]
 \openout2 = `webova_aplikace.aux'.
 
- (./webova_aplikace.tex)pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
+ (./webova_aplikace.tex
+<images/webapparchitecture.jpg, id=337, 924.45375pt x 550.055pt>
+File: images/webapparchitecture.jpg Graphic file (type jpg)
+<use images/webapparchitecture.jpg>
+Package pdftex.def Info: images/webapparchitecture.jpg  used on input line 22.
+(pdftex.def)             Requested size: 405.45045pt x 241.24438pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.33 
+      [2
+
+
+
+
+ <./images/webapparchitecture.jpg>]
+<images/SPAvsMPA.jpg, id=349, 788.9475pt x 573.14125pt>
+File: images/SPAvsMPA.jpg Graphic file (type jpg)
+<use images/SPAvsMPA.jpg>
+Package pdftex.def Info: images/SPAvsMPA.jpg  used on input line 36.
+(pdftex.def)             Requested size: 320.09349pt x 232.53197pt.
+)pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.140 \include{webova_aplikace}
-                                [2
-
-
-
-
-]pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.140 \include{webova_aplikace}
-                                [3]
+                                [3 <./images/SPAvsMPA.jpg>]
 \openout2 = `analyza_frameworku.aux'.
 
  (./analyza_frameworku.tex (./analyza_angular.tex
-<images/angular-logo.png, id=358, 985.6825pt x 239.89626pt>
+<images/angular-logo.png, id=367, 985.6825pt x 239.89626pt>
 File: images/angular-logo.png Graphic file (type png)
 <use images/angular-logo.png>
 Package pdftex.def Info: images/angular-logo.png  used on input line 11.
@@ -580,7 +592,7 @@ l.147   selector: 'child-component',
                    \relax 
 l.198   \}
            [8]
-<images/angularlifecycle.png, id=407, 770.88pt x 403.5075pt>
+<images/angularlifecycle.png, id=416, 770.88pt x 403.5075pt>
 File: images/angularlifecycle.png Graphic file (type png)
 <use images/angularlifecycle.png>
 Package pdftex.def Info: images/angularlifecycle.png  used on input line 224.
@@ -590,37 +602,37 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has b
                    \relax 
 l.234 
        [9 <./images/angularlifecycle.png>]) (./analyza_react.tex [10]
-<images/react-logo.png, id=432, 27.05898pt x 24.09pt>
+<images/react-logo.png, id=441, 27.05898pt x 24.09pt>
 File: images/react-logo.png Graphic file (type png)
 <use images/react-logo.png>
 Package pdftex.def Info: images/react-logo.png  used on input line 9.
 (pdftex.def)             Requested size: 128.0387pt x 114.04042pt.
  [11 <./images/react-logo.png>] [12] [13]
-<images/reactlifecycle.png, id=467, 901.3675pt x 622.325pt>
+<images/reactlifecycle.png, id=476, 901.3675pt x 622.325pt>
 File: images/reactlifecycle.png Graphic file (type png)
 <use images/reactlifecycle.png>
 Package pdftex.def Info: images/reactlifecycle.png  used on input line 135.
 (pdftex.def)             Requested size: 384.10959pt x 265.20155pt.
  [14 <./images/reactlifecycle.png>]) (./analyza_svelte.tex [15]
-<images/svelte-logo.png, id=496, 20.03378pt x 24.09pt>
+<images/svelte-logo.png, id=505, 20.03378pt x 24.09pt>
 File: images/svelte-logo.png Graphic file (type png)
 <use images/svelte-logo.png>
 Package pdftex.def Info: images/svelte-logo.png  used on input line 13.
 (pdftex.def)             Requested size: 128.0387pt x 153.98125pt.
  [16 <./images/svelte-logo.png>] [17] [18] [19]
-<images/sveltelifecycle.png, id=535, 1310.8975pt x 873.2625pt>
+<images/sveltelifecycle.png, id=544, 1310.8975pt x 873.2625pt>
 File: images/sveltelifecycle.png Graphic file (type png)
 <use images/sveltelifecycle.png>
 Package pdftex.def Info: images/sveltelifecycle.png  used on input line 162.
 (pdftex.def)             Requested size: 256.0774pt x 170.58531pt.
  [20 <./images/sveltelifecycle.png>] [21]) (./analyza_vue.tex
-<images/vue-logo.png, id=564, 27.91222pt x 27.10126pt>
+<images/vue-logo.png, id=573, 27.91222pt x 27.10126pt>
 File: images/vue-logo.png Graphic file (type png)
 <use images/vue-logo.png>
 Package pdftex.def Info: images/vue-logo.png  used on input line 16.
 (pdftex.def)             Requested size: 128.0387pt x 124.3447pt.
  [22 <./images/vue-logo.png>] [23] [24] [25]
-<images/vuelifecycle.png, id=606, 1270.7475pt x 2009.5075pt>
+<images/vuelifecycle.png, id=615, 1270.7475pt x 2009.5075pt>
 File: images/vuelifecycle.png Graphic file (type png)
 <use images/vuelifecycle.png>
 Package pdftex.def Info: images/vuelifecycle.png  used on input line 197.
@@ -629,7 +641,7 @@ Package pdftex.def Info: images/vuelifecycle.png  used on input line 197.
 \openout2 = `testovani_frameworku.aux'.
 
  (./testovani_frameworku.tex
-<images/Counter-wireframe.png, id=640, 551.05875pt x 186.6975pt>
+<images/Counter-wireframe.png, id=649, 551.05875pt x 186.6975pt>
 File: images/Counter-wireframe.png Graphic file (type png)
 <use images/Counter-wireframe.png>
 Package pdftex.def Info: images/Counter-wireframe.png  used on input line 31.
@@ -640,23 +652,23 @@ Package pdftex.def Info: images/Counter-wireframe.png  used on input line 31.
 
 
  <./images/Counter-wireframe.png>]
-<images/Dropdown-wireframe.png, id=652, 358.33875pt x 319.1925pt>
+<images/Dropdown-wireframe.png, id=661, 358.33875pt x 319.1925pt>
 File: images/Dropdown-wireframe.png Graphic file (type png)
 <use images/Dropdown-wireframe.png>
 Package pdftex.def Info: images/Dropdown-wireframe.png  used on input line 47.
 (pdftex.def)             Requested size: 170.71393pt x 152.06609pt.
-<images/Translator-wireframe.png, id=654, 997.7275pt x 169.63374pt>
+<images/Translator-wireframe.png, id=663, 997.7275pt x 169.63374pt>
 File: images/Translator-wireframe.png Graphic file (type png)
 <use images/Translator-wireframe.png>
 Package pdftex.def Info: images/Translator-wireframe.png  used on input line 64.
 (pdftex.def)             Requested size: 426.79134pt x 72.56317pt.
-<images/InvestForm-wireframe.png, id=656, 1005.7575pt x 368.37625pt>
+<images/InvestForm-wireframe.png, id=665, 1005.7575pt x 368.37625pt>
 File: images/InvestForm-wireframe.png Graphic file (type png)
 <use images/InvestForm-wireframe.png>
 Package pdftex.def Info: images/InvestForm-wireframe.png  used on input line 80.
 (pdftex.def)             Requested size: 426.79134pt x 156.31894pt.
  [31 <./images/Dropdown-wireframe.png> <./images/Translator-wireframe.png>]
-<images/CountryGuesser-wireframe.png, id=679, 1445.4pt x 592.2125pt>
+<images/CountryGuesser-wireframe.png, id=688, 1445.4pt x 592.2125pt>
 File: images/CountryGuesser-wireframe.png Graphic file (type png)
 <use images/CountryGuesser-wireframe.png>
 Package pdftex.def Info: images/CountryGuesser-wireframe.png  used on input line 99.
@@ -675,18 +687,18 @@ LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 3
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ) [43] [44] [45] [46]
-<images/HintBoxes.jpg, id=800, 1565.85pt x 196.735pt>
+<images/HintBoxes.jpg, id=809, 1565.85pt x 196.735pt>
 File: images/HintBoxes.jpg Graphic file (type jpg)
 <use images/HintBoxes.jpg>
 Package pdftex.def Info: images/HintBoxes.jpg  used on input line 526.
 (pdftex.def)             Requested size: 413.98811pt x 52.01143pt.
-<images/CountryGuessInput.jpg, id=801, 534.99875pt x 386.44376pt>
+<images/CountryGuessInput.jpg, id=810, 534.99875pt x 386.44376pt>
 File: images/CountryGuessInput.jpg Graphic file (type jpg)
 <use images/CountryGuessInput.jpg>
 Package pdftex.def Info: images/CountryGuessInput.jpg  used on input line 538.
 (pdftex.def)             Requested size: 213.39566pt x 154.1443pt.
  [47 <./images/HintBoxes.jpg> <./images/CountryGuessInput.jpg>] [48]
-<images/GuessedCountriesList.jpg, id=813, 544.0325pt x 315.1775pt>
+<images/GuessedCountriesList.jpg, id=822, 544.0325pt x 315.1775pt>
 File: images/GuessedCountriesList.jpg Graphic file (type jpg)
 <use images/GuessedCountriesList.jpg>
 Package pdftex.def Info: images/GuessedCountriesList.jpg  used on input line 570.
@@ -771,18 +783,18 @@ Package rerunfilecheck Info: File `sablona_ukazka.out' has not changed.
 (rerunfilecheck)             Checksum: 2D2CAAB37A0AAF34DD09244B6C20104D;8809.
  ) 
 Here is how much of TeX's memory you used:
- 13395 strings out of 479342
- 220586 string characters out of 5869178
- 541062 words of memory out of 5000000
- 30823 multiletter control sequences out of 15000+600000
+ 13417 strings out of 479342
+ 221111 string characters out of 5869178
+ 541314 words of memory out of 5000000
+ 30839 multiletter control sequences out of 15000+600000
  486156 words of font info for 58 fonts, out of 8000000 for 9000
  473 hyphenation exceptions out of 8191
  68i,20n,77p,556b,536s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecxc2488.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcti1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
-Output written on sablona_ukazka.pdf (107 pages, 1233162 bytes).
+Output written on sablona_ukazka.pdf (107 pages, 1352050 bytes).
 PDF statistics:
- 2013 PDF objects out of 2073 (max. 8388607)
- 1146 compressed objects within 12 object streams
- 294 named destinations out of 1000 (max. 500000)
- 546 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2028 PDF objects out of 2073 (max. 8388607)
+ 1158 compressed objects within 12 object streams
+ 298 named destinations out of 1000 (max. 500000)
+ 556 words of extra memory for PDF output out of 10000 (max. 10000000)
 

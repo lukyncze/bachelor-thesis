@@ -1,23 +1,25 @@
 \babel@toc {czech}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Angular logo}}{4}{figure.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Životní cyklus Angularu}}{9}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces React logo}}{11}{figure.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Životní cyklus React komponenty}}{14}{figure.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Svelte logo}}{16}{figure.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Životní cyklus Svelte}}{20}{figure.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Vue logo}}{22}{figure.7}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Životní cyklus Vue komponenty}}{27}{figure.8}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Wireframe Counter komponenty}}{30}{figure.9}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Wireframe Dropdown komponenty}}{31}{figure.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Wireframe Translator komponenty}}{31}{figure.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Wireframe InvestForm komponenty}}{32}{figure.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Wireframe CountryGuesser komponenty}}{33}{figure.13}%
-\contentsline {figure}{\numberline {14}{\ignorespaces HintBoxesComponent}}{47}{figure.14}%
-\contentsline {figure}{\numberline {15}{\ignorespaces CountryGuessInputComponent}}{47}{figure.15}%
-\contentsline {figure}{\numberline {16}{\ignorespaces GuessedCountriesListComponent}}{49}{figure.16}%
-\contentsline {figure}{\numberline {17}{\ignorespaces HintBoxes}}{64}{figure.17}%
-\contentsline {figure}{\numberline {18}{\ignorespaces CountryGuessInput}}{65}{figure.18}%
-\contentsline {figure}{\numberline {19}{\ignorespaces GuessedCountriesList}}{66}{figure.19}%
-\contentsline {figure}{\numberline {20}{\ignorespaces HintBoxes}}{80}{figure.20}%
-\contentsline {figure}{\numberline {21}{\ignorespaces CountryGuessInput}}{81}{figure.21}%
-\contentsline {figure}{\numberline {22}{\ignorespaces GuessedCountriesList}}{82}{figure.22}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Diagram architektury webových aplikací}}{2}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Single Page Application oproti klasické webové stránce (Multi Page Application)}}{3}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Angular logo}}{4}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Životní cyklus Angularu}}{9}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces React logo}}{11}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Životní cyklus React komponenty}}{14}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Svelte logo}}{16}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Životní cyklus Svelte}}{20}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Vue logo}}{22}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Životní cyklus Vue komponenty}}{27}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Wireframe Counter komponenty}}{30}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Wireframe Dropdown komponenty}}{31}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Wireframe Translator komponenty}}{31}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Wireframe InvestForm komponenty}}{32}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Wireframe CountryGuesser komponenty}}{33}{figure.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces HintBoxesComponent}}{47}{figure.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces CountryGuessInputComponent}}{47}{figure.17}%
+\contentsline {figure}{\numberline {18}{\ignorespaces GuessedCountriesListComponent}}{49}{figure.18}%
+\contentsline {figure}{\numberline {19}{\ignorespaces HintBoxes}}{64}{figure.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces CountryGuessInput}}{65}{figure.20}%
+\contentsline {figure}{\numberline {21}{\ignorespaces GuessedCountriesList}}{66}{figure.21}%
+\contentsline {figure}{\numberline {22}{\ignorespaces HintBoxes}}{80}{figure.22}%
+\contentsline {figure}{\numberline {23}{\ignorespaces CountryGuessInput}}{81}{figure.23}%
+\contentsline {figure}{\numberline {24}{\ignorespaces GuessedCountriesList}}{82}{figure.24}%
