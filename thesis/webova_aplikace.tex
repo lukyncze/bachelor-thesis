@@ -14,8 +14,15 @@ Uživatelské rozhraní, se kterým uživatel přímo interaguje, nazýváme fro
 Mezi klíčové frontendové technologie patří HTML, CSS a~JavaScript.
 
 Backend, či také server, je část aplikace starající se o~zpracování dat a~logiku aplikace. 
-Backend se skládá z~databází a~algoritmů, které komunikují s~klientem prostřednictvím API a~zpracovávají jeho požadavky. 
-Serverová část bývá naprogramována v~PHP, Pythonu, Ruby, JavaScriptu nebo jiném programovacím jazyce.\cite{stateofartframeworks}
+Backend se skládá z~databází a~algoritmů, komunikuje s~klientem prostřednictvím API a~zpracovává požadavky. 
+Serverovou část lze implementovat v~široké škále programovacích jazyků, např.~v~Pythonu, Javě, PHP, Ruby, JavaScriptu.\cite{stateofartframeworks}
+
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=1\textwidth]{images/webapparchitecture.jpg}
+	\caption[Diagram architektury webových aplikací]{Diagram architektury webových aplikací \cite{webappsarchitecture}}
+	\label{fig:webappsarchitecture}
+\end{figure}
 
 \subsubsection*{Single Page Application}
 
@@ -23,6 +30,13 @@ Pod pojmem Single Page Application (SPA) rozumíme webové aplikace, které se s
 Obsah stránek bývá dynamicky aktualizován pomocí JavaScriptu. Tento přístup umožňuje aktualizaci stránek bez nutnosti obnovování celé stránky. 
 V~praxi to znamená, že při jakékoli akci uživatele se aktualizuje pouze obsah stránky, nikoli celá stránka. 
 Mezi výhody tohoto přístupu patří rychlejší odezva aplikace, méně dotazů na server a~také lepší uživatelský zážitek.\cite{jadhavspa}
+
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=.75\textwidth]{images/SPAvsMPA.jpg}
+	\caption[Single Page Application oproti klasické webové stránce (Multi Page Application)]{Single Page Application oproti klasické webové stránce (Multi Page Application) \cite{fergusonspavsmpa}}
+	\label{fig:spavsmpa}
+\end{figure}
 
 \subsubsection*{Framework}
 
