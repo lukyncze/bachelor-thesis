@@ -1,8 +1,6 @@
 \subsubsection{Angular}
 
-\begin{flushleft}
-  \textbf{Správa stavů, předávání vlastností}
-\end{flushleft}
+\subsubsection*{Správa stavů, předávání vlastností}
 
 Pro implementaci jednoduchého counteru nejprve vytvoříme counter komponentu. Můžeme začít se strukturou HTML značek pro hlavní komponentu.
 
@@ -101,9 +99,7 @@ export class CounterComponent \{
 \}
 \end{prog}
 
-\begin{flushleft}
-  \textbf{Interakce v uživatelském prostředí}
-\end{flushleft}
+\subsubsection*{Interakce v uživatelském prostředí}
 
 Při vytváření jakékoli UI komponenty můžeme začít šablonou, nebo definovat funkční stránku. My začneme s~tvorbou šablony. V~případě vlastního dropdown samotným tlačítkem a~seznamem možností. 
 Otevření možností zajístíme tak, že na tlačítko přidáme click listener. Funkčnost pak zajistíme díky modifikaci stavu \emph{isOpen}, který se provede při volání metody \emph{toggleDropdown}. 
@@ -193,9 +189,7 @@ Dropdown pak může mít různé inputy, které povedou k~lepší znovupoužitel
 Styly ve formě JS hodnot do šablony přidáme pomocí \emph{ngClass}. Když těchto hodnot potřebujeme na elementu více, zřetězíme předávané hodnoty pomocí JavaScriptu. 
 Další možnost spočívá ve sloučení požadovaných stylů na úrovni třídy.
 
-\begin{flushleft}
-  \textbf{Reaktivita, asynchronní operace}
-\end{flushleft}
+\subsubsection*{Reaktivita, asynchronní operace}
 
 Pro ukázku reaktivity a~asynchronních operací můžeme vytvořit komponentu, která bude překládat zadaný text do vybraného jazyka. 
 Začneme tedy vytvořením rodičovské komponenty, která při změně vlastností (zadaného textu uživatelem a~výstupního jazyka) zavolá API, které vrátí přeložený text. 
@@ -334,9 +328,7 @@ Důvod spočívá v~tom, že Angular v~DOM vytváří element pro každou kompon
 </div>
 \end{prog}
 
-\begin{flushleft}
-  \textbf{Tvorba formulářů, validace}
-\end{flushleft}
+\subsubsection*{Tvorba formulářů, validace}
 
 Angular je flexibilní z~pohledu možností tvorby formulářů. My použijeme reaktivní formuláře, jelikož jsou flexibilnější a~umožní nám jednodušší reakce na změny prvků.
 Vytvoříme komponentu zaměřenou na jednoduché investiční kalkulace. 
@@ -460,9 +452,7 @@ export class LocalizedNumberPipe implements PipeTransform \{
 \}
 \end{prog}
 
-\begin{flushleft}
-  \textbf{Modularita, použití knihoven}
-\end{flushleft}
+\subsubsection*{Modularita, použití knihoven}
 
 V~této sekci vytvoříme webovou hru, kde cílem uživatele bude uhádnout název státu na základě poskytnutých nápověd. Práci si ulehčíme pomocí externích knihoven a~služeb.
 Ve hře se postupně bude odkrývat 8 nápověd, které by měly pomoct s~uhádnutím daného státu. 
@@ -590,9 +580,7 @@ Obě modální okna budou velice podobné, a~proto vytvoříme komponentu base-m
 BaseModalComponent bude přijímat titulek, obsah modálního okna a~\emph{handleClose} jako výstupní vlastnost. 
 Šablona base-modal pak vykreslí základní strukturu modálního okna, s~dynamicky nastaveným titulkem, obsahem a~obslužnou metodou volanou při zavření modálního okna.
 
-\begin{flushleft}
-  \textbf{Routování a layout aplikace}
-\end{flushleft}
+\subsubsection*{Routování a layout aplikace}
 
 Demonstrační aplikace bude složena z~hlavičky, patičky a~samotného obsahu, v~němž se vykreslí jednotlivé komponenty. 
 Mezi jednotlivými stránkami se uživatel bude moci přepínat pomocí navigačního menu.

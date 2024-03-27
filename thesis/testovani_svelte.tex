@@ -1,8 +1,6 @@
 \subsubsection{Svelte}
 
-\begin{flushleft}
-  \textbf{Správa stavů, předávání vlastností}
-\end{flushleft}
+\subsubsection*{Správa stavů, předávání vlastností}
 
 Prvním krokem k~vytvoření jednoduchého čítače bude definice komponenty Counter s~reaktivním stavem \emph{count}.
 
@@ -74,9 +72,7 @@ Pro aktualizaci stavu \emph{count} použijeme obslužné funkce, v~nichž přím
 </div>
 \end{prog}
 
-\begin{flushleft}
-  \textbf{Interakce v uživatelském prostředí}
-\end{flushleft}
+\subsubsection*{Interakce v uživatelském prostředí}
 
 V~této sekci implementujeme rozbalovací seznam s~možnostmi (dropdown). Tvorbu UI komponenty můžeme začít jak vytvořením HTML struktury, tak definicí funkční stránky komponenty.
 
@@ -210,9 +206,7 @@ Akci následně předáme obslužnou funkci \emph{handleClickOutsideDropdown}, k
 
 Třídy CSS v~JavaScriptové formě přidáme k~elementu pomocí šablonových literálů a~JS hodnoty.
 
-\begin{flushleft}
-  \textbf{Reaktivita, asynchronní operace}
-\end{flushleft}
+\subsubsection*{Reaktivita, asynchronní operace}
 
 Uvnitř této sekce se zaměříme na reaktivitu a~asynchronní operace. Naprogramujeme komponentu, která přeloží zadaný text do cílového jazyka. 
 Začneme vytvořením komponenty Translator. Komponenta reaktivně (při změně zadaného textu či výstupního jazyka) zavolá API, které vrátí přeložený text. 
@@ -299,9 +293,7 @@ Při úspěšné odpovědi aktualizujeme stav s~přeloženým textem, v~opačné
 Při obdržení odpovědí ze serveru vykreslíme přeložený text uživateli pomocí komponenty TranslationOutput. 
 Komponentě předáme výstupní text spolu s~dalšími vlastnostmi, na základě kterých v~šabloně podmíněně vykreslíme přeložený text, chybu nebo načítání.
 
-\begin{flushleft}
-  \textbf{Tvorba formulářů, validace}
-\end{flushleft}
+\subsubsection*{Tvorba formulářů, validace}
 
 Svelte, stejně jako React, nepodporuje pokročilou správu formulářů. Můžeme však využít knihovny třetích stran, jako např.~svelte-forms-lib nebo Superforms, které nám umožní lépe spravovat a~validovat formuláře. 
 V~rámci této sekce vytvoříme komponentu pro jednoduchou investiční kalkulaci s~využitím knihovny \emph{svelte-forms-lib} \cite{svelteformslib}. 
@@ -412,9 +404,7 @@ K~modifikaci vstupní hodnoty v~komponentě FutureValueInfo použijeme reactive 
 </div>
 \end{prog}
 
-\begin{flushleft}
-  \textbf{Modularita, použití knihoven}
-\end{flushleft}
+\subsubsection*{Modularita, použití knihoven}
 
 Nyní vytvoříme webovou hru, ve které bude úkolem uživatele uhádnout název státu na základě poskytnutých nápověd. Práci si zlehčíme využitím externích knihoven. 
 V~rámci hry se postupně odkryje 8 nápověd, které uživateli pomohou uhádnout název daného státu. Mezi klíčovými prvky bude textové pole pro zadání názvu země a~potvrzovací tlačítko. 
@@ -577,9 +567,7 @@ Na základě těchto stavů podmíněně zobrazíme daná modální okna. Oběma
 V~jednotlivých komponentách (WinModal, LoseModal) vykreslíme komponentu BaseModal, která bude sloužit jako šablona pro obě okna. Do této komponenty pak předáme titulek, obsah modálu a~obslužnou metodu \emph{handleClose}. 
 V~šabloně BaseModal vykreslíme základní strukturu modálního okna s~dynamickými vlastnostmi.
 
-\begin{flushleft}
-  \textbf{Routování a layout aplikace}
-\end{flushleft}
+\subsubsection*{Routování a layout aplikace}
 
 Aplikaci rozdělíme do tří částí: hlavičky, patičky a~samotného obsahu, v~němž vykreslíme jednotlivé komponenty. Uživatel se bude moci přepínat mezi jednotlivými stránkami přes navigační menu. 
 

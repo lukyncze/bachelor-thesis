@@ -1,8 +1,6 @@
 \subsubsection{React}
 
-\begin{flushleft}
-  \textbf{Správa stavů, předávání vlastností}
-\end{flushleft}
+\subsubsection*{Správa stavů, předávání vlastností}
 
 Při implementaci jednoduchého čítače začneme tím, že vytvoříme Counter komponentu. Ta bude mít stav \emph{count} a~setter \emph{setCount} pro tento stav.
 
@@ -84,9 +82,7 @@ function Counter() \{
 \}
 \end{prog}
 
-\begin{flushleft}
-  \textbf{Interakce v uživatelském prostředí}
-\end{flushleft}
+\subsubsection*{Interakce v uživatelském prostředí}
 
 Pro vytvoření jakékoliv UI komponenty můžeme začít tvořit jak JSX, definici komponenty, nebo znovupoužitelný hook. 
 V~tomto případě, při vývoji komponenty rozevíracího seznamu, začneme naprogramováním vlastního hooku, který se odděleně postará o~veškerou logiku seznamu.
@@ -211,9 +207,7 @@ useEffect(() => \{
 Dropdown samozřejmě může mít i~jiné vstupy, které povedou k~lepší znovupoužitelnosti. 
 Dynamické CSS třídy ve formě JavaScriptu na element přidáme pomocí šablonových literálů (template literals) a~JS hodnoty.
 
-\begin{flushleft}
-  \textbf{Reaktivita, asynchronní operace}
-\end{flushleft}
+\subsubsection*{Reaktivita, asynchronní operace}
 
 Následující komponenta bude demonstrovat využití reaktivity a~asynchronních operací. Vytvoříme komponentu, která přeloží zadaný text do cílového jazyka. 
 Začneme implementací komponenty Translator. Komponenta při změně stavů (zadaného textu uživatelem a~výstupního jazyka) zavolá API, které vrátí přeložený text.
@@ -360,9 +354,7 @@ Výsledek funkce \emph{setTimeout} uložíme do \emph{delayTimerRef.current}. Ne
 V~okamžiku, kdy obdržíme odpověď ze serveru, zobrazíme přeložený text uživateli pomocí komponenty TranslationOutput. 
 Předáme jí samotný výstupní text a~další vstupní vlastnosti, na základě kterých pak podmíněně vykreslíme přeložený text, chybu nebo načítání.
 
-\begin{flushleft}
-  \textbf{Tvorba formulářů, validace}
-\end{flushleft}
+\subsubsection*{Tvorba formulářů, validace}
 
 React sám o~sobě poskytuje jen základní API pro správu formulářů. Disponuje však mnoha knihovnami, které tuto funkcionalitu rozšiřují. 
 Mezi takové knihovny patří např.~Formik, Redux Form nebo React Hook Form. V~této sekci se zaměříme na tvorbu formulářů pomocí React Hook Form \cite{reacthookformlib}. 
@@ -460,9 +452,7 @@ function FutureValueInfo(\{children, futureValue\}: FutureValueInfoProps) \{
 \}
 \end{prog}
 
-\begin{flushleft}
-  \textbf{Modularita, použití knihoven}
-\end{flushleft}
+\subsubsection*{Modularita, použití knihoven}
 
 V~této sekci vytvoříme webovou hru, ve které je cílem uživatele uhádnout název státu na základě poskytnutých nápověd. Práci si ulehčíme pomocí externích knihoven a~služeb.
 Postupně se bude odkrývat 8 nápověd, které by měly pomoci s~uhádnutím daného státu. Klíčovým prvkem je textové pole, přes které uživatel zadává názvy hádaných zemí a~tlačítko pro potvrzení. 
@@ -605,9 +595,7 @@ Na základě těchto stavů pak podmíněně vykreslíme daná modální okna. O
 V~jednotlivých komponentách (WinModal, LoseModal) vykreslíme komponentu BaseModal, která bude sloužit jako šablona pro obě okna. Do této komponenty vždy předáme titulek, obsah a~obslužnou funkci \emph{handleClose}. 
 BaseModal následně v~JSX vykreslí základní strukturu modálního okna, s~dynamickými možnostmi pro titulek, obsah a~obslužnou funkci \emph{handleClose}.
 
-\begin{flushleft}
-  \textbf{Routování a layout aplikace}
-\end{flushleft}
+\subsubsection*{Routování a layout aplikace}
 
 Layout aplikace bude rozdělen do tří částí: hlavičky, patičky a~samotného obsahu, v~němž se vykreslí jednotlivé komponenty. Uživatel bude mít možnost přepínání mezi jednotlivými stránkami pomocí navigačního menu.
 
