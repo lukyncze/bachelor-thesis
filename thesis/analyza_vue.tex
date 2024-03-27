@@ -192,9 +192,9 @@ Můžeme také zvolit ekvivalentní zápis s~@. Další možnost představuje vy
 Každá Vue komponenta má daný životní cyklus, který konkrétně můžeme rozdělit na 3~části -- inicializační část, část, při které se mění data a~část, kdy komponenta zaniká. 
 Pro zajištění kontroly životního cyklu slouží tzv. hooks, které se vyznačují tím, že vždy před svým názvem mají předponu on.
 
-\begin{figure}[htb]
+\begin{figure}[hptb]
 	\centering
-		\includegraphics[width=.7\textwidth]{images/vuelifecycle.png}
+		\includegraphics[width=.9\textwidth]{images/vuelifecycle.png}
 	\caption[Životní cyklus Vue komponenty]{Životní cyklus Vue komponenty \cite{vue}}
 	\label{fig:vuelifecycle}
 \end{figure}
@@ -202,7 +202,7 @@ Pro zajištění kontroly životního cyklu slouží tzv. hooks, které se vyzna
 Při inicializaci komponenty můžeme využít hook akce beforeMount či mount. BeforeMount je volán ještě před tím, než se komponenta přidá na stránku. 
 Mount až poté, kdy je vytvořen element komponenty -- komponenta však ještě nemusí být v~DOM. 
 Před chystanou změnou dat v~DOM se volá beforeUpdate, po vykonání změny je volán hook updated. Před samotným zánikem komponenty pak Vue volá beforeUnmount. 
-Po dokončení zničení se volá hook unmounted.\cite{vuemacrae,vue}
+Po dokončení zničení se volá hook unmounted. Životní cyklus je znázorněn na Obrázku \ref{fig:vuelifecycle}.\cite{vuemacrae,vue}
 
 \subsubsection{State management}
 
