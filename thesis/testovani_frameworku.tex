@@ -181,8 +181,11 @@ Příklad instalací nalezneme v~Tabulce~\ref{tab:frameworkinstall}.
 \subsection{Srovnání implementace aplikací}
 % s čím se jak pracovalo, velikosti souborů, řádky, jak pomohla dokumentace
 
-V~této podkapitole se zaměříme na srovnání aspektů implementace aplikací v~rámci vybraných frameworků. 
+V~této podkapitole se zaměříme na srovnání aspektů implementace aplikací ve vybraných frameworcích. 
 Cílem je provést detailnější srovnání s~ohledem na poznatky z~provedených implementací. 
+Zaměříme se také na přednosti a~nedostatky jednotlivých frameworků, které se projevily během vývoje.
+
+\subsection*{Angular}
 
 Využití Angularu při implementaci aplikace se vyznačovalo objektově orientovaným přístupem, který umožňuje využít například výhodu zapouzdření. 
 Nespornou výhodu tvořila modularita frameworku, která podporuje rozšiřitelnost a~robustnost aplikace. 
@@ -192,6 +195,7 @@ Framework také disponuje řadou metod životního cyklu, což může být výho
 U~stylování komponent Angular rozlišuje statické a~dynamické styly, což umožňuje lepší organizaci a~přehlednost. 
 Rozhodně nemůžeme opomenout Angular CLI, které zjednodušuje opakující se operace při vývoji. 
 Jako výhodu také můžeme uvést podporu jazyka TypeScript již v~základu. 
+
 Na druhou stranu Angular vyžaduje více konfigurace. Implementace je tak oproti dalším dvěma frameworkům nejdelší a~nejsložitější. 
 V~rámci vývoje se ukázalo, že Angular je náročný na naučení a~framework sám o~sobě umožňuje programátorovi udělat mnoho chyb. 
 Tomu rozhodně nepomáhá implementace reaktivity pomocí knihovny RxJS. 
@@ -199,7 +203,23 @@ Programátor rovněž musí počítat s~tím, že Angular generuje element dané
 Angular neposkytuje možnost použití destrukturování při předávání vlastností. 
 Tím pádem je třeba vždy předat všechny vlastnosti zvlášť nebo je uložit ve vhodnější datové struktuře (např.~objektu).
 Během vývoje jsme také narazili na problém s~neinicializováním vstupních vlastností, což může být problematické. 
-Problém je řešitelný dvěma způsoby, z~nichž ani jeden není zcela ideální.
+
+\begin{table}[htb]
+	\centering
+	\caption{Přednosti a slabiny Angularu}
+	\medskip
+	\radkovani[1.2]
+		\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Přednosti}									& \textbf{Slabiny}                    			\\ \hline
+		Modularita, robustnost aplikace			& Robustní, spíše pro větší projekty				\\ \hline
+		Mnoho nativních balíčků							& Náročnější křivka učení										\\ \hline
+		Spoustu funkcí frameworku						& Velké množství boilerplate a konfigurací	\\ \hline
+		Podpora TypeScriptu již v základu		& Složité předávání více vlastností					\\ \hline
+		Angular CLI													& Generuje elementy komponent v DOM					\\ \hline
+		\end{tabular}
+	\label{tab:angulartabulka}
+\end{table}
 
 % Angular:
 % + OOP přístup (lze použít např. zapouzdření...)
@@ -220,6 +240,8 @@ Problém je řešitelný dvěma způsoby, z~nichž ani jeden není zcela ideáln
 % - input je třeba vždy inicializovat (lze to obejít - bad practise)
 % - během vývoje problém s vscode pluginem
 
+\subsection*{React}
+
 Implementace v~Reactu ukázala silné stránky v~podobě silného ekosystému a~velmi dobře propracovaných balíčků. 
 React disponuje dokumentací na vysoké úrovni a~internet je rovněž plný kvalitních návodů a~tutoriálů. 
 Kvalitní chybové hlášky umožní programátorům rychlejší a efektivnější ladění kódu. 
@@ -227,6 +249,7 @@ React poskytuje typy pro atributy běžných HTML elementů, což výrazně zjed
 Vlastnosti jsou v~rámci vnořených komponent k~dispozici ihned a~jsou vždy aktualizované, což u~dalších frameworků neplatí. 
 Velkou výhodu představuje možnost použití destrukturování pro předávání vlastností. 
 Jako výhodu lze také uvést modularitu, které dosáhneme při implmenetaci vlastních hooků. 
+
 Nevýhody frameworku se projevily při vykreslování a~využívání zabudovaných hooků. 
 Při špatném použití vykreslovací techniky (pomocí \&\& nebo || operátorů) můžeme zobrazit nechtěné výsledky v~DOM. 
 V~rámci funkce map nesmíme zapomenout každému elementu přidělit unikátní klíč. 
@@ -234,6 +257,23 @@ Co se týče hooků, především useEffect hook umožňuje programátorům snad
 S~tím se rovněž pojí problémy se závislostmi useEffect a~neintuitivní kontrola životního cyklu komponenty. 
 Vývojáři také musí počítat s~tím, že aktualizace stavů je vždy asynchronní. V~praxi to znamená, že stav není aktualizován okamžitě. 
 Jako nevýhodu můžeme uvést i~předávání vlastností do rodičovské komponenty, které minimálně zpočátku může vypadat složitě.
+
+\begin{table}[htb]
+	\centering
+	\caption{Přednosti a slabiny Reactu}
+	\medskip
+	\radkovani[1.2]
+		\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Přednosti}											& \textbf{Slabiny}                    	\\ \hline
+		Silný ekosystém a propracované balíky		& Špatné techniky vedou k chybám 				\\ \hline
+		Kvalitní dokumentace, chybové hlášky		& Neintuitivní kontrola živ. cyklu   		\\ \hline
+		Typy pro atributy HTML elementů					& Asynchronní aktualizace stavů					\\ \hline
+		Práce se vstupními vlastnostmi					& Složitější předání vlastnosti rodiči	\\ \hline
+		Modularita pomocí vlastních hooků				& Pole závislostí v useEffect hooku			\\ \hline
+		\end{tabular}
+	\label{tab:reacttabulka}
+\end{table}
 
 % React:
 % + nejvíce propracované knihovny a super ekosystém
@@ -250,21 +290,41 @@ Jako nevýhodu můžeme uvést i~předávání vlastností do rodičovské kompo
 % - aktualizace stavu je asynchronní
 % - je třeba si zvyknout na předávání vlastností do rodiče
 
-Implementace ve Svelte poukázala na jednoduchost a~přímočarost tohoto frameworku. 
+\subsection*{Svelte}
+
+Implementace aplikace ve Svelte prokázala jednoduchost a~přímočarost tohoto nástroje. 
 Syntax je velmi čitelná a~bez zbytečného boilerplate kódu, což v~porovnání s~dalšími frameworky znamená nejkratší kód. 
 Svelte elegantním způsobem řeší předávání vlastností mezi komponentami. 
 Díky \$\$restProps můžeme získat všechny vlastnosti, které nejsou explicitně deklarovány. 
 Musíme si však dávat pozor na to, že při předání nekorektní vlastnosti do komponenty můžeme narazit na problémy. 
 Reactive statement dokáže reagovat na změny hodnot v~rámci svého těla, což je velice efektivní a~užitečné. 
 Svelte také oproti předchozím frameworkům nabízí přehledný systém metod životního cyklu a~modifikaci DOM přes akce. 
-Rovněž je třeba zmínit jednoduchý each blok a~observables systém, který vývojářům zbytečně nekomplikuje práci.
-Mezi slabší stránky frameworku rozhodně patří jeho ekosystém a~komunita, která je nejmenší a~zatím se rozvíjí. 
+Rovněž je třeba zmínit minimalistický blok each pro dynamické vykreslování a~zabudovaný systém observables. 
+
+Mezi slabší stránky frameworku rozhodně patří jeho ekosystém a~komunita, která je oproti ostatním frameworkům nejmenší a~zatím se rozvíjí. 
 Svelte proto disponuje nejméně kvalitními knihovnami určené tomuto frameworku. 
-Syntax může být někdy matoucí, příkladem může být klíčové slovo export u~vstupních vlastností, nebo zvláštní syntax \#if, :else if, :else, /if. 
+Syntax frameworku může být v~některých případech matoucí, příkladem je například klíčové slovo export u~vstupních vlastností, nebo měnící se syntax \#if, :else if, :else, /if. 
 Vývojáři musí mít na paměti modifikaci vstupních vlastností po jejich aktualizaci, kterou je třeba provést reaktivně. 
 V~neposlední řadě můžeme zmínit nevýhody při práci s~TypeScriptem. Pro importování TS typů používáme ve Svelte navíc klíčové slovo type. 
 Do TS souboru nelze importovat TS typ ze Svelte komponenty, takový typ pak zakládáme v~rámci context="'module"' skriptu v~komponentě.
 Při porovnání s~ostatními frameworky, Svelte disponuje hůře otypovanými událostmi, což prodlužuje práci v~obslužných funkcích.
+
+\begin{table}[htb]
+	\centering
+	\caption{Přednosti a slabiny Svelte}
+	\medskip
+	\radkovani[1.2]
+		\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Přednosti}									& \textbf{Slabiny}                    			\\ \hline
+		Jednoduchost, přímočarost, rychlost & Menší ekosystém a komunita              	\\ \hline
+		Čitelná syntax bez boilerplate kódu	& Proměnná syntax u podmínek  							\\ \hline
+		Elegantní předávání vlastností			& Potřeba reaktivity u měnících se vstupů		\\ \hline
+		Jednoduchá kontrola lifecycle				& Hůře otypované události										\\ \hline
+		Modifikace DOM											& Import typů vyžaduje klíčové slovo navíc	\\ \hline
+		\end{tabular}
+	\label{tab:sveltetabulka}
+\end{table}
 
 % Svelte:
 % + nejméně boilerplate kódu -> opravdu jednoduchý na naučení (obvykle nejkratší kód)
@@ -285,6 +345,6 @@ Při porovnání s~ostatními frameworky, Svelte disponuje hůře otypovanými u
 % - nejméně otypované handlery eventů
 
 Srovnání implementace aplikací v~rámci vybraných frameworků ukázalo, že každý framework má své přednosti i~nedostatky. 
-Angular se vyznačuje robustností a~modularitou, což může být výhodou zejména u~větších projektů. 
-React disponuje obrovským ekosystémem i~kvalitními knihovnami, a~to mohou ocenit především začátečníci. 
-Svelte zase nabízí jednoduchost, přímočarost a~může být vhodný spíše pro menší projekty.
+Angular je komplexní, robustní, modulární framework a~hodí se spíše pro vývoj větších projektů. 
+React disponuje obrovským ekosystémem a~kvalitními knihovnami, což mohou ocenit především začátečníci nebo vývojové studia. 
+Svelte je díky své jednoduchosti a~přímočarosti ideální pro menší projekty a~startupy, kde je klíčová rychlost a~efektivita.
