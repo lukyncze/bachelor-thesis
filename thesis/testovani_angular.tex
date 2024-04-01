@@ -435,7 +435,7 @@ Komponenta future-value-info pak přijímá vstupní vlastnost, kterou v~šablon
 <p class="text-5xl font-bold">{{ futureValue | localizedNumber }}</p>
 \end{prog}
 
-Stejného výsledku bychom mohli dosáhnout i~přes metodu na třídě. Tento přístup Angular nedoporučuje, jelikož metody se uvnitř šablony spouští opakovaně a~mohou způsobit problémy s~výkonem. 
+Stejného výsledku bychom mohli dosáhnout i~díky třídní metodě. Tento přístup Angular nedoporučuje, jelikož metody se uvnitř šablony spouští opakovaně a~mohou způsobit problémy s~výkonem. 
 Oproti tomu roura umožní lepší znovupoužitelnost a~přehlednost.
 
 \begin{prog}
@@ -505,7 +505,7 @@ V~šabloně následně vykreslíme UI komponenty hry a~podmíněně modální ok
 
 V~metodě \emph{usePolyfill} služby CountryFlagPolyfillService zavoláme funkci \emph{polyfillCountryFlagEmojis} z~knihovny \emph{country-flag-emoji-polyfill} \cite{countryflagemojipolyfill}. 
 Pokud prohlížeč uživatele nepodporuje zobrazení ikon vlajek, ale podporuje emojis a~webové fonty, skrze funkci \emph{polyfillCountryFlagEmojis} knihovna přidá webový font do HTML hlavičky. 
-Font Twemoji Country Flags pak umožní zobrazení vlajek. Aby se programaticky přidaný font použil, nesmíme zapomenout nastavit font-family pravidlo pomocí CSS stylů.
+Font Twemoji Country Flags pak umožní zobrazení vlajek. Pro aktivaci přidaného fontu je třeba nastavit font-family pravidlo pomocí CSS stylů.
 
 \begin{prog}
 // Část souboru styles.css

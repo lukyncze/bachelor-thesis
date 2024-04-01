@@ -146,7 +146,7 @@ Obslužná funkce \emph{handleOptionClick} zajistí změnu vybrané možnosti, z
   // Toto ID je třeba nastavit na kořenový element dropdown komponenty.
   let dropdownId = `id-\$\{crypto.randomUUID()\}`;
 
-  // Ubslužná funkce, která se stará o logiku 
+  // Obslužná funkce, která se stará o logiku 
     po kliknutí na jednotlivé položky v dropdownu.
   const handleOptionClick = (option: Option) => \{
     selectedOption = option;
@@ -187,7 +187,7 @@ Akci následně předáme obslužnou funkci \emph{handleClickOutsideDropdown}, k
 <script lang="ts">
   // Ostatní stavy, vstupy, funkce v komponentě...
 
-  // Ubslužná funkce, která zavře dropdown, pokud uživatel klikne mimo něj.
+  // Obslužná funkce, která zavře dropdown, pokud uživatel klikne mimo něj.
   const handleClickOutsideDropdown = (\{target\}: PointerEvent) => \{
     if (isOpen && !(target as HTMLElement).closest(`#\$\{dropdownId\}`)) \{
       isOpen = false;
