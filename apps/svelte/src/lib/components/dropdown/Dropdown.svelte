@@ -19,14 +19,14 @@
   // Toto ID je třeba nastavit na kořenový element dropdown komponenty.
   let dropdownId = `id-${crypto.randomUUID()}`;
 
-  // Ubslužná funkce, která se stará o logiku po kliknutí na jednotlivé položky v dropdownu.
+  // Obslužná funkce, která se stará o logiku po kliknutí na jednotlivé položky v dropdownu.
   const handleOptionClick = (option: Option) => {
     selectedOption = option;
     isOpen = false;
     onChange(option);
   };
 
-  // Ubslužná funkce, která zavře dropdown, pokud uživatel klikne mimo něj.
+  // Obslužná funkce, která zavře dropdown, pokud uživatel klikne mimo něj.
   const handleClickOutsideDropdown = ({target}: PointerEvent) => {
     if (isOpen && !(target as HTMLElement).closest(`#${dropdownId}`)) {
       isOpen = false;
