@@ -87,7 +87,7 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 	\begin{cenumerate}
 		\item Data o~zemích získáme pomocí veřejného API.
 		\item V~rámci hry bude náhodně vybrána země, kterou bude uživatel hádat.
-		\item Uživateli se v~rámci hry budou postupně zobrazovat informace (nápovědy) o~hádané zemi.
+		\item Uživateli se ve hře budou postupně zobrazovat informace (nápovědy) o~hádané zemi.
 		\item Uživatel bude mít možnost zadat či vybrat pouze existující název země, který chce tipovat.
 		\item Uživatel následně uvidí již zadané země a~vzdálenost jím dané země od hádané země.
 		\item Uživateli bude při výhře a~prohře zobrazeno modální okno s~informacemi o~výsledku hry.
@@ -122,7 +122,7 @@ Jednotlivé komponenty poslouží ke srovnání implementací a~přístupů vybr
 
 \subsection{Implementace webových aplikací}
 
-V~této kapitole popíšeme implementaci jednotlivých částí aplikace v~rámci vybraných frameworků -- Angular, React a~Svelte. Použijeme následující nástroje v~níže uvedených verzích:
+V~této kapitole popíšeme implementaci jednotlivých částí aplikace ve vybraných frameworcích -- Angular, React a~Svelte. Použijeme následující nástroje v~níže uvedených verzích:
 
 \begin{citemize}
 	\item Angular -- verze 17.x.x
@@ -197,7 +197,7 @@ Rozhodně nemůžeme opomenout Angular CLI, které zjednodušuje opakující se 
 Jako výhodu také můžeme uvést podporu jazyka TypeScript již v~základu. 
 
 Na druhou stranu Angular vyžaduje více konfigurace. Implementace je tak oproti dalším dvěma frameworkům nejdelší a~nejsložitější. 
-V~rámci vývoje se ukázalo, že Angular je náročný na naučení a~framework sám o~sobě umožňuje programátorovi udělat mnoho chyb. 
+Při vývoji se ukázalo, že Angular je náročný na naučení a~framework sám o~sobě umožňuje programátorovi udělat mnoho chyb. 
 Tomu rozhodně nepomáhá implementace reaktivity pomocí knihovny RxJS. 
 Programátor rovněž musí počítat s~tím, že Angular generuje element dané komponenty v~DOM, což může zkomplikovat např.~stylování. 
 Angular neposkytuje možnost použití destrukturování při předávání vlastností. 
@@ -246,7 +246,7 @@ Implementace v~Reactu ukázala silné stránky v~podobě silného ekosystému a~
 React disponuje dokumentací na vysoké úrovni a~internet je rovněž plný kvalitních návodů a~tutoriálů. 
 Kvalitní chybové hlášky umožní programátorům rychlejší a efektivnější ladění kódu. 
 React poskytuje typy pro atributy běžných HTML elementů, což výrazně zjednodušuje a~zefektivnǔje práci. 
-Vlastnosti jsou v~rámci vnořených komponent k~dispozici ihned a~jsou vždy aktualizované, což u~dalších frameworků neplatí. 
+Vlastnosti jsou uvnitř vnořených komponent k~dispozici ihned a~jsou vždy aktualizované, což u~dalších frameworků neplatí. 
 Velkou výhodu představuje možnost použití destrukturování pro předávání vlastností. 
 Jako výhodu lze také uvést modularitu, které dosáhneme při implmenetaci vlastních hooků. 
 
@@ -297,7 +297,7 @@ Syntax je velmi čitelná a~bez zbytečného boilerplate kódu, což v~porovnán
 Svelte elegantním způsobem řeší předávání vlastností mezi komponentami. 
 Díky \$\$restProps můžeme získat všechny vlastnosti, které nejsou explicitně deklarovány. 
 Musíme si však dávat pozor na to, že při předání nekorektní vlastnosti do komponenty můžeme narazit na problémy. 
-Reactive statement dokáže reagovat na změny hodnot v~rámci svého těla, což je velice efektivní a~užitečné. 
+Reactive statement dokáže reagovat na změny hodnot uvnitř svého těla, což je velice efektivní a~užitečné. 
 Svelte také oproti předchozím frameworkům nabízí přehledný systém metod životního cyklu a~modifikaci DOM přes akce. 
 Rovněž je třeba zmínit minimalistický blok each pro dynamické vykreslování a~zabudovaný systém observables. 
 
@@ -306,7 +306,7 @@ Svelte proto disponuje nejméně kvalitními knihovnami určené tomuto framewor
 Syntax frameworku může být v~některých případech matoucí, příkladem je například klíčové slovo export u~vstupních vlastností, nebo měnící se syntax \#if, :else if, :else, /if. 
 Vývojáři musí mít na paměti modifikaci vstupních vlastností po jejich aktualizaci, kterou je třeba provést reaktivně. 
 V~neposlední řadě můžeme zmínit nevýhody při práci s~TypeScriptem. Pro importování TS typů používáme ve Svelte navíc klíčové slovo type. 
-Do TS souboru nelze importovat TS typ ze Svelte komponenty, takový typ pak zakládáme v~rámci context="'module"' skriptu v~komponentě.
+Do TS souboru nelze importovat TS typ ze Svelte komponenty, takový typ pak zakládáme pomocí context="'module"' skriptu v~komponentě.
 Při porovnání s~ostatními frameworky, Svelte disponuje hůře otypovanými událostmi, což prodlužuje práci v~obslužných funkcích.
 
 \begin{table}[htb]
@@ -344,7 +344,7 @@ Při porovnání s~ostatními frameworky, Svelte disponuje hůře otypovanými u
 % - do ts souboru nelze importovat TS typ ze Svelte komponenty (typ musí být založen v context="module" skriptu)
 % - nejméně otypované handlery eventů
 
-Srovnání implementace aplikací v~rámci vybraných frameworků ukázalo, že každý framework má své přednosti i~nedostatky. 
+Srovnání implementace aplikací ve vybraných frameworcích ukázalo, že každý framework má své přednosti i~nedostatky. 
 Angular je komplexní, robustní, modulární framework a~hodí se spíše pro vývoj větších projektů. 
 React disponuje obrovským ekosystémem a~kvalitními knihovnami, což mohou ocenit především začátečníci nebo vývojové studia. 
 Svelte je díky své jednoduchosti a~přímočarosti ideální pro menší projekty a~startupy, kde je klíčová rychlost a~efektivita.
