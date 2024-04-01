@@ -547,7 +547,7 @@ Funkce \emph{handleInputChange} převede tip uživatele do daného formátu, akt
 V~pomocné funkci \emph{updateGuessAndFilteredCountries} nejprve získáme filtrované země podle uživatelova tipu. Následně aktualizujeme stavy \emph{currentGuess}, \emph{isValidGuess} a~\emph{filteredCountries}. 
 Funkce \emph{clampSelectedGuessIndex} zajistí, aby index vybrané země byl v~požadovaném rozmezí (0 až počet filtrovaných zemí). 
 K~modifikaci stavu \emph{selectedGuessIndex} použijeme funkci \emph{changeSelectedGuessIndex}, která index aktualizuje o~hodnotu předanou v~argumentu. 
-Tip uživatele uvnitř funkce \emph{convertToFormattedGuess} převedeme tak, aby začínal velkým písmenem a~zbytek řetezce byl složen z~malých písmen.
+Tip uživatele pomocí funkce \emph{convertToFormattedGuess} převedeme tak, aby začínal velkým písmenem a~zbytek řetezce byl složen z~malých písmen.
 
 Pro zobrazení všech již hádaných zemí uživatelem vytvoříme komponentu GuessedCountriesList. 
 Ze vstupních vlastností \emph{countries}, \emph{guessedCountries} a~\emph{randomCountry} získáme proměnnou \emph{enrichedGuessedCountries}. 

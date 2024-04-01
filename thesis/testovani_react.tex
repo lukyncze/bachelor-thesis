@@ -384,8 +384,8 @@ const \{
 \} = useForm<InvestFormData>(\{defaultValues, mode: 'onChange'\});
 \end{prog}
 
-Do JSX přidáme form značku s~\emph{onSubmit} atributem, kterému předáme funkci \emph{handleSubmit} z~React Hook Form. Do \emph{handleSubmit} pak vložíme vstup \emph{handleFormSubmit} v~němž získáme aktuální hodnoty formuláře. 
-Ve formuláři vytvoříme formulářové prvky, které propojíme s~reaktivním formulářem pomocí funkce \emph{register}. První argument představuje název formulářového prvku, druhý argument je validační objekt. 
+Do JSX přidáme form značku s~\emph{onSubmit} atributem, kterému předáme funkci \emph{handleSubmit} z~React Hook Form. Do \emph{handleSubmit} vložíme vstup \emph{handleFormSubmit}, v~němž získáme aktuální hodnoty formuláře. 
+Ve formuláři vytvoříme formulářové prvky, které propojíme s~reaktivním formulářem pomocí funkce \emph{register}. První argument představuje název formulářového prvku, druhým argumentem je validační objekt. 
 V~rámci range inputu potřebujeme HTML atributy min a~max, díky kterým omezíme rozsah vstupních hodnot. Abychom měli přístup k~aktuální hodnotě range inputu, využijeme vlastnost \emph{value} a~\emph{onChange}. 
 Chyby formuláře získáme z~\emph{formState} a~vykreslíme je pod formulářovými prvky. V~neposlední řadě přidáme tlačítko s~typem submit, které zajistí odeslání formuláře a~zavolání callback funkce \emph{handleFormSubmit}.
 
