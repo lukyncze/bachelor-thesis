@@ -576,9 +576,9 @@ Pokračujeme implementací modálních oken, které se zobrazí při výhře či
 Vlastnosti \emph{isWinModalOpen} a~\emph{isLoseModalOpen}, určující, zda se mají okna zobrazit, bychom měli aktualizovat v~metodě \emph{handleEvaluateGuessAndUpdateState} v~CountryGuesserComponent. 
 Oběma modálním oknům předáme vlastnost \emph{randomCountry} a~output \emph{handleClose} v~podobě obslužné události, která se vyvolá při zavření modálního okna. 
 Do výherního modálu rovněž poskytneme vstupní vlastnost \emph{totalGuessesNeeded}, jíž využijeme v~obsahu okna. 
-Obě modální okna budou velice podobné, a~proto vytvoříme komponentu base-modal, která bude sloužit jako šablona pro obě okna. 
+Obě modální okna budou velice podobná, a~proto vytvoříme komponentu base-modal, která bude sloužit jako šablona pro obě okna. 
 BaseModalComponent bude přijímat titulek, obsah modálního okna a~\emph{handleClose} jako výstupní vlastnost. 
-Šablona base-modal pak vykreslí základní strukturu modálního okna, s~dynamicky nastaveným titulkem, obsahem a~obslužnou metodou volanou při zavření modálního okna.
+Šablona base-modal pak vykreslí základní strukturu modálního okna s~dynamicky nastaveným titulkem, obsahem a~obslužnou metodou volanou při zavření modálního okna.
 
 \subsubsection*{Routování a layout aplikace}
 

@@ -276,7 +276,7 @@ const useAutosizeTextArea = (
 \end{prog}
 
 V~Translator komponentě potřebujeme ukládat vstupní hodnotu a~výstupní jazyk z~vnořených komponent. 
-Dále při každé změně těchto hodnot odešleme dotaz na Microsoft Translator Text API \cite{translatortextapi}, k~čemuž využijeme \emph{useEffect}.
+Po změně těchto vstupních hodnot odešleme dotaz na Microsoft Translator Text API \cite{translatortextapi}, k~čemuž využijeme \emph{useEffect}.
 V~rámci hooku definujeme asynchronní funkci \emph{handleTranslation}, která pomocí fetch API odešle korektní HTTP POST požadavek na server. 
 Pokud bychom definovali funkci mimo \emph{useEffect}, museli bychom ji přidat do pole závislostí hooku.
 Při úspěšné odpovědi aktualizujeme stav s~přeloženým textem, v~opačném případě nastavíme chybový stav.
@@ -386,7 +386,7 @@ const \{
 
 Do JSX přidáme form značku s~\emph{onSubmit} atributem, kterému předáme funkci \emph{handleSubmit} z~React Hook Form. Do \emph{handleSubmit} vložíme vstup \emph{handleFormSubmit}, v~němž získáme aktuální hodnoty formuláře. 
 Ve formuláři vytvoříme formulářové prvky, které propojíme s~reaktivním formulářem pomocí funkce \emph{register}. První argument představuje název formulářového prvku, druhým argumentem je validační objekt. 
-V~rámci range inputu potřebujeme HTML atributy min a~max, díky kterým omezíme rozsah vstupních hodnot. Abychom měli přístup k~aktuální hodnotě range inputu, využijeme vlastnost \emph{value} a~\emph{onChange}. 
+Na range input přidáme HTML atributy min a~max, díky kterým omezíme rozsah vstupních hodnot. Abychom měli přístup k~aktuální hodnotě range inputu, využijeme vlastnost \emph{value} a~\emph{onChange}. 
 Chyby formuláře získáme z~\emph{formState} a~vykreslíme je pod formulářovými prvky. V~neposlední řadě přidáme tlačítko s~typem submit, které zajistí odeslání formuláře a~zavolání callback funkce \emph{handleFormSubmit}.
 
 \begin{prog}
@@ -531,7 +531,7 @@ function CountryGuesserWrapper() \{
 \end{prog}
 
 Komponenta CountryGuesser bude vyhodnocovat průběh hry a~zobrazovat jednotlivé herní prvky. Začneme definicí stavů a~inicializujeme náhodnou zemi (\emph{randomCountry}), kterou bude uživatel hádat. 
-Dále použijeme hook \emph{useCountryFlagPolyfill}, který při namontování komponenty zajistí podporu zobrazení ikon vlajek v~prohlížečích, které to přímo nepodporují. 
+Posléze použijeme hook \emph{useCountryFlagPolyfill}, který při namontování komponenty zajistí podporu zobrazení ikon vlajek v~prohlížečích, které to přímo nepodporují. 
 Prohlížeč pak však musí podporovat emojis a~webové fonty. Pokračujeme implementací obslužných funkcí \emph{handleEvaluateGuessAndUpdateState} a~\emph{handleSetInitialState}, které budou sloužit k~aktualizaci stavu hry. 
 Následně v~JSX vykreslíme jednotlivé herní prvky a~modální okna při výhře či prohře.
 
@@ -627,7 +627,7 @@ export const appRoutes: ReadonlyArray<AppRoute> = [
 ];
 \end{prog}
 
-Následně v~kořeni aplikace vytvoříme \emph{router} pomocí předem definovaných cest aplikace. 
+Následně v~kořeni aplikace inicializujeme \emph{router} pomocí předem definovaných cest aplikace. 
 \emph{Router} vytvoříme díky dvěma pomocným funkcím k~tomu určených: \emph{createBrowserRouter} a~\emph{createRoutesFromElements}. 
 Pokračujeme přiřazením proměnné \emph{router} do kořenové komponenty aplikace, konkrétně do poskytovatele \emph{RouterProvider}.
 
