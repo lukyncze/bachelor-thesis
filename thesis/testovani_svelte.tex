@@ -562,7 +562,7 @@ Proměnnou \emph{enrichedGuessedCountries} poté vykreslíme v~šabloně.
 	\label{fig:svelteguessedcountrieslist}
 \end{figure}
 
-Nakonec vytvoříme modální okna, která vykreslíme při výhře nebo prohře. Stavy \emph{isWinModalOpen} a~\emph{isLoseModalOpen} aktualizujeme uvnitř funkce \emph{handleEvaluateGuessAndUpdateState} v~CountryGuesser. 
+Závěrem vytvoříme modální okna, která vykreslíme při výhře nebo prohře. Stavy \emph{isWinModalOpen} a~\emph{isLoseModalOpen} aktualizujeme uvnitř funkce \emph{handleEvaluateGuessAndUpdateState} v~CountryGuesser. 
 Na základě těchto stavů podmíněně zobrazíme daná modální okna. Oběma oknům předáme \emph{randomCountry} a~obslužnou funkci \emph{handleClose}. Do výherního modálu také počet potřebných pokusů. 
 V~jednotlivých komponentách (WinModal, LoseModal) vykreslíme komponentu BaseModal, která bude sloužit jako šablona pro obě okna. Do této komponenty pak předáme titulek, obsah modálu a~obslužnou metodu \emph{handleClose}. 
 V~šabloně BaseModal vykreslíme základní strukturu modálního okna s~dynamickými vlastnostmi.
