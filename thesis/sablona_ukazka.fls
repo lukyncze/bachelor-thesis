@@ -1072,7 +1072,6 @@ INPUT literatura.tex
 INPUT ./literatura.tex
 INPUT literatura.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/eccc1200.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcti1200.tfm
 INPUT ./sablona_ukazka.lof
 INPUT sablona_ukazka.lof
 INPUT sablona_ukazka.lof
@@ -1119,7 +1118,6 @@ INPUT seznamzkratek.aux
 INPUT ./sablona_ukazka.out
 INPUT ./sablona_ukazka.out
 INPUT /home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecxc2488.600pk
-INPUT /home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcti1200.600pk
 INPUT /home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk
 INPUT /home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1000.600pk
 INPUT /home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk
