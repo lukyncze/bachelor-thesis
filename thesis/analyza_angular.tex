@@ -55,7 +55,7 @@ export class MyComponent \{
 \subsubsection{Správa stavů}
 
 K~vytvoření stavů v~Angularu využijeme vlastnosti třídy (class fields). Vlastnosti mohou být veřejné (public), protected (chráněné) nebo soukromé (private). 
-V~případě, že viditelnost nespecifikujeme, je vlastnost veřejná. Soukromé vlastnosti jsou viditelné pouze v~rámci třídy, chráněné v~rámci třídy a~šablony. 
+V~případě, že viditelnost nespecifikujeme, je vlastnost veřejná. Soukromé vlastnosti jsou viditelné pouze uvnitř třídy, chráněné v~rámci třídy a~šablony. 
 Veřejné vlastnosti jsou viditelné odkudkoli.\cite{angulardev,learningangular}
 
 Pro aktualizaci stavů využijeme přiřazení nové hodnoty do vlastnosti, k~níž přistoupíme pomocí klíčového slova this.\cite{angulardev}
@@ -81,7 +81,7 @@ export class MyComponent \{
 \}
 \end{prog}
 
-Počínaje verzí~16 můžeme používat také nestabilní verzi signálů (Angular Signals), přičemž se jedná o~systém, který mnohem efektivněji sleduje využití stavů v~rámci aplikace. 
+Počínaje verzí~16 můžeme používat také nestabilní verzi signálů (Angular Signals), přičemž se jedná o~systém, který mnohem efektivněji sleduje využití stavů uvnitř aplikací. 
 Signály pak umožňují efektivnější a~optimalizovanější aktualizace DOM. 
 
 \begin{prog}
@@ -111,7 +111,7 @@ Proto v~této práci budeme využívat klasické hodnoty stavů.\cite{angulardev
 \subsubsection{Předávání vlastností}
 
 Předávat vlastnosti či jiné hodnoty je možné pomocí vstupního dekorátoru @Input a~výstupního dekorátoru @Output. 
-V~rámci šablony danou hodnotu předáme do vnořené komponenty skrze název vstupu v~hranatých závorkách.   
+Uvnitř šablony danou hodnotu předáme do vnořené komponenty skrze název vstupu v~hranatých závorkách.   
 Ve vnořené komponentě využijeme dekorátor @Input, sloužící k~získání hodnot z~rodičovské komponenty. K~předaným hodnotám není možné přistupovat v~rámci konstruktoru. 
 
 K~předání hodnoty z~vnořené komponenty nejprve přidáme vnořené komponentě název výstupu v~kulatých závorkách a~obslužnou metodu, která se vykoná po předání vlastnosti. 
@@ -165,7 +165,7 @@ export class ChildComponent \{
 \subsubsection{Služby, direktivy, roury}
 
 Angular disponuje pestrou škálou možností, jak sdílet bloky kódu či logiku mezi různými částmi aplikace. Služby, direktivy, nebo také roury tvoříme pomocí JavaScriptových tříd. 
-Služby (services) umožňují znovupoužití určité části kódu např.~v~rámci více komponent. 
+Služby (services) umožňují znovupoužití určité části kódu ve více komponentách. 
 Služby obvykle používáme ke komunikaci s~HTTP endpointy, sdílíme v~nich stavy více komponent a~využíváme je k~transformacím.\cite{angulardev,learningangular}
 
 \begin{prog}
@@ -230,7 +230,7 @@ V~neposlední řadě metoda ngOnDestroy je volána při zničení komponenty.\ci
 
 K~základní práci se stavy slouží vlastnosti třídy, které inicializujeme JavaScriptovou hodnotou. 
 Do budoucna můžeme počítat s~lepší podporou signálů, které aktualizují DOM efektivněji a~rychleji. 
-Pokročilejší způsob sdílení stavů v~rámci aplikace spočívá ve využití služeb, v~nichž uložíme stavy a~následně je sdílíme mezi komponentami.\cite{angulardev}
+Pokročilejší způsob sdílení stavů v~aplikaci spočívá ve využití služeb, v~nichž uložíme stavy a~následně je sdílíme mezi komponentami.\cite{angulardev}
 
 Pro reaktivní či asynchronní operace, nebo obecně složitější funkcionality, využijeme balíček RxJS, který je již součástí Angularu. 
 RxJS poskytuje datový typ Observable, který reprezentuje data, jež se mohou měnit v~čase.\cite{angulario,rxjslibrary}

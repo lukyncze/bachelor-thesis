@@ -57,7 +57,7 @@ JavaScriptové funkce musí být zapsány mezi párové značky script s~atribut
 \subsubsection{Reaktivita}
 
 V~komponentě můžeme uchovávat informace pomocí reaktivních stavů. Oficiální dokumentace doporučuje používat funkci ref, která vyžaduje počáteční hodnotu. 
-K~hodnotě stavu pak v~rámci skriptu přistupujeme pomocí vlastnosti value. V~šabloně postačí pouze název stavu. 
+K~hodnotě stavu pak uvnitř skriptu přistupujeme pomocí vlastnosti value. V~šabloně postačí pouze název stavu. 
 Modifikaci stavu lze provést pomocí přiřazení nové hodnoty. Při změně jakéhokoli stavu komponenty pak Vue automaticky aktualizuje DOM novými daty.\cite{vue}
 
 \begin{prog}
@@ -82,7 +82,7 @@ Modifikaci stavu lze provést pomocí přiřazení nové hodnoty. Při změně j
 
 Komponenty spolu komunikují pomocí předávání vlastností. 
 Pro předání vlastnosti do vnořené komponenty je třeba v~rodičovské komponentě předat požadovanou hodnotu do proměnné vnořené komponenty. 
-Uvnitř vnořené komponenty pak definujeme props vlastnost, kterou vytvoříme pomocí funkce defineProps. 
+Ve vnořené komponentě pak definujeme props vlastnost, kterou vytvoříme pomocí funkce defineProps. 
 DefineProps funkce vyžaduje objekt s~názvem a~datovým typem předávané vlastnosti.
 
 K~předání vlastností z~vnořené do rodičovské komponenty se využívá principu emitování eventů. 
@@ -207,7 +207,7 @@ Po dokončení zničení se volá hook unmounted. Životní cyklus je znázorně
 \subsubsection{State management}
 
 Framework Vue v~sobě nemá implementovaný žádný sofistikovaný state management. 
-K~základní práci se stavy aplikace poslouží reaktivní stavy jednotlivých komponent a~jejich sdílení ve stromě komponent.
+K~základní práci se stavy aplikace poslouží reaktivní stavy jednotlivých komponent a~jejich sdílení ve stromu komponent.
 
 Pro komplexnější aplikace je žádoucí využít některou z~knihoven třetích stran. Dokumentace nabízí knihovnu Pinia, která byla vyvinuta Vue týmem. 
 Pinia je inspirována balíkem Vuex a~využívá Composition API přístup. Knihovna nabízí jednoduché API pro správu stavů aplikace. 
@@ -219,7 +219,7 @@ Ta by měla vracet samotný state definovaný pomocí ref() a~akce (funkce, jež
 
 Samotný Vue framework neposkytuje zabudovanou podporu pro routování. Oficiální dokumentace doporučuje využití knihovny Vue Router, která umožňuje routování na straně klienta. 
 Základní využití routeru spočívá ve vytvoření instance routeru. Tuto instanci inicializujeme polem požadovaných cest aplikace s~konkrétními komponentami pro vykreslení. 
-V~rámci šablony pak můžeme použít router-link element, jež představuje odkaz na jinou cestu. Pro vykreslení obsahu po změně cesty slouží router-view. 
+Uvnitř šablony pak můžeme použít router-link element, jež představuje odkaz na jinou cestu. Pro vykreslení obsahu po změně cesty slouží router-view. 
 V~podstatě se jedná o~wrapper pro vykreslení komponenty, která je spojena s~uživatelem vybranou cestou.
 
 Vue Router disponuje také dynamickým routingem, který umožňuje definovat parametry cesty a~vykreslit tedy stránku s~dynamickými daty. 
@@ -232,5 +232,5 @@ Většina vývojářů využívá kromě frameworku i~další knihovny třetích
 V~rámci ekosystému lze využít například knihovny pro práci s~UI komponenty, routováním, state managementem. 
 Nechybí ani knihovny pro typování, testování, statické generování či formátování kódu.
 
-Při rostoucí komplexitě webových aplikací můžeme zvážit použití pokročilého frameworku Nuxt. Nuxt je postaven na základech Vue.js a~poskytuje production-ready nástroje. 
+Při rostoucí komplexitě webových aplikací můžeme zvážit použití pokročilého frameworku Nuxt, který je postaven na základech Vue.js a~poskytuje production-ready nástroje. 
 Konkrétně řeší například pokročilou správu stavů, routing, hydrataci stránek či Server Side Rendering.\cite{awesomevue,vue}
