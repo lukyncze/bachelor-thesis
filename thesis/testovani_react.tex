@@ -455,7 +455,7 @@ function FutureValueInfo(\{children, futureValue\}: FutureValueInfoProps) \{
 \subsubsection*{Modularita, použití knihoven}
 
 V~této sekci vytvoříme webovou hru, ve které je cílem uživatele uhádnout název státu na základě poskytnutých nápověd. Práci si ulehčíme pomocí externích knihoven a~služeb.
-Postupně se bude odkrývat 8 nápověd, které by měly pomoci s~uhádnutím daného státu. Klíčovým prvkem je textové pole, do nějž uživatel zadává názvy hádaných zemí a~tlačítko pro potvrzení. 
+Postupně se bude odkrývat 8 nápověd, které by měly pomoci s~uhádnutím daného státu. Klíčovým prvkem je textové pole, do nějž uživatel zadává názvy hádaných zemí, a~tlačítko pro potvrzení. 
 Součástí také bude seznam zemí, které uživatel hádal, a~modální okna sloužící k~vyhodnocení hry.
 
 V~prvé řadě implementujeme rodičovskou komponentu, která získá země z~REST Countries API \cite{restcountriesapi}. Naprogramujeme hook \emph{useAllCountries}, který bude vracet data (\emph{countries}), chybu a~stav načítání. 
