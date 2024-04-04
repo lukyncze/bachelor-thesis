@@ -384,7 +384,7 @@ const \{
 \} = useForm<InvestFormData>(\{defaultValues, mode: 'onChange'\});
 \end{prog}
 
-Do JSX přidáme form značku s~\emph{onSubmit} atributem, kterému předáme funkci \emph{handleSubmit} z~React Hook Form. Do \emph{handleSubmit} vložíme vstup \emph{handleFormSubmit}, v~němž získáme aktuální hodnoty formuláře. 
+Do JSX přidáme form značku s~atributem \emph{onSubmit}, kterému předáme funkci \emph{handleSubmit} z~React Hook Form. Do \emph{handleSubmit} vložíme vstup \emph{handleFormSubmit}, v~němž získáme aktuální hodnoty formuláře. 
 Ve formuláři vytvoříme formulářové prvky, které propojíme s~reaktivním formulářem pomocí funkce \emph{register}. První argument představuje název formulářového prvku, druhým argumentem je validační objekt. 
 Na range input přidáme HTML atributy min a~max, díky kterým omezíme rozsah vstupních hodnot. Abychom měli přístup k~aktuální hodnotě range inputu, využijeme vlastnost \emph{value} a~\emph{onChange}. 
 Chyby formuláře získáme z~\emph{formState} a~vykreslíme je pod formulářovými prvky. V~neposlední řadě přidáme tlačítko s~typem submit, které zajistí odeslání formuláře a~zavolání callback funkce \emph{handleFormSubmit}.
@@ -455,8 +455,8 @@ function FutureValueInfo(\{children, futureValue\}: FutureValueInfoProps) \{
 \subsubsection*{Modularita, použití knihoven}
 
 V~této sekci vytvoříme webovou hru, ve které je cílem uživatele uhádnout název státu na základě poskytnutých nápověd. Práci si ulehčíme pomocí externích knihoven a~služeb.
-Postupně se bude odkrývat 8 nápověd, které by měly pomoci s~uhádnutím daného státu. Klíčovým prvkem je textové pole, přes které uživatel zadává názvy hádaných zemí a~tlačítko pro potvrzení. 
-Součástí také bude seznam zemí, které uživatel hádal a~modální okna sloužící k~vyhodnocení hry.
+Postupně se bude odkrývat 8 nápověd, které by měly pomoci s~uhádnutím daného státu. Klíčovým prvkem je textové pole, do nějž uživatel zadává názvy hádaných zemí a~tlačítko pro potvrzení. 
+Součástí také bude seznam zemí, které uživatel hádal, a~modální okna sloužící k~vyhodnocení hry.
 
 V~prvé řadě implementujeme rodičovskou komponentu, která získá země z~REST Countries API \cite{restcountriesapi}. Naprogramujeme hook \emph{useAllCountries}, který bude vracet data (\emph{countries}), chybu a~stav načítání. 
 V~rámci \emph{useEffect} zavoláme asynchronní funkci \emph{fetchCountriesData}. Uvnitř funkce \emph{fetchCountriesData} zavoláme funkci \emph{getAllCountries}. 
