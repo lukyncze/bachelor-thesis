@@ -34,9 +34,9 @@
 \contentsline {subsubsection}{\numberline {2.4.2}Reaktivita}{23}{subsubsection.2.4.2}%
 \contentsline {subsubsection}{\numberline {2.4.3}Předávání vlastností}{24}{subsubsection.2.4.3}%
 \contentsline {subsubsection}{\numberline {2.4.4}Direktivy a eventy}{25}{subsubsection.2.4.4}%
-\contentsline {subsubsection}{\numberline {2.4.5}Životní cyklus}{26}{subsubsection.2.4.5}%
-\contentsline {subsubsection}{\numberline {2.4.6}State management}{26}{subsubsection.2.4.6}%
-\contentsline {subsubsection}{\numberline {2.4.7}Routování}{26}{subsubsection.2.4.7}%
+\contentsline {subsubsection}{\numberline {2.4.5}Životní cyklus}{25}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}State management}{27}{subsubsection.2.4.6}%
+\contentsline {subsubsection}{\numberline {2.4.7}Routování}{27}{subsubsection.2.4.7}%
 \contentsline {subsubsection}{\numberline {2.4.8}Ekosystém}{28}{subsubsection.2.4.8}%
 \contentsline {subsection}{\numberline {2.5}Porovnání analyzovaných frameworků}{28}{subsection.2.5}%
 \contentsline {section}{\numberline {3}Testování frameworků}{30}{section.3}%
