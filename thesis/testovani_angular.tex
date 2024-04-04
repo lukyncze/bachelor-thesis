@@ -199,7 +199,6 @@ LanguageDropdownComponent umožní uživateli vybrat jazyk, do kterého chce př
 Přes \emph{EventEmitter} aktualizujeme výstupní jazyk v~rodičovské komponentě. V~rámci obslužné metody \emph{handleLanguageChange} pak také modifikujeme hodnotu vlastnosti \emph{inputValuesChanges\$}.
 Tato vlastnost je \emph{Subject}, speciální typ observable, z~knihovny RxJS. Později dovolí na základě změny hodnoty poslat dotaz na server ve správný moment. 
 Podobným způsobem poté můžeme registrovat událost změny vstupního textu -- naslouchat na změnu vstupního textu.
-% TODO: Přidat schéma
 
 \begin{prog}
 // Část souboru translator.component.ts
