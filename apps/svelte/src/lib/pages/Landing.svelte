@@ -12,6 +12,7 @@
       aplikace.
     </p>
 
+    <!-- TODO: Copy the text from thesis here. -->
     <p class="rounded-md px-4 py-3 bg-gray-100">
       První verze byla představena ke konci roku 2016. Verze 3, jež byla vydána v dubnu 2019,
       přinesla vylepšení týkající se zjednodušení tvorby komponent. Mimo jiné tato verze hlavně
