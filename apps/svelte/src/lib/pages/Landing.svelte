@@ -12,13 +12,12 @@
       aplikace.
     </p>
 
-    <!-- TODO: Copy the text from thesis here. -->
     <p class="rounded-md px-4 py-3 bg-gray-100">
       První verze byla představena ke konci roku 2016. Verze 3, jež byla vydána v dubnu 2019,
-      přinesla vylepšení týkající se zjednodušení tvorby komponent. Mimo jiné tato verze hlavně
-      představila vylepšení ve smyslu reaktivity. Po této verzi framework nabral na popularitě díky
-      jeho jednoduchosti. Verze 4 pak v roce 2023 představila pouze minimální změny, jež spočívají v
-      údržbě a přípravách pro verzi nastávající.
+      přinesla vylepšení týkající se zjednodušení tvorby komponent a reaktivity. Po vydání této
+      verze se framework stal populárnějším díky jeho jednoduchosti a minimu boilerplate, tedy
+      množství kódu k provedení požadovaných operací. Verze 4 pak v roce 2023 představila pouze
+      minimální změny, jež spočívají v údržbě a přípravách pro verzi nastávající.
     </p>
 
     <p class="rounded-md px-4 py-3 bg-gray-200">
