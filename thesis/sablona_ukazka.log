@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  10 APR 2024 20:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  10 APR 2024 22:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -706,18 +706,18 @@ Package pdftex.def Info: images/GuessedCountriesList.jpg  used on input line 570
  [49 <./images/GuessedCountriesList.jpg>] [50] [51]) (./testovani_react.tex [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63]
 File: images/HintBoxes.jpg Graphic file (type jpg)
 <use images/HintBoxes.jpg>
-Package pdftex.def Info: images/HintBoxes.jpg  used on input line 555.
+Package pdftex.def Info: images/HintBoxes.jpg  used on input line 557.
 (pdftex.def)             Requested size: 413.98811pt x 52.01143pt.
 File: images/CountryGuessInput.jpg Graphic file (type jpg)
 <use images/CountryGuessInput.jpg>
-Package pdftex.def Info: images/CountryGuessInput.jpg  used on input line 566.
+Package pdftex.def Info: images/CountryGuessInput.jpg  used on input line 568.
 (pdftex.def)             Requested size: 213.39566pt x 154.1443pt.
- [64]
+ [64] [65]
 File: images/GuessedCountriesList.jpg Graphic file (type jpg)
 <use images/GuessedCountriesList.jpg>
-Package pdftex.def Info: images/GuessedCountriesList.jpg  used on input line 588.
+Package pdftex.def Info: images/GuessedCountriesList.jpg  used on input line 590.
 (pdftex.def)             Requested size: 298.75262pt x 173.08365pt.
- [65] [66] [67] [68]) (./testovani_svelte.tex [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79]
+ [66] [67] [68]) (./testovani_svelte.tex [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79]
 File: images/HintBoxes.jpg Graphic file (type jpg)
 <use images/HintBoxes.jpg>
 Package pdftex.def Info: images/HintBoxes.jpg  used on input line 526.
@@ -791,7 +791,7 @@ Here is how much of TeX's memory you used:
  474 hyphenation exceptions out of 8191
  68i,20n,77p,575b,536s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecxc2488.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/lusu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
-Output written on sablona_ukazka.pdf (108 pages, 1354712 bytes).
+Output written on sablona_ukazka.pdf (108 pages, 1354706 bytes).
 PDF statistics:
  2037 PDF objects out of 2073 (max. 8388607)
  1167 compressed objects within 12 object streams
