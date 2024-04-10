@@ -48,7 +48,7 @@ export class CounterButtonComponent \{
 \}
 \end{prog}
 
-Funkci \emph{emit()} \emph{EventEmitteru} zavoláme na tlačítku v~counter-buttonu právě tehdy, když uživatel klikne na tlačítko -- použijeme listener ve formě \emph{(click)}. 
+Funkci \emph{emit()} \emph{EventEmitteru} zavoláme na tlačítku v~counter-buttonu právě tehdy, když uživatel klikne na tlačítko -- pro to využijeme listener ve formě \emph{(click)}. 
 K~propsání textu či jiných elementů nebo komponent mezi párovými tagy <counter-button> pak poslouží párový či nepárový element <ng-content />.
 
 \begin{prog}
@@ -136,10 +136,7 @@ Metoda \emph{handleOptionClick} pak zajistí uložení aktuálně vybrané možn
 // Část souboru dropdown.component.html
 
 @if (isOpen) {
-  <div
-    class="" <!-- Statické styly... -->
-    [ngClass]="divStyles"
-  >
+  <div class="" [ngClass]="divStyles"> <!-- Statické styly... -->
     <div class="py-1" role="menu"> <!-- WAI-ARIA atributy... -->
       <!-- Pro vykreslení listu (pole hodnot) můžeme využít blok @for. -->
       @for (option of options; track option.value) {
@@ -157,8 +154,8 @@ Metoda \emph{handleOptionClick} pak zajistí uložení aktuálně vybrané možn
 }
 \end{prog}
 
-V~případě, že máme dropdown otevřen a~chceme jej po kliknutí mimo tentýž dropdown bezpečně zavřít, nehledě na počet vykreslených dropdown komponent na stránce, budeme postupovat následovně. 
-Pro každou komponentu vytvoříme unikátní vlastnost ve formě ID. To pak dynamicky umístíme na kořenový element dropdownu.
+V~případě, že máme seznam otevřen a~chceme jej po kliknutí mimo tentýž dropdown bezpečně zavřít, nehledě na počet vykreslených dropdown komponent na stránce, budeme postupovat následovně. 
+Pro každou komponentu vytvoříme identifikátor, který dynamicky umístíme na kořenový element rozevíracího seznamu.
 
 \begin{prog}
 // Část souboru dropdown.component.ts
@@ -170,9 +167,9 @@ protected dropdownId = `id-\${crypto.randomUUID()}`;
 <div class="relative inline-block text-left" [id]="dropdownId">
 \end{prog}
 
-V~komponentě pak budeme naslouchat na události v~DOM pomocí dekorátoru \emph{@HostListener}. 
-Dekorátor přijímá DOM událost, na který má poslouchat -- \emph{document:pointerdown}, případně další argumenty nebo také formu vypublikované události. 
-Pod dekorátorem pak definujeme obslužnou metodu, která se volá při emitu specifikované události. Uvnitř metody pak zajistíme uzavření aktuálně otevřeného dropdownu.
+Uvnitř komponenty budeme naslouchat na události v~DOM pomocí dekorátoru \emph{@HostListener}. 
+Dekorátor přijímá DOM událost, na který má poslouchat, v~tomto případě \emph{document:pointerdown}, eventuálně další argumenty nebo také formu vypublikované události. 
+Pod dekorátorem pak definujeme obslužnou metodu, která se volá při emitu specifikované události. Uvnitř metody následně zajistíme uzavření aktuálně otevřeného dropdownu.
 
 \begin{prog}
 // Část souboru dropdown.component.ts
@@ -185,8 +182,8 @@ onClickOutsideDropdown(target: HTMLElement): void \{
 \}
 \end{prog}
 
-Dropdown pak může mít různé inputy, které povedou k~lepší znovupoužitelnosti. Hodnotu inputu (konkrétně např.~\emph{defaultValue}) v~komponentě získáme v~metodě životního cyklu \emph{OnInit}. 
-Styly ve formě JS hodnot do šablony přidáme pomocí \emph{ngClass}. Když těchto hodnot potřebujeme na elementu více, zřetězíme předávané hodnoty pomocí JavaScriptu. 
+Dropdown poté může mít různé inputy, které povedou k~lepší znovupoužitelnosti. Hodnotu inputu (konkrétně např.~\emph{defaultValue}) uvnitř komponenty získáme v~metodě životního cyklu \emph{OnInit}. 
+Styly, ve formě JS hodnot, do šablony přidáme pomocí \emph{ngClass}. Když těchto hodnot potřebujeme na elementu více, zřetězíme předávané hodnoty pomocí JavaScriptu. 
 Další možnost spočívá ve sloučení požadovaných stylů na úrovni třídy.
 
 \subsubsection*{Reaktivita, asynchronní operace}
@@ -211,8 +208,9 @@ protected handleLanguageChange(outputLanguage: Option): void \{
 \}
 \end{prog}
 
-Zadání vstupního textu pak může řešit komponenta TranslationInputComponent, která obdobným způsobem aktualizuje hodnotu vstupního textu v~rodičovské komponentě. 
-Aktuální hodnotu formulářového prvku nastavíme pomocí \emph{[ngModel]}. Pro naslouchání na změnu hodnoty formulářového prvku zase využijeme \emph{(ngModelChange)}.
+Zadání vstupního textu může řešit komponenta TranslationInputComponent, která obdobným způsobem aktualizuje hodnotu vstupního textu v~rodičovské komponentě. 
+Aktuální hodnotu formulářového prvku nastavíme díky \emph{[ngModel]} direktivě. 
+Pro naslouchání na změnu hodnoty využijeme direktivu \emph{(ngModelChange)}, jíž předáme obslužnou metodu.
 
 \begin{prog}
 // Část souboru translation-input.component.html
@@ -228,13 +226,13 @@ Aktuální hodnotu formulářového prvku nastavíme pomocí \emph{[ngModel]}. P
 \end{prog}
 
 V~případě, že potřebujeme aktualizovat výšku textového pole na základě jeho obsahu, můžeme využít vlastní direktivu AutosizeTextAreaDirective. 
-V~konstruktoru direktivy získáme element, na který přidáme tuto direktivu. Dále budeme potřebovat třídu \emph{Renderer2}, která umožňuje manipulovat s~DOM. 
+Uvnitř konstruktoru direktivy získáme element, na který přidáme tuto direktivu. Dále budeme potřebovat třídu \emph{Renderer2}, která umožňuje manipulovat s~DOM. 
 V~direktivě budeme naslouchat na změnu hodnoty textového pole pomocí dekorátoru \emph{@HostListener} a~události input. Následně v~obslužné metodě zajistíme aktualizaci výšky.
 
 Změny hodnoty vlastnosti \emph{inputValuesChanges\$} začneme odebírat pomocí \emph{subscribe}. 
 Abychom předešli dotazování serveru ihned po změně hodnoty vlastnosti \emph{inputValuesChanges\$}, použijeme operátor \emph{debounceTime}. 
 Ten povolí poslat dotaz na server až po uplynutí určité doby od poslední změny, kterou můžeme nastavit. 
-Subscribe zavolá veřejnou metodu služby (\emph{getTranslation}), která vrací přeložený text. 
+V~subscribe zavoláme veřejnou metodu služby (\emph{getTranslation}), která vrací přeložený text. 
 Nakonec, aby dotazování serveru fungovalo, je třeba metodu \emph{setupInputChangeSubscription} zavolat v~konstruktoru nebo hooku \emph{OnInit}.
 
 \begin{prog}
@@ -259,7 +257,7 @@ private setupInputChangeSubscription(): void \{
 Ve službě TranslationService použijeme třídu \emph{HttpClient} z~Angular modulů, která umožňuje odesílat HTTP požadavky na server.
 Službu \emph{HttpClient} získáme v~konstruktoru, kde ji pomocí klíčového slova \emph{private} přiřadíme do vlastností třídy. 
 Pokračujeme implementací metody \emph{getTranslation}, v~níž zavoláme metodu \emph{post} na HTTP klientovi s~patřičným nastavením. 
-Tímto způsobem budeme dotazovat Microsoft Translator Text API \cite{translatortextapi}, díky kterému v~odpovědi obdržíme přeložený text. 
+Tímto způsobem budeme odesílat dotazy na Microsoft Translator Text API \cite{translatortextapi}, díky kterému v~odpovědi obdržíme přeložený text. 
 Pokud úspěšná odpověď ze serveru obsahuje složitější strukturu, ze které potřebujeme získat jen nějakou část, pak s~konverzí odpovědi pomůže RxJS operátor \emph{map()}. 
 Metoda \emph{getTranslation} vrací observable, v~translator komponentě proto hodnoty odebíráme pomocí metody \emph{subscribe}. 
 Subscription bychom také vždy měli zrušit, abychom předešli možným únikům paměti či chybám.
@@ -309,6 +307,7 @@ V~rámci šablony pak podmíněně vykreslíme přeložený text, chybu nebo na�
 Při zarovnání vstupního a~výstupního pole v~UI si musíme dát pozor na to, že šířku je potřeba nastavit již v~prvním potomku div elementu, na kterém nastavíme flexbox. 
 Důvod spočívá v~tom, že Angular v~DOM vytváří element pro každou komponentu.
 
+\newpage
 \begin{prog}
 // Část souboru translation.service.ts
 
@@ -358,10 +357,10 @@ protected investForm!: InvestForm;
 
 Hodnotu vlastnosti \emph{investForm} nastavíme pomocí metody \emph{initializeInvestForm} v~\emph{OnInit} hooku. 
 Tento postup zvolíme, protože chceme nastavovat počáteční hodnoty formuláře na základě vstupní vlastnosti \emph{defaultValues}.
-Důvodem je, že hodnoty vstupních vlastností jsou v~komponentě dostupné nejdříve uvnitř hooku \emph{OnInit}.
+Důvodem je, že hodnoty vstupních vlastností jsou v~komponentě dostupné nejdříve v~hooku \emph{OnInit}.
 
 Metoda \emph{initializeInvestForm} vrátí instanci třídy \emph{FormGroup}, kterou vytvoříme pomocí třídy \emph{FormBuilder} ze základního balíčku \emph{@angular/forms}. 
-Argumentem pro metodu \emph{group} pak je objekt, který popisuje strukturu formuláře. 
+Argumentem pro metodu \emph{group} je objekt, který popisuje strukturu formuláře. 
 Vlastnosti objektu budou klíče formulářových prvků a~jejich hodnoty pole, kde první prvek bude počáteční hodnota a~druhý prvek pole validátorů.
 
 \begin{prog}
@@ -437,6 +436,7 @@ Komponenta future-value-info pak přijímá vstupní vlastnost, kterou v~šablon
 Stejného výsledku bychom mohli dosáhnout i~díky třídní metodě. Tento přístup Angular nedoporučuje, jelikož metody se uvnitř šablony spouští opakovaně a~mohou způsobit problémy s~výkonem. 
 Oproti tomu roura umožní lepší znovupoužitelnost a~přehlednost.
 
+\newpage
 \begin{prog}
 // Soubor localized-number.pipe.ts
 
@@ -470,9 +470,9 @@ protected countries\$: Observable<Countries>
   = inject(CountryService).getAllCountries();
 \end{prog}
 
-V~šabloně posléze potřebujeme odebírat hodnotu z~observable. Práci v~šabloně výrazně ulehčí knihovna \emph{ngx-load-with} \cite{ngxloadwith}. 
-Tato knihovna poskytuje integrovanou podporu načítání a~zpracování chyb. To programátorovi umožní využívat předdefinované šablony pro dané stavy bez nutnosti další implementace. 
-Navíc se programátor nemusí starat o~zrušení odběru observable.
+V~šabloně posléze potřebujeme odebírat hodnotu z~observable. Práci uvnitř šablony výrazně ulehčí knihovna \emph{ngx-load-with} \cite{ngxloadwith}. 
+Tato knihovna poskytuje integrovanou podporu načítání a~zpracování chyb. Programátorovi to umožní využívat předdefinované šablony pro dané stavy bez nutnosti další implementace. 
+Navíc se vývojář nemusí starat o~rušení odběru observable, jelikož se o to postará baliček samotný.
 
 \begin{prog}
 // Část souboru country-guesser-wrapper.component.html
@@ -502,7 +502,7 @@ Uvnitř zavoláme veřejnou metodu \emph{usePolyfill} na službě CountryFlagPol
 Do komponenty také přidáme obslužné metody \emph{handleEvaluateGuessAndUpdateState} a~\emph{handleSetInitialState}, ve kterých implementujeme logiku hry. 
 V~šabloně následně vykreslíme UI komponenty hry a~podmíněně modální okna při výhře či prohře.
 
-V~metodě \emph{usePolyfill} služby CountryFlagPolyfillService zavoláme funkci \emph{polyfillCountryFlagEmojis} z~knihovny \emph{country-flag-emoji-polyfill} \cite{countryflagemojipolyfill}. 
+Uvnitř metody \emph{usePolyfill} služby CountryFlagPolyfillService zavoláme funkci \emph{polyfillCountryFlagEmojis} z~knihovny \emph{country-flag-emoji-polyfill} \cite{countryflagemojipolyfill}. 
 Pokud prohlížeč uživatele nepodporuje zobrazení ikon vlajek, ale podporuje emojis a~webové fonty, skrze funkci \emph{polyfillCountryFlagEmojis} knihovna přidá webový font do HTML hlavičky. 
 Font Twemoji Country Flags pak umožní zobrazení vlajek. Pro aktivaci přidaného fontu je třeba nastavit font-family pravidlo pomocí CSS stylů.
 
@@ -517,7 +517,7 @@ Font Twemoji Country Flags pak umožní zobrazení vlajek. Pro aktivaci přidan�
 \end{prog}
 
 HintBoxesComponent postupně vykreslí nápovědy. Při jakékoli změně vstupních vlastností vytvoříme pole nápověd pomocí vlastnosti randomCountry. 
-V~šabloně iterujeme přes pole nápověd a~vykreslíme jednotlivé nápovědy. Vlastnost hintEnabled nastavíme pomocí indexu a~vstupní vlastnosti hintsEnabledCount. 
+V~šabloně iterujeme přes pole nápověd a~vykreslíme jednotlivé nápovědy. Vlastnost \emph{hintEnabled} nastavíme pomocí indexu a~vstupní vlastnosti \emph{hintsEnabledCount}. 
 Samotný hint-box pak dynamicky vykreslí název a~SVG ikonu nápovědy, textovou nápovědu, případně obrázek vlajky státu.
 
 \begin{figure}[htb]
@@ -540,7 +540,7 @@ Můžeme také rovnou přidat obslužné metody pro akce a~události nad formul�
 \end{figure}
 
 V~souboru \emph{country-guess-input.component.ts}, tedy ve třídě CountryGuessInputComponent, při změně vstupních vlastností (v~hooku \emph{OnChanges}) aktualizujeme vlastnost \emph{countriesWithoutAlreadyGuessed} a~\emph{filteredCountries}. 
-V~případě první vlastnosti jde o~pole všech zemí bez těch, které uživatel již hádal. Druhá vlastnost poté představuje pole počátečních 8 prvků vlastnosti \emph{countriesWithoutAlreadyGuessed}. 
+V~případě první vlastnosti jde o~pole všech zemí bez těch, které uživatel již hádal. Druhá vlastnost představuje pole počátečních 8 prvků vlastnosti \emph{countriesWithoutAlreadyGuessed}. 
 Metoda \emph{handleGuessButtonClick} zavolá obslužnou metodu rodičovské komponenty, která vyhodnotí tip a~aktualizuje stav hry. 
 Aktualizujeme také hodnoty aktuálního tipu, filtrovaných zemí a~uzavřeme podmenu, k~čemuž slouží metoda \emph{handleChangeSelectedGuess} volaná i~napřímo z~šablony. 
 Tělo metody \emph{handleInputChange} převede uživatelům tip do správného formátu a~pomocí převedené hodnoty aktualizuje aktuální tip spolu s~filtrovanými zeměmi.
@@ -549,20 +549,21 @@ Enter umožní změnu aktuálního tipu názvu země na právě tu, kterou uživ
 
 Uvnitř pomocné metody \emph{updateGuessAndFilteredCountries} následně modifikujeme vlastnost \emph{currentGuess}. 
 Dle metody \emph{getFilteredCountries} získáme aktuálně filtrované země na základě uživatelova tipu. 
-Rovněž přenastavíme vlastnost \emph{isValidGuess}, která určuje, zda je uživatelův tip validní (taková země existuje). 
+Přenastavíme vlastnost \emph{isValidGuess}, která určuje, zda je uživatelův tip validní (taková země existuje). 
 V~neposlední řadě aktualizujeme vlastnost \emph{selectedGuessIndex}, jež určuje, která země je vybraná v~podmenu. 
 K~tomu slouží metoda \emph{clampSelectedGuessIndex}, která index udrží v~požadovaném rozmezí (0 až počet filtrovaných zemí).
 V~metodě \emph{getFilteredCountries} získáme filtrované země na základě vlastnosti \emph{currentGuess}. 
-Metoda \emph{changeSelectedGuessIndex} aktualizuje vlastnost \emph{selectedGuessIndex} o~hodnotu předanou v~argumentu. 
+Dále uvnitř metody \emph{changeSelectedGuessIndex} aktualizujeme vlastnost \emph{selectedGuessIndex} o~hodnotu předanou v~argumentu. 
 K~převodu tipu uživatele slouží pomocná metoda \emph{convertToFormattedGuess}. Metoda zajistí, aby tip začínal velkým písmenem a~zbytek řetezce byl složen z~malých písmen.
 
-Implementujeme komponentu guessed-countries-list, jenž zobrazí seznam již hádaných zemí. 
+Vytvoříme komponentu guessed-countries-list, jenž zobrazí seznam již hádaných zemí. 
 Mezi vstupními vlastnostmi bude pole všech zemí (\emph{countries}), pole hádaných zemí uživatelem (\emph{guessedCountries}) a~také země, kterou uživatel musí uhodnout (\emph{randomCountry}).
-Pomocí vstupních vlastností a~služby EnrichGuessedCountriesService získáme pole hádaných zemí s~jejich vlajkou a~vzdáleností od \emph{randomCountry} (\emph{distanceFromRandomCountry}).
+Pomocí vstupních vlastností a~služby EnrichGuessedCountriesService získáme pole hádaných zemí s~jejich vlajkou a~vzdáleností od náhodné země. 
+
 Služba EnrichGuessedCountriesService ke každé hádané zemi přidá její vlajku a~vypočte hodnotu \emph{distanceFromRandomCountry}. 
-Pro vypočtení vzdálenosti použijeme funkci \emph{getDistanceBetweenTwoPoints} a~vlastnost \emph{latlng}, kterou získáme ze serveru při získávání všech zemí. 
+K~vypočtení vzdálenosti využijeme funkci \emph{getDistanceBetweenTwoPoints} a~vlastnost \emph{latlng}, kterou získáme uvnitř odpovědi ze serveru při získávání všech zemí. 
 Funkci \emph{getDistanceBetweenTwoPoints} importujeme z~knihovny \emph{calculate-distance-between-coordinates} \cite{distancebetweencoordinates}. 
-Hodnotu vlastnosti \emph{enrichedGuessedCountries} aktualizujeme v~hooku \emph{OnChanges}. Seznam hádaných zemí vykreslíme v~šabloně.
+Poté hodnotu vlastnosti \emph{enrichedGuessedCountries} aktualizujeme v~hooku \emph{OnChanges}. Seznam hádaných zemí vykreslíme v~šabloně.
 
 \begin{figure}[htb]
 	\centering
@@ -573,9 +574,9 @@ Hodnotu vlastnosti \emph{enrichedGuessedCountries} aktualizujeme v~hooku \emph{O
 
 Pokračujeme implementací modálních oken, které se zobrazí při výhře či prohře. 
 Vlastnosti \emph{isWinModalOpen} a~\emph{isLoseModalOpen}, určující, zda se mají okna zobrazit, bychom měli aktualizovat v~metodě \emph{handleEvaluateGuessAndUpdateState} v~CountryGuesserComponent. 
-Oběma modálním oknům předáme vlastnost \emph{randomCountry} a~output \emph{handleClose} v~podobě obslužné události, která se vyvolá při zavření modálního okna. 
+Oběma modálním oknům předáme vlastnost \emph{randomCountry} a~output \emph{handleClose} v~podobě obslužné události, která se vyvolá při uzavření modálního okna. 
 Do výherního modálu rovněž poskytneme vstupní vlastnost \emph{totalGuessesNeeded}, jíž využijeme v~obsahu okna. 
-Obě modální okna budou velice podobná, a~proto vytvoříme komponentu base-modal, která bude sloužit jako šablona pro obě okna. 
+Jelikož obě modální okna budou velice podobná, vytvoříme komponentu base-modal, která bude sloužit jako šablona pro obě okna. 
 BaseModalComponent bude přijímat titulek, obsah modálního okna a~\emph{handleClose} jako výstupní vlastnost. 
 Šablona base-modal pak vykreslí základní strukturu modálního okna s~dynamicky nastaveným titulkem, obsahem a~obslužnou metodou volanou při zavření modálního okna.
 
@@ -584,7 +585,7 @@ BaseModalComponent bude přijímat titulek, obsah modálního okna a~\emph{handl
 Demonstrační aplikace bude složena z~hlavičky, patičky a~samotného obsahu, v~němž se vykreslí jednotlivé komponenty. 
 Mezi jednotlivými stránkami se uživatel bude moci přepínat pomocí navigačního menu.
 
-K~routování mezi jednotlivými stránkami využijeme modul Router přímo od Angularu. Nejprve vytvoříme cesty (\emph{routes}) pro jednotlivé stránky v~souboru \emph{app.routes.ts}. 
+Pro routování mezi stránkami využijeme modul Router přímo od Angularu. Začneme vytvořením cest (\emph{routes}) pro jednotlivé stránky v~souboru \emph{app.routes.ts}. 
 Proměnnou \emph{routes} vytvoříme dle předpisu \emph{Routes} a~následně exportujeme. Cesty pak poskytneme routeru v~souboru \emph{app.config.ts}.
 
 \begin{prog}
@@ -638,9 +639,9 @@ Pokračujeme vytvořením požadované struktury stránek v~AppComponent. Šablo
 
 V~rámci komponenty app-header vytvoříme navigační menu, které bude obsahovat odkazy na jednotlivé stránky. 
 Můžeme se inspirovat například architekturou a~vzhledem navigačního menu Flowbite\footnote{Flowbite poskytuje pestrou sadu UI komponent založených na TailwindCSS.\cite{flowbitetwheader}}. 
-Pokračujeme vypsáním všech cest aplikace, k~čemuž využijeme direktivy \emph{routerLink}, \emph{routerLinkActive}, \emph{routerLinkActiveOptions} a~referenci \emph{\#link}. 
+Pokračujeme zobrazením všech cest aplikace, k~čemuž využijeme \emph{routerLink}, \emph{routerLinkActive}, \emph{routerLinkActiveOptions} a~referenci \emph{\#link}. 
 Do \emph{routerLink} předáme patřičnou cestu a~\emph{routerLinkActive} umožní naslouchat na aktuální URL. Direktiva \emph{routerLinkActiveOptions} pak přepíše výchozí nastavení \emph{routerLinkActive}.
-Díky referenci \emph{\#link} získáme informaci o~tom, zda je odkaz aktivní. To využijeme při podmíněném nastavení správných CSS tříd na aktivních a~neaktivních odkazech.
+Díky referenci \emph{\#link} získáme informaci o~tom, zda je odkaz aktivní. To následně využijeme při podmíněném nastavení správných CSS tříd na aktivních a~neaktivních odkazech.
 
 \begin{prog}
 // Část souboru header.component.html
