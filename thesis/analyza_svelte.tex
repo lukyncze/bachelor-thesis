@@ -20,16 +20,16 @@ Po vydání této verze se framework stal populárnějším díky jeho jednoduch
 Verze~4 pak v~roce~2023 představila pouze minimální změny, jež spočívají v~údržbě a~přípravách pro verzi nastávající.
 
 Přestože Svelte nedisponuje rozsáhlým ekosystémem jako jiné JS frameworky, získal si přízeň mnoha velkých společností. 
-Mezi ně patří například firmy jako The New York Times, Avast, Rakuten a~Razorpay.\cite{sveltemdn,svelte,sveltedevinterface}
+Mezi ně patří například firmy jako Avast, Rakuten, Razorpay a~The New York Times.\cite{sveltemdn,svelte,sveltedevinterface}
 
 \subsubsection{Komponenty}
 
-Podobně jako v~jiných frameworcích, komponenty jsou základní stavební bloky Svelte. Komponentu tvoří HTML, CSS a~JavaScript, kde vše patří do jednoho souboru s~příponou .svelte. 
+Podobně jako v~jiných frameworcích, komponenty jsou základní stavební bloky Svelte. Komponentu tvoří HTML, CSS a~JavaScript, kde vše se vkládá do jednoho souboru s~příponou .svelte. 
 Všechny tři části komponenty jsou nepovinné. Logika komponenty musí být zapsána mezi párové script tagy. Následuje jedna nebo více značek pro definovaní šablony komponenty. 
-V~neposlední řadě kaskádové styly se zapisují mezi značky style.
+V~neposlední řadě kaskádové styly se zapisují mezi style značky.
 
-V~rámci šablony Svelte umožňuje využívat logické bloky pro podmíněné vykreslování nebe také iterace přes pole hodnot (list). 
-Zabudovaná je i~podpora manipulace s~asynchronním JavaScriptem - promises.\cite{svelte}
+V~rámci šablony Svelte umožňuje využívat logické bloky pro podmíněné vykreslování nebo také iterace přes pole hodnot. 
+Zabudovaná je také podpora manipulace s~asynchronním JavaScriptem - promises.\cite{svelte}
 
 \begin{prog}
 <script>
@@ -114,8 +114,8 @@ Následně předáme callback funkci, v~níž provedeme požadovanou akci.
 
 Vývojáři také přišli s~možností odesílání a~přijímání eventů pro komponenty. 
 Uvnitř vnořené komponenty je třeba mít DOM event handler, na který chceme reagovat v~rodičovské komponentě. 
-Poté je nutné využít zabudovanou funkci createEventDispatcher, které předáme potřebné parametry -- libovolný název pro event komponenty a~hodnotu. 
-V~rodičovské komponentě pak reagujeme na event pomocí klíčového slova on a~našeho libovolného názvu pro event. Hodnotu poté získáme v~callback funkci.\cite{sveltehandbook,svelte}
+Poté je nutné využít funkci createEventDispatcher, které předáme potřebné parametry -- libovolný název pro event komponenty a~hodnotu. 
+V~rodičovské komponentě následně reagujeme na event pomocí klíčového slova on a~našeho libovolného názvu pro event. Hodnotu posléze získáme v~callback funkci.\cite{sveltehandbook,svelte}
 
 \begin{prog}
 // Parent.svelte
@@ -192,17 +192,16 @@ Konkrétně knihovny page.js, svelte-routing, svelte-navigator, svelte-spa-route
 
 Routování ve SvelteKit je implementováno pomocí file systému. Komponenta s~názvem +page.svelte definuje stránku aplikace. 
 Framework umožňuje pro opakující se uživatelská prostředí využít tzv. layouts. Jde o~soubor, který aplikuje určité elementy (duplicitní kód) pro aktuální adresář komponent. 
-Pro vykreslení obsahu na základě samotných komponent se využívá element slot. SvelteKit také umožňuje vytváření dynamických parametrů přímo v~souborovém systému. 
+Pro vykreslení obsahu na základě samotných komponent se využívá element slot. SvelteKit také umožňuje vytváření dynamických parametrů pomocí souborovém systému. 
 Díky takovým cestám je možné tvořit např.~individuální příspěvky na blogu. Pomocí +server.js můžeme definovat API routy (endpointy) aplikace. 
 Chybové stránky implementujeme pomocí +error.svelte souborů.\cite{svelte,sveltekit}
 
 \subsubsection{Ekosystém}
 
 I~přesto, že Svelte používá stále více vývojářů, framework nedisponuje přiliš rozsáhlým ekosystémem. Hlavní rozšíření spočívá v~použití rozšiřujícího frameworku SvelteKit a~jazyka TypeScript. 
-Vztah Svelte a~SvelteKit můžeme definovat jako sourozenecký, kdy SvelteKit poskytuje adaptivní prostředí pro vývoj aplikace jakéhokoli rozsahu.
+Vztah mezi Svelte a~SvelteKit můžeme definovat jako sourozenecký, kdy SvelteKit poskytuje adaptivní prostředí pro vývoj aplikace jakéhokoli rozsahu.
 
 Dle \cite{sveltedailydev} neexistuje mnoho specifických knihoven přímo pro Svelte. 
 Na druhou stranu je možné využít rozsáhlého ekosystému JavaScriptu, jelikož Svelte poskytuje přímou kontrolu nad DOM. 
 V~porovnání se specifickými knihovnami tento přístup však obvykle vyžaduje práci navíc. 
 Problematické bývá využití knihoven používající API prohlížeče.\cite{svelteheyreliable,sveltedailydev,sveltejslibs}
-% Případně doplnit, jakým způsobem se řeší stylování v komponentách :)

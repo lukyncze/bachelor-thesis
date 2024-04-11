@@ -114,7 +114,7 @@ Předávat vlastnosti či jiné hodnoty je možné pomocí vstupního dekorátor
 Uvnitř šablony danou hodnotu předáme do vnořené komponenty skrze název vstupu v~hranatých závorkách.   
 Ve vnořené komponentě využijeme dekorátor @Input, sloužící k~získání hodnot z~rodičovské komponenty. K~předaným hodnotám není možné přistupovat v~rámci konstruktoru. 
 
-K~předání hodnoty z~vnořené komponenty nejprve přidáme vnořené komponentě název výstupu v~kulatých závorkách a~obslužnou metodu, která se vykoná po předání vlastnosti. 
+Pro předání hodnoty z~vnořené komponenty nejprve přidáme vnořené komponentě název výstupu v~kulatých závorkách a~obslužnou metodu, která se vykoná po předání vlastnosti. 
 Posléze definujeme @Output ve vnořené komponentě, na němž zavoláme metodu emit(), která přes argument metody umožňuje předání (vypublikování) hodnot z~vnořené do rodičovské komponenty.\cite{angulardev,learningangular}
 
 \begin{prog}
@@ -164,9 +164,9 @@ export class ChildComponent \{
 
 \subsubsection{Služby, direktivy, roury}
 
-Angular disponuje pestrou škálou možností, jak sdílet bloky kódu či logiku mezi různými částmi aplikace. Služby, direktivy, nebo také roury tvoříme pomocí JavaScriptových tříd. 
+Angular disponuje pestrou škálou možností, jak sdílet bloky kódu či logiku mezi různými částmi aplikace. Mezi ně patří služby, direktivy, roury, které tvoříme pomocí JavaScriptových tříd. 
 Služby (services) umožňují znovupoužití určité části kódu ve více komponentách. 
-Služby obvykle používáme ke komunikaci s~HTTP endpointy, sdílíme v~nich stavy více komponent a~využíváme je k~transformacím.\cite{angulardev,learningangular}
+Běžné využití služeb zahrnuje komunikaci s~HTTP endpointy, sdílení stavů mezi více komponentami a~provádění transformací.\cite{angulardev,learningangular}
 
 \begin{prog}
 import \{ Injectable \} from '@angular/core';

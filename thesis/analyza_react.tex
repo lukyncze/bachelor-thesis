@@ -1,8 +1,8 @@
 \subsection{React}
 
 Pod pojmem React rozumíme open-source JavaScript framework, který vytvořila a~dále rozvíjí společnost Meta (dříve Facebook). 
-Podle \cite{reactbanks} jde spíše o~knihovnu funkcí, než-li o~komplexní nástroj pro tvorbu webových aplikací (framework). 
-Tato technologie se používá pro vývoj interaktivních uživatelských rozhraní a~webových aplikací.\cite{reacthubspot}
+Podle \cite{reactbanks} jde spíše o~knihovnu funkcí, než-li o~komplexní nástroj pro tvorbu webových aplikací. 
+Framework se využivá k~vývoji interaktivních uživatelských rozhraní a~webových aplikací.\cite{reacthubspot}
 
 \begin{figure}[htb]
 	\centering
@@ -12,19 +12,19 @@ Tato technologie se používá pro vývoj interaktivních uživatelských rozhra
 \end{figure}
 
 První kořeny Reactu sahají až do roku 2010, kdy tehdejší společnost Facebook přidala rozšíření XHP do PHP. 
-Jde o~možnost znovu použít určitý blok kódu, stejného principu posléze využívá i~React. Následně Jordan Walke vytvořil FaxJS, jenž byl prvním prototypem Reactu.
+Jde o~možnost znovu použít určitý blok kódu, kdy stejného principu posléze využívá i~React. Následně Jordan Walke vytvořil FaxJS, jenž byl prvním prototypem Reactu.
 O~rok později byl přejmenován na React a~začal jej využívat Facebook. 
 V~roce 2013 byl na konferenci JS ConfUS představen široké veřejnosti a~stal se open-source.
 
 Od roku 2014 vývojáři představují nespočet vylepšení samotné knihovny, stejně jako spoustu rozšíření pro zlepšení vývojových procesů. 
-Kolem roku 2015 postupně React nabývá na popularitě i~celkové stabilitě. Následně je představen také React Native, což je framework pro vývoj nativních aplikací.
+Kolem roku 2015 postupně React nabývá na popularitě i~celkové stabilitě. Následně je představen také React Native, což je framework pro vývoj mobilních (nativních) aplikací.
 React používá široká škála společností, od malých startupů až po velké nadnárodní korporace. 
-Z~těch největších jde například o~Metu, Uber, Twitter a~Airbnb.\cite{reactbanks,reactrisingstack}
+Z~těch největších např. Meta, Uber, Twitter a~Airbnb.\cite{reactbanks,reactrisingstack}
 
 \subsubsection{Komponenty}
 
 Hlavním stavebním kamenem Reactu jsou komponenty, jež představují nezávislé, vnořitelné a~opakovaně použitelné bloky kódu. 
-Komponentu v~Reactu tvoří JavaScript funkce a~HTML šablona. Validně seskládané komponenty poté tvoří webovou aplikaci.
+React komponentu tvoří JavaScript funkce a~HTML šablona. Validně seskládané komponenty poté tvoří webovou aplikaci.
 V~Reactu se můžeme setkat s~funkčními a~třídními komponentami. Vytváření třídních komponent je na ústupu a~oficiální dokumentace je rovněž nedoporučuje. 
 Výstup komponent tvoří elementy ve formě JSX. Tyto elementy obsahují informace o~vzhledu a~funkcionalitě dané komponenty.
 
@@ -59,7 +59,7 @@ function ChildComponent(\{color\}) \{
 Název JSX kombinuje zkratku jazyka JavaScript -- JS a~počáteční písmeno ze zkratky XML. 
 Konkrétně jde o~syntaktické rozšíření, které vývojářům umožňuje tvořit React elementy pomocí hypertextového značkovacího jazyku přímo v~JavaScriptu. 
 V~rámci JSX pak je možné dynamicky vykreslovat obsah na základě logiky definované pomocí JS hodnot.
-Při kompilaci se JSX překládá do JavaScriptu pomocí nástroje Babel.\cite{reactbanks,react}
+Při kompilaci se JSX překládá do JavaScriptu například pomocí nástroje Babel.\cite{reactbanks,react}
 
 \begin{prog}
 import React from 'react';
@@ -104,7 +104,7 @@ function App() \{
 
 Specifickou funkcionalitou pro React jsou tzv. hooky, které byly do Reactu přidány až ve verzi 16.8.0.\cite{reactgithub} 
 Hook je definován jako funkce, která obohacuje komponenty pomocí předdefinovaných funkcionalit. Jedním z~nejpoužívanejších hooků je useState. 
-Vývojáři mohou používat již zabudované hooky, nebo si vytvářet své vlastní s~pomocí předdefinovaných hooků. 
+Vývojáři mohou používat již zabudované hooky, nebo si vytvářet své vlastní díky předpřipraveným hookům. 
 Mezi zabudované hooky patří např.~useEffect, useMemo, useCallback, useRef, useContext.\cite{react}
 
 \begin{prog}
@@ -164,4 +164,4 @@ Tento framework sám o~sobě není úplně komplexním nástrojem. I~přesto se 
 Na druhou stranu React disponuje velmi diverzifikovaným ekosystémem knihoven, který nabízí bohatý výběr nástrojů pro různé aspekty vývoje. 
 Knihovny jsou převážně zaměřené na stylování, tvorbu tabulek, formulářů, grafů či grafických animací, správu stavů, routování, dotazování na API. 
 Nechybí ani dokumentační knihovny, vývojářské rozšíření pro prohlížeče, striktní typování, překlady, testovací balíčky. 
-V~neposlední řadě pro React existují nadstavby ve formě frameworků, které poskytují komplexnější nástroje pro produkční aplikace.\cite{awesomereact,builderreacteco,react}
+V~neposlední řadě pro React existují nástavby ve formě frameworků, které poskytují komplexnější nástroje pro produkční aplikace.\cite{awesomereact,builderreacteco,react}
