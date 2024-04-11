@@ -229,14 +229,24 @@ V~případě, že potřebujeme aktualizovat výšku textového pole na základě
 Uvnitř konstruktoru direktivy získáme element, na který přidáme tuto direktivu. Dále budeme potřebovat třídu \emph{Renderer2}, která umožňuje manipulovat s~DOM. 
 V~direktivě budeme naslouchat na změnu hodnoty textového pole pomocí dekorátoru \emph{@HostListener} a~události input. Následně v~obslužné metodě zajistíme aktualizaci výšky.
 
-Změny hodnoty vlastnosti \emph{inputValuesChanges\$} začneme odebírat pomocí \emph{subscribe}. 
-Abychom předešli dotazování serveru ihned po změně hodnoty vlastnosti \emph{inputValuesChanges\$}, použijeme operátor \emph{debounceTime}. 
-Ten povolí poslat dotaz na server až po uplynutí určité doby od poslední změny, kterou můžeme nastavit. 
-V~subscribe zavoláme veřejnou metodu služby (\emph{getTranslation}), která vrací přeložený text. 
-Nakonec, aby dotazování serveru fungovalo, je třeba metodu \emph{setupInputChangeSubscription} zavolat v~konstruktoru nebo hooku \emph{OnInit}.
+Změnu hodnoty observable \emph{inputValuesChanges\$} začneme odebírat pomocí \emph{subscribe}. 
+Učiníme tak v~metodě \emph{setupInputChangeSubscription}, kterou zavoláme v~konstruktoru.
+Operátor \emph{debounceTime} využijeme pro zpomalení, abychom nedotazovali API ihned po každě změně \emph{inputValuesChanges\$}. 
+V~\emph{subscribe} zavoláme metodu \emph{triggerTranslation}, která získá přeložený text. 
 
 \begin{prog}
 // Část souboru translator.component.ts
+
+// Slouží ke zrušení subscriptions při zničení komponenty.
+private destroy\$: Subject<void> = new Subject();
+// Slouží k naslouchání na změny vstupního textu a výstupního jazyka.
+private inputValuesChanges\$ = new Subject<string>();
+
+public ngOnDestroy(): void \{
+  // Slouží k manuálnímu unsubscribe všech observables při zničení komponenty.
+  this.destroy\$.next();
+  this.destroy\$.complete();
+\}
 
 private setupInputChangeSubscription(): void \{
   // Naslouchá změnám vstupního textu a výstupního jazyka.
@@ -254,13 +264,17 @@ private setupInputChangeSubscription(): void \{
 \}
 \end{prog}
 
+Subscription bychom také vždy měli rušit, abychom předešli možným únikům paměti či chybám. 
+Můžeme využít metodu \emph{unsubscribe}, kterou implicitně pro každou observable zavoláme v~metodě \emph{OnDestroy}. 
+Více deklarativní řešení spočívá ve vytvoření \emph{Subjectu}, který předáme operátoru \emph{takeUntil}. 
+V~hooku \emph{OnDestroy} pak zavoláme metody \emph{next} a~\emph{complete} na \emph{Subjectu}, čímž zrušíme odběr.
+
 Ve službě TranslationService použijeme třídu \emph{HttpClient} z~Angular modulů, která umožňuje odesílat HTTP požadavky na server.
 Službu \emph{HttpClient} získáme v~konstruktoru, kde ji pomocí klíčového slova \emph{private} přiřadíme do vlastností třídy. 
 Pokračujeme implementací metody \emph{getTranslation}, v~níž zavoláme metodu \emph{post} na HTTP klientovi s~patřičným nastavením. 
 Tímto způsobem budeme odesílat dotazy na Microsoft Translator Text API \cite{translatortextapi}, díky kterému v~odpovědi obdržíme přeložený text. 
 Pokud úspěšná odpověď ze serveru obsahuje složitější strukturu, ze které potřebujeme získat jen nějakou část, pak s~konverzí odpovědi pomůže RxJS operátor \emph{map()}. 
-Metoda \emph{getTranslation} vrací observable, v~translator komponentě proto hodnoty odebíráme pomocí metody \emph{subscribe}. 
-Subscription bychom také vždy měli zrušit, abychom předešli možným únikům paměti či chybám.
+Metoda \emph{getTranslation} vrací observable, v~translator komponentě proto hodnoty odebíráme pomocí metody \emph{subscribe}.
 
 \begin{prog}
 // Část souboru translation.service.ts
@@ -270,17 +284,6 @@ return this.httpClient
   .pipe(map(data => this.convertToOutputText(data)));
 
 // Část souboru translator.component.ts
-
-// Slouží ke zrušení subscriptions při zničení komponenty.
-private destroy\$: Subject<void> = new Subject();
-// Slouží k naslouchání na změny vstupního textu a výstupního jazyka.
-private inputValuesChanges\$ = new Subject<string>();
-
-public ngOnDestroy(): void \{
-  // Slouží k manuálnímu unsubscribe všech observables při zničení komponenty.
-  this.destroy\$.next();
-  this.destroy\$.complete();
-\}
 
 this.translationService
   .getTranslation(this.inputText, this.outputLanguage)
@@ -307,9 +310,8 @@ V~rámci šablony pak podmíněně vykreslíme přeložený text, chybu nebo na�
 Při zarovnání vstupního a~výstupního pole v~UI si musíme dát pozor na to, že šířku je potřeba nastavit již v~prvním potomku div elementu, na kterém nastavíme flexbox. 
 Důvod spočívá v~tom, že Angular v~DOM vytváří element pro každou komponentu.
 
-\newpage
 \begin{prog}
-// Část souboru translation.service.ts
+// Část souboru translator.component.html
 
 <div class="flex text-xl">
   <translation-input 
