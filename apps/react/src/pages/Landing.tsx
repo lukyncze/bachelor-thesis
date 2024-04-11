@@ -5,14 +5,13 @@ function Landing() {
         <p className="rounded-md px-4 py-3 bg-gray-200">
           Pod pojmem React rozumíme open-source JavaScript framework, který vytvořila a dále rozvíjí
           společnost Meta (dříve Facebook). Podle knihy Learning React od Bankse jde spíše o
-          knihovnu funkcí, než-li o komplexní nástroj pro tvorbu webových aplikací (framework). Tato
-          technologie se používá pro vývoj interaktivních uživatelských rozhraní a webových
-          aplikací.
+          knihovnu funkcí, než-li o komplexní nástroj pro tvorbu webových aplikací. Framework se
+          využivá k vývoji interaktivních uživatelských rozhraní a webových aplikací.
         </p>
 
         <p className="rounded-md px-4 py-3 bg-gray-100">
-          První kořeny Reactu sahají až do roku 2010, kdy tehdejší společnost Facebook přidala novou
-          technologii XHP do PHP. Jde o možnost znovu použít určitý blok kódu, stejného principu
+          První kořeny Reactu sahají až do roku 2010, kdy tehdejší společnost Facebook přidala
+          rozšíření XHP do PHP. Jde o možnost znovu použít určitý blok kódu, kdy stejného principu
           posléze využívá i React. Následně Jordan Walke vytvořil FaxJS, jenž byl prvním prototypem
           Reactu. O rok později byl přejmenován na React a začal jej využívat Facebook. V roce 2013
           byl na konferenci JS ConfUS představen široké veřejnosti a stal se open-source.
@@ -22,9 +21,9 @@ function Landing() {
           Od roku 2014 vývojáři představují nespočet vylepšení samotné knihovny, stejně jako spoustu
           rozšíření pro zlepšení vývojových procesů. Kolem roku 2015 postupně React nabývá na
           popularitě i celkové stabilitě. Následně je představen také React Native, což je framework
-          pro vývoj nativních aplikací. React používá široká škála společností, od malých startupů
-          až po velké nadnárodní korporace. Z těch největších jde například o Metu, Uber, Twitter a
-          Airbnb.
+          pro vývoj mobilních (nativních) aplikací. React používá široká škála společností, od
+          malých startupů až po velké nadnárodní korporace. Z těch největších např. Meta, Uber,
+          Twitter a Airbnb.
         </p>
       </div>
 

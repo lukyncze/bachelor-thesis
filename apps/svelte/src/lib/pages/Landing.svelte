@@ -4,12 +4,12 @@
   <div class="space-y-6 text-justify xl:w-1/2">
     <p class="rounded-md px-4 py-3 bg-gray-200">
       Svelte je relativně novým open-source JavaScript frameworkem, za jejímž stvořením stojí
-      vývojář Richard Harris. Framework kompiluje komponenty přímo do čistého nativního a vysoce
-      optimalizovaného JavaScriptu bez potřeby runtime. To vše ještě před tím, než uživatel navštíví
-      webovou aplikaci v prohlížeči. Tato metoda poskytuje výhodu hlavně co se týče rychlosti oproti
-      klasickým deklarativním frameworkům jako jsou např. React, Vue nebo Angular. Stejně jako tyto
-      frameworky je Svelte určen k vývoji rychlého a kompaktního uživatelského rozhraní pro webové
-      aplikace.
+      vývojář Richard Harris. Framework se odlišuje tím, že kompiluje komponenty přímo do čistého,
+      nativního a vysoce optimalizovaného JavaScriptu bez potřeby runtime. To vše ještě před tím,
+      než uživatel navštíví webovou aplikaci v prohlížeči. Tato metoda oproti klasickým
+      deklarativním frameworkům, jako jsou např. Angular, React či Vue, poskytuje výhodu především v
+      rychlosti. Technologie je určena k vývoji kompaktního a rychlého uživatelského rozhraní
+      webových aplikací.
     </p>
 
     <p class="rounded-md px-4 py-3 bg-gray-100">
@@ -22,8 +22,8 @@
 
     <p class="rounded-md px-4 py-3 bg-gray-200">
       Přestože Svelte nedisponuje rozsáhlým ekosystémem jako jiné JS frameworky, získal si přízeň
-      mnoha velkých společností. Mezi ně patří například firmy jako The New York Times, Avast,
-      Rakuten a Razorpay.
+      mnoha velkých společností. Mezi ně patří například firmy jako Avast, Rakuten, Razorpay a The
+      New York Times.
     </p>
   </div>
 
