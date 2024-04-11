@@ -532,7 +532,7 @@ function CountryGuesserWrapper() \{
 \}
 \end{prog}
 
-Komponenta CountryGuesser bude vyhodnocovat průběh hry a~zobrazovat jednotlivé herní prvky. Začneme definováním stavů a také~inicializujeme náhodnou zemi (\emph{randomCountry}), kterou bude uživatel hádat. 
+Komponenta CountryGuesser bude vyhodnocovat průběh hry a~zobrazovat jednotlivé herní prvky. Začneme definováním stavů a~také~inicializujeme náhodnou zemi (\emph{randomCountry}), kterou bude uživatel hádat. 
 Posléze využijeme vlastní hook \emph{useCountryFlagPolyfill}, který při namontování komponenty zajistí podporu zobrazení ikon vlajek v~prohlížečích, které to přímo nepodporují. 
 Prohlížeč pak však musí podporovat emojis a~webové fonty. Pokračujeme implementací obslužných funkcí \emph{handleEvaluateGuessAndUpdateState} a~\emph{handleSetInitialState}, které budou sloužit k~aktualizaci stavu hry. 
 Následně v~JSX vykreslíme jednotlivé herní prvky a~modální okna při výhře či prohře.
