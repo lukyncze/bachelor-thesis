@@ -637,8 +637,8 @@ Pokračujeme vytvořením požadované struktury stránek v~AppComponent. Šablo
 </div>
 \end{prog}
 
-V~rámci komponenty app-header vytvoříme navigační menu, které bude obsahovat odkazy na jednotlivé stránky. 
-Můžeme se inspirovat například architekturou a~vzhledem navigačního menu Flowbite\footnote{Flowbite poskytuje pestrou sadu UI komponent založených na TailwindCSS.\cite{flowbitetwheader}}. 
+V~rámci komponenty app-header vytvoříme navigaci, která bude obsahovat odkazy na jednotlivé stránky. 
+Můžeme se inspirovat např.~architekturou a~vzhledem navigačního menu Flowbite\footnote{Flowbite poskytuje pestrou sadu UI komponent založených na TailwindCSS.\cite{flowbitetwheader}}. 
 Pokračujeme zobrazením všech cest aplikace, k~čemuž využijeme \emph{routerLink}, \emph{routerLinkActive}, \emph{routerLinkActiveOptions} a~referenci \emph{\#link}. 
 Do \emph{routerLink} předáme patřičnou cestu a~\emph{routerLinkActive} umožní naslouchat na aktuální URL. Direktiva \emph{routerLinkActiveOptions} pak přepíše výchozí nastavení \emph{routerLinkActive}.
 Díky referenci \emph{\#link} získáme informaci o~tom, zda je odkaz aktivní. To následně využijeme při podmíněném nastavení správných CSS tříd na aktivních a~neaktivních odkazech.
