@@ -663,7 +663,7 @@ K~nastavení aria-current použijeme \emph{location} objekt ze \emph{svelte-spa-
 \{/each\}
 \end{prog}
 
-Stavy \emph{isMobileNavOpen} a~\emph{isDarkMode} umožní ovládat zobrazení mobilní navigace a~barevného režimu. Pro uložení preference tmavého režimu použijeme zabudovanou LocalStorage v prohlížeči. 
+Stavy \emph{isMobileNavOpen} a~\emph{isDarkMode} umožní ovládat zobrazení mobilní navigace a~barevného režimu. Pro uložení informace o~preferenci tmavého režimu využijeme LocalStorage API prohlížeče. 
 Logiku pro přepnutí barevného režimu zavoláme v~hooku \emph{beforeUpdate}. Tento hook se spustí po změně lokálního stavu, ale před aktualizací HTML.
 
 \begin{prog}
