@@ -501,7 +501,7 @@ Navíc se vývojář nemusí starat o~rušení odběru observable, jelikož se o
 V~rámci komponenty country-guesser budeme implementovat jednotlivé herní prvky, komponenta také bude vyhodnocovat průběh hry. 
 Definujeme tedy vlastnosti třídy, které budou reprezentovat stav a~průběh hry. V~hooku \emph{OnInit} získáme náhodnou zemi (zemi pro uhádnutí). 
 Uvnitř zavoláme veřejnou metodu \emph{usePolyfill} na službě CountryFlagPolyfillService, která zajistí zobrazení ikon vlajek v~prohlížečích, které nepodporují zobrazení vlajek.
-Do komponenty také přidáme obslužné metody \emph{handleEvaluateGuessAndUpdateState} a~\emph{handleSetInitialState}, ve kterých implementujeme logiku hry. 
+Do komponenty také přidáme obslužné metody \emph{handleEvaluateGuessAndUpdateState} a~\emph{handleSetInitialState}, ve kterých naprogramujeme logiku hry. 
 V~šabloně následně vykreslíme UI komponenty hry a~podmíněně modální okna při výhře či prohře.
 
 Uvnitř metody \emph{usePolyfill} služby CountryFlagPolyfillService zavoláme funkci \emph{polyfillCountryFlagEmojis} z~knihovny \emph{country-flag-emoji-polyfill} \cite{countryflagemojipolyfill}. 
@@ -518,7 +518,7 @@ Font Twemoji Country Flags pak umožní zobrazení vlajek. Pro aktivaci přidan�
 \}
 \end{prog}
 
-HintBoxesComponent postupně vykreslí nápovědy. Při jakékoli změně vstupních vlastností vytvoříme pole nápověd pomocí vlastnosti randomCountry. 
+HintBoxesComponent postupně vykreslí nápovědy. Při jakékoli změně vstupních vlastností vytvoříme pole nápověd pomocí vlastnosti \emph{randomCountry}. 
 V~šabloně iterujeme přes pole nápověd a~vykreslíme jednotlivé nápovědy. Vlastnost \emph{hintEnabled} nastavíme pomocí indexu a~vstupní vlastnosti \emph{hintsEnabledCount}. 
 Samotný hint-box pak dynamicky vykreslí název a~SVG ikonu nápovědy, textovou nápovědu, případně obrázek vlajky státu.
 
@@ -558,7 +558,7 @@ V~metodě \emph{getFilteredCountries} získáme filtrované země na základě v
 Dále uvnitř metody \emph{changeSelectedGuessIndex} aktualizujeme vlastnost \emph{selectedGuessIndex} o~hodnotu předanou v~argumentu. 
 K~převodu tipu uživatele slouží pomocná metoda \emph{convertToFormattedGuess}. Metoda zajistí, aby tip začínal velkým písmenem a~zbytek řetezce byl složen z~malých písmen.
 
-Vytvoříme komponentu guessed-countries-list, jenž zobrazí seznam již hádaných zemí. 
+Dále vytvoříme komponentu guessed-countries-list, která zobrazí seznam již hádaných zemí. 
 Mezi vstupními vlastnostmi bude pole všech zemí (\emph{countries}), pole hádaných zemí uživatelem (\emph{guessedCountries}) a~také země, kterou uživatel musí uhodnout (\emph{randomCountry}).
 Pomocí vstupních vlastností a~služby EnrichGuessedCountriesService získáme pole hádaných zemí s~jejich vlajkou a~vzdáleností od náhodné země. 
 
