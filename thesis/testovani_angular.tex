@@ -102,7 +102,7 @@ export class CounterComponent \{
 \subsubsection*{Interakce v uživatelském prostředí}
 
 Při vytváření jakékoli UI komponenty můžeme začít šablonou, nebo definovat funkční stránku. My začneme s~tvorbou šablony. V~případě vlastního dropdown samotným tlačítkem a~seznamem možností. 
-Otevření možností zajístíme tak, že na tlačítko přidáme click listener. Funkčnost pak zajistíme díky modifikaci stavu \emph{isOpen}, který se provede při volání metody \emph{toggleDropdown}. 
+Otevření možností zajistíme tak, že na tlačítko přidáme click listener. Funkčnost pak zajistíme díky modifikaci stavu \emph{isOpen}, který se provede při volání metody \emph{toggleDropdown}. 
 Uvnitř této metody je třeba zavolat i~\emph{event.stopPropagation()}. Předejdeme tak potenciální chybě ve formě tzv. event bubblingu -- spuštění událostí na prvcích odlišných od cílového.
 
 \begin{prog}
@@ -129,7 +129,7 @@ Uvnitř této metody je třeba zavolat i~\emph{event.stopPropagation()}. Předej
 \end{prog}
 
 Podmíněně zobrazíme seznam možností, které získáme v~jednom z~inputů. K~vykreslení všech možností použijeme blok \emph{@for}. 
-Pro vybraní konkrétní možnosti využijeme \emph{(click)} a~do obslužné metody předáme aktuální prvek v~poli -- option. 
+Pro vybrání konkrétní možnosti využijeme \emph{(click)} a~do obslužné metody předáme aktuální prvek v~poli -- option. 
 Metoda \emph{handleOptionClick} pak zajistí uložení aktuálně vybrané možnosti, zavření dropdownu a~vyemitování vybrané možnosti do rodičovské komponenty.
 
 \begin{prog}
@@ -305,7 +305,7 @@ this.translationService
 
 V~momentě, kdy obdržíme odpověď ze serveru, zobrazíme přeložený text uživateli. 
 K~tomu poslouží TranslationOutputComponent, které na vstupu předáme výstupní text spolu s~dalšími vstupními vlastnostmi. 
-V~rámci šablony pak podmíněně vykreslíme přeložený text, chybu nebo načítání. 
+Uvnitř šablony pak podmíněně vykreslíme přeložený text, chybu nebo načítání. 
 
 Při zarovnání vstupního a~výstupního pole v~UI si musíme dát pozor na to, že šířku je potřeba nastavit již v~prvním potomku div elementu, na kterém nastavíme flexbox. 
 Důvod spočívá v~tom, že Angular v~DOM vytváří element pro každou komponentu.
@@ -474,7 +474,7 @@ protected countries\$: Observable<Countries>
 
 V~šabloně posléze potřebujeme odebírat hodnotu z~observable. Práci uvnitř šablony výrazně ulehčí knihovna \emph{ngx-load-with} \cite{ngxloadwith}. 
 Tato knihovna poskytuje integrovanou podporu načítání a~zpracování chyb. Programátorovi to umožní využívat předdefinované šablony pro dané stavy bez nutnosti další implementace. 
-Navíc se vývojář nemusí starat o~rušení odběru observable, jelikož se o to postará baliček samotný.
+Navíc se vývojář nemusí starat o~rušení odběru observable, jelikož se o to postará balíček samotný.
 
 \begin{prog}
 // Část souboru country-guesser-wrapper.component.html
@@ -529,7 +529,7 @@ Samotný hint-box pak dynamicky vykreslí název a~SVG ikonu nápovědy, textovo
 	\label{fig:angularhintboxes}
 \end{figure}
 
-Pokračujeme implementací komponenty country-guess-input, která uživateli umožní zadat svůj tip. 
+Pokračujeme implementací komponenty country-guess-input, která uživateli umožní zadat jeho tip. 
 Začneme šablonou, kde vytvoříme formulářový prvek pro zadání názvu země a~potvrzovací tlačítko. 
 Dále podmenu textového pole, které zobrazí nejpodobnější země na základě zadaného textu -- filtrované země a~chybové hlášky. 
 Můžeme také rovnou přidat obslužné metody pro akce a~události nad formulářem, které následně postupně doimplementujeme.
