@@ -133,13 +133,22 @@ V~této kapitole popíšeme implementaci jednotlivých částí aplikace ve vybr
 Pro grafickou stránku aplikací využijeme CSS framework Tailwind CSS \cite{tailwindcssframework} a~ikony od tvůrců Tailwind CSS -- Heroicons \cite{heroiconslib}. 
 Obě knihovny jsou open-source a~zdarma k~použití pod licencí MIT License. 
 Za účelem nasazení aplikací na web využijeme platformu Netlify \cite{netlifyplatform}, která mimo jiné umožňuje nezpoplatněné hostování SPA. 
-Vyvinuté aplikace budou dostupné na webových adresách:
+Vyvinuté aplikace budou veřejně dostupné na níže uvedených webových adresách (v~Tabulce~\ref{tab:deployedapps}):
 
-\begin{citemize}
-	\item Angular -- \iadresa{https://sukenik-angular.netlify.app/}
-	\item React -- \iadresa{https://sukenik-react.netlify.app/}
-	\item Svelte -- \iadresa{https://sukenik-svelte.netlify.app/}
-\end{citemize}
+\begin{table}[htb]
+	\centering
+	\caption{Webové adresy zveřejněných aplikací}
+	\medskip
+	\radkovani[1.2]
+		\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Využitý framework} & \textbf{Webová adresa} \\ \hline
+		Angular   & \iadresa{https://sukenik-angular.netlify.app/}	\\ \hline
+		React     & \iadresa{https://sukenik-react.netlify.app/}		\\ \hline
+		Svelte    & \iadresa{https://sukenik-svelte.netlify.app/}		\\\hline
+		\end{tabular}
+	\label{tab:deployedapps}
+\end{table}
 
 K~vytvoření nového projektu v~jednotlivých frameworcích budeme potřebovat NodeJS a~správce balíčků npm (případně jiného správce balíčků). 
 Příklad instalací nalezneme v~Tabulce~\ref{tab:frameworkinstall}.
@@ -147,7 +156,7 @@ Příklad instalací nalezneme v~Tabulce~\ref{tab:frameworkinstall}.
 % TODO: Zkontrolovat správné vysázení tabulky! 
 \begin{table}[htb]
 	\centering
-	\caption{Instalace projektů v jednotlivých frameworcích.}
+	\caption{Instalace projektů v jednotlivých frameworcích}
 	\medskip
 	\radkovani[1.2]
 		\begin{tabular}{|l|l|}
@@ -173,7 +182,6 @@ Příklad instalací nalezneme v~Tabulce~\ref{tab:frameworkinstall}.
 	\label{tab:frameworkinstall}
 \end{table}
 
-\newpage
 \input{testovani_angular}
 \input{testovani_react}
 \input{testovani_svelte}
