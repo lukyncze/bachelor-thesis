@@ -540,9 +540,9 @@ Dále také podmenu textového pole, které zobrazí nejpodobnější země na z
 
 Ve skriptové části, na základě vstupu \emph{countries}, získáme pole všech zemí bez těch, které uživatel již hádal (\emph{countriesWithoutAlreadyGuessed}). 
 Následně definujeme a~inicializujeme ostatní stavy komponenty. Po kliknutí na potvrzovací tlačítko zavoláme funkci \emph{handleGuessButtonClick}. 
-V~tělě funkce zavoláme obslužnou funkci \emph{evaluateGuessAndUpdateState}, pomocí níž vyhodnotíme stav hry v~rodičovské komponentě. 
+V~těle funkce zavoláme obslužnou funkci \emph{evaluateGuessAndUpdateState}, pomocí níž vyhodnotíme stav hry v~rodičovské komponentě. 
 Dále také funkci \emph{handleChangeSelectedGuess}, která aktualizuje aktuální tip, filtrované země a~uzavře podmenu. 
-Funkce \emph{handleInputChange} převede tip uživatele do daného formátu, aktualizuje aktuální tip a~filtrované země. Ovládání textového pole pomocí klávesnice umožní funkce \emph{handleKeyDown}.
+Funkce \emph{handleInputChange} převede tip uživatele do daného formátu, aktualizuje současný tip a~filtrované země. Ovládání textového pole pomocí klávesnice umožní funkce \emph{handleKeyDown}.
 
 V~pomocné funkci \emph{updateGuessAndFilteredCountries} nejprve získáme filtrované země podle uživatelova tipu. Dále provedeme aktualizaci stavů \emph{currentGuess}, \emph{isValidGuess} a~\emph{filteredCountries}. 
 Funkce \emph{clampSelectedGuessIndex} zajistí, aby index vybrané země byl v~požadovaném rozmezí (0 až počet filtrovaných zemí). 
