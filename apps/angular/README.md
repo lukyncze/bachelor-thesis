@@ -1,27 +1,25 @@
 # Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+Tento projekt byl vygenerován pomocí [Angular CLI](https://github.com/angular/angular-cli) verze 17.0.3.
 
-## Development server
+## Instalace projektu
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Před samotnou instalací je třeba mít nainstalovaný Node.js a libovolný správce balíčků.
+Pokračujte instalací dle správce balíčků, který používáte (doporučujeme [pnpm](https://pnpm.io/)):
 
-## Code scaffolding
+```
+npm install / yarn / pnpm install
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+\* Instalace projektu byla vyzkoušena s následujícími závislostmi:
+  - [Node.js](https://nodejs.org/en) - 20.12.2
+  - [npm](https://docs.npmjs.com/) - 10.5.0
+  - [pnpm](https://pnpm.io/) - 8.15.5
 
-## Build
+## Spuštění development serveru
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+npm run dev / yarn dev / pnpm dev
+```
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Následně se spustí development server na adrese `http://localhost:4200/`. Aplikace se automaticky znovu sestaví při změně jakéhokoliv zdrojového souboru.

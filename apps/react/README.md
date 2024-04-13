@@ -1,27 +1,25 @@
-# React + TypeScript + Vite
+# React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tento projekt byl vygenerován pomocí [Vite](https://vitejs.dev/) verze 4.4.5.
 
-Currently, two official plugins are available:
+## Instalace projektu
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Před samotnou instalací je třeba mít nainstalovaný Node.js a libovolný správce balíčků.
+Pokračujte instalací dle správce balíčků, který používáte (doporučujeme [pnpm](https://pnpm.io/)):
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```
+npm install / yarn / pnpm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+\* Instalace projektu byla vyzkoušena s následujícími závislostmi:
+  - [Node.js](https://nodejs.org/en) - 20.12.2
+  - [npm](https://docs.npmjs.com/) - 10.5.0
+  - [pnpm](https://pnpm.io/) - 8.15.5
+
+## Spuštění development serveru
+
+```
+npm run dev / yarn dev / pnpm dev
+```
+
+Následně se spustí development server na adrese `http://localhost:5173/`. Aplikace se automaticky znovu sestaví při změně jakéhokoliv zdrojového souboru.
