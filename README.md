@@ -1,7 +1,7 @@
 # Porovnání SPA frontend frameworků
 ## Comparison of SPA frontend frameworks
 
-### Vedení:
+### Vedoucí:
 doc. RNDr. Lucie Ciencialová, Ph.D.
 
 ### Oficiální zadání:
