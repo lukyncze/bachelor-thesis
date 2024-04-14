@@ -14,6 +14,7 @@ V praktické části autor navrhne aplikaci a její funkce. S využitím zvolen�
 
 - [Text bakalářské práce](https://github.com/lukyncze/bachelor-thesis/tree/main/thesis)
 - [Webové aplikace](https://github.com/lukyncze/bachelor-thesis/tree/main/apps)
+- [Prezentace](https://github.com/lukyncze/bachelor-thesis/tree/main/presentation)
 
 #### Doporučená literatura:
 
