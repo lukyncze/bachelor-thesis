@@ -1,5 +1,13 @@
 # Webové aplikace
 
+## Lokální instalace aplikací:
+
+Návody ke zprovoznění aplikací na lokálním stroji jsou dostupné pod níže uvedenými odkazy:
+
+- [Angular](https://github.com/lukyncze/bachelor-thesis/blob/main/apps/angular/README.md)
+- [React](https://github.com/lukyncze/bachelor-thesis/blob/main/apps/react/README.md)
+- [Svelte](https://github.com/lukyncze/bachelor-thesis/blob/main/apps/svelte/README.md)
+
 ## Použité technologie a grafika:
 
 Využité technologie jsou vypsány v `package.json` souborech jednotlivých aplikací. Knihovny jsou převážně pod volnou licencí, nebo licencí MIT License.
